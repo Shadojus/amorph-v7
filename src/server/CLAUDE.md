@@ -1,6 +1,6 @@
 # AMORPH v7 - Server Module
 
-> SSR-Module für Config und Data Loading.
+> SSR-Module für Config und Data Loading biologischer Daten (Kingdoms: Fungi, Plantae, Animalia, etc.).
 
 ## 📁 Struktur
 

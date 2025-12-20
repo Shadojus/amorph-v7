@@ -1,44 +1,82 @@
 /**
  * AMORPH v7 - Radar Chart Morph
+ * 
+ * Supports both formats:
+ * 1. Object: { key1: number, key2: number, ... }
+ * 2. Array: [{ axis: "Label", value: number }, ...]
  */
 
 import { createUnifiedMorph, escapeHtml } from '../base.js';
 
+interface RadarEntry {
+  axis: string;
+  value: number;
+}
+
+/**
+ * Normalize radar data to entries array
+ */
+function normalizeRadarData(value: unknown): RadarEntry[] {
+  // Array format: [{ axis, value }, ...]
+  if (Array.isArray(value)) {
+    return value
+      .filter((item): item is { axis: string; value: number } => 
+        typeof item === 'object' && 
+        item !== null && 
+        'axis' in item && 
+        'value' in item &&
+        typeof item.value === 'number'
+      )
+      .map(item => ({ axis: String(item.axis), value: Number(item.value) }));
+  }
+  
+  // Object format: { key: number, ... }
+  if (typeof value === 'object' && value !== null) {
+    const obj = value as Record<string, unknown>;
+    return Object.entries(obj)
+      .filter(([_, v]) => typeof v === 'number')
+      .map(([key, v]) => ({ axis: key, value: Number(v) }));
+  }
+  
+  return [];
+}
+
 export const radar = createUnifiedMorph(
   'radar',
   (value) => {
-    if (typeof value !== 'object' || value === null) return '';
-    
-    const obj = value as Record<string, unknown>;
-    const entries = Object.entries(obj).filter(([_, v]) => typeof v === 'number');
-    if (entries.length < 3) return `<span class="morph-text">${escapeHtml(JSON.stringify(value))}</span>`;
+    const entries = normalizeRadarData(value);
+    if (entries.length < 3) return `<span class="morph-text">${escapeHtml(JSON.stringify(value).slice(0, 50))}...</span>`;
     
     const size = 80;
     const center = size / 2;
     const radius = (size / 2) - 10;
     const angleStep = (2 * Math.PI) / entries.length;
     
-    const max = Math.max(...entries.map(([_, v]) => Number(v)), 1);
+    const max = Math.max(...entries.map(e => e.value), 1);
     
-    const points = entries.map(([_, val], idx) => {
+    const points = entries.map((entry, idx) => {
       const angle = idx * angleStep - Math.PI / 2;
-      const r = (Number(val) / max) * radius;
+      const r = (entry.value / max) * radius;
       return { x: center + Math.cos(angle) * r, y: center + Math.sin(angle) * r };
     });
     
     const pathD = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x} ${p.y}`).join(' ') + ' Z';
     
-    const labels = entries.map(([key], idx) => {
+    const labels = entries.map((entry, idx) => {
       const angle = idx * angleStep - Math.PI / 2;
       const labelR = radius + 8;
-      return { x: center + Math.cos(angle) * labelR, y: center + Math.sin(angle) * labelR, text: key };
+      return { 
+        x: center + Math.cos(angle) * labelR, 
+        y: center + Math.sin(angle) * labelR, 
+        text: entry.axis.length > 8 ? entry.axis.slice(0, 6) + '…' : entry.axis
+      };
     });
     
     return `
       <svg class="morph-radar" viewBox="0 0 ${size} ${size}">
         <path d="${pathD}" fill="currentColor" fill-opacity="0.2" stroke="currentColor" stroke-width="1" />
         ${labels.map(l => `
-          <text x="${l.x}" y="${l.y}" text-anchor="middle" dominant-baseline="middle" font-size="6">
+          <text x="${l.x}" y="${l.y}" text-anchor="middle" dominant-baseline="middle" font-size="5">
             ${escapeHtml(l.text)}
           </text>
         `).join('')}
@@ -47,11 +85,14 @@ export const radar = createUnifiedMorph(
   },
   // Compare: Overlapping radars
   (values) => {
+    // Collect all axes from all values
     const allAxes = new Set<string>();
-    values.forEach(({ value }) => {
-      if (typeof value === 'object' && value !== null) {
-        Object.keys(value as Record<string, unknown>).forEach(k => allAxes.add(k));
-      }
+    const normalizedValues: { entries: RadarEntry[]; color: string }[] = [];
+    
+    values.forEach(({ value, color }) => {
+      const entries = normalizeRadarData(value);
+      entries.forEach(e => allAxes.add(e.axis));
+      normalizedValues.push({ entries, color });
     });
     
     const axes = [...allAxes];
@@ -63,19 +104,17 @@ export const radar = createUnifiedMorph(
     const angleStep = (2 * Math.PI) / axes.length;
     
     let max = 1;
-    values.forEach(({ value }) => {
-      if (typeof value === 'object' && value !== null) {
-        Object.values(value as Record<string, unknown>).forEach(v => {
-          if (typeof v === 'number' && v > max) max = v;
-        });
-      }
+    normalizedValues.forEach(({ entries }) => {
+      entries.forEach(e => {
+        if (e.value > max) max = e.value;
+      });
     });
     
-    const paths = values.map(({ value, color }) => {
-      const obj = (typeof value === 'object' && value !== null ? value : {}) as Record<string, unknown>;
+    const paths = normalizedValues.map(({ entries, color }) => {
+      const entryMap = new Map(entries.map(e => [e.axis, e.value]));
       const points = axes.map((axis, idx) => {
         const angle = idx * angleStep - Math.PI / 2;
-        const val = Number(obj[axis] ?? 0);
+        const val = entryMap.get(axis) ?? 0;
         const r = (val / max) * radius;
         return { x: center + Math.cos(angle) * r, y: center + Math.sin(angle) * r };
       });
@@ -86,7 +125,11 @@ export const radar = createUnifiedMorph(
     const labels = axes.map((axis, idx) => {
       const angle = idx * angleStep - Math.PI / 2;
       const labelR = radius + 10;
-      return { x: center + Math.cos(angle) * labelR, y: center + Math.sin(angle) * labelR, text: axis };
+      return { 
+        x: center + Math.cos(angle) * labelR, 
+        y: center + Math.sin(angle) * labelR, 
+        text: axis.length > 8 ? axis.slice(0, 6) + '…' : axis
+      };
     });
     
     return `

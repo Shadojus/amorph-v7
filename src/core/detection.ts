@@ -240,6 +240,16 @@ function detectArrayType(value: unknown[], fieldName?: string): MorphType {
       return 'timeline';
     }
     
+    // RADAR: has axis + value (common for radar chart data)
+    if (keys.includes('axis') && keys.includes('value')) {
+      return 'radar';
+    }
+    
+    // Field-name hint for radar (more specific)
+    if (fieldName && /radar|_radar|profile_radar|spider/i.test(fieldName)) {
+      return 'radar';
+    }
+    
     // Bar chart: has label + value
     if (keys.includes('label') && keys.includes('value')) {
       return 'bar';

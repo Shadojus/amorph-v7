@@ -39,9 +39,9 @@ export const image = createUnifiedMorph(
     <div class="morph-image-compare">
       ${values.map(({ item, value, color }) => {
         const src = sanitizeImageSrc(extractSrc(value));
-        if (!src) return `<div class="image-cell blocked">[Blocked]</div>`;
+        if (!src) return `<div class="morph-image-cell morph-image-blocked">[Blocked]</div>`;
         return `
-          <div class="image-cell" style="--item-color: ${escapeHtml(color)}">
+          <div class="morph-image-cell" style="--item-color: ${escapeHtml(color)}">
             <img src="${escapeHtml(src)}" alt="${escapeHtml(item.name)}" loading="lazy" />
           </div>
         `;

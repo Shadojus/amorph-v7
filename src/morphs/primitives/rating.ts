@@ -28,7 +28,7 @@ export const rating = createUnifiedMorph(
         ${'★'.repeat(fullStars)}
         ${hasHalf ? '⯪' : ''}
         ${'☆'.repeat(emptyStars)}
-        <span class="rating-number">${normalized.toFixed(1)}</span>
+        <span class="morph-rating-value">${normalized.toFixed(1)}</span>
       </div>
     `;
   },
@@ -44,9 +44,9 @@ export const rating = createUnifiedMorph(
         const hasHalf = normalized - fullStars >= 0.5;
         
         return `
-          <div class="rating-cell" style="--item-color: ${escapeHtml(color)}">
+          <div class="morph-rating-item" style="--item-color: ${escapeHtml(color)}">
             ${'★'.repeat(fullStars)}${hasHalf ? '⯪' : ''}
-            <span class="rating-value">${normalized.toFixed(1)}</span>
+            <span class="morph-rating-value">${normalized.toFixed(1)}</span>
           </div>
         `;
       }).join('')}

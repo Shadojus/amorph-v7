@@ -1,12 +1,12 @@
 # AMORPH v7 - Test Suite
 
-> 154 Tests mit Vitest für vollständige Code-Abdeckung.
+> 155 Tests mit Vitest für vollständige Code-Abdeckung.
 
 ## 📁 Struktur
 
 ```
 tests/
-├── detection.test.ts     # 39 Tests - Typ-Erkennung + Badge-Varianten
+├── detection.test.ts     # 40 Tests - Typ-Erkennung + Badge-Varianten + Radar Arrays
 ├── security.test.ts      # 49 Tests - Security Functions (vollständig)
 ├── morphs.test.ts        # 49 Tests - Alle 18 Morph Primitives
 ├── observer.test.ts      # 8 Tests  - Debug Observer
@@ -35,7 +35,7 @@ Testet `core/detection.ts`:
 - **Primitives** (4): null, boolean, numbers, empty strings
 - **Field Name Hints** (6): progress, rating, image, link, date, currency
 - **String Patterns** (5): URLs, image URLs, dates, short strings, badge keywords
-- **Arrays** (6): string arrays, number arrays, object arrays, bar/pie charts, empty
+- **Arrays** (7): string arrays, number arrays, object arrays, bar/pie/radar charts, empty
 - **Objects** (10): range, stats, radar, mixed, map, currency, citation, dosage, hierarchy, boxplot
 - **getBadgeVariant** (6): success, danger, warning, muted, default, substring limitations
 - **Config** (2): get/set detection config

@@ -2,18 +2,20 @@
 
 **Formlos. Zustandslos. Transformierend.**
 
-> Unified Morph Architecture mit automatischer Single/Compare-Erkennung.
+> Unified Morph Architecture für **biologische Daten** (Pilze, Pflanzen, Tiere, Mikroorganismen) mit automatischer Single/Compare-Erkennung.
 
 ## Status: ✅ Production Ready
 
-- **154 Tests** bestanden (Detection, Security, Morphs, Observer, Integration)
+- **155 Tests** bestanden (Detection, Security, Morphs, Observer, Integration)
 - **18 Morph Primitives** implementiert (45+ MorphTypes definiert für Erweiterbarkeit)
 - **Observer System** standardmäßig aktiviert
 - **Debug-Logging** standardmäßig aktiviert für Entwicklung
 - **Black Glass Morphism** Design mit Psychedelic Blue (#4d88ff)
+- **Mobile-First** responsive Layout mit Touch-optimierten Interaktionen
 - **Astro 5.16** mit SSR auf Port 4323
 - **XSS-Schutz** in Image-Morph via validateUrl
 - **Feld-basierte Selektion** für granularen Compare
+- **Double-Init Guards** verhindern mehrfache Event-Registrierung
 
 ## 🎯 Kernkonzept
 
@@ -89,7 +91,31 @@ amorph-v7/
 └── tests/               # 5 Test-Suites, 154 Tests
 ```
 
-## 🆕 Feld-basierte Selektion (NEU)
+## 📱 Layout (Mobile-First)
+
+### Touch-Optimierung
+- **Min 44px Touch Targets** - Alle interaktiven Elemente (Buttons, Links)
+- **Safe-Area Insets** - iOS Home-Indicator berücksichtigt
+- **Tap Highlight deaktiviert** - Cleaner Touch-Feedback
+- **Touch-Action: manipulation** - Schnellere Touch-Response
+
+### Header (oben - kompakt)
+- Logo (🍄) + Page Title + Compare Button
+- Sticky, mit Safe-Area-Padding oben
+- Compare-Button: Min 44px Touch Target
+
+### Search Footer (unten - fixiert)
+- **Perspektiven-Buttons**: 44px auf Mobile, 36px auf Desktop
+- **Suchleiste**: Full-width Input mit Glass-Effekt
+- Safe-Area für Mobile (iOS Home-Indicator) berücksichtigt
+
+### Responsive Grid
+- **Mobile (<520px)**: 1 Spalte
+- **Small Tablet (520-767px)**: 2 Spalten
+- **Tablet (768-1199px)**: Auto-fit, min 280px
+- **Desktop (≥1200px)**: Auto-fit, min 300px
+
+## 🆕 Feld-basierte Selektion
 
 Statt ganze Items zu vergleichen, können einzelne **Datenfelder** ausgewählt werden:
 
@@ -103,10 +129,26 @@ Statt ganze Items zu vergleichen, können einzelne **Datenfelder** ausgewählt w
 └─────────────────────────────────┘
 ```
 
-- Jedes Feld hat einen `+` Button
-- Ausgewählte Felder zeigen `✓`
-- Compare zeigt nur ausgewählte Felder
-- Automatische Morph-Erkennung bleibt erhalten
+## 🔍 Perspektiven-System
+
+### Max 4 aktive Perspektiven (FIFO)
+
+- Maximal **4 Perspektiven** gleichzeitig aktivierbar
+- Bei Überschreitung: **Älteste wird entfernt** (First In First Out)
+- Aktive Perspektiven erscheinen als **Text-Pills** im Suchfeld
+
+### Perspektiven-Suche (ab 4 Zeichen)
+
+- Suche nach **"chem"** → Perspektive "Chemistry" matcht
+- Gematchte (aber nicht aktive) Perspektiven bekommen **Glow + Counter**
+- Auto-Aktivierung respektiert das 4er-Limit
+
+### Perspektiven-Daten in Cards
+
+- Cards zeigen **scrollbaren Content** für Perspektiven-Daten
+- Jede Perspektive hat eigene **Section mit Symbol + Label**
+- **Perspektiven-Farben** werden via `--persp-color` CSS Variable weitergegeben
+- Morph-Rendering für alle Datentypen (inkl. Radar-Charts, Sparklines, etc.)
 
 ## 🎨 Design System
 

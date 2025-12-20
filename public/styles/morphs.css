@@ -237,19 +237,61 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   RANGE
+   RANGE (with track visualization)
    ───────────────────────────────────────────────────────────────────────────── */
 .morph-range {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25em;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
   font-variant-numeric: tabular-nums;
   color: rgba(255, 255, 255, 0.85);
+}
+
+.morph-range-track {
+  position: relative;
+  height: 8px;
+  background: rgba(77, 136, 255, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.morph-range-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(77, 136, 255, 0.6), rgba(77, 136, 255, 0.9));
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.morph-range-marker {
+  position: absolute;
+  top: -2px;
+  width: 12px;
+  height: 12px;
+  background: #4d88ff;
+  border: 2px solid rgba(10, 10, 15, 0.8);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 8px rgba(77, 136, 255, 0.5);
+}
+
+.morph-range-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.6875rem;
 }
 
 .morph-range-min,
 .morph-range-max {
   font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.morph-range-current {
+  font-weight: 600;
+  color: rgba(77, 136, 255, 0.9);
 }
 
 .morph-range-separator {
@@ -260,6 +302,41 @@
   font-size: 0.875em;
   color: rgba(255, 255, 255, 0.5);
   margin-left: 0.25em;
+}
+
+/* Range Compare */
+.morph-range-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.morph-range-compare-track {
+  position: relative;
+  height: 24px;
+  background: rgba(77, 136, 255, 0.1);
+  border-radius: 4px;
+}
+
+.morph-range-bar {
+  position: absolute;
+  top: 2px;
+  height: 20px;
+  background: var(--item-color, #4d88ff);
+  opacity: 0.6;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.morph-range-bar:hover {
+  opacity: 0.9;
+}
+
+.morph-range-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.625rem;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -415,16 +492,19 @@
   );
 }
 
-.morph-timeline-item {
+.morph-timeline-item,
+.morph-timeline-event {
   position: relative;
   padding-bottom: 1.5rem;
 }
 
-.morph-timeline-item:last-child {
+.morph-timeline-item:last-child,
+.morph-timeline-event:last-child {
   padding-bottom: 0;
 }
 
-.morph-timeline-dot {
+.morph-timeline-dot,
+.morph-timeline-marker {
   position: absolute;
   left: -1.625rem;
   top: 0.25rem;
@@ -443,10 +523,16 @@
   margin-bottom: 0.25rem;
 }
 
-.morph-timeline-title {
+.morph-timeline-title,
+.morph-timeline-label {
   font-weight: 500;
   color: rgba(255, 255, 255, 0.95);
   margin-bottom: 0.25rem;
+}
+
+.morph-timeline-content {
+  display: flex;
+  flex-direction: column;
 }
 
 .morph-timeline-description {
@@ -642,28 +728,87 @@
 .morph-object {
   display: grid;
   gap: 0.25rem;
+  margin: 0;
+  padding: 0;
 }
 
+/* Nested objects are indented */
+.morph-object-nested {
+  margin-left: 0.5rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid rgba(77, 136, 255, 0.2);
+}
+
+.morph-object .object-row,
 .morph-object-row {
   display: grid;
-  grid-template-columns: minmax(80px, auto) 1fr;
-  gap: 1rem;
+  grid-template-columns: minmax(60px, auto) 1fr;
+  gap: 0.5rem;
   padding: 0.25rem 0;
   border-bottom: 1px solid rgba(77, 136, 255, 0.08);
+  align-items: start;
 }
 
+.morph-object .object-row:last-child,
 .morph-object-row:last-child {
   border-bottom: none;
 }
 
+.morph-object dt,
 .morph-object-key {
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
+  font-weight: 500;
   color: rgba(77, 136, 255, 0.7);
+  text-transform: capitalize;
 }
 
+.morph-object dd,
 .morph-object-value {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+/* Muted text for empty values */
+.morph-muted {
+  color: rgba(255, 255, 255, 0.4);
+  font-style: italic;
+}
+
+/* Object list (array of objects) */
+.morph-object-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.morph-object-list-item,
+.object-list-item {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid rgba(77, 136, 255, 0.1);
+}
+
+.morph-object-list-item:last-child,
+.object-list-item:last-child {
+  border-bottom: none;
+}
+
+.morph-object-list-index,
+.object-list-index {
+  font-size: 0.625rem;
+  font-weight: 600;
+  color: rgba(77, 136, 255, 0.5);
+  min-width: 1.25rem;
+  text-align: center;
+}
+
+/* Tag list for primitive arrays inside objects */
+.morph-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────

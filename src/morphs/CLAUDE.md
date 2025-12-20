@@ -1,12 +1,14 @@
 # AMORPH v7 - Morphs Module
 
 > Unified Morph Architecture mit 18 Primitives (45+ MorphTypes für Erweiterbarkeit).
+> Visualisiert biologische Daten: Taxonomie, Chemie, Ökologie, Medizin, etc.
 
 ## 📁 Struktur
 
 ```
 morphs/
 ├── base.ts           # createUnifiedMorph() Factory
+├── debug.ts          # 🆕 Morph Debug System
 ├── primitives/       # 18 Morph-Implementierungen
 │   ├── index.ts      # Re-Exports + Registry
 │   ├── text.ts
@@ -28,6 +30,36 @@ morphs/
 │   ├── timeline.ts
 │   └── object.ts
 └── index.ts          # Main API
+
+## 🔍 Morph Debug System (NEU)
+
+Debug-Tool um zu testen ob Felder die richtigen Morphs verwenden.
+
+### Aktivieren
+
+```javascript
+// In Browser Console:
+morphDebug.enable()    // Debug-Logging aktivieren
+morphDebug.disable()   // Debug-Logging deaktivieren
+```
+
+### Analyse-Befehle
+
+```javascript
+morphDebug.showStats()       // Statistik aller Morph-Typen
+morphDebug.showFieldTypes()  // Welche Felder → welche Typen
+morphDebug.showHistory(20)   // Letzte 20 Erkennungen
+morphDebug.findByType('bar') // Alle Felder mit Typ 'bar'
+morphDebug.showIssues()      // Potenzielle Probleme finden
+morphDebug.help()            // Alle Befehle anzeigen
+```
+
+### Beispiel-Output
+
+```
+🔮 MORPH alkaloid_content_by_part → bar :: [{label, value}...] (3)
+✓ RENDER alkaloid_content_by_part [bar] → 523 chars
+```
 ```
 
 ## 🔧 Unified Morph API
@@ -121,6 +153,23 @@ image('https://example.com/img.png') // ✓
 | **bar** | Chart bars | Grouped | `.morph-bar` |
 | **sparkline** | Mini chart | Overlay | `.morph-sparkline` |
 | **radar** | Spider chart | Overlay | `.morph-radar` |
+
+### Radar-Datenformate
+
+Der `radar` Morph unterstützt zwei Formate:
+
+```typescript
+// Format 1: Object mit numerischen Feldern
+{ Psilocybin: 95, Psilocin: 35, Baeocystin: 15 }
+
+// Format 2: Array mit axis+value (bevorzugt für benannte Achsen)
+[
+  { axis: "Psilocybin", value: 95 },
+  { axis: "Psilocin", value: 35 },
+  { axis: "Baeocystin", value: 15 }
+]
+```
+
 | **timeline** | Event list | Side-by-side | `.morph-timeline` |
 | **object** | Key-value | Side-by-side | `.morph-object` |
 

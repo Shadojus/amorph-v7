@@ -1,6 +1,6 @@
 # AMORPH v7 - Public Assets
 
-> Statische Dateien: CSS, Icons, manifest.json
+> Statische Dateien: CSS (Mobile-First), Icons, manifest.json für biologische Datenvisualisierung.
 
 ## 📁 Struktur
 
@@ -85,16 +85,25 @@ border: 1px solid rgba(77, 136, 255, 0.2);
 ### Cache Busting
 
 ```html
-<link rel="stylesheet" href="/styles/base.css?v=3">
+<link rel="stylesheet" href="/styles/base.css?v=4">
 ```
 
-## 📦 components.css
+## 📦 components.css (Mobile-First)
+
+### Touch-Optimierung
+
+| Feature | Mobile | Desktop |
+|---------|--------|---------|
+| Touch Targets | Min 44px | Kompakter |
+| Perspektiven-Buttons | 44×44px | 36×36px |
+| Field-Select Buttons | 32×32px, sichtbar | 22×22px, nur bei Hover |
+| Safe-Area Insets | ✅ | - |
 
 ### UI-Komponenten
 
 | Klasse | Beschreibung |
 |--------|--------------|
-| `.amorph-header` | Fixed Header mit Glass Effect |
+| `.amorph-header` | Sticky Header mit Glass Effect + Safe-Area |
 | `.amorph-logo` | Logo/Home Link |
 | `.amorph-search` | Such-Container |
 | `.amorph-search input` | Such-Input |

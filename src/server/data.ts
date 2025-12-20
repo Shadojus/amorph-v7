@@ -43,12 +43,19 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
   
   const items: ItemData[] = [];
   
+  console.log(`[Data] DATA_PATH: ${DATA_PATH}`);
+  console.log(`[Data] DATA_PATH exists: ${existsSync(DATA_PATH)}`);
+  
   // Durchsuche Kingdoms
   const kingdoms = ['fungi', 'plantae', 'animalia', 'bacteria'];
   
   for (const kingdom of kingdoms) {
     const kingdomPath = join(DATA_PATH, kingdom);
-    if (!existsSync(kingdomPath)) continue;
+    console.log(`[Data] Checking kingdom: ${kingdom} at ${kingdomPath}`);
+    if (!existsSync(kingdomPath)) {
+      console.log(`[Data] Kingdom path does not exist: ${kingdomPath}`);
+      continue;
+    }
     
     // Prüfe auf index.json
     const indexPath = join(kingdomPath, 'index.json');
@@ -78,16 +85,30 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
                 _kingdom: kingdom,
                 id: itemBase.id || slug,
                 slug: slug,
-                _perspectives: {}
+                _perspectives: {},
+                _loadedPerspectives: [] as string[]  // Track which perspectives are loaded
               };
               
-              // Lade Perspektiven
+              // Lade Perspektiven und merge Felder ins Item
               const perspectiveFiles = (speciesEntry.perspectives || []) as string[];
               for (const perspName of perspectiveFiles) {
                 const perspPath = join(speciesPath, `${perspName}.json`);
                 if (existsSync(perspPath)) {
                   try {
-                    item._perspectives![perspName] = JSON.parse(readFileSync(perspPath, 'utf-8'));
+                    const perspData = JSON.parse(readFileSync(perspPath, 'utf-8'));
+                    item._perspectives![perspName] = perspData;
+                    (item._loadedPerspectives as string[]).push(perspName);
+                    
+                    // Merge perspective fields into main item (for display)
+                    // Skip internal fields and already existing fields
+                    let mergedCount = 0;
+                    for (const [key, value] of Object.entries(perspData)) {
+                      if (!key.startsWith('_') && item[key] === undefined) {
+                        item[key] = value;
+                        mergedCount++;
+                      }
+                    }
+                    console.log(`[Data] Merged ${mergedCount}/${Object.keys(perspData).length} fields from ${perspName} into ${slug}`);
                   } catch (e) {
                     console.error(`Error loading perspective ${perspName}:`, e);
                   }
@@ -251,8 +272,10 @@ export async function searchItems(options: SearchOptions = {}): Promise<SearchRe
     
     for (const pId of perspectives) {
       const p = allPerspectives.find(p => p.id === pId);
-      if (p?.felder) {
-        p.felder.forEach(f => perspectiveFields.add(f));
+      // Support both 'fields' (YAML) and 'felder' (legacy)
+      const pFields = p?.fields || p?.felder;
+      if (pFields) {
+        pFields.forEach(f => perspectiveFields.add(f));
       }
     }
     
@@ -289,11 +312,13 @@ function getPerspectivesWithData(items: ItemData[]): string[] {
   const result: string[] = [];
   
   for (const perspective of allPerspectives) {
-    if (!perspective.felder) continue;
+    // Support both 'fields' (YAML) and 'felder' (legacy)
+    const pFields = perspective.fields || perspective.felder;
+    if (!pFields) continue;
     
     // Prüfe ob mindestens ein Item ein Feld dieser Perspektive hat
     const hasData = items.some(item =>
-      perspective.felder!.some(field =>
+      pFields.some(field =>
         item[field] !== undefined && item[field] !== null && item[field] !== ''
       )
     );

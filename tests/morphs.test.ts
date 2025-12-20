@@ -172,6 +172,14 @@ describe('progress morph', () => {
     const html = progress('80', singleContext);
     expect(html).toContain('80%');
   });
+  
+  it('should use correct CSS classes (morph-progress-*)', () => {
+    const html = progress(50, singleContext);
+    expect(html).toContain('class="morph-progress"');
+    expect(html).toContain('class="morph-progress-bar"');
+    expect(html).toContain('class="morph-progress-fill"');
+    expect(html).toContain('class="morph-progress-value"');
+  });
 });
 
 describe('rating morph', () => {
@@ -383,6 +391,21 @@ describe('bar morph', () => {
   it('should handle number array', () => {
     const html = bar([10, 20, 30], singleContext);
     expect(html).toContain('morph-bar');
+  });
+  
+  it('should use correct CSS classes (morph-bar-*)', () => {
+    const data = [
+      { label: 'Test1', value: 100 },
+      { label: 'Test2', value: 50 }
+    ];
+    const html = bar(data, singleContext);
+    // All CSS classes should have morph- prefix
+    expect(html).toContain('class="morph-bar"');
+    expect(html).toContain('class="morph-bar-item"');
+    expect(html).toContain('class="morph-bar-label"');
+    expect(html).toContain('class="morph-bar-track"');
+    expect(html).toContain('class="morph-bar-fill"');
+    expect(html).toContain('class="morph-bar-value"');
   });
 });
 

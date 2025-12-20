@@ -145,8 +145,11 @@ export interface Perspective {
   name: string;
   symbol?: string;
   color?: string;
-  felder?: string[];
+  colors?: string[];
+  felder?: string[];  // German alias
+  fields?: string[];  // English (from YAML)
   keywords?: string[];
+  beschreibung?: string;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════

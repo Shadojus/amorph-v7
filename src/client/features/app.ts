@@ -18,13 +18,29 @@ import {
   deselectItem 
 } from './selection';
 import { setupObservers, stopObservers, getObserverStats, debug as observerDebug } from '../../observer';
+import { morphDebug } from '../../morphs/debug';
+
+// Expose morphDebug globally for console access
+if (typeof window !== 'undefined') {
+  (window as any).morphDebug = morphDebug;
+}
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // INITIALIZATION
 // ═══════════════════════════════════════════════════════════════════════════════
 
+let isInitialized = false;
+
 export function initApp(): void {
+  // Guard gegen doppelte Initialisierung
+  if (isInitialized) {
+    debug.amorph('Already initialized, skipping...');
+    return;
+  }
+  isInitialized = true;
+  
   debug.amorph('AMORPH v7 initializing...');
+  debug.amorph('💡 Tipp: morphDebug.enable() für Morph-Debugging, morphDebug.help() für Befehle');
   
   // Load persisted selection
   loadFromStorage();

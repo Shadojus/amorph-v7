@@ -10,12 +10,27 @@ client/
 │   ├── index.ts        # Re-Exports
 │   ├── app.ts          # Haupt-Initialisierung
 │   ├── debug.ts        # Client Debug Logging (standardmäßig AN)
-│   ├── search.ts       # Suche + Perspektiven (mit Auto-Match)
+│   ├── search.ts       # Suche + Perspektiven (Max 4 FIFO, Auto-Match ab 4 Zeichen)
 │   ├── grid.ts         # Grid-Interaktionen + Feld-Selektion
 │   ├── compare.ts      # Compare-Panel (Item + Feld Modi)
 │   └── selection.ts    # Item + Field Auswahl State
 └── styles/             # (leer - CSS in public/)
 ```
+
+## 🔍 Perspektiven-System
+
+### Max 4 aktive Perspektiven (FIFO)
+
+- Maximal **4 Perspektiven** gleichzeitig aktivierbar
+- Bei Überschreitung: **Älteste wird entfernt** (First In First Out)
+- Aktive Perspektiven erscheinen als **Text-Pills** im Suchfeld
+
+### Perspektiven-Suche (ab 4 Zeichen)
+
+Wenn der Suchbegriff **mindestens 4 Zeichen** hat:
+- Suche nach **"chem"** → Perspektive "Chemistry" matcht
+- Gematchte (aber nicht aktive) Perspektiven bekommen **Glow + Counter**
+- Auto-Aktivierung respektiert das 4er-Limit
 
 ## 🐛 Debug-Logging (Standardmäßig AN)
 
@@ -43,6 +58,8 @@ initApp();
 ```
 
 ### Init-Reihenfolge
+
+**Double-Init Guard**: Alle Initialisierungen haben Guards (`isInitialized`, `isSearchInitialized`), um mehrfache Event-Registrierung bei HMR/Navigation zu verhindern.
 
 1. `loadFromStorage()` - Persistierte Selection laden
 2. `initSearch()` - Such-Input + Perspektiven-Buttons + Active Pills

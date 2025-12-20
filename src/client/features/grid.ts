@@ -156,19 +156,55 @@ function handleItemSelectAll(btn: HTMLElement): void {
 
 // NEW: Get the value from a field element
 function getFieldValue(field: HTMLElement): unknown {
-  const valueEl = field.querySelector('.field-value');
-  if (!valueEl) return null;
-  
-  // Try to get structured data
-  const morphEl = valueEl.querySelector('[data-morph-type]') as HTMLElement;
-  if (morphEl?.dataset.morphValue) {
+  // FIRST: Try to get raw value from data attribute (best method)
+  const rawValueStr = field.dataset.rawValue;
+  if (rawValueStr) {
     try {
-      return JSON.parse(morphEl.dataset.morphValue);
+      return JSON.parse(rawValueStr);
     } catch {
-      return morphEl.dataset.morphValue;
+      return rawValueStr;
     }
   }
   
+  // FALLBACK: The correct class is .amorph-field-value (from wrapInField in base.ts)
+  const valueEl = field.querySelector('.amorph-field-value');
+  if (!valueEl) return null;
+  
+  // Try to get morph type and extract structured data
+  const morphType = field.dataset.morph;
+  
+  // For arrays (bar, list, tag, timeline, sparkline, radar)
+  // Try to extract from DOM structure
+  if (morphType === 'bar') {
+    const items: Array<{label: string, value: number}> = [];
+    valueEl.querySelectorAll('.morph-bar-item').forEach(item => {
+      const label = item.querySelector('.morph-bar-label')?.textContent || '';
+      const valueText = item.querySelector('.morph-bar-value')?.textContent || '0';
+      items.push({ label, value: parseFloat(valueText) || 0 });
+    });
+    if (items.length > 0) return items;
+  }
+  
+  if (morphType === 'range' || morphType === 'stats') {
+    const minEl = valueEl.querySelector('.morph-range-min, .morph-stats-min');
+    const maxEl = valueEl.querySelector('.morph-range-max, .morph-stats-max');
+    if (minEl && maxEl) {
+      return {
+        min: parseFloat(minEl.textContent || '0'),
+        max: parseFloat(maxEl.textContent || '0')
+      };
+    }
+  }
+  
+  if (morphType === 'list' || morphType === 'tag') {
+    const items: string[] = [];
+    valueEl.querySelectorAll('.morph-list-item, .morph-tag').forEach(item => {
+      items.push(item.textContent?.trim() || '');
+    });
+    if (items.length > 0) return items;
+  }
+  
+  // For simple values, return text content
   return valueEl.textContent?.trim() || null;
 }
 

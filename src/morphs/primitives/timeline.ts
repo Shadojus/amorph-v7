@@ -37,11 +37,11 @@ export const timeline = createUnifiedMorph(
         ${events.map((event) => {
           const { date, label } = parseEvent(event);
           return `
-            <div class="timeline-event">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                ${date ? `<span class="timeline-date">${escapeHtml(date)}</span>` : ''}
-                <span class="timeline-label">${escapeHtml(label)}</span>
+            <div class="morph-timeline-event">
+              <div class="morph-timeline-marker"></div>
+              <div class="morph-timeline-content">
+                ${date ? `<span class="morph-timeline-date">${escapeHtml(date)}</span>` : ''}
+                <span class="morph-timeline-label">${escapeHtml(label)}</span>
               </div>
             </div>
           `;

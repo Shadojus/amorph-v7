@@ -37,12 +37,13 @@ export const bar = createUnifiedMorph(
         ${parsed.map(({ label, value: val }) => {
           const pct = (val / max) * 100;
           return `
-            <div class="bar-row">
-              ${label ? `<span class="bar-label">${escapeHtml(label)}</span>` : ''}
-              <div class="bar-track">
-                <div class="bar-fill" style="width: ${pct}%"></div>
+            <div class="morph-bar-item">
+              ${label ? `<span class="morph-bar-label">${escapeHtml(label)}</span>` : ''}
+              <div class="morph-bar-track">
+                <div class="morph-bar-fill" style="width: ${pct}%">
+                  <span class="morph-bar-value">${formatNumber(val)}</span>
+                </div>
               </div>
-              <span class="bar-value">${formatNumber(val)}</span>
             </div>
           `;
         }).join('')}

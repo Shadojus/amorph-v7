@@ -1,6 +1,6 @@
 # AMORPH v7 - Source Directory
 
-> Alle TypeScript-Module für Server und Client.
+> TypeScript-Module für biologische Datenvisualisierung (Pilze, Pflanzen, Tiere, etc.).
 
 ## 📁 Struktur
 

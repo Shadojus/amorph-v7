@@ -140,6 +140,15 @@ describe('detectType', () => {
       expect(detectType(barData, 'chart')).toBe('bar');
     });
     
+    it('should detect radar chart data with axis+value format', () => {
+      const radarData = [
+        { axis: 'Psilocybin', value: 95 },
+        { axis: 'Psilocin', value: 35 },
+        { axis: 'Baeocystin', value: 15 }
+      ];
+      expect(detectType(radarData, 'alkaloid_profile_radar')).toBe('radar');
+    });
+    
     it('should detect pie chart data', () => {
       const pieData = [{ name: 'A', value: 30 }, { name: 'B', value: 70 }];
       expect(detectType(pieData, 'distribution')).toBe('pie');

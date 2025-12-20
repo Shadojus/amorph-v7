@@ -1,6 +1,6 @@
 # AMORPH v7 - Core Module
 
-> Fundamentale Typen, Detection und Security.
+> Fundamentale Typen, Detection und Security für biologische Daten aller Kingdoms.
 
 ## 📁 Dateien
 
@@ -79,6 +79,7 @@ Erkennt automatisch den passenden MorphType:
 | `{min, max}` | `range` |
 | `{min, avg, max}` | `stats` |
 | Object mit 3+ numerischen Feldern | `radar` |
+| Array von `{axis, value}` | `radar` |
 | Array von Numbers | `sparkline` |
 | Array von `{date, ...}` | `timeline` |
 | Array von Strings | `tag` |

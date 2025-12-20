@@ -23,12 +23,12 @@ export const number = createUnifiedMorph(
       <div class="morph-number-compare">
         ${values.map(({ color }, idx) => {
           const num = nums[idx];
-          if (isNaN(num)) return `<div class="number-cell empty">–</div>`;
+          if (isNaN(num)) return `<div class="morph-number-cell morph-number-empty">–</div>`;
           const pct = range > 0 ? ((num - min) / range) * 100 : 50;
           return `
-            <div class="number-cell" style="--item-color: ${escapeHtml(color)}">
-              <div class="number-bar" style="width: ${pct}%"></div>
-              <span class="number-value">${formatNumber(num)}</span>
+            <div class="morph-number-cell" style="--item-color: ${escapeHtml(color)}">
+              <div class="morph-number-bar" style="width: ${pct}%"></div>
+              <span class="morph-number-value">${formatNumber(num)}</span>
             </div>
           `;
         }).join('')}

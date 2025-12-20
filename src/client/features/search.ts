@@ -18,6 +18,7 @@ let activePerspectivesContainer: HTMLElement | null = null;
 let searchTimeout: number | null = null;
 let lastMatchedPerspectives: string[] = []; // Track for counter display
 let perspectiveMatchCounts: Map<string, number> = new Map(); // Count per perspective
+let isSearchInitialized = false; // Guard gegen doppelte Initialisierung
 
 const DEBOUNCE_MS = 300;
 const MAX_ACTIVE_PERSPECTIVES = 4; // FIFO limit
@@ -34,6 +35,12 @@ export interface SearchConfig {
 }
 
 export function initSearch(config: SearchConfig): void {
+  // Guard gegen doppelte Initialisierung
+  if (isSearchInitialized) {
+    return;
+  }
+  isSearchInitialized = true;
+  
   searchInput = config.input;
   gridContainer = config.grid;
   activePerspectivesContainer = config.activePerspectivesContainer || null;
@@ -54,13 +61,18 @@ export function initSearch(config: SearchConfig): void {
   
   // Perspective buttons
   config.perspectiveButtons?.forEach(btn => {
-    btn.addEventListener('click', () => togglePerspective(btn as HTMLElement));
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      debug.amorph('Perspective button clicked', { id: (btn as HTMLElement).dataset.perspektive });
+      togglePerspective(btn as HTMLElement);
+    });
   });
   
   // Initialize active perspective UI
   updateActivePerspectivesUI();
   
-  debug.amorph('Search initialized');
+  debug.amorph('Search initialized', { perspectiveCount: config.perspectiveButtons?.length || 0 });
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -90,7 +102,20 @@ export async function performSearch(): Promise<void> {
     }
     
     // Update perspective buttons with data status
-    updatePerspectiveStatus(data.perspectivesWithData || []);\n    \n    // Speichere matched perspectives für Counter-Anzeige\n    lastMatchedPerspectives = data.matchedPerspectives || [];\n    updatePerspectiveCounters(lastMatchedPerspectives);\n    \n    // Auto-activate matched perspectives (nur wenn unter Limit, ab 4 Zeichen)\n    if (query.length >= 4 && data.matchedPerspectives?.length > 0) {\n      for (const pId of data.matchedPerspectives) {\n        if (!activePerspectives.has(pId)) {\n          activatePerspectiveById(pId);\n        }\n      }\n    }
+    updatePerspectiveStatus(data.perspectivesWithData || []);
+    
+    // Speichere matched perspectives für Counter-Anzeige
+    lastMatchedPerspectives = data.matchedPerspectives || [];
+    updatePerspectiveCounters(lastMatchedPerspectives);
+    
+    // Auto-activate matched perspectives (nur wenn unter Limit, ab 4 Zeichen)
+    if (query.length >= 4 && data.matchedPerspectives?.length > 0) {
+      for (const pId of data.matchedPerspectives) {
+        if (!activePerspectives.has(pId)) {
+          activatePerspectiveById(pId);
+        }
+      }
+    }
     
     // Dispatch event
     document.dispatchEvent(new CustomEvent('amorph:search-complete', {

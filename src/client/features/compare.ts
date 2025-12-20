@@ -52,6 +52,14 @@ export async function showCompare(): Promise<void> {
   // Prefer field-based comparison if we have fields selected
   const useFieldMode = selectedFields.length > 0;
   
+  // Debug: log what we're sending
+  console.log('[Compare] Selected fields:', selectedFields.map(f => ({
+    field: f.fieldName,
+    item: f.itemName,
+    valueType: typeof f.value,
+    value: f.value
+  })));
+  
   if (!useFieldMode && !canCompare()) {
     debug.compare('Cannot show compare', { canCompare: canCompare(), fieldCount: selectedFields.length });
     return;
@@ -64,7 +72,7 @@ export async function showCompare(): Promise<void> {
   
   isOpen = true;
   isLoading = true;
-  comparePanel.classList.add('is-open');
+  comparePanel.classList.add('active');
   comparePanel.classList.add('is-loading');
   
   try {
@@ -107,7 +115,7 @@ export function hideCompare(): void {
   if (!comparePanel) return;
   
   isOpen = false;
-  comparePanel.classList.remove('is-open');
+  comparePanel.classList.remove('active');
   debug.compare('Compare hidden');
 }
 

@@ -9,6 +9,10 @@ import type { MorphFunction, RenderContext } from '../core/types';
 import { detectType } from '../core/detection';
 import { primitives } from './primitives/index.js';
 import { escapeHtml, wrapInField } from './base.js';
+import { morphDebug } from './debug.js';
+
+// Re-export debug for external use
+export { morphDebug } from './debug.js';
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // MORPH REGISTRY
@@ -107,14 +111,20 @@ export function renderValue(
   // Detect type
   const morphType = detectType(value, fieldName);
   
+  // Debug: Log detection
+  morphDebug.logDetection(fieldName, value, morphType);
+  
   // Get morph
   const morph = getMorph(morphType);
   
   // Render
   const content = morph(value, { ...context, fieldName });
   
-  // Wrap in field container
-  return wrapInField(content, morphType, fieldName);
+  // Debug: Log render result
+  morphDebug.logRender(fieldName, morphType, content.length);
+  
+  // Wrap in field container with raw value for client-side extraction
+  return wrapInField(content, morphType, fieldName, undefined, value);
 }
 
 /**

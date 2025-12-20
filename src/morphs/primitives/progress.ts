@@ -12,10 +12,10 @@ export const progress = createUnifiedMorph(
     
     return `
       <div class="morph-progress">
-        <div class="progress-track">
-          <div class="progress-fill" style="width: ${pct}%"></div>
+        <div class="morph-progress-bar">
+          <div class="morph-progress-fill" style="width: ${pct}%"></div>
         </div>
-        <span class="progress-label">${formatPercent(pct)}</span>
+        <span class="morph-progress-value">${formatPercent(pct)}</span>
       </div>
     `;
   },
@@ -26,11 +26,11 @@ export const progress = createUnifiedMorph(
         const num = typeof value === 'number' ? value : parseFloat(String(value));
         const pct = Math.min(100, Math.max(0, isNaN(num) ? 0 : num));
         return `
-          <div class="progress-row" style="--item-color: ${escapeHtml(color)}">
-            <div class="progress-track">
-              <div class="progress-fill" style="width: ${pct}%"></div>
+          <div class="morph-progress-item" style="--item-color: ${escapeHtml(color)}">
+            <div class="morph-progress-bar">
+              <div class="morph-progress-fill" style="width: ${pct}%"></div>
             </div>
-            <span class="progress-value">${formatPercent(pct)}</span>
+            <span class="morph-progress-value">${formatPercent(pct)}</span>
           </div>
         `;
       }).join('')}

@@ -37,14 +37,14 @@ export const range = createUnifiedMorph(
     
     return `
       <div class="morph-range">
-        <div class="range-track">
-          <div class="range-fill" style="width: ${pct}%"></div>
-          <div class="range-marker" style="left: ${pct}%"></div>
+        <div class="morph-range-track">
+          <div class="morph-range-fill" style="width: ${pct}%"></div>
+          <div class="morph-range-marker" style="left: ${pct}%"></div>
         </div>
-        <div class="range-labels">
-          <span class="range-min">${formatNumber(r.min)}</span>
-          <span class="range-current">${formatNumber(r.current)}</span>
-          <span class="range-max">${formatNumber(r.max)}</span>
+        <div class="morph-range-labels">
+          <span class="morph-range-min">${formatNumber(r.min)}</span>
+          <span class="morph-range-current">${formatNumber(r.current)}</span>
+          <span class="morph-range-max">${formatNumber(r.max)}</span>
         </div>
       </div>
     `;
@@ -69,14 +69,14 @@ export const range = createUnifiedMorph(
     
     return `
       <div class="morph-range-compare">
-        <div class="range-compare-track">
+        <div class="morph-range-compare-track">
           ${values.map(({ item, color }, idx) => {
             const r = ranges[idx];
             if (!r) return '';
             const left = ((r.min - globalMin) / globalRange) * 100;
             const width = ((r.max - r.min) / globalRange) * 100;
             return `
-              <div class="range-bar" style="
+              <div class="morph-range-bar" style="
                 left: ${left}%;
                 width: ${width}%;
                 --item-color: ${escapeHtml(color)};
@@ -84,7 +84,7 @@ export const range = createUnifiedMorph(
             `;
           }).join('')}
         </div>
-        <div class="range-scale">
+        <div class="morph-range-scale">
           <span>${formatNumber(globalMin)}</span>
           <span>${formatNumber(globalMax)}</span>
         </div>

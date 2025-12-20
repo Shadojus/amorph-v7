@@ -10,7 +10,7 @@
  */
 
 import type { APIRoute } from 'astro';
-import { loadConfig } from '../../server/config';
+import { loadConfig, getPerspective } from '../../server/config';
 import { searchItems } from '../../server/data';
 import { renderValue } from '../../morphs';
 import type { RenderContext } from '../../core/types';
@@ -64,11 +64,14 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
       compact: true
     };
     
+    // Set der aktiven Perspektiven
+    const activePerspectives = new Set(perspectives);
+    
     const html = result.items.map(item => {
       // Standard-Felder (ohne Perspektiven)
-      const fields = Object.entries(item)
+      const standardFields = Object.entries(item)
         .filter(([k]) => !['id', 'slug', 'name', 'bild', 'wissenschaftlich'].includes(k) && !k.startsWith('_'))
-        .slice(0, 6)
+        .slice(0, 4)  // Weniger Standard-Felder wenn Perspektiven aktiv
         .map(([key, value]) => {
           const morphHtml = renderValue(value, key, gridContext);
           return `<div class="amorph-field" data-field="${escapeAttribute(key)}" data-item="${escapeAttribute(item.slug)}">
@@ -76,37 +79,41 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
             <span class="field-value">${morphHtml}</span>
             <button class="field-select" aria-label="Feld zum Vergleich hinzufügen">+</button>
           </div>`;
-        })
-        .join('');
+        });
       
-      // Perspektiven-Daten (aus _perspectives)
-      let perspectiveHtml = '';
-      if (item._perspectives && Object.keys(item._perspectives).length > 0) {
-        const perspEntries = Object.entries(item._perspectives as Record<string, unknown>)
-          .map(([perspId, perspData]) => {
-            if (!perspData || typeof perspData !== 'object') return '';
-            const perspFields = Object.entries(perspData as Record<string, unknown>)
-              .slice(0, 4)
-              .map(([key, value]) => {
-                const morphHtml = renderValue(value, key, gridContext);
-                return `<div class="persp-field" data-field="${escapeAttribute(key)}" data-perspective="${escapeAttribute(perspId)}">
-                  <span class="persp-field-label">${escapeHtml(key)}</span>
-                  <span class="persp-field-value">${morphHtml}</span>
-                </div>`;
-              })
-              .join('');
-            return perspFields ? `<div class="persp-section" data-perspective="${escapeAttribute(perspId)}">
-              <h4 class="persp-section-title">${escapeHtml(perspId)}</h4>
-              ${perspFields}
-            </div>` : '';
-          })
-          .filter(Boolean)
-          .join('');
-        
-        if (perspEntries) {
-          perspectiveHtml = `<div class="item-perspectives">${perspEntries}</div>`;
+      // Perspektiven-Felder NUR für aktive Perspektiven - als normale Felder!
+      const perspectiveFields: string[] = [];
+      if (item._perspectives && activePerspectives.size > 0) {
+        for (const [perspId, perspData] of Object.entries(item._perspectives as Record<string, unknown>)) {
+          // Nur aktive Perspektiven anzeigen
+          if (!activePerspectives.has(perspId) || !perspData || typeof perspData !== 'object') continue;
+          
+          // Get perspective config for colors
+          const perspConfig = getPerspective(perspId);
+          const perspColor = perspConfig?.colors?.[0] || 'rgba(0, 255, 200, 0.75)';
+          const perspSymbol = perspConfig?.symbol || '📊';
+          
+          // Perspektiven-Header mit Farbe
+          perspectiveFields.push(`<div class="persp-divider" data-perspective="${escapeAttribute(perspId)}" style="--persp-color: ${perspColor}">
+            <span class="persp-divider-icon">${perspSymbol}</span>
+            <span class="persp-divider-label">${escapeHtml(perspConfig?.name || perspId)}</span>
+          </div>`);
+          
+          // Felder als normale amorph-fields mit Perspektiven-Farbe
+          for (const [key, value] of Object.entries(perspData as Record<string, unknown>).slice(0, 5)) {
+            const morphHtml = renderValue(value, key, gridContext);
+            // Skip empty renders
+            if (!morphHtml) continue;
+            perspectiveFields.push(`<div class="amorph-field persp-field" data-field="${escapeAttribute(key)}" data-item="${escapeAttribute(item.slug)}" data-perspective="${escapeAttribute(perspId)}" style="--persp-color: ${perspColor}">
+              <span class="field-label">${escapeHtml(key)}</span>
+              <span class="field-value">${morphHtml}</span>
+              <button class="field-select" aria-label="Feld zum Vergleich hinzufügen">+</button>
+            </div>`);
+          }
         }
       }
+      
+      const allFields = [...standardFields, ...perspectiveFields].join('');
       
       return `
         <article class="amorph-item" data-slug="${escapeAttribute(item.slug)}" data-id="${escapeAttribute(item.id)}" data-name="${escapeAttribute(item.name)}">
@@ -115,11 +122,12 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
             <h2 class="item-name">${escapeHtml(item.name)}</h2>
             ${item.wissenschaftlich ? `<span class="item-scientific">${escapeHtml(item.wissenschaftlich)}</span>` : ''}
           </div>
-          <div class="item-body">${fields}</div>
-          ${perspectiveHtml}
-          <button class="item-select" aria-label="Auswählen">
-            <span class="select-icon"></span>
-          </button>
+          <div class="item-body">${allFields}</div>
+          <div class="item-actions">
+            <button class="item-select-all" aria-label="Alle Felder auswählen">
+              <span class="select-icon"></span>
+            </button>
+          </div>
         </article>
       `;
     }).join('');

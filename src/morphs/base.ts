@@ -184,19 +184,32 @@ export function createUnifiedMorph(
 
 /**
  * Wraps Morph-Output in ein Feld-Container.
+ * Speichert auch die originalen Daten für clientseitige Extraktion.
  */
 export function wrapInField(
   content: string,
   morphType: string,
   fieldName?: string,
-  className?: string
+  className?: string,
+  rawValue?: unknown
 ): string {
   const label = fieldName ? formatFieldLabel(fieldName) : '';
   const fieldAttr = fieldName ? `data-field="${escapeHtml(fieldName)}"` : '';
   const extraClass = className ? ` ${className}` : '';
   
+  // Store raw value for client-side extraction (used by Compare feature)
+  let valueAttr = '';
+  if (rawValue !== undefined && rawValue !== null) {
+    try {
+      const jsonStr = JSON.stringify(rawValue);
+      valueAttr = ` data-raw-value="${escapeHtml(jsonStr)}"`;
+    } catch {
+      // Skip if not serializable
+    }
+  }
+  
   return `
-    <div class="amorph-field${extraClass}" data-morph="${morphType}" ${fieldAttr}>
+    <div class="amorph-field${extraClass}" data-morph="${morphType}" ${fieldAttr}${valueAttr}>
       ${label ? `<span class="amorph-field-label">${escapeHtml(label)}</span>` : ''}
       <div class="amorph-field-value">${content}</div>
     </div>
