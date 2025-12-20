@@ -94,6 +94,11 @@ export async function showCompare(): Promise<void> {
     
     const data = await response.json();
     
+    // Debug: Log server response
+    if (data._debug) {
+      console.log('[Compare] Server debug:', data._debug);
+    }
+    
     // Insert HTML
     const content = comparePanel.querySelector('.compare-content');
     if (content && data.html) {

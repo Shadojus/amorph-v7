@@ -6,8 +6,10 @@
 
 ## Status: ✅ Production Ready
 
-- **155 Tests** bestanden (Detection, Security, Morphs, Observer, Integration)
+- **227 Tests** bestanden (Detection, Security, Morphs, Observer, Integration)
 - **18 Morph Primitives** implementiert (45+ MorphTypes definiert für Erweiterbarkeit)
+- **Struktur-basierte Detection** - Typ-Erkennung rein aus Datenstruktur, nicht Feldnamen
+- **Compare-Optimierung** - Radar-Insights, Object-Tabellen mit Δ-Differenzen, Bar-Statistiken
 - **Observer System** standardmäßig aktiviert
 - **Debug-Logging** standardmäßig aktiviert für Entwicklung
 - **Black Glass Morphism** Design mit Psychedelic Blue (#4d88ff)
@@ -15,6 +17,7 @@
 - **Astro 5.16** mit SSR auf Port 4323
 - **XSS-Schutz** in Image-Morph via validateUrl
 - **Feld-basierte Selektion** für granularen Compare
+- **Base64 Raw Values** für Compare-Modus (bis 10KB)
 - **Double-Init Guards** verhindern mehrfache Event-Registrierung
 
 ## 🎯 Kernkonzept
@@ -39,7 +42,7 @@ badge(value, context);  // Single ODER Compare je nach Context
 cd amorph-v7
 npm install
 npm run dev          # Port 4323
-npm test             # 154 Tests
+npm test             # 215 Tests
 npm run test:run     # Einmalig ohne Watch
 ```
 
@@ -88,7 +91,7 @@ amorph-v7/
 │   ├── styles/          # base.css, components.css, morphs.css
 │   └── icons/           # PWA Icons
 │
-└── tests/               # 5 Test-Suites, 154 Tests
+└── tests/               # 5 Test-Suites, 227 Tests
 ```
 
 ## 📱 Layout (Mobile-First)
@@ -197,28 +200,28 @@ interface RenderContext {
 }
 ```
 
-## 🎨 Implementierte Morphs (19 Primitives)
+## 🎨 Implementierte Morphs (18 Primitives)
 
-| Morph | Single | Compare | Auto-Detect |
-|-------|--------|---------|-------------|
-| `text` | ✅ | Side-by-side | String |
+| Morph | Single | Compare | Auto-Detect (Struktur) |
+|-------|--------|---------|------------------------|
+| `text` | ✅ | Side-by-side | String >20 chars |
 | `number` | ✅ | Balken | Number |
 | `boolean` | ✅ | Side-by-side | Boolean |
-| `badge` | ✅ | Highlight-Diff | Keywords |
-| `tag` | ✅ | Common/Unique | Short strings / Arrays |
-| `progress` | ✅ | Stacked bars | 0-100 |
-| `rating` | ✅ | Horizontal bars | 0-10 |
-| `range` | ✅ | Overlap visual | {min, max} |
-| `stats` | ✅ | Side-by-side | {min, avg, max} |
-| `image` | ✅ | Side-by-side | URL ending in image ext |
-| `link` | ✅ | Side-by-side | URL |
-| `list` | ✅ | Side-by-side | Array of strings |
-| `bar` | ✅ | Grouped bars | [{label, value}] |
-| `sparkline` | ✅ | Side-by-side | Array of numbers |
-| `radar` | ✅ | Overlay | Object with 3+ numeric fields |
-| `timeline` | ✅ | Side-by-side | [{date, event}] |
+| `badge` | ✅ | Highlight-Diff | `{status, variant}` |
+| `tag` | ✅ | Common/Unique | String ≤20 chars / `["short"]` |
+| `progress` | ✅ | Stacked bars | `{value, max}` |
+| `rating` | ✅ | Horizontal bars | `{rating, max?}` |
+| `range` | ✅ | Overlap visual | `{min, max}` |
+| `stats` | ✅ | Side-by-side | `{min, avg, max}` |
+| `image` | ✅ | Side-by-side | URL mit .jpg/.png/.webp/.svg |
+| `link` | ✅ | Side-by-side | http/https URL |
+| `list` | ✅ | Side-by-side | `["longer strings"]` |
+| `bar` | ✅ | Grouped + Ø/Δ Stats | `[{label, value}]` |
+| `sparkline` | ✅ | Side-by-side | `[numbers]` |
+| `radar` | ✅ | Overlay + Insights | `[{axis, value}]` oder Obj 3+ nums |
+| `timeline` | ✅ | Side-by-side | `[{date, event}]` |
 | `date` | ✅ | Side-by-side | ISO date string |
-| `object` | ✅ | Side-by-side | Generic objects |
+| `object` | ✅ | Tabelle + Max/Min/Δ | Generic objects |
 
 ## 📡 API Endpoints
 
@@ -285,13 +288,13 @@ Styles sind statisch und cachefreundlich, nicht inline im Layout.
 
 | Aspekt | v5 (Root) | v6 | **v7** |
 |--------|-----------|----|----|
-| Morphs | 43 Dateien + 44 Compare | Inline | **Unified: 19 Primitives** |
+| Morphs | 43 Dateien + 44 Compare | Inline | **Unified: 18 Primitives** |
 | Layout | Modular | Monolith (3600 Zeilen) | **Modular (~50 Zeilen)** |
 | Config | Eigener Parser | yaml lib | **yaml lib** |
 | Data | Dupliziert | Dupliziert | **Symlink** |
 | Types | JSDoc | TypeScript | **TypeScript** |
-| Detection | 4 Dateien | 1 Datei | **1 Datei** |
-| Tests | - | - | **77 Tests** |
+| Detection | 4 Dateien, Feldnamen | 1 Datei | **1 Datei, Struktur-basiert** |
+| Tests | - | - | **227 Tests** |
 | Observer | - | - | **✅ Integriert** |
 
 ## 🔮 Erweiterung

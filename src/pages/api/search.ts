@@ -68,18 +68,15 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
     const activePerspectives = new Set(perspectives);
     
     const html = result.items.map(item => {
-      // Standard-Felder (ohne Perspektiven)
+      // Standard-Felder (ohne Perspektiven) - renderValue gibt bereits komplettes amorph-field zurück
       const standardFields = Object.entries(item)
         .filter(([k]) => !['id', 'slug', 'name', 'bild', 'wissenschaftlich'].includes(k) && !k.startsWith('_'))
         .slice(0, 4)  // Weniger Standard-Felder wenn Perspektiven aktiv
         .map(([key, value]) => {
           const morphHtml = renderValue(value, key, gridContext);
-          return `<div class="amorph-field" data-field="${escapeAttribute(key)}" data-item="${escapeAttribute(item.slug)}">
-            <span class="field-label">${escapeHtml(key)}</span>
-            <span class="field-value">${morphHtml}</span>
-            <button class="field-select" aria-label="Feld zum Vergleich hinzufügen">+</button>
-          </div>`;
-        });
+          return morphHtml; // Already wrapped with data-raw-value!
+        })
+        .filter(html => html); // Remove empty strings
       
       // Perspektiven-Felder NUR für aktive Perspektiven - als normale Felder!
       const perspectiveFields: string[] = [];
@@ -99,16 +96,12 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
             <span class="persp-divider-label">${escapeHtml(perspConfig?.name || perspId)}</span>
           </div>`);
           
-          // Felder als normale amorph-fields mit Perspektiven-Farbe
+          // Felder als normale amorph-fields - renderValue gibt komplettes Feld zurück
           for (const [key, value] of Object.entries(perspData as Record<string, unknown>).slice(0, 5)) {
             const morphHtml = renderValue(value, key, gridContext);
             // Skip empty renders
             if (!morphHtml) continue;
-            perspectiveFields.push(`<div class="amorph-field persp-field" data-field="${escapeAttribute(key)}" data-item="${escapeAttribute(item.slug)}" data-perspective="${escapeAttribute(perspId)}" style="--persp-color: ${perspColor}">
-              <span class="field-label">${escapeHtml(key)}</span>
-              <span class="field-value">${morphHtml}</span>
-              <button class="field-select" aria-label="Feld zum Vergleich hinzufügen">+</button>
-            </div>`);
+            perspectiveFields.push(morphHtml); // Already has data-raw-value!
           }
         }
       }

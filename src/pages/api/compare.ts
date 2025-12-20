@@ -98,12 +98,16 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
   const itemColors = new Map<string, string>();
   uniqueItems.forEach((slug, i) => itemColors.set(slug, colors[i % colors.length]));
   
-  // Build compare context
-  const compareContext: RenderContext = {
-    mode: 'compare',
-    itemCount: uniqueItems.length,
-    colors: uniqueItems.map(slug => itemColors.get(slug)!)
-  };
+  // Build items array for compare context
+  const itemsData = uniqueItems.map(slug => {
+    const field = fields.find(f => f.itemSlug === slug);
+    return {
+      id: slug,
+      slug: slug,
+      name: field?.itemName || slug,
+      color: itemColors.get(slug) || '#fff'
+    };
+  });
   
   // Render each field group
   let html = '<div class="compare-fields">';
@@ -116,25 +120,51 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
   }
   html += '</div>';
   
-  // Add each field row
+  // Add each field row - NOW with proper Compare rendering!
   for (const [fieldName, fieldValues] of grouped) {
+    console.log(`[Compare] Field ${fieldName}: ${fieldValues.length} values from items:`, 
+      fieldValues.map(f => f.itemName));
+    
     html += `<div class="compare-field-row">`;
     html += `<div class="field-name">${escapeHtml(fieldName)}</div>`;
     html += `<div class="field-values">`;
     
-    for (const field of fieldValues) {
+    // Check if we have multiple items for this field - use overlay Compare mode
+    if (fieldValues.length > 1) {
+      console.log(`[Compare] OVERLAY mode for ${fieldName}:`, fieldValues.length, 'items');
+      
+      // Build items with field values for Compare context
+      const compareItems = fieldValues.map(field => ({
+        id: field.itemSlug,
+        slug: field.itemSlug,
+        name: field.itemName,
+        color: itemColors.get(field.itemSlug) || '#fff',
+        [fieldName]: field.value
+      }));
+      
+      console.log(`[Compare] compareItems for ${fieldName}:`, 
+        compareItems.map(i => ({ name: i.name, hasValue: !!i[fieldName] })));
+      
+      // Build compare context
+      const compareContext: RenderContext = {
+        mode: 'compare',
+        itemCount: fieldValues.length,
+        items: compareItems as any,
+        fieldName: fieldName,
+        colors: fieldValues.map(f => itemColors.get(f.itemSlug) || '#fff')
+      };
+      
+      // Use renderValue which will detect Compare mode and use overlay rendering
+      const firstValue = fieldValues[0].value;
+      const renderedValue = renderValue(firstValue, fieldName, compareContext);
+      
+      html += `<div class="field-compare-overlay">${renderedValue || '<span class="no-value">–</span>'}</div>`;
+    } else {
+      // Single item - render normally
+      const field = fieldValues[0];
       const color = itemColors.get(field.itemSlug) || '#fff';
       
-      // Debug: Log what we're rendering
-      console.log(`[Compare] Rendering field: ${fieldName}`, {
-        itemSlug: field.itemSlug,
-        valueType: typeof field.value,
-        valuePreview: JSON.stringify(field.value)?.slice(0, 100)
-      });
-      
-      const renderedValue = renderValue(field.value, field.fieldName, { ...compareContext, mode: 'single', itemCount: 1 });
-      
-      // Show placeholder if no value
+      const renderedValue = renderValue(field.value, field.fieldName, { mode: 'single', itemCount: 1 });
       const displayValue = renderedValue || `<span class="no-value">–</span>`;
       
       html += `<div class="field-value-item" style="--item-color: ${color}">
@@ -148,11 +178,23 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
   
   html += '</div>';
   
+  // Debug: Log field grouping
+  const debugInfo = {
+    totalFields: fields.length,
+    groupedFields: [...grouped.entries()].map(([name, vals]) => ({
+      fieldName: name,
+      itemCount: vals.length,
+      items: vals.map(v => v.itemName)
+    }))
+  };
+  console.log('[Compare] Field grouping:', JSON.stringify(debugInfo, null, 2));
+  
   const response = new Response(JSON.stringify({
     html,
     itemCount: uniqueItems.length,
     fieldCount: grouped.size,
-    mode: 'fields'
+    mode: 'fields',
+    _debug: debugInfo  // Include in response for client-side debugging
   }), {
     headers: { 'Content-Type': 'application/json' }
   });

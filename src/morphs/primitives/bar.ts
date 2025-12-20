@@ -50,7 +50,7 @@ export const bar = createUnifiedMorph(
       </div>
     `;
   },
-  // Compare: Grouped bars
+  // Compare: Grouped bars with statistics
   (values) => {
     const allLabels = new Set<string>();
     const itemData = new Map<string, Map<string, number>>();
@@ -78,22 +78,44 @@ export const bar = createUnifiedMorph(
     
     return `
       <div class="morph-bar-compare">
-        ${[...allLabels].map(label => `
-          <div class="bar-group">
-            <span class="bar-group-label">${escapeHtml(label)}</span>
-            <div class="bar-group-bars">
-              ${values.map(({ item, color }) => {
-                const val = itemData.get(item.id)?.get(label) ?? 0;
-                const pct = (val / max) * 100;
-                return `
-                  <div class="bar-grouped" style="--item-color: ${escapeHtml(color)}; width: ${pct}%">
-                    <span class="bar-value">${formatNumber(val)}</span>
-                  </div>
-                `;
-              }).join('')}
+        ${[...allLabels].map(label => {
+          // Collect values for this label
+          const valuesForLabel = values.map(({ item }) => 
+            itemData.get(item.id)?.get(label) ?? 0
+          );
+          
+          // Calculate statistics
+          const validValues = valuesForLabel.filter(v => v > 0);
+          const avg = validValues.length > 0 
+            ? validValues.reduce((a, b) => a + b, 0) / validValues.length 
+            : 0;
+          const minVal = Math.min(...validValues);
+          const maxVal = Math.max(...validValues);
+          const diff = maxVal - minVal;
+          
+          return `
+            <div class="bar-group">
+              <span class="bar-group-label">${escapeHtml(label)}</span>
+              <div class="bar-group-bars">
+                ${values.map(({ item, color }) => {
+                  const val = itemData.get(item.id)?.get(label) ?? 0;
+                  const pct = (val / max) * 100;
+                  return `
+                    <div class="bar-grouped" style="--item-color: ${escapeHtml(color)}; width: ${Math.max(pct, 5)}%">
+                      <span class="bar-value">${formatNumber(val)}</span>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+              ${validValues.length > 1 ? `
+                <div class="bar-group-stats">
+                  <span class="stat"><span class="stat-label">Ø</span> <span class="stat-value">${formatNumber(avg)}</span></span>
+                  <span class="stat"><span class="stat-label">Δ</span> <span class="stat-value">${formatNumber(diff)}</span></span>
+                </div>
+              ` : ''}
             </div>
-          </div>
-        `).join('')}
+          `;
+        }).join('')}
       </div>
     `;
   }

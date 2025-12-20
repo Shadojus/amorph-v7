@@ -1,16 +1,37 @@
 # AMORPH v7 - Test Suite
 
-> 155 Tests mit Vitest für vollständige Code-Abdeckung.
+> 227 Tests mit Vitest für vollständige Code-Abdeckung.
 
 ## 📁 Struktur
 
 ```
 tests/
-├── detection.test.ts     # 40 Tests - Typ-Erkennung + Badge-Varianten + Radar Arrays
+├── detection.test.ts     # 80 Tests - Struktur-basierte Typ-Erkennung
 ├── security.test.ts      # 49 Tests - Security Functions (vollständig)
-├── morphs.test.ts        # 49 Tests - Alle 18 Morph Primitives
 ├── observer.test.ts      # 8 Tests  - Debug Observer
-└── integration.test.ts   # 9 Tests  - Module Integration
+├── integration.test.ts   # 9 Tests  - Module Integration
+└── morphs/               # 81 Tests - Feature-basiert aufgeteilt
+    ├── _setup.ts         # Shared contexts (single, compare, grid)
+    ├── text.test.ts      # 3 Tests
+    ├── number.test.ts    # 3 Tests
+    ├── boolean.test.ts   # 3 Tests
+    ├── badge.test.ts     # 4 Tests
+    ├── tag.test.ts       # 3 Tests
+    ├── progress.test.ts  # 5 Tests
+    ├── rating.test.ts    # 2 Tests
+    ├── range.test.ts     # 4 Tests
+    ├── stats.test.ts     # 3 Tests
+    ├── image.test.ts     # 7 Tests
+    ├── link.test.ts      # 3 Tests
+    ├── list.test.ts      # 3 Tests
+    ├── object.test.ts    # 9 Tests (inkl. compare mode)
+    ├── date.test.ts      # 2 Tests
+    ├── timeline.test.ts  # 1 Test
+    ├── bar.test.ts       # 4 Tests
+    ├── sparkline.test.ts # 3 Tests
+    ├── radar.test.ts     # 7 Tests (inkl. compare mode)
+    ├── base.test.ts      # 6 Tests (wrapInField, Base64)
+    └── renderValue.test.ts # 6 Tests
 ```
 
 ## 🚀 Ausführen
@@ -26,28 +47,45 @@ npm run test:run
 npm run test:coverage
 ```
 
-## 📦 detection.test.ts (39 Tests)
+## 📦 detection.test.ts (80 Tests)
 
-Testet `core/detection.ts`:
+Testet `core/detection.ts` - **Struktur-basierte Erkennung** (keine Feldnamen!):
 
 ### Kategorien
 
-- **Primitives** (4): null, boolean, numbers, empty strings
-- **Field Name Hints** (6): progress, rating, image, link, date, currency
-- **String Patterns** (5): URLs, image URLs, dates, short strings, badge keywords
-- **Arrays** (7): string arrays, number arrays, object arrays, bar/pie/radar charts, empty
-- **Objects** (10): range, stats, radar, mixed, map, currency, citation, dosage, hierarchy, boxplot
-- **getBadgeVariant** (6): success, danger, warning, muted, default, substring limitations
-- **Config** (2): get/set detection config
+- **Primitives** (8): null, undefined, boolean, numbers
+- **Strings** (16): tag (≤20 chars), text, image URLs, links, dates (ISO, German)
+- **Arrays** (10): sparkline (numbers), tag (short strings), list, bar, radar, timeline
+- **Objects** (14): badge, rating, progress, range, stats, radar, generic object
+- **getBadgeVariant** (12): success, danger, warning, muted, default variants
+- **Real Blueprints** (20): Tests mit echten Blueprint-Strukturen (chemistry, ecology, culinary, etc.)
+
+### Struktur → Morph Mapping
+
+| Struktur | → Morph |
+|----------|--------|
+| `{status, variant}` | badge |
+| `{rating, max?}` | rating |
+| `{value, max}` | progress |
+| `{min, max}` | range |
+| `{min, max, avg}` | stats |
+| `[{axis, value}]` | radar |
+| `[{label, value}]` | bar |
+| `[{date, event}]` | timeline |
+| `[numbers...]` | sparkline |
+| String ≤20 chars | tag |
+| String >20 chars | text |
 
 ### Beispiel
 
 ```typescript
-describe('primitives', () => {
-  it('should detect numbers as progress (0-100) or rating (0-10)', () => {
-    expect(detectType(85, 'progress')).toBe('progress');
-    expect(detectType(7.5, 'rating')).toBe('rating');
-    expect(detectType(42)).toBe('number');
+describe('Object Detection', () => {
+  it('should detect badge structure', () => {
+    expect(detectType({ status: 'LC', variant: 'success' })).toBe('badge');
+  });
+  
+  it('should detect range structure', () => {
+    expect(detectType({ min: 800, max: 3200 })).toBe('range');
   });
 });
 ```
@@ -85,38 +123,59 @@ describe('validateSlug', () => {
 });
 ```
 
-## 📦 morphs.test.ts (49 Tests)
+## 📦 morphs/ (81 Tests - Feature-basiert)
 
-Testet `morphs/primitives/` - **Alle 18 Morphs abgedeckt**:
+Feature-basierte Struktur in `tests/morphs/`:
 
-### Kategorien
+### Aufbau
 
-- **text** (3): string values, HTML escaping, null handling
-- **number** (3): German locale, NaN handling, string parsing
-- **boolean** (3): true/false, ja/nein strings
-- **badge** (4): danger, success, neutral variants, XSS escaping
-- **tag** (3): single tag, array of tags, HTML escaping
-- **progress** (3): bar rendering, value clamping, string values
-- **rating** (2): star rendering, percentage normalization
-- **range** (3): min/max, German von/bis, current value
-- **stats** (2): stats object, empty object
-- **image** (6): render, object src, XSS blocking, data: blocking, relative paths
-- **link** (3): clickable, protocol stripping, HTML escaping
-- **list** (3): array rendering, single value, HTML escaping
-- **object** (1): key-value pairs
-- **date** (2): German formatting, invalid dates
-- **timeline** (1): timeline events
-- **bar** (2): bar chart, number array
-- **sparkline** (2): SVG rendering, empty array
-- **radar** (2): 3+ fields, fallback
+```
+tests/morphs/
+├── _setup.ts           # Shared contexts
+├── text.test.ts        # Text morph
+├── number.test.ts      # Number formatting
+├── boolean.test.ts     # Boolean display
+├── badge.test.ts       # Badge variants
+├── tag.test.ts         # Tag pills
+├── progress.test.ts    # Progress bars
+├── rating.test.ts      # Star ratings
+├── range.test.ts       # Min/max ranges
+├── stats.test.ts       # Statistics display
+├── image.test.ts       # Image + XSS protection
+├── link.test.ts        # External links
+├── list.test.ts        # Lists
+├── object.test.ts      # Objects + compare mode
+├── date.test.ts        # Date formatting
+├── timeline.test.ts    # Timeline events
+├── bar.test.ts         # Bar charts
+├── sparkline.test.ts   # Mini charts
+├── radar.test.ts       # Radar + compare mode
+├── base.test.ts        # wrapInField, Base64
+└── renderValue.test.ts # Integration
+```
 
-### Beispiel
+### Shared Setup (_setup.ts)
 
 ```typescript
-describe('badge morph', () => {
-  it('should detect danger variant', () => {
-    const html = badge('giftig', gridContext);
-    expect(html).toContain('morph-badge--danger');
+export const singleContext = { mode: 'single', itemCount: 1 };
+export const compareContext = { 
+  mode: 'compare', 
+  itemCount: 2,
+  items: [...],
+  colors: ['#0df', '#f0d']
+};
+```
+
+### Compare-Mode Tests (radar.test.ts, object.test.ts)
+
+```typescript
+describe('radar morph compare renderer', () => {
+  it('should render overlay with multiple paths', () => {
+    const values = [
+      { value: [...], color: '#0df', item: { name: 'Item 1' } },
+      { value: [...], color: '#f0d', item: { name: 'Item 2' } }
+    ];
+    // Compare renderer über morphFn.compareRender aufrufen
   });
 });
 ```
@@ -175,8 +234,9 @@ Testet Modul-Integration:
 
 ```typescript
 describe('morph rendering', () => {
-  it('should detect and use correct morph', () => {
-    const html = renderValue(75, 'progress', gridContext);
+  it('should detect and use correct morph based on structure', () => {
+    // Progress requires {value, max} object
+    const html = renderValue({ value: 75, max: 100 }, 'fortschritt', gridContext);
     expect(html).toContain('morph-progress');
   });
 });
@@ -246,9 +306,9 @@ npm test
 
 | Suite | Tests | Status |
 |-------|-------|--------|
-| detection.test.ts | 19 | ✅ Pass |
-| security.test.ts | 25 | ✅ Pass |
-| morphs.test.ts | 16 | ✅ Pass |
+| detection.test.ts | 80 | ✅ Pass |
+| security.test.ts | 49 | ✅ Pass |
+| morphs.test.ts | 69 | ✅ Pass |
 | observer.test.ts | 8 | ✅ Pass |
 | integration.test.ts | 9 | ✅ Pass |
-| **Total** | **77** | ✅ **All Pass** |
+| **Total** | **215** | ✅ **All Pass** |

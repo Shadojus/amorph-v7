@@ -2,13 +2,14 @@
 
 > Unified Morph Architecture mit 18 Primitives (45+ MorphTypes für Erweiterbarkeit).
 > Visualisiert biologische Daten: Taxonomie, Chemie, Ökologie, Medizin, etc.
+> **Struktur-basierte Detection** - Typ wird aus Datenstruktur erkannt, nicht aus Feldnamen!
 
 ## 📁 Struktur
 
 ```
 morphs/
-├── base.ts           # createUnifiedMorph() Factory
-├── debug.ts          # 🆕 Morph Debug System
+├── base.ts           # createUnifiedMorph() Factory + wrapInField() mit Base64
+├── debug.ts          # Morph Debug System
 ├── primitives/       # 18 Morph-Implementierungen
 │   ├── index.ts      # Re-Exports + Registry
 │   ├── text.ts
@@ -30,6 +31,7 @@ morphs/
 │   ├── timeline.ts
 │   └── object.ts
 └── index.ts          # Main API
+```
 
 ## 🔍 Morph Debug System (NEU)
 
@@ -93,13 +95,25 @@ export const badge = createUnifiedMorph(
 ```
 
 ### renderValue(value, fieldName, context)
-Erkennt automatisch den Typ und rendert:
+Erkennt automatisch den Typ **aus der Datenstruktur** und rendert:
 
 ```typescript
 import { renderValue } from './morphs';
 
-const html = renderValue(85, 'fortschritt', { mode: 'single', itemCount: 1 });
-// → <div class="morph-progress">...</div>
+// Struktur-basierte Erkennung
+renderValue({ value: 75, max: 100 }, 'any_field', context);  // → progress
+renderValue({ status: 'LC', variant: 'success' }, 'any', context);  // → badge
+renderValue([{ axis: 'A', value: 1 }], 'profile', context);  // → radar
+renderValue([1, 2, 3, 4, 5], 'trend', context);  // → sparkline
+```
+
+### wrapInField(fieldName, morphType, content, rawValue?)
+Wraps morph output in field container with optional Base64-encoded raw value:
+
+```typescript
+// Raw values bis 10KB werden Base64-encoded für Compare-Modus
+wrapInField('alkaloid_profile', 'radar', '<svg>...</svg>', radarData);
+// → <div data-raw-value="eyJheGlzIjoi...">...</div>
 ```
 
 ### renderCompare(items, fieldName, context)
@@ -150,9 +164,27 @@ image('https://example.com/img.png') // ✓
 | **link** | Clickable | List | `.morph-link` |
 | **list** | Bullet list | Side-by-side | `.morph-list` |
 | **date** | Formatted | Side-by-side | `.morph-date` |
-| **bar** | Chart bars | Grouped | `.morph-bar` |
+| **bar** | Chart bars | Grouped + Ø/Δ | `.morph-bar` |
 | **sparkline** | Mini chart | Overlay | `.morph-sparkline` |
-| **radar** | Spider chart | Overlay | `.morph-radar` |
+| **radar** | Spider chart | Overlay + Insights | `.morph-radar` |
+| **timeline** | Event list | Side-by-side | `.morph-timeline` |
+| **object** | Key-value | Tabelle + Max/Min/Δ | `.morph-object` |
+
+### Bar Compare-Modus
+- Gruppierte Balken pro Label
+- **Ø** (Durchschnitt) und **Δ** (Differenz) Statistiken pro Gruppe
+- Farbige Item-Legende
+
+### Radar Compare-Modus
+- Überlagerte Radar-Charts mit gemeinsamer Achsen-Skala
+- **Insights-Box**: Zeigt automatisch die 3 größten Unterschiede (Δ)
+- Transparente Flächen für bessere Überlagerung
+
+### Object Compare-Modus
+- **Tabellarische Darstellung** statt verschachtelt
+- Gruppen-Header für verschachtelte Objekte
+- **Max/Min-Hervorhebung**: Grün für höchste, Orange für niedrigste Werte
+- **Δ-Differenz** bei numerischen Werten direkt am Label
 
 ### Radar-Datenformate
 
@@ -191,13 +223,18 @@ Alle Morph-Styles sind in `public/styles/morphs.css`:
 
 ## 🧪 Tests
 
-`tests/morphs.test.ts` - 16 Tests:
+`tests/morphs.test.ts` - 81 Tests:
 - text: HTML Escaping
 - number: German locale
 - boolean: true/false/ja/nein
 - badge: Variant Detection
 - progress: Clamping 0-100
 - rating: Star Rendering
+- object: Nested objects, arrays, compare table
+- radar: Single + compare overlay mit insights
+- bar: Single + compare mit Statistiken
+- wrapInField: Base64 encoding
+- renderValue: data-raw-value Attribut
 
 ## 💡 Neuen Morph hinzufügen
 

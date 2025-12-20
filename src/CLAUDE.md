@@ -6,8 +6,8 @@
 
 ```
 src/
-├── core/           # Typen, Detection, Security
-├── morphs/         # Unified Morph System (19 Primitives)
+├── core/           # Typen, Detection (struktur-basiert), Security
+├── morphs/         # Unified Morph System (18 Primitives)
 ├── observer/       # Debug & Analytics
 ├── server/         # SSR: Config + Data Loader
 ├── client/         # Browser: Features
@@ -31,14 +31,14 @@ pages/ → layouts/ → server/ → core/
 ### core/
 Fundamentale Typen und Utilities:
 - `types.ts` - RenderContext, MorphType, ItemData, CompareValue
-- `detection.ts` - Automatische Typ-Erkennung aus Daten
+- `detection.ts` - **Struktur-basierte** Typ-Erkennung (keine Feldnamen!)
 - `security.ts` - Input Validation, XSS Schutz, Path Traversal Prevention
 - `index.ts` - Re-Exports
 
 ### morphs/
 Unified Morph Architecture:
-- `base.ts` - createUnifiedMorph() Factory
-- `primitives/` - 19 Morph-Typen (text, badge, progress, etc.)
+- `base.ts` - createUnifiedMorph() Factory + wrapInField() mit Base64
+- `primitives/` - 18 Morph-Typen (text, badge, progress, etc.)
 - `index.ts` - Registry, renderValue(), renderCompare()
 
 ### observer/

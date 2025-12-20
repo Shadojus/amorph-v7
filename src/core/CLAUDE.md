@@ -61,29 +61,46 @@ interface CompareValue {
 
 ## 📦 detection.ts
 
-### detectType(value, fieldName?)
-Erkennt automatisch den passenden MorphType:
+### detectType(value) - Struktur-basierte Erkennung
 
-| Input | Erkannt als |
-|-------|-------------|
-| `null`, `undefined`, `""` | `null` |
+**WICHTIG**: Erkennung basiert **nur auf Datenstruktur**, nicht auf Feldnamen!
+
+| Struktur | → Morph |
+|----------|---------|
+| `null`, `undefined` | `text` |
 | `true`, `false` | `boolean` |
-| `0-100` (field: progress/prozent) | `progress` |
-| `0-10` (field: rating/bewertung) | `rating` |
 | Number | `number` |
-| URL mit Bild-Extension | `image` |
-| URL | `link` |
-| ISO Date / Date-Field | `date` |
-| Kurzer String (<30 Zeichen) | `tag` |
-| String | `text` |
-| `{min, max}` | `range` |
-| `{min, avg, max}` | `stats` |
-| Object mit 3+ numerischen Feldern | `radar` |
-| Array von `{axis, value}` | `radar` |
-| Array von Numbers | `sparkline` |
-| Array von `{date, ...}` | `timeline` |
-| Array von Strings | `tag` |
-| Object | `object` |
+| String ≤20 chars | `tag` |
+| String >20 chars | `text` |
+| URL mit Bild-Extension (.jpg, .png, .webp, .svg) | `image` |
+| http/https URL | `link` |
+| ISO Date (2024-12-20) | `date` |
+| `{status, variant}` | `badge` |
+| `{rating, max?}` | `rating` |
+| `{value, max}` | `progress` |
+| `{min, max}` ohne avg | `range` |
+| `{min, max, avg}` | `stats` |
+| `[{axis, value}]` | `radar` |
+| `[{label, value}]` | `bar` |
+| `[{date, event}]` oder `[{step, label}]` | `timeline` |
+| `[numbers...]` | `sparkline` |
+| `["short strings"]` (alle ≤20 chars) | `tag` |
+| `["longer strings"]` | `list` |
+| Object mit 3+ numeric values | `radar` |
+| Object (generic) | `object` |
+
+### getBadgeVariant(status)
+Erkennt Badge-Variante aus Status-Text:
+
+| Variante | Keywords |
+|----------|----------|
+| `success` | edible, safe, essbar, LC, least_concern |
+| `danger` | toxic, deadly, giftig, CR, extinct |
+| `warning` | caution, vulnerable, endangered |
+| `muted` | unknown, data_deficient, inactive |
+| `default` | alles andere |
+
+**Hinweis**: Kurze Keywords (≤2 Zeichen wie "en", "lc") erfordern exakte Übereinstimmung.
 
 ### createSingleContext / createCompareContext
 Helper zum Erstellen von RenderContext-Objekten.
@@ -112,22 +129,38 @@ Helper zum Erstellen von RenderContext-Objekten.
 
 ## 🧪 Tests
 
-Tests in `tests/`:
-- `detection.test.ts` - 19 Tests für Typ-Erkennung
-- `security.test.ts` - 25 Tests für Security-Funktionen
+Tests in `tests/detection.test.ts`:
+- **80 Tests** für struktur-basierte Typ-Erkennung
+- Real Blueprint Structures (chemistry, ecology, culinary, conservation)
+- Badge Variant Detection
+
+Tests in `tests/security.test.ts`:
+- **49 Tests** für Security-Funktionen
 
 ## 💡 Usage
 
 ```typescript
 import { 
   detectType, 
+  getBadgeVariant,
   escapeHtml, 
   validateSlug,
   type RenderContext,
   type MorphType 
 } from './core';
 
-const morphType = detectType(value, 'rating');  // → 'rating'
+// Struktur-basierte Erkennung (KEIN Feldname nötig)
+detectType({ status: 'LC', variant: 'success' });  // → 'badge'
+detectType({ min: 800, max: 3200 });               // → 'range'
+detectType([{ axis: 'A', value: 1 }]);             // → 'radar'
+detectType([1, 2, 3, 4, 5]);                       // → 'sparkline'
+detectType('essbar');                              // → 'tag' (≤20 chars)
+
+// Badge-Variante
+getBadgeVariant('Least Concern');                  // → 'success'
+getBadgeVariant('Critically Endangered');          // → 'danger'
+
+// Security
 const safe = escapeHtml('<script>alert(1)</script>');
 const isValid = validateSlug('steinpilz');
 ```
