@@ -77,24 +77,24 @@ describe('morph rendering', () => {
     expect(html).toContain('amorph-field');
   });
 
-  it('should detect and use correct morph based on detection logic', async () => {
+  it('should detect and use correct morph based on structure', async () => {
     const { renderValue } = await import('../src/morphs/index.js');
     
     const context = { mode: 'single' as const, itemCount: 1 };
     
-    // Numbers 0-100 become progress
+    // Plain numbers become number morph
     const numHtml = renderValue(42, 'count', context);
-    expect(numHtml).toContain('morph-progress');
+    expect(numHtml).toContain('morph-number');
     
     // Boolean
     const boolHtml = renderValue(true, 'active', context);
     expect(boolHtml).toContain('morph-boolean');
     
-    // Progress (by field name)
-    const progressHtml = renderValue(75, 'fortschritt', context);
+    // Progress object {value, max} becomes progress
+    const progressHtml = renderValue({ value: 75, max: 100 }, 'fortschritt', context);
     expect(progressHtml).toContain('morph-progress');
     
-    // Large numbers (>100) become number
+    // Large numbers also become number morph
     const largeNumHtml = renderValue(12345, 'visitors', context);
     expect(largeNumHtml).toContain('morph-number');
   });

@@ -156,14 +156,25 @@ function handleItemSelectAll(btn: HTMLElement): void {
 
 // NEW: Get the value from a field element
 function getFieldValue(field: HTMLElement): unknown {
-  // FIRST: Try to get raw value from data attribute (best method)
-  const rawValueStr = field.dataset.rawValue;
+  const fieldName = field.dataset.field || 'unknown';
+  
+  // FIRST: Try to get raw value from data attribute (Base64 encoded)
+  let rawValueStr = field.dataset.rawValue;
   if (rawValueStr) {
     try {
-      return JSON.parse(rawValueStr);
-    } catch {
-      return rawValueStr;
+      // Remove any whitespace that may have been introduced by HTML formatting
+      rawValueStr = rawValueStr.replace(/\s/g, '');
+      
+      // Decode Base64 and parse JSON
+      const jsonStr = atob(rawValueStr);
+      const parsed = JSON.parse(jsonStr);
+      console.log(`[getFieldValue] SUCCESS Base64 for ${fieldName}:`, typeof parsed, Array.isArray(parsed) ? `array[${parsed.length}]` : '');
+      return parsed;
+    } catch (e) {
+      console.warn(`[getFieldValue] Failed to decode raw value for ${fieldName}:`, e);
     }
+  } else {
+    console.log(`[getFieldValue] NO data-raw-value for ${fieldName}`);
   }
   
   // FALLBACK: The correct class is .amorph-field-value (from wrapInField in base.ts)

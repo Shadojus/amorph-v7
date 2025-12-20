@@ -439,3 +439,175 @@ describe('radar morph', () => {
     expect(html).toContain('morph-text');
   });
 });
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// BASE64 VALUE ENCODING (for Compare feature)
+// ═══════════════════════════════════════════════════════════════════════════════
+
+import { wrapInField } from '../src/morphs/base.js';
+
+describe('wrapInField with raw values', () => {
+  it('should encode simple string to base64', () => {
+    const html = wrapInField('<span>test</span>', 'text', 'test_field', undefined, 'Hello World');
+    expect(html).toContain('data-raw-value="');
+    // Base64 for "Hello World" JSON: "SGVsbG8gV29ybGQi" (with quotes)
+    const match = html.match(/data-raw-value="([^"]+)"/);
+    expect(match).toBeTruthy();
+    if (match) {
+      const decoded = Buffer.from(match[1], 'base64').toString('utf-8');
+      expect(decoded).toBe('"Hello World"');
+    }
+  });
+
+  it('should encode array to base64', () => {
+    const data = [{ label: 'Test', value: 42 }];
+    const html = wrapInField('<span>test</span>', 'bar', 'bar_field', undefined, data);
+    expect(html).toContain('data-raw-value="');
+    const match = html.match(/data-raw-value="([^"]+)"/);
+    expect(match).toBeTruthy();
+    if (match) {
+      const decoded = JSON.parse(Buffer.from(match[1], 'base64').toString('utf-8'));
+      expect(decoded).toEqual([{ label: 'Test', value: 42 }]);
+    }
+  });
+
+  it('should encode complex nested object', () => {
+    const data = {
+      min: 10,
+      max: 100,
+      values: [20, 30, 40],
+      nested: { deep: true }
+    };
+    const html = wrapInField('<span>test</span>', 'stats', 'complex_field', undefined, data);
+    expect(html).toContain('data-raw-value="');
+    const match = html.match(/data-raw-value="([^"]+)"/);
+    expect(match).toBeTruthy();
+    if (match) {
+      const decoded = JSON.parse(Buffer.from(match[1], 'base64').toString('utf-8'));
+      expect(decoded).toEqual(data);
+    }
+  });
+
+  it('should skip encoding for values larger than 10KB', () => {
+    // Create a large string > 10KB
+    const largeData = 'x'.repeat(15000);
+    const html = wrapInField('<span>test</span>', 'text', 'large_field', undefined, largeData);
+    expect(html).not.toContain('data-raw-value=');
+  });
+
+  it('should handle null/undefined raw values', () => {
+    const html1 = wrapInField('<span>test</span>', 'text', 'field1', undefined, null);
+    const html2 = wrapInField('<span>test</span>', 'text', 'field2', undefined, undefined);
+    expect(html1).not.toContain('data-raw-value=');
+    expect(html2).not.toContain('data-raw-value=');
+  });
+
+  it('should have correct morph-* CSS classes', () => {
+    const html = wrapInField('<span>content</span>', 'bar', 'test_field');
+    expect(html).toContain('class="amorph-field"');
+    expect(html).toContain('data-morph="bar"');
+    expect(html).toContain('class="amorph-field-value"');
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// COMPARE MODE RENDERING
+// ═══════════════════════════════════════════════════════════════════════════════
+
+describe('morphs in compare mode', () => {
+  it('bar chart should render with compare context', () => {
+    const data = [
+      { label: 'Protein', value: 25 },
+      { label: 'Fett', value: 10 }
+    ];
+    const html = bar(data, compareContext);
+    expect(html).toContain('morph-bar');
+    expect(html).toContain('Protein');
+  });
+
+  it('progress should render in compare mode', () => {
+    const html = progress(75, compareContext);
+    expect(html).toContain('morph-progress');
+    expect(html).toContain('75%');
+  });
+
+  it('radar should render with compare context', () => {
+    const data = [
+      { axis: 'Kraft', value: 80 },
+      { axis: 'Ausdauer', value: 60 },
+      { axis: 'Schnelligkeit', value: 70 }
+    ];
+    const html = radar(data, compareContext);
+    expect(html).toContain('morph-radar');
+    expect(html).toContain('<svg');
+  });
+
+  it('sparkline should render with compare context', () => {
+    const html = sparkline([10, 20, 30, 40, 50], compareContext);
+    expect(html).toContain('morph-sparkline');
+    expect(html).toContain('<svg');
+  });
+
+  it('range should render with compare context', () => {
+    const html = range({ min: 0, max: 100 }, compareContext);
+    expect(html).toContain('morph-range');
+  });
+
+  it('stats should render with compare context', () => {
+    const html = stats({ min: 5, avg: 15, max: 30 }, compareContext);
+    expect(html).toContain('morph-stats');
+  });
+});
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// RENDERVALUE INTEGRATION
+// ═══════════════════════════════════════════════════════════════════════════════
+
+import { renderValue, detectType } from '../src/morphs/index.js';
+
+describe('renderValue with data-raw-value', () => {
+  it('should include data-raw-value for bar chart data', () => {
+    const data = [
+      { label: 'Hut', value: 1.68 },
+      { label: 'Stiel', value: 0.75 }
+    ];
+    const html = renderValue(data, 'alkaloid_content_by_part', singleContext);
+    expect(html).toContain('data-raw-value="');
+    expect(html).toContain('data-morph="bar"');
+  });
+
+  it('should include data-raw-value for radar data', () => {
+    const data = [
+      { axis: 'Psilocybin', value: 95 },
+      { axis: 'Psilocin', value: 35 },
+      { axis: 'Baeocystin', value: 15 }
+    ];
+    const html = renderValue(data, 'alkaloid_profile_radar', singleContext);
+    expect(html).toContain('data-raw-value="');
+    expect(html).toContain('data-morph="radar"');
+  });
+
+  it('should include data-raw-value for range data', () => {
+    const data = { min: 800, max: 3200 };
+    const html = renderValue(data, 'elevation_range', singleContext);
+    expect(html).toContain('data-raw-value="');
+  });
+
+  it('should include data-raw-value for array (tags)', () => {
+    const data = ['essbar', 'häufig', 'Herbst'];
+    const html = renderValue(data, 'tags', singleContext);
+    expect(html).toContain('data-raw-value="');
+  });
+
+  it('should return empty string for null/undefined', () => {
+    expect(renderValue(null, 'field', singleContext)).toBe('');
+    expect(renderValue(undefined, 'field', singleContext)).toBe('');
+    expect(renderValue('', 'field', singleContext)).toBe('');
+  });
+
+  it('should return empty string for empty arrays', () => {
+    expect(renderValue([], 'field', singleContext)).toBe('');
+  });
+});
+
+// detectType tests moved to tests/detection.test.ts

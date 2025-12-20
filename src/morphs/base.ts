@@ -198,13 +198,21 @@ export function wrapInField(
   const extraClass = className ? ` ${className}` : '';
   
   // Store raw value for client-side extraction (used by Compare feature)
+  // Use Base64 encoding to avoid HTML escaping issues with JSON
   let valueAttr = '';
   if (rawValue !== undefined && rawValue !== null) {
     try {
       const jsonStr = JSON.stringify(rawValue);
-      valueAttr = ` data-raw-value="${escapeHtml(jsonStr)}"`;
-    } catch {
-      // Skip if not serializable
+      // Limit size to avoid massive attributes (>10KB)
+      if (jsonStr.length <= 10000) {
+        // Base64 encode for safe transport
+        const base64 = Buffer.from(jsonStr, 'utf-8').toString('base64');
+        valueAttr = ` data-raw-value="${base64}"`;
+      } else {
+        console.log(`[wrapInField] Skipping raw value for ${fieldName}: too large (${jsonStr.length} bytes)`);
+      }
+    } catch (e) {
+      console.warn(`[wrapInField] Failed to serialize raw value for ${fieldName}:`, e);
     }
   }
   

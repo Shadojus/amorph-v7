@@ -1,209 +1,150 @@
 /**
- * AMORPH v7 - Type Detection
+ * AMORPH v7 - Structure-Based Type Detection
  * 
- * Automatische Erkennung des optimalen Morph-Typs aus Datenstruktur.
- * Vereint die besten Aspekte aus v5 und v6.
+ * Erkennt Morph-Typen AUSSCHLIESSLICH basierend auf Datenstruktur.
+ * Keine Feldnamen-Heuristiken - nur die Struktur zählt.
+ * 
+ * Basiert auf den Blueprint-Definitionen in:
+ * config/schema/perspektiven/blueprints/CLAUDE.md
+ * 
+ * ═══════════════════════════════════════════════════════════════════════════════
+ * STRUKTUR-REGELN (aus Blueprints)
+ * ═══════════════════════════════════════════════════════════════════════════════
+ * 
+ * PRIMITIV:
+ *   text      → string (beliebige Länge)
+ *   number    → number
+ *   boolean   → true | false
+ *   tag       → string (≤20 Zeichen)
+ *   image     → string mit Bildendung (.jpg, .png, etc.)
+ *   link      → string mit http(s)://
+ *   date      → string mit ISO-Datum (YYYY-MM-DD)
+ * 
+ * STATUS (Object mit spezifischen Keys):
+ *   badge     → {status: "", variant: ""}
+ *   rating    → {rating: 0, max: 10}
+ *   progress  → {value: 0, max: 100, unit?: "%"}
+ * 
+ * BEREICH (Object mit min/max):
+ *   range     → {min: 0, max: 0, unit?: ""}
+ *   stats     → {min: 0, max: 0, avg: 0, ...}
+ *   gauge     → {value: 0, min: 0, max: 0, zones: [...]}
+ * 
+ * CHARTS (Array mit spezifischer Struktur):
+ *   bar       → [{label: "", value: 0}]
+ *   pie       → [{label: "", value: 0}] (≤6 Elemente)
+ *   radar     → [{axis: "", value: 0}]
+ *   sparkline → [0, 1, 2, ...] (reine Zahlen)
+ * 
+ * TEMPORAL (Array mit Zeit-Keys):
+ *   timeline  → [{date: "", event: "", description?: ""}]
+ *   steps     → [{step: 1, label: "", status: ""}]
+ *   lifecycle → [{phase: "", duration: ""}]
+ *   calendar  → [{month: 1, active: false}]
+ * 
+ * LISTEN:
+ *   list      → ["string", ...] oder [{...}]
+ *   tag       → ["short", "strings"] (alle ≤20 Zeichen)
+ * 
+ * SPEZIAL:
+ *   severity  → [{level: "", typ: "", beschreibung: ""}]
+ *   dosage    → [{amount: 0, unit: "", frequency: "", route: ""}]
+ *   citation  → {authors: "", year: 0, title: "", journal?: "", doi?: ""}
+ *   currency  → {amount: 0, currency: ""}
+ *   map       → {lat: 0, lng: 0}
+ *   object    → Generic fallback für andere Objekte
+ * 
+ * ═══════════════════════════════════════════════════════════════════════════════
  */
 
-import type { MorphType, DetectionConfig } from './types';
+import type { MorphType } from './types';
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// DEFAULT CONFIG
-// ═══════════════════════════════════════════════════════════════════════════════
-
-const DEFAULT_CONFIG: DetectionConfig = {
-  badge: {
-    keywords: [
-      // Status
-      'active', 'inactive', 'yes', 'no', 'online', 'offline',
-      'open', 'closed', 'available', 'unavailable', 'enabled', 'disabled',
-      // Edibility (EN)
-      'edible', 'toxic', 'deadly', 'poisonous', 'choice', 'caution',
-      // Essbarkeit (DE)
-      'essbar', 'giftig', 'tödlich', 'bedingt', 'ungenießbar',
-      // Quality
-      'good', 'bad', 'excellent', 'poor', 'warning', 'danger', 'safe',
-      'pending', 'approved', 'rejected', 'complete', 'incomplete',
-      // Level
-      'high', 'medium', 'low', 'critical', 'normal', 'none'
-    ],
-    maxLength: 25
-  },
-  progress: {
-    min: 0,
-    max: 100,
-    integersOnly: true
-  },
-  rating: {
-    min: 0,
-    max: 10,
-    decimalsRequired: false
-  }
-};
-
-let config: DetectionConfig = DEFAULT_CONFIG;
-
-export function setDetectionConfig(newConfig: Partial<DetectionConfig>): void {
-  config = { ...DEFAULT_CONFIG, ...newConfig };
-}
-
-export function getDetectionConfig(): DetectionConfig {
-  return config;
-}
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// BADGE VARIANTS
-// ═══════════════════════════════════════════════════════════════════════════════
-
-const BADGE_VARIANTS: Record<string, string[]> = {
-  success: [
-    'active', 'yes', 'available', 'enabled', 'online', 'open',
-    'edible', 'safe', 'good', 'choice', 'excellent', 'essbar',
-    'approved', 'complete', 'common'
-  ],
-  danger: [
-    'toxic', 'deadly', 'poisonous', 'danger', 'critical',
-    'giftig', 'tödlich', 'rejected', 'error', 'fatal'
-  ],
-  warning: [
-    'caution', 'warning', 'medium', 'bedingt', 'pending',
-    'ungenießbar', 'partial', 'limited'
-  ],
-  muted: [
-    'inactive', 'no', 'unavailable', 'disabled', 'offline', 'closed',
-    'poor', 'none', 'unknown', 'n/a'
-  ]
-};
-
-export type BadgeVariant = 'success' | 'danger' | 'warning' | 'muted' | 'default';
-
-export function getBadgeVariant(value: string): BadgeVariant {
-  const lower = value.toLowerCase();
-  
-  for (const [variant, keywords] of Object.entries(BADGE_VARIANTS)) {
-    if (keywords.some(kw => lower.includes(kw))) {
-      return variant as BadgeVariant;
-    }
-  }
-  
-  return 'default';
-}
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// MAIN DETECTION
+// MAIN DETECTION FUNCTION
 // ═══════════════════════════════════════════════════════════════════════════════
 
 /**
- * Hauptfunktion: Erkennt Morph-Typ aus Wert und optional Feldname.
+ * Erkennt Morph-Typ NUR aus Datenstruktur.
+ * Feldname wird nur für tie-breaker verwendet, nicht für primäre Detection.
  */
-export function detectType(value: unknown, fieldName?: string): MorphType {
-  // Null/Undefined
-  if (value === null || value === undefined) return 'null';
+export function detectType(value: unknown, _fieldName?: string): MorphType {
+  // Null/Undefined → text (empty)
+  if (value === null || value === undefined) return 'text';
   
-  // Boolean
+  // Boolean → boolean
   if (typeof value === 'boolean') return 'boolean';
   
-  // Number
-  if (typeof value === 'number') {
-    return detectNumberType(value, fieldName);
-  }
+  // Number (plain) → number
+  if (typeof value === 'number') return 'number';
   
-  // String
+  // String → detectStringStructure
   if (typeof value === 'string') {
-    return detectStringType(value, fieldName);
+    return detectStringStructure(value);
   }
   
-  // Array
+  // Array → detectArrayStructure
   if (Array.isArray(value)) {
-    return detectArrayType(value, fieldName);
+    return detectArrayStructure(value);
   }
   
-  // Object
+  // Object → detectObjectStructure
   if (typeof value === 'object') {
-    return detectObjectType(value as Record<string, unknown>, fieldName);
+    return detectObjectStructure(value as Record<string, unknown>);
   }
   
   return 'text';
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// NUMBER DETECTION
-// ═══════════════════════════════════════════════════════════════════════════════
-
-function detectNumberType(value: number, fieldName?: string): MorphType {
-  // Field-based hints
-  if (fieldName) {
-    const lower = fieldName.toLowerCase();
-    if (/rating|bewertung|score|sterne/i.test(lower)) return 'rating';
-    if (/percent|prozent|progress|fortschritt/i.test(lower)) return 'progress';
-    if (/price|preis|cost|kosten|eur|usd|€|\$/i.test(lower)) return 'currency';
-    if (/lat|lng|latitude|longitude/i.test(lower)) return 'map';
-  }
-  
-  // Progress: 0-100 integers
-  if (value >= config.progress.min && value <= config.progress.max) {
-    if (!config.progress.integersOnly || Number.isInteger(value)) {
-      return 'progress';
-    }
-  }
-  
-  // Rating: 0-10
-  if (value >= config.rating.min && value <= config.rating.max) {
-    return 'rating';
-  }
-  
-  return 'number';
-}
-
-// ═══════════════════════════════════════════════════════════════════════════════
 // STRING DETECTION
 // ═══════════════════════════════════════════════════════════════════════════════
 
-function detectStringType(value: string, fieldName?: string): MorphType {
+function detectStringStructure(value: string): MorphType {
+  if (!value || value.length === 0) return 'text';
+  
   const trimmed = value.trim();
-  if (!trimmed) return 'null';
   
-  // URL patterns
-  if (/^https?:\/\//i.test(trimmed)) {
-    // Image URLs
-    if (/\.(jpg|jpeg|png|gif|webp|svg|avif)(\?|$)/i.test(trimmed)) {
-      return 'image';
-    }
-    return 'link';
-  }
-  
-  // Relative image paths
-  if (/\.(jpg|jpeg|png|gif|webp|svg|avif)$/i.test(trimmed)) {
+  // ─────────────────────────────────────────────────────────────────────────────
+  // IMAGE: URLs/paths ending with image extensions
+  // ─────────────────────────────────────────────────────────────────────────────
+  if (/\.(jpg|jpeg|png|gif|webp|svg|avif|bmp|ico)(\?.*)?$/i.test(trimmed)) {
     return 'image';
   }
   
-  // Date patterns
-  if (/^\d{4}-\d{2}-\d{2}/.test(trimmed) || /^\d{2}\.\d{2}\.\d{4}/.test(trimmed)) {
+  // IMAGE: URL with /images/ or /img/ path
+  if (/\/images?\/|\/img\//i.test(trimmed)) {
+    return 'image';
+  }
+  
+  // ─────────────────────────────────────────────────────────────────────────────
+  // LINK: Full URLs (http/https)
+  // ─────────────────────────────────────────────────────────────────────────────
+  if (/^https?:\/\//i.test(trimmed)) {
+    return 'link';
+  }
+  
+  // ─────────────────────────────────────────────────────────────────────────────
+  // DATE: ISO date format
+  // ─────────────────────────────────────────────────────────────────────────────
+  if (/^\d{4}-\d{2}-\d{2}(T\d{2}:\d{2}:\d{2})?/.test(trimmed)) {
     return 'date';
   }
   
-  // Field-based hints
-  if (fieldName) {
-    const lower = fieldName.toLowerCase();
-    if (/bild|image|foto|photo|avatar|thumbnail/i.test(lower)) return 'image';
-    if (/link|url|href|website/i.test(lower)) return 'link';
-    if (/datum|date|zeit|time|created|updated/i.test(lower)) return 'date';
-    if (/tags?|kategorie|category|label/i.test(lower)) return 'tag';
+  // DATE: German format (DD.MM.YYYY)
+  if (/^\d{1,2}\.\s?\w+\.?\s?\d{4}$/.test(trimmed) || /^\d{2}\.\d{2}\.\d{4}$/.test(trimmed)) {
+    return 'date';
   }
   
-  // Badge detection by keywords
-  const lower = trimmed.toLowerCase();
-  if (trimmed.length <= config.badge.maxLength) {
-    if (config.badge.keywords.some(kw => lower.includes(kw))) {
-      return 'badge';
-    }
-  }
-  
-  // Short strings as tags
-  if (trimmed.length <= 20 && !trimmed.includes(' ')) {
+  // ─────────────────────────────────────────────────────────────────────────────
+  // TAG: Short strings (≤20 chars, no newlines)
+  // ─────────────────────────────────────────────────────────────────────────────
+  if (trimmed.length <= 20 && !trimmed.includes('\n')) {
     return 'tag';
   }
   
+  // ─────────────────────────────────────────────────────────────────────────────
+  // TEXT: Default for longer strings
+  // ─────────────────────────────────────────────────────────────────────────────
   return 'text';
 }
 
@@ -211,71 +152,103 @@ function detectStringType(value: string, fieldName?: string): MorphType {
 // ARRAY DETECTION
 // ═══════════════════════════════════════════════════════════════════════════════
 
-function detectArrayType(value: unknown[], fieldName?: string): MorphType {
-  if (value.length === 0) return 'list';
+function detectArrayStructure(arr: unknown[]): MorphType {
+  if (arr.length === 0) return 'list';
   
-  const first = value[0];
+  const first = arr[0];
   
-  // Array of strings → list or tags
-  if (typeof first === 'string') {
-    // All short strings → tags
-    if (value.every(v => typeof v === 'string' && (v as string).length <= 20)) {
+  // ─────────────────────────────────────────────────────────────────────────────
+  // SPARKLINE: Array of numbers [0, 1, 2, ...]
+  // ─────────────────────────────────────────────────────────────────────────────
+  if (arr.every(item => typeof item === 'number')) {
+    return 'sparkline';
+  }
+  
+  // ─────────────────────────────────────────────────────────────────────────────
+  // TAG or LIST: Array of strings
+  // ─────────────────────────────────────────────────────────────────────────────
+  if (arr.every(item => typeof item === 'string')) {
+    // All short strings → tag
+    if (arr.every(item => (item as string).length <= 20)) {
       return 'tag';
     }
     return 'list';
   }
   
-  // Array of numbers → sparkline
-  if (typeof first === 'number') {
-    return 'sparkline';
-  }
-  
-  // Array of objects → detect chart type
+  // ─────────────────────────────────────────────────────────────────────────────
+  // OBJECT ARRAYS: Check structure of first element
+  // ─────────────────────────────────────────────────────────────────────────────
   if (typeof first === 'object' && first !== null) {
     const obj = first as Record<string, unknown>;
-    const keys = Object.keys(obj);
     
-    // Timeline: has date/time field
-    if (keys.some(k => /date|datum|zeit|time|year|jahr/i.test(k))) {
-      return 'timeline';
-    }
-    
-    // RADAR: has axis + value (common for radar chart data)
-    if (keys.includes('axis') && keys.includes('value')) {
+    // RADAR: [{axis: "", value: 0}]
+    if (hasExactKeys(obj, ['axis', 'value'])) {
       return 'radar';
     }
     
-    // Field-name hint for radar (more specific)
-    if (fieldName && /radar|_radar|profile_radar|spider/i.test(fieldName)) {
-      return 'radar';
-    }
-    
-    // Bar chart: has label + value
-    if (keys.includes('label') && keys.includes('value')) {
+    // BAR/PIE: [{label: "", value: 0}]
+    if (hasKeys(obj, ['label', 'value'])) {
+      // PIE: ≤6 elements
+      if (arr.length <= 6) {
+        return 'bar'; // Could be pie, but bar is safer default
+      }
       return 'bar';
     }
     
-    // Pie chart: has name/label + value + small array
-    if (value.length <= 8 && keys.includes('value')) {
-      return 'pie';
+    // ─────────────────────────────────────────────────────────────────────────
+    // TEMPORAL TYPES
+    // ─────────────────────────────────────────────────────────────────────────
+    
+    // TIMELINE: [{date: "", event: ""}]
+    if (hasKeys(obj, ['date', 'event'])) {
+      return 'timeline';
     }
     
-    // Steps: has step/phase + status
-    if (keys.some(k => /step|schritt|phase/i.test(k))) {
-      return 'steps';
+    // STEPS: [{step: 1, label: "", status: ""}]
+    if (hasKeys(obj, ['step', 'label'])) {
+      return 'timeline';
     }
     
-    // Lifecycle: has phase + duration
-    if (keys.includes('phase') || keys.includes('duration')) {
-      return 'lifecycle';
+    // LIFECYCLE: [{phase: "", duration: ""}]
+    if (hasKeys(obj, ['phase', 'duration'])) {
+      return 'timeline';
     }
     
-    // Network: has connections/relations
-    if (keys.some(k => /from|to|source|target|connection/i.test(k))) {
-      return 'network';
+    // CALENDAR: [{month: 1, active: false}]
+    if (hasKeys(obj, ['month', 'active'])) {
+      return 'timeline';
     }
     
-    // Default: object list
+    // ─────────────────────────────────────────────────────────────────────────
+    // SPECIAL LIST TYPES
+    // ─────────────────────────────────────────────────────────────────────────
+    
+    // SEVERITY: [{level: "", typ: "", beschreibung: ""}]
+    if (hasKeys(obj, ['level', 'typ']) || hasKeys(obj, ['level', 'type'])) {
+      return 'list';
+    }
+    
+    // DOSAGE: [{amount: 0, unit: "", frequency: ""}]
+    if (hasKeys(obj, ['amount', 'unit', 'frequency'])) {
+      return 'list';
+    }
+    
+    // NETWORK: [{name: "", type: "", intensity: 0}]
+    if (hasKeys(obj, ['name', 'type', 'intensity'])) {
+      return 'list';
+    }
+    
+    // FLOW: [{from: "", to: "", value: 0}]
+    if (hasKeys(obj, ['from', 'to'])) {
+      return 'list';
+    }
+    
+    // HIERARCHY: [{level: "", name: ""}]
+    if (hasKeys(obj, ['level', 'name'])) {
+      return 'list';
+    }
+    
+    // Default: generic list
     return 'list';
   }
   
@@ -286,86 +259,170 @@ function detectArrayType(value: unknown[], fieldName?: string): MorphType {
 // OBJECT DETECTION
 // ═══════════════════════════════════════════════════════════════════════════════
 
-function detectObjectType(value: Record<string, unknown>, fieldName?: string): MorphType {
-  const keys = Object.keys(value);
+function detectObjectStructure(obj: Record<string, unknown>): MorphType {
+  const keys = Object.keys(obj);
+  
   if (keys.length === 0) return 'object';
   
-  // Range: has min + max
-  if ('min' in value && 'max' in value) {
-    // Stats: has avg
-    if ('avg' in value || 'average' in value || 'mean' in value) {
-      return 'stats';
-    }
-    return 'range';
+  // ─────────────────────────────────────────────────────────────────────────────
+  // BADGE: {status: "", variant: ""}
+  // ─────────────────────────────────────────────────────────────────────────────
+  if (hasKeys(obj, ['status', 'variant'])) {
+    return 'badge';
   }
   
-  // Map: has lat + lng
-  if (('lat' in value && 'lng' in value) || ('latitude' in value && 'longitude' in value)) {
-    return 'map';
-  }
-  
-  // Rating object: has rating + max
-  if ('rating' in value || 'score' in value) {
+  // ─────────────────────────────────────────────────────────────────────────────
+  // RATING: {rating: 0, max: 10}
+  // ─────────────────────────────────────────────────────────────────────────────
+  if (hasKeys(obj, ['rating', 'max']) || hasKeys(obj, ['rating'])) {
     return 'rating';
   }
   
-  // Gauge: has value + zones/thresholds
-  if ('value' in value && ('zones' in value || 'thresholds' in value)) {
-    return 'gauge';
-  }
-  
-  // Citation: has authors + year
-  if ('authors' in value || 'autor' in value) {
-    return 'citation';
-  }
-  
-  // Currency: has amount + currency
-  if ('amount' in value && 'currency' in value) {
-    return 'currency';
-  }
-  
-  // Dosage: has dose/amount + unit
-  if (('dose' in value || 'amount' in value) && 'unit' in value) {
-    return 'dosage';
-  }
-  
-  // Hierarchy: has children or parent
-  if ('children' in value || 'parent' in value) {
-    // Treemap: numerical values
-    if ('value' in value) {
-      return 'treemap';
+  // ─────────────────────────────────────────────────────────────────────────────
+  // PROGRESS/GAUGE: {value: 0, max: 100, ...}
+  // ─────────────────────────────────────────────────────────────────────────────
+  if (hasKeys(obj, ['value', 'max'])) {
+    // GAUGE: has zones
+    if (hasKey(obj, 'zones') && Array.isArray(obj.zones)) {
+      return 'progress'; // Gauge rendered as enhanced progress
     }
-    // Sunburst: nested children
-    if (Array.isArray(value.children) && value.children.length > 0) {
-      const child = value.children[0];
-      if (typeof child === 'object' && 'children' in (child as object)) {
-        return 'sunburst';
-      }
-    }
-    return 'hierarchy';
+    return 'progress';
   }
   
-  // Boxplot: has q1, median, q3
-  if ('q1' in value && 'median' in value && 'q3' in value) {
-    return 'boxplot';
+  // ─────────────────────────────────────────────────────────────────────────────
+  // STATS: {min: 0, max: 0, avg: 0, ...}
+  // ─────────────────────────────────────────────────────────────────────────────
+  if (hasKeys(obj, ['min', 'max', 'avg']) || hasKeys(obj, ['total', 'count', 'avg'])) {
+    return 'stats';
   }
   
-  // Radar: 3+ numeric fields → radar chart
-  const numericKeys = keys.filter(k => typeof value[k] === 'number');
+  // ─────────────────────────────────────────────────────────────────────────────
+  // RANGE: {min: 0, max: 0, unit?: ""}
+  // ─────────────────────────────────────────────────────────────────────────────
+  if (hasKeys(obj, ['min', 'max'])) {
+    return 'range';
+  }
+  
+  // RANGE: German variant {von: 0, bis: 0}
+  if (hasKeys(obj, ['von', 'bis'])) {
+    return 'range';
+  }
+  
+  // ─────────────────────────────────────────────────────────────────────────────
+  // MAP: {lat: 0, lng: 0} or {latitude: 0, longitude: 0}
+  // ─────────────────────────────────────────────────────────────────────────────
+  if (hasKeys(obj, ['lat', 'lng']) || hasKeys(obj, ['latitude', 'longitude'])) {
+    return 'object'; // map morph not implemented
+  }
+  
+  // ─────────────────────────────────────────────────────────────────────────────
+  // CITATION: {authors: "", year: 0, title: ""}
+  // ─────────────────────────────────────────────────────────────────────────────
+  if (hasKeys(obj, ['authors', 'year', 'title']) || hasKeys(obj, ['autor', 'jahr', 'titel'])) {
+    return 'object';
+  }
+  
+  // ─────────────────────────────────────────────────────────────────────────────
+  // CURRENCY: {amount: 0, currency: ""}
+  // ─────────────────────────────────────────────────────────────────────────────
+  if (hasKeys(obj, ['amount', 'currency'])) {
+    return 'number'; // Currency rendered as enhanced number
+  }
+  
+  // ─────────────────────────────────────────────────────────────────────────────
+  // RADAR from Object: 3+ numeric keys
+  // ─────────────────────────────────────────────────────────────────────────────
+  const numericKeys = keys.filter(k => typeof obj[k] === 'number');
   if (numericKeys.length >= 3) {
     return 'radar';
   }
   
+  // ─────────────────────────────────────────────────────────────────────────────
+  // DEFAULT: object
+  // ─────────────────────────────────────────────────────────────────────────────
   return 'object';
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// EXPORT ALL
+// HELPER FUNCTIONS
 // ═══════════════════════════════════════════════════════════════════════════════
 
-export {
-  detectNumberType,
-  detectStringType,
-  detectArrayType,
-  detectObjectType
+/**
+ * Check if object has a specific key
+ */
+function hasKey(obj: Record<string, unknown>, key: string): boolean {
+  return key in obj;
+}
+
+/**
+ * Check if object has ALL specified keys
+ */
+function hasKeys(obj: Record<string, unknown>, requiredKeys: string[]): boolean {
+  return requiredKeys.every(key => key in obj);
+}
+
+/**
+ * Check if object has EXACTLY these keys (no more, no less)
+ */
+function hasExactKeys(obj: Record<string, unknown>, exactKeys: string[]): boolean {
+  const keys = Object.keys(obj);
+  if (keys.length !== exactKeys.length) return false;
+  return exactKeys.every(key => key in obj);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// BADGE VARIANTS (for rendering)
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const BADGE_VARIANTS: Record<string, string[]> = {
+  success: [
+    'active', 'yes', 'available', 'enabled', 'online', 'open',
+    'edible', 'safe', 'good', 'choice', 'excellent', 'essbar',
+    'approved', 'complete', 'common', 'least_concern', 'lc'
+  ],
+  danger: [
+    'toxic', 'deadly', 'poisonous', 'danger', 'critical',
+    'giftig', 'tödlich', 'rejected', 'error', 'fatal',
+    'extinct', 'critically_endangered', 'ce', 'ex'
+  ],
+  warning: [
+    'caution', 'warning', 'medium', 'bedingt', 'pending',
+    'ungenießbar', 'partial', 'limited', 'endangered',
+    'vulnerable', 'near_threatened', 'en', 'vu', 'nt'
+  ],
+  muted: [
+    'inactive', 'no', 'unavailable', 'disabled', 'offline', 'closed',
+    'poor', 'none', 'unknown', 'n/a', 'data_deficient', 'not_evaluated', 'dd', 'ne'
+  ]
 };
+
+export type BadgeVariant = 'success' | 'danger' | 'warning' | 'muted' | 'default';
+
+/**
+ * Get badge variant from status string
+ * Short keywords (≤2 chars) require exact match to avoid false positives
+ */
+export function getBadgeVariant(value: string): BadgeVariant {
+  const lower = value.toLowerCase().replace(/[\s_-]/g, '_');
+  
+  for (const [variant, keywords] of Object.entries(BADGE_VARIANTS)) {
+    if (keywords.some(kw => {
+      // Short keywords need exact match (e.g., 'en', 'nt' should not match 'data_deficient')
+      if (kw.length <= 2) {
+        return lower === kw;
+      }
+      // Longer keywords can be substring match
+      return lower.includes(kw) || lower === kw;
+    })) {
+      return variant as BadgeVariant;
+    }
+  }
+  
+  return 'default';
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// EXPORTS
+// ═══════════════════════════════════════════════════════════════════════════════
+
+export { detectType as default };

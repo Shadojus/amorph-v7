@@ -124,11 +124,22 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
     
     for (const field of fieldValues) {
       const color = itemColors.get(field.itemSlug) || '#fff';
+      
+      // Debug: Log what we're rendering
+      console.log(`[Compare] Rendering field: ${fieldName}`, {
+        itemSlug: field.itemSlug,
+        valueType: typeof field.value,
+        valuePreview: JSON.stringify(field.value)?.slice(0, 100)
+      });
+      
       const renderedValue = renderValue(field.value, field.fieldName, { ...compareContext, mode: 'single', itemCount: 1 });
+      
+      // Show placeholder if no value
+      const displayValue = renderedValue || `<span class="no-value">–</span>`;
       
       html += `<div class="field-value-item" style="--item-color: ${color}">
         <span class="item-label">${escapeHtml(field.itemName)}</span>
-        <div class="value-content">${renderedValue}</div>
+        <div class="value-content">${displayValue}</div>
       </div>`;
     }
     
