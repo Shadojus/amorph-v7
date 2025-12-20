@@ -156,15 +156,28 @@ export function createUnifiedMorph(
     if (isCompareMode(context) && context.items && context.fieldName) {
       const fieldValues = extractFieldValues(context.items, context.fieldName);
       
-      // Wenn Custom Compare-Renderer existiert, nutze ihn
-      if (renderCompare) {
-        return renderCompare(fieldValues, context);
+      // Filter out items without values for this field
+      const validValues = fieldValues.filter(fv => fv.value !== undefined && fv.value !== null);
+      
+      // Wenn Custom Compare-Renderer existiert UND mindestens 2 Items mit Werten, nutze ihn
+      if (renderCompare && validValues.length >= 2) {
+        return renderCompare(validValues, context);
       }
       
-      // Fallback: Side-by-Side Single Renders
+      // Wenn nur 1 Item den Wert hat, render single
+      if (validValues.length === 1) {
+        return renderSingle(validValues[0].value, { ...context, itemCount: 1 });
+      }
+      
+      // Wenn kein Wert, return leer
+      if (validValues.length === 0) {
+        return '';
+      }
+      
+      // Fallback: Side-by-Side Single Renders (wenn kein renderCompare)
       return `
         <div class="morph-compare morph-compare-${name}">
-          ${fieldValues.map(({ item, value: val, color }) => `
+          ${validValues.map(({ item, value: val, color }) => `
             <div class="compare-cell" style="--item-color: ${color}">
               ${renderSingle(val, { ...context, itemCount: 1 })}
             </div>

@@ -120,19 +120,14 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
   }
   html += '</div>';
   
-  // Add each field row - NOW with proper Compare rendering!
+  // Add each field row with proper Compare rendering
   for (const [fieldName, fieldValues] of grouped) {
-    console.log(`[Compare] Field ${fieldName}: ${fieldValues.length} values from items:`, 
-      fieldValues.map(f => f.itemName));
-    
     html += `<div class="compare-field-row">`;
     html += `<div class="field-name">${escapeHtml(fieldName)}</div>`;
     html += `<div class="field-values">`;
     
-    // Check if we have multiple items for this field - use overlay Compare mode
+    // Multiple items for this field - use overlay Compare mode
     if (fieldValues.length > 1) {
-      console.log(`[Compare] OVERLAY mode for ${fieldName}:`, fieldValues.length, 'items');
-      
       // Build items with field values for Compare context
       const compareItems = fieldValues.map(field => ({
         id: field.itemSlug,
@@ -141,9 +136,6 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
         color: itemColors.get(field.itemSlug) || '#fff',
         [fieldName]: field.value
       }));
-      
-      console.log(`[Compare] compareItems for ${fieldName}:`, 
-        compareItems.map(i => ({ name: i.name, hasValue: !!i[fieldName] })));
       
       // Build compare context
       const compareContext: RenderContext = {
@@ -178,23 +170,11 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
   
   html += '</div>';
   
-  // Debug: Log field grouping
-  const debugInfo = {
-    totalFields: fields.length,
-    groupedFields: [...grouped.entries()].map(([name, vals]) => ({
-      fieldName: name,
-      itemCount: vals.length,
-      items: vals.map(v => v.itemName)
-    }))
-  };
-  console.log('[Compare] Field grouping:', JSON.stringify(debugInfo, null, 2));
-  
   const response = new Response(JSON.stringify({
     html,
     itemCount: uniqueItems.length,
     fieldCount: grouped.size,
-    mode: 'fields',
-    _debug: debugInfo  // Include in response for client-side debugging
+    mode: 'fields'
   }), {
     headers: { 'Content-Type': 'application/json' }
   });
