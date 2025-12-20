@@ -1,0 +1,818 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: CONSERVATION
+# Species protection, habitat preservation, and sustainability
+# Version: 1.0.0 | Universal for all biological species
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# TARGET AUDIENCE:
+# - Conservation biologists
+# - Environmental agencies
+# - Nature reserve managers
+# - Policy makers
+# - NGOs & environmental organizations
+# - Ecological researchers
+# - Citizen scientists
+#
+# DESIGN PHILOSOPHY:
+# Documents conservation status, threats, and protection measures
+# for biological species across all kingdoms.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: conservation
+name: Conservation
+symbol: 🌿
+
+# Forest green - distinct conservation pastels
+colors:
+  - "rgba(120, 180, 140, 0.75)"
+  - "rgba(110, 170, 130, 0.70)"
+  - "rgba(100, 160, 120, 0.65)"
+  - "rgba(90, 150, 110, 0.60)"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FIELDS - Ordered by conservation workflow
+# ═══════════════════════════════════════════════════════════════════════════════
+
+fields:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CONSERVATION STATUS
+  # "How endangered is it?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - conservation_status         
+  - iucn_status                 
+  - national_status             
+  - regional_status             
+  - trend                       
+  - population_estimate         
+  - assessment_date             
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # LEGAL PROTECTION
+  # "What legal protections exist?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - legal_protection            
+  - protected_status            
+  
+  # CITES - Convention on International Trade in Endangered Species
+  # 40,900+ species regulated, 25+ million transaction records since 1975
+  - cites_listing                        # Appendix I, II, III, or not listed
+  - cites_appendix                       # Specific appendix number
+  - cites_annotation                     # Specific trade restrictions
+  - cites_quota                          # Annual export quota if applicable
+  - cites_source_code                    # W=wild, C=captive-bred, A=artificially propagated
+  - cites_purpose_code                   # T=commercial, S=scientific, etc.
+  - cites_reservation                    # Countries with reservations
+  - cites_review_status                  # Under review, recommended for listing
+  
+  # IUCN Assessment Criteria (Version 3.1)
+  - iucn_criteria_met                    # A1, B1, C1, D, E criteria codes
+  - iucn_criterion_a_decline             # Population reduction percentage
+  - iucn_criterion_b_eoo                 # Extent of Occurrence (km²)
+  - iucn_criterion_b_aoo                 # Area of Occupancy (km²)
+  - iucn_criterion_c_population          # Estimated mature individuals
+  - iucn_criterion_d_restricted          # Very small or restricted population
+  - iucn_criterion_e_probability         # Extinction probability (PVA)
+  - iucn_generation_length_years         # Generation length for criterion A
+  - iucn_assessment_authority            # Assessor organization
+  
+  - national_legislation        
+  - international_agreements    
+  - collection_restrictions     
+  - trade_restrictions      
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # EX-SITU CONSERVATION - Kingdom-specific repositories
+  # ─────────────────────────────────────────────────────────────────────────────
+  # Animalia (ZIMS: 10+ million individuals)
+  - zims_accession_id                   # ZIMS Species360 ID
+  - zims_global_population              # Captive population worldwide
+  - zims_studbook_exists                # Managed studbook program
+  - zims_breeding_recommendation        # SSP/EEP recommendation
+  
+  # Plantae (GENESYS: 4+ million accessions)
+  - genesys_accession_id                # GENESYS plant genetic resource ID
+  - genesys_holding_institutions        # Genebanks holding accessions
+  - genesys_mcpd_passport               # Multi-Crop Passport Descriptor
+  - genesys_mls_status                  # Multilateral System inclusion
+  - bgci_garden_count                   # Botanic gardens holding species
+  
+  # Fungi/Bacteria (WDCM: 3+ million strains)
+  - wdcm_strain_count                   # Strains in culture collections
+  - wdcm_collection_ids                 # Holding culture collection codes
+  - wdcm_preservation_method            # Lyophilization/Cryopreservation/etc
+  - wdcm_biosafety_level                # BSL-1/2/3/4
+  - strain_type_status                  # Type strain designation
+  
+  # Cryo/DNA banking
+  - frozen_zoo_status                   # Cryopreserved genetic material
+  - dna_bank_accession                  # DNA bank specimen ID
+  - seed_bank_accession                 # Seed vault accession (Svalbard, etc.)
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # THREATS
+  # "What endangers this species?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - threats                     
+  - habitat_loss                
+  - climate_change_impact       
+  - pollution_impact            
+  - overexploitation            
+  - invasive_species            
+  - disease_pressure            
+  - threat_severity             
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # HABITAT REQUIREMENTS
+  # "What habitat does it need?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - habitat_requirements        
+  - critical_habitat            
+  - habitat_quality             
+  - habitat_fragmentation       
+  - connectivity_needs          
+  - microhabitat_requirements   
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DISTRIBUTION
+  # "Where does it occur?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - distribution                
+  - range_map                   
+  - historical_range            
+  - current_range               
+  - range_change                
+  - key_populations             
+  - protected_area_coverage     
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CONSERVATION ACTIONS
+  # "What is being done?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - conservation_actions        
+  - habitat_management          
+  - population_management       
+  - ex_situ_conservation        
+  - reintroduction_programs     
+  - monitoring_programs         
+  - research_priorities         
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ECOSYSTEM ROLE
+  # "Why is conservation important?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - ecosystem_role              
+  - ecological_importance       
+  - keystone_status             
+  - indicator_species           
+  - ecosystem_services          
+  - trophic_importance          
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SUSTAINABLE USE
+  # "How can it be used sustainably?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - sustainable_use             
+  - harvesting_guidelines       
+  - sustainable_harvest_level   
+  - certification_schemes       
+  - community_management        
+  - traditional_management      
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENUMERATIONS - Controlled vocabularies
+# ═══════════════════════════════════════════════════════════════════════════════
+
+enumerations:
+  iucn_status:
+    - EX      # Extinct
+    - EW      # Extinct in the Wild
+    - CR      # Critically Endangered
+    - EN      # Endangered
+    - VU      # Vulnerable
+    - NT      # Near Threatened
+    - LC      # Least Concern
+    - DD      # Data Deficient
+    - NE      # Not Evaluated
+
+  # CITES Appendix - International trade regulation
+  cites_appendix:
+    - I       # Threatened with extinction, trade prohibited
+    - II      # May become threatened, regulated trade
+    - III     # Protected in at least one country
+    - not_listed
+    - under_review
+
+  # CITES Source codes
+  cites_source:
+    - W       # Wild
+    - R       # Ranched
+    - D       # Captive-bred Appendix I
+    - A       # Artificially propagated plants
+    - C       # Captive-bred
+    - F       # F1 generation
+    - U       # Unknown
+    - I       # Confiscated/Seized
+    - O       # Pre-Convention
+
+  # CITES Purpose codes
+  cites_purpose:
+    - T       # Commercial
+    - Z       # Zoo
+    - G       # Botanical garden
+    - Q       # Circus/Exhibition
+    - S       # Scientific
+    - H       # Hunting trophy
+    - P       # Personal
+    - M       # Medical
+    - E       # Educational
+    - N       # Reintroduction
+    - B       # Breeding
+    - L       # Law enforcement
+
+  # IUCN Criteria codes
+  iucn_criteria:
+    - A1      # Population reduction observed/estimated
+    - A2      # Population reduction inferred/suspected
+    - A3      # Population reduction projected
+    - A4      # Population reduction observed/projected
+    - B1      # Extent of occurrence <threshold
+    - B2      # Area of occupancy <threshold
+    - C1      # Continuing decline
+    - C2      # Extreme fluctuations
+    - D       # Very small/restricted population
+    - D1      # Population size <threshold
+    - D2      # Restricted AOO or locations
+    - E       # Quantitative analysis (PVA)
+
+  threat_type:
+    - habitat_loss
+    - overexploitation
+    - pollution
+    - climate_change
+    - invasive_species
+    - disease
+    - human_disturbance
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ADDITIONAL FIELDS - Conservation Details
+# ═══════════════════════════════════════════════════════════════════════════════
+
+additional_fields:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SCHUTZPRIORITÄT & DRINGLICHKEIT
+  # ─────────────────────────────────────────────────────────────────────────────
+  - conservation_priority_score          # Schutzprioritäts-Score (0-100)
+  - conservation_priority_rank           # Globaler Prioritätsrang
+  - edge_score                           # EDGE-Score (Evolutionär Distinkt, Global Gefährdet)
+  - action_urgency                       # Handlungsdringlichkeit
+  - time_to_extinction_estimate          # Geschätzte Zeit bis Aussterben
+  - conservation_attention_needed        # underprotected/adequate/flagship
+  - funding_gap_estimated                # Geschätzte Finanzierungslücke
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # BEDROHUNGSANALYSE (detailliert)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - threat_severity_scores               # Bedrohungs-Schweregrade
+  - threat_habitat_loss_score            # Habitatverlust (0-100)
+  - threat_overexploitation_score        # Übernutzung
+  - threat_invasives_score               # Invasive Arten
+  - threat_pollution_score               # Verschmutzung
+  - threat_climate_score                 # Klimawandel
+  - threat_disease_score                 # Krankheiten
+  - threat_trends                        # Bedrohungs-Trends
+  - emerging_threats                     # Neue/aufkommende Bedrohungen
+  - threat_interactions                  # Wechselwirkungen zwischen Bedrohungen
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SCHUTZGEBIETE & EFFEKTIVITÄT
+  # ─────────────────────────────────────────────────────────────────────────────
+  - protected_area_coverage_percent      # % in Schutzgebieten
+  - protected_area_adequacy              # Reichen Schutzgebiete aus?
+  - protected_areas_list                 # Liste relevanter Schutzgebiete
+  - protection_gaps_geographic           # Geografische Schutzlücken
+  - iucn_category_needed                 # Benötigte IUCN-Kategorie
+  - connectivity_between_areas           # Verbundenheit der Gebiete
+  - management_effectiveness             # Management-Effektivität (METT-Score)
+  - enforcement_quality                  # Durchsetzungsqualität
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # AKTIVE SCHUTZMASSNAHMEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - conservation_programs_active         # Aktive Schutzprogramme
+  - conservation_program_success_rate    # Erfolgsrate Programme
+  - conservation_actions_recommended     # Empfohlene Schutzmaßnahmen
+  - conservation_actions_priority        # Priorisierte Maßnahmen
+  - habitat_restoration_feasibility      # Machbarkeit Habitat-Restaurierung
+  - habitat_restoration_cost_ha          # Kosten Restaurierung pro ha
+  - reintroduction_attempts              # Wiederansiedlungsversuche
+  - reintroduction_success_rate          # Erfolgsrate Wiederansiedlung
+  - reintroduction_sites_potential       # Potentielle Wiederansiedlungsorte
+  - captive_breeding_program             # Zuchtprogramm vorhanden
+  - captive_breeding_success             # Erfolg Zuchtprogramm
+  - genetic_management_needed            # Genetisches Management nötig
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # MONITORING & ASSESSMENT
+  # ─────────────────────────────────────────────────────────────────────────────
+  - monitoring_protocol_exists           # Monitoring-Protokoll vorhanden
+  - monitoring_frequency                 # Monitoring-Frequenz
+  - population_trend_data_quality        # Datenqualität Populationstrend
+  - last_assessment_date                 # Letztes Assessment-Datum
+  - next_assessment_due                  # Nächstes Assessment fällig
+  - monitoring_gaps                      # Monitoring-Lücken
+  - research_priorities_conservation     # Forschungsprioritäten
+  - knowledge_gaps_critical              # Kritische Wissenslücken
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CITIZEN SCIENCE & ENGAGEMENT
+  # ─────────────────────────────────────────────────────────────────────────────
+  - citizen_science_projects             # Citizen Science Projekte
+  - citizen_science_contribution_value   # Wert CS-Beitrag
+  - how_public_can_help                  # Wie Öffentlichkeit helfen kann
+  - volunteer_opportunities              # Freiwilligen-Möglichkeiten
+  - reporting_sightings_where            # Wo Sichtungen melden
+  - education_programs_available         # Verfügbare Bildungsprogramme
+  - adopt_a_species_program              # Adoptions-Programm
+  - donation_impact_description          # Wie Spenden helfen
+  - conservation_organizations_active    # Aktive Schutzorganisationen
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # RECHTLICHE ASPEKTE FÜR LANDBESITZER
+  # ─────────────────────────────────────────────────────────────────────────────
+  - landowner_obligations                # Pflichten für Landbesitzer
+  - landowner_incentives                 # Anreize für Landbesitzer
+  - conservation_easement_value          # Wert Naturschutz-Dienstbarkeit
+  - stewardship_programs_available       # Verfügbare Stewardship-Programme
+  - compensation_schemes                 # Kompensations-Programme
+  - habitat_management_guidelines        # Habitatmanagement-Richtlinien
+  - best_practices_landowners            # Best Practices für Landbesitzer
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KEYWORDS - For semantic search (multilingual)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+keywords:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CONSERVATION STATUS (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - conservation
+  - endangered
+  - threatened
+  - vulnerable
+  - rare
+  - protected
+  - extinct
+  - critically endangered
+  - near threatened
+  - least concern
+  - data deficient
+  # German
+  - artenschutz
+  - gefährdet
+  - bedroht
+  - selten
+  - geschützt
+  - ausgestorben
+  - vom aussterben bedroht
+  # French
+  - menacé
+  - vulnérable
+  - rare
+  - protégé
+  - éteint
+  - en danger critique
+  # Spanish
+  - conservación
+  - en peligro
+  - amenazado
+  - vulnerable
+  - raro
+  - protegido
+  - extinto
+  # Italian
+  - conservazione
+  - in pericolo
+  - minacciato
+  - vulnerabile
+  - raro
+  - protetto
+  - estinto
+  # Japanese
+  - 保全
+  - 絶滅危惧
+  - 希少
+  - 保護
+  - 絶滅
+  - 危急
+  # Chinese
+  - 保护
+  - 濒危
+  - 受威胁
+  - 稀有
+  - 灭绝
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # LEGAL PROTECTION (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - legal protection
+  - cites
+  - red list
+  - iucn
+  - legislation
+  - regulation
+  - law
+  - policy
+  - international agreement
+  - convention
+  # German
+  - gesetzlicher schutz
+  - rote liste
+  - gesetzgebung
+  - verordnung
+  - gesetz
+  - internationales abkommen
+  - konvention
+  # French
+  - protection légale
+  - liste rouge
+  - législation
+  - réglementation
+  - loi
+  - accord international
+  # Spanish
+  - protección legal
+  - lista roja
+  - legislación
+  - regulación
+  - ley
+  - acuerdo internacional
+  # Italian
+  - protezione legale
+  - lista rossa
+  - legislazione
+  - regolamento
+  - legge
+  - accordo internazionale
+  # Japanese
+  - 法的保護
+  - レッドリスト
+  - 法律
+  - 規制
+  - 国際協定
+  # Chinese
+  - 法律保护
+  - 红色名录
+  - 立法
+  - 法规
+  - 法律
+  - 国际协议
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # THREATS (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - threat
+  - habitat loss
+  - habitat destruction
+  - deforestation
+  - climate change
+  - pollution
+  - overexploitation
+  - overharvesting
+  - invasive species
+  - disease
+  - fragmentation
+  # German
+  - bedrohung
+  - lebensraumverlust
+  - lebensraumzerstörung
+  - abholzung
+  - klimawandel
+  - verschmutzung
+  - übernutzung
+  - invasive arten
+  - krankheit
+  - fragmentierung
+  # French
+  - menace
+  - perte d'habitat
+  - destruction d'habitat
+  - déforestation
+  - changement climatique
+  - pollution
+  - surexploitation
+  - espèces invasives
+  - maladie
+  - fragmentation
+  # Spanish
+  - amenaza
+  - pérdida de hábitat
+  - destrucción de hábitat
+  - deforestación
+  - cambio climático
+  - contaminación
+  - sobreexplotación
+  - especies invasoras
+  - enfermedad
+  - fragmentación
+  # Italian
+  - minaccia
+  - perdita di habitat
+  - distruzione di habitat
+  - deforestazione
+  - cambiamento climatico
+  - inquinamento
+  - sovrasfruttamento
+  - specie invasive
+  - malattia
+  - frammentazione
+  # Japanese
+  - 脅威
+  - 生息地喪失
+  - 森林破壊
+  - 気候変動
+  - 汚染
+  - 乱獲
+  - 侵略的外来種
+  - 疾病
+  - 分断化
+  # Chinese
+  - 威胁
+  - 栖息地丧失
+  - 森林砍伐
+  - 气候变化
+  - 污染
+  - 过度开发
+  - 入侵物种
+  - 疾病
+  - 破碎化
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # HABITAT (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - habitat
+  - ecosystem
+  - biotope
+  - environment
+  - range
+  - distribution
+  - population
+  - occurrence
+  - locality
+  # German
+  - lebensraum
+  - habitat
+  - ökosystem
+  - biotop
+  - umwelt
+  - verbreitung
+  - population
+  - vorkommen
+  # French
+  - habitat
+  - écosystème
+  - biotope
+  - environnement
+  - distribution
+  - population
+  - répartition
+  # Spanish
+  - hábitat
+  - ecosistema
+  - biotopo
+  - ambiente
+  - distribución
+  - población
+  # Italian
+  - habitat
+  - ecosistema
+  - biotopo
+  - ambiente
+  - distribuzione
+  - popolazione
+  # Japanese
+  - 生息地
+  - 生態系
+  - 環境
+  - 分布
+  - 個体群
+  # Chinese
+  - 栖息地
+  - 生态系统
+  - 环境
+  - 分布
+  - 种群
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CONSERVATION ACTIONS (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - conservation action
+  - protection measure
+  - management
+  - restoration
+  - reintroduction
+  - monitoring
+  - research
+  - ex situ
+  - in situ
+  - captive breeding
+  - seed bank
+  - gene bank
+  # German
+  - schutzmaßnahme
+  - management
+  - wiederherstellung
+  - wiederansiedlung
+  - monitoring
+  - research
+  - ex situ
+  - in situ
+  - erhaltungszucht
+  # French
+  - mesure de conservation
+  - gestion
+  - restauration
+  - réintroduction
+  - surveillance
+  - recherche
+  - ex situ
+  - in situ
+  # Spanish
+  - acción de conservación
+  - gestión
+  - restauración
+  - reintroducción
+  - monitoreo
+  - investigación
+  - ex situ
+  - in situ
+  # Italian
+  - azione di conservazione
+  - gestione
+  - ripristino
+  - reintroduzione
+  - monitoraggio
+  - ricerca
+  - ex situ
+  - in situ
+  # Japanese
+  - 保全活動
+  - 管理
+  - 復元
+  - 再導入
+  - モニタリング
+  - 研究
+  # Chinese
+  - 保护行动
+  - 管理
+  - 恢复
+  - 再引入
+  - 监测
+  - 研究
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SUSTAINABLE USE (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - sustainable
+  - sustainability
+  - sustainable use
+  - sustainable harvesting
+  - certification
+  - eco-friendly
+  - ethical
+  - responsible
+  - wild harvest
+  - cultivation
+  # German
+  - nachhaltig
+  - nachhaltigkeit
+  - nachhaltige nutzung
+  - zertifizierung
+  - umweltfreundlich
+  - ethisch
+  - verantwortungsvoll
+  - wildsammlung
+  - cultivation
+  # French
+  - durable
+  - durabilité
+  - utilisation durable
+  - certification
+  - écologique
+  - éthique
+  - responsable
+  - cueillette sauvage
+  - culture
+  # Spanish
+  - sostenible
+  - sostenibilidad
+  - uso sostenible
+  - certificación
+  - ecológico
+  - ético
+  - responsable
+  - recolección silvestre
+  - cultivo
+  # Italian
+  - sostenibile
+  - sostenibilità
+  - uso sostenibile
+  - certificazione
+  - ecologico
+  - etico
+  - responsabile
+  - raccolta selvatica
+  - coltivazione
+  # Japanese
+  - 持続可能
+  - 持続可能性
+  - 持続可能な利用
+  - 認証
+  - エコ
+  - 倫理的
+  - 責任ある
+  - 野生収穫
+  - 栽培
+  # Chinese
+  - 可持续
+  - 可持续性
+  - 可持续利用
+  - 认证
+  - 环保
+  - 道德
+  - 负责任
+  - 野生采集
+  - 栽培
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ECOSYSTEM ROLE (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - ecosystem role
+  - ecological function
+  - keystone species
+  - indicator species
+  - ecosystem services
+  - biodiversity
+  - food web
+  - nutrient cycling
+  - decomposition
+  # German
+  - ökosystemrolle
+  - ökologische funktion
+  - schlüsselart
+  - indikatorart
+  - ökosystemleistungen
+  - biodiversität
+  - nahrungsnetz
+  - nährstoffkreislauf
+  - zersetzung
+  # French
+  - rôle écosystémique
+  - fonction écologique
+  - espèce clé
+  - espèce indicatrice
+  - services écosystémiques
+  - biodiversité
+  - réseau trophique
+  - cycle des nutriments
+  - décomposition
+  # Spanish
+  - rol ecosistémico
+  - función ecológica
+  - especie clave
+  - especie indicadora
+  - servicios ecosistémicos
+  - biodiversidad
+  - red trófica
+  - ciclo de nutrientes
+  - descomposición
+  # Italian
+  - ruolo ecosistemico
+  - funzione ecologica
+  - specie chiave
+  - specie indicatrice
+  - servizi ecosistemici
+  - biodiversità
+  - rete trofica
+  - ciclo dei nutrienti
+  - decomposizione
+  # Japanese
+  - 生態系の役割
+  - 生態学的機能
+  - キーストーン種
+  - 指標種
+  - 生態系サービス
+  - 生物多様性
+  - 食物網
+  - 栄養循環
+  - 分解
+  # Chinese
+  - 生态系统作用
+  - 生态功能
+  - 关键种
+  - 指示种
+  - 生态系统服务
+  - 生物多样性
+  - 食物网
+  - 养分循环
+  - 分解

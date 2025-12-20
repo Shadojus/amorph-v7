@@ -1,0 +1,22 @@
+{
+  "kingdom": "fungi",
+  "name": "Fungi",
+  "icon": "🍄",
+  "count": 1,
+  "species": [
+    {
+      "slug": "psilocybe-cyanescens",
+      "name": "Blauender Kahlkopf",
+      "scientific_name": "Psilocybe cyanescens",
+      "perspectives": [
+        "chemistry",
+        "culture",
+        "ecology",
+        "identification",
+        "medicine",
+        "safety",
+        "temporal"
+      ]
+    }
+  ]
+}

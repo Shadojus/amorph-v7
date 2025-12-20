@@ -1,0 +1,266 @@
+{
+  "scientific": "Atropa belladonna",
+  "trophic_mode_primary": "autotroph",
+  "ecological_guild": "shade-tolerant_perennial",
+  "primary_ecosystem_function": "herbivore_deterrent",
+  "secondary_ecosystem_functions": [
+    "Nahrungsquelle fuer spezialisierte Insekten",
+    "Pollinator-Attraktion",
+    "Samenverbreitung durch Voegel"
+  ],
+  "ecosystem_type": "forest",
+  "ecosystem_subtype": "deciduous_forest",
+  "association_strength": {
+    "status": "moderate",
+    "variant": "neutral"
+  },
+  "dominant_vegetation_type": "mixed_deciduous",
+  "associated_plant_families": [
+    "Fagaceae (Buchen, Eichen)",
+    "Aceraceae (Ahorne)",
+    "Tiliaceae (Linden)",
+    "Betulaceae (Birken, Haseln)"
+  ],
+  "associated_plant_genera": [
+    "Fagus",
+    "Quercus",
+    "Acer",
+    "Fraxinus",
+    "Carpinus"
+  ],
+  "associated_plant_species": [
+    "Fagus sylvatica",
+    "Quercus robur",
+    "Quercus petraea",
+    "Fraxinus excelsior",
+    "Acer pseudoplatanus"
+  ],
+  "vegetation_age_preference": "mature_forest",
+  "microhabitat_primary": "forest_clearing",
+  "microhabitat_secondary": "forest_edge",
+  "substrate_specificity": {
+    "status": "moderate",
+    "variant": "neutral"
+  },
+  "substrate_type_primary": "calcareous_soil",
+  "substrate_types_secondary": [
+    "Lockere, humusreiche Boeden",
+    "Schutt- und Geroellhalden",
+    "Ruderalstandorte"
+  ],
+  "soil_ph_minimum": 6.5,
+  "soil_ph_optimal_min": 7.0,
+  "soil_ph_optimal_max": 8.0,
+  "soil_ph_maximum": 8.5,
+  "soil_nutrient_preference": "eutrophic",
+  "calcium_requirement": "high",
+  "soil_texture_preference": "loamy",
+  "organic_matter_preference": "high",
+  "canopy_cover_minimum": 30,
+  "canopy_cover_optimal": 60,
+  "canopy_cover_maximum": 80,
+  "light_requirement": "partial_shade",
+  "elevation_minimum_m": 0,
+  "elevation_optimal_min_m": 200,
+  "elevation_optimal_max_m": 1000,
+  "elevation_maximum_m": 1800,
+  "slope_preference": "variable",
+  "aspect_preference": "south_facing",
+  "topographic_position": "slopes_and_clearings",
+  "moisture_regime": "mesic",
+  "flooding_tolerance": {
+    "rating": 2,
+    "max": 10
+  },
+  "drought_tolerance": {
+    "rating": 4,
+    "max": 10
+  },
+  "climate_zone": "temperate",
+  "temperature_minimum_mean_c": -5,
+  "temperature_optimal_min_c": 12,
+  "temperature_optimal_max_c": 20,
+  "temperature_maximum_mean_c": 30,
+  "precipitation_minimum_mm": 500,
+  "precipitation_optimal_min_mm": 600,
+  "precipitation_optimal_max_mm": 1200,
+  "precipitation_maximum_mm": 2000,
+  "seasonality_preference": "warm_summers",
+  "temp_growth_minimum_c": 5,
+  "temp_growth_optimum_min_c": 15,
+  "temp_growth_optimum_max_c": 22,
+  "temp_growth_maximum_c": 30,
+  "cold_hardiness_zone": "6-9",
+  "frost_tolerance": {
+    "rating": 6,
+    "max": 10
+  },
+  "disturbance_response": "pioneer_species",
+  "fire_response": "resprouter",
+  "logging_response": "positive",
+  "grazing_response": "avoided_toxic",
+  "spatial_distribution_pattern": "scattered",
+  "typical_population_density": 5,
+  "pollination_mode": [
+    "Insektenbestaeubt (entomophil)",
+    "Selbstbestaeubt (autogam)"
+  ],
+  "primary_pollinators": [
+    "Hummeln (Bombus spp.)",
+    "Bienen (Apis mellifera)",
+    "Schwebfliegen (Syrphidae)"
+  ],
+  "pollination_season": [
+    {"month": 6, "active": true},
+    {"month": 7, "active": true},
+    {"month": 8, "active": true}
+  ],
+  "seed_dispersal_modes": [
+    "Zoochor (Voegel)",
+    "Endozoochor (Fruchtfresser)"
+  ],
+  "dispersal_agents": [
+    "Amsel (Turdus merula)",
+    "Singdrossel (Turdus philomelos)",
+    "Star (Sturnus vulgaris)",
+    "Moenchsgrasmuecke (Sylvia atricapilla)"
+  ],
+  "seed_dispersal_distance": {
+    "min": 10,
+    "max": 500,
+    "unit": "m"
+  },
+  "germination_requirements": {
+    "stratification": "Kaeltestratifikation erforderlich (2-3 Monate)",
+    "light": "Dunkelkeimer",
+    "temperature": "15-20 Grad C",
+    "dormancy": "Ausgepraegt, Keimhemmung durch Alkaloide"
+  },
+  "reproduction_modes": [
+    "Sexuell (Samen)",
+    "Vegetativ (Rhizomteilung)"
+  ],
+  "vegetative_spread": "Rhizomatisch, bildet Horste",
+  "herbivore_interactions": {
+    "avoided_by": [
+      "Rehe",
+      "Hirsche",
+      "Rinder",
+      "Pferde",
+      "Hasen"
+    ],
+    "consumed_by": [
+      "Kaninchen (teilweise tolerant)",
+      "Schafe (teilweise tolerant)",
+      "Ziegen (teilweise tolerant)"
+    ],
+    "mechanism": "Tropanalkaloide wirken als chemische Abwehr"
+  },
+  "insect_interactions": {
+    "specialized_herbivores": [
+      "Myzus persicae (Grune Pfirsichblattlaus)",
+      "Leptinotarsa decemlineata (Kartoffelkaefer) - selten"
+    ],
+    "pollinators": [
+      "Bombus terrestris",
+      "Bombus pascuorum",
+      "Apis mellifera"
+    ],
+    "seed_predators": "Gering, Samen durch Alkaloide geschuetzt"
+  },
+  "fungal_associations": {
+    "mycorrhiza_type": "arbuscular",
+    "fungal_partners": [
+      "Glomus spp.",
+      "Rhizophagus irregularis"
+    ],
+    "pathogenic_fungi": [
+      "Phytophthora infestans (selten)",
+      "Verticillium dahliae"
+    ]
+  },
+  "ecosystem_service_category": "cultural",
+  "ecosystem_services": [
+    "Quelle pharmazeutisch wichtiger Alkaloide",
+    "Forschungsobjekt fuer Alkaloid-Biosynthese",
+    "Kulturhistorische Bedeutung"
+  ],
+  "indicator_species_value": {
+    "rating": 6,
+    "max": 10
+  },
+  "indicates_conditions": [
+    "Kalkhaltige Boeden",
+    "Naehrstoffreiche Standorte",
+    "Gestorte Waldstandorte",
+    "Schlagfluren und Lichtungen"
+  ],
+  "habitat_distribution": [
+    {"label": "Waldlichtungen", "value": 40},
+    {"label": "Waldraender", "value": 25},
+    {"label": "Schlagfluren", "value": 20},
+    {"label": "Gebueschs/Hecken", "value": 10},
+    {"label": "Ruderalstandorte", "value": 5}
+  ],
+  "competition_type": "interference",
+  "competition_strategy": "Chemische Abwehr, relativ konkurrenzarm",
+  "facilitation_relationships": [
+    "Profitiert von Baumfall-Luecken",
+    "Profitiert von Holzeinschlag"
+  ],
+  "succession_stage": "early_to_mid",
+  "successional_role": "Transient in fruehen Sukzessionsstadien",
+  "phenology": {
+    "leaf_emergence": "April-Mai",
+    "flowering_start": "Juni",
+    "flowering_peak": "Juli",
+    "flowering_end": "August-September",
+    "fruiting_start": "August",
+    "fruiting_peak": "September",
+    "fruiting_end": "Oktober",
+    "senescence": "Oktober-November"
+  },
+  "phenology_calendar": [
+    {"month": 1, "active": false},
+    {"month": 2, "active": false},
+    {"month": 3, "active": false},
+    {"month": 4, "active": true},
+    {"month": 5, "active": true},
+    {"month": 6, "active": true},
+    {"month": 7, "active": true},
+    {"month": 8, "active": true},
+    {"month": 9, "active": true},
+    {"month": 10, "active": true},
+    {"month": 11, "active": false},
+    {"month": 12, "active": false}
+  ],
+  "climate_change_vulnerability": {
+    "status": "low",
+    "variant": "success"
+  },
+  "climate_change_response": "Potenziell Ausweitung nach Norden und in hoehere Lagen",
+  "invasiveness_score": {
+    "value": 20,
+    "min": 0,
+    "max": 100,
+    "unit": ""
+  },
+  "native_status": "native",
+  "conservation_concern": false,
+  "iucn_global_status": {
+    "status": "LC (Least Concern)",
+    "variant": "success"
+  },
+  "population_trend": "stable",
+  "ecology_data_quality_score": {
+    "rating": 7,
+    "max": 10
+  },
+  "source": {
+    "authors": "Ellenberg, H., Leuschner, C.",
+    "year": 2010,
+    "title": "Vegetation Mitteleuropas mit den Alpen",
+    "journal": "Ulmer Verlag, 6. Auflage",
+    "doi": "ISBN 978-3-8252-8104-5"
+  }
+}

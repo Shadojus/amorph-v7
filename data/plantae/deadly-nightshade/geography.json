@@ -1,0 +1,321 @@
+{
+  "distribution": "Die Tollkirsche ist in Europa, Nordafrika und Westasien heimisch. Ihr Verbreitungsschwerpunkt liegt im suedlichen und mittleren Europa, besonders in den Gebirgsregionen. Als Kulturpflanze wurde sie in viele andere Regionen eingefuehrt.",
+  "native_range": [
+    "Suedeuropa",
+    "Mitteleuropa",
+    "Westasien",
+    "Nordafrika (Atlas-Gebirge)"
+  ],
+  "introduced_range": [
+    "Nordamerika (lokal eingebuergert)",
+    "Suedamerika (Argentinien, Chile)",
+    "Australien (selten)",
+    "Neuseeland"
+  ],
+  "cosmopolitan": false,
+  "endemic": false,
+  "distribution_notes": "In Mitteleuropa zerstreut bis selten, bevorzugt in Kalkgebieten. Haeufiger in Suedeuropa und den Mittelgebirgen. In Nordeuropa weitgehend fehlend.",
+  "continental_distribution": {
+    "europe": true,
+    "asia": true,
+    "africa": true,
+    "north_america": true,
+    "south_america": true,
+    "oceania": true,
+    "antarctica": false
+  },
+  "continental_occurrence": [
+    {"label": "Europa", "value": 70},
+    {"label": "Asien", "value": 15},
+    {"label": "Afrika", "value": 5},
+    {"label": "Nordamerika", "value": 5},
+    {"label": "Suedamerika", "value": 3},
+    {"label": "Ozeanien", "value": 2}
+  ],
+  "europe": {
+    "present": true,
+    "countries": [
+      "Deutschland",
+      "Oesterreich",
+      "Schweiz",
+      "Frankreich",
+      "Italien",
+      "Spanien",
+      "Portugal",
+      "Kroatien",
+      "Slowenien",
+      "Ungarn",
+      "Rumaenien",
+      "Bulgarien",
+      "Griechenland",
+      "Albanien",
+      "Serbien",
+      "Montenegro",
+      "Bosnien-Herzegowina",
+      "Polen",
+      "Tschechien",
+      "Slowakei",
+      "Ukraine (westlich)",
+      "Grossbritannien (eingefuehrt)",
+      "Belgien",
+      "Niederlande"
+    ],
+    "regions": [
+      "Alpen",
+      "Alpenvorland",
+      "Mittelgebirge",
+      "Mediterrane Region",
+      "Balkan",
+      "Karpathen",
+      "Apennin"
+    ],
+    "hotspots": [
+      "Suedtiroler Alpen",
+      "Schweizer Jura",
+      "Schwäbische Alb",
+      "Fraenkische Alb",
+      "Oesterreichische Kalkalpen",
+      "Slowenische Alpen",
+      "Balkangebirge"
+    ],
+    "distribution_notes": "In Mitteleuropa zerstreut, vor allem in Kalkgebieten. Fehlt weitgehend in Norddeutschem Tiefland."
+  },
+  "asia": {
+    "present": true,
+    "countries": [
+      "Tuerkei",
+      "Iran",
+      "Irak (Bergregionen)",
+      "Syrien",
+      "Libanon",
+      "Israel",
+      "Kaukasus-Laender"
+    ],
+    "regions": [
+      "Anatolien",
+      "Kaukasus",
+      "Nordiran",
+      "Levante"
+    ],
+    "hotspots": [
+      "Pontisches Gebirge",
+      "Taurus-Gebirge",
+      "Elburz-Gebirge"
+    ],
+    "distribution_notes": "Im westlichen Asien heimisch, vor allem in Gebirgsregionen."
+  },
+  "africa": {
+    "present": true,
+    "countries": [
+      "Marokko",
+      "Algerien",
+      "Tunesien"
+    ],
+    "regions": [
+      "Atlas-Gebirge",
+      "Nordafrikanische Kuestengebirge"
+    ],
+    "hotspots": [
+      "Hoher Atlas",
+      "Rif-Gebirge"
+    ],
+    "distribution_notes": "Beschraenkt auf die Gebirgsregionen Nordafrikas."
+  },
+  "north_america": {
+    "present": true,
+    "countries": [
+      "USA (Oregon, Kalifornien, Washington)",
+      "Kanada (British Columbia)"
+    ],
+    "regions": [
+      "Pazifischer Nordwesten",
+      "Nordkalifornien"
+    ],
+    "distribution_notes": "Als Kulturpflanze eingefuehrt, lokal eingebuergert. Nicht invasiv."
+  },
+  "biogeographic_realm": [
+    "palearctic"
+  ],
+  "palearctic": {
+    "present": true,
+    "subregions": [
+      "Westpalaearktis",
+      "Mediterrane Subregion",
+      "Europaeische Subregion"
+    ],
+    "notes": "Hauptverbreitung in der westlichen Palaearktis"
+  },
+  "climate_zones": [
+    "temperate",
+    "mediterranean",
+    "continental"
+  ],
+  "temperate": {
+    "present": true,
+    "subtypes": [
+      "Warm-gemaessigt",
+      "Kuhl-gemaessigt"
+    ],
+    "notes": "Hauptverbreitung in der gemaessigten Zone"
+  },
+  "mediterranean": {
+    "present": true,
+    "regions": [
+      "Nordmediterran",
+      "Westmediterran"
+    ],
+    "notes": "In hoeheren Lagen der mediterranen Zone"
+  },
+  "elevation_range": {
+    "min": 0,
+    "max": 1800,
+    "unit": "m"
+  },
+  "elevation_min": 0,
+  "elevation_max": 1800,
+  "elevation_optimal": 500,
+  "elevation_zones": [
+    "collin",
+    "submontan",
+    "montan"
+  ],
+  "elevation_distribution": [
+    {"label": "Kollin (0-300m)", "value": 20},
+    {"label": "Submontan (300-600m)", "value": 35},
+    {"label": "Montan (600-1200m)", "value": 35},
+    {"label": "Subalpin (1200-1800m)", "value": 10}
+  ],
+  "type_locality": {
+    "lat": 41.9028,
+    "lng": 12.4964,
+    "region": "Italien (Rom) - Beschreibung durch Linne basierend auf europaeischem Material"
+  },
+  "center_of_distribution": {
+    "lat": 46.0,
+    "lng": 13.5,
+    "region": "Suedliche Alpen / Nordwestbalkan"
+  },
+  "northernmost_occurrence": {
+    "lat": 56.0,
+    "lng": 13.0,
+    "region": "Suedschweden (eingefuehrt)"
+  },
+  "southernmost_occurrence": {
+    "lat": 31.0,
+    "lng": -6.0,
+    "region": "Marokko, Hoher Atlas"
+  },
+  "primary_habitats": [
+    "Laubmischwaelder",
+    "Waldlichtungen und Schlagfluren",
+    "Waldraender und Gebusch",
+    "Kalkreiche Hangwaelder"
+  ],
+  "secondary_habitats": [
+    "Ruderalstandorte",
+    "Alte Gaerten und Friedhoefe",
+    "Burgruinen",
+    "Wegboeschungen"
+  ],
+  "habitats": [
+    "Buchenwaelder auf Kalk",
+    "Eichen-Hainbuchenwaelder",
+    "Schlucht- und Hangmischwaelder",
+    "Waldschlaege"
+  ],
+  "forest_types": {
+    "deciduous": [
+      "Buchenwald (Fagetum)",
+      "Eichen-Hainbuchenwald",
+      "Ahorn-Lindenwald"
+    ],
+    "coniferous": [],
+    "mixed": [
+      "Buchen-Tannenwaelder"
+    ],
+    "notes": "Bevorzugt Laubwaelder auf kalkhaltigen Boeden"
+  },
+  "soil_types": [
+    "Kalkboeden",
+    "Rendzina",
+    "Braunerde auf Kalk",
+    "Humuskarbonatboeden"
+  ],
+  "soil_ph": {
+    "range": {
+      "min": 6.5,
+      "max": 8.5,
+      "unit": "pH"
+    },
+    "optimal": 7.5,
+    "preference": "alkaline"
+  },
+  "microhabitat_preferences": [
+    "Halbschattige Standorte",
+    "Lockere, humusreiche Boeden",
+    "Windgeschuetzte Lagen",
+    "Suedexponierte Haenge"
+  ],
+  "gbif_taxon_key": "2928877",
+  "gbif_occurrence_count": {
+    "total": 45000,
+    "count": 45000,
+    "min": 0,
+    "max": 45000,
+    "avg": 45000
+  },
+  "gbif_top_countries": [
+    "Deutschland",
+    "Frankreich",
+    "Italien",
+    "Oesterreich",
+    "Schweiz",
+    "Spanien",
+    "Slowenien"
+  ],
+  "gbif_species_page": "https://www.gbif.org/species/2928877",
+  "range_expansion": {
+    "occurring": false,
+    "notes": "Keine signifikante Arealausweitung beobachtet"
+  },
+  "range_contraction": {
+    "occurring": false,
+    "notes": "Stabile Verbreitung in den meisten Regionen"
+  },
+  "climate_change_response": {
+    "trend": "stable",
+    "predicted_shifts": [
+      "Potenzielle Ausweitung nach Norden",
+      "Verschiebung in hoehere Lagen"
+    ],
+    "notes": "Als waermeliebende Art koennte sie von der Klimaerwaermung profitieren"
+  },
+  "range_history": [
+    {"date": "1753", "event": "Erstbeschreibung durch Linne", "description": "Beschreibung in Species Plantarum"},
+    {"date": "1800", "event": "Pharmazeutischer Anbau", "description": "Beginn des systematischen Anbaus fuer Alkaloidgewinnung"},
+    {"date": "1850", "event": "Einfuehrung in Nordamerika", "description": "Import fuer medizinische und ornamentale Zwecke"},
+    {"date": "1950", "event": "Rueckgang durch Aufforstung", "description": "Verlust von Lichtungsstandorten durch Waldwirtschaft"},
+    {"date": "2000", "event": "Stabiler Bestand", "description": "Bestand in Europa stabil, lokal ruecklaeufig"}
+  ],
+  "seasonal_presence": [
+    {"month": 1, "active": false},
+    {"month": 2, "active": false},
+    {"month": 3, "active": false},
+    {"month": 4, "active": true},
+    {"month": 5, "active": true},
+    {"month": 6, "active": true},
+    {"month": 7, "active": true},
+    {"month": 8, "active": true},
+    {"month": 9, "active": true},
+    {"month": 10, "active": true},
+    {"month": 11, "active": false},
+    {"month": 12, "active": false}
+  ],
+  "source": {
+    "authors": "Meusel, H., Jaeger, E., Weinert, E.",
+    "year": 1978,
+    "title": "Vergleichende Chorologie der Zentraleuropaeischen Flora",
+    "journal": "Gustav Fischer Verlag, Jena",
+    "doi": ""
+  }
+}

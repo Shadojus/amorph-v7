@@ -1,0 +1,305 @@
+{
+  "scientific": "Psilocybe cyanescens",
+  "description": "Psilocybe cyanescens enthaelt Psilocybin und Psilocin, Tryptamin-Alkaloide mit potenten psychoaktiven Eigenschaften. Diese Verbindungen werden derzeit intensiv auf ihr therapeutisches Potenzial bei verschiedenen psychischen Erkrankungen untersucht, einschliesslich behandlungsresistenter Depression, Angststoerungen und Suchterkrankungen.",
+  "traditional_medicine": {
+    "systems": [
+      "Indigene mesoamerikanische Traditionen (verwandte Psilocybe-Arten)",
+      "Moderne psychedelische Therapie"
+    ],
+    "historical_use": "P. cyanescens wurde historisch nicht traditionell verwendet (europaeische Art). Verwandte Psilocybe-Arten wurden von mesoamerikanischen Kulturen rituell eingesetzt.",
+    "traditional_indications": [
+      "Spirituelle Rituale (verwandte Arten)",
+      "Heilzeremonien (verwandte Arten)",
+      "Divination (verwandte Arten)"
+    ]
+  },
+  "who_monograph_exists": false,
+  "escop_monograph_exists": false,
+  "german_commission_e_status": {
+    "status": "Not Listed",
+    "variant": "info"
+  },
+  "active_substances": [
+    "Psilocybin (Prodrug)",
+    "Psilocin (aktiver Metabolit)",
+    "Baeocystin",
+    "Norbaeocystin"
+  ],
+  "effect_profile": [
+    {"axis": "Antidepressiv", "value": 85},
+    {"axis": "Anxiolytisch", "value": 70},
+    {"axis": "Anti-Sucht", "value": 75},
+    {"axis": "Neuroplastizitaet", "value": 90},
+    {"axis": "Mystisch-spirituell", "value": 80}
+  ],
+  "pharmacokinetics_absorption": "Schnelle orale Absorption, Tmax 20-40 Minuten nach Einnahme",
+  "pharmacokinetics_distribution": "ZNS-gaengig, ueberwindet Blut-Hirn-Schranke. Verteilungsvolumen ca. 1 L/kg",
+  "pharmacokinetics_metabolism": "Dephosphorylierung von Psilocybin zu Psilocin durch alkalische Phosphatasen im Darm und Leber. Anschliessende Glucuronidierung.",
+  "pharmacokinetics_elimination": "Renale Elimination als Glucuronid-Konjugate. Halbwertszeit 2-4 Stunden",
+  "therapeutic_categories": [
+    "Psychedelische Therapie",
+    "Experimentelle Psychiatrie",
+    "Forschungssubstanz"
+  ],
+  "evidence_level": {
+    "status": "1b-2a (varies by indication)",
+    "variant": "success"
+  },
+  "clinical_studies": [
+    "COMPASS Pathways Phase IIb/III (Psilocybin fuer TRD)",
+    "NYU/Johns Hopkins (Existenzielle Angst)",
+    "Imperial College London (Depression)",
+    "MAPS-unterstuetzte Studien"
+  ],
+  "safety_score": {
+    "value": 65,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "red"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "green"}
+    ]
+  },
+  "toxicology_ld50_oral": {
+    "min": 280,
+    "max": 285,
+    "unit": "mg/kg"
+  },
+  "toxicology_noael": {
+    "min": 3,
+    "max": 5,
+    "unit": "mg/kg"
+  },
+  "toxicology_therapeutic_index": 1000,
+  "toxicology_genotoxicity": {
+    "status": "Negative",
+    "variant": "success"
+  },
+  "toxicology_carcinogenicity": {
+    "status": "No evidence",
+    "variant": "success"
+  },
+  "toxicology_teratogenicity": {
+    "status": "Unknown - Avoid in pregnancy",
+    "variant": "warning"
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Uebelkeit", "beschreibung": "Initial, transient, haeufig bei oraler Einnahme"},
+    {"level": "medium", "typ": "Angst/Panik", "beschreibung": "Moeglich, besonders bei hohen Dosen oder ungenuegender Unterstuetzung"},
+    {"level": "low", "typ": "Erhoehter Blutdruck", "beschreibung": "Mild und voruebergehend"},
+    {"level": "low", "typ": "Kopfschmerzen", "beschreibung": "Gelegentlich, meist am naechsten Tag"}
+  ],
+  "interactions": [
+    {"level": "critical", "typ": "MAO-Hemmer", "beschreibung": "Kontraindiziert - Risiko eines Serotonin-Syndroms"},
+    {"level": "high", "typ": "Lithium", "beschreibung": "Kontraindiziert - erhoehtes Krampfrisiko"},
+    {"level": "medium", "typ": "SSRIs/SNRIs", "beschreibung": "Reduzierte Wirkung, Absetzen vor Therapie empfohlen"}
+  ],
+  "contraindications": [
+    "Psychotische Stoerungen (aktuell oder in Vorgeschichte)",
+    "Schizophrenie oder Disposition",
+    "Bipolare Stoerung Typ I",
+    "Schwere Herz-Kreislauf-Erkrankungen",
+    "Schwangerschaft und Stillzeit",
+    "Einnahme von MAO-Hemmern oder Lithium"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Contraindicated",
+    "variant": "danger"
+  },
+  "special_populations_lactation": {
+    "status": "Contraindicated",
+    "variant": "danger"
+  },
+  "special_populations_children": {
+    "status": "Contraindicated",
+    "variant": "danger"
+  },
+  "special_populations_elderly": {
+    "status": "Caution - limited data",
+    "variant": "warning"
+  },
+  "overdose": [
+    {"level": "low", "typ": "Somatisch", "beschreibung": "Keine lebensbedrohlichen somatischen Effekte bei Ueberdosierung"},
+    {"level": "high", "typ": "Psychologisch", "beschreibung": "Schwere Angst, Panik, voruebergehende Psychose moeglich"}
+  ],
+  "dosage_notes": "ACHTUNG: Medizinische Anwendung nur in klinischen Studien oder lizenzierten Zentren. Illegale Selbstmedikation wird nicht empfohlen und kann gefaehrlich sein.",
+  "dosage_schemes": {
+    "unit": "mg",
+    "oral_dose": "10-30 mg Einzeldosis (synthetisches Psilocybin)",
+    "low_dose": "10 mg (niedrige therapeutische Dosis)",
+    "medium_dose": "25 mg (COMPASS Studie Standard)",
+    "microdose": "1 mg (sub-perzeptiv)",
+    "notes": "ACHTUNG: Medizinische Anwendung nur in klinischen Studien oder lizenzierten Zentren. 1-2 Sitzungen mit geschulten Therapeuten."
+  },
+  "preparation_forms": [
+    "Synthetisches Psilocybin (GMP)",
+    "Standardisierte Extrakte (Forschung)",
+    "Getrocknete Pilze (nicht standardisiert - nicht empfohlen)"
+  ],
+  "status_by_region": {
+    "eu": "Controlled Substance - Schedule I equivalent",
+    "usa": "DEA Schedule I, FDA Breakthrough Therapy Designation",
+    "japan": "Controlled",
+    "canada": "Controlled - Special Access Programme",
+    "australia": "Schedule 9 (recently rescheduled for medical use)"
+  },
+  "novel_food": false,
+  "drug_approvals": [
+    "FDA Breakthrough Therapy Designation (2018, 2019)",
+    "TGA Rescheduling Australia (2023 - authorized prescribers)"
+  ],
+  "origin_wild_collection": {
+    "available": true,
+    "regions": ["Europe", "Pacific Northwest USA", "New Zealand"],
+    "sustainability_concerns": "Variable potency, legal restrictions, contamination risks"
+  },
+  "origin_cultivation": {
+    "available": false,
+    "regions": [],
+    "methods": "Cultivation illegal in most jurisdictions"
+  },
+  "quality_differences": "Wildgesammelte Pilze zeigen erhebliche Potenzvariation. Synthetisches Psilocybin bietet standardisierte Dosierung fuer klinische Anwendung.",
+  "patient_information": "Psilocybin-Therapie wird derzeit in klinischen Studien und spezialisierten Zentren untersucht. Selbstmedikation ist illegal und potenziell gefaehrlich. Bei Interesse an Teilnahme an Studien wenden Sie sich an zugelassene Forschungszentren.",
+  "for_physicians": "Psilocybin zeigt vielversprechende Ergebnisse bei behandlungsresistenter Depression, existenzieller Angst bei Terminalkranken und verschiedenen Suchterkrankungen. Therapie erfordert spezialisierte Ausbildung und kontrolliertes Setting. Kontraindikationen und Wechselwirkungen beachten.",
+  "further_literature": {
+    "authors": "Carhart-Harris, R.L. et al.",
+    "year": 2021,
+    "title": "Trial of Psilocybin versus Escitalopram for Depression",
+    "journal": "New England Journal of Medicine",
+    "doi": "10.1056/NEJMoa2032994"
+  },
+  "medical_score": {
+    "rating": 8,
+    "max": 10
+  },
+  "profile": "Psilocybin als partieller 5-HT2A-Agonist zeigt rapide und anhaltende antidepressive Effekte, moeglicherwese durch erhoehte Neuroplastizitaet und Modulation des Default Mode Network.",
+  "evidence_grade_overall": {
+    "status": "B - Good evidence",
+    "variant": "success"
+  },
+  "cochrane_reviews_count": 0,
+  "meta_analyses_count": 5,
+  "rcts_count": 8,
+  "evidence_summary": "Mehrere Phase-II-Studien zeigen signifikante Reduktion von Depressionssymptomen nach 1-2 Psilocybin-Sitzungen. Phase-III-Studien (COMPASS) laufen. Breakthrough Therapy Designation von FDA.",
+  "research_gaps_identified": [
+    "Langzeitwirksamkeit und -sicherheit",
+    "Optimale Dosierung und Anzahl der Sitzungen",
+    "Wirksamkeit bei verschiedenen Subgruppen",
+    "Mechanismen der therapeutischen Wirkung"
+  ],
+  "ongoing_clinical_trials": [
+    "COMPASS Pathways Phase III (TRD)",
+    "Usona Institute Phase II (MDD)",
+    "Johns Hopkins (Alcohol Use Disorder)",
+    "Imperial College London (Various indications)"
+  ],
+  "clinicaltrials_gov_ids": [
+    "NCT03775200",
+    "NCT03866174",
+    "NCT04123314",
+    "NCT03554174"
+  ],
+  "standard_dose_range": {
+    "min": 10,
+    "max": 30,
+    "unit": "mg"
+  },
+  "dose_unit": "mg synthetic psilocybin",
+  "dose_frequency": "1-2 sessions",
+  "dose_with_food": "Light meal or fasting",
+  "maximum_daily_dose": 30,
+  "treatment_duration_typical": "1-2 sessions with integration therapy",
+  "onset_of_action": "20-40 minutes",
+  "duration_of_effect": "4-6 hours acute, antidepressant effect persists weeks to months",
+  "bioavailability_oral": {
+    "value": 50,
+    "max": 100,
+    "unit": "%"
+  },
+  "half_life_hours": 3,
+  "time_to_peak_hours": 0.75,
+  "metabolism_pathway": "Dephosphorylation, glucuronidation",
+  "excretion_route": "Renal",
+  "contraindications_absolute": [
+    "Psychotic disorders",
+    "Schizophrenia or family history",
+    "Use of MAO inhibitors",
+    "Use of Lithium"
+  ],
+  "contraindications_relative": [
+    "Bipolar disorder Type II",
+    "Severe anxiety disorders",
+    "Cardiovascular disease"
+  ],
+  "precautions": [
+    "Supervised setting mandatory",
+    "Trained therapists required",
+    "Screening for contraindications",
+    "Integration therapy essential"
+  ],
+  "monitoring_recommended": true,
+  "monitoring_parameters": [
+    "Vital signs during session",
+    "Mental status",
+    "Adverse events",
+    "Suicidality screening"
+  ],
+  "side_effects_common": [
+    "Nausea",
+    "Headache",
+    "Anxiety during onset",
+    "Elevated blood pressure"
+  ],
+  "side_effects_rare": [
+    "Prolonged psychotic symptoms",
+    "HPPD",
+    "Severe anxiety requiring intervention"
+  ],
+  "side_effects_management": "Supportive environment, talk-down techniques, benzodiazepines for severe anxiety if needed",
+  "quality_markers_to_verify": [
+    "Psilocybin content",
+    "Purity",
+    "Sterility",
+    "Absence of contaminants"
+  ],
+  "standardization_marker": "Psilocybin content (synthetic)",
+  "patient_counseling_points": [
+    "Not a recreational drug - requires professional supervision",
+    "Set and setting critically important",
+    "Integration therapy essential for lasting benefits",
+    "Multiple screening appointments before treatment"
+  ],
+  "what_to_expect": "4-6 hour session with altered perception, emotional processing, possible challenging experiences. Trained therapists present throughout. Follow-up integration sessions.",
+  "when_to_seek_help": "Persistent psychotic symptoms, severe anxiety, suicidal thoughts, any concerning symptoms after session",
+  "research_status": {
+    "status": "Phase III Clinical Trials",
+    "variant": "success"
+  },
+  "therapeutic_indications_researched": [
+    "Treatment-Resistant Depression (TRD)",
+    "Major Depressive Disorder (MDD)",
+    "Existential Anxiety in Terminal Illness",
+    "Alcohol Use Disorder",
+    "Tobacco Addiction",
+    "Anorexia Nervosa",
+    "Obsessive-Compulsive Disorder",
+    "Cluster Headaches"
+  ],
+  "mechanism_of_action": {
+    "primary": "5-HT2A receptor partial agonism",
+    "secondary": [
+      "Increased neuroplasticity (BDNF, mTOR)",
+      "Default Mode Network disruption",
+      "Enhanced emotional processing",
+      "Increased psychological flexibility"
+    ]
+  },
+  "source": {
+    "authors": "Johnson, M.W. et al.",
+    "year": 2018,
+    "title": "Classic psychedelics: An integrative review of epidemiology, therapeutics, mystical experience, and brain network function",
+    "journal": "Pharmacology & Therapeutics",
+    "doi": "10.1016/j.pharmthera.2017.11.010"
+  }
+}

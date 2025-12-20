@@ -1,0 +1,166 @@
+{
+  "scientific_name": "Marmota marmota",
+  "author_citation": "(Linnaeus, 1758)",
+  "accepted_name": "Marmota marmota (Linnaeus, 1758)",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Chordata",
+  "taxonomy_class": "Mammalia",
+  "taxonomy_order": "Rodentia",
+  "taxonomy_family": "Sciuridae",
+  "taxonomy_genus": "Marmota",
+  "taxonomy_species": "marmota",
+  "taxonomy_subspecies": "marmota",
+  "synonyms": [
+    "Mus marmota Linnaeus, 1758",
+    "Arctomys alpinus Schinz, 1845",
+    "Marmota alpina"
+  ],
+  "common_names": [
+    "Alpenmurmeltier",
+    "Alpine Marmot",
+    "Marmotte des Alpes",
+    "Marmotta alpina",
+    "Alpenmurmel"
+  ],
+  "international_names": [
+    "Alpine Marmot (EN)",
+    "Alpenmurmeltier (DE)",
+    "Marmotte des Alpes (FR)",
+    "Marmotta delle Alpi (IT)",
+    "Marmota alpina (ES)",
+    "Alpmurmeldyr (NO)",
+    "Alpenmoermeldier (NL)"
+  ],
+  "gbif_key": "https://www.gbif.org/species/2437078",
+  "inaturalist_taxon_id": "https://www.inaturalist.org/taxa/43691",
+  "ncbi_taxid": "https://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=9995",
+  "wikidata_id": "https://www.wikidata.org/wiki/Q159344",
+  "eol_id": "https://eol.org/pages/311539",
+  "mammal_diversity_db_id": "https://www.mammaldiversity.org/species-account/species-id=1001561",
+  "barcode_marker_primary": "COI",
+  "barcode_marker_secondary": "cytb",
+  "taxonomy_status": {
+    "status": "accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Groesse: 50-60 cm Koerperlaenge plus 13-16 cm Schwanz", "status": "pending"},
+    {"step": 2, "label": "Gedrungener Koerperbau mit kurzen, kraeftigen Beinen", "status": "pending"},
+    {"step": 3, "label": "Dichtes, graubraunes bis gelbbraunes Fell", "status": "pending"},
+    {"step": 4, "label": "Kleine, runde Ohren, die im Fell kaum sichtbar sind", "status": "pending"},
+    {"step": 5, "label": "Charakteristischer, schriller Warnpfiff", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 1,
+  "minimum_equipment_needed": [
+    "Fernglas (empfohlen)",
+    "Keine spezielle Ausruestung noetig"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Marmota monax (Waldmurmeltier - Nordamerika)",
+    "Murmeltiere anderer Gebirge"
+  ],
+  "confusion_risk_level": {
+    "status": "minimal",
+    "variant": "success"
+  },
+  "key_differentiating_features": [
+    "Einziges Murmeltier in den Alpen",
+    "Groesser als Eichhoernchen und andere alpine Nagetiere",
+    "Charakteristischer Warnpfiff",
+    "Lebt in Kolonien oberhalb der Baumgrenze",
+    "Typischer Gang auf allen Vieren"
+  ],
+  "appearance_by_season": {
+    "spring": "Duenneres Fell nach Winterschlaf, oft noch mager",
+    "summer": "Volles, glaenzendes Fell, gut genaehrt",
+    "autumn": "Dickeres Winterfell, gut genaehrter Koerper vor Winterschlaf",
+    "winter": "Im Winterschlaf in unterirdischem Bau"
+  },
+  "age_stage_variations": [
+    {"phase": "Neugeborene", "duration": "0-4 Wochen"},
+    {"phase": "Jungtiere", "duration": "1-12 Monate"},
+    {"phase": "Subadult", "duration": "1-2 Jahre"},
+    {"phase": "Adult", "duration": "2-15 Jahre"}
+  ],
+  "smell_description": "Charakteristischer, moschusartiger Geruch, besonders bei Maennchen in der Paarungszeit",
+  "sound_when_handled": "Schriller Warnpfiff bei Gefahr",
+  "ai_identification_reliability": {
+    "value": 85,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "red"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "green"}
+    ]
+  },
+  "inaturalist_cv_accuracy": {
+    "value": 92,
+    "max": 100,
+    "unit": "%"
+  },
+  "photo_angle_recommendations": [
+    "Seitenansicht des gesamten Tieres",
+    "Kopfaufnahme fuer Ohr- und Schnauzenform",
+    "Habitat im Hintergrund fuer Kontextinformation"
+  ],
+  "minimum_photos_for_id": 1,
+  "microscopy_required": false,
+  "habit": "terrestrial",
+  "growth_form": "quadruped",
+  "body_plan": "fusiform",
+  "symmetry": "bilateral",
+  "size_range": {
+    "min": 50,
+    "max": 60,
+    "unit": "cm"
+  },
+  "body_length": {
+    "min": 50,
+    "max": 60,
+    "unit": "cm"
+  },
+  "tail_length": {
+    "min": 13,
+    "max": 16,
+    "unit": "cm"
+  },
+  "weight": {
+    "min": 3,
+    "max": 8,
+    "unit": "kg"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Maennchen etwa 10-15% groesser als Weibchen",
+  "coloration_primary": "Graubraun bis gelbbraun",
+  "coloration_dorsal": "Dunkleres Graubraun mit schwarzen Grannenhaaren",
+  "coloration_ventral": "Helleres Gelbbraun bis Beige",
+  "coloration_patterns": "Gleichmaessig gefaerbt ohne auffaellige Muster",
+  "head_shape": "Breit und abgeflacht mit kurzer Schnauze",
+  "eye_characteristics": "Klein, dunkel, seitlich am Kopf",
+  "ear_characteristics": "Klein, rund, im dichten Fell fast verborgen",
+  "dental_formula": "1.0.2.3/1.0.1.3 = 22 Zaehne",
+  "limb_characteristics": "Kurze, kraeftige Beine mit grossen Grabkrallen",
+  "tail_characteristics": "Buschig behaart, etwa 1/3 der Koerperlaenge",
+  "distinctive_features": [
+    "Kompakter, gedrungener Koerperbau",
+    "Kraeftige Grabkrallen an Vorder- und Hinterfuessen",
+    "Kleine, runde Ohren",
+    "Buschiger Schwanz",
+    "Charakteristischer Warnpfiff"
+  ],
+  "identification_notes": "Das Alpenmurmeltier ist durch seinen kompakten Koerperbau, das dichte graubraune Fell und den charakteristischen Warnpfiff leicht zu identifizieren. Als einziges Murmeltier der Alpen ist eine Verwechslung mit anderen Arten in seinem Verbreitungsgebiet praktisch ausgeschlossen.",
+  "source": {
+    "authors": "Wilson, D.E. & Reeder, D.M.",
+    "year": 2005,
+    "title": "Mammal Species of the World. A Taxonomic and Geographic Reference",
+    "journal": "Johns Hopkins University Press",
+    "doi": ""
+  }
+}

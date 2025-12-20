@@ -1,0 +1,138 @@
+{
+  "safety_edibility_status": {
+    "status": "edible_historical",
+    "variant": "neutral"
+  },
+  "safety_edibility_notes": "Historisch als Nahrungsquelle genutzt. Heute geschuetzt und Jagd nur in einigen Regionen mit Genehmigung erlaubt. Fleisch gilt als schmackhaft, Fett wurde traditionell zu medizinischen Zwecken verwendet.",
+  "safety_warning_level": {
+    "status": "advisory",
+    "variant": "info"
+  },
+  "safety_warning_text": "Alpenmurmeltiere sind Wildtiere und sollten nicht angefasst oder gefuettert werden. Sie koennen beissen, wenn sie sich bedroht fuehlen. Stoerungen waehrend der Aktivitaetszeit und am Bau sollten vermieden werden.",
+  "safety_summary": "Grundsaetzlich ungefaehrlich fuer Menschen bei respektvollem Abstand. Vorsicht geboten bei direktem Kontakt.",
+  "safety_risk_inherent": {
+    "value": 15,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_groups": [
+    "Personen die Wildtiere anfassen",
+    "Hundebesitzer (Jagdtrieb)",
+    "Fotografen die zu nahe kommen"
+  ],
+  "safety_contraindications": [
+    "Nicht fuettern (Verdauungsprobleme, Gewoehnungseffekt)",
+    "Nicht anfassen (Bissgefahr, Stress)",
+    "Keine Haustiere freilaufen lassen"
+  ],
+  "safety_id_difficulty": {
+    "status": "easy",
+    "variant": "success"
+  },
+  "confusion_species_list": [
+    "Alpenschneehase (deutlich unterschiedlich)",
+    "Gaemse (viel groesser)",
+    "Eichhoernchen (viel kleiner)"
+  ],
+  "confusion_risk_level": {
+    "status": "minimal",
+    "variant": "success"
+  },
+  "confusion_safety_critical": false,
+  "key_differentiating_features": [
+    "Einziges Murmeltier in den Alpen",
+    "Charakteristischer Warnpfiff",
+    "Groesse und gedrungener Koerperbau",
+    "Leben in Kolonien oberhalb der Baumgrenze"
+  ],
+  "exposure_routes": [
+    "Direkter Kontakt (Biss)",
+    "Zecken (als Wirt)",
+    "Indirekt durch Haustiere"
+  ],
+  "first_aid_immediate_steps": [
+    {"step": 1, "label": "Bei Biss: Wunde gruendlich mit Wasser und Seife reinigen", "status": "pending"},
+    {"step": 2, "label": "Desinfizieren und steril abdecken", "status": "pending"},
+    {"step": 3, "label": "Arzt aufsuchen wegen Infektionsgefahr", "status": "pending"},
+    {"step": 4, "label": "Tetanus-Impfstatus ueberpruefen", "status": "pending"}
+  ],
+  "first_aid_what_not_to_do": [
+    "Wunde nicht aussaugen",
+    "Tier nicht provozieren oder verfolgen",
+    "Tier nicht einfangen"
+  ],
+  "when_to_call_emergency": "Bei starken Blutungen, Anzeichen von Infektion oder allergischen Reaktionen nach einem Biss.",
+  "pets_toxicity": false,
+  "pets_species_affected": [
+    "Hunde (Jagdtrieb kann zu Konflikten fuehren)"
+  ],
+  "human_wildlife_conflict": {
+    "conflict_type": "minimal",
+    "description": "Kaum Konflikte mit Menschen. Gelegentlich Stoerung durch Tourismus. Minimale Auswirkungen auf Almwirtschaft durch Baue.",
+    "mitigation_measures": [
+      "Besucherlenkung in Schutzgebieten",
+      "Aufklaerung ueber Verhaltensregeln",
+      "Leinenpflicht fuer Hunde"
+    ]
+  },
+  "zoonotic_disease_risk": {
+    "risk_level": "low",
+    "diseases": [
+      "Tollwut (selten, aber moeglich)",
+      "Leptospirose (theoretisches Risiko)",
+      "Zeckenuebertragende Krankheiten (FSME, Borreliose)"
+    ],
+    "prevention": [
+      "Kein direkter Kontakt mit Wildtieren",
+      "Nach Aufenthalt in Murmeltiergebiet auf Zecken kontrollieren",
+      "FSME-Impfung fuer Risikogebiete"
+    ]
+  },
+  "regional_regulations": [
+    "Deutschland: Streng geschuetzt, Stoerung verboten",
+    "Oesterreich: Jagdbar mit Einschraenkungen",
+    "Schweiz: Geschuetzt, lokale Jagdregelungen",
+    "Italien: Jagdbar mit Saisons",
+    "Frankreich: Jagdbar mit Regulierung"
+  ],
+  "photography_safety": {
+    "recommended_distance_m": 30,
+    "best_practices": [
+      "Fernglas oder Teleobjektiv verwenden",
+      "Langsame Annaeherung",
+      "Warnpfiffe als Signal zur Distanzwahrung beachten",
+      "Keine Drohnen in der Naehe",
+      "Nicht zwischen Tier und Bau positionieren"
+    ]
+  },
+  "seasonal_considerations": {
+    "spring": "Tiere erschoepft nach Winterschlaf, besonders stoerungsempfindlich",
+    "summer": "Hauptaktivitaetszeit, meist tolerant bei Abstand",
+    "autumn": "Intensive Nahrungssuche vor Winterschlaf, etwas stoerungsempfindlicher",
+    "winter": "Im Winterschlaf, Baue nicht aufgraben oder stoeren"
+  },
+  "incident_risk_factors": [
+    "Zu nahes Herangehen fuer Fotos",
+    "Fuetterungsversuche",
+    "Freilaufende Hunde",
+    "Stoerung am Bau"
+  ],
+  "incident_lessons_learned": [
+    "Immer respektvollen Abstand halten",
+    "Wildtiere nicht fuettern",
+    "Hunde an der Leine fuehren",
+    "Warnpfiffe als Zeichen der Beunruhigung verstehen"
+  ],
+  "source": {
+    "authors": "Nationalpark Hohe Tauern",
+    "year": 2020,
+    "title": "Verhaltensregeln im Umgang mit Wildtieren",
+    "journal": "Nationalpark Hohe Tauern Informationsmaterial",
+    "doi": ""
+  }
+}

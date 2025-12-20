@@ -1,0 +1,750 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   AMORPH v7 - MORPH STYLES
+   Visual Styling for all Morph Primitives - Production Ready
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MORPH BASE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-text {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.morph-text.compact {
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   NUMBER
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-number {
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.morph-number-large {
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgba(77, 136, 255, 0.9);
+  text-shadow: 0 0 20px rgba(77, 136, 255, 0.4);
+}
+
+.morph-number-unit {
+  font-size: 0.75em;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: 0.25em;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TAG
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25em 0.625em;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(77, 136, 255, 0.1);
+  border: 1px solid rgba(77, 136, 255, 0.2);
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.morph-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BADGE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375em;
+  padding: 0.375em 0.75em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  border-radius: 9999px;
+  background: rgba(15, 15, 25, 0.6);
+  border: 1px solid rgba(77, 136, 255, 0.2);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.morph-badge-success {
+  background: rgba(0, 255, 136, 0.15);
+  border-color: rgba(0, 255, 136, 0.3);
+  color: #00ff88;
+}
+
+.morph-badge-warning {
+  background: rgba(255, 170, 0, 0.15);
+  border-color: rgba(255, 170, 0, 0.3);
+  color: #ffaa00;
+}
+
+.morph-badge-danger {
+  background: rgba(255, 51, 102, 0.15);
+  border-color: rgba(255, 51, 102, 0.3);
+  color: #ff3366;
+}
+
+.morph-badge-info {
+  background: rgba(77, 136, 255, 0.15);
+  border-color: rgba(77, 136, 255, 0.3);
+  color: #4d88ff;
+}
+
+.morph-badge-muted {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.morph-badge-icon {
+  font-size: 1em;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BOOLEAN
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-boolean {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.morph-boolean-icon {
+  width: 1.25em;
+  height: 1.25em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-size: 0.75em;
+}
+
+.morph-boolean-true .morph-boolean-icon {
+  background: rgba(0, 255, 136, 0.2);
+  color: #00ff88;
+}
+
+.morph-boolean-false .morph-boolean-icon {
+  background: rgba(255, 51, 102, 0.2);
+  color: #ff3366;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RATING
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.125em;
+}
+
+.morph-rating-star {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.2);
+  transition: color 0.15s ease;
+}
+
+.morph-rating-star.filled {
+  color: #ffaa00;
+  text-shadow: 0 0 8px rgba(255, 170, 0, 0.5);
+}
+
+.morph-rating-star.half {
+  background: linear-gradient(90deg, #ffaa00 50%, rgba(255, 255, 255, 0.2) 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.morph-rating-value {
+  margin-left: 0.5em;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PROGRESS
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375em;
+}
+
+.morph-progress-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+}
+
+.morph-progress-label {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.morph-progress-value {
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.morph-progress-bar {
+  height: 6px;
+  background: rgba(77, 136, 255, 0.1);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.morph-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, 
+    rgba(77, 136, 255, 0.7),
+    rgba(77, 136, 255, 1)
+  );
+  border-radius: 9999px;
+  transition: width 0.4s ease;
+  box-shadow: 0 0 10px rgba(77, 136, 255, 0.4);
+}
+
+/* Progress Variants */
+.morph-progress-success .morph-progress-fill {
+  background: linear-gradient(90deg, rgba(0, 255, 136, 0.7), #00ff88);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
+}
+
+.morph-progress-warning .morph-progress-fill {
+  background: linear-gradient(90deg, rgba(255, 170, 0, 0.7), #ffaa00);
+  box-shadow: 0 0 10px rgba(255, 170, 0, 0.4);
+}
+
+.morph-progress-danger .morph-progress-fill {
+  background: linear-gradient(90deg, rgba(255, 51, 102, 0.7), #ff3366);
+  box-shadow: 0 0 10px rgba(255, 51, 102, 0.4);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RANGE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-range {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.morph-range-min,
+.morph-range-max {
+  font-weight: 500;
+}
+
+.morph-range-separator {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.morph-range-unit {
+  font-size: 0.875em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-left: 0.25em;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   STATS
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 1rem;
+}
+
+.morph-stat {
+  text-align: center;
+  padding: 0.5rem;
+  background: rgba(77, 136, 255, 0.08);
+  border: 1px solid rgba(77, 136, 255, 0.15);
+  border-radius: 10px;
+}
+
+.morph-stat-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgba(77, 136, 255, 0.9);
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 15px rgba(77, 136, 255, 0.3);
+}
+
+.morph-stat-label {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 0.25em;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   LIST
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.morph-list-item {
+  position: relative;
+  padding: 0.375em 0 0.375em 1.25em;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.5;
+}
+
+.morph-list-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 6px;
+  height: 6px;
+  background: rgba(77, 136, 255, 0.8);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(77, 136, 255, 0.5);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   IMAGE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-image {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(20, 20, 30, 0.8), rgba(10, 10, 15, 0.9));
+}
+
+.morph-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.morph-image:hover img {
+  transform: scale(1.03);
+}
+
+.morph-image-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   LINK
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375em;
+  color: #00c8dc;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.morph-link:hover {
+  color: #00e5ff;
+  text-shadow: 0 0 15px rgba(0, 200, 220, 0.4);
+}
+
+.morph-link-icon {
+  font-size: 0.875em;
+  opacity: 0.7;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   DATE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375em;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.morph-date-icon {
+  font-size: 1em;
+  opacity: 0.6;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TIMELINE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-timeline {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.morph-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    rgba(77, 136, 255, 0.5),
+    rgba(77, 136, 255, 0.1)
+  );
+}
+
+.morph-timeline-item {
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.morph-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.morph-timeline-dot {
+  position: absolute;
+  left: -1.625rem;
+  top: 0.25rem;
+  width: 10px;
+  height: 10px;
+  background: #4d88ff;
+  border: 2px solid #0a0a0f;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(77, 136, 255, 0.4);
+}
+
+.morph-timeline-date {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.25rem;
+}
+
+.morph-timeline-title {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 0.25rem;
+}
+
+.morph-timeline-description {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BAR CHART
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.morph-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.morph-bar-label {
+  flex: 0 0 100px;
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.morph-bar-track {
+  flex: 1;
+  height: 20px;
+  background: rgba(77, 136, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.morph-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg,
+    rgba(77, 136, 255, 0.7),
+    rgba(77, 136, 255, 0.95)
+  );
+  border-radius: 6px;
+  transition: width 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0.5rem;
+  box-shadow: 0 0 10px rgba(77, 136, 255, 0.3);
+}
+
+.morph-bar-value {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: #0a0a0f;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RADAR CHART
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-radar {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.morph-radar svg {
+  width: 100%;
+  height: 100%;
+}
+
+.morph-radar-grid {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.1);
+  stroke-width: 1;
+}
+
+.morph-radar-axis {
+  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 1;
+}
+
+.morph-radar-area {
+  fill: rgba(77, 136, 255, 0.2);
+  stroke: rgba(77, 136, 255, 0.8);
+  stroke-width: 2;
+}
+
+.morph-radar-point {
+  fill: #4d88ff;
+  stroke: #0a0a0f;
+  stroke-width: 2;
+}
+
+.morph-radar-label {
+  font-size: 0.6875rem;
+  fill: rgba(255, 255, 255, 0.5);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SPARKLINE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-sparkline {
+  display: inline-flex;
+  align-items: flex-end;
+  height: 30px;
+  gap: 2px;
+}
+
+.morph-sparkline-bar {
+  width: 4px;
+  background: rgba(77, 136, 255, 0.6);
+  border-radius: 2px 2px 0 0;
+  transition: background 0.15s ease;
+}
+
+.morph-sparkline-bar:hover {
+  background: #4d88ff;
+  box-shadow: 0 0 8px rgba(77, 136, 255, 0.5);
+}
+
+/* Line version */
+.morph-sparkline-svg {
+  height: 30px;
+}
+
+.morph-sparkline-line {
+  fill: none;
+  stroke: #4d88ff;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.morph-sparkline-area {
+  fill: url(#sparkline-gradient);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   GAUGE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-gauge {
+  position: relative;
+  width: 120px;
+  height: 70px;
+}
+
+.morph-gauge-arc {
+  fill: none;
+  stroke: rgba(77, 136, 255, 0.1);
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
+.morph-gauge-fill {
+  fill: none;
+  stroke: #4d88ff;
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.4s ease;
+  filter: drop-shadow(0 0 6px rgba(77, 136, 255, 0.5));
+}
+
+.morph-gauge-value {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.morph-gauge-label {
+  position: absolute;
+  bottom: -1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6875rem;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   OBJECT / KEY-VALUE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-object {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.morph-object-row {
+  display: grid;
+  grid-template-columns: minmax(80px, auto) 1fr;
+  gap: 1rem;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid rgba(77, 136, 255, 0.08);
+}
+
+.morph-object-row:last-child {
+  border-bottom: none;
+}
+
+.morph-object-key {
+  font-size: 0.8125rem;
+  color: rgba(77, 136, 255, 0.7);
+}
+
+.morph-object-value {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMPARE MODE - PILZ FARBEN
+   Neon colors for compare mode
+   ───────────────────────────────────────────────────────────────────────────── */
+.compare-mode .morph-bar-item:nth-child(1) .morph-bar-fill { 
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0.7), rgba(0, 255, 255, 0.95)); 
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+.compare-mode .morph-bar-item:nth-child(2) .morph-bar-fill { 
+  background: linear-gradient(90deg, rgba(255, 0, 255, 0.7), rgba(255, 0, 255, 0.95)); 
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
+}
+.compare-mode .morph-bar-item:nth-child(3) .morph-bar-fill { 
+  background: linear-gradient(90deg, rgba(255, 255, 0, 0.7), rgba(255, 255, 0, 0.95)); 
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.4);
+}
+.compare-mode .morph-bar-item:nth-child(4) .morph-bar-fill { 
+  background: linear-gradient(90deg, rgba(0, 255, 136, 0.7), rgba(0, 255, 136, 0.95)); 
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
+}
+.compare-mode .morph-bar-item:nth-child(5) .morph-bar-fill { 
+  background: linear-gradient(90deg, rgba(255, 100, 100, 0.7), rgba(255, 100, 100, 0.95)); 
+  box-shadow: 0 0 10px rgba(255, 100, 100, 0.4);
+}
+.compare-mode .morph-bar-item:nth-child(6) .morph-bar-fill { 
+  background: linear-gradient(90deg, rgba(100, 200, 255, 0.7), rgba(100, 200, 255, 0.95)); 
+  box-shadow: 0 0 10px rgba(100, 200, 255, 0.4);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RESPONSIVE ADJUSTMENTS
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .morph-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .morph-bar-label {
+    flex: 0 0 80px;
+    font-size: 0.75rem;
+  }
+  
+  .morph-timeline {
+    padding-left: 1.25rem;
+  }
+  
+  .morph-radar {
+    max-width: 250px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PILZ FARBSYSTEM (Neon Colors for Compare)
+   ───────────────────────────────────────────────────────────────────────────── */
+.pilz-0 { --pilz-color: #0ff; --pilz-rgb: 0, 255, 255; }
+.pilz-1 { --pilz-color: #f0f; --pilz-rgb: 255, 0, 255; }
+.pilz-2 { --pilz-color: #ff0; --pilz-rgb: 255, 255, 0; }
+.pilz-3 { --pilz-color: #0f8; --pilz-rgb: 0, 255, 136; }
+.pilz-4 { --pilz-color: #f64; --pilz-rgb: 255, 100, 100; }
+.pilz-5 { --pilz-color: #4cf; --pilz-rgb: 68, 200, 255; }
+.pilz-6 { --pilz-color: #f8f; --pilz-rgb: 255, 136, 255; }
+.pilz-7 { --pilz-color: #8f0; --pilz-rgb: 136, 255, 0; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PERSPEKTIVEN FARBSYSTEM  
+   Colors defined for data-perspektive attribute
+   ───────────────────────────────────────────────────────────────────────────── */
+[data-perspektive="culinary"] { --perspektive-rgb: 245, 180, 130; }
+[data-perspektive="safety"] { --perspektive-rgb: 250, 160, 170; }
+[data-perspektive="cultivation"] { --perspektive-rgb: 130, 220, 180; }
+[data-perspektive="medicine"] { --perspektive-rgb: 200, 160, 220; }
+[data-perspektive="chemistry"] { --perspektive-rgb: 200, 140, 200; }
+[data-perspektive="ecology"] { --perspektive-rgb: 140, 200, 160; }
+[data-perspektive="statistics"] { --perspektive-rgb: 140, 180, 220; }
+[data-perspektive="geography"] { --perspektive-rgb: 210, 170, 130; }
+[data-perspektive="temporal"] { --perspektive-rgb: 230, 190, 120; }
+[data-perspektive="economy"] { --perspektive-rgb: 240, 200, 100; }
+[data-perspektive="conservation"] { --perspektive-rgb: 100, 190, 180; }
+[data-perspektive="culture"] { --perspektive-rgb: 200, 160, 180; }
+[data-perspektive="research"] { --perspektive-rgb: 160, 170, 200; }
+[data-perspektive="interactions"] { --perspektive-rgb: 180, 200, 150; }
+[data-perspektive="identification"] { --perspektive-rgb: 100, 190, 180; }

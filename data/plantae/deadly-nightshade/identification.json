@@ -1,0 +1,202 @@
+{
+  "taxonomy": {
+    "domain": "Eukaryota",
+    "kingdom": "Plantae",
+    "phylum": "Magnoliophyta",
+    "class": "Magnoliopsida",
+    "order": "Solanales",
+    "family": "Solanaceae",
+    "genus": "Atropa",
+    "species": "belladonna",
+    "authority": "L.",
+    "year_described": 1753
+  },
+  "scientific_name": "Atropa belladonna",
+  "synonyms": [
+    "Atropa belladonna var. lutea Doell",
+    "Belladonna baccifera Lam.",
+    "Belladonna trichotoma Scop."
+  ],
+  "common_names": [
+    "Tollkirsche",
+    "Waldnachtschatten",
+    "Tollkraut",
+    "Schwindelkirsche",
+    "Teufelskirsche",
+    "Wolfskirsche",
+    "Deadly Nightshade",
+    "Belladonna"
+  ],
+  "common_names_regional": {
+    "de": ["Tollkirsche", "Waldnachtschatten", "Tollkraut", "Schwindelkirsche", "Teufelskirsche", "Wolfskirsche"],
+    "en": ["Deadly Nightshade", "Belladonna", "Devil's Berries", "Death Cherries", "Beautiful Lady"],
+    "fr": ["Belladone", "Belle-dame", "Cerise du diable"],
+    "it": ["Belladonna", "Ciliegia della morte"],
+    "es": ["Belladona", "Solano furioso"]
+  },
+  "growth_form": "herbaceous_perennial",
+  "growth_habit": "Aufrecht wachsende, krautige Staude mit verzweigtem Wuchs",
+  "plant_height": {
+    "min": 50,
+    "max": 150,
+    "unit": "cm"
+  },
+  "plant_spread": {
+    "min": 60,
+    "max": 100,
+    "unit": "cm"
+  },
+  "lifespan": "Mehrjaehrig (perennial), Wurzelstock ueberdauert Winter",
+  "stem": {
+    "description": "Aufrecht, reichlich verzweigt, gruenlich bis violett ueberlaufen",
+    "cross_section": "Rund",
+    "texture": "Fein behaart, klebrig-druesiig",
+    "color": "Gruenlich-violett",
+    "height_range": {
+      "min": 50,
+      "max": 150,
+      "unit": "cm"
+    },
+    "branching": "Dichotom (gabelig)"
+  },
+  "leaves": {
+    "arrangement": "Wechselstaendig, im oberen Teil oft paarweise",
+    "shape": "Eifoermig bis elliptisch",
+    "margin": "Ganzrandig",
+    "apex": "Zugespitzt",
+    "base": "Keilfoermig, am Stiel herablaufend",
+    "texture": "Weich, druesiig behaart",
+    "color_upper": "Dunkelgruen",
+    "color_lower": "Hellgruen, graugruen",
+    "length": {
+      "min": 7,
+      "max": 20,
+      "unit": "cm"
+    },
+    "width": {
+      "min": 4,
+      "max": 12,
+      "unit": "cm"
+    },
+    "venation": "Fiedernervig",
+    "petiole_length": {
+      "min": 1,
+      "max": 3,
+      "unit": "cm"
+    },
+    "special_features": [
+      "Blaetter in der Naehe der Blueten oft ungleich gross gepaart",
+      "Unangenehmer Geruch beim Zerreiben",
+      "Blaetter trocknen beim Welken schwarz"
+    ]
+  },
+  "flowers": {
+    "type": "Einzeln in Blattachseln, nickend",
+    "symmetry": "Radialsymmetrisch (aktinomorph)",
+    "shape": "Glockenfoermig (campanulat)",
+    "color": "Violett-braun aussen, gelblich mit violetten Adern innen",
+    "diameter": {
+      "min": 20,
+      "max": 35,
+      "unit": "mm"
+    },
+    "petal_count": 5,
+    "petal_fusion": "Verwachsenkronblaettrig",
+    "calyx": {
+      "description": "5-spaltig, bleibend, bei Fruchtreife sternfoermig ausgebreitet",
+      "color": "Gruen"
+    },
+    "corolla": {
+      "description": "Glockenfoermig, 5-zipfelig, zurueckgerollt",
+      "color": "Aussen schmutzig-violett bis braun, innen gelbgruen mit purpurnen Adern"
+    },
+    "stamens": 5,
+    "pistil": "1, oberstaendig",
+    "flowering_period": [
+      {"month": 6, "active": true},
+      {"month": 7, "active": true},
+      {"month": 8, "active": true},
+      {"month": 9, "active": true}
+    ],
+    "fragrance": "Leicht suesslich, unangenehm"
+  },
+  "fruits": {
+    "type": "Beere",
+    "shape": "Kugelig",
+    "diameter": {
+      "min": 10,
+      "max": 15,
+      "unit": "mm"
+    },
+    "color_unripe": "Gruen",
+    "color_ripe": "Glaenzend schwarz",
+    "surface": "Glatt, glaenzend",
+    "flesh_color": "Dunkelviolett",
+    "taste": "Suesslich (VORSICHT: HOCHGIFTIG!)",
+    "seed_count_per_fruit": {
+      "min": 30,
+      "max": 50,
+      "unit": "Stueck"
+    },
+    "fruiting_period": [
+      {"month": 8, "active": true},
+      {"month": 9, "active": true},
+      {"month": 10, "active": true}
+    ],
+    "persistence": "Verbleibt nach Reife am Kelch",
+    "dispersal": "Zoochor (Voegel)"
+  },
+  "seeds": {
+    "shape": "Nierenfoermig bis rundlich",
+    "size": {
+      "min": 1.5,
+      "max": 2.5,
+      "unit": "mm"
+    },
+    "color": "Braun bis schwarz",
+    "surface": "Netzig-grubig"
+  },
+  "roots": {
+    "type": "Rhizom mit dicken, fleischigen Wurzeln",
+    "description": "Kraeftiges Rhizom, mehrkoepfig, mit langen Wurzeln",
+    "color": "Aussen braun, innen weisslich",
+    "special_features": "Hoechste Alkaloidkonzentration aller Pflanzenteile"
+  },
+  "diagnostic_features": [
+    "Glockenfoermige, violett-braune Blueten",
+    "Einzelne, schwarze, glaenzende Beeren im gruenen Sternen-Kelch",
+    "Grosse, weiche, paarweise angeordnete Blaetter",
+    "Unangenehmer Geruch beim Zerreiben",
+    "Verzweigter, aufrechter Wuchs bis 1.5 m"
+  ],
+  "identification_confidence": {
+    "status": "likely",
+    "variant": "success"
+  },
+  "identification_difficulty": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "identification_notes": "Die Tollkirsche ist bei genauer Betrachtung gut identifizierbar. Die Kombination aus glockenfoermigen Blueten, einzeln stehenden schwarzen Beeren im sternfoermigen Kelch und grossen, weichen Blaettern ist charakteristisch. Verwechslungsgefahr besteht hauptsaechlich bei den Beeren mit anderen schwarzen Beerenfruchten.",
+  "field_identification_tips": [
+    "Auf nickende, glockenfoermige Blueten achten",
+    "Beeren stehen einzeln, nicht in Trauben",
+    "Kelch bleibt als gruener Stern um die Beere",
+    "Beim Zerreiben der Blaetter unangenehmer Geruch",
+    "Hochwuechsige, verzweigte Pflanze in Waeldern"
+  ],
+  "microscopic_features": {
+    "stomata": "Anomozytisch",
+    "trichomes": "Mehrzellige Drusenhaare und einfache Haare",
+    "calcium_oxalate": "Kristallsand in Parenchymzellen"
+  },
+  "chromosome_number": "2n = 72",
+  "ploidy": "Hexaploid",
+  "source": {
+    "authors": "Jaeger, E.J., Werner, K.",
+    "year": 2005,
+    "title": "Rothmaler - Exkursionsflora von Deutschland, Band 4",
+    "journal": "Spektrum Akademischer Verlag",
+    "doi": "ISBN 978-3-8274-1496-1"
+  }
+}

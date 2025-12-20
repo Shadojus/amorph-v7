@@ -1,0 +1,210 @@
+{
+  "scientific": "Atropa belladonna",
+  "chemotype": "Tropanalkaloid-reich",
+  "total_alkaloid_content": {
+    "min": 0.3,
+    "max": 1.5,
+    "unit": "%"
+  },
+  "alkaloid_content_by_part": [
+    {"label": "Wurzel", "value": 0.85},
+    {"label": "Blaetter", "value": 0.45},
+    {"label": "Stengel", "value": 0.25},
+    {"label": "Beeren", "value": 0.65},
+    {"label": "Samen", "value": 0.35}
+  ],
+  "primary_metabolites": {
+    "carbohydrates": {
+      "total_percent": 12,
+      "types": ["Staerke", "Glucose", "Fructose", "Saccharose"]
+    },
+    "proteins": {
+      "total_percent": 3.5,
+      "amino_acids": ["Asparagin", "Glutamin", "Prolin"]
+    },
+    "lipids": {
+      "total_percent": 1.2,
+      "fatty_acids": ["Linolsaeure", "Oleinsaeure", "Palmitinsaeure"]
+    }
+  },
+  "secondary_metabolites": [
+    "Hyoscyamin (L-Atropin)",
+    "Atropin (dl-Hyoscyamin)",
+    "Scopolamin (L-Hyoscin)",
+    "Apoatropin",
+    "Belladonnin",
+    "Rutin",
+    "Quercetin",
+    "Kaempferol",
+    "Chlorogensaeure",
+    "Kaffeesaeure",
+    "Scopoletin",
+    "Aesculetin",
+    "beta-Sitosterol",
+    "Stigmasterol",
+    "Campesterol"
+  ],
+  "alkaloid_compounds": [
+    {
+      "name": "Hyoscyamin (L-Atropin)",
+      "cas": "101-31-5",
+      "formula": "C17H23NO3",
+      "molecular_weight": 289.37,
+      "content_range": {"min": 0.2, "max": 0.8, "unit": "%"},
+      "pharmacological_class": "Muskarinrezeptor-Antagonist"
+    },
+    {
+      "name": "Atropin (dl-Hyoscyamin)",
+      "cas": "51-55-8",
+      "formula": "C17H23NO3",
+      "molecular_weight": 289.37,
+      "content_range": {"min": 0.1, "max": 0.5, "unit": "%"},
+      "pharmacological_class": "Anticholinergikum"
+    },
+    {
+      "name": "Scopolamin (L-Hyoscin)",
+      "cas": "51-34-3",
+      "formula": "C17H21NO4",
+      "molecular_weight": 303.35,
+      "content_range": {"min": 0.01, "max": 0.05, "unit": "%"},
+      "pharmacological_class": "Antiemetikum, Anticholinergikum"
+    },
+    {
+      "name": "Apoatropin",
+      "formula": "C17H21NO2",
+      "molecular_weight": 271.35,
+      "content_range": {"min": 0.001, "max": 0.01, "unit": "%"}
+    },
+    {
+      "name": "Belladonnin",
+      "content_range": {"min": 0.001, "max": 0.01, "unit": "%"}
+    }
+  ],
+  "phenolic_compounds": [
+    "Rutin",
+    "Quercetin",
+    "Kaempferol",
+    "Chlorogensaeure",
+    "Kaffeesaeure",
+    "Scopoletin",
+    "Aesculetin"
+  ],
+  "phytosterols": [
+    "beta-Sitosterol",
+    "Stigmasterol",
+    "Campesterol"
+  ],
+  "terpenes": [
+    "Linalool",
+    "Caryophyllen",
+    "Oleanolsaeure"
+  ],
+  "alkaloid_profile_radar": [
+    {"axis": "Hyoscyamin", "value": 80},
+    {"axis": "Atropin", "value": 60},
+    {"axis": "Scopolamin", "value": 25},
+    {"axis": "Apoatropin", "value": 10},
+    {"axis": "Belladonnin", "value": 5}
+  ],
+  "biosynthesis_pathway": {
+    "precursors": ["L-Ornithin", "L-Phenylalanin", "Acetat"],
+    "key_intermediates": ["Tropinon", "Tropin", "Tropa-saeure"],
+    "key_enzymes": [
+      "Putrescin-N-methyltransferase (PMT)",
+      "Tropinon-Reduktase I (TRI)",
+      "Hyoscyamin-6-beta-hydroxylase (H6H)",
+      "Littorin-Synthase"
+    ],
+    "regulation": "Licht, Temperatur, Naehrstoffe beeinflussen Alkaloidgehalt"
+  },
+  "seasonal_variation": [
+    {"label": "Fruehling", "value": 0.6},
+    {"label": "Sommer", "value": 0.9},
+    {"label": "Bluete", "value": 1.2},
+    {"label": "Fruchtreife", "value": 0.85},
+    {"label": "Herbst", "value": 0.7}
+  ],
+  "environmental_factors": {
+    "light": "Hoeherer Alkaloidgehalt bei Halbschatten",
+    "temperature": "Optimale Biosynthese bei 18-22 Grad C",
+    "soil": "Kalk- und naehrstoffreiche Boeden foerdern Alkaloidproduktion",
+    "water_stress": "Trockenstress kann Alkaloidgehalt erhoehen"
+  },
+  "analytical_methods": [
+    "HPLC-UV (USP/Ph. Eur. Methoden)",
+    "GC-MS fuer Alkaloidprofile",
+    "Immunoassays (ELISA)",
+    "Duennschichtchromatographie (DC)",
+    "Karl-Fischer-Titration (Wassergehalt)"
+  ],
+  "quality_markers": [
+    {
+      "marker": "Gesamt-Alkaloidgehalt",
+      "specification": "min. 0.30% (Ph. Eur.)",
+      "method": "Titrimetrische Bestimmung"
+    },
+    {
+      "marker": "Hyoscyamin-Gehalt",
+      "specification": "min. 0.25%",
+      "method": "HPLC"
+    },
+    {
+      "marker": "Trocknungsverlust",
+      "specification": "max. 10%",
+      "method": "Gravimetrie"
+    }
+  ],
+  "pharmacopoeia_references": [
+    "Europaeisches Arzneibuch (Ph. Eur.) - Belladonnae folium",
+    "USP-NF - Belladonna Leaf",
+    "DAB (Deutsches Arzneibuch)",
+    "British Pharmacopoeia"
+  ],
+  "extraction_methods": {
+    "traditional": "Extraktion mit verduennten Sauren, Alkalisierung, Ausschuetteln mit organischen Loesungsmitteln",
+    "modern": "Superkritische CO2-Extraktion, Ultrasschall-assistierte Extraktion",
+    "industrial": "Gegenstromextraktion fuer pharmazeutische Zwecke"
+  },
+  "stability": {
+    "light_sensitivity": "Mittel - Schutz vor direktem Licht",
+    "heat_sensitivity": "Atropin stabil bis ca. 200 Grad C",
+    "ph_sensitivity": "Razemisierung in alkalischem Milieu",
+    "storage_conditions": "Kuehl, trocken, lichtgeschuetzt"
+  },
+  "toxicological_data": {
+    "ld50_atropine_oral_rat": {
+      "min": 400,
+      "max": 600,
+      "unit": "mg/kg"
+    },
+    "ld50_atropine_ip_mouse": {
+      "min": 75,
+      "max": 95,
+      "unit": "mg/kg"
+    },
+    "human_lethal_dose": {
+      "min": 100,
+      "max": 300,
+      "unit": "mg Atropin"
+    },
+    "minimum_toxic_dose": {
+      "min": 0.5,
+      "max": 1.0,
+      "unit": "mg Atropin"
+    }
+  },
+  "drug_interactions": [
+    "Verstaerkung anderer Anticholinergika",
+    "Wirkungsabschwaechung von Cholinergika",
+    "Interaktion mit Antidepressiva (trizyklische)",
+    "Interaktion mit Phenothiazinen",
+    "Interaktion mit Antihistaminika"
+  ],
+  "source": {
+    "authors": "Heinrich, M., Barnes, J., Prieto-Garcia, J., Gibbons, S., Williamson, E.M.",
+    "year": 2018,
+    "title": "Fundamentals of Pharmacognosy and Phytotherapy",
+    "journal": "Elsevier, 3rd Edition",
+    "doi": "ISBN 978-0-7020-7030-2"
+  }
+}

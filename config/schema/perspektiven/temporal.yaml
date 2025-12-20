@@ -1,0 +1,950 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: TEMPORAL
+# Version: 2.0.0 | Comprehensive temporal dynamics for biological species
+# Lifecycle, Phenology, Circadian Rhythms, Historical Records, Future Projections
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# TARGET AUDIENCE:
+# - Researchers studying fungal time dynamics
+# - Phenologists
+# - Climate scientists
+# - Cultivation planners
+# - Citizen scientists
+# - Conservation planners
+#
+# DESIGN PHILOSOPHY:
+# Documents all temporal aspects of fungal species including lifecycle stages,
+# phenological patterns, circadian rhythms, historical documentation,
+# and future projections based on climate scenarios.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: temporal
+name: Temporal
+symbol: ⏳
+
+# Purple twilight - distinct time pastels (no blue)
+colors:
+  - "rgba(190, 150, 200, 0.75)"
+  - "rgba(180, 140, 190, 0.70)"
+  - "rgba(170, 130, 180, 0.65)"
+  - "rgba(160, 120, 170, 0.60)"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FIELDS - Flat structure translated from DB schema
+# ═══════════════════════════════════════════════════════════════════════════════
+
+fields:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TEMPORAL PROFILE - Kern-Klassifikation
+  # ─────────────────────────────────────────────────────────────────────────────
+  - temporal_strategie
+  - langlebigkeits_klasse
+  - generationszeit_tage
+  - daten_vollstaendigkeit_score
+  - beobachtungen_anzahl
+  - letzte_beobachtung_datum
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # LEBENSZYKLUS - Lifecycle Core
+  # ─────────────────────────────────────────────────────────────────────────────
+  - lebenszyklus_typ
+  - reproduktionsmodus
+  - paarungssystem
+  - ploidie_zyklus
+  - zyklus_dauer_tage_gesamt
+  - zyklus_dauer_min
+  - zyklus_dauer_max
+  - zyklus_dauer_optimal
+  - generationen_pro_jahr
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FRUCHTUNGSTRIGGER
+  # ─────────────────────────────────────────────────────────────────────────────
+  - fruchtungs_trigger
+  - fruchtungs_trigger_temp_schwelle_c
+  - fruchtungs_trigger_temp_dauer_h
+  - fruchtungs_trigger_feuchtigkeit_prozent
+  - fruchtungs_trigger_photoperiode_h
+  - dormanz_trigger
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FORSCHUNGSKONTEXT
+  # ─────────────────────────────────────────────────────────────────────────────
+  - modellorganismus_status
+  - genom_sequenziert
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # UNIVERSAL LIFECYCLE STAGES (kingdom-agnostic)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - lifecycle_kingdom                    # Conditional field activation
+  - lifecycle_stage_count                # Number of distinct stages
+  - lifecycle_total_duration_days        # Complete cycle length
+  - lifecycle_generation_time_days       # Time to reproduction
+  - lifecycle_dormancy_capable           # Can enter dormancy
+  - lifecycle_diapause_type              # Obligate/Facultative (Animalia)
+  - lifecycle_metamorphosis_type         # Complete/Incomplete/None (Animalia)
+  - lifecycle_alternation_generations    # Yes/No (Plantae/Fungi)
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ENTWICKLUNGSSTADIEN - Development Stages
+  # ─────────────────────────────────────────────────────────────────────────────
+  - entwicklungsstadien
+  - stadien_anzahl
+
+  # Stadium 1: Spore
+  - stadium_1_name
+  - stadium_1_name_wissenschaftlich
+  - stadium_1_code
+  - stadium_1_kategorie
+  - stadium_1_ploidie_zustand
+  - stadium_1_dauer_h_min
+  - stadium_1_dauer_h_optimal
+  - stadium_1_dauer_h_max
+  - stadium_1_dauer_variabilitaet
+  - stadium_1_wachstumsrate_optimal
+  - stadium_1_wachstumsrate_einheit
+  - stadium_1_groesse_min_mm
+  - stadium_1_groesse_max_mm
+  - stadium_1_groesse_typisch_mm
+  - stadium_1_temp_min_c
+  - stadium_1_temp_optimal_c
+  - stadium_1_temp_max_c
+  - stadium_1_feuchtigkeit_min
+  - stadium_1_feuchtigkeit_optimal
+  - stadium_1_feuchtigkeit_max
+  - stadium_1_licht_photoperiode_h
+  - stadium_1_licht_intensitaet_lux
+  - stadium_1_licht_spektrum
+  - stadium_1_sauerstoff_bedarf
+  - stadium_1_co2_optimal_ppm
+  - stadium_1_co2_max_ppm
+  - stadium_1_morphologie
+  - stadium_1_identifikationsmerkmale
+  - stadium_1_mikroskopische_merkmale
+  - stadium_1_uebergang_trigger
+  - stadium_1_uebergang_dauer_h
+  - stadium_1_uebergang_erfolgsrate
+  - stadium_1_reversibel
+  - stadium_1_erntbar
+  - stadium_1_erntefenster_h
+  - stadium_1_kultivierungs_hinweise
+
+  # Stadium 2: Keimung/Germination
+  - stadium_2_name
+  - stadium_2_name_wissenschaftlich
+  - stadium_2_code
+  - stadium_2_kategorie
+  - stadium_2_ploidie_zustand
+  - stadium_2_dauer_h_min
+  - stadium_2_dauer_h_optimal
+  - stadium_2_dauer_h_max
+  - stadium_2_temp_optimal_c
+  - stadium_2_feuchtigkeit_optimal
+  - stadium_2_morphologie
+  - stadium_2_erntbar
+
+  # Stadium 3: Vegetativ/Myzel
+  - stadium_3_name
+  - stadium_3_name_wissenschaftlich
+  - stadium_3_code
+  - stadium_3_kategorie
+  - stadium_3_ploidie_zustand
+  - stadium_3_dauer_h_min
+  - stadium_3_dauer_h_optimal
+  - stadium_3_dauer_h_max
+  - stadium_3_temp_optimal_c
+  - stadium_3_feuchtigkeit_optimal
+  - stadium_3_wachstumsrate_optimal
+  - stadium_3_morphologie
+  - stadium_3_erntbar
+
+  # Stadium 4: Primordien
+  - stadium_4_name
+  - stadium_4_name_wissenschaftlich
+  - stadium_4_code
+  - stadium_4_kategorie
+  - stadium_4_ploidie_zustand
+  - stadium_4_dauer_h_min
+  - stadium_4_dauer_h_optimal
+  - stadium_4_dauer_h_max
+  - stadium_4_temp_optimal_c
+  - stadium_4_feuchtigkeit_optimal
+  - stadium_4_morphologie
+  - stadium_4_erntbar
+
+  # Stadium 5: Entwicklung/Button
+  - stadium_5_name
+  - stadium_5_name_wissenschaftlich
+  - stadium_5_code
+  - stadium_5_kategorie
+  - stadium_5_dauer_h_min
+  - stadium_5_dauer_h_optimal
+  - stadium_5_dauer_h_max
+  - stadium_5_temp_optimal_c
+  - stadium_5_morphologie
+  - stadium_5_erntbar
+  - stadium_5_erntefenster_h
+
+  # Stadium 6: Reifung/Mature
+  - stadium_6_name
+  - stadium_6_name_wissenschaftlich
+  - stadium_6_code
+  - stadium_6_kategorie
+  - stadium_6_dauer_h_min
+  - stadium_6_dauer_h_optimal
+  - stadium_6_dauer_h_max
+  - stadium_6_morphologie
+  - stadium_6_erntbar
+  - stadium_6_erntefenster_h
+
+  # Stadium 7: Sporulation
+  - stadium_7_name
+  - stadium_7_kategorie
+  - stadium_7_dauer_h_optimal
+  - stadium_7_morphologie
+
+  # Stadium 8: Seneszenz
+  - stadium_8_name
+  - stadium_8_kategorie
+  - stadium_8_dauer_h_optimal
+  - stadium_8_morphologie
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PHÄNOLOGIE - Phenology
+  # ─────────────────────────────────────────────────────────────────────────────
+  - phenologie
+  - phenologie_region
+  - phenologie_breitengrad_min
+  - phenologie_breitengrad_max
+  - phenologie_hoehe_min_m
+  - phenologie_hoehe_max_m
+  - phenologie_klimazone
+
+  # Saisonalität
+  - saisonalitaet_typ
+  - primaere_saison
+  - sekundaere_saison
+  - monatliche_aktivitaet
+  - monatliche_aktivitaet_jan
+  - monatliche_aktivitaet_feb
+  - monatliche_aktivitaet_mar
+  - monatliche_aktivitaet_apr
+  - monatliche_aktivitaet_mai
+  - monatliche_aktivitaet_jun
+  - monatliche_aktivitaet_jul
+  - monatliche_aktivitaet_aug
+  - monatliche_aktivitaet_sep
+  - monatliche_aktivitaet_okt
+  - monatliche_aktivitaet_nov
+  - monatliche_aktivitaet_dez
+
+  # Peak-Perioden
+  - peak_perioden
+  - peak_1_start_monat
+  - peak_1_start_tag
+  - peak_1_ende_monat
+  - peak_1_ende_tag
+  - peak_1_intensitaet
+  - peak_1_zuverlaessigkeit
+  - peak_2_start_monat
+  - peak_2_ende_monat
+  - peak_2_intensitaet
+
+  # Erscheinungsdaten
+  - erstes_erscheinen_tag_des_jahres
+  - letztes_erscheinen_tag_des_jahres
+  - saison_laenge_tage
+
+  # Umwelt-Korrelationen
+  - temp_korrelation_fruchtung_min_c
+  - temp_korrelation_fruchtung_max_c
+  - temp_korrelation_fruchtung_optimal_c
+  - temp_korrelation_staerke
+  - niederschlag_korrelation_min_mm_woche
+  - niederschlag_korrelation_optimal_mm_woche
+  - niederschlag_korrelation_verzoegerung_tage
+  - niederschlag_korrelation_staerke
+  - feuchtigkeit_korrelation
+  - bodenfeuchtigkeit_korrelation
+  - photoperiode_empfindlichkeit
+  - photoperiode_kritische_stunden
+  - photoperiode_reaktionstyp
+
+  # Wetter-Reaktionen
+  - frost_empfindlichkeit
+  - trockenheits_reaktion
+  - sturm_reaktion
+
+  # Biotische Korrelationen
+  - wirt_phenologie_verbindung
+  - wirt_art
+  - wirt_korrelation_ereignis
+  - wirt_korrelation_verzoegerung_wochen
+  - assoziierte_arten
+
+  # Langzeit-Trends
+  - phenologie_verschiebung_erkannt
+  - verschiebung_richtung
+  - verschiebung_groesse_tage
+  - verschiebung_zeitraum_jahre
+  - verschiebung_konfidenz
+  - verschiebung_attribution
+  - historische_baseline
+
+  # Datenqualität Phänologie
+  - beobachtungsjahre
+  - beobachtungen_total
+  - phenologie_konfidenz
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PHÄNOLOGIE-BEOBACHTUNGEN - Aggregierte Statistiken
+  # ─────────────────────────────────────────────────────────────────────────────
+  - beobachtungen_verifiziert
+  - beobachtungen_einzigartige_beobachter
+  - beobachtungen_einzigartige_standorte
+  - beobachtungen_monatliche_verteilung
+  - beobachtungen_woechentliche_verteilung
+  - beobachtungen_erste_tag_des_jahres
+  - beobachtungen_letzte_tag_des_jahres
+  - beobachtungen_peak_tag_des_jahres
+  - mittelwert_erstes_erscheinen_tag
+  - stdabw_erstes_erscheinen_tag
+  - mittelwert_peak_tag
+  - mittelwert_letztes_erscheinen_tag
+  - jahr_zu_jahr_aenderung_prozent
+  - trend_richtung
+  - phenologie_verschiebung_tage
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CIRCADIAN RHYTHMEN - Tagesrhythmus
+  # ─────────────────────────────────────────────────────────────────────────────
+  - circadian
+  - rhythmus_typ
+  - rhythmus_periode_stunden
+  - rhythmus_variabilitaet
+  - entrainment_signale
+
+  # Sporenfreisetzung
+  - sporenfreisetzung
+  - sporenfreisetzung_peak_zeit_utc
+  - sporenfreisetzung_peak_dauer_h
+  - sporenfreisetzung_sekundaer_peak
+  - sporenfreisetzung_muster
+  - sporenfreisetzung_intensitaet_00
+  - sporenfreisetzung_intensitaet_06
+  - sporenfreisetzung_intensitaet_12
+  - sporenfreisetzung_intensitaet_18
+  - sporenfreisetzung_trigger_feuchtigkeit
+  - sporenfreisetzung_trigger_temp_aenderung
+  - sporenfreisetzung_trigger_licht
+  - sporenfreisetzung_trigger_wind_ms
+
+  # Wachstumsrate-Muster
+  - wachstumsrate_muster
+  - wachstumsrate_peak_zeit
+  - wachstumsrate_minimum_zeit
+  - wachstumsrate_peak_zu_tief_verhaeltnis
+  - wachstumsrate_rhythmus_staerke
+
+  # Metabolische Rhythmen
+  - metabolischer_rhythmus
+  - respiration_peak
+  - enzym_aktivitaet_peaks
+  - sekundaer_metabolit_produktion_peak
+  - sekundaer_metabolit_verbindungen
+  - co2_produktion_muster
+  - voc_emission_muster
+  - voc_peak_zeit
+  - voc_verbindungen
+  - voc_variation_prozent
+
+  # Lichtreaktion
+  - lichtreaktion
+  - photorezeptoren
+  - aktionsspektrum_peak_nm
+  - empfindlichkeitsschwelle_lux
+  - phototropismus
+  - photomorphogenese_hut
+  - photomorphogenese_stiel
+  - photomorphogenese_pigmentierung
+  - dunkelperiode_minimum_h
+  - dunkelperiode_kontinuierlich_erforderlich
+  - dunkelperiode_effekte
+
+  # Temperaturrhythmus
+  - temperaturrhythmus_reaktion
+  - temperaturrhythmus_optimale_amplitude_c
+  - temperaturrhythmus_phasenbeziehung
+  - thermoperiodismus
+
+  # Biolumineszenz
+  - biolumineszenz_vorhanden
+  - biolumineszenz_peak_zeit
+  - biolumineszenz_dauer_h
+  - biolumineszenz_intensitaet_rhythmus
+  - biolumineszenz_farbe
+  - biolumineszenz_wellenlaenge_nm
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # HISTORISCHE ENTDECKUNG - Historical Discovery
+  # ─────────────────────────────────────────────────────────────────────────────
+  - entdeckung
+  - entdeckung_jahr
+  - entdeckung_datum
+  - entdeckung_ort_land
+  - entdeckung_ort_region
+  - entdeckung_ort_lokalitaet
+  - entdeckung_koordinaten_lat
+  - entdeckung_koordinaten_lon
+  - entdecker_name
+  - entdecker_biografie
+  - entdeckung_kontext
+
+  # Originalbeschreibung
+  - erstbeschreibung
+  - original_publikation_titel
+  - original_publikation_autor
+  - original_publikation_jahr
+  - original_publikation_band
+  - original_publikation_seite
+  - original_publikation_doi
+  - original_publikation_url
+  - original_name
+  - original_beschreibung_text
+  - original_beschreibung_uebersetzung
+
+  # Typusspezimen
+  - typusspezimen_herbarium
+  - typusspezimen_code
+  - typusspezimen_id
+  - typusspezimen_status
+  - typusspezimen_designiert_von
+  - typusspezimen_zustand
+  - typusspezimen_digitalisiert
+  - typusspezimen_digital_url
+
+  # Etymologie
+  - etymologie
+  - etymologie_gattung_bedeutung
+  - etymologie_art_bedeutung
+  - etymologie_sprachherkunft
+  - etymologie_anmerkungen
+
+  # Vor-wissenschaftliche Geschichte
+  - indigenes_wissen
+  - indigenes_wissen_kulturen
+  - indigenes_wissen_frueheste_aufzeichnung
+  - indigenes_wissen_traditionelle_namen
+  - indigenes_wissen_traditionelle_verwendung
+  - indigenes_wissen_dokumentationsquellen
+  - antike_referenzen
+  - archaeologische_evidenz
+
+  # Taxonomische Geschichte
+  - synonyme_historie
+  - grosse_revisionen
+  - aktuelle_klassifikation_datum
+  - dokumentations_vollstaendigkeit
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # HISTORISCHE MEILENSTEINE - Historical Milestones
+  # ─────────────────────────────────────────────────────────────────────────────
+  - meilensteine
+  - meilenstein_1_jahr
+  - meilenstein_1_datum
+  - meilenstein_1_titel
+  - meilenstein_1_kategorie
+  - meilenstein_1_bedeutung
+  - meilenstein_1_beschreibung
+  - meilenstein_1_schluesselpersonen
+  - meilenstein_1_ort
+  - meilenstein_1_primaerquelle
+  - meilenstein_1_auswirkungsbereiche
+  - meilenstein_1_langfristige_effekte
+
+  - meilenstein_2_jahr
+  - meilenstein_2_titel
+  - meilenstein_2_kategorie
+  - meilenstein_2_beschreibung
+
+  - meilenstein_3_jahr
+  - meilenstein_3_titel
+  - meilenstein_3_kategorie
+  - meilenstein_3_beschreibung
+
+  - meilenstein_4_jahr
+  - meilenstein_4_titel
+  - meilenstein_4_kategorie
+  - meilenstein_4_beschreibung
+
+  - meilenstein_5_jahr
+  - meilenstein_5_titel
+  - meilenstein_5_kategorie
+  - meilenstein_5_beschreibung
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # KULTIVIERUNGS-TIMELINE - Cultivation Timeline
+  # ─────────────────────────────────────────────────────────────────────────────
+  - kultivierungs_timeline
+  - kultivierungs_status
+  - domestizierungs_level
+  - erste_kultivierung_jahr
+  - erste_kultivierung_ort
+  - erste_kultivierung_methode
+  - kultivierungs_pioniere
+  - kultivierungs_meilensteine
+  - methoden_evolution
+  - methoden_evolution_1900er
+  - methoden_evolution_1950er
+  - methoden_evolution_1980er
+  - methoden_evolution_2000er
+  - methoden_evolution_2020er
+  - stamm_entwicklung_historie
+  - zuchtprogramme
+  - erste_kommerzielle_produktion_jahr
+  - kommerzielle_expansion_timeline
+  - aktuelle_globale_produktion_tonnen
+  - aktuelle_grossproduzenten
+  - aktueller_marktwert_usd
+  - technologie_meilensteine
+  - patent_historie
+  - aufkommende_methoden
+  - projizierte_entwicklungen
+  - schluessel_publikationen
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ZUKUNFTSPROJEKTIONEN - Future Projections (Part 3)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - klima_projektionen
+  - klima_projektion_modell
+  - klima_projektion_szenario
+  - klima_projektion_zeithorizont
+  - klima_projektion_basisjahr
+  - klima_projektion_zieljahr
+  - klima_projektion_konfidenz
+
+  # Areal-Verschiebungen
+  - areal_verschiebung_richtung
+  - areal_verschiebung_distanz_km_dekade
+  - areal_verschiebung_hoehe_m_dekade
+  - areal_verschiebung_breitengrad_grad_dekade
+  - areal_projektion_2050
+  - areal_projektion_2100
+  - areal_gewinn_regionen
+  - areal_verlust_regionen
+  - areal_stabil_regionen
+  - areal_netto_aenderung_prozent
+
+  # Phenologie-Projektionen
+  - phenologie_projektion_frueheres_erscheinen_tage
+  - phenologie_projektion_spaeteres_ende_tage
+  - phenologie_projektion_saison_aenderung_tage
+  - phenologie_projektion_peak_verschiebung_tage
+  - mismatch_risiko
+  - mismatch_risiko_wirt
+  - mismatch_risiko_bestauber
+  - mismatch_risiko_verbreiter
+  - mismatch_risiko_schwere
+  - mismatch_risiko_wahrscheinlichkeit
+
+  # Populations-Projektionen
+  - populations_projektion_trend
+  - populations_projektion_aenderung_prozent
+  - populations_projektion_konfidenzintervall
+  - habitateignung_projektion_trend
+  - habitateignung_projektion_aenderung
+
+  # Naturschutz-Prognose
+  - naturschutz_prognose
+  - naturschutz_prognose_aktueller_status
+  - naturschutz_prognose_projizierter_status
+  - naturschutz_prognose_bedrohungsniveau
+  - naturschutz_prognose_priorisierungs_score
+  - aussterbe_risiko
+  - aussterbe_wahrscheinlichkeit_2050
+  - aussterbe_wahrscheinlichkeit_2100
+  - aussterbe_primaere_treiber
+  - aussterbe_sekundaere_treiber
+  - aussterbe_konfidenz
+  - naturschutz_handlungsdringlichkeit
+  - naturschutz_empfohlene_aktionen
+  - naturschutz_geschuetzte_areal_prozent
+  - naturschutz_ziel_prozent
+  - anpassungspotenzial
+  - anpassungspotenzial_genetisch
+  - anpassungspotenzial_plastizitaet
+  - anpassungspotenzial_ausbreitung
+  - anpassungspotenzial_overall_score
+  - climate_refugia_vorhanden
+  - climate_refugia_orte
+  - climate_refugia_qualitaet
+  - climate_refugia_konnektivitaet
+  - assisted_migration_kandidat
+  - assisted_migration_zielregionen
+  - assisted_migration_machbarkeit
+
+  # Szenarien
+  - zukunfts_szenarien
+  - szenario_best_case
+  - szenario_best_case_beschreibung
+  - szenario_best_case_wahrscheinlichkeit
+  - szenario_best_case_bedingungen
+  - szenario_moderate
+  - szenario_moderate_beschreibung
+  - szenario_moderate_wahrscheinlichkeit
+  - szenario_worst_case
+  - szenario_worst_case_beschreibung
+  - szenario_worst_case_wahrscheinlichkeit
+  - szenario_worst_case_vermeidungsmassnahmen
+  - szenario_unsicherheiten
+  - szenario_schluessel_kipppunkte
+  - monitoring_empfehlungen
+  - forschungs_prioritaeten
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DATENQUALITÄT & VALIDIERUNG
+  # ─────────────────────────────────────────────────────────────────────────────
+  - temporal_daten_quellen
+  - temporal_daten_letzte_validierung
+  - temporal_daten_naechste_ueberpruefung
+  - temporal_daten_qualitaets_score
+  - temporal_daten_vollstaendigkeit
+
+# ─────────────────────────────────────────────────────────────────────────────
+  # KLIMAWANDEL-PHÄNOLOGIE-SHIFTS
+  # ─────────────────────────────────────────────────────────────────────────────
+  - phenology_shift_observed             # Beobachtete Phänologie-Verschiebung
+  - phenology_shift_days_per_decade      # Tage Verschiebung pro Dekade
+  - phenology_shift_direction            # earlier/later/variable
+  - phenology_baseline_period            # Baseline-Periode (z.B. 1970-2000)
+  - phenology_current_vs_baseline        # Aktuell vs. Baseline
+  - phenology_drivers                    # Treiber der Verschiebung
+  - mismatch_with_partners               # Mismatch mit Partnern
+  - mismatch_species_affected            # Betroffene Partnerarten
+  - mismatch_consequences                # Konsequenzen des Mismatch
+  - adaptation_capacity_phenology        # Anpassungskapazität
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SAISONALER KALENDER (für Nutzer)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - calendar_jan                         # Januar Aktivität/Erscheinung
+  - calendar_feb                         # Februar
+  - calendar_mar                         # März
+  - calendar_apr                         # April
+  - calendar_may                         # Mai
+  - calendar_jun                         # Juni
+  - calendar_jul                         # Juli
+  - calendar_aug                         # August
+  - calendar_sep                         # September
+  - calendar_oct                         # Oktober
+  - calendar_nov                         # November
+  - calendar_dec                         # Dezember
+  - peak_activity_months                 # Hauptaktivitäts-Monate
+  - dormancy_months                      # Dormanz-Monate
+  - optimal_observation_window           # Optimales Beobachtungsfenster
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # VORHERSAGBARKEIT & AUSLÖSER
+  # ─────────────────────────────────────────────────────────────────────────────
+  - phenology_predictability             # Vorhersagbarkeit (low/moderate/high)
+  - primary_phenology_cue                # Primärer Auslöser
+  - secondary_phenology_cues             # Sekundäre Auslöser
+  - temperature_threshold_celsius        # Temperatur-Schwellenwert
+  - photoperiod_critical_hours           # Kritische Tageslänge
+  - rainfall_threshold_mm                # Niederschlags-Schwellenwert
+  - degree_days_required                 # Benötigte Gradtage
+  - chilling_hours_required              # Benötigte Kältestunden
+  - phenology_prediction_model           # Vorhersagemodell
+  - phenology_forecast_accuracy          # Vorhersage-Genauigkeit
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # HISTORISCHE VERÄNDERUNGEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - historical_phenology_records         # Historische Phänologie-Aufzeichnungen
+  - earliest_recorded_date               # Frühestes aufgezeichnetes Datum
+  - latest_recorded_date                 # Spätestes aufgezeichnetes Datum
+  - historical_average_date              # Historisches Durchschnittsdatum
+  - phenology_long_term_datasets         # Langzeit-Datensätze
+  - phenology_citizen_science_data       # Citizen Science Phänologie-Daten
+  
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENUMERATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+enumerations:
+  temporal_strategie:
+    - ephemeral
+    - seasonal
+    - perennial
+    - opportunistic
+    - persistent
+
+  langlebigkeits_klasse:
+    - hours
+    - days
+    - weeks
+    - months
+    - years
+    - decades
+    - centuries
+
+  lebenszyklus_typ:
+    - simple
+    - complex
+    - dimorphic
+    - polymorphic
+    - alternating_host
+
+  reproduktionsmodus:
+    - sexual
+    - asexual
+    - both
+    - parasexual
+
+  paarungssystem:
+    - homothallic
+    - heterothallic
+    - pseudohomothallic
+    - unknown
+
+  stadium_kategorie:
+    - spore
+    - germination
+    - vegetative
+    - reproductive_initiation
+    - primordia
+    - development
+    - maturation
+    - sporulation
+    - senescence
+    - dormancy
+    - sclerotia
+    - other
+
+  ploidie_zustand:
+    - haploid
+    - diploid
+    - dikaryotic
+    - polyploid
+    - variable
+
+  dauer_variabilitaet:
+    - fixed
+    - low
+    - moderate
+    - high
+    - extreme
+
+  sauerstoff_bedarf:
+    - aerobic
+    - microaerobic
+    - anaerobic
+    - facultative
+
+  saisonalitaet_typ:
+    - strictly_seasonal
+    - primarily_seasonal
+    - year_round
+    - sporadic
+    - rare
+
+  saison:
+    - spring
+    - summer
+    - autumn
+    - winter
+    - year_round
+    - none
+
+  frost_empfindlichkeit:
+    - very_sensitive
+    - sensitive
+    - moderate
+    - tolerant
+    - frost_required
+
+  trockenheits_reaktion:
+    - dormancy
+    - death
+    - reduced_fruiting
+    - tolerant
+    - adapted
+
+  rhythmus_typ:
+    - circadian
+    - ultradian
+    - infradian
+    - free_running
+    - entrained
+
+  meilenstein_kategorie:
+    - discovery
+    - taxonomic
+    - cultivation
+    - medical
+    - chemical
+    - ecological
+    - cultural
+    - conservation
+    - genomic
+    - commercial
+    - regulatory
+    - other
+
+  meilenstein_bedeutung:
+    - major
+    - moderate
+    - minor
+
+  kultivierungs_status:
+    - wild_only
+    - experimental
+    - small_scale
+    - commercial
+    - industrial
+
+  domestizierungs_level:
+    - wild
+    - semi_domesticated
+    - domesticated
+    - highly_bred
+
+  trend_richtung:
+    - increasing
+    - stable
+    - decreasing
+    - variable
+
+  naturschutz_prognose_status:
+    - improving
+    - stable
+    - declining
+    - critical
+
+  anpassungspotenzial_level:
+    - very_low
+    - low
+    - moderate
+    - high
+    - very_high
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KEYWORDS - For semantic search (multilingual)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+keywords:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TEMPORAL (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - temporal
+  - time
+  - timing
+  - when
+  - period
+  - duration
+  - cycle
+  - pattern
+  - zeitlich
+  - zeit
+  - zeitpunkt
+  - periode
+  - dauer
+  - zyklus
+  - muster
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # LIFECYCLE
+  # ─────────────────────────────────────────────────────────────────────────────
+  - lifecycle
+  - life cycle
+  - lebenszyklus
+  - development
+  - entwicklung
+  - stage
+  - stadium
+  - phase
+  - growth
+  - wachstum
+  - maturation
+  - reifung
+  - sporulation
+  - senescence
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PHENOLOGY
+  # ─────────────────────────────────────────────────────────────────────────────
+  - phenology
+  - phänologie
+  - seasonal
+  - saisonal
+  - season
+  - saison
+  - spring
+  - frühling
+  - summer
+  - sommer
+  - autumn
+  - herbst
+  - winter
+  - year-round
+  - ganzjährig
+  - peak
+  - erscheinen
+  - appearance
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CIRCADIAN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - circadian
+  - zirkadian
+  - daily
+  - täglich
+  - diurnal
+  - nocturnal
+  - rhythm
+  - rhythmus
+  - spore release
+  - sporenfreisetzung
+  - bioluminescence
+  - biolumineszenz
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # HISTORICAL
+  # ─────────────────────────────────────────────────────────────────────────────
+  - history
+  - geschichte
+  - historical
+  - historisch
+  - discovery
+  - entdeckung
+  - description
+  - beschreibung
+  - etymology
+  - etymologie
+  - milestone
+  - meilenstein
+  - timeline
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FUTURE PROJECTIONS
+  # ─────────────────────────────────────────────────────────────────────────────
+  - projection
+  - projektion
+  - future
+  - zukunft
+  - climate change
+  - klimawandel
+  - scenario
+  - szenario
+  - prediction
+  - vorhersage
+  - shift
+  - verschiebung
+  - trend
+  - adaptation
+  - anpassung
+  - conservation
+  - naturschutz
+  - extinction risk
+  - aussterberisiko

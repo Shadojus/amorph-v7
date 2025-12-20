@@ -1,0 +1,17 @@
+{
+  "id": "plantae-001",
+  "slug": "deadly-nightshade",
+  "name": "Tollkirsche",
+  "scientific_name": "Atropa belladonna",
+  "image": "",
+  "description": "Die Tollkirsche (Atropa belladonna) ist eine der giftigsten Pflanzen Europas und gehoert zur Familie der Nachtschattengewaechse (Solanaceae). Alle Pflanzenteile sind hochgiftig, besonders die verlockend aussehenden schwarzen Beeren, die aufgrund ihres suessen Geschmacks vor allem fuer Kinder gefaehrlich sind. Der Name 'belladonna' (schoene Frau) stammt von der historischen Verwendung des Pflanzenextrakts zur Pupillenerweiterung in der Kosmetik. Die Pflanze enthaelt Tropanalkaloide wie Atropin, Scopolamin und Hyoscyamin, die auf das Nervensystem wirken und in der Medizin therapeutisch eingesetzt werden.",
+  "perspectives": [
+    "identification",
+    "safety",
+    "chemistry",
+    "medicine",
+    "ecology",
+    "geography",
+    "culture"
+  ]
+}

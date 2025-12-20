@@ -1,0 +1,112 @@
+---
+/**
+ * AMORPH v7 - Detail Page
+ * 
+ * Einzelansicht eines Items.
+ * 
+ * Security:
+ * - Slug validation
+ * - Path traversal protection
+ */
+
+import Base from '../layouts/Base.astro';
+import { loadConfig, getAllPerspectives } from '../server/config';
+import { getItem } from '../server/data';
+import { renderValue } from '../morphs';
+import type { RenderContext } from '../core/types';
+import { validateSlug } from '../core/security';
+
+// Get and validate slug from URL
+const rawSlug = Astro.params.slug;
+const slug = validateSlug(rawSlug);
+
+if (!slug) {
+  return Astro.redirect('/');
+}
+
+// Load config and item
+await loadConfig();
+const item = await getItem(slug);
+
+if (!item) {
+  return Astro.redirect('/404');
+}
+
+// Render context
+const detailContext: RenderContext = {
+  mode: 'single',
+  itemCount: 1
+};
+
+// Group fields by perspective (if configured)
+const perspectives = getAllPerspectives();
+---
+
+<Base title={`${item.name} – AMORPH`}>
+  <!-- Header -->
+  <header class="amorph-header">
+    <a href="/" class="amorph-logo">🍄</a>
+    <h1 class="page-title">{item.name}</h1>
+    <a href="/" class="back-link">← Zurück</a>
+  </header>
+  
+  <!-- Detail View -->
+  <main class="amorph-detail">
+    <!-- Hero Section -->
+    <section class="detail-hero">
+      {item.bild && (
+        <div class="hero-image">
+          <img src={String(item.bild)} alt={item.name} />
+        </div>
+      )}
+      
+      <div class="hero-info">
+        <h1>{item.name}</h1>
+        {item.wissenschaftlich && (
+          <p class="scientific-name">{String(item.wissenschaftlich)}</p>
+        )}
+      </div>
+    </section>
+    
+    <!-- Fields -->
+    <section class="detail-fields">
+      {Object.entries(item)
+        .filter(([k]) => !['id', 'slug', 'name', 'bild', 'wissenschaftlich'].includes(k) && !k.startsWith('_'))
+        .map(([key, value]) => (
+          <Fragment set:html={renderValue(value, key, detailContext)} />
+        ))
+      }
+    </section>
+    
+    <!-- Actions -->
+    <section class="detail-actions">
+      <button 
+        class="action-btn select-for-compare"
+        data-slug={item.slug}
+        data-name={item.name}
+      >
+        Zum Vergleich hinzufügen
+      </button>
+    </section>
+  </main>
+</Base>
+
+<script>
+  // Handle "Add to compare" button
+  document.querySelector('.select-for-compare')?.addEventListener('click', (e) => {
+    const btn = e.currentTarget as HTMLElement;
+    const slug = btn.dataset.slug;
+    const name = btn.dataset.name;
+    
+    if (slug && name) {
+      import('../client/features').then(({ selectItem }) => {
+        selectItem({
+          id: slug,
+          slug,
+          name,
+          data: {}
+        });
+      });
+    }
+  });
+</script>

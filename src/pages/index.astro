@@ -1,0 +1,152 @@
+---
+/**
+ * AMORPH v7 - Index Page
+ * 
+ * Hauptseite mit Grid-Ansicht.
+ */
+
+import Base from '../layouts/Base.astro';
+import { loadConfig, getAllPerspectives } from '../server/config';
+import { searchItems } from '../server/data';
+import { renderValue, createSingleContext } from '../morphs';
+import type { RenderContext } from '../core/types';
+
+// Load config
+await loadConfig();
+
+// Get search params
+const url = new URL(Astro.request.url);
+const query = url.searchParams.get('q') || '';
+const perspectiveIds = url.searchParams.get('p')?.split(',').filter(Boolean) || [];
+
+// Search
+const { items, total, perspectivesWithData } = await searchItems({
+  query,
+  perspectives: perspectiveIds,
+  limit: 50
+});
+
+// Get perspectives
+const perspectives = getAllPerspectives();
+
+// Render context for grid items
+const gridContext: RenderContext = {
+  mode: 'grid',
+  itemCount: 1,
+  compact: true
+};
+---
+
+<Base title="AMORPH – Übersicht">
+  <!-- Header -->
+  <header class="amorph-header">
+    <a href="/" class="amorph-logo">🍄</a>
+    
+    <div class="amorph-search">
+      <div class="search-wrapper">
+        <div class="active-perspectives"></div>
+        <input 
+          type="search" 
+          placeholder="Suchen..." 
+          value={query}
+          autocomplete="off"
+        />
+      </div>
+      
+      <div class="perspective-filters">
+        {perspectives.map(p => (
+          <button 
+            class:list={[
+              'persp-btn',
+              { 'is-active': perspectiveIds.includes(p.id) },
+              { 'has-data': perspectivesWithData.includes(p.id) }
+            ]}
+            data-perspektive={p.id}
+            data-name={p.name}
+            title={p.name}
+          >
+            {p.symbol || p.name.charAt(0)}
+          </button>
+        ))}
+      </div>
+    </div>
+    
+    <button class="compare-trigger" disabled>
+      <span class="icon">⚖</span>
+      <span class="count">0</span>
+    </button>
+  </header>
+  
+  <!-- Main Grid -->
+  <main class="amorph-main">
+    <div class="amorph-grid">
+      {items.map(item => (
+        <article 
+          class="amorph-item"
+          data-slug={item.slug}
+          data-id={item.id}
+          data-name={item.name}
+        >
+          <div class="item-header">
+            {item.bild && (
+              <div class="item-image">
+                <img src={String(item.bild)} alt={item.name} loading="lazy" />
+              </div>
+            )}
+            <h2 class="item-name">{item.name}</h2>
+            {item.wissenschaftlich && (
+              <span class="item-scientific">{String(item.wissenschaftlich)}</span>
+            )}
+          </div>
+          
+          <div class="item-body">
+            {Object.entries(item)
+              .filter(([k]) => !['id', 'slug', 'name', 'bild', 'wissenschaftlich'].includes(k) && !k.startsWith('_'))
+              .slice(0, 6)
+              .map(([key, value]) => (
+                <div class="amorph-field" data-field={key} data-item={item.slug}>
+                  <span class="field-label">{key}</span>
+                  <span class="field-value">
+                    <Fragment set:html={renderValue(value, key, gridContext)} />
+                  </span>
+                  <button class="field-select" aria-label="Feld zum Vergleich hinzufügen">+</button>
+                </div>
+              ))
+            }
+          </div>
+          
+          <div class="item-actions">
+            <button class="item-select-all" aria-label="Alle Felder auswählen">
+              <span class="select-icon"></span>
+            </button>
+          </div>
+        </article>
+      ))}
+    </div>
+    
+    {items.length === 0 && (
+      <div class="empty-state">
+        <span class="empty-icon">🔍</span>
+        <p>Keine Ergebnisse gefunden</p>
+      </div>
+    )}
+  </main>
+  
+  <!-- Selection Bar -->
+  <div class="selection-bar">
+    <div class="selection-pills"></div>
+    <span class="selection-count">0 ausgewählt</span>
+    <button class="selection-clear">Alle entfernen</button>
+  </div>
+  
+  <!-- Compare Panel -->
+  <aside class="amorph-compare">
+    <div class="compare-header">
+      <h2>Vergleich</h2>
+      <button class="compare-close">×</button>
+    </div>
+    <div class="compare-content">
+      <!-- Filled via JS -->
+    </div>
+  </aside>
+</Base>

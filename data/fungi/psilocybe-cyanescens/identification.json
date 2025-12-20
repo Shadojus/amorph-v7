@@ -1,0 +1,394 @@
+{
+  "scientific_name": "Psilocybe cyanescens",
+  "author_citation": "Wakefield 1946",
+  "accepted_name": "Psilocybe cyanescens Wakefield",
+  "basionym": "Psilocybe cyanescens Wakefield",
+  "taxonomy_domain": "Eukarya",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Hymenogastraceae",
+  "taxonomy_genus": "Psilocybe",
+  "taxonomy_species": "cyanescens",
+  "synonyms": [
+    "Geophila cyanescens (Wakefield) Kuhner & Romagn. 1953"
+  ],
+  "common_names": [
+    "Blauender Kahlkopf",
+    "Wavy Cap",
+    "Potent Psilocybe",
+    "Blue Halos",
+    "Cyan"
+  ],
+  "international_names": [
+    "Psilocybe a bord ondule (FR)",
+    "Blauwwordende kaalkop (NL)",
+    "Psilocybe ondulato (IT)",
+    "Aedsinisilmik (EE)"
+  ],
+  "gbif_key": "https://www.gbif.org/species/5241370",
+  "inaturalist_taxon_id": "https://www.inaturalist.org/taxa/118130",
+  "mycobank_id": "https://www.mycobank.org/page/Name%20details%20page/305628",
+  "index_fungorum_id": "https://www.indexfungorum.org/names/NamesRecord.asp?RecordID=305628",
+  "wikidata_id": "https://www.wikidata.org/wiki/Q1330614",
+  "barcode_marker_primary": "ITS",
+  "barcode_marker_secondary": "LSU",
+  "barcode_its": "ITS1-5.8S-ITS2 region available in GenBank",
+  "barcode_genbank_accession": "Multiple sequences available",
+  "barcode_unite_sh": "SH1573553.09FU",
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "uncertainty_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Hutrand wellig-gewellt (besonders bei Reife)", "status": "pending"},
+    {"step": 2, "label": "Intensive Blauverfaerbung bei Beruehrung oder Verletzung", "status": "pending"},
+    {"step": 3, "label": "Karamell- bis honigbrauner Hut, hygrophan", "status": "pending"},
+    {"step": 4, "label": "Stiel weisslich mit seidigem Glanz, blaeuend", "status": "pending"},
+    {"step": 5, "label": "Wachstum auf Holzhaecksel, Rindenmulch, Holzresten", "status": "pending"},
+    {"step": 6, "label": "Erscheinung im Spaetherbst, oft nach erstem Frost", "status": "pending"},
+    {"step": 7, "label": "Sporenpulver dunkel purpur-braun bis violett-braun", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Intermediate",
+    "variant": "warning"
+  },
+  "time_to_identify_minutes": 15,
+  "minimum_equipment_needed": [
+    "Lupe (10x)",
+    "Sporenpulver-Abnahme",
+    "Kamera fuer Dokumentation"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Psilocybe cyanescens var. bohemica",
+    "Psilocybe azurescens",
+    "Psilocybe allenii",
+    "Psilocybe subaeruginosa",
+    "Hypholoma fasciculare (Gruenblaetriger Schwefelkopf)",
+    "Hypholoma capnoides (Rauchblaettriger Schwefelkopf)",
+    "Galerina marginata (Nadelholz-Haeubling)"
+  ],
+  "confusion_risk_level": {
+    "status": "High",
+    "variant": "danger"
+  },
+  "confusion_consequences": [
+    {"level": "critical", "typ": "Galerina marginata", "beschreibung": "Toedlich giftig! Enthaelt Amatoxine. Kann im gleichen Habitat vorkommen. Unterscheidet sich durch rostbraunen Sporenabdruck und Ring am Stiel."},
+    {"level": "medium", "typ": "Hypholoma fasciculare", "beschreibung": "Giftig, verursacht starke Magen-Darm-Beschwerden. Gruengelbe Lamellen, bitterer Geschmack."}
+  ],
+  "key_differentiating_features": [
+    "Wellenfoermiger Hutrand (diagnostisch fuer P. cyanescens)",
+    "Intensive, schnelle Blaufaerbung bei Beruehrung",
+    "Purpur-brauner bis violett-brauner Sporenabdruck",
+    "Wachstum auf Holzsubstrat, nicht auf Dung",
+    "Kein Ring am Stiel (vs. Galerina marginata)",
+    "Lamellen graubraun, nicht gruenlich (vs. H. fasciculare)"
+  ],
+  "appearance_by_season": {
+    "spring": "Selten, nur bei kuehlem, feuchtem Wetter",
+    "summer": "Nicht vorhanden",
+    "autumn": "Hauptsaison Oktober-Dezember, Peak nach erstem Frost",
+    "winter": "Bis Januar bei mildem Wetter moeglich"
+  },
+  "autumn_identification_notes": "Haupterscheinungszeit. Nach Nachtfroesten besonders haeufig. Auf Mulchbeeten in Parks und Gaerten achten.",
+  "age_stage_variations": [
+    {"phase": "Jung (Button)", "duration": "1-2 Tage"},
+    {"phase": "Entwickelt", "duration": "2-3 Tage"},
+    {"phase": "Reif (wellig)", "duration": "2-4 Tage"},
+    {"phase": "Ueberreif", "duration": "1-2 Tage"}
+  ],
+  "weather_dependent_appearance": "Bei Trockenheit blasser, fast weisslich. Bei Nasse intensiv karamell-honigbraun.",
+  "chemical_spot_tests": [
+    "Blauverfaerbung bei mechanischer Verletzung (Psilocybin-Oxidation)",
+    "Ehrlich-Reagenz positiv (violett bei Indol-Alkaloiden)"
+  ],
+  "bruising_color_change": "Intensiv blau (innerhalb von Sekunden bis Minuten)",
+  "cut_surface_color_change": "Blaugruen, vertieft sich zu dunkelblau",
+  "spore_print_color": "Dunkel purpur-braun bis violett-braun",
+  "fluorescence_uv": true,
+  "smell_description": "Schwach mehlartig, leicht farinaceous",
+  "smell_comparable_to": "Mehl, leicht suesslich-erdig",
+  "taste_safe_to_test": false,
+  "taste_description": "Nicht testen - psychoaktiv und in vielen Laendern illegal",
+  "texture_touch_description": "Hut glatt, etwas klebrig bei Feuchtigkeit, seidig bei Trockenheit",
+  "ai_identification_reliability": {
+    "value": 65,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "red"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "green"}
+    ]
+  },
+  "inaturalist_cv_accuracy": {
+    "value": 70,
+    "max": 100,
+    "unit": "%"
+  },
+  "common_ai_misidentifications": [
+    "Psilocybe allenii",
+    "Psilocybe azurescens",
+    "Hypholoma species",
+    "Stropharia species"
+  ],
+  "photo_angle_recommendations": [
+    "Hutrand von der Seite (Wellung zeigen)",
+    "Lamellen von unten",
+    "Stiel vollstaendig mit Basis",
+    "Blaufaerbung dokumentieren",
+    "Habitat/Substrat einbeziehen"
+  ],
+  "minimum_photos_for_id": 5,
+  "microscopy_required": false,
+  "microscopy_key_features": [
+    "Sporen subhexagonal bis rhomboid in Frontansicht",
+    "Sporen mit deutlichem Keimporus",
+    "Chrysocystiden an Lamellenschneide"
+  ],
+  "recommended_magnification": "400-1000x fuer Sporen und Cystiden",
+  "staining_recommendations": [
+    "Kongorot fuer Wandstrukturen",
+    "Melzer fuer Sporenwand (nicht amyloid)"
+  ],
+  "spore_measurement_diagnostic": {
+    "min": 9,
+    "max": 12,
+    "unit": "um"
+  },
+  "habit": "Terrestrisch auf Holzsubstrat",
+  "growth_form": "Einzeln bis bueschelig, oft in dichten Gruppen",
+  "symmetry": "radial",
+  "size_range": {
+    "min": 2,
+    "max": 8,
+    "unit": "cm"
+  },
+  "size_min_cm": 2,
+  "size_max_cm": 8,
+  "size_typical_cm": 4,
+  "basic_shape": "Hutpilz mit zentralem Stiel",
+  "height": {
+    "min": 4,
+    "max": 12,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 1.5,
+    "max": 5,
+    "unit": "cm"
+  },
+  "mass": {
+    "min": 2,
+    "max": 15,
+    "unit": "g"
+  },
+  "surface_type": "Glatt, viskos bei Nasse",
+  "surface_detail": "Huthaut abziehbar, hygrophan (Farbe veraendert sich mit Feuchtigkeit)",
+  "color_primary": "Karamellbraun bis honigbraun",
+  "color_secondary": "Gelblich-ocker (trocken)",
+  "color_fresh": "Intensiv karamell-honigbraun mit dunklerer Mitte",
+  "color_mature": "Heller werdend, ockergelb am Rand",
+  "color_wet": "Dunkel karamellbraun, manchmal mit olivem Ton",
+  "color_dry": "Bleich ockergelb bis cremig, fast weisslich",
+  "color_injury": "Intensiv blau bis blaugruen",
+  "primary_structure_present": true,
+  "primary_structure_type": "Hut (Pileus)",
+  "primary_structure_diameter": {
+    "min": 1.5,
+    "max": 5,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Konisch bis glockig",
+  "primary_structure_shape_mature": "Konvex bis flach mit welligem Rand",
+  "primary_structure_shape_old": "Flach ausgebreitet, Rand stark gewellt und oft aufgebogen",
+  "primary_structure_margin": "Wellig-gewellt (diagnostisches Merkmal)",
+  "primary_structure_surface": "Glatt, klebrig bei Feuchtigkeit",
+  "primary_structure_color": "Karamell-honigbraun, hygrophan",
+  "primary_structure_special_features": "Charakteristisch welliger Rand bei Reife, starkes Blaueen",
+  "support_structure_present": true,
+  "support_structure_type": "Stiel (Stipe)",
+  "support_structure_length": {
+    "min": 4,
+    "max": 10,
+    "unit": "cm"
+  },
+  "support_structure_thickness": {
+    "min": 0.3,
+    "max": 0.8,
+    "unit": "cm"
+  },
+  "support_structure_shape": "Zylindrisch, zur Basis leicht verbreitert",
+  "support_structure_base": "Verdickt, oft mit weissem Myzelfilz",
+  "support_structure_surface": "Seidig-faserig, weisslich",
+  "support_structure_color": "Weisslich bis cremig, blauend bei Beruehrung",
+  "support_structure_consistency": "Zaehfaserig, biegsam",
+  "support_structure_hollowness": true,
+  "lamellae_present": true,
+  "lamellae_attachment": "Angewachsen bis leicht herablaufend",
+  "lamellae_density": "Gedraengt",
+  "lamellae_color": "Hellbraun jung, dunkel purpur-braun alt",
+  "lamellae_discoloration": "Dunkelt bei Sporenreife nach",
+  "lamellae_edge": "Weisslich, fein bewimpert",
+  "ring_present": false,
+  "basal_structure_present": true,
+  "basal_structure_type": "Rhizoide, weisser Myzelfilz",
+  "tissue_color": "Weisslich",
+  "tissue_discoloration": "Blau bei Verletzung",
+  "tissue_consistency": "Faserig im Stiel, fleischig im Hut",
+  "reproductive_cell_shape": "Subhexagonal bis rhomboid in Frontansicht",
+  "reproductive_cell_length": {
+    "min": 9,
+    "max": 12,
+    "unit": "um"
+  },
+  "reproductive_cell_width": {
+    "min": 5.5,
+    "max": 7.5,
+    "unit": "um"
+  },
+  "reproductive_cell_color": "Purpur-braun",
+  "reproductive_cell_wall": "Dick, mit deutlichem Keimporus",
+  "propagule_deposit_color": "Dunkel purpur-braun bis violett-braun",
+  "sterile_cells_present": true,
+  "sterile_cells_type": "Chrysocystiden",
+  "sterile_cells_position": "Lamellenschneide",
+  "filaments_present": true,
+  "filaments_clamp_connections": true,
+  "melzer_reaction": "Nicht amyloid",
+  "melzer_reproductive_cells": "Nicht amyloid",
+  "its_region": "Available in GenBank and UNITE",
+  "its_quality": {
+    "status": "High",
+    "variant": "success"
+  },
+  "unite_sh": "SH1573553.09FU",
+  "closest_relatives": [
+    "Psilocybe azurescens",
+    "Psilocybe allenii",
+    "Psilocybe subaeruginosa",
+    "Psilocybe bohemica"
+  ],
+  "genome_size_mb": 46.2,
+  "nutrition_type": "Saprophytisch",
+  "nutrition_type_detail": "Holzabbauend auf Laubholzhaecksel",
+  "habitat_type": "Urban, Periurban, Waldraender",
+  "habitat_detail": "Holzhaecksel, Rindenmulch, verrottende Holzreste",
+  "biotope": "Gaerten, Parks, Waldwege mit Mulch",
+  "microhabitat": "Feuchte, schattige Bereiche mit Holzsubstrat",
+  "substrate_category": "Holzhaecksel, Rindenmulch",
+  "substrate_species": [
+    "Alnus (Erle)",
+    "Betula (Birke)",
+    "Fagus (Buche)",
+    "Acer (Ahorn)",
+    "Verschiedene Laubhoelzer"
+  ],
+  "substrate_specificity": "Lignicolous, bevorzugt Laubholz",
+  "decomposition_stage": "Frueh bis mittel",
+  "co_occurring_species": [
+    "Stropharia aeruginosa",
+    "Hypholoma species",
+    "Agrocybe species"
+  ],
+  "climate_zone": "Gemaessigt ozeanisch",
+  "season_start": 9,
+  "season_end": 1,
+  "season_peak": 11,
+  "activity_trigger": "Temperaturabfall, erste Nachtfroeste, erhoehte Feuchtigkeit",
+  "confusion_species": [
+    {"name": "Galerina marginata", "type": "deadly_lookalike", "intensity": 80},
+    {"name": "Hypholoma fasciculare", "type": "toxic_lookalike", "intensity": 60},
+    {"name": "Psilocybe allenii", "type": "similar_species", "intensity": 90},
+    {"name": "Psilocybe azurescens", "type": "similar_species", "intensity": 85}
+  ],
+  "most_dangerous_confusion": "Galerina marginata (Nadelholz-Haeubling) - toedlich giftig durch Amatoxine",
+  "critical_features": [
+    "Welliger Hutrand bei Reife",
+    "Intensive Blauverfaerbung",
+    "Purpur-brauner Sporenabdruck",
+    "Wachstum auf Holzhaecksel",
+    "Kein Stielring"
+  ],
+  "reliable_features": [
+    "Sporenfarbe und -form",
+    "Blaufaerbungsreaktion",
+    "Wellenfoermiger Hutrand",
+    "Habitat auf Holzmulch"
+  ],
+  "unreliable_features": [
+    "Hutfarbe (stark hygrophan)",
+    "Groesse (sehr variabel)",
+    "Geruch (schwach)"
+  ],
+  "identification_confidence_level": {
+    "status": "High with experience",
+    "variant": "success"
+  },
+  "minimum_features_needed": [
+    "Welliger Hutrand",
+    "Blauverfaerbung",
+    "Sporenabdruck",
+    "Habitat"
+  ],
+  "primary_diagnostic_features": [
+    "Stark wellig-gewellter Hutrand",
+    "Intensive, schnelle Blauverfaerbung bei Beruehrung",
+    "Purpur-brauner bis violett-brauner Sporenabdruck",
+    "Wachstum auf Holzhaecksel/Mulch"
+  ],
+  "secondary_diagnostic_features": [
+    "Karamell-honigbrauner, hygrophaner Hut",
+    "Weisslicher, seidig-faseriger Stiel",
+    "Erscheinung im Spaetherbst",
+    "Keine Stielringzone"
+  ],
+  "field_features": [
+    "Wellenfoermiger Hutrand",
+    "Blaufaerbung bei Beruehrung",
+    "Holzsubstrat",
+    "Spaetherbst-Erscheinung"
+  ],
+  "beginner_features": [
+    "Blaufaerbung",
+    "Wellenfoermiger Rand",
+    "Wachstum auf Mulch"
+  ],
+  "expert_features": [
+    "Subhexagonale Sporen",
+    "Chrysocystiden",
+    "Schnallen an Septen"
+  ],
+  "identification_literature": {
+    "authors": "Stamets, P.",
+    "year": 1996,
+    "title": "Psilocybin Mushrooms of the World",
+    "journal": "Ten Speed Press",
+    "doi": "ISBN 978-0898158397"
+  },
+  "monographs": [
+    "Guzmán, G. (1983): The Genus Psilocybe - Beihefte zur Nova Hedwigia 74",
+    "Stamets, P. (1996): Psilocybin Mushrooms of the World"
+  ],
+  "field_guides": [
+    "Raemakers, T.: Psilocybine-Pilze der Welt",
+    "Gerhardt, E.: Der grosse BLV Pilzfuehrer"
+  ],
+  "identification_status": {
+    "status": "Well-established species",
+    "variant": "success"
+  },
+  "source": {
+    "authors": "Wakefield, E.M.",
+    "year": 1946,
+    "title": "Observer's Book of Common Fungi",
+    "journal": "Frederick Warne & Co",
+    "doi": ""
+  }
+}

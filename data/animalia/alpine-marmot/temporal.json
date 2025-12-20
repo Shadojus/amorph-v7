@@ -1,0 +1,148 @@
+{
+  "temporal_strategie": "seasonal",
+  "langlebigkeits_klasse": "years",
+  "generationszeit_tage": 1825,
+  "lebenszyklus_typ": "complex",
+  "reproduktionsmodus": "sexual",
+  "paarungssystem": "monogamous_pair",
+  "lifecycle_kingdom": "Animalia",
+  "lifecycle_stage_count": 4,
+  "lifecycle_dormancy_capable": true,
+  "lifecycle_diapause_type": "hibernation",
+  "entwicklungsstadien": [
+    {"phase": "Geburt", "duration": "1 Tag"},
+    {"phase": "Jungtier (nestling)", "duration": "6 Wochen"},
+    {"phase": "Jungtier (aktiv)", "duration": "6 Monate"},
+    {"phase": "Subadult", "duration": "1-2 Jahre"},
+    {"phase": "Adult", "duration": "10-15 Jahre"}
+  ],
+  "stadien_anzahl": 5,
+  "saisonalitaet_typ": "strictly_seasonal",
+  "primaere_saison": "summer",
+  "sekundaere_saison": "spring",
+  "monatliche_aktivitaet": [
+    {"month": 1, "active": false},
+    {"month": 2, "active": false},
+    {"month": 3, "active": false},
+    {"month": 4, "active": true},
+    {"month": 5, "active": true},
+    {"month": 6, "active": true},
+    {"month": 7, "active": true},
+    {"month": 8, "active": true},
+    {"month": 9, "active": true},
+    {"month": 10, "active": false},
+    {"month": 11, "active": false},
+    {"month": 12, "active": false}
+  ],
+  "peak_perioden": [
+    {"date": "April", "event": "Aufwachen aus Winterschlaf", "description": "Die Murmeltiere erwachen je nach Hoehenlage im April aus dem Winterschlaf"},
+    {"date": "Mai", "event": "Paarungszeit", "description": "Hauptpaarungszeit kurz nach dem Erwachen"},
+    {"date": "Juni", "event": "Geburt", "description": "Jungtiere werden im Bau geboren"},
+    {"date": "Juli-August", "event": "Jungtiere erscheinen", "description": "Jungtiere verlassen erstmals den Bau"},
+    {"date": "September", "event": "Intensive Nahrungssuche", "description": "Aufbau von Fettreserven fuer den Winterschlaf"},
+    {"date": "Oktober", "event": "Winterschlaf beginnt", "description": "Rueckzug in die Winterschlafkammer"}
+  ],
+  "hibernation": {
+    "start_month": 10,
+    "end_month": 4,
+    "duration_months": 6,
+    "body_temperature_c": {"min": 4, "max": 8},
+    "heart_rate_bpm": {"active": 200, "hibernating": 4},
+    "breathing_rate": {"active": "25/min", "hibernating": "1-2/min"},
+    "awakening_frequency": "Alle 2-3 Wochen kurzes Aufwachen",
+    "weight_loss_percent": 35,
+    "group_hibernation": true,
+    "group_size_hibernation": {"min": 2, "max": 15}
+  },
+  "annual_cycle": {
+    "january": {"activity": "Winterschlaf", "intensity": 0},
+    "february": {"activity": "Winterschlaf", "intensity": 0},
+    "march": {"activity": "Winterschlaf (Ende)", "intensity": 5},
+    "april": {"activity": "Erwachen, Paarung", "intensity": 70},
+    "may": {"activity": "Paarung, Traechigkeit", "intensity": 85},
+    "june": {"activity": "Geburt, Jungenaufzucht", "intensity": 90},
+    "july": {"activity": "Jungtiere aktiv, Nahrungssuche", "intensity": 100},
+    "august": {"activity": "Intensive Nahrungssuche", "intensity": 100},
+    "september": {"activity": "Fettaufbau", "intensity": 90},
+    "october": {"activity": "Winterschlaf beginnt", "intensity": 20},
+    "november": {"activity": "Winterschlaf", "intensity": 0},
+    "december": {"activity": "Winterschlaf", "intensity": 0}
+  },
+  "breeding_timeline": [
+    {"date": "April-Mai", "event": "Paarung", "description": "Kurz nach dem Erwachen aus dem Winterschlaf"},
+    {"date": "Mai-Juni", "event": "Traechigkeit", "description": "33-34 Tage Tragzeit"},
+    {"date": "Juni", "event": "Geburt", "description": "2-7 Jungtiere werden blind und nackt geboren"},
+    {"date": "Juli", "event": "Entwoehn ung", "description": "Jungtiere werden entwoehnt und erscheinen erstmals am Baueingang"},
+    {"date": "August-September", "event": "Selbststaendigkeit", "description": "Jungtiere werden selbststaendig in Nahrungssuche"}
+  ],
+  "circadian": {
+    "rhythmus_typ": "diurnal",
+    "periode": 24
+  },
+  "rhythmus_typ": "diurnal",
+  "daily_activity_pattern": [
+    {"label": "Fruehmorgen (04-07)", "value": 30},
+    {"label": "Morgen (07-10)", "value": 90},
+    {"label": "Vormittag (10-12)", "value": 70},
+    {"label": "Mittag (12-14)", "value": 40},
+    {"label": "Nachmittag (14-17)", "value": 85},
+    {"label": "Abend (17-20)", "value": 60},
+    {"label": "Nacht (20-04)", "value": 5}
+  ],
+  "photoperiode_empfindlichkeit": true,
+  "photoperiode_kritische_stunden": 10,
+  "photoperiode_reaktionstyp": "day_length_hibernation_trigger",
+  "entdeckung": {
+    "jahr": 1758,
+    "ort": "Alps",
+    "entdecker": "Linnaeus"
+  },
+  "entdeckung_jahr": 1758,
+  "erstbeschreibung": {
+    "authors": "Linnaeus, C.",
+    "year": 1758,
+    "title": "Systema Naturae, 10th Edition",
+    "journal": "Holmiae: Salvii",
+    "doi": ""
+  },
+  "meilensteine": [
+    {"date": "1758", "event": "Wissenschaftliche Erstbeschreibung", "description": "Carl von Linne beschreibt die Art als Mus marmota"},
+    {"date": "1922", "event": "Gruendung Nationalpark Gran Paradiso", "description": "Erster italienischer Nationalpark schuetzt Murmeltiere"},
+    {"date": "1948", "event": "Wiederansiedlung in den Pyrenaeen", "description": "Erfolgreiche Wiederansiedlung aus den franzoesischen Alpen"},
+    {"date": "1971", "event": "Schweizerischer Nationalpark", "description": "Intensive Langzeitforschung beginnt"},
+    {"date": "2016", "event": "IUCN Bewertung", "description": "Einstufung als Least Concern bestaetigt"}
+  ],
+  "phenologie_verschiebung_erkannt": true,
+  "verschiebung_richtung": "earlier",
+  "verschiebung_groesse_tage": 7,
+  "verschiebung_zeitraum_jahre": 30,
+  "verschiebung_attribution": "Klimawandel fuehrt zu frueherem Erwachen aus dem Winterschlaf",
+  "klima_projektionen": {
+    "modell": "RCP 4.5/8.5",
+    "szenario": "moderate_to_severe"
+  },
+  "klima_projektion_zeithorizont": "2050-2100",
+  "klima_projektion_basisjahr": 1990,
+  "klima_projektion_zieljahr": 2100,
+  "areal_verschiebung_richtung": "upward",
+  "areal_verschiebung_hoehe_m_dekade": 50,
+  "phenology_shift_observed": true,
+  "phenology_shift_days_per_decade": 2,
+  "phenology_shift_direction": "earlier",
+  "phenology_baseline_period": "1970-2000",
+  "phenology_drivers": [
+    "Steigende Temperaturen",
+    "Fruehere Schneeschmelze",
+    "Veraenderte Vegetationsperiode"
+  ],
+  "optimal_observation_window": "Juli bis August",
+  "peak_activity_months": [7, 8],
+  "dormancy_months": [11, 12, 1, 2, 3],
+  "source": {
+    "authors": "Arnold, W.",
+    "year": 1993,
+    "title": "Energetics of social hibernation",
+    "journal": "Cambridge University Press",
+    "doi": ""
+  }
+}

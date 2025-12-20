@@ -1,0 +1,223 @@
+/**
+ * AMORPH v7 - Compare API
+ * 
+ * POST /api/compare
+ * Body: { items: ['slug1', 'slug2'], perspectives?: ['id1'] }
+ * OR
+ * Body: { fields: [{ itemSlug, itemName, fieldName, value }, ...] }
+ * 
+ * Security:
+ * - Input validation
+ * - Rate limiting  
+ * - Slug sanitization
+ */
+
+import type { APIRoute } from 'astro';
+import { loadConfig } from '../../server/config';
+import { getItems } from '../../server/data';
+import { renderCompare, renderValue } from '../../morphs';
+import type { RenderContext, ItemData } from '../../core/types';
+import {
+  validateSlugs,
+  validatePerspectives,
+  checkRateLimit,
+  addSecurityHeaders,
+  logSecurityEvent,
+  escapeHtml,
+  escapeAttribute
+} from '../../core/security';
+
+// Field selection type
+interface SelectedField {
+  itemSlug: string;
+  itemName: string;
+  fieldName: string;
+  value: unknown;
+}
+
+export const POST: APIRoute = async ({ request, clientAddress }) => {
+  // Rate limiting
+  const rateCheck = checkRateLimit(clientAddress || 'unknown');
+  if (!rateCheck.allowed) {
+    logSecurityEvent('RATE_LIMIT', { ip: clientAddress, endpoint: 'compare' });
+    return new Response(JSON.stringify({ error: 'Too many requests' }), {
+      status: 429,
+      headers: { 
+        'Content-Type': 'application/json',
+        'Retry-After': String(Math.ceil(rateCheck.resetIn / 1000))
+      }
+    });
+  }
+
+  try {
+    const body = await request.json();
+    await loadConfig();
+    
+    // Check if this is field-based comparison (NEW)
+    if (body.fields && Array.isArray(body.fields) && body.fields.length > 0) {
+      return handleFieldCompare(body.fields as SelectedField[]);
+    }
+    
+    // Otherwise, use item-based comparison (original)
+    return handleItemCompare(body);
+    
+  } catch (error) {
+    console.error('Compare API error:', error);
+    return new Response(JSON.stringify({
+      error: 'Compare failed'
+    }), {
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+};
+
+// NEW: Handle field-based comparison
+async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
+  if (fields.length < 1) {
+    return new Response(JSON.stringify({
+      error: 'At least 1 field required for comparison'
+    }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+  
+  // Group fields by fieldName
+  const grouped = new Map<string, SelectedField[]>();
+  for (const field of fields) {
+    if (!grouped.has(field.fieldName)) {
+      grouped.set(field.fieldName, []);
+    }
+    grouped.get(field.fieldName)!.push(field);
+  }
+  
+  // Get unique items
+  const uniqueItems = [...new Set(fields.map(f => f.itemSlug))];
+  const colors = ['#0df', '#f0d', '#fd0', '#0fd', '#d0f', '#df0'];
+  const itemColors = new Map<string, string>();
+  uniqueItems.forEach((slug, i) => itemColors.set(slug, colors[i % colors.length]));
+  
+  // Build compare context
+  const compareContext: RenderContext = {
+    mode: 'compare',
+    itemCount: uniqueItems.length,
+    colors: uniqueItems.map(slug => itemColors.get(slug)!)
+  };
+  
+  // Render each field group
+  let html = '<div class="compare-fields">';
+  
+  // Add item legend
+  html += '<div class="compare-legend">';
+  for (const [slug, color] of itemColors) {
+    const field = fields.find(f => f.itemSlug === slug);
+    html += `<span class="legend-item" style="--item-color: ${color}">${escapeHtml(field?.itemName || slug)}</span>`;
+  }
+  html += '</div>';
+  
+  // Add each field row
+  for (const [fieldName, fieldValues] of grouped) {
+    html += `<div class="compare-field-row">`;
+    html += `<div class="field-name">${escapeHtml(fieldName)}</div>`;
+    html += `<div class="field-values">`;
+    
+    for (const field of fieldValues) {
+      const color = itemColors.get(field.itemSlug) || '#fff';
+      const renderedValue = renderValue(field.value, field.fieldName, { ...compareContext, mode: 'single', itemCount: 1 });
+      
+      html += `<div class="field-value-item" style="--item-color: ${color}">
+        <span class="item-label">${escapeHtml(field.itemName)}</span>
+        <div class="value-content">${renderedValue}</div>
+      </div>`;
+    }
+    
+    html += '</div></div>';
+  }
+  
+  html += '</div>';
+  
+  const response = new Response(JSON.stringify({
+    html,
+    itemCount: uniqueItems.length,
+    fieldCount: grouped.size,
+    mode: 'fields'
+  }), {
+    headers: { 'Content-Type': 'application/json' }
+  });
+  
+  addSecurityHeaders(response.headers);
+  return response;
+}
+
+// Original item-based comparison
+async function handleItemCompare(body: { items?: string[]; perspectives?: string[] }): Promise<Response> {
+    // Validate inputs
+    const slugs = validateSlugs(body.items);
+    const perspectives = validatePerspectives(body.perspectives);
+    
+    if (slugs.length < 2) {
+      return new Response(JSON.stringify({
+        error: 'At least 2 valid items required for comparison'
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
+    if (slugs.length > 10) {
+      return new Response(JSON.stringify({
+        error: 'Maximum 10 items for comparison'
+      }), {
+        status: 400,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
+    // Load items
+    const items = await getItems(slugs);
+    
+    if (items.length < 2) {
+      return new Response(JSON.stringify({
+        error: 'Not enough items found'
+      }), {
+        status: 404,
+        headers: { 'Content-Type': 'application/json' }
+      });
+    }
+    
+    // Build compare context
+    const colors = ['#0df', '#f0d', '#fd0', '#0fd', '#d0f', '#df0'];
+    const compareContext: RenderContext = {
+      mode: 'compare',
+      itemCount: items.length,
+      items: items as ItemData[],
+      colors: colors.slice(0, items.length),
+      perspectives
+    };
+    
+    // Render compare view
+    const html = renderCompare(items as Record<string, unknown>[], compareContext);
+    
+    // Count fields
+    const allFields = new Set<string>();
+    items.forEach(item => {
+      Object.keys(item).forEach(k => {
+        if (!k.startsWith('_') && !['id', 'slug'].includes(k)) {
+          allFields.add(k);
+        }
+      });
+    });
+    
+    const response = new Response(JSON.stringify({
+      html,
+      itemCount: items.length,
+      fieldCount: allFields.size,
+      mode: 'items'
+    }), {
+      headers: { 'Content-Type': 'application/json' }
+    });
+    
+    addSecurityHeaders(response.headers);
+    return response;
+}

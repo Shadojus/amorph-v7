@@ -1,0 +1,877 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MEDICINE PERSPECTIVE BLUEPRINT
+# Schema mit leeren Datenstrukturen für Morph-Erkennung
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BASIC IDENTIFICATION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+scientific: ""
+
+# morph: list
+synonyms:
+  - ""
+
+# morph: list
+pharmacopoeia_names:
+  - ""
+
+# morph: text
+description: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TRADITIONAL MEDICINE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+traditional_medicine:
+  # morph: list
+  systems:
+    - ""
+  # morph: text
+  historical_use: ""
+  # morph: list
+  traditional_indications:
+    - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TCM - Traditional Chinese Medicine
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+tcm_herb_name_pinyin: ""
+
+# morph: text
+tcm_herb_name_chinese: ""
+
+# morph: text
+tcm_tcmsp_id: ""
+
+# morph: tag
+tcm_nature: ""
+
+# morph: list
+tcm_flavor:
+  - ""
+
+# morph: list
+tcm_meridian_tropism:
+  - ""
+
+# morph: tag
+tcm_five_element: ""
+
+# morph: list
+tcm_therapeutic_actions:
+  - ""
+
+# morph: list
+tcm_classical_formulas:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# AYURVEDA
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+ayurveda_sanskrit_name: ""
+
+# morph: text
+ayurveda_imppat_id: ""
+
+# morph: list
+ayurveda_rasa:
+  - ""
+
+# morph: list
+ayurveda_guna:
+  - ""
+
+# morph: tag
+ayurveda_virya: ""
+
+# morph: tag
+ayurveda_vipaka: ""
+
+# morph: list
+ayurveda_dosha_effect:
+  - ""
+
+# morph: text
+ayurveda_prabhava: ""
+
+# morph: list
+ayurveda_classical_texts:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# WESTERN PHARMACOPOEIA MONOGRAPHS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+who_monograph_exists: false
+
+# morph: text
+who_monograph_volume: ""
+
+# morph: boolean
+escop_monograph_exists: false
+
+# morph: list
+escop_therapeutic_indication:
+  - ""
+
+# morph: badge
+german_commission_e_status:
+  status: ""
+  variant: ""
+
+# morph: list
+german_commission_e_indication:
+  - ""
+
+# morph: boolean
+usp_dietary_supplement: false
+
+# morph: text
+european_pharmacopoeia_id: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PHARMACOLOGY & BIOACTIVE SUBSTANCES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+active_substances:
+  - ""
+
+# morph: radar
+effect_profile:
+  - axis: ""
+    value: 0
+
+# morph: text
+pharmacokinetics_absorption: ""
+
+# morph: text
+pharmacokinetics_distribution: ""
+
+# morph: text
+pharmacokinetics_metabolism: ""
+
+# morph: text
+pharmacokinetics_elimination: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# THERAPEUTIC CATEGORIES & INDICATIONS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+therapeutic_categories:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CLINICAL EVIDENCE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: badge
+evidence_level:
+  status: ""
+  variant: ""
+
+# morph: list
+clinical_studies:
+  - ""
+
+# morph: list
+meta_analyses:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SAFETY PROFILE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: gauge
+safety_score:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "red"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "green"
+
+# morph: range
+toxicology_ld50_oral:
+  min: 0
+  max: 0
+  unit: "mg/kg"
+
+# morph: range
+toxicology_ld50_ip:
+  min: 0
+  max: 0
+  unit: "mg/kg"
+
+# morph: range
+toxicology_noael:
+  min: 0
+  max: 0
+  unit: "mg/kg/day"
+
+# morph: number
+toxicology_therapeutic_index: 0
+
+# morph: badge
+toxicology_genotoxicity:
+  status: ""
+  variant: ""
+
+# morph: badge
+toxicology_carcinogenicity:
+  status: ""
+  variant: ""
+
+# morph: badge
+toxicology_teratogenicity:
+  status: ""
+  variant: ""
+
+# morph: severity
+side_effects:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: severity
+interactions:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: list
+contraindications:
+  - ""
+
+# morph: badge
+special_populations_pregnancy:
+  status: ""
+  variant: ""
+
+# morph: badge
+special_populations_lactation:
+  status: ""
+  variant: ""
+
+# morph: badge
+special_populations_children:
+  status: ""
+  variant: ""
+
+# morph: badge
+special_populations_elderly:
+  status: ""
+  variant: ""
+
+# morph: badge
+special_populations_renal_impairment:
+  status: ""
+  variant: ""
+
+# morph: badge
+special_populations_hepatic_impairment:
+  status: ""
+  variant: ""
+
+# morph: severity
+overdose:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DOSAGE & APPLICATION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+dosage_notes: ""
+
+# morph: dosage
+dosage_schemes:
+  - amount: 0
+    unit: ""
+    frequency: ""
+    route: ""
+    notes: ""
+
+# morph: list
+preparation_forms:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# QUALITY CONTROL & STANDARDS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+monographs:
+  - ""
+
+# morph: list
+identity_testing:
+  - ""
+
+# morph: range
+purity_testing_heavy_metals:
+  min: 0
+  max: 0
+  unit: "ppm"
+
+# morph: range
+purity_testing_pesticides:
+  min: 0
+  max: 0
+  unit: "ppm"
+
+# morph: range
+purity_testing_mycotoxins:
+  min: 0
+  max: 0
+  unit: "ppb"
+
+# morph: badge
+purity_testing_microbiological:
+  status: ""
+  variant: ""
+
+# morph: badge
+purity_testing_radioactivity:
+  status: ""
+  variant: ""
+
+# morph: range
+content_determination:
+  min: 0
+  max: 0
+  unit: "%"
+
+# morph: list
+adulterants:
+  - ""
+
+# morph: list
+certifications:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# REGULATORY STATUS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+status_by_region:
+  # morph: tag
+  eu: ""
+  # morph: tag
+  usa: ""
+  # morph: tag
+  japan: ""
+  # morph: tag
+  china: ""
+  # morph: tag
+  canada: ""
+  # morph: tag
+  australia: ""
+
+# morph: boolean
+novel_food: false
+
+# morph: list
+drug_approvals:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SOURCING & SUSTAINABILITY
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+origin_wild_collection:
+  # morph: boolean
+  available: false
+  # morph: list
+  regions:
+    - ""
+  # morph: text
+  sustainability_concerns: ""
+
+# morph: object
+origin_cultivation:
+  # morph: boolean
+  available: false
+  # morph: list
+  regions:
+    - ""
+  # morph: text
+  methods: ""
+
+# morph: text
+quality_differences: ""
+
+# morph: text
+supply_chain: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PRACTICAL RESOURCES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+patient_information: ""
+
+# morph: text
+for_physicians: ""
+
+# morph: citation
+further_literature:
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# LEGACY (Backward Compatibility)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: rating
+medical_score:
+  rating: 0
+  max: 10
+
+# morph: text
+profile: ""
+
+# morph: text
+dosage: ""
+
+# morph: text
+special_populations: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# EVIDENZBASIERTE BEWERTUNG (Additional Fields)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: badge
+evidence_grade_overall:
+  status: ""
+  variant: ""
+
+# morph: number
+cochrane_reviews_count: 0
+
+# morph: list
+cochrane_review_ids:
+  - ""
+
+# morph: number
+meta_analyses_count: 0
+
+# morph: number
+rcts_count: 0
+
+# morph: text
+evidence_summary: ""
+
+# morph: list
+research_gaps_identified:
+  - ""
+
+# morph: list
+ongoing_clinical_trials:
+  - ""
+
+# morph: list
+clinicaltrials_gov_ids:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DOSIERUNG & VERABREICHUNG (Additional Fields)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: range
+standard_dose_range:
+  min: 0
+  max: 0
+  unit: "mg"
+
+# morph: tag
+dose_unit: ""
+
+# morph: tag
+dose_frequency: ""
+
+# morph: tag
+dose_timing_field: ""
+
+# morph: tag
+dose_with_food: ""
+
+# morph: text
+dose_adjustment_elderly: ""
+
+# morph: text
+dose_adjustment_renal: ""
+
+# morph: text
+dose_adjustment_hepatic: ""
+
+# morph: range
+pediatric_dosing:
+  min: 0
+  max: 0
+  unit: "mg/kg"
+
+# morph: number
+maximum_daily_dose: 0
+
+# morph: text
+treatment_duration_typical: ""
+
+# morph: text
+onset_of_action: ""
+
+# morph: text
+duration_of_effect: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BIOVERFÜGBARKEIT & PHARMAKOKINETIK (Additional Fields)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: progress
+bioavailability_oral:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: list
+bioavailability_factors:
+  - ""
+
+# morph: list
+absorption_enhanced_by:
+  - ""
+
+# morph: list
+absorption_reduced_by:
+  - ""
+
+# morph: number
+half_life_hours: 0
+
+# morph: number
+time_to_peak_hours: 0
+
+# morph: text
+metabolism_pathway: ""
+
+# morph: tag
+excretion_route: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# KONTRAINDIKATIONEN & VORSICHTSMASSNAHMEN (Additional Fields)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+contraindications_absolute:
+  - ""
+
+# morph: list
+contraindications_relative:
+  - ""
+
+# morph: list
+precautions:
+  - ""
+
+# morph: boolean
+monitoring_recommended: false
+
+# morph: list
+monitoring_parameters:
+  - ""
+
+# morph: text
+discontinuation_protocol: ""
+
+# morph: list
+withdrawal_effects:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# NEBENWIRKUNGEN (strukturiert - Additional Fields)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+side_effects_very_common:
+  - ""
+
+# morph: list
+side_effects_common:
+  - ""
+
+# morph: list
+side_effects_uncommon:
+  - ""
+
+# morph: list
+side_effects_rare:
+  - ""
+
+# morph: list
+side_effects_very_rare:
+  - ""
+
+# morph: severity
+side_effects_serious:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: text
+side_effects_management: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# QUALITÄTSSTANDARDS & BEZUGSQUELLEN (Additional Fields)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+quality_markers_to_verify:
+  - ""
+
+# morph: text
+standardization_marker: ""
+
+# morph: progress
+standardization_percentage:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: list
+reputable_manufacturers:
+  - ""
+
+# morph: list
+quality_certifications:
+  - ""
+
+# morph: list
+adulteration_common:
+  - ""
+
+# morph: text
+how_to_verify_authenticity: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PATIENTENBERATUNG (Additional Fields)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+patient_counseling_points:
+  - ""
+
+# morph: text
+what_to_expect: ""
+
+# morph: text
+when_to_seek_help: ""
+
+# morph: list
+self_care_tips:
+  - ""
+
+# morph: list
+lifestyle_modifications:
+  - ""
+
+# morph: list
+dietary_considerations:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ENUMERATIONS (Reference values)
+# ─────────────────────────────────────────────────────────────────────────────
+
+_enums:
+  medical_systems:
+    - TCM
+    - Ayurveda
+    - Kampo
+    - TKM
+    - European_Folk_Medicine
+    - Indigenous_North_America
+    - Indigenous_South_America
+    - African_Tradition
+    - Tibetan_Medicine
+    - Unani
+    - Siddha
+    - Homeopathy
+    - Naturopathy
+
+  tcm_nature:
+    - cold
+    - cool
+    - neutral
+    - warm
+    - hot
+    
+  tcm_flavor:
+    - sour
+    - bitter
+    - sweet
+    - pungent
+    - salty
+    - bland
+    - astringent
+    
+  ayurveda_rasa:
+    - madhura
+    - amla
+    - lavana
+    - katu
+    - tikta
+    - kashaya
+    
+  ayurveda_dosha:
+    - vata
+    - pitta
+    - kapha
+    - tridosha
+
+  substance_classes:
+    - Polysaccharides
+    - Triterpenes
+    - Sterols
+    - Phenols
+    - Alkaloids
+    - Peptides
+    - Lipids
+    - Vitamins
+    - Minerals
+    - Enzymes
+    - Lectins
+    - Flavonoids
+    - Tannins
+    - Glycosides
+    - Saponins
+    - Other
+
+  therapeutic_fields:
+    - Immunology
+    - Oncology
+    - Neurology
+    - Cardiology
+    - Gastroenterology
+    - Hepatology
+    - Endocrinology
+    - Dermatology
+    - Pulmonology
+    - Rheumatology
+    - Psychiatry
+    - Urology
+    - Gynecology
+    - Geriatrics
+    - Sports_Medicine
+    - Palliative_Medicine
+    - Infectiology
+    - Allergology
+
+  evidence_level:
+    - "1a"
+    - "1b"
+    - "2a"
+    - "2b"
+    - "3a"
+    - "3b"
+    - "4"
+    - "5"
+
+  evidence_grade:
+    - A
+    - B
+    - C
+    - D
+    - E
+    - insufficient
+
+  dose_timing:
+    - morning
+    - evening
+    - bedtime
+    - twice_daily
+    - three_times_daily
+    - with_meals
+    - between_meals
+    - as_needed
+
+  side_effect_frequency:
+    - very_common
+    - common
+    - occasional
+    - rare
+    - very_rare
+    - unknown
+
+  interaction_type:
+    - pharmacokinetic_absorption
+    - pharmacokinetic_distribution
+    - pharmacokinetic_metabolism
+    - pharmacokinetic_elimination
+    - pharmacodynamic_additive
+    - pharmacodynamic_synergistic
+    - pharmacodynamic_antagonistic
+
+  severity:
+    - mild
+    - moderate
+    - severe
+    - contraindicated
+
+  fda_pregnancy:
+    - A
+    - B
+    - C
+    - D
+    - X
+    - not_classified
+
+  preparation_forms:
+    - Dried_Material
+    - Fresh_Material
+    - Hot_Water_Extract
+    - Alcohol_Extract
+    - Dual_Extract
+    - Powder
+    - Fermented
+    - Tincture
+    - Tea
+    - Capsules
+    - Tablets
+    - Essential_Oil
+    - Decoction
+    - Infusion
+
+  regulatory_classification:
+    - Drug
+    - Food_Supplement
+    - Novel_Food
+    - Food
+    - Traditional_Drug
+    - Homeopathic
+    - Cosmetic
+    - Not_Approved
+    - Controlled_Substance

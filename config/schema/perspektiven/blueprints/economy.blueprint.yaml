@@ -1,0 +1,2071 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# BLUEPRINT: ECONOMY
+# Leere Datenstruktur mit korrekten Morph-Typen
+# Generiert aus: economy.yaml
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: economy
+name: Economy
+symbol: 💰
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SPECIES ECONOMIC PROFILE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: image
+eco_bild: ""
+
+# morph: text
+eco_handelsname: ""
+
+# morph: list
+eco_handelsnamen_liste:
+  - ""
+
+# morph: text
+eco_wissenschaftlicher_name: ""
+
+# morph: tag
+eco_wirtschafts_koenigreich: ""
+
+# morph: tag
+eco_warencode_hs: ""
+
+# morph: tag
+eco_warencode_sitc: ""
+
+# morph: list
+eco_naics_codes:
+  - ""
+
+# morph: tag
+eco_wirtschaftssektor: ""
+
+# morph: list
+eco_sekundaere_sektoren:
+  - ""
+
+# morph: badge
+eco_globale_bedeutung:
+  status: ""
+  variant: ""
+
+# morph: rating
+eco_bedeutung_skala:
+  rating: 0
+  max: 10
+
+# morph: text
+eco_regionale_bedeutung: ""
+
+# morph: badge
+eco_wirtschaftstrend:
+  status: ""
+  variant: ""
+
+# morph: tag
+eco_trend_symbol: ""
+
+# morph: rating
+eco_datenqualitaet:
+  rating: 0
+  max: 10
+
+# morph: tag
+eco_letzte_verifizierung: ""
+
+# morph: text
+eco_verifizierungsquelle: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ECONOMIC VALUE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+wert_bewertungsdatum: ""
+
+# morph: tag
+wert_bewertungstyp: ""
+
+# morph: currency
+wert_globaler_marktwert_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: number
+wert_marktwert_jahr: 0
+
+# morph: badge
+wert_marktwert_konfidenz:
+  status: ""
+  variant: ""
+
+# morph: currency
+wert_projizierter_marktwert_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: number
+wert_projektionsjahr: 0
+
+# morph: gauge
+wert_cagr_prozent:
+  value: 0
+  min: -20
+  max: 50
+  unit: "%"
+
+# morph: currency
+wert_aktueller_preis_kg_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+wert_preis_min_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+wert_preis_max_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: tag
+wert_preis_einheit: ""
+
+# morph: tag
+wert_preis_qualitaet: ""
+
+# morph: tag
+wert_preis_form: ""
+
+# morph: badge
+wert_kategorie:
+  status: ""
+  variant: ""
+
+# morph: tag
+wert_kategorie_label: ""
+
+# morph: currency
+wert_jaehrlicher_umsatz_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: badge
+wert_umsatzwachstum:
+  status: ""
+  variant: ""
+
+# morph: rating
+wert_umsatzpotential_score:
+  rating: 0
+  max: 10
+
+# morph: text
+wert_bip_beitrag_notizen: ""
+
+# morph: currency
+wert_exportwert_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+wert_importwert_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: text
+wert_datenquelle: ""
+
+# morph: link
+wert_quelle_url: ""
+
+# morph: text
+wert_methodik_notizen: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MARKET DATA
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: text
+markt_name: ""
+
+# morph: tag
+markt_typ: ""
+
+# morph: tag
+markt_geografischer_umfang: ""
+
+# morph: tag
+markt_segment: ""
+
+# morph: currency
+markt_groesse_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: number
+markt_groesse_jahr: 0
+
+# morph: number
+markt_groesse_volumen: 0
+
+# morph: tag
+markt_volumen_einheit: ""
+
+# morph: gauge
+markt_historischer_cagr:
+  value: 0
+  min: -20
+  max: 50
+  unit: "%"
+
+# morph: number
+markt_cagr_start_jahr: 0
+
+# morph: number
+markt_cagr_end_jahr: 0
+
+# morph: gauge
+markt_projizierter_cagr:
+  value: 0
+  min: -20
+  max: 50
+  unit: "%"
+
+# morph: number
+markt_projektion_end_jahr: 0
+
+# morph: currency
+markt_projizierte_groesse_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: badge
+markt_wachstum_klassifikation:
+  status: ""
+  variant: ""
+
+# morph: tag
+markt_primaerer_trend: ""
+
+# morph: list
+markt_sekundaere_trends:
+  - ""
+
+# morph: list
+markt_treiber:
+  - ""
+
+# morph: badge
+markt_ausblick:
+  status: ""
+  variant: ""
+
+# morph: tag
+markt_ausblick_zeitrahmen: ""
+
+# morph: badge
+markt_nachfrage_level:
+  status: ""
+  variant: ""
+
+# morph: list
+markt_nachfrage_treiber:
+  - ""
+
+# morph: badge
+markt_angebot_level:
+  status: ""
+  variant: ""
+
+# morph: list
+markt_angebot_beschraenkungen:
+  - ""
+
+# morph: badge
+markt_angebot_nachfrage_balance:
+  status: ""
+  variant: ""
+
+# morph: badge
+markt_preis_volatilitaet:
+  status: ""
+  variant: ""
+
+# morph: list
+markt_volatilitaet_faktoren:
+  - ""
+
+# morph: badge
+markt_saisonalitaet_einfluss:
+  status: ""
+  variant: ""
+
+# morph: calendar
+markt_spitzenzeit_monate:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: badge
+markt_konzentration:
+  status: ""
+  variant: ""
+
+# morph: list
+markt_hauptakteure:
+  - ""
+
+# morph: badge
+markt_eintrittsbarrieren:
+  status: ""
+  variant: ""
+
+# morph: list
+markt_barrieren_typen:
+  - ""
+
+# morph: pie
+markt_regionale_aufteilung:
+  - label: ""
+    value: 0
+
+# morph: list
+markt_groesste_maerkte:
+  - ""
+
+# morph: list
+markt_schnellst_wachsende:
+  - ""
+
+# morph: list
+markt_aufstrebende_maerkte:
+  - ""
+
+# morph: text
+markt_datenquelle: ""
+
+# morph: text
+markt_quellbericht: ""
+
+# morph: link
+markt_quelle_url: ""
+
+# morph: tag
+markt_datendatum: ""
+
+# morph: text
+markt_notizen: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRICE HISTORY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+preis_datum: ""
+
+# morph: currency
+preis_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: tag
+preis_einheit: ""
+
+# morph: tag
+preis_typ: ""
+
+# morph: tag
+preis_produktform: ""
+
+# morph: tag
+preis_qualitaetsgrad: ""
+
+# morph: tag
+preis_herkunftsland: ""
+
+# morph: tag
+preis_herkunftsregion: ""
+
+# morph: text
+preis_marktname: ""
+
+# morph: text
+preis_marktort: ""
+
+# morph: tag
+preis_original_waehrung: ""
+
+# morph: number
+preis_original_betrag: 0
+
+# morph: number
+preis_wechselkurs: 0
+
+# morph: sparkline
+preis_historie:
+  - 0
+
+# morph: badge
+preis_trend_5_jahre:
+  status: ""
+  variant: ""
+
+# morph: number
+preis_volatilitaet_index: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTERNATIONAL TRADE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: badge
+handel_status:
+  status: ""
+  variant: ""
+
+# morph: badge
+handel_bedeutung:
+  status: ""
+  variant: ""
+
+# morph: number
+handel_jahresvolumen_mt: 0
+
+# morph: currency
+handel_jahreswert_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: number
+handel_datenjahr: 0
+
+# morph: currency
+handel_exporte_gesamt_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: number
+handel_exporte_volumen_mt: 0
+
+# morph: bar
+handel_top_exporteure:
+  - label: ""
+    value: 0
+
+# morph: gauge
+handel_export_wachstumsrate:
+  value: 0
+  min: -20
+  max: 50
+  unit: "%"
+
+# morph: currency
+handel_importe_gesamt_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: number
+handel_importe_volumen_mt: 0
+
+# morph: bar
+handel_top_importeure:
+  - label: ""
+    value: 0
+
+# morph: gauge
+handel_import_wachstumsrate:
+  value: 0
+  min: -20
+  max: 50
+  unit: "%"
+
+# morph: flow
+handel_hauptstroeme:
+  - from: ""
+    to: ""
+    value: 0
+
+# morph: list
+handel_primaere_routen:
+  - ""
+
+# morph: list
+handel_beschraenkungen:
+  - ""
+
+# morph: badge
+handel_cites_listing:
+  status: ""
+  variant: ""
+
+# morph: text
+handel_cites_details: ""
+
+# morph: list
+handel_phytosanitaer_anforderungen:
+  - ""
+
+# morph: list
+handel_importgenehmigung_laender:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ABS - NAGOYA PROTOCOL
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: boolean
+abs_applicable: false
+
+# morph: tag
+abs_provider_country: ""
+
+# morph: badge
+abs_pic_status:
+  status: ""
+  variant: ""
+
+# morph: tag
+abs_pic_reference: ""
+
+# morph: badge
+abs_mat_status:
+  status: ""
+  variant: ""
+
+# morph: tag
+abs_mat_reference: ""
+
+# morph: tag
+abs_ircc: ""
+
+# morph: boolean
+abs_checkpoint_registered: false
+
+# morph: tag
+abs_collection_date: ""
+
+# morph: map
+abs_collection_location:
+  lat: 0
+  lng: 0
+  region: ""
+
+# morph: tag
+abs_intended_use: ""
+
+# morph: tag
+abs_benefit_sharing_type: ""
+
+# morph: text
+abs_benefit_sharing_details: ""
+
+# morph: boolean
+dsi_applicable: false
+
+# morph: tag
+dsi_database_deposited: ""
+
+# morph: text
+dsi_benefit_sharing_mechanism: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FAO COMMODITY CLASSIFICATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+fao_commodity_code: ""
+
+# morph: tag
+fao_commodity_group: ""
+
+# morph: number
+faostat_production_mt: 0
+
+# morph: number
+faostat_area_harvested_ha: 0
+
+# morph: number
+faostat_yield_kg_ha: 0
+
+# morph: currency
+faostat_import_value_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+faostat_export_value_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+faostat_price_usd_tonne:
+  amount: 0
+  currency: "USD"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CITES TRADE DATABASE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+cites_trade_term: ""
+
+# morph: number
+cites_trade_quantity_annual: 0
+
+# morph: tag
+cites_trade_unit: ""
+
+# morph: list
+cites_major_exporters:
+  - ""
+
+# morph: list
+cites_major_importers:
+  - ""
+
+# morph: badge
+cites_trade_trend:
+  status: ""
+  variant: ""
+
+# morph: pie
+cites_purpose_breakdown:
+  - label: ""
+    value: 0
+
+# morph: gauge
+handel_durchschnittszoll:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: text
+handel_zoll_details: ""
+
+# morph: list
+handel_handelsabkommen:
+  - ""
+
+# morph: list
+handel_dokumentation_anforderungen:
+  - ""
+
+# morph: list
+handel_qualitaetspruefung:
+  - ""
+
+# morph: list
+handel_kennzeichnung_anforderungen:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRODUCTION DATA
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+produktion_typ: ""
+
+# morph: tag
+produktion_skala: ""
+
+# morph: number
+produktion_global_mt: 0
+
+# morph: number
+produktion_datenjahr: 0
+
+# morph: gauge
+produktion_wachstumsrate:
+  value: 0
+  min: -20
+  max: 50
+  unit: "%"
+
+# morph: badge
+produktion_5_jahres_trend:
+  status: ""
+  variant: ""
+
+# morph: bar
+produktion_nach_land:
+  - label: ""
+    value: 0
+
+# morph: list
+produktion_top_regionen:
+  - ""
+
+# morph: list
+produktion_aufstrebende_regionen:
+  - ""
+
+# morph: tag
+produktion_hauptmethode: ""
+
+# morph: list
+produktion_methoden:
+  - ""
+
+# morph: badge
+produktion_technologie_level:
+  status: ""
+  variant: ""
+
+# morph: number
+produktion_durchschnittsertrag: 0
+
+# morph: tag
+produktion_ertrag_einheit: ""
+
+# morph: number
+produktion_ertrag_min: 0
+
+# morph: number
+produktion_ertrag_max: 0
+
+# morph: list
+produktion_ertragsfaktoren:
+  - ""
+
+# morph: currency
+produktion_kosten_kg_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+produktion_kosten_min_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+produktion_kosten_max_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: pie
+produktion_kostenaufschluesselung:
+  - label: ""
+    value: 0
+
+# morph: list
+produktion_kostenfaktoren:
+  - ""
+
+# morph: number
+produktion_arbeitsproduktivitaet: 0
+
+# morph: tag
+produktion_arbeitsproduktivitaet_einheit: ""
+
+# morph: number
+produktion_flaechenproduktivitaet: 0
+
+# morph: tag
+produktion_flaechenproduktivitaet_einheit: ""
+
+# morph: rating
+produktion_effizienz_bewertung:
+  rating: 0
+  max: 10
+
+# morph: badge
+produktion_saisonalitaet:
+  status: ""
+  variant: ""
+
+# morph: calendar
+produktion_spitzenmonate:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: calendar
+produktion_nebensaison_monate:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: list
+produktion_infrastruktur_anforderungen:
+  - ""
+
+# morph: badge
+produktion_kapitalintensitaet:
+  status: ""
+  variant: ""
+
+# morph: range
+produktion_anfangsinvestition_bereich:
+  min: 0
+  max: 0
+  unit: "USD"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CULTIVATION ECONOMICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: badge
+anbau_oeko_rentabilitaet:
+  status: ""
+  variant: ""
+
+# morph: badge
+anbau_oeko_kommerzieller_status:
+  status: ""
+  variant: ""
+
+# morph: currency
+anbau_oeko_setup_kosten_ha_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+anbau_oeko_setup_kosten_einheit_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: pie
+anbau_oeko_setup_aufschluesselung:
+  - label: ""
+    value: 0
+
+# morph: currency
+anbau_oeko_betriebskosten_ha_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+anbau_oeko_betriebskosten_kg_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: pie
+anbau_oeko_betriebskosten_aufschluesselung:
+  - label: ""
+    value: 0
+
+# morph: currency
+anbau_oeko_erwarteter_umsatz_ha_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: number
+anbau_oeko_erwarteter_ertrag_ha_kg: 0
+
+# morph: currency
+anbau_oeko_umsatz_pro_zyklus:
+  amount: 0
+  currency: "USD"
+
+# morph: number
+anbau_oeko_zyklen_pro_jahr: 0
+
+# morph: gauge
+anbau_oeko_bruttomarge_prozent:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: gauge
+anbau_oeko_nettomarge_prozent:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: currency
+anbau_oeko_gewinn_kg_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+anbau_oeko_jahresgewinn_ha_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: number
+anbau_oeko_break_even_ertrag_kg: 0
+
+# morph: number
+anbau_oeko_amortisation_monate: 0
+
+# morph: gauge
+anbau_oeko_roi_prozent:
+  value: 0
+  min: 0
+  max: 200
+  unit: "%"
+
+# morph: number
+anbau_oeko_roi_zeitrahmen_jahre: 0
+
+# morph: currency
+anbau_oeko_npv_10_jahre_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: gauge
+anbau_oeko_irr_prozent:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: badge
+anbau_oeko_produktionsrisiko:
+  status: ""
+  variant: ""
+
+# morph: badge
+anbau_oeko_marktrisiko:
+  status: ""
+  variant: ""
+
+# morph: list
+anbau_oeko_risikofaktoren:
+  - ""
+
+# morph: text
+anbau_oeko_mindestskala: ""
+
+# morph: text
+anbau_oeko_optimale_skala: ""
+
+# morph: badge
+anbau_oeko_skalierbarkeit_bewertung:
+  status: ""
+  variant: ""
+
+# morph: text
+anbau_oeko_skaleneffekte_notizen: ""
+
+# morph: badge
+anbau_oeko_marktzugang_schwierigkeit:
+  status: ""
+  variant: ""
+
+# morph: list
+anbau_oeko_vertriebskanaele:
+  - ""
+
+# morph: list
+anbau_oeko_kaeufer_anforderungen:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VALUE CHAIN
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: badge
+kette_komplexitaet:
+  status: ""
+  variant: ""
+
+# morph: badge
+kette_vertikale_integration:
+  status: ""
+  variant: ""
+
+# morph: steps
+kette_stufen:
+  - step: 1
+    label: ""
+    status: "pending"
+
+# morph: list
+kette_verarbeitungsstufen:
+  - ""
+
+# morph: text
+kette_primaere_verarbeitung: ""
+
+# morph: text
+kette_sekundaere_verarbeitung: ""
+
+# morph: list
+kette_vertriebskanaele:
+  - ""
+
+# morph: boolean
+kette_kuehlkette_erforderlich: false
+
+# morph: text
+kette_kuehlkette_details: ""
+
+# morph: number
+kette_haltbarkeit_frisch_tage: 0
+
+# morph: number
+kette_haltbarkeit_verarbeitet_tage: 0
+
+# morph: list
+kette_einzelhandelskanaele:
+  - ""
+
+# morph: range
+kette_einzelhandelspreis_bereich:
+  min: 0
+  max: 0
+  unit: "USD/kg"
+
+# morph: gauge
+kette_einzelhandelsaufschlag_prozent:
+  value: 0
+  min: 0
+  max: 500
+  unit: "%"
+
+# morph: list
+kette_mehrwertprodukte:
+  - ""
+
+# morph: list
+kette_hoechstwert_produkte:
+  - ""
+
+# morph: list
+kette_nebenprodukte:
+  - ""
+
+# morph: gauge
+kette_abfallverwertung_rate:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: rating
+kette_kreislaufwirtschaft_potential:
+  rating: 0
+  max: 10
+
+# morph: pie
+kette_wertverteilung:
+  - label: ""
+    value: 0
+
+# morph: gauge
+kette_produzenten_anteil_prozent:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INDUSTRY APPLICATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: text
+industrie_name: ""
+
+# morph: tag
+industrie_kategorie: ""
+
+# morph: tag
+industrie_naics_code: ""
+
+# morph: tag
+industrie_anwendungstyp: ""
+
+# morph: text
+industrie_anwendungsbeschreibung: ""
+
+# morph: list
+industrie_produktformen:
+  - ""
+
+# morph: list
+industrie_genutzte_eigenschaften:
+  - ""
+
+# morph: badge
+industrie_marktbedeutung:
+  status: ""
+  variant: ""
+
+# morph: gauge
+industrie_artanteil_prozent:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: currency
+industrie_marktgroesse_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: gauge
+industrie_wachstumsrate:
+  value: 0
+  min: -20
+  max: 50
+  unit: "%"
+
+# morph: badge
+industrie_markttrend:
+  status: ""
+  variant: ""
+
+# morph: list
+industrie_hauptunternehmen:
+  - ""
+
+# morph: list
+industrie_beispielprodukte:
+  - ""
+
+# morph: list
+industrie_qualitaetsanforderungen:
+  - ""
+
+# morph: list
+industrie_erforderliche_zertifizierungen:
+  - ""
+
+# morph: text
+industrie_regulierungsrahmen: ""
+
+# morph: gauge
+industrie_preisaufschlag:
+  value: 0
+  min: 0
+  max: 500
+  unit: "%"
+
+# morph: rating
+industrie_wertschoepfungspotential:
+  rating: 0
+  max: 10
+
+# morph: badge
+industrie_innovationsaktivitaet:
+  status: ""
+  variant: ""
+
+# morph: list
+industrie_aufkommende_anwendungen:
+  - ""
+
+# morph: list
+industrie_forschungsschwerpunkte:
+  - ""
+
+# morph: number
+industrie_patente_angemeldet: 0
+
+# morph: list
+industrie_anwendungen_liste:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CERTIFICATIONS & STANDARDS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: badge
+zert_bio_status:
+  status: ""
+  variant: ""
+
+# morph: text
+zert_bio_zertifizierer: ""
+
+# morph: tag
+zert_bio_standard: ""
+
+# morph: tag
+zert_bio_gueltig_bis: ""
+
+# morph: gauge
+zert_bio_marktaufschlag_prozent:
+  value: 0
+  min: 0
+  max: 200
+  unit: "%"
+
+# morph: list
+zert_nachhaltigkeit_zertifikate:
+  - ""
+
+# morph: badge
+zert_nachhaltigkeit_status:
+  status: ""
+  variant: ""
+
+# morph: list
+zert_umweltlabel:
+  - ""
+
+# morph: badge
+zert_haccp_status:
+  status: ""
+  variant: ""
+
+# morph: text
+zert_haccp_zertifizierer: ""
+
+# morph: badge
+zert_iso_22000_status:
+  status: ""
+  variant: ""
+
+# morph: badge
+zert_brc_status:
+  status: ""
+  variant: ""
+
+# morph: badge
+zert_ifs_status:
+  status: ""
+  variant: ""
+
+# morph: badge
+zert_fssc_22000_status:
+  status: ""
+  variant: ""
+
+# morph: badge
+zert_iso_9001_status:
+  status: ""
+  variant: ""
+
+# morph: list
+zert_qualitaetsstandards:
+  - ""
+
+# morph: list
+zert_branchenstandards:
+  - ""
+
+# morph: boolean
+zert_geschuetzte_herkunft: false
+
+# morph: text
+zert_gi_name: ""
+
+# morph: tag
+zert_gi_typ: ""
+
+# morph: text
+zert_gi_region: ""
+
+# morph: tag
+zert_gi_land: ""
+
+# morph: number
+zert_gi_registrierungsjahr: 0
+
+# morph: list
+zert_marken:
+  - ""
+
+# morph: list
+zert_kollektivmarken:
+  - ""
+
+# morph: list
+zert_anforderungen_export:
+  - ""
+
+# morph: list
+zert_anforderungen_import:
+  - ""
+
+# morph: object
+zert_laenderspezifische_anforderungen:
+  EU: ""
+  USA: ""
+  China: ""
+  Japan: ""
+
+# morph: currency
+zert_kosten_initial:
+  amount: 0
+  currency: "EUR"
+
+# morph: currency
+zert_kosten_jaehrlich:
+  amount: 0
+  currency: "EUR"
+
+# morph: gauge
+zert_roi_zertifizierung:
+  value: 0
+  min: 0
+  max: 500
+  unit: "%"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EMPLOYMENT & LIVELIHOODS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+beschaeftigung_global_gesamt: 0
+
+# morph: number
+beschaeftigung_datenjahr: 0
+
+# morph: gauge
+beschaeftigung_wachstumsrate:
+  value: 0
+  min: -20
+  max: 50
+  unit: "%"
+
+# morph: number
+beschaeftigung_primaersektor: 0
+
+# morph: number
+beschaeftigung_verarbeitung: 0
+
+# morph: number
+beschaeftigung_handel: 0
+
+# morph: number
+beschaeftigung_einzelhandel: 0
+
+# morph: number
+beschaeftigung_forschung: 0
+
+# morph: bar
+beschaeftigung_nach_region:
+  - label: ""
+    value: 0
+
+# morph: list
+beschaeftigung_hauptlaender:
+  - ""
+
+# morph: number
+beschaeftigung_vollzeit: 0
+
+# morph: number
+beschaeftigung_teilzeit: 0
+
+# morph: number
+beschaeftigung_saisonal: 0
+
+# morph: number
+beschaeftigung_informell: 0
+
+# morph: gauge
+beschaeftigung_frauenanteil_prozent:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: gauge
+beschaeftigung_jugendanteil_prozent:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: text
+beschaeftigung_demographische_daten: ""
+
+# morph: currency
+beschaeftigung_durchschnittslohn_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+beschaeftigung_lohnspanne_min:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+beschaeftigung_lohnspanne_max:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+beschaeftigung_einkommen_saisonal:
+  amount: 0
+  currency: "USD"
+
+# morph: gauge
+beschaeftigung_einkommen_anteil_haushalt:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: text
+beschaeftigung_arbeitsbedingungen: ""
+
+# morph: list
+beschaeftigung_sicherheitsstandards:
+  - ""
+
+# morph: gauge
+beschaeftigung_gewerkschaftsgrad:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: number
+kleinbauern_anzahl_global: 0
+
+# morph: number
+kleinbauern_durchschnittliche_flaeche: 0
+
+# morph: currency
+kleinbauern_durchschnittseinkommen_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: gauge
+kleinbauern_anteil_produktion_prozent:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: list
+kleinbauern_herausforderungen:
+  - ""
+
+# morph: list
+kleinbauern_unterstuetzungsprogramme:
+  - ""
+
+# morph: text
+laendlich_wirtschaftsbeitrag: ""
+
+# morph: gauge
+laendlich_beschaeftigung_prozent:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: text
+laendlich_infrastruktur_beitrag: ""
+
+# morph: list
+laendlich_entwicklungseffekte:
+  - ""
+
+# morph: list
+gemeinschaft_vorteile:
+  - ""
+
+# morph: list
+gemeinschaft_projekte:
+  - ""
+
+# morph: list
+gemeinschaft_soziale_unternehmen:
+  - ""
+
+# morph: badge
+fairtrade_status:
+  status: ""
+  variant: ""
+
+# morph: text
+fairtrade_zertifizierer: ""
+
+# morph: currency
+fairtrade_praemie_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: number
+fairtrade_produzenten_anzahl: 0
+
+# morph: list
+fairtrade_auswirkungen:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ECONOMIC FORECASTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: currency
+prognose_marktgroesse_2025:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+prognose_marktgroesse_2030:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+prognose_marktgroesse_2035:
+  amount: 0
+  currency: "USD"
+
+# morph: gauge
+prognose_cagr_2025_2030:
+  value: 0
+  min: -20
+  max: 50
+  unit: "%"
+
+# morph: gauge
+prognose_cagr_2030_2035:
+  value: 0
+  min: -20
+  max: 50
+  unit: "%"
+
+# morph: list
+prognose_wachstumstreiber:
+  - ""
+
+# morph: list
+prognose_wachstumshemmer:
+  - ""
+
+# morph: list
+prognose_chancen:
+  - ""
+
+# morph: list
+prognose_risiken:
+  - ""
+
+# morph: bar
+prognose_regional:
+  - label: ""
+    value: 0
+
+# morph: list
+prognose_schnellst_wachsende_regionen:
+  - ""
+
+# morph: list
+prognose_aufstrebende_maerkte:
+  - ""
+
+# morph: currency
+prognose_optimistisch:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+prognose_basis:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+prognose_pessimistisch:
+  amount: 0
+  currency: "USD"
+
+# morph: text
+prognose_szenarien_annahmen: ""
+
+# morph: text
+prognose_technologie_einfluss: ""
+
+# morph: list
+prognose_disruption_risiken:
+  - ""
+
+# morph: list
+prognose_innovation_chancen:
+  - ""
+
+# morph: text
+prognose_klima_einfluss: ""
+
+# morph: list
+prognose_anpassungsstrategien:
+  - ""
+
+# morph: text
+prognose_politik_einfluss: ""
+
+# morph: list
+prognose_regulierung_trends:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INVESTMENT & FUNDING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: badge
+investition_attraktivitaet:
+  status: ""
+  variant: ""
+
+# morph: rating
+investition_attraktivitaet_score:
+  rating: 0
+  max: 10
+
+# morph: badge
+investition_reifegrad:
+  status: ""
+  variant: ""
+
+# morph: currency
+investition_gesamt_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: number
+investition_datenjahr: 0
+
+# morph: gauge
+investition_wachstumsrate:
+  value: 0
+  min: -20
+  max: 100
+  unit: "%"
+
+# morph: currency
+investition_vc_gesamt_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+investition_pe_gesamt_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+investition_oeffentlich_gesamt_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+investition_unternehmen_gesamt_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: list
+investition_hauptinvestoren:
+  - ""
+
+# morph: list
+investition_juengste_deals:
+  - ""
+
+# morph: list
+foerderung_oeffentliche_programme:
+  - ""
+
+# morph: list
+foerderung_entwicklungshilfe:
+  - ""
+
+# morph: list
+foerderung_forschungsfoerderung:
+  - ""
+
+# morph: badge
+ma_aktivitaet:
+  status: ""
+  variant: ""
+
+# morph: list
+ma_juengste_transaktionen:
+  - ""
+
+# morph: text
+ma_bewertungsmultiplikatoren: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: rating
+dq_gesamtscore:
+  rating: 0
+  max: 10
+
+# morph: gauge
+dq_vollstaendigkeit:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: gauge
+dq_aktualitaet:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: gauge
+dq_genauigkeit:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: list
+dq_primaerquellen:
+  - ""
+
+# morph: list
+dq_sekundaerquellen:
+  - ""
+
+# morph: number
+dq_quellenanzahl: 0
+
+# morph: tag
+dq_letzte_pruefung: ""
+
+# morph: text
+dq_pruefer: ""
+
+# morph: tag
+dq_validierungsmethode: ""
+
+# morph: list
+dq_bekannte_probleme:
+  - ""
+
+# morph: list
+dq_datenluecken:
+  - ""
+
+# morph: list
+dq_verbesserungsvorschlaege:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ADDITIONAL FIELDS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: currency
+market_size_current_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+market_size_forecast_2030_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: gauge
+cagr_percent:
+  value: 0
+  min: -20
+  max: 50
+  unit: "%"
+
+# morph: list
+market_drivers:
+  - ""
+
+# morph: list
+market_restraints:
+  - ""
+
+# morph: list
+market_opportunities:
+  - ""
+
+# morph: list
+market_segments:
+  - ""
+
+# morph: pie
+market_segment_shares:
+  - label: ""
+    value: 0
+
+# morph: list
+emerging_markets:
+  - ""
+
+# morph: badge
+market_saturation_risk:
+  status: ""
+  variant: ""
+
+# morph: currency
+price_current_wholesale:
+  amount: 0
+  currency: "USD"
+
+# morph: currency
+price_current_retail:
+  amount: 0
+  currency: "USD"
+
+# morph: tag
+price_unit: ""
+
+# morph: badge
+price_trend_direction:
+  status: ""
+  variant: ""
+
+# morph: text
+price_seasonality_pattern: ""
+
+# morph: calendar
+price_peak_months:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: calendar
+price_low_months:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: number
+price_volatility_index: 0
+
+# morph: list
+price_correlation_factors:
+  - ""
+
+# morph: currency
+price_forecast_next_year:
+  amount: 0
+  currency: "USD"
+
+# morph: range
+price_historical_range:
+  min: 0
+  max: 0
+  unit: "USD"
+
+# morph: text
+supply_chain_structure: ""
+
+# morph: list
+major_suppliers:
+  - ""
+
+# morph: badge
+supplier_concentration_risk:
+  status: ""
+  variant: ""
+
+# morph: list
+supply_disruption_history:
+  - ""
+
+# morph: text
+supply_seasonality: ""
+
+# morph: number
+inventory_turnover_typical: 0
+
+# morph: number
+shelf_life_commercial: 0
+
+# morph: boolean
+cold_chain_required: false
+
+# morph: list
+logistics_challenges:
+  - ""
+
+# morph: list
+trade_barriers:
+  - ""
+
+# morph: gauge
+tariff_rates:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: list
+phytosanitary_requirements:
+  - ""
+
+# morph: list
+market_leaders:
+  - ""
+
+# morph: pie
+market_share_top_companies:
+  - label: ""
+    value: 0
+
+# morph: text
+competitive_landscape: ""
+
+# morph: list
+entry_barriers:
+  - ""
+
+# morph: list
+substitute_products:
+  - ""
+
+# morph: badge
+substitute_threat_level:
+  status: ""
+  variant: ""
+
+# morph: list
+competitive_advantages:
+  - ""
+
+# morph: list
+differentiation_opportunities:
+  - ""
+
+# morph: object
+regulatory_status_by_region:
+  EU: ""
+  USA: ""
+  China: ""
+  Japan: ""
+
+# morph: badge
+novel_food_status_eu:
+  status: ""
+  variant: ""
+
+# morph: badge
+fda_status_us:
+  status: ""
+  variant: ""
+
+# morph: list
+organic_certification_requirements:
+  - ""
+
+# morph: list
+sustainability_certification:
+  - ""
+
+# morph: list
+quality_standards_applicable:
+  - ""
+
+# morph: list
+labeling_requirements:
+  - ""
+
+# morph: boolean
+import_permit_required: false
+
+# morph: list
+export_restrictions:
+  - ""
+
+# morph: currency
+compliance_cost_estimate:
+  amount: 0
+  currency: "EUR"

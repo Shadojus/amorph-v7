@@ -1,0 +1,147 @@
+{
+  "ethnobiology": "Das Alpenmurmeltier hat eine lange Geschichte der menschlichen Nutzung und kulturellen Bedeutung in den Alpenlaendern. Es wurde als Nahrungsquelle genutzt, sein Fett fand medizinische Verwendung, und es ist ein wichtiges Symbol der alpinen Kultur.",
+  "cultural_significance": {
+    "status": "high",
+    "variant": "success"
+  },
+  "historical_importance": {
+    "rating": 8,
+    "max": 10
+  },
+  "symbolic_meaning": "Symbol der Alpen, Wachsamkeit und Gemeinschaft. Der charakteristische Warnpfiff macht es zu einem Sinnbild fuer Aufmerksamkeit und Fuersorge.",
+  "traditional_knowledge": "In den Alpenlaendern existiert umfangreiches traditionelles Wissen ueber Murmeltiere, einschliesslich Jagdtechniken, Nutzung des Fetts und Wettervorhersage basierend auf dem Verhalten der Tiere.",
+  "indigenous_names": [
+    "Mankei (Bayern, Tirol)",
+    "Murmente (Schweiz)",
+    "Marmotte (Frankreich)",
+    "Marmotta (Italien)"
+  ],
+  "indigenous_uses": [
+    "Nahrungsquelle (Fleisch)",
+    "Murmeltierroel (Fett als Heilmittel)",
+    "Fell fuer Kleidung",
+    "Zaehne als Schmuck"
+  ],
+  "oral_traditions": [
+    "Bauernregeln zum Verhalten der Murmeltiere",
+    "Geschichten ueber die Klugheit der Murmeltiere",
+    "Legenden ueber ihre Herkunft"
+  ],
+  "mythology": "In der alpinen Folklore gelten Murmeltiere als kluge und vorsorgliche Tiere. Ihr Winterschlaf und das Zusammenleben in Familiengruppen inspirierten Geschichten ueber Gemeinschaft und Vorsorge.",
+  "folklore": "Zahlreiche Volksweisheiten ranken sich um das Murmeltier. Der Pfiff des Murmeltieres galt als Warnung vor Unwetter, und das Verhalten der Tiere wurde zur Wettervorhersage genutzt.",
+  "legends": [
+    "Die Legende vom Murmeltieroel-Wunder",
+    "Der schlaue Mankei und der dumme Adler",
+    "Warum das Murmeltier pfeift"
+  ],
+  "superstitions": [
+    "Fruehes Erscheinen der Murmeltiere kuendigt einen kurzen Winter an",
+    "Murmeltierroel heilt Rheuma und Gelenkschmerzen",
+    "Der Pfiff vertreibt boese Geister"
+  ],
+  "folk_beliefs": [
+    "Murmeltiere koennen das Wetter vorhersagen",
+    "Ihr Fett hat heilende Kraefte",
+    "Sie sind Hueter der Berge"
+  ],
+  "etymology": "Der Name 'Murmeltier' leitet sich vom lateinischen 'mus montanus' (Bergmaus) ab, das ueber das althochdeutsche 'murmunti' zum heutigen Namen wurde.",
+  "common_names": [
+    "Alpenmurmeltier (Standarddeutsch)",
+    "Mankei (Bayerisch/Tirolerisch)",
+    "Murmente (Schweizerdeutsch)",
+    "Murmeli (Schweizerdeutsch)",
+    "Marmotte (Franzoesisch)",
+    "Marmotta (Italienisch)"
+  ],
+  "regional_names": {
+    "de": "Alpenmurmeltier, Mankei, Murmente",
+    "en": "Alpine Marmot",
+    "fr": "Marmotte des Alpes",
+    "it": "Marmotta alpina",
+    "es": "Marmota alpina"
+  },
+  "historical_names": [
+    "Mus alpinus",
+    "Arctomys marmota",
+    "Bergmaus"
+  ],
+  "traditional_food_uses": [
+    "Murmeltierbraten",
+    "Murmeltierragout",
+    "Geselchtes Murmeltierfleisch"
+  ],
+  "traditional_medicine_uses": [
+    "Murmeltierroel gegen Rheuma",
+    "Murmeltierroel gegen Gelenkschmerzen",
+    "Murmeltierroel als Einreibung gegen Kaelte",
+    "Murmeltierroel gegen Hauterkrankungen"
+  ],
+  "traditional_crafts": [
+    "Fell fuer Muetzen und Kragen",
+    "Zaehne als Schmuck und Amulett"
+  ],
+  "european_traditions": {
+    "germanic": "Wichtiges Jagdwild und Quelle von Heilmitteln in den deutschsprachigen Alpen",
+    "celtic": "",
+    "slavic": "",
+    "mediterranean": "In den italienischen Alpen traditionell gejagt",
+    "nordic": ""
+  },
+  "historical_timeline": [
+    {"date": "Prahistorie", "event": "Erste Nutzung durch Menschen", "description": "Archaeologische Funde belegen die Jagd auf Murmeltiere seit der Steinzeit"},
+    {"date": "Mittelalter", "event": "Murmeltierroel als Heilmittel", "description": "Das Fett wird als wertvolles Heilmittel etabliert"},
+    {"date": "1758", "event": "Wissenschaftliche Beschreibung", "description": "Linne beschreibt die Art wissenschaftlich"},
+    {"date": "19. Jahrhundert", "event": "Ueberjaagung", "description": "Starker Rueckgang durch intensive Jagd"},
+    {"date": "20. Jahrhundert", "event": "Schutz und Erholung", "description": "Jagdrestriktionen fuehren zur Bestandserholung"}
+  ],
+  "ancient_uses": "Bereits in der Steinzeit wurden Murmeltiere gejagt. Knochenfunde belegen ihre Bedeutung als Nahrungsquelle fuer fruehere Alpenbewohner.",
+  "medieval_uses": "Im Mittelalter war das Murmeltierroel ein geschaetztes Heilmittel. Die Jagd war ein wichtiger Teil der alpinen Wirtschaft.",
+  "modern_perception": "Heute wird das Murmeltier als sympathisches Symbol der Alpen gesehen. Es ist ein beliebtes Fotomotiv und Maskottchen fuer alpine Regionen.",
+  "festivals": [
+    "Almfeste mit Murmeltier-Themen",
+    "Jagdtraditionen in einigen Regionen"
+  ],
+  "ecotourism_opportunities": [
+    "Murmeltier-Beobachtung in Nationalparks",
+    "Gefuehrte Wanderungen zur Murmeltier-Beobachtung",
+    "Wildlife-Fotografie-Touren"
+  ],
+  "tourist_attractions_featuring": [
+    "Nationalpark Hohe Tauern",
+    "Schweizerischer Nationalpark",
+    "Parco Nazionale Gran Paradiso",
+    "Berchtesgadener Land"
+  ],
+  "museums_featuring": [
+    "Naturhistorisches Museum Wien",
+    "Naturhistorisches Museum Bern",
+    "Museum fuer Naturkunde Berlin"
+  ],
+  "pop_culture_references": [
+    "Murmeltier Maskottchen verschiedener Skigebiete",
+    "Werbeikone fuer alpine Produkte"
+  ],
+  "books_featured_in": [
+    "Verschiedene Kinderbuecher ueber Bergwelt",
+    "Naturkundliche Werke ueber die Alpen"
+  ],
+  "idioms_featuring": [
+    "Schlafen wie ein Murmeltier (sehr tief schlafen)",
+    "Pfeifen wie ein Murmeltier (schrill warnen)"
+  ],
+  "proverbs_featuring": [
+    "Das Murmeltier pfeift, es wird schlechtes Wetter",
+    "Frueher Mankei, frueher Fruehling"
+  ],
+  "economic_value_tourism": {
+    "value": 0,
+    "currency": "EUR"
+  },
+  "source": {
+    "authors": "Bassetti, R.",
+    "year": 2010,
+    "title": "Das Murmeltier - Kulturgeschichte eines Alpenbewohners",
+    "journal": "Athesia Verlag",
+    "doi": ""
+  }
+}

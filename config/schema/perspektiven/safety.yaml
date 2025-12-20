@@ -1,0 +1,1011 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: SAFETY
+# Toxicology, hazards, and safety assessment
+# Version: 2.0.0 | Universal for all biological species
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# TARGET AUDIENCE:
+# - Foragers & wild harvesters
+# - Poison control centers
+# - Emergency medicine professionals
+# - Trainers & educators
+# - Public health specialists
+# - Toxicologists
+#
+# DESIGN PHILOSOPHY:
+# Comprehensive safety assessment including:
+# - Toxin profiles & poisoning syndromes
+# - Confusion partners & identification difficulty
+# - Symptom patterns & progression
+# - Treatment protocols & emergency response
+# - Risk factors & regional data
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: safety
+name: Safety
+symbol: ⚠️
+
+# Warm rose-coral - distinct safety pastels
+colors:
+  - "rgba(250, 160, 170, 0.75)"
+  - "rgba(245, 150, 160, 0.70)"
+  - "rgba(240, 140, 150, 0.65)"
+  - "rgba(235, 130, 140, 0.60)"   
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FIELDS - Ordered by safety workflow
+# ═══════════════════════════════════════════════════════════════════════════════
+
+fields:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CORE SAFETY PROFILE
+  # ─────────────────────────────────────────────────────────────────────────────
+  - safety_edibility_status
+  - safety_edibility_confidence
+  - safety_edibility_notes
+  - safety_potentially_deadly
+  - safety_deadliness_frequency
+  - safety_toxicity_score
+  - safety_toxicity_components
+  - safety_ld50_kg
+  - safety_min_toxic_dose_g
+  - safety_lethal_dose_g
+  
+  # Warnings
+  - safety_warning_level
+  - safety_warning_text
+  - safety_warning_text_short
+  - safety_warning_symbols
+  - safety_summary
+  
+  # Risk Factors
+  - safety_risk_inherent
+  - safety_risk_confusion
+  - safety_risk_preparation
+  - safety_risk_individual
+  - safety_risk_cumulative
+  - safety_risk_environment
+  - safety_risk_groups
+  - safety_contraindications
+  
+  # Geography & Time
+  - safety_regions
+  - safety_regional_variations
+  - safety_season_risk
+  - safety_main_risk_months
+  
+  # Identification
+  - safety_id_difficulty
+  - safety_id_requirements
+  - safety_microscopy_needed
+  - safety_chemtests_needed
+  - safety_sporeprint_needed
+  
+  # Data Quality
+  - safety_expert_reviewed
+  - safety_reviewer_credentials
+  - safety_last_review
+  - safety_next_review
+  - safety_confidence_level
+  - safety_completeness
+  
+  # ENTITY 2: Toxin Profile
+  - toxin_class_primary
+  - toxin_classes_secondary
+  - toxin_names
+  - toxin_concentrations
+  
+  # TOXIDROME CLASSIFICATION - Universal poison control framework
+  # Cross-kingdom toxidrome categories for clinical presentation
+  - toxidrome_primary                    # Primary clinical syndrome
+  - toxidrome_secondary                  # Secondary/overlapping syndromes
+  - toxidrome_mnemonic                   # Clinical memory aid (e.g., SLUDGE)
+  - toxidrome_key_findings               # Pathognomonic signs
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CROSS-KINGDOM TOXICOLOGY DATABASES
+  # ─────────────────────────────────────────────────────────────────────────────
+  - tox_database_id                     # Tox-Prot/TPPT/T3DB identifier
+  - tox_prot_id                         # UniProt toxin ID (venoms, 5000+ proteins)
+  - tppt_id                             # Toxic Plants Phytotoxin ID (1586 phytotoxins)
+  - cmnpd_id                            # Comprehensive Marine NP Database ID
+  - t3db_id                             # Toxin Target Database ID
+  
+  # Universal toxin classification
+  - toxin_kingdom_origin                # Fungi/Plantae/Animalia/Bacteria/Protista
+  - toxin_biosynthetic_class            # Alkaloid/Terpenoid/Peptide/Polyketide
+  - toxin_protein_family                # For protein toxins (venoms)
+  - toxin_uniprot_id                    # UniProt accession for protein toxins
+  
+  # Marine biotoxins (CMNPD: 31,561 compounds)
+  - marine_biotoxin_class               # PSP/ASP/DSP/NSP/CFP/AZP
+  - marine_biotoxin_source              # Dinoflagellate/Cyanobacteria/Sponge
+  - marine_biotoxin_vector              # Shellfish/Fish/Direct contact
+  
+  # Venom-specific (Animalia)
+  - venom_delivery_method               # Bite/Sting/Spine/Secretion
+  - venom_protein_components            # Major protein families
+  - antivenom_available                 # true/false
+  - antivenom_type                      # Monovalent/Polyvalent
+
+  # Target Organs
+  - toxin_target_organs_primary
+  - toxin_target_organs_secondary
+  - toxin_organ_damage_severity
+  - toxin_organ_damage_reversible
+  - toxin_mechanism
+  - toxin_mechanism_short
+  - toxin_cellular_targets
+  
+  # Onset & Duration
+  - toxin_onset_min_hours
+  - toxin_onset_max_hours
+  - toxin_onset_typical_hours
+  - toxin_onset_classification
+  - toxin_duration_min_hours
+  - toxin_duration_max_hours
+  
+  # Toxin Stability
+  - toxin_heat_stable
+  - toxin_degradation_temp_c
+  - toxin_degradation_time_min
+  - toxin_drying_stable
+  - toxin_frost_stable
+  - toxin_water_soluble
+  - toxin_alcohol_soluble
+  - toxin_stability_notes
+  
+  # Preparation
+  - toxin_preparation_reduces
+  - toxin_safe_methods
+  - toxin_unsafe_methods
+  - toxin_preparation_warnings
+  
+  # Cumulative Effects
+  - toxin_cumulative
+  - toxin_cumulative_threshold
+  - toxin_chronic_effects
+  - toxin_carcinogenic
+  - toxin_mutagenic
+  - toxin_teratogenic
+  
+  # Interactions
+  - toxin_drug_interactions
+  - toxin_alcohol_interaction
+  - toxin_alcohol_severity
+  - toxin_alcohol_time_window_h
+  - toxin_food_interactions
+  
+  # Detection
+  - toxin_detection_sample
+  - toxin_detection_patient
+  - toxin_detection_window_h
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ERSTE-HILFE-PROTOKOLL (für Laien verständlich)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - first_aid_immediate_steps            # Sofortmaßnahmen (nummeriert)
+  - first_aid_what_not_to_do             # Was NICHT tun
+  - induce_vomiting_recommended          # Erbrechen auslösen? (true/false/contraindicated)
+  - activated_charcoal_useful            # Aktivkohle sinnvoll? (true/false/timing)
+  - milk_or_water_helpful                # Milch/Wasser geben?
+  - when_to_call_emergency               # Wann Notruf (112)?
+  - information_for_emergency_call       # Was dem Notruf sagen
+  - hospital_transport_urgency           # Dringlichkeit Krankenhaus
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SYMPTOM-TIMELINE (für medizinisches Personal)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - symptom_onset_minutes                # Symptombeginn (Minuten nach Exposition)
+  - symptom_onset_range                  # Bandbreite Symptombeginn
+  - symptom_peak_hours                   # Symptom-Maximum (Stunden)
+  - symptom_duration_hours               # Symptomdauer
+  - symptom_phases                       # Phasenverlauf der Vergiftung
+  - delayed_symptoms_possible            # Verzögerte Symptome möglich
+  - delayed_symptom_onset_hours          # Verzögerung in Stunden
+  - biphasic_reaction_risk               # Biphasische Reaktion möglich
+  - symptom_resolution_timeline          # Zeitverlauf Erholung
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DOSIS-WIRKUNGS-BEZIEHUNG
+  # ─────────────────────────────────────────────────────────────────────────────
+  - toxic_dose_threshold                 # Ab welcher Menge toxisch
+  - toxic_dose_unit                      # Einheit (mg/kg, Stück, etc.)
+  - lethal_dose_human_estimated          # Geschätzte letale Dosis Mensch
+  - one_bite_dangerous                   # Ein Biss/Stück gefährlich?
+  - cumulative_toxicity                  # Kumulative Toxizität (true/false)
+  - bioaccumulation_risk                 # Anreicherung im Körper
+  - dose_response_notes                  # Anmerkungen Dosis-Wirkung
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # VULNERABLE GRUPPEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - children_risk_modifier               # Risiko bei Kindern (higher/same/lower)
+  - children_specific_concerns           # Kinder-spezifische Bedenken
+  - elderly_risk_modifier                # Risiko bei Älteren
+  - pregnancy_risk_category              # Schwangerschaft (A/B/C/D/X)
+  - pregnancy_specific_effects           # Schwangerschafts-spezifische Effekte
+  - breastfeeding_concerns               # Stillzeit-Bedenken
+  - pets_toxicity                        # Toxisch für Haustiere
+  - pets_species_affected                # Betroffene Tierarten
+  - pets_toxic_dose                      # Toxische Dosis für Haustiere
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # MEDIKAMENTEN-INTERAKTIONEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - drug_interactions_dangerous          # Gefährliche Medikamenten-Interaktionen
+  - drug_interactions_moderate           # Moderate Interaktionen
+  - alcohol_interaction                  # Alkohol-Wechselwirkung
+  - maoi_interaction                     # MAO-Hemmer-Interaktion
+  - anticoagulant_interaction            # Blutverdünner-Interaktion
+  - immunosuppressant_interaction        # Immunsuppressiva-Interaktion
+  - cyp450_interactions                  # CYP450-Enzym-Interaktionen
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # EXPOSITIONSWEGE & DEKONTAMINATION
+  # ─────────────────────────────────────────────────────────────────────────────
+  - exposure_routes                      # Expositionswege (oral/dermal/inhalation)
+  - dermal_exposure_protocol             # Hautexposition-Protokoll
+  - eye_exposure_protocol                # Augenexposition-Protokoll
+  - inhalation_exposure_protocol         # Einatmung-Protokoll
+  - decontamination_steps                # Dekontaminationsschritte
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # LANGZEITFOLGEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - chronic_exposure_effects             # Effekte chronischer Exposition
+  - organ_damage_potential               # Organschäden-Potential
+  - recovery_prognosis                   # Erholungsprognose
+  - permanent_damage_risk                # Risiko bleibender Schäden
+  - follow_up_recommended                # Nachuntersuchung empfohlen
+  - follow_up_tests                      # Empfohlene Nachuntersuchungen
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # GIFTNOTRUF-INTEGRATION
+  # ─────────────────────────────────────────────────────────────────────────────
+  - poison_control_product_code          # Giftnotruf-Produktcode
+  - poison_control_classification        # Giftnotruf-Klassifikation
+  - toxbase_entry                        # TOXBASE-Eintrag (UK)
+  - poisindex_entry                      # POISINDEX-Eintrag (US)
+
+  # ENTITY 3: Confusion Partners
+  - confusion_partner
+  - confusion_risk_level
+  - confusion_frequency
+  - confusion_safety_critical
+  - confusion_edibility_contrast
+  - confusion_visual_similarity
+  - confusion_similarity_details
+  
+  # Distinguishing Features
+  - confusion_key_features
+  - confusion_best_feature
+  - confusion_secondary_features
+  - confusion_unreliable_features
+  
+  # Context
+  - confusion_habitat_overlap
+  - confusion_time_overlap
+  - confusion_geo_overlap
+  - confusion_joint_frequency
+  - confusion_critical_stage
+  - confusion_condition_factors
+  
+  # Verification
+  - confusion_sporeprint_diff
+  - confusion_chemtest_diff
+  - confusion_smell_diff
+  - confusion_taste_diff
+  - confusion_microscopy_diff
+  
+  # Instructions
+  - confusion_id_instructions
+  - confusion_common_errors
+  - confusion_expert_tips
+  - confusion_if_in_doubt
+  - confusion_incidents_count
+  
+  # ENTITY 4: Symptom Profile
+  - symptom_onset_category
+  - symptom_onset_min_min
+  - symptom_onset_max_min
+  - symptom_onset_typical_min
+  - symptom_onset_warning
+  - symptom_delay_danger
+  
+  # Organ Systems
+  - symptom_organs_primary
+  - symptom_organs_secondary
+  
+  # Severity
+  - symptom_max_severity
+  - symptom_typical_severity
+  - symptom_severity_factors
+  
+  # Description
+  - symptom_description
+  - symptom_summary
+  - symptom_phases
+  - symptom_course_text
+  
+  # GI Symptoms
+  - symptom_gi_nausea
+  - symptom_gi_vomiting
+  - symptom_gi_diarrhea
+  - symptom_gi_abdominal_pain
+  
+  # Neurological Symptoms
+  - symptom_neuro_confusion
+  - symptom_neuro_hallucinations
+  - symptom_neuro_ataxia
+  - symptom_neuro_seizures
+  - symptom_neuro_coma
+  - symptom_neuro_mydriasis
+  - symptom_neuro_miosis
+  
+  # Autonomic Symptoms
+  - symptom_auto_salivation
+  - symptom_auto_lacrimation
+  - symptom_auto_sweating
+  - symptom_auto_bradycardia
+  - symptom_auto_tachycardia
+  - symptom_auto_hypotension
+  
+  # Hepatic Symptoms
+  - symptom_liver_jaundice
+  - symptom_liver_hepatomegaly
+  - symptom_liver_coagulopathy
+  - symptom_liver_encephalopathy
+  - symptom_liver_transaminases
+  
+  # Renal Symptoms
+  - symptom_kidney_oliguria
+  - symptom_kidney_anuria
+  - symptom_kidney_hematuria
+  - symptom_kidney_creatinine
+  
+  # Other Systems
+  - symptom_cardio
+  - symptom_respiratory
+  - symptom_dermatological
+  - symptom_musculoskeletal
+  - symptom_hematological
+  
+  # Warning Signs
+  - symptom_red_flags
+  - symptom_apparent_improvement_warning
+  - symptom_differential_diagnoses
+  - symptom_distinction
+  
+  # Duration & Recovery
+  - symptom_duration_min_h
+  - symptom_duration_max_h
+  - symptom_recovery_timeline
+  - symptom_late_effects
+  
+  # ENTITY 5: Poisoning Syndrome
+  - syndrome_code
+  - syndrome_name
+  - syndrome_aliases
+  - syndrome_category
+  - syndrome_icd_codes
+  - syndrome_primary_toxins
+  - syndrome_causative_genera
+  - syndrome_prototype_species
+  - syndrome_description
+  - syndrome_clinical_features
+  - syndrome_key_symptoms
+  - syndrome_onset_category
+  - syndrome_onset_range_h
+  - syndrome_typical_course
+  - syndrome_phases_count
+  - syndrome_phases_details
+  - syndrome_biphasic_warning
+  - syndrome_max_severity
+  - syndrome_mortality
+  - syndrome_mortality_untreated
+  - syndrome_mortality_treated
+  - syndrome_organs_affected
+  - syndrome_organ_failure_risk
+  - syndrome_multiorgan_failure_risk
+  - syndrome_diagnosis_criteria
+  - syndrome_lab_findings
+  - syndrome_imaging
+  - syndrome_toxin_detection
+  - syndrome_differential_diagnosis
+  - syndrome_prognosis_indicators
+  - syndrome_recovery_expectation
+  - syndrome_long_term_effects
+  - syndrome_pediatrics
+  - syndrome_geriatrics
+  - syndrome_pregnancy
+  
+  # ENTITY 6: Treatment Protocol
+  - treatment_code
+  - treatment_name
+  - treatment_version
+  - treatment_urgency
+  - treatment_setting
+  - treatment_specialist_needed
+  - treatment_specialist_type
+  - treatment_summary
+  - treatment_rationale
+  - treatment_evidence_level
+  
+  # Initial Assessment
+  - treatment_initial_history
+  - treatment_initial_exam
+  - treatment_initial_vitals
+  - treatment_initial_lab
+  - treatment_initial_toxicology
+  
+  # Decontamination
+  - treatment_activated_charcoal_indicated
+  - treatment_activated_charcoal_time_window_h
+  - treatment_activated_charcoal_dose
+  - treatment_activated_charcoal_repeated
+  - treatment_activated_charcoal_contra
+  - treatment_gastric_lavage_indicated
+  - treatment_gastric_lavage_time_window_h
+  - treatment_bowel_lavage
+  
+  # Antidotes
+  - treatment_antidotes
+  - treatment_antidote_availability
+  
+  # Supportive Therapy
+  - treatment_fluids
+  - treatment_electrolytes
+  - treatment_antiemetics
+  - treatment_pain
+  - treatment_nutrition
+  - treatment_glucose
+  - treatment_vitamins
+  
+  # Organ Support
+  - treatment_liver_nac
+  - treatment_liver_silibinin
+  - treatment_liver_penicillin_g
+  - treatment_liver_dialysis
+  - treatment_liver_transplant_criteria
+  - treatment_kidney_dialysis_indicated
+  - treatment_kidney_dialysis_type
+  - treatment_neuro_support
+  - treatment_respiratory_support
+  - treatment_cardio_support
+  
+  # Enhanced Elimination
+  - treatment_hemodialysis
+  - treatment_hemoperfusion
+  - treatment_plasmapheresis
+  - treatment_mars
+  - treatment_forced_diuresis
+  
+  # Monitoring
+  - treatment_monitoring_vitals
+  - treatment_monitoring_lab
+  - treatment_monitoring_imaging
+  - treatment_escalation_criteria
+  
+  # Transplantation
+  - treatment_transplant_organ
+  - treatment_transplant_indication
+  - treatment_transplant_contra
+  - treatment_transplant_urgency
+  
+  # Discharge
+  - treatment_discharge_criteria
+  - treatment_followup
+  - treatment_longterm_monitoring
+  
+  # Special Populations
+  - treatment_mod_pediatrics
+  - treatment_mod_geriatrics
+  - treatment_mod_pregnancy
+  - treatment_mod_renal_insufficiency
+  - treatment_mod_hepatic_insufficiency
+  
+  # Contraindications
+  - treatment_contraindicated
+  - treatment_warnings
+  
+  # ENTITY 7: Species-Syndrome Mapping
+  - mapping_primary_syndrome
+  - mapping_secondary_syndromes
+  - mapping_probability
+  - mapping_severity_modifier
+  
+  # ENTITY 8: Emergency Response
+  - emergency_contact_poison_control
+  - emergency_contact_ems
+  - emergency_contact_transplant
+  - emergency_transport_priority
+  - emergency_communication_patient
+  - emergency_communication_family
+  - emergency_sample_preservation
+  - emergency_documentation
+  
+  # First Aid
+  - first_aid_immediate_actions
+  - first_aid_do_not_do
+  - first_aid_layperson_instructions
+  - first_aid_time_critical
+  
+  # ENTITY 9: Incident Documentation
+  - incident_type
+  - incident_severity
+  - incident_outcome
+  - incident_region
+  - incident_season
+  - incident_risk_factors
+  - incident_lessons_learned
+  
+  # Regional Data
+  - regional_prevalence
+  - regional_seasonality
+  - regional_hotspots
+  - regional_trends
+  - regional_resources
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENUMERATIONS - Controlled vocabularies
+# ═══════════════════════════════════════════════════════════════════════════════
+enumerations:
+  edibility_status:
+    - deadly         
+    - highly_toxic   
+    - toxic          
+    - mildly_toxic   
+    - conditionally_edible 
+    - edible_caution 
+    - edible         
+    - choice_edible  
+    - unknown        
+  
+  toxin_class:
+    - amatoxins      
+    - phallotoxins   
+    - orellanine     
+    - gyromitrin     
+    - muscarine      
+    - ibotenic_acid  
+    - psilocybin     
+    - coprine        
+    - alkaloids
+    - glycosides
+    - lectins
+    - saponins
+    - oxalates
+    - cyanogenic
+    - gastrointestinal
+    - unknown        
+  
+  poisoning_syndrome:
+    - phalloides_syndrome    
+    - orellanine_syndrome    
+    - gyromitra_syndrome     
+    - muscarinic_syndrome    
+    - pantherina_syndrome    
+    - psilocybin_syndrome    
+    - coprine_syndrome       
+    - gi_syndrome            
+    - rhabdomyolysis_syndrome
+    - erythromelalgia_syndrome
+    - alkaloid_syndrome
+    - glycoside_syndrome
+  
+  # TOXIDROME - Universal cross-kingdom clinical syndromes
+  # Used by poison control centers worldwide
+  toxidrome:
+    - anticholinergic        # Tachycardia, mydriasis, delirium (Datura, mushrooms)
+    - cholinergic            # SLUDGE syndrome (mushrooms, organophosphates)
+    - sympathomimetic        # Tachycardia, hypertension, hyperthermia
+    - sedative_hypnotic      # CNS depression, respiratory depression
+    - opioid                 # Miosis, respiratory depression, sedation
+    - serotonin_syndrome     # Hyperthermia, rigidity, clonus
+    - cardiac_glycoside      # Bradycardia, hyperkalemia (Digitalis, toads)
+    - neurotoxic             # Paralysis, paresthesias (marine biotoxins, venoms)
+    - hepatotoxic            # Delayed liver failure (Amanita, pyrrolizidine)
+    - nephrotoxic            # Delayed renal failure (Cortinarius)
+    - cytotoxic              # Cell death, multi-organ (amatoxins)
+    - hemolytic              # RBC destruction (some mushrooms, snake venom)
+    - gastrointestinal       # Primary GI irritation
+    - hallucinogenic         # Perceptual disturbances (psilocybin, mescaline)
+    - disulfiram_like        # Alcohol interaction (Coprine)
+  
+  marine_biotoxin_syndrome:
+    - PSP                # Paralytic Shellfish Poisoning (saxitoxin)
+    - ASP                # Amnesic Shellfish Poisoning (domoic acid)
+    - DSP                # Diarrhetic Shellfish Poisoning (okadaic acid)
+    - NSP                # Neurotoxic Shellfish Poisoning (brevetoxin)
+    - CFP                # Ciguatera Fish Poisoning (ciguatoxin)
+    - AZP                # Azaspiracid Poisoning
+    - TTX                # Tetrodotoxin poisoning
+    
+  confusion_risk:
+    - critical       
+    - high           
+    - moderate       
+    - low            
+    - minimal        
+  
+  id_confidence:
+    - expert_needed       
+    - advanced            
+    - intermediate        
+    - beginner_friendly   
+    - unmistakable        
+  
+  onset_category:
+    - immediate     
+    - fast          
+    - medium        
+    - delayed       
+    - very_delayed  
+  
+  severity:
+    - mild
+    - moderate
+    - severe
+    - critical
+    - fatal
+  
+  warning_level:
+    - none
+    - advisory
+    - caution
+    - warning
+    - danger
+    - extreme_danger
+  
+  urgency:
+    - immediate      
+    - urgent         
+    - standard       
+    - supportive     
+  
+  treatment_setting:
+    - field                   
+    - emergency_room          
+    - icu                     
+    - transplant_center       
+    - poison_center_guidance  
+
+  hospital_transport_urgency:
+    - immediate_life_threat    # Sofort - lebensbedrohlich
+    - urgent_within_1h         # Dringend - innerhalb 1 Stunde
+    - soon_within_6h           # Bald - innerhalb 6 Stunden
+    - routine_monitoring       # Routine-Überwachung
+    - home_monitoring_ok       # Heimüberwachung möglich
+    
+  pregnancy_risk_category:
+    - A                        # Sichere Studien beim Menschen
+    - B                        # Tierstudien ohne Risiko
+    - C                        # Risiko nicht ausgeschlossen
+    - D                        # Nachweis fetaler Risiken
+    - X                        # Kontraindiziert
+    - unknown                  # Nicht untersucht
+    
+  exposure_route:
+    - oral                     # Verschlucken
+    - dermal                   # Hautkontakt
+    - inhalation               # Einatmen
+    - ocular                   # Augenkontakt
+    - parenteral               # Injektion
+    - bite_sting               # Biss/Stich
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KEYWORDS - For semantic search (multilingual)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+keywords:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SAFETY (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - poisonous
+  - poison
+  - dangerous
+  - deadly
+  - intoxication
+  - symptom
+  - confusion
+  - warning
+  - caution
+  - liver
+  - kidney
+  - hallucination
+  - nausea
+  - vomiting
+  - diarrhea
+  - toxin
+  - toxic
+  - venomous
+  - antidote
+  - first aid
+  - emergency
+  - poison control
+  - syndrome
+  - treatment
+  - therapy
+  - dialysis
+  - transplantation
+  # German
+  - giftig
+  - gift
+  - gefährlich
+  - tödlich
+  - vergiftung
+  - symptom
+  - verwechslung
+  - warnung
+  - vorsicht
+  - leber
+  - niere
+  - halluzination
+  - übelkeit
+  - erbrechen
+  - durchfall
+  - toxin
+  - toxisch
+  - antidot
+  - erste hilfe
+  - notfall
+  - giftnotruf
+  - syndrom
+  - behandlung
+  - therapie
+  - dialyse
+  - transplantation
+  # French
+  - toxique
+  - poison
+  - dangereux
+  - mortel
+  - intoxication
+  - symptôme
+  - confusion
+  - avertissement
+  - prudence
+  - foie
+  - rein
+  - hallucination
+  - nausée
+  - vomissement
+  - diarrhée
+  - toxine
+  - antidote
+  - premiers secours
+  - urgence
+  - centre antipoison
+  - syndrome
+  - traitement
+  - thérapie
+  - dialyse
+  - transplantation
+  # Spanish
+  - tóxico
+  - veneno
+  - peligroso
+  - mortal
+  - intoxicación
+  - síntoma
+  - confusión
+  - advertencia
+  - precaución
+  - hígado
+  - riñón
+  - alucinación
+  - náusea
+  - vómito
+  - diarrea
+  - toxina
+  - antídoto
+  - primeros auxilios
+  - emergencia
+  - centro de intoxicaciones
+  - síndrome
+  - tratamiento
+  - terapia
+  - diálisis
+  - trasplante
+  # Italian
+  - tossico
+  - veleno
+  - pericoloso
+  - mortale
+  - intossicazione
+  - sintomo
+  - confusione
+  - avvertimento
+  - cautela
+  - fegato
+  - rene
+  - allucinazione
+  - nausea
+  - vomito
+  - diarrea
+  - tossina
+  - antidoto
+  - primo soccorso
+  - emergenza
+  - centro antiveleni
+  - sindrome
+  - trattamento
+  - terapia
+  - dialisi
+  - trapianto
+  # Russian
+  - ядовитый
+  - яд
+  - опасный
+  - смертельный
+  - отравление
+  - симптом
+  - путаница
+  - предупреждение
+  - осторожно
+  - печень
+  - почка
+  - галлюцинация
+  - тошнота
+  - рвота
+  - диарея
+  - токсин
+  - антидот
+  - первая помощь
+  - неотложная помощь
+  - токсикологический центр
+  - синдром
+  - лечение
+  - терапия
+  - диализ
+  - трансплантация
+  # Chinese
+  - 有毒
+  - 毒药
+  - 危险
+  - 致命
+  - 中毒
+  - 症状
+  - 混淆
+  - 警告
+  - 注意
+  - 肝脏
+  - 肾脏
+  - 幻觉
+  - 恶心
+  - 呕吐
+  - 腹泻
+  - 毒素
+  - 解毒剂
+  - 急救
+  - 紧急
+  - 中毒控制中心
+  - 综合症
+  - 治疗
+  - 疗法
+  - 透析
+  - 移植
+  # Japanese
+  - 有毒
+  - 毒
+  - 危険
+  - 致死的
+  - 中毒
+  - 症状
+  - 混乱
+  - 警告
+  - 注意
+  - 肝臓
+  - 腎臓
+  - 幻覚
+  - 吐き気
+  - 嘔吐
+  - 下痢
+  - 毒素
+  - 解毒剤
+  - 応急処置
+  - 救急
+  - 中毒センター
+  - 症候群
+  - 治療
+  - 透析
+  - 移植
+  # Portuguese
+  - tóxico
+  - veneno
+  - perigoso
+  - mortal
+  - intoxicação
+  - sintoma
+  - confusão
+  - aviso
+  - cuidado
+  - fígado
+  - rim
+  - alucinação
+  - náusea
+  - vômito
+  - diarreia
+  - toxina
+  - antídoto
+  - primeiros socorros
+  - emergência
+  - centro de intoxicações
+  - síndrome
+  - tratamento
+  - terapia
+  - diálise
+  - transplante
+  # Korean
+  - 유독한
+  - 독
+  - 위험한
+  - 치명적
+  - 중독
+  - 증상
+  - 혼란
+  - 경고
+  - 주의
+  - 간
+  - 신장
+  - 환각
+  - 메스꺼움
+  - 구토
+  - 설사
+  - 독소
+  - 해독제
+  - 응급처치
+  - 응급
+  - 독극물센터
+  - 증후군
+  - 치료
+  - 투석
+  - 이식
+  # Arabic
+  - سام
+  - سم
+  - خطير
+  - قاتل
+  - تسمم
+  - عرض
+  - ارتباك
+  - تحذير
+  - حذر
+  - كبد
+  - كلية
+  - هلوسة
+  - غثيان
+  - قيء
+  - إسهال
+  - سموم
+  - ترياق
+  - إسعافات أولية
+  - طوارئ
+  - علاج
+  - غسيل كلوي
+  - زراعة
+  # Hindi
+  - जहरीला
+  - जहर
+  - खतरनाक
+  - घातक
+  - विषाक्तता
+  - लक्षण
+  - भ्रम
+  - चेतावनी
+  - सावधानी
+  - यकृत
+  - गुर्दा
+  - मतिभ्रम
+  - मतली
+  - उल्टी
+  - दस्त
+  - विष
+  - प्रतिविष
+  - प्राथमिक उपचार
+  - आपातकाल
+  - उपचार
+  - डायलिसिस
+  - प्रत्यारोपण

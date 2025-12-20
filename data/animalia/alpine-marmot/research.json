@@ -1,0 +1,181 @@
+{
+  "research_status": {
+    "status": "well_studied",
+    "variant": "success"
+  },
+  "research_intensity": {
+    "value": 75,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "red"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "green"}
+    ]
+  },
+  "knowledge_gaps": [
+    "Detaillierte Populationsgenetik ueber alle Teilpopulationen",
+    "Langfristige Auswirkungen des Klimawandels",
+    "Krankheitsoekologie",
+    "Individuelle Variation im Winterschlafverhalten"
+  ],
+  "research_history": [
+    {"date": "1758", "event": "Erstbeschreibung", "description": "Carl von Linne beschreibt die Art wissenschaftlich"},
+    {"date": "1890-1920", "event": "Fruehe oekologische Studien", "description": "Erste systematische Beobachtungen in den Alpen"},
+    {"date": "1950-1970", "event": "Physiologieforschung", "description": "Intensive Erforschung der Winterschlafphysiologie"},
+    {"date": "1971-heute", "event": "Langzeitstudien", "description": "Langfristige Populationsstudien im Schweizerischen Nationalpark"},
+    {"date": "1990-heute", "event": "Klimawandelforschung", "description": "Untersuchung der Auswirkungen des Klimawandels"},
+    {"date": "2000-heute", "event": "Molekulare Studien", "description": "Genomische und populationsgenetische Analysen"}
+  ],
+  "landmark_studies": {
+    "authors": "Arnold, W.",
+    "year": 1988,
+    "title": "Social thermoregulation during hibernation in alpine marmots (Marmota marmota)",
+    "journal": "Journal of Comparative Physiology B",
+    "doi": "10.1007/BF01101161"
+  },
+  "taxonomy": {
+    "name": "Marmota marmota",
+    "children": [
+      {"name": "Kingdom: Animalia"},
+      {"name": "Phylum: Chordata"},
+      {"name": "Class: Mammalia"},
+      {"name": "Order: Rodentia"},
+      {"name": "Family: Sciuridae"},
+      {"name": "Genus: Marmota"},
+      {"name": "Species: marmota"}
+    ]
+  },
+  "taxonomic_status": {
+    "status": "accepted",
+    "variant": "success"
+  },
+  "systematic_position": "Das Alpenmurmeltier gehoert zur Gattung Marmota innerhalb der Familie Sciuridae (Hoernchen). Es ist eng verwandt mit anderen eurasischen Murmeltierarten wie M. bobak und M. sibirica.",
+  "phylogenetic_placement": "Phylogenetische Analysen zeigen, dass M. marmota zur westpalaearktischen Klade der Murmeltiere gehoert und sich waehrend des Pleistozaen von verwandten Arten getrennt hat.",
+  "synonyms": [
+    "Mus marmota Linnaeus, 1758",
+    "Arctomys alpinus Schinz, 1845",
+    "Marmota alpina"
+  ],
+  "molecular_data": {
+    "available": true,
+    "types": [
+      "Mitochondriale DNA",
+      "Nukleaere Marker",
+      "Mikrosatelliten",
+      "SNPs"
+    ],
+    "notes": "Umfangreiche genetische Daten verfuegbar fuer populationsgenetische Studien"
+  },
+  "genome_status": {
+    "status": "draft",
+    "variant": "info"
+  },
+  "genome_size_mb": 2800,
+  "chromosome_number": 38,
+  "sequenced_markers": [
+    "Cytochrome b",
+    "D-loop/Control Region",
+    "Multiple Mikrosatelliten-Loci",
+    "RAD-seq Marker"
+  ],
+  "genbank_accessions": [
+    "NC_040880 (Mitochondriales Genom)",
+    "Various cytochrome b sequences"
+  ],
+  "methodologies": [
+    "Mark-Recapture Studien",
+    "Telemetrie",
+    "Genetische Analysen",
+    "Physiologische Messungen",
+    "Verhaltensbeobachtung"
+  ],
+  "field_methods": [
+    "Lebendfang mit Fallen",
+    "Individuelle Markierung (Ohrmarken, Transponder)",
+    "Populationszaehlungen",
+    "GPS-Telemetrie",
+    "Kamerafallen"
+  ],
+  "analytical_methods": [
+    "Populationsgenetische Analysen",
+    "Isotopen-Analyse fuer Ernaehrungsstudien",
+    "Temperaturlogger fuer Winterschlafstudien",
+    "Statistische Modellierung"
+  ],
+  "model_organism_status": {
+    "status": "established_model",
+    "variant": "success"
+  },
+  "ecological_research": {
+    "active": true,
+    "topics": [
+      "Sozialverhalten",
+      "Winterschlafphysiologie",
+      "Populationsdynamik",
+      "Klimawandel-Auswirkungen"
+    ],
+    "notes": "Eines der am besten untersuchten alpinen Saeugetiere"
+  },
+  "population_studies": [
+    "Schweizerischer Nationalpark Langzeitstudie (seit 1971)",
+    "Hohe Tauern Monitoring",
+    "Gran Paradiso Forschungsprogramm"
+  ],
+  "climate_response": "Murmeltiere zeigen bereits Reaktionen auf den Klimawandel, einschliesslich frueheres Erwachen aus dem Winterschlaf und Verschiebung in hoehere Lagen.",
+  "leading_research_groups": [
+    "Veterinaermedizinische Universitaet Wien - Walter Arnold",
+    "Universitaet Bern - Verhaltensforschung",
+    "Universita degli Studi di Torino",
+    "CNRS Frankreich"
+  ],
+  "key_researchers_names": [
+    "Walter Arnold",
+    "Kenneth B. Armitage",
+    "Denis Reau",
+    "Dominique Allaine"
+  ],
+  "research_networks": [
+    {"name": "European Ground Squirrel Conservation Network", "type": "collaboration", "intensity": 60},
+    {"name": "Alpine Research Network", "type": "collaboration", "intensity": 70}
+  ],
+  "long_term_study_sites": [
+    "Schweizerischer Nationalpark (CH)",
+    "Nationalpark Hohe Tauern (AT)",
+    "Gran Paradiso National Park (IT)",
+    "Parc National de la Vanoise (FR)"
+  ],
+  "databases": [
+    "GBIF - Vorkommen Daten",
+    "iNaturalist - Citizen Science Beobachtungen",
+    "IUCN Red List",
+    "GenBank - Genetische Sequenzen"
+  ],
+  "research_priorities": [
+    "Klimawandel-Anpassungskapazitaet",
+    "Konnektivitaet zwischen Populationen",
+    "Krankheitsrisiken unter Klimawandel",
+    "Managementstrategien fuer Schutzgebiete"
+  ],
+  "emerging_questions": [
+    "Wie werden Murmeltiere auf beschleunigte Klimaaenderungen reagieren?",
+    "Koennen Populationen genetisch isolierte Gebirgszuege ueberleben?",
+    "Welche Rolle spielen emerging diseases?"
+  ],
+  "thesis_project_ideas": [
+    "Vergleichende Populationsgenetik alpiner Populationen",
+    "Auswirkungen von Tourismus auf Verhaltensbudget",
+    "Nahrungsoekologie unter Klimawandel",
+    "Soziale Dynamik in verschiedenen Populationsdichten"
+  ],
+  "patents_filed": 0,
+  "patents_granted": 0,
+  "bioprospecting_interest": false,
+  "source": {
+    "authors": "Armitage, K.B.",
+    "year": 2014,
+    "title": "Marmot Biology: Sociality, Individual Fitness, and Population Dynamics",
+    "journal": "Cambridge University Press",
+    "doi": "10.1017/CBO9781107284272"
+  }
+}

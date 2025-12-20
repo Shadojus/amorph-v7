@@ -1,0 +1,203 @@
+{
+  "safety_edibility_status": {
+    "status": "deadly",
+    "variant": "danger"
+  },
+  "safety_edibility_notes": "HOCHGIFTIG - Die Tollkirsche ist eine der giftigsten Pflanzen Europas. Alle Pflanzenteile sind giftig, wobei die Beeren besonders gefaehrlich sind, da sie suess schmecken und wie essbare Beeren aussehen. Bereits 3-4 Beeren koennen fuer ein Kind toedlich sein, bei Erwachsenen sind 10-20 Beeren potentiell letal. Die letale Dosis reinen Atropins liegt bei etwa 100-300 mg fuer Erwachsene.",
+  "safety_warning_level": {
+    "status": "critical",
+    "variant": "danger"
+  },
+  "safety_warning_text": "LEBENSGEFAHR! Alle Pflanzenteile sind hochgiftig. Die schwarzen Beeren sehen verlockend aus und schmecken suess, was sie besonders fuer Kinder gefaehrlich macht. Bei Verdacht auf Vergiftung SOFORT Notruf (112) waehlen und Giftnotruf kontaktieren!",
+  "safety_summary": "Toedlich giftig - Eine der gefaehrlichsten heimischen Pflanzen. Keine Beruehrung, kein Verzehr. Bei Kindern besondere Vorsicht.",
+  "safety_risk_inherent": {
+    "value": 95,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_groups": [
+    "Kinder (hoechste Gefaehrdung - Beeren wirken attraktiv)",
+    "Wanderer und Naturbesucher",
+    "Gartenpflanzensammler",
+    "Personen ohne botanische Kenntnisse",
+    "Aeltere Menschen mit Verwechslungsgefahr"
+  ],
+  "safety_contraindications": [
+    "Niemals Pflanzenteile verzehren",
+    "Nicht beruehren (Alkaloide koennen ueber die Haut aufgenommen werden)",
+    "Kinder fernhalten",
+    "Nicht im Garten in der Naehe von Kindern pflanzen",
+    "Verwechslung mit essbaren Beeren vermeiden"
+  ],
+  "safety_id_difficulty": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "confusion_species_list": [
+    "Schwarze Johannisbeere (Ribes nigrum) - essbar, aber Fruechte in Trauben",
+    "Heidelbeere (Vaccinium myrtillus) - essbar, niedrigwuechsig",
+    "Holunderbeere (Sambucus nigra) - roh giftig, in Dolden",
+    "Schwarzer Nachtschatten (Solanum nigrum) - giftig, kleinere Fruechte",
+    "Kirsche (Prunus avium) - essbar, Steinobst"
+  ],
+  "confusion_risk_level": {
+    "status": "high",
+    "variant": "danger"
+  },
+  "confusion_safety_critical": true,
+  "key_differentiating_features": [
+    "Einzeln stehende schwarze Beeren (nicht in Trauben)",
+    "Beeren sitzen in gruenen, sternfoermigen Kelchblaettern",
+    "Grosse, ovale, weiche Blaetter",
+    "Violett-braune, glockenfoermige Blueten",
+    "Hochwuechsige krautige Pflanze (bis 1.5 m)",
+    "Unangenehmer Geruch bei zerriebenen Blaettern"
+  ],
+  "toxin_profile": [
+    {
+      "name": "Atropin (dl-Hyoscyamin)",
+      "class": "Tropanalkaloid",
+      "mechanism": "Kompetitiver Antagonist an muskarinischen Acetylcholinrezeptoren. Blockiert parasympathische Nervenimpulse.",
+      "effects": "Tachykardie, Mydriasis, trockene Schleimhaeute, Hyperthermie, Halluzinationen, Delirium",
+      "lethal_dose": "100-300 mg fuer Erwachsene",
+      "content_percentage": {
+        "min": 0.1,
+        "max": 1.0,
+        "unit": "%"
+      }
+    },
+    {
+      "name": "Scopolamin (L-Hyoscin)",
+      "class": "Tropanalkaloid",
+      "mechanism": "Muskarinrezeptor-Antagonist mit staerkerer ZNS-Wirkung als Atropin",
+      "effects": "Sedierung, Amnesie, Halluzinationen, Bewegungskrankheit-Prophylaxe",
+      "lethal_dose": "Geringer als Atropin",
+      "content_percentage": {
+        "min": 0.01,
+        "max": 0.05,
+        "unit": "%"
+      }
+    },
+    {
+      "name": "Hyoscyamin (L-Atropin)",
+      "class": "Tropanalkaloid",
+      "mechanism": "Identisch mit Atropin, aber als reines L-Enantiomer etwa doppelt so wirksam",
+      "effects": "Wie Atropin, aber staerker",
+      "lethal_dose": "50-150 mg",
+      "content_percentage": {
+        "min": 0.2,
+        "max": 0.8,
+        "unit": "%"
+      }
+    }
+  ],
+  "toxicity_severity": [
+    {"level": "critical", "typ": "Beerenverzehr", "beschreibung": "3-4 Beeren potentiell toedlich fuer Kinder, 10-20 fuer Erwachsene"},
+    {"level": "high", "typ": "Blatterverzehr", "beschreibung": "2-3 Blaetter koennen schwere Vergiftung verursachen"},
+    {"level": "high", "typ": "Wurzelverzehr", "beschreibung": "Hoechste Alkaloidkonzentration, extrem gefaehrlich"},
+    {"level": "medium", "typ": "Hautkontakt", "beschreibung": "Alkaloide koennen bei laengerem Kontakt resorbiert werden"},
+    {"level": "low", "typ": "Bluetenberuehrung", "beschreibung": "Geringeres Risiko, aber Vorsicht geboten"}
+  ],
+  "symptoms_timeline": [
+    {"phase": "Fruehphase", "duration": "15-60 Minuten", "symptoms": ["Mundtrockenheit", "Schluckbeschwerden", "Heiserkeit", "Pupillenerweiterung"]},
+    {"phase": "Hauptphase", "duration": "1-4 Stunden", "symptoms": ["Tachykardie (>100 bpm)", "Fieber", "Hautroepe und -trockenheit", "Harnverhalt", "Unruhe", "Halluzinationen"]},
+    {"phase": "Schwere Vergiftung", "duration": "4-24 Stunden", "symptoms": ["Krampfanfaelle", "Bewusstseinsstoerungen", "Koma", "Atemlaehrung", "Herz-Kreislauf-Versagen"]}
+  ],
+  "exposure_routes": [
+    "Orale Aufnahme (Beeren, Blaetter, Wurzel)",
+    "Dermale Absorption (laengerer Hautkontakt)",
+    "Augenkontakt (Mydriasis)",
+    "Inhalation (bei Verbrennung selten)"
+  ],
+  "first_aid_immediate_steps": [
+    {"step": 1, "label": "SOFORT Notruf 112 waehlen", "status": "pending"},
+    {"step": 2, "label": "Giftnotruf kontaktieren (D: 030-19240, A: 01-406 4343, CH: 145)", "status": "pending"},
+    {"step": 3, "label": "Pflanzenreste sichern fuer Identifikation", "status": "pending"},
+    {"step": 4, "label": "KEIN Erbrechen ausloesen (Erstickungsgefahr bei Bewusstseinsstoerung)", "status": "pending"},
+    {"step": 5, "label": "Aktivkohle nur auf aerztliche Anweisung", "status": "pending"},
+    {"step": 6, "label": "Stabile Seitenlage bei Bewusstlosigkeit", "status": "pending"},
+    {"step": 7, "label": "Vitalzeichen ueberwachen", "status": "pending"}
+  ],
+  "first_aid_what_not_to_do": [
+    "KEIN Erbrechen ausloesen",
+    "KEINE Milch geben (beschleunigt Resorption)",
+    "NICHT abwarten ob Symptome auftreten",
+    "NICHT Hausmittel anwenden",
+    "NICHT salzwasser oder Ipecac geben"
+  ],
+  "when_to_call_emergency": "IMMER bei Verdacht auf Aufnahme von Tollkirsche. Auch bei geringsten Mengen sofort aerztliche Hilfe suchen. Symptome koennen verzoegert auftreten.",
+  "medical_treatment": {
+    "antidote": "Physostigmin (Anticholium) - reversibler Cholinesterasehemmer",
+    "dosage": "Initial 0.5-2 mg i.v. langsam, bei Bedarf Wiederholung",
+    "supportive": [
+      "Magenspuelung (innerhalb 1 Stunde nach Ingestion)",
+      "Aktivkohle (1 g/kg)",
+      "Benzodiazepine bei Krampfanfaellen",
+      "Kuehlung bei Hyperthermie",
+      "Katheterisierung bei Harnverhalt",
+      "Monitoring auf Intensivstation"
+    ]
+  },
+  "pets_toxicity": true,
+  "pets_species_affected": [
+    "Hunde (sehr empfindlich)",
+    "Katzen (sehr empfindlich)",
+    "Pferde",
+    "Rinder",
+    "Schafe (relativ tolerant)",
+    "Ziegen (relativ tolerant)"
+  ],
+  "pets_symptoms": [
+    "Erweiterte Pupillen",
+    "Trockene Schleimhaeute",
+    "Schnelle Herzfrequenz",
+    "Erregung oder Lethargie",
+    "Krampfanfaelle",
+    "Tod"
+  ],
+  "regional_regulations": [
+    "Deutschland: Nicht geschuetzt, aber Besitz grosser Mengen kann Fragen aufwerfen",
+    "Oesterreich: Nicht geschuetzt, in Bauerngaerten historisch angebaut",
+    "Schweiz: Nicht geschuetzt"
+  ],
+  "historical_poisoning_cases": [
+    "Mittelalter: Einsatz als Giftmordwaffe",
+    "1856: Vergiftung von Soldaten in Frankreich durch Verwechslung",
+    "Regelmaessige Vergiftungsfaelle bei Kindern in Europa",
+    "Historischer Gebrauch bei Hexenprozessen"
+  ],
+  "prevention_measures": [
+    "Pflanze in freier Natur erkennen lernen",
+    "Kinder ueber Gefahren aufklaeren",
+    "Nicht im Garten mit Kindern anpflanzen",
+    "Unbekannte Beeren niemals essen",
+    "Bei Gartenarbeiten Handschuhe tragen"
+  ],
+  "photography_safety": {
+    "recommended_distance_m": 1,
+    "best_practices": [
+      "Handschuhe tragen bei naeherem Kontakt",
+      "Pflanze nicht beschaedigen (Saftkontakt)",
+      "Nach Beruehrung gruendlich Haende waschen",
+      "Kinder nicht in die Naehe lassen"
+    ]
+  },
+  "seasonal_considerations": {
+    "spring": "Junge Triebe giftig, koennen mit essbaren Kraeutern verwechselt werden",
+    "summer": "Bluetezeit, ganze Pflanze gut erkennbar",
+    "autumn": "Reife schwarze Beeren - hoechste Vergiftungsgefahr fuer Kinder",
+    "winter": "Oberirdische Teile abgestorben, Wurzel bleibt giftig"
+  },
+  "source": {
+    "authors": "Roth, L., Daunderer, M., Kormann, K.",
+    "year": 2012,
+    "title": "Giftpflanzen - Pflanzengifte: Vorkommen, Wirkung, Therapie",
+    "journal": "Nikol Verlag, 6. Auflage",
+    "doi": "ISBN 978-3-86820-009-6"
+  }
+}

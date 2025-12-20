@@ -1,0 +1,845 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: STATISTICS
+# Population data, distribution statistics, and quantitative analysis
+# Version: 1.0.0 | Universal for all biological species
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# TARGET AUDIENCE:
+# - Biostatisticians
+# - Population ecologists
+# - Conservation analysts
+# - Environmental agencies
+# - Academic researchers
+# - Data scientists
+# - Policy makers
+#
+# DESIGN PHILOSOPHY:
+# Provides quantitative data and statistical analysis for species
+# populations, distributions, and trends.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: statistics
+name: Statistics
+symbol: 📊
+
+# Silver-grey - distinct data pastels (no blue)
+colors:
+  - "rgba(200, 200, 210, 0.75)"
+  - "rgba(190, 190, 200, 0.70)"
+  - "rgba(180, 180, 190, 0.65)"
+  - "rgba(170, 170, 180, 0.60)"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FIELDS - Ordered by analytical workflow
+# ═══════════════════════════════════════════════════════════════════════════════
+
+fields:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # POPULATION STATISTICS
+  # "How many are there?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - population                  
+  - population_estimate         
+  - population_range            
+  - population_trend            
+  - population_density          
+  - abundance_index             
+  - generation_time             
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DISTRIBUTION STATISTICS
+  # "Where and how widespread?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - distribution                
+  - range_size                  
+  - area_of_occupancy           
+  - extent_of_occurrence        
+  - distribution_pattern        
+  - fragmentation_index         
+  - endemism_score              
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # OCCURRENCE DATA
+  # "What do observations show?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - occurrence                  
+  - observation_count           
+  - specimen_count              
+  - first_record                
+  - last_record                 
+  - recording_frequency         
+  - data_quality                
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TEMPORAL PATTERNS
+  # "When does it occur?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - seasonality                 
+  - peak_occurrence             
+  - phenology_data              
+  - annual_variation            
+  - long_term_trends            
+  - climate_correlation         
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # HABITAT STATISTICS
+  # "What habitats are used?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - habitat_statistics          
+  - habitat_preference          
+  - habitat_breadth             
+  - niche_width                 
+  - elevation_range             
+  - climate_envelope            
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # MORPHOMETRIC DATA
+  # "What are the measurements?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - morphometrics               
+  - size_statistics             
+  - size_range                  
+  - size_mean                   
+  - size_variation              
+  - sexual_dimorphism           
+  - geographic_variation        
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # GENETIC STATISTICS
+  # "What does genetics show?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - genetic_statistics          
+  - genetic_diversity           
+  - heterozygosity              
+  - population_structure        
+  - gene_flow                   
+  - effective_population_size   
+  - inbreeding_coefficient      
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # COMPARATIVE STATISTICS
+  # "How does it compare?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - comparative                 
+  - relative_abundance          
+  - rank_abundance              
+  - similarity_indices          
+  - diversity_contribution      
+  - rarity_score                
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DATA SOURCES
+  # "Where does the data come from?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - data_sources                
+  - survey_methods              
+  - sample_size                 
+  - confidence_intervals        
+  - data_gaps                   
+  - data_reliability   
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # GBIF/iNaturalist OCCURRENCE METRICS
+  # ─────────────────────────────────────────────────────────────────────────────
+  - gbif_total_occurrences               # Total GBIF records
+  - gbif_georeferenced_percent           # % with coordinates
+  - gbif_research_grade_percent          # % research grade (iNat)
+  - gbif_temporal_coverage_start         # Earliest record year
+  - gbif_temporal_coverage_end           # Most recent record year
+  - gbif_median_coordinate_uncertainty   # Median uncertainty in meters
+  - inaturalist_observation_count        # iNaturalist observations
+  - inaturalist_observer_count           # Unique observers
+  - inaturalist_identifier_count         # Unique identifiers
+  - citizen_science_contribution         # % from citizen science         
+
+# ─────────────────────────────────────────────────────────────────────────────
+  # TRENDANALYSEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - population_trend_direction           # increasing/stable/decreasing/unknown
+  - population_trend_percent_per_year    # % Veränderung pro Jahr
+  - population_trend_confidence          # Konfidenz der Trendschätzung
+  - population_trend_data_years          # Datenjahre für Trend
+  - range_trend_direction                # Areal-Trend
+  - range_change_percent                 # Areal-Veränderung %
+  - abundance_anomaly_current            # Aktuelle Abundanz-Anomalie
+  - historical_comparison_baseline       # Historische Vergleichs-Baseline
+  - trend_reversal_detected              # Trendumkehr entdeckt
+  - trend_inflection_year                # Jahr der Trendwende
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PROGNOSEN & SZENARIEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - population_forecast_2030             # Populationsprognose 2030
+  - population_forecast_2050             # Populationsprognose 2050
+  - population_forecast_2100             # Populationsprognose 2100
+  - range_forecast_2050                  # Arealprognose 2050
+  - forecast_model_used                  # Verwendetes Prognosemodell
+  - forecast_confidence_interval         # Konfidenzintervall
+  - forecast_scenarios                   # Szenarien (best/moderate/worst)
+  - extinction_probability_2100          # Aussterbewahrscheinlichkeit bis 2100
+  - recovery_potential_scenario          # Erholungspotential-Szenario
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DATENQUALITÄT & LÜCKEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - data_quality_overall                 # Gesamte Datenqualität
+  - data_coverage_spatial                # Räumliche Datenabdeckung
+  - data_coverage_temporal               # Zeitliche Datenabdeckung
+  - sampling_bias_known                  # Bekannte Stichproben-Verzerrung
+  - observer_effort_distribution         # Beobachteraufwand-Verteilung
+  - detection_probability                # Entdeckungswahrscheinlichkeit
+  - occupancy_vs_detection               # Besiedlung vs. Nachweis
+  - dark_diversity_estimate              # Dark Diversity Schätzung
+  - data_gaps_geographic                 # Geografische Datenlücken
+  - data_gaps_taxonomic                  # Taxonomische Datenlücken
+  - recommended_surveys                  # Empfohlene Erfassungen
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # VERGLEICHENDE STATISTIKEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - global_rank_abundance                # Globaler Rang Häufigkeit
+  - global_rank_range_size               # Globaler Rang Arealgröße
+  - regional_rank_abundance              # Regionaler Rang Häufigkeit
+  - family_comparison_abundance          # Vergleich innerhalb Familie
+  - order_comparison_abundance           # Vergleich innerhalb Ordnung
+  - commonness_category                  # very_rare/rare/uncommon/common/very_common
+  - population_relative_to_historic      # Population relativ zu historisch
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # VISUALISIERUNG & DASHBOARDS
+  # ─────────────────────────────────────────────────────────────────────────────
+  - interactive_dashboard_url            # Interaktives Dashboard URL
+  - trend_chart_url                      # Trend-Diagramm URL
+  - distribution_map_url                 # Verbreitungskarten URL
+  - phenology_chart_url                  # Phänologie-Diagramm URL
+  - data_download_formats                # Daten-Download-Formate
+  - api_endpoint_available               # API-Endpunkt verfügbar
+  - real_time_data_available             # Echtzeit-Daten verfügbar
+  
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENUMERATIONS - Controlled vocabularies
+# ═══════════════════════════════════════════════════════════════════════════════
+
+enumerations:
+  population_trend:
+    - increasing
+    - stable
+    - decreasing
+    - unknown
+    - fluctuating
+
+  data_quality:
+    - high
+    - moderate
+    - low
+    - insufficient
+    - unknown
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KEYWORDS - For semantic search (multilingual)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+keywords:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # STATISTICS (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - statistics
+  - statistical
+  - data
+  - analysis
+  - quantitative
+  - metrics
+  - measurement
+  - calculation
+  - index
+  - score
+  # German
+  - statistisch
+  - daten
+  - analyse
+  - quantitativ
+  - metriken
+  - messung
+  - berechnung
+  - index
+  # French
+  - statistique
+  - statistiques
+  - données
+  - analyse
+  - quantitatif
+  - métriques
+  - mesure
+  - calcul
+  - indice
+  # Spanish
+  - estadística
+  - estadístico
+  - datos
+  - análisis
+  - cuantitativo
+  - métricas
+  - medición
+  - cálculo
+  - índice
+  # Italian
+  - statistica
+  - statistico
+  - dati
+  - analisi
+  - quantitativo
+  - metriche
+  - misurazione
+  - calcolo
+  - indice
+  # Japanese
+  - 統計
+  - データ
+  - 分析
+  - 定量的
+  - 指標
+  - 測定
+  - 計算
+  # Chinese
+  - 统计
+  - 数据
+  - 分析
+  - 定量
+  - 指标
+  - 测量
+  - 计算
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # POPULATION (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - population
+  - abundance
+  - density
+  - count
+  - estimate
+  - census
+  - survey
+  - trend
+  - decline
+  - increase
+  - stable
+  # German
+  - population
+  - häufigkeit
+  - dichte
+  - anzahl
+  - schätzung
+  - zählung
+  - erhebung
+  - trend
+  - rückgang
+  - zunahme
+  - stabil
+  # French
+  - population
+  - abondance
+  - densité
+  - comptage
+  - estimation
+  - recensement
+  - enquête
+  - tendance
+  - déclin
+  - augmentation
+  - stable
+  # Spanish
+  - población
+  - abundancia
+  - densidad
+  - conteo
+  - estimación
+  - censo
+  - encuesta
+  - tendencia
+  - declive
+  - aumento
+  - estable
+  # Italian
+  - popolazione
+  - abbondanza
+  - densità
+  - conteggio
+  - stima
+  - censimento
+  - indagine
+  - tendenza
+  - declino
+  - aumento
+  - stabile
+  # Japanese
+  - 個体群
+  - 個体数
+  - 密度
+  - 推定
+  - 調査
+  - 傾向
+  - 減少
+  - 増加
+  - 安定
+  # Chinese
+  - 种群
+  - 丰度
+  - 密度
+  - 计数
+  - 估计
+  - 普查
+  - 调查
+  - 趋势
+  - 下降
+  - 增加
+  - 稳定
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DISTRIBUTION (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - distribution
+  - range
+  - occurrence
+  - locality
+  - geographic
+  - spatial
+  - endemic
+  - native
+  - introduced
+  - invasive
+  - extent
+  - area
+  # German
+  - verbreitung
+  - vorkommen
+  - fundort
+  - geografisch
+  - räumlich
+  - endemisch
+  - einheimisch
+  - eingeführt
+  - invasiv
+  - ausdehnung
+  - fläche
+  # French
+  - distribution
+  - répartition
+  - occurrence
+  - localité
+  - géographique
+  - spatial
+  - endémique
+  - indigène
+  - introduit
+  - invasif
+  - étendue
+  - superficie
+  # Spanish
+  - distribución
+  - rango
+  - ocurrencia
+  - localidad
+  - geográfico
+  - espacial
+  - endémico
+  - nativo
+  - introducido
+  - invasor
+  - extensión
+  - área
+  # Italian
+  - distribuzione
+  - areale
+  - occorrenza
+  - località
+  - geografico
+  - spaziale
+  - endemico
+  - nativo
+  - introdotto
+  - invasivo
+  - estensione
+  - area
+  # Japanese
+  - 分布
+  - 生息域
+  - 発生
+  - 産地
+  - 地理的
+  - 空間的
+  - 固有
+  - 在来
+  - 外来
+  - 侵略的
+  - 範囲
+  - 面積
+  # Chinese
+  - 分布
+  - 范围
+  - 出现
+  - 产地
+  - 地理
+  - 空间
+  - 特有
+  - 本地
+  - 引进
+  - 入侵
+  - 范围
+  - 面积
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TEMPORAL (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - temporal
+  - seasonal
+  - phenology
+  - timing
+  - period
+  - cycle
+  - annual
+  - monthly
+  - variation
+  - pattern
+  # German
+  - zeitlich
+  - saisonal
+  - phänologie
+  - zeitpunkt
+  - periode
+  - zyklus
+  - jährlich
+  - monatlich
+  - variation
+  - muster
+  # French
+  - temporel
+  - saisonnier
+  - phénologie
+  - timing
+  - période
+  - cycle
+  - annuel
+  - mensuel
+  - variation
+  - motif
+  # Spanish
+  - temporal
+  - estacional
+  - fenología
+  - momento
+  - período
+  - ciclo
+  - anual
+  - mensual
+  - variación
+  - patrón
+  # Italian
+  - temporale
+  - stagionale
+  - fenologia
+  - tempistica
+  - periodo
+  - ciclo
+  - annuale
+  - mensile
+  - variazione
+  - modello
+  # Japanese
+  - 時間的
+  - 季節的
+  - フェノロジー
+  - 時期
+  - 期間
+  - 周期
+  - 年間
+  - 月間
+  - 変動
+  - パターン
+  # Chinese
+  - 时间
+  - 季节性
+  - 物候
+  - 时机
+  - 周期
+  - 年度
+  - 月度
+  - 变化
+  - 模式
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # MORPHOMETRICS (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - morphometrics
+  - size
+  - measurement
+  - dimension
+  - length
+  - width
+  - height
+  - weight
+  - mass
+  - volume
+  - mean
+  - average
+  - range
+  - variation
+  - standard deviation
+  # German
+  - morphometrie
+  - größe
+  - messung
+  - dimension
+  - länge
+  - breite
+  - höhe
+  - gewicht
+  - masse
+  - volumen
+  - mittelwert
+  - durchschnitt
+  - bereich
+  - variation
+  - standardabweichung
+  # French
+  - morphométrie
+  - taille
+  - mesure
+  - dimension
+  - longueur
+  - largeur
+  - hauteur
+  - poids
+  - masse
+  - volume
+  - moyenne
+  - écart-type
+  # Spanish
+  - morfometría
+  - tamaño
+  - medida
+  - dimensión
+  - longitud
+  - anchura
+  - altura
+  - peso
+  - masa
+  - volumen
+  - media
+  - promedio
+  - desviación estándar
+  # Italian
+  - morfometria
+  - dimensione
+  - misura
+  - lunghezza
+  - larghezza
+  - altezza
+  - peso
+  - massa
+  - volume
+  - media
+  - deviazione standard
+  # Japanese
+  - 形態計測
+  - サイズ
+  - 測定
+  - 寸法
+  - 長さ
+  - 幅
+  - 高さ
+  - 重量
+  - 体積
+  - 平均
+  - 範囲
+  - 変異
+  - 標準偏差
+  # Chinese
+  - 形态测量
+  - 大小
+  - 测量
+  - 尺寸
+  - 长度
+  - 宽度
+  - 高度
+  - 重量
+  - 体积
+  - 平均
+  - 范围
+  - 变异
+  - 标准差
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # GENETICS (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - genetic
+  - genetics
+  - diversity
+  - heterozygosity
+  - allele
+  - gene flow
+  - population structure
+  - phylogenetic
+  - molecular
+  - DNA
+  - genome
+  # German
+  - genetisch
+  - genetik
+  - diversität
+  - heterozygotie
+  - allel
+  - genfluss
+  - populationsstruktur
+  - phylogenetisch
+  - molekular
+  - DNA
+  - genom
+  # French
+  - génétique
+  - diversité
+  - hétérozygotie
+  - allèle
+  - flux génique
+  - structure de population
+  - phylogénétique
+  - moléculaire
+  - ADN
+  - génome
+  # Spanish
+  - genético
+  - genética
+  - diversidad
+  - heterocigosidad
+  - alelo
+  - flujo génico
+  - estructura poblacional
+  - filogenético
+  - molecular
+  - ADN
+  - genoma
+  # Italian
+  - genetico
+  - genetica
+  - diversità
+  - eterozigosità
+  - allele
+  - flusso genico
+  - struttura di popolazione
+  - filogenetico
+  - molecolare
+  - DNA
+  - genoma
+  # Japanese
+  - 遺伝的
+  - 遺伝学
+  - 多様性
+  - ヘテロ接合度
+  - 対立遺伝子
+  - 遺伝子流動
+  - 集団構造
+  - 系統的
+  - 分子
+  - DNA
+  - ゲノム
+  # Chinese
+  - 遗传
+  - 遗传学
+  - 多样性
+  - 杂合度
+  - 等位基因
+  - 基因流
+  - 种群结构
+  - 系统发育
+  - 分子
+  - DNA
+  - 基因组
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DATA SOURCES (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - data source
+  - database
+  - collection
+  - specimen
+  - observation
+  - record
+  - survey
+  - monitoring
+  - citizen science
+  - herbarium
+  - museum
+  - GBIF
+  - iNaturalist
+  # German
+  - datenquelle
+  - datenbank
+  - sammlung
+  - beleg
+  - beobachtung
+  - nachweis
+  - erhebung
+  - monitoring
+  - citizen science
+  - herbarium
+  - museum
+  # French
+  - source de données
+  - base de données
+  - collection
+  - spécimen
+  - observation
+  - enregistrement
+  - enquête
+  - surveillance
+  - science citoyenne
+  - herbier
+  - musée
+  # Spanish
+  - fuente de datos
+  - base de datos
+  - colección
+  - espécimen
+  - observación
+  - registro
+  - encuesta
+  - monitoreo
+  - ciencia ciudadana
+  - herbario
+  - museo
+  # Italian
+  - fonte di dati
+  - database
+  - collezione
+  - esemplare
+  - osservazione
+  - registrazione
+  - indagine
+  - monitoraggio
+  - citizen science
+  - erbario
+  - museo
+  # Japanese
+  - データソース
+  - データベース
+  - コレクション
+  - 標本
+  - 観察
+  - 記録
+  - 調査
+  - モニタリング
+  - 市民科学
+  - 標本館
+  - 博物館
+  # Chinese
+  - 数据来源
+  - 数据库
+  - 收藏
+  - 标本
+  - 观察
+  - 记录
+  - 调查
+  - 监测
+  - 公民科学
+  - 标本馆
+  - 博物馆

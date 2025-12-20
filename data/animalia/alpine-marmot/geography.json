@@ -1,0 +1,187 @@
+{
+  "distribution_type": "Native",
+  "distribution_description": "Das Alpenmurmeltier ist in den Alpen und angrenzenden Gebirgen Europas beheimatet. Es kommt von Frankreich im Westen bis nach Oesterreich im Osten vor, mit isolierten Populationen in den Karpaten, Pyrenaeen und anderen Gebirgen durch Wiederansiedlung.",
+  "native_range": ["Alpen", "Zentrale Alpen", "Westalpen", "Ostalpen"],
+  "native_range_description": "Die urspruengliche Verbreitung umfasst die gesamten Alpen von den franzoesischen Westalpen bis zu den oesterreichischen Ostalpen, einschliesslich der Schweizer, italienischen, deutschen und slowenischen Alpen.",
+  "current_range": "Alpen und angrenzende Gebirgszuege",
+  "historical_range": "Waehrend der letzten Eiszeit war das Verbreitungsgebiet groesser und umfasste tiefere Lagen in Mitteleuropa. Nach der Eiszeit zog sich die Art in die Hochgebirge zurueck.",
+  "distribution_center": {
+    "lat": 46.8,
+    "lng": 10.5,
+    "region": "Central Alps"
+  },
+  "countries_native": [
+    "Austria",
+    "Switzerland",
+    "France",
+    "Italy",
+    "Germany",
+    "Liechtenstein",
+    "Slovenia"
+  ],
+  "countries_introduced": [
+    "Romania (Karpaten)",
+    "France (Pyrenaeen)",
+    "Spain (Pyrenaeen)"
+  ],
+  "biogeographic_realm": ["palearctic"],
+  "biome": "Alpine/Montane",
+  "ecoregions": [
+    "Alps conifer and mixed forests",
+    "Alpine tundra and meadows",
+    "Pyrenees conifer and mixed forests"
+  ],
+  "elevation_distribution": [
+    {"label": "800-1200m", "value": 10},
+    {"label": "1200-1600m", "value": 20},
+    {"label": "1600-2000m", "value": 30},
+    {"label": "2000-2400m", "value": 25},
+    {"label": "2400-2800m", "value": 10},
+    {"label": "2800-3200m", "value": 5}
+  ],
+  "latitude_range": {
+    "min": 43,
+    "max": 48,
+    "unit": "degrees N"
+  },
+  "longitude_range": {
+    "min": 5,
+    "max": 16,
+    "unit": "degrees E"
+  },
+  "key_localities": [
+    {
+      "name": "Hohe Tauern, Austria",
+      "lat": 47.1,
+      "lng": 12.7,
+      "significance": "Groesste zusammenhaengende Population"
+    },
+    {
+      "name": "Gran Paradiso, Italy",
+      "lat": 45.5,
+      "lng": 7.3,
+      "significance": "Historisch bedeutsamer Schutzort"
+    },
+    {
+      "name": "Vanoise, France",
+      "lat": 45.4,
+      "lng": 6.9,
+      "significance": "Bedeutende Population"
+    },
+    {
+      "name": "Berchtesgaden, Germany",
+      "lat": 47.5,
+      "lng": 13.0,
+      "significance": "Noerdlichste alpine Population"
+    }
+  ],
+  "regional_populations": [
+    {"label": "Westalpen (FR/IT)", "value": 35},
+    {"label": "Zentralalpen (CH/AT)", "value": 45},
+    {"label": "Ostalpen (AT/SI)", "value": 15},
+    {"label": "Eingefuehrte Pop.", "value": 5}
+  ],
+  "distribution_pattern": "Discontinuous",
+  "distribution_pattern_description": "Die Verbreitung ist durch die Hochgebirgslandschaft natuerlich fragmentiert, aber innerhalb geeigneter Habitate oft lokal dicht.",
+  "range_size_km2": 200000,
+  "area_of_occupancy_km2": 50000,
+  "extent_of_occurrence_km2": 300000,
+  "fragmentation_index": {
+    "value": 35,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "endemism_level": "Alpine Endemic",
+  "endemism_score": {
+    "value": 75,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "range_trend": {
+    "status": "stable",
+    "variant": "success"
+  },
+  "range_trend_description": "Das Verbreitungsgebiet ist derzeit stabil, aber durch Klimawandel wird eine Verschiebung in hoehere Lagen erwartet.",
+  "climate_change_impact": {
+    "trend": "Range shift upward",
+    "predicted_range_loss_2050_percent": 30,
+    "predicted_range_loss_2100_percent": 50,
+    "climate_vulnerability": "moderate"
+  },
+  "climate_envelope": {
+    "temp_min_c": -20,
+    "temp_max_c": 25,
+    "precip_min_mm": 800,
+    "precip_max_mm": 2500
+  },
+  "dispersal_ability": {
+    "status": "low",
+    "variant": "warning"
+  },
+  "dispersal_distance_km": {
+    "min": 0.5,
+    "max": 5,
+    "unit": "km"
+  },
+  "barriers_to_dispersal": [
+    "Waldgebiete unterhalb der Baumgrenze",
+    "Grosse Taeler",
+    "Siedlungsgebiete",
+    "Strassensysteme"
+  ],
+  "connectivity": {
+    "status": "moderate",
+    "variant": "info"
+  },
+  "genetic_structure": "Regionale Populationen zeigen moderate genetische Differenzierung, was auf begrenzte Genfluss zwischen Gebirgszuegen hindeutet.",
+  "reintroduction_history": [
+    {
+      "location": "Pyrenees",
+      "year": 1948,
+      "success": true,
+      "source_population": "French Alps"
+    },
+    {
+      "location": "Tatra Mountains",
+      "year": 1950,
+      "success": true,
+      "source_population": "Austrian Alps"
+    },
+    {
+      "location": "Black Forest",
+      "year": 1880,
+      "success": false,
+      "source_population": "Swiss Alps"
+    }
+  ],
+  "protected_area_coverage": {
+    "value": 45,
+    "max": 100,
+    "unit": "%"
+  },
+  "key_protected_areas": [
+    "Nationalpark Hohe Tauern (AT)",
+    "Schweizerischer Nationalpark (CH)",
+    "Parco Nazionale Gran Paradiso (IT)",
+    "Parc National de la Vanoise (FR)",
+    "Nationalpark Berchtesgaden (DE)",
+    "Triglav National Park (SI)"
+  ],
+  "source": {
+    "authors": "Herrero, J., Zima, J. & Coroiu, I.",
+    "year": 2016,
+    "title": "Marmota marmota. The IUCN Red List of Threatened Species 2016",
+    "journal": "IUCN",
+    "doi": "10.2305/IUCN.UK.2016-3.RLTS.T12835A22259161.en"
+  }
+}

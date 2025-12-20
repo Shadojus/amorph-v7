@@ -1,0 +1,20 @@
+{
+  "id": "animalia-001",
+  "slug": "alpine-marmot",
+  "name": "Alpenmurmeltier",
+  "scientific_name": "Marmota marmota",
+  "image": "",
+  "description": "Das Alpenmurmeltier (Marmota marmota) ist ein Nagetier aus der Familie der Hoernchen (Sciuridae). Es ist das groesste einheimische Nagetier der Alpen und bewohnt alpine Matten und Gebirgsweiden oberhalb der Baumgrenze in Hoehen von 800 bis 3200 Metern. Die Tiere leben in komplexen Familiengruppen und halten einen ausgedehnten Winterschlaf von Oktober bis April. Mit ihrem charakteristischen Warnpfiff warnen sie Artgenossen vor Fressfeinden wie dem Steinadler.",
+  "perspectives": [
+    "identification",
+    "ecology",
+    "geography",
+    "conservation",
+    "interactions",
+    "safety",
+    "temporal",
+    "culture",
+    "research",
+    "statistics"
+  ]
+}

@@ -1,0 +1,771 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: CULTURE
+# Ethnobiology, traditions, and cultural significance
+# Version: 1.0.0 | Universal for all biological species
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# TARGET AUDIENCE:
+# - Ethnobiologists & anthropologists
+# - Cultural historians
+# - Traditional knowledge keepers
+# - Museums & cultural institutions
+# - Documentary filmmakers
+# - Academic researchers
+# - Traditional medicine practitioners
+#
+# DESIGN PHILOSOPHY:
+# Documents the cultural relationship between humans and biological species
+# across all civilizations and time periods.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: culture
+name: Culture
+symbol: 🏛️
+
+# Warm terracotta - distinct ancient pastels
+colors:
+  - "rgba(220, 160, 140, 0.75)"
+  - "rgba(210, 150, 130, 0.70)"
+  - "rgba(200, 140, 120, 0.65)"
+  - "rgba(190, 130, 110, 0.60)"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FIELDS - Ordered by research workflow
+# ═══════════════════════════════════════════════════════════════════════════════
+
+fields:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ETHNOBIOLOGY OVERVIEW
+  # "What is the cultural significance?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - ethnobiology                
+  - cultural_significance       
+  - historical_importance       
+  - symbolic_meaning            
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TRADITIONAL KNOWLEDGE
+  # "What do indigenous peoples know?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - traditional_knowledge       
+  - indigenous_names            
+  - indigenous_uses             
+  - oral_traditions             
+  - folk_classifications    
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TRADITIONAL KNOWLEDGE DOCUMENTATION
+  # ─────────────────────────────────────────────────────────────────────────────
+  - tk_community_source                  # Indigenous community of origin
+  - tk_biocultural_protocol              # Community protocol reference
+  - tk_intellectual_property             # IP status/protection
+  - tk_traditional_resource_rights       # TRR designation
+  - tk_icnp_compliance                   # Nagoya Protocol TK provisions
+  - tk_oral_history_archived             # Oral history documentation
+  - tk_language_of_record                # Original language
+  - tk_ethnobotany_voucher               # Voucher specimen linking TK    
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # MYTHOLOGY & RELIGION
+  # "What spiritual significance does it have?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - mythology                   
+  - religious_significance      
+  - sacred_uses                 
+  - ritual_practices            
+  - spiritual_symbolism         
+  - cosmological_role           
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FOLKLORE & LEGENDS
+  # "What stories are told?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - folklore                    
+  - legends                     
+  - fairy_tales                 
+  - superstitions               
+  - omens                       
+  - folk_beliefs                
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ART & LITERATURE
+  # "How is it represented in art?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - art_representations         
+  - literary_references         
+  - music_references            
+  - film_references             
+  - visual_arts                 
+  - poetry                      
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # LANGUAGE & ETYMOLOGY
+  # "What do the names reveal?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - etymology                   
+  - common_names                
+  - regional_names              
+  - historical_names            
+  - linguistic_analysis         
+  - name_origins                
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TRADITIONAL USES
+  # "How was it used historically?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - traditional_food_uses       
+  - traditional_medicine_uses   
+  - traditional_crafts          
+  - traditional_dyes            
+  - traditional_tools           
+  - ceremonial_uses             
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # REGIONAL CULTURES
+  # "How does usage vary by region?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - european_traditions         
+  - asian_traditions            
+  - african_traditions          
+  - american_traditions         
+  - oceanian_traditions         
+  - circumpolar_traditions      
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # HISTORICAL TIMELINE
+  # "How has perception changed over time?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - historical_timeline         
+  - ancient_uses                
+  - medieval_uses               
+  - early_modern_uses           
+  - modern_perception           
+  - contemporary_revival        
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FESTIVALS & EVENTS
+  # "What celebrations involve it?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - festivals                   
+  - seasonal_celebrations       
+  - harvest_traditions          
+  - cultural_events             
+
+# ─────────────────────────────────────────────────────────────────────────────
+  # MODERNE KULTURELLE RELEVANZ
+  # ─────────────────────────────────────────────────────────────────────────────
+  - pop_culture_references               # Pop-Kultur-Referenzen
+  - movies_featured_in                   # Filme mit Vorkommen
+  - tv_series_featured_in                # TV-Serien mit Vorkommen
+  - books_featured_in                    # Bücher mit Vorkommen
+  - video_games_featured_in              # Videospiele mit Vorkommen
+  - memes_and_internet_culture           # Memes & Internetkultur
+  - brand_mascot_usage                   # Verwendung als Maskottchen
+  - logo_appearances                     # Logo-Erscheinungen
+  - advertising_usage                    # Werbung-Verwendung
+  - emoji_representation                 # Emoji-Darstellung
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SOCIAL MEDIA & TRENDS
+  # ─────────────────────────────────────────────────────────────────────────────
+  - instagram_hashtag_popularity         # Instagram Hashtag-Beliebtheit
+  - tiktok_trend_involvement             # TikTok Trend-Beteiligung
+  - youtube_content_volume               # YouTube Content-Volumen
+  - pinterest_board_frequency            # Pinterest Board-Häufigkeit
+  - social_media_sentiment               # Social Media Stimmung
+  - viral_moments                        # Virale Momente
+  - influencer_mentions                  # Influencer-Erwähnungen
+  - trending_keywords                    # Trending Keywords
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # KUNST & DESIGN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - art_historical_depictions            # Kunsthistorische Darstellungen
+  - famous_artworks_featuring            # Berühmte Kunstwerke mit Motiv
+  - artists_known_for_depicting          # Künstler bekannt für Darstellung
+  - art_movement_associations            # Kunstbewegungs-Assoziationen
+  - decorative_arts_usage                # Verwendung in dekorativer Kunst
+  - textile_pattern_usage                # Verwendung in Textilmustern
+  - architectural_motifs                 # Architektonische Motive
+  - jewelry_design_usage                 # Verwendung in Schmuckdesign
+  - tattoo_popularity                    # Tattoo-Beliebtheit
+  - tattoo_meanings                      # Tattoo-Bedeutungen
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SPRACHE & REDEWENDUNGEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - idioms_featuring                     # Redewendungen mit Motiv
+  - metaphors_common                     # Häufige Metaphern
+  - proverbs_featuring                   # Sprichwörter mit Motiv
+  - slang_terms_derived                  # Abgeleitete Slang-Begriffe
+  - scientific_name_etymology            # Wissenschaftlicher Name Etymologie
+  - common_name_origins                  # Herkunft gebräuchlicher Namen
+  - name_variations_by_region            # Namens-Variationen nach Region
+  - humorous_names                       # Humorvolle Namen
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FESTIVALS & EVENTS
+  # ─────────────────────────────────────────────────────────────────────────────
+  - dedicated_festivals                  # Gewidmete Festivals
+  - festival_locations                   # Festival-Orte
+  - festival_dates                       # Festival-Termine
+  - festival_activities                  # Festival-Aktivitäten
+  - competitive_events                   # Wettbewerbs-Events
+  - record_breaking_specimens            # Rekord-Exemplare
+  - world_records                        # Weltrekorde
+  - annual_celebrations                  # Jährliche Feiern
+  - awareness_days                       # Bewusstseins-Tage
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TOURISMUS & ERLEBNIS
+  # ─────────────────────────────────────────────────────────────────────────────
+  - ecotourism_opportunities             # Ökotourismus-Möglichkeiten
+  - wildlife_watching_tours              # Wildlife-Watching-Touren
+  - educational_tours                    # Bildungstouren
+  - tourist_attractions_featuring        # Touristenattraktionen
+  - museums_featuring                    # Museen mit Ausstellungen
+  - botanical_gardens_featuring          # Botanische Gärten
+  - zoos_aquariums_featuring             # Zoos & Aquarien
+  - visitor_centers                      # Besucherzentren
+  - economic_value_tourism               # Wirtschaftlicher Tourismuswert
+  
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENUMERATIONS - Controlled vocabularies
+# ═══════════════════════════════════════════════════════════════════════════════
+
+enumerations:
+  cultural_significance:
+    - high
+    - moderate
+    - low
+    - none
+    - unknown
+
+  tradition_region:
+    - european
+    - asian
+    - african
+    - american
+    - oceanian
+    - circumpolar
+    - global
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KEYWORDS - For semantic search (multilingual)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+keywords:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ETHNOBIOLOGY (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - ethnobiology
+  - ethnobotany
+  - ethnozoology
+  - ethnomycology
+  - traditional knowledge
+  - indigenous knowledge
+  - folk knowledge
+  - cultural biology
+  - biocultural
+  # German
+  - ethnobiologie
+  - ethnobotanik
+  - ethnozoologie
+  - traditionelles wissen
+  - indigenes wissen
+  - volkswissen
+  # French
+  - ethnobiologie
+  - ethnobotanique
+  - savoir traditionnel
+  - connaissance indigène
+  # Spanish
+  - etnobiología
+  - etnobotánica
+  - conocimiento tradicional
+  - saber indígena
+  # Italian
+  - etnobiologia
+  - etnobotanica
+  - conoscenza tradizionale
+  - sapere indigeno
+  # Japanese
+  - 民族生物学
+  - 民族植物学
+  - 伝統知識
+  - 先住民の知恵
+  # Chinese
+  - 民族生物学
+  - 民族植物学
+  - 传统知识
+  - 原住民知识
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # MYTHOLOGY (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - mythology
+  - myth
+  - legend
+  - folklore
+  - fairy tale
+  - sacred
+  - ritual
+  - spiritual
+  - religious
+  - divine
+  - cosmology
+  # German
+  - mythologie
+  - mythos
+  - legende
+  - märchen
+  - heilig
+  - spirituell
+  - religiös
+  - göttlich
+  # French
+  - mythologie
+  - mythe
+  - légende
+  - conte
+  - sacré
+  - rituel
+  - spirituel
+  - religieux
+  # Spanish
+  - mitología
+  - mito
+  - leyenda
+  - folklore
+  - cuento
+  - sagrado
+  - ritual
+  - espiritual
+  - religioso
+  # Italian
+  - mitologia
+  - mito
+  - leggenda
+  - folklore
+  - fiaba
+  - sacro
+  - rituale
+  - spirituale
+  - religioso
+  # Japanese
+  - 神話
+  - 伝説
+  - 民話
+  - 聖なる
+  - 儀式
+  - 精神的
+  - 宗教的
+  # Chinese
+  - 神话
+  - 传说
+  - 民间故事
+  - 神圣
+  - 仪式
+  - 精神
+  - 宗教
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TRADITION (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - tradition
+  - traditional
+  - heritage
+  - custom
+  - practice
+  - ceremony
+  - cultural
+  - ancestral
+  - ancient
+  - historical
+  # German
+  - traditionell
+  - erbe
+  - brauch
+  - zeremonie
+  - cultureell
+  - historisch
+  - uralt
+  # French
+  - traditionnel
+  - patrimoine
+  - coutume
+  - cérémonie
+  - culturel
+  - ancestral
+  - ancien
+  # Spanish
+  - tradición
+  - tradicional
+  - patrimonio
+  - costumbre
+  - ceremonia
+  - cultural
+  - ancestral
+  - antiguo
+  # Italian
+  - tradizione
+  - tradizionale
+  - patrimonio
+  - usanza
+  - cerimonia
+  - culturale
+  - ancestrale
+  - antico
+  # Japanese
+  - 伝統
+  - 文化遺産
+  - 慣習
+  - 儀式
+  - 文化的
+  - 先祖伝来
+  - 古代
+  # Chinese
+  - 传统
+  - 遗产
+  - 习俗
+  - 仪式
+  - 文化
+  - 祖传
+  - 古代
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SYMBOLISM (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - symbol
+  - symbolism
+  - symbolic
+  - meaning
+  - significance
+  - representation
+  - metaphor
+  - allegory
+  - iconography
+  # German
+  - symbolismus
+  - symbolisch
+  - bedeutung
+  - sinnbild
+  - metapher
+  - allegorie
+  # French
+  - symbole
+  - symbolisme
+  - symbolique
+  - signification
+  - métaphore
+  - allégorie
+  # Spanish
+  - símbolo
+  - simbolismo
+  - simbólico
+  - significado
+  - metáfora
+  - alegoría
+  # Italian
+  - simbolo
+  - simbolismo
+  - simbolico
+  - significato
+  - metafora
+  - allegoria
+  # Japanese
+  - シンボル
+  - 象徴
+  - 意味
+  - 比喩
+  - 寓話
+  # Chinese
+  - 符号
+  - 象征
+  - 意义
+  - 隐喻
+  - 寓言
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ART & LITERATURE (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - art
+  - literature
+  - painting
+  - poetry
+  - music
+  - film
+  - sculpture
+  - illustration
+  - photography
+  - representation
+  # German
+  - kunst
+  - literatur
+  - malerei
+  - dichtung
+  - musik
+  - film
+  - skulptur
+  - illustration
+  - fotografie
+  # French
+  - littérature
+  - peinture
+  - poésie
+  - musique
+  - cinéma
+  - sculpture
+  - illustration
+  - photographie
+  # Spanish
+  - arte
+  - literatura
+  - pintura
+  - poesía
+  - música
+  - cine
+  - escultura
+  - ilustración
+  - fotografía
+  # Italian
+  - arte
+  - letteratura
+  - pittura
+  - poesia
+  - musica
+  - cinema
+  - scultura
+  - illustrazione
+  - fotografia
+  # Japanese
+  - 芸術
+  - 文学
+  - 絵画
+  - 詩
+  - 音楽
+  - 映画
+  - 彫刻
+  - イラスト
+  - 写真
+  # Chinese
+  - 艺术
+  - 文学
+  - 绘画
+  - 诗歌
+  - 音乐
+  - 电影
+  - 雕塑
+  - 插图
+  - 摄影
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ETYMOLOGY (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - etymology
+  - origin
+  - name
+  - naming
+  - linguistic
+  - vernacular
+  - common name
+  - scientific name
+  - nomenclature
+  # German
+  - etymologie
+  - ursprung
+  - namensgebung
+  - linguistisch
+  - volksname
+  - wissenschaftlicher name
+  - nomenklatur
+  # French
+  - étymologie
+  - origine
+  - nom
+  - linguistique
+  - vernaculaire
+  - nom commun
+  - nom scientifique
+  - nomenclature
+  # Spanish
+  - etimología
+  - origen
+  - nombre
+  - lingüístico
+  - vernáculo
+  - nombre común
+  - nombre científico
+  - nomenclatura
+  # Italian
+  - etimologia
+  - origine
+  - nome
+  - linguistico
+  - vernacolare
+  - nome comune
+  - nome scientifico
+  - nomenclatura
+  # Japanese
+  - 語源
+  - 起源
+  - 名前
+  - 言語学的
+  - 俗名
+  - 学名
+  - 命名法
+  # Chinese
+  - 词源
+  - 起源
+  - 名称
+  - 语言学
+  - 俗名
+  - 学名
+  - 命名法
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # REGIONS (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - european
+  - asian
+  - african
+  - american
+  - native american
+  - indigenous
+  - circumpolar
+  - tropical
+  - mediterranean
+  - nordic
+  - celtic
+  - slavic
+  - germanic
+  - chinese
+  - japanese
+  - indian
+  - mesoamerican
+  - amazonian
+  - australian
+  - polynesian
+  # German
+  - europäisch
+  - asiatisch
+  - afrikanisch
+  - amerikanisch
+  - indigen
+  - tropisch
+  - mediterran
+  - nordisch
+  - keltisch
+  - slawisch
+  - germanisch
+  # French
+  - européen
+  - asiatique
+  - africain
+  - américain
+  - indigène
+  - tropical
+  - méditerranéen
+  - nordique
+  - celtique
+  - slave
+  - germanique
+  # Spanish
+  - europeo
+  - asiático
+  - africano
+  - americano
+  - indígena
+  - tropical
+  - mediterráneo
+  - nórdico
+  - celta
+  - eslavo
+  - germánico
+  # Italian
+  - europeo
+  - asiatico
+  - africano
+  - americano
+  - indigeno
+  - tropicale
+  - mediterraneo
+  - nordico
+  - celtico
+  - slavo
+  - germanico
+  # Japanese
+  - ヨーロッパ
+  - アジア
+  - アフリカ
+  - アメリカ
+  - 先住民
+  - 熱帯
+  - 地中海
+  - 北欧
+  # Chinese
+  - 欧洲
+  - 亚洲
+  - 非洲
+  - 美洲
+  - 原住民
+  - 热带
+  - 地中海
+  - 北欧
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FESTIVALS (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - festival
+  - celebration
+  - feast
+  - harvest
+  - fair
+  - event
+  - gathering
+  - season
+  - seasonal
+  # German
+  - fest
+  - feier
+  - ernte
+  - jahrmarkt
+  - veranstaltung
+  - saison
+  # French
+  - festival
+  - fête
+  - célébration
+  - récolte
+  - foire
+  - événement
+  - saison
+  # Spanish
+  - festival
+  - fiesta
+  - celebración
+  - cosecha
+  - feria
+  - evento
+  - temporada
+  # Italian
+  - festival
+  - festa
+  - celebrazione
+  - raccolta
+  - fiera
+  - evento
+  - stagione
+  # Japanese
+  - 祭り
+  - 祝い
+  - 収穫
+  - イベント
+  - 季節
+  # Chinese
+  - 节日
+  - 庆典
+  - 收获
+  - 活动
+  - 季节

@@ -1,0 +1,231 @@
+{
+  "interactions": "Das Alpenmurmeltier hat vielfaeltige oekologische Beziehungen in seinem alpinen Lebensraum. Als soziales Tier lebt es in komplexen Familiengruppen und interagiert mit zahlreichen anderen Arten als Beutetier, Wirt fuer Parasiten und Oekosystem-Ingenieur.",
+  "interaction_types": [
+    "Predation (Beutetier)",
+    "Parasitismus (Wirt)",
+    "Mutualism (Oekosystem-Ingenieur)",
+    "Intraspecific competition"
+  ],
+  "interaction_network": [
+    {"name": "Steinadler", "type": "predator", "intensity": 90},
+    {"name": "Rotfuchs", "type": "predator", "intensity": 70},
+    {"name": "Bartgeier", "type": "scavenger", "intensity": 40},
+    {"name": "Alpenkraeuter", "type": "food_source", "intensity": 85},
+    {"name": "Murmeltierfloh", "type": "parasite", "intensity": 60},
+    {"name": "Familiengruppe", "type": "social", "intensity": 95}
+  ],
+  "key_partners": [
+    "Steinadler (Hauptpraedator)",
+    "Rotfuchs (Praedator)",
+    "Alpine Vegetation (Nahrung)",
+    "Bodenorganismen (Symbiose)"
+  ],
+  "obligate_associations": [],
+  "facultative_associations": [
+    "Kommensalismus mit Grasmilben",
+    "Mutualismus mit Bodenorganismen"
+  ],
+  "predators": [
+    {"name": "Steinadler (Aquila chrysaetos)", "type": "aerial", "intensity": 90},
+    {"name": "Rotfuchs (Vulpes vulpes)", "type": "terrestrial", "intensity": 70},
+    {"name": "Wolf (Canis lupus)", "type": "terrestrial", "intensity": 30},
+    {"name": "Luchs (Lynx lynx)", "type": "terrestrial", "intensity": 20},
+    {"name": "Kolkrabe (Corvus corax)", "type": "aerial_juvenile", "intensity": 25}
+  ],
+  "predation": {
+    "present": true,
+    "role": "prey",
+    "targets": [],
+    "hunting_strategy": ""
+  },
+  "prey": [],
+  "food_sources": [
+    "Alpine Graeser (Poaceae)",
+    "Alpenklee (Trifolium alpinum)",
+    "Loewenzahn (Taraxacum spp.)",
+    "Wegerich (Plantago spp.)",
+    "Alpenrosen (Rhododendron spp.) - junge Triebe",
+    "Wurzeln und Knollen"
+  ],
+  "diet": [
+    {"label": "Graeser", "value": 40},
+    {"label": "Kraeuter", "value": 30},
+    {"label": "Blueten", "value": 15},
+    {"label": "Wurzeln", "value": 10},
+    {"label": "Samen", "value": 5}
+  ],
+  "defense_mechanisms": [
+    "Warnpfiff bei Gefahr",
+    "Flucht in den Bau",
+    "Soziale Wachsamkeit",
+    "Tarnung durch Fellfarbe",
+    "Beissen bei Ergreifung"
+  ],
+  "parasitism": {
+    "present": true,
+    "type": "host",
+    "role": "host",
+    "partners": [
+      "Murmeltierfloh (Oropsylla silantiewi)",
+      "Zecken (Ixodes ricinus)",
+      "Spulwuermer (Ascaris laevis)",
+      "Lungenwuermer"
+    ],
+    "mechanism": "Ekto- und Endoparasiten"
+  },
+  "host_species": [
+    {"name": "Murmeltierfloh", "type": "ectoparasite", "intensity": 60},
+    {"name": "Zecken", "type": "ectoparasite", "intensity": 50},
+    {"name": "Spulwuermer", "type": "endoparasite", "intensity": 40}
+  ],
+  "pathogenicity": {
+    "present": false,
+    "type": "",
+    "target_organisms": [],
+    "severity": []
+  },
+  "competition": {
+    "present": true,
+    "type": "intraspecific",
+    "competitors": [
+      "Andere Murmeltier-Familiengruppen",
+      "Artgenossen um Territorien"
+    ],
+    "resources_contested": "Territorium, Nahrung, Paarungspartner"
+  },
+  "interspecific_competition": {
+    "present": true,
+    "species": [
+      "Alpenschneehase (Nahrungskonkurrenz)",
+      "Gaemse (partielle Nahrungskonkurrenz)"
+    ],
+    "intensity": {
+      "value": 25,
+      "min": 0,
+      "max": 100,
+      "zones": [
+        {"min": 0, "max": 30, "color": "green"},
+        {"min": 30, "max": 70, "color": "yellow"},
+        {"min": 70, "max": 100, "color": "red"}
+      ]
+    }
+  },
+  "intraspecific_competition": {
+    "present": true,
+    "type": "Territoriale Auseinandersetzungen, Rangordnungskaempfe",
+    "intensity": {
+      "value": 60,
+      "min": 0,
+      "max": 100,
+      "zones": [
+        {"min": 0, "max": 30, "color": "green"},
+        {"min": 30, "max": 70, "color": "yellow"},
+        {"min": 70, "max": 100, "color": "red"}
+      ]
+    }
+  },
+  "mutualism": {
+    "present": true,
+    "type": "ecosystem_engineer",
+    "partners": [
+      "Bodenorganismen",
+      "Nachfolgenutzer der Baue"
+    ],
+    "description": "Murmeltiere verbessern durch ihre Grabtaetigkeit die Bodendurchlueftung und -durchmischung. Verlassene Baue werden von anderen Arten genutzt."
+  },
+  "commensalism": {
+    "present": true,
+    "role": "provider",
+    "partners": [
+      "Hoehlenbrut ende Voegel",
+      "Amphibien",
+      "Wirbellose in verlassenen Bauen"
+    ],
+    "description": "Verlassene oder wenig genutzte Baukammern bieten Lebensraum fuer andere Arten."
+  },
+  "habitat_provision": {
+    "provider": true,
+    "species_supported": [
+      "Steinschmaetzer (nutzt Bau als Nistplatz)",
+      "Verschiedene Wirbellose",
+      "Amphibien (Ueberwinterung)"
+    ],
+    "notes": "Die komplexen Bausysteme schaffen Mikrohabitate fuer zahlreiche andere Arten."
+  },
+  "ecosystem_services": [
+    "Bodendurchlueftung und -durchmischung",
+    "Naehrstoffanreicherung durch Kot",
+    "Biotopschaffung fuer andere Arten",
+    "Beute fuer alpine Praedatoren",
+    "Samenverbreitung (gelegentlich)"
+  ],
+  "nutrient_cycling": {
+    "involved": true,
+    "role": "accelerator",
+    "mechanism": "Kotablagerung und Grabtaetigkeit beschleunigen Naehrstoffkreislauf",
+    "pathways": [
+      {"from": "Vegetation", "to": "Murmeltier", "value": 100},
+      {"from": "Murmeltier", "to": "Boden", "value": 80},
+      {"from": "Boden", "to": "Vegetation", "value": 90}
+    ]
+  },
+  "soil_formation": {
+    "involved": true,
+    "role": "bioturbator",
+    "mechanism": "Intensive Grabtaetigkeit durchmischt Bodenschichten und foerdert Bodenbildung"
+  },
+  "human_interactions": [
+    "Tourismus-Attraktion",
+    "Jagdobjekt (historisch, teils heute)",
+    "Forschungsobjekt",
+    "Kulturelle Bedeutung"
+  ],
+  "agricultural_impact": {
+    "type": "minor_negative",
+    "direction": "negative",
+    "severity": [
+      {
+        "level": "low",
+        "typ": "Weideschaeden",
+        "beschreibung": "Gelegentliche Konflikte mit Almwirtschaft durch Baue in Wiesenflaechen"
+      }
+    ],
+    "details": "Minimale Konflikte mit Almwirtschaft, meist toleriert"
+  },
+  "economic_impact": {
+    "type": "tourism_positive",
+    "direction": "positive",
+    "estimated_value": {
+      "amount": 0,
+      "currency": "EUR"
+    },
+    "details": "Positive wirtschaftliche Auswirkungen durch Naturtourismus"
+  },
+  "cultural_significance": "Das Murmeltier ist ein Wahrzeichen der Alpen und hat hohe kulturelle Bedeutung in den Alpenlaendern.",
+  "social_behavior": {
+    "group_living": true,
+    "group_type": "Familiengruppe",
+    "group_size_min": 2,
+    "group_size_max": 20,
+    "hierarchy": "Dominantes Paar mit untergeordneten Tieren",
+    "cooperation": [
+      "Gemeinsame Wachsamkeit",
+      "Kollektiver Winterschlaf",
+      "Jungenaufzucht",
+      "Territoriumsverteidigung"
+    ],
+    "communication": [
+      "Warnpfiffe (verschiedene Toene)",
+      "Geruchsmarkierung",
+      "Koerperkontakt",
+      "Spielverhalten"
+    ]
+  },
+  "source": {
+    "authors": "Armitage, K.B.",
+    "year": 2014,
+    "title": "Marmot Biology: Sociality, Individual Fitness, and Population Dynamics",
+    "journal": "Cambridge University Press",
+    "doi": "10.1017/CBO9781107284272"
+  }
+}

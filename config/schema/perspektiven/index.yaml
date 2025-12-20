@@ -1,0 +1,23 @@
+# AMORPH Perspectives Index
+# Defines which perspectives are active and their load order
+
+# Active perspectives (loaded in this order)
+aktiv:
+  - culinary
+  - safety
+  - cultivation
+  - medicine
+  - chemistry
+  - ecology
+  - statistics
+  - geography
+  - temporal
+  - economy
+  - conservation
+  - culture
+  - research
+  - interactions
+  - identification
+
+# Note: To deactivate a perspective, simply remove it from the list above
+# The perspective file can remain in the folder

@@ -1,0 +1,744 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESEARCH PERSPECTIVE BLUEPRINT
+# Schema mit leeren Datenstrukturen für Morph-Erkennung
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ─────────────────────────────────────────────────────────────────────────────
+# RESEARCH STATUS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: badge
+research_status:
+  status: ""
+  variant: ""
+
+# morph: gauge
+research_intensity:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "red"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "green"
+
+# morph: list
+knowledge_gaps:
+  - ""
+
+# morph: timeline
+research_history:
+  - date: ""
+    event: ""
+    description: ""
+
+# morph: citation
+landmark_studies:
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# morph: stats
+citation_count:
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TAXONOMY & SYSTEMATICS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: hierarchy
+taxonomy:
+  - level: ""
+    name: ""
+
+# morph: badge
+taxonomic_status:
+  status: ""
+  variant: ""
+
+# morph: text
+systematic_position: ""
+
+# morph: text
+phylogenetic_placement: ""
+
+# morph: object
+type_specimen:
+  # morph: text
+  id: ""
+  # morph: text
+  repository: ""
+  # morph: text
+  location: ""
+
+# morph: list
+nomenclatural_issues:
+  - ""
+
+# morph: list
+synonyms:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MOLECULAR BIOLOGY
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+molecular_data:
+  # morph: boolean
+  available: false
+  # morph: list
+  types:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: badge
+genome_status:
+  status: ""
+  variant: ""
+
+# morph: number
+genome_size: 0
+
+# morph: number
+chromosome_number: 0
+
+# morph: list
+sequenced_markers:
+  - ""
+
+# morph: list
+genbank_accessions:
+  - ""
+
+# morph: object
+proteomics:
+  # morph: boolean
+  data_available: false
+  # morph: list
+  datasets:
+    - ""
+
+# morph: object
+metabolomics:
+  # morph: boolean
+  data_available: false
+  # morph: list
+  datasets:
+    - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GENOME & SEQUENCE DATA
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+genome_ncbi_assembly_id: ""
+
+# morph: text
+genome_ncbi_bioproject: ""
+
+# morph: text
+genome_ncbi_biosample: ""
+
+# morph: number
+genome_size_mb: 0
+
+# morph: progress
+genome_gc_content:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: progress
+genome_completeness_busco:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: badge
+genome_annotation_status:
+  status: ""
+  variant: ""
+
+# morph: number
+genome_protein_count: 0
+
+# morph: text
+transcriptome_sra_accession: ""
+
+# morph: text
+proteome_pride_accession: ""
+
+# morph: text
+metabolome_mwb_study_id: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CULTURE COLLECTIONS & REPOSITORIES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+culture_collection_ids:
+  - ""
+
+# morph: boolean
+type_strain_designation: false
+
+# morph: list
+strain_availability:
+  - ""
+
+# morph: list
+herbarium_vouchers:
+  - ""
+
+# morph: list
+living_collection_accessions:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# RESEARCH METHODOLOGIES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+methodologies:
+  - ""
+
+# morph: list
+cultivation_methods:
+  - ""
+
+# morph: list
+laboratory_protocols:
+  - ""
+
+# morph: list
+field_methods:
+  - ""
+
+# morph: list
+identification_techniques:
+  - ""
+
+# morph: list
+analytical_methods:
+  - ""
+
+# morph: badge
+model_organism_status:
+  status: ""
+  variant: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BIOACTIVE COMPOUNDS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+bioactive_research:
+  # morph: boolean
+  active: false
+  # morph: list
+  focus_areas:
+    - ""
+  # morph: text
+  status: ""
+
+# morph: list
+known_compounds:
+  - ""
+
+# morph: list
+novel_compounds:
+  - ""
+
+# morph: flow
+biosynthesis_pathways:
+  - from: ""
+    to: ""
+    value: 0
+
+# morph: text
+structure_activity: ""
+
+# morph: gauge
+pharmaceutical_potential:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "red"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "green"
+
+# morph: gauge
+industrial_potential:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "red"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "green"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ECOLOGICAL RESEARCH
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+ecological_research:
+  # morph: boolean
+  active: false
+  # morph: list
+  topics:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: list
+population_studies:
+  - ""
+
+# morph: text
+community_ecology: ""
+
+# morph: text
+ecosystem_function: ""
+
+# morph: list
+interaction_studies:
+  - ""
+
+# morph: text
+climate_response: ""
+
+# morph: text
+distribution_modeling: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# APPLIED RESEARCH
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+applied_research:
+  # morph: boolean
+  active: false
+  # morph: list
+  areas:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+biotechnology:
+  # morph: boolean
+  potential: false
+  # morph: list
+  applications:
+    - ""
+  # morph: text
+  status: ""
+
+# morph: object
+bioremediation:
+  # morph: boolean
+  potential: false
+  # morph: list
+  targets:
+    - ""
+  # morph: text
+  mechanism: ""
+
+# morph: list
+agricultural_applications:
+  - ""
+
+# morph: list
+medical_applications:
+  - ""
+
+# morph: list
+industrial_applications:
+  - ""
+
+# morph: list
+food_technology:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# RESEARCH RESOURCES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+resources:
+  - ""
+
+# morph: list
+culture_collections:
+  - ""
+
+# morph: list
+seed_banks:
+  - ""
+
+# morph: list
+tissue_banks:
+  - ""
+
+# morph: list
+reference_strains:
+  - ""
+
+# morph: list
+voucher_specimens:
+  - ""
+
+# morph: list
+databases:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# RESEARCH OPPORTUNITIES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+opportunities:
+  - ""
+
+# morph: list
+research_priorities:
+  - ""
+
+# morph: badge
+funding_status:
+  status: ""
+  variant: ""
+
+# morph: list
+collaboration_needs:
+  - ""
+
+# morph: list
+emerging_questions:
+  - ""
+
+# morph: list
+technology_requirements:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# FORSCHUNGSLÜCKEN & PRIORITÄTEN (Additional Fields)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+research_gaps_critical:
+  - ""
+
+# morph: list
+research_gaps_moderate:
+  - ""
+
+# morph: rating
+research_priority_score:
+  rating: 0
+  max: 10
+
+# morph: text
+research_priority_rationale: ""
+
+# morph: list
+understudied_aspects:
+  - ""
+
+# morph: boolean
+overdue_taxonomic_revision: false
+
+# morph: list
+data_deficient_areas:
+  - ""
+
+# morph: list
+recommended_research_approaches:
+  - ""
+
+# morph: list
+potential_research_questions:
+  - ""
+
+# morph: list
+thesis_project_ideas:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# FÖRDERUNG & FINANZIERUNG (Additional Fields)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+funding_opportunities_current:
+  - ""
+
+# morph: list
+funding_agencies_relevant:
+  - ""
+
+# morph: currency
+typical_grant_amounts:
+  amount: 0
+  currency: ""
+
+# morph: list
+fellowship_opportunities:
+  - ""
+
+# morph: gauge
+industry_funding_potential:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "red"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "green"
+
+# morph: list
+crowdfunding_successful_examples:
+  - ""
+
+# morph: list
+citizen_science_funding:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# KOLLABORATION & NETZWERKE (Additional Fields)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+leading_research_groups:
+  - ""
+
+# morph: list
+key_researchers_names:
+  - ""
+
+# morph: list
+key_researchers_institutions:
+  - ""
+
+# morph: network
+research_networks:
+  - name: ""
+    type: ""
+    intensity: 0
+
+# morph: list
+collaborative_projects_active:
+  - ""
+
+# morph: list
+data_sharing_initiatives:
+  - ""
+
+# morph: list
+research_consortia:
+  - ""
+
+# morph: list
+mentorship_opportunities:
+  - ""
+
+# morph: list
+conference_presentations_recent:
+  - ""
+
+# morph: list
+workshops_scheduled:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# METHODISCHE RESSOURCEN (Additional Fields)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+established_protocols:
+  - ""
+
+# morph: list
+protocol_repositories:
+  - ""
+
+# morph: badge
+model_system_suitability:
+  status: ""
+  variant: ""
+
+# morph: list
+model_system_advantages:
+  - ""
+
+# morph: list
+model_system_limitations:
+  - ""
+
+# morph: list
+genome_resources_available:
+  - ""
+
+# morph: list
+transcriptome_resources:
+  - ""
+
+# morph: list
+proteome_resources:
+  - ""
+
+# morph: list
+metabolome_resources:
+  - ""
+
+# morph: list
+imaging_resources:
+  - ""
+
+# morph: list
+field_sites_established:
+  - ""
+
+# morph: list
+long_term_study_sites:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# KOMMERZIELLES & BIOTECH-POTENTIAL (Additional Fields)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+biotechnology_applications:
+  - ""
+
+# morph: number
+patents_filed: 0
+
+# morph: number
+patents_granted: 0
+
+# morph: list
+commercial_products_derived:
+  - ""
+
+# morph: list
+startup_companies_involved:
+  - ""
+
+# morph: list
+industry_partnerships:
+  - ""
+
+# morph: boolean
+bioprospecting_interest: false
+
+# morph: gauge
+technology_transfer_potential:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "red"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "green"
+
+# morph: list
+synthetic_biology_applications:
+  - ""
+
+# morph: gauge
+drug_discovery_potential:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "red"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "green"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ENUMERATIONS (Reference values)
+# ─────────────────────────────────────────────────────────────────────────────
+
+_enums:
+  research_intensity:
+    - well_studied
+    - moderately_studied
+    - poorly_studied
+    - understudied
+    - data_deficient
+
+  genome_status:
+    - complete
+    - draft
+    - partial
+    - in_progress
+    - not_sequenced
+
+  annotation_status:
+    - fully_annotated
+    - draft_annotation
+    - unannotated
+
+  model_organism_status:
+    - established_model
+    - emerging_model
+    - potential_model
+    - not_suitable
+
+  funding_status:
+    - well_funded
+    - moderately_funded
+    - underfunded
+    - unfunded
+
+  taxonomic_status:
+    - accepted
+    - provisional
+    - under_review
+    - disputed

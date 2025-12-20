@@ -1,0 +1,716 @@
+{
+  "scientific": "Psilocybe cyanescens",
+  "temporal_strategie": "seasonal",
+  "langlebigkeits_klasse": "weeks",
+  "generationszeit_tage": 60,
+  "daten_vollstaendigkeit_score": {
+    "value": 75,
+    "max": 100,
+    "unit": "%"
+  },
+  "beobachtungen_anzahl": 5000,
+  "letzte_beobachtung_datum": "2024-12-15",
+  "lebenszyklus_typ": "simple",
+  "reproduktionsmodus": "sexual",
+  "paarungssystem": "heterothallic",
+  "ploidie_zyklus": "dikaryotisch",
+  "zyklus_dauer_tage_gesamt": 60,
+  "zyklus_dauer_min": 45,
+  "zyklus_dauer_max": 90,
+  "zyklus_dauer_optimal": 60,
+  "generationen_pro_jahr": 1,
+  "fruchtungs_trigger": [
+    "Temperatursturz unter 15C",
+    "Erste Herbstfroeste",
+    "Anhaltender Regen",
+    "Hohe Luftfeuchtigkeit >85%",
+    "Kurzere Tageslaenge"
+  ],
+  "fruchtungs_trigger_temp_schwelle_c": 15,
+  "fruchtungs_trigger_temp_dauer_h": 48,
+  "fruchtungs_trigger_feuchtigkeit_prozent": 85,
+  "fruchtungs_trigger_photoperiode_h": 10,
+  "dormanz_trigger": [
+    "Temperaturen ueber 20C",
+    "Trockenheit",
+    "Substrataustrocknung",
+    "Lange Tageslaenge im Sommer"
+  ],
+  "modellorganismus_status": false,
+  "genom_sequenziert": true,
+  "lifecycle_kingdom": "fungi",
+  "lifecycle_stage_count": 7,
+  "lifecycle_total_duration_days": 60,
+  "lifecycle_generation_time_days": 60,
+  "lifecycle_dormancy_capable": true,
+  "lifecycle_diapause_type": "heat_dormancy",
+  "lifecycle_metamorphosis_type": "none",
+  "lifecycle_alternation_generations": false,
+  "entwicklungsstadien": [
+    {"phase": "Spore", "duration": "Monate bis Jahre (ruhend)"},
+    {"phase": "Keimung", "duration": "24-72 Stunden"},
+    {"phase": "Primaermyzel (monokaryotisch)", "duration": "7-14 Tage"},
+    {"phase": "Sekundaermyzel (dikaryotisch)", "duration": "Wochen bis Monate"},
+    {"phase": "Primordien", "duration": "3-5 Tage"},
+    {"phase": "Fruchkoerper-Entwicklung", "duration": "5-7 Tage"},
+    {"phase": "Sporulation", "duration": "2-5 Tage"}
+  ],
+  "stadien_anzahl": 7,
+  "stadium_1_name": "Spore",
+  "stadium_1_name_wissenschaftlich": "Basidiospore",
+  "stadium_1_code": "SP",
+  "stadium_1_kategorie": "spore",
+  "stadium_1_ploidie_zustand": "haploid",
+  "stadium_1_dauer_h_min": 0,
+  "stadium_1_dauer_h_optimal": 8760,
+  "stadium_1_dauer_h_max": 87600,
+  "stadium_1_dauer_variabilitaet": "extreme",
+  "stadium_1_groesse_min_mm": 0.006,
+  "stadium_1_groesse_max_mm": 0.008,
+  "stadium_1_groesse_typisch_mm": 0.007,
+  "stadium_1_temp_min_c": -20,
+  "stadium_1_temp_optimal_c": 4,
+  "stadium_1_temp_max_c": 30,
+  "stadium_1_feuchtigkeit_min": 0,
+  "stadium_1_feuchtigkeit_optimal": 50,
+  "stadium_1_feuchtigkeit_max": 100,
+  "stadium_1_morphologie": "Ellipsoide Basidiosporen, violett-braun, glatt, mit Keimporus",
+  "stadium_1_identifikationsmerkmale": [
+    "Ellipsoid bis subellipsoid",
+    "6-8 x 4-5 Mikrometer",
+    "Violett-braunes Sporenpulver",
+    "Glatte Oberflaeche",
+    "Apikaler Keimporus"
+  ],
+  "stadium_1_uebergang_trigger": [
+    "Feuchtigkeit",
+    "Geeignete Temperatur (15-25C)",
+    "Geeignetes Substrat",
+    "Ausreichend Naehrstoffe"
+  ],
+  "stadium_1_uebergang_dauer_h": 48,
+  "stadium_1_uebergang_erfolgsrate": {
+    "value": 5,
+    "max": 100,
+    "unit": "%"
+  },
+  "stadium_1_reversibel": false,
+  "stadium_1_erntbar": false,
+  "stadium_2_name": "Keimung",
+  "stadium_2_name_wissenschaftlich": "Germinatio",
+  "stadium_2_code": "GE",
+  "stadium_2_kategorie": "germination",
+  "stadium_2_ploidie_zustand": "haploid",
+  "stadium_2_dauer_h_min": 24,
+  "stadium_2_dauer_h_optimal": 48,
+  "stadium_2_dauer_h_max": 72,
+  "stadium_2_temp_optimal_c": 20,
+  "stadium_2_feuchtigkeit_optimal": 95,
+  "stadium_2_morphologie": "Keimschlauch waechst aus dem Keimporus, entwickelt sich zu Primaerhyphen",
+  "stadium_2_erntbar": false,
+  "stadium_3_name": "Primaermyzel",
+  "stadium_3_name_wissenschaftlich": "Mycelium primarium (monokaryotisch)",
+  "stadium_3_code": "PM",
+  "stadium_3_kategorie": "vegetative",
+  "stadium_3_ploidie_zustand": "haploid",
+  "stadium_3_dauer_h_min": 168,
+  "stadium_3_dauer_h_optimal": 240,
+  "stadium_3_dauer_h_max": 336,
+  "stadium_3_temp_optimal_c": 22,
+  "stadium_3_feuchtigkeit_optimal": 90,
+  "stadium_3_wachstumsrate_optimal": 3,
+  "stadium_3_morphologie": "Feines, weisses Myzel mit einkernigen Zellen, keine Schnallen",
+  "stadium_3_erntbar": false,
+  "stadium_4_name": "Primordien",
+  "stadium_4_name_wissenschaftlich": "Primordia",
+  "stadium_4_code": "PR",
+  "stadium_4_kategorie": "primordia",
+  "stadium_4_ploidie_zustand": "dikaryotic",
+  "stadium_4_dauer_h_min": 72,
+  "stadium_4_dauer_h_optimal": 96,
+  "stadium_4_dauer_h_max": 120,
+  "stadium_4_temp_optimal_c": 12,
+  "stadium_4_feuchtigkeit_optimal": 95,
+  "stadium_4_morphologie": "Kleine weisse Knoetchen, 1-3mm, erste Differenzierung erkennbar",
+  "stadium_4_erntbar": false,
+  "stadium_5_name": "Button-Stadium",
+  "stadium_5_name_wissenschaftlich": "Pileus juvenilis",
+  "stadium_5_code": "BU",
+  "stadium_5_kategorie": "development",
+  "stadium_5_dauer_h_min": 48,
+  "stadium_5_dauer_h_optimal": 72,
+  "stadium_5_dauer_h_max": 96,
+  "stadium_5_temp_optimal_c": 10,
+  "stadium_5_morphologie": "Geschlossener Hut, Lamellen noch bedeckt, 5-15mm",
+  "stadium_5_erntbar": true,
+  "stadium_5_erntefenster_h": 24,
+  "stadium_6_name": "Reifer Fruchtkoerper",
+  "stadium_6_name_wissenschaftlich": "Basidiocarpum maturum",
+  "stadium_6_code": "MA",
+  "stadium_6_kategorie": "maturation",
+  "stadium_6_dauer_h_min": 48,
+  "stadium_6_dauer_h_optimal": 72,
+  "stadium_6_dauer_h_max": 120,
+  "stadium_6_morphologie": "Geoeffneter wellenrandiger Hut, exponierte Lamellen, 2-5cm Durchmesser",
+  "stadium_6_erntbar": true,
+  "stadium_6_erntefenster_h": 48,
+  "stadium_7_name": "Sporulation",
+  "stadium_7_kategorie": "sporulation",
+  "stadium_7_dauer_h_optimal": 72,
+  "stadium_7_morphologie": "Aktive Sporenfreisetzung, Hut flacht ab, Lamellen dunkelviolett",
+  "stadium_8_name": "Seneszenz",
+  "stadium_8_kategorie": "senescence",
+  "stadium_8_dauer_h_optimal": 48,
+  "stadium_8_morphologie": "Zersetzung des Fruchtkoerpers, Autolyse, Verfall",
+  "phenologie": {
+    "region": "Mitteleuropa / Pazifischer Nordwesten",
+    "klimazone": "Cfb (Ozeanisch)"
+  },
+  "phenologie_region": "Mitteleuropa, Britische Inseln, Pazifischer Nordwesten USA",
+  "phenologie_breitengrad_min": 40,
+  "phenologie_breitengrad_max": 58,
+  "phenologie_hoehe_min_m": 0,
+  "phenologie_hoehe_max_m": 1200,
+  "phenologie_klimazone": "Cfb",
+  "saisonalitaet_typ": "strictly_seasonal",
+  "primaere_saison": "autumn",
+  "sekundaere_saison": "winter",
+  "monatliche_aktivitaet": [
+    {"month": 1, "active": true},
+    {"month": 2, "active": false},
+    {"month": 3, "active": false},
+    {"month": 4, "active": false},
+    {"month": 5, "active": false},
+    {"month": 6, "active": false},
+    {"month": 7, "active": false},
+    {"month": 8, "active": false},
+    {"month": 9, "active": true},
+    {"month": 10, "active": true},
+    {"month": 11, "active": true},
+    {"month": 12, "active": true}
+  ],
+  "monatliche_aktivitaet_jan": 15,
+  "monatliche_aktivitaet_feb": 0,
+  "monatliche_aktivitaet_mar": 0,
+  "monatliche_aktivitaet_apr": 0,
+  "monatliche_aktivitaet_mai": 0,
+  "monatliche_aktivitaet_jun": 0,
+  "monatliche_aktivitaet_jul": 0,
+  "monatliche_aktivitaet_aug": 0,
+  "monatliche_aktivitaet_sep": 25,
+  "monatliche_aktivitaet_okt": 60,
+  "monatliche_aktivitaet_nov": 100,
+  "monatliche_aktivitaet_dez": 50,
+  "peak_perioden": [
+    {"date": "2024-10-15", "event": "Saisonbeginn", "description": "Erste Fruchtkoerper nach Herbstregen und Temperaturabfall"},
+    {"date": "2024-11-15", "event": "Hauptsaison Peak", "description": "Hoechste Fruchtkoerper-Dichte, optimale Bedingungen"},
+    {"date": "2024-12-15", "event": "Spaetsaison", "description": "Frosttolerante Fruchtung bis Weihnachten"},
+    {"date": "2025-01-15", "event": "Saisonende", "description": "Letzte Fruchtkoerper vor Winterpause"}
+  ],
+  "peak_1_start_monat": 10,
+  "peak_1_start_tag": 15,
+  "peak_1_ende_monat": 12,
+  "peak_1_ende_tag": 31,
+  "peak_1_intensitaet": {
+    "value": 85,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "red"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "green"}
+    ]
+  },
+  "peak_1_zuverlaessigkeit": {
+    "value": 80,
+    "max": 100,
+    "unit": "%"
+  },
+  "erstes_erscheinen_tag_des_jahres": 258,
+  "letztes_erscheinen_tag_des_jahres": 31,
+  "saison_laenge_tage": 120,
+  "temp_korrelation_fruchtung_min_c": 2,
+  "temp_korrelation_fruchtung_max_c": 18,
+  "temp_korrelation_fruchtung_optimal_c": 10,
+  "temp_korrelation_staerke": 85,
+  "niederschlag_korrelation_min_mm_woche": 20,
+  "niederschlag_korrelation_optimal_mm_woche": 40,
+  "niederschlag_korrelation_verzoegerung_tage": 7,
+  "niederschlag_korrelation_staerke": 75,
+  "feuchtigkeit_korrelation": 80,
+  "bodenfeuchtigkeit_korrelation": 70,
+  "photoperiode_empfindlichkeit": true,
+  "photoperiode_kritische_stunden": 10,
+  "photoperiode_reaktionstyp": "short_day",
+  "frost_empfindlichkeit": "tolerant",
+  "trockenheits_reaktion": "dormancy",
+  "sturm_reaktion": "physical_damage",
+  "wirt_phenologie_verbindung": false,
+  "assoziierte_arten": [
+    "Stropharia aeruginosa",
+    "Hypholoma fasciculare",
+    "Agrocybe praecox",
+    "Pholiota squarrosa"
+  ],
+  "phenologie_verschiebung_erkannt": true,
+  "verschiebung_richtung": "later",
+  "verschiebung_groesse_tage": 8,
+  "verschiebung_zeitraum_jahre": 20,
+  "verschiebung_konfidenz": {
+    "value": 65,
+    "max": 100,
+    "unit": "%"
+  },
+  "verschiebung_attribution": "Klimawandel - waermere Herbste verzoegern Fruchtungsbeginn",
+  "historische_baseline": "1980-2000: Peak Anfang November",
+  "beobachtungsjahre": 40,
+  "beobachtungen_total": 12000,
+  "phenologie_konfidenz": {
+    "value": 75,
+    "max": 100,
+    "unit": "%"
+  },
+  "beobachtungen_verifiziert": 8500,
+  "beobachtungen_einzigartige_beobachter": 2500,
+  "beobachtungen_einzigartige_standorte": 850,
+  "beobachtungen_monatliche_verteilung": [
+    {"label": "Januar", "value": 150},
+    {"label": "September", "value": 250},
+    {"label": "Oktober", "value": 600},
+    {"label": "November", "value": 1000},
+    {"label": "Dezember", "value": 500}
+  ],
+  "beobachtungen_peak_tag_des_jahres": 318,
+  "mittelwert_erstes_erscheinen_tag": 268,
+  "stdabw_erstes_erscheinen_tag": 12,
+  "mittelwert_peak_tag": 318,
+  "mittelwert_letztes_erscheinen_tag": 20,
+  "circadian": {
+    "rhythmus_typ": "circadian",
+    "periode": 24
+  },
+  "rhythmus_typ": "circadian",
+  "rhythmus_periode_stunden": 24,
+  "rhythmus_variabilitaet": "moderate",
+  "entrainment_signale": [
+    "Licht-Dunkel-Zyklus",
+    "Temperatur-Schwankungen",
+    "Feuchtigkeit"
+  ],
+  "sporenfreisetzung": {
+    "peak_zeit": "02:00-06:00 UTC",
+    "muster": "naechtlich"
+  },
+  "sporenfreisetzung_peak_zeit_utc": "02:00-06:00",
+  "sporenfreisetzung_peak_dauer_h": 4,
+  "sporenfreisetzung_muster": "nocturnal",
+  "sporenfreisetzung_intensitaet_00": 60,
+  "sporenfreisetzung_intensitaet_06": 80,
+  "sporenfreisetzung_intensitaet_12": 30,
+  "sporenfreisetzung_intensitaet_18": 45,
+  "sporenfreisetzung_trigger_feuchtigkeit": true,
+  "sporenfreisetzung_trigger_temp_aenderung": true,
+  "sporenfreisetzung_trigger_licht": false,
+  "wachstumsrate_muster": [
+    {"label": "Nacht (00-06)", "value": 35},
+    {"label": "Morgen (06-12)", "value": 25},
+    {"label": "Nachmittag (12-18)", "value": 20},
+    {"label": "Abend (18-24)", "value": 20}
+  ],
+  "wachstumsrate_peak_zeit": "00:00-06:00",
+  "wachstumsrate_minimum_zeit": "12:00-18:00",
+  "metabolischer_rhythmus": {
+    "typ": "circadian",
+    "peak": "Nacht"
+  },
+  "sekundaer_metabolit_produktion_peak": "02:00-08:00",
+  "sekundaer_metabolit_verbindungen": [
+    "Psilocybin",
+    "Psilocin",
+    "Baeocystin"
+  ],
+  "lichtreaktion": {
+    "empfindlich": true,
+    "typ": "photomorphogenese"
+  },
+  "photorezeptoren": [
+    "Blaulicht-Rezeptoren (WC-1/WC-2 Homologe)",
+    "Phytochrom-aehnliche Proteine"
+  ],
+  "aktionsspektrum_peak_nm": 450,
+  "empfindlichkeitsschwelle_lux": 50,
+  "phototropismus": "positive",
+  "photomorphogenese_hut": "expansion_triggered",
+  "photomorphogenese_stiel": "elongation_inhibited",
+  "photomorphogenese_pigmentierung": "enhanced",
+  "dunkelperiode_minimum_h": 8,
+  "dunkelperiode_kontinuierlich_erforderlich": false,
+  "dunkelperiode_effekte": [
+    "Verlaengertes Stielwachstum",
+    "Reduzierte Pigmentierung",
+    "Verzoegerte Hutexpansion"
+  ],
+  "temperaturrhythmus_reaktion": "responsive",
+  "temperaturrhythmus_optimale_amplitude_c": 5,
+  "temperaturrhythmus_phasenbeziehung": "night_cool",
+  "thermoperiodismus": true,
+  "biolumineszenz_vorhanden": false,
+  "entdeckung": {
+    "jahr": 1946,
+    "ort": "Kew Gardens, England",
+    "entdecker": "Elsie Maud Wakefield"
+  },
+  "entdeckung_jahr": 1946,
+  "entdeckung_datum": "1946",
+  "entdeckung_ort_land": "United Kingdom",
+  "entdeckung_ort_region": "Greater London",
+  "entdeckung_ort_lokalitaet": "Royal Botanic Gardens, Kew",
+  "entdeckung_koordinaten_lat": 51.4787,
+  "entdeckung_koordinaten_lon": -0.2956,
+  "entdecker_name": "Elsie Maud Wakefield",
+  "entdecker_biografie": "Britische Mykologin (1886-1972), spezialisiert auf Basidiomyceten. Arbeitete ueber 40 Jahre am Royal Botanic Gardens Kew als Mykologin.",
+  "entdeckung_kontext": "Entdeckt auf Holzmulch im botanischen Garten waehrend routinemaessiger myko-floristischer Erhebungen.",
+  "erstbeschreibung": {
+    "authors": "Wakefield, E.M.",
+    "year": 1946,
+    "title": "Observer's Book of Common Fungi",
+    "journal": "Frederick Warne & Co., London",
+    "doi": ""
+  },
+  "original_publikation_titel": "Observer's Book of Common Fungi",
+  "original_publikation_autor": "Wakefield, E.M.",
+  "original_publikation_jahr": 1946,
+  "original_name": "Psilocybe cyanescens",
+  "original_beschreibung_text": "Pileus caerulescens when bruised, margin distinctly wavy...",
+  "typusspezimen_herbarium": "Royal Botanic Gardens, Kew (K)",
+  "typusspezimen_status": "holotype",
+  "typusspezimen_zustand": "dried",
+  "typusspezimen_digitalisiert": true,
+  "etymologie": {
+    "gattung": "Psilos (griech.) = kahl, nackt; kybe = Kopf",
+    "art": "Cyanescens (lat.) = blau werdend",
+    "sprache": "Griechisch/Latein"
+  },
+  "etymologie_gattung_bedeutung": "Psilos (griech.) = kahl, nackt + kybe (griech.) = Kopf - Bezug auf den kahlen Hut ohne Schleier",
+  "etymologie_art_bedeutung": "Cyanescens (lat.) = blau werdend - Bezug auf die charakteristische Blaufaerbung bei Verletzung",
+  "etymologie_sprachherkunft": "Griechisch und Latein",
+  "etymologie_anmerkungen": "Der Name beschreibt zwei Hauptmerkmale: den kahlen Hut (Psilocybe) und die diagnostische Blaufaerbung (cyanescens)",
+  "indigenes_wissen": {
+    "kulturen": ["Keine direkte traditionelle Nutzung - europaeische Art"],
+    "verwendung": ["Moderne psychedelische Kultur seit 1960er"]
+  },
+  "indigenes_wissen_kulturen": [
+    "Keine historische indigene Nutzung dokumentiert (europaeische Art)"
+  ],
+  "indigenes_wissen_traditionelle_verwendung": [
+    "Keine traditionelle Nutzung - Art wurde erst 1946 wissenschaftlich beschrieben"
+  ],
+  "synonyme_historie": [
+    "Geophila cyanescens (Wakefield) Kuehner & Romagn. 1953"
+  ],
+  "grosse_revisionen": [
+    {"date": "1946", "event": "Erstbeschreibung", "description": "Wakefield beschreibt die Art aus Kew Gardens"},
+    {"date": "1953", "event": "Umkombination", "description": "Kuehner & Romagnesi transferieren zu Geophila"},
+    {"date": "1958", "event": "Psychoaktivitaet entdeckt", "description": "Albert Hofmann isoliert Psilocybin aus verwandten Arten"},
+    {"date": "1969", "event": "Ruecktransfer", "description": "Art wird zurueck zu Psilocybe gestellt"},
+    {"date": "1979", "event": "Verbreitung dokumentiert", "description": "Stamets dokumentiert Ausbreitung im Pazifischen Nordwesten"}
+  ],
+  "aktuelle_klassifikation_datum": "1969",
+  "dokumentations_vollstaendigkeit": {
+    "value": 80,
+    "max": 100,
+    "unit": "%"
+  },
+  "meilensteine": [
+    {"date": "1946", "event": "Wissenschaftliche Erstbeschreibung", "description": "Elsie Wakefield beschreibt P. cyanescens aus den Kew Gardens"},
+    {"date": "1958", "event": "Psilocybin-Entdeckung", "description": "Albert Hofmann isoliert und synthetisiert Psilocybin"},
+    {"date": "1970er", "event": "Ausbreitung Nordamerika", "description": "Art etabliert sich im Pazifischen Nordwesten"},
+    {"date": "1996", "event": "Stamets Monografie", "description": "Paul Stamets veroeffentlicht 'Psilocybin Mushrooms of the World'"},
+    {"date": "2017", "event": "Psi-Gencluster aufgeklaert", "description": "Biosynthese-Gene vollstaendig sequenziert und charakterisiert"},
+    {"date": "2018", "event": "FDA Breakthrough Therapy", "description": "FDA erteilt Breakthrough Therapy Designation fuer Psilocybin"}
+  ],
+  "meilenstein_1_jahr": 1946,
+  "meilenstein_1_titel": "Wissenschaftliche Erstbeschreibung",
+  "meilenstein_1_kategorie": "discovery",
+  "meilenstein_1_bedeutung": "major",
+  "meilenstein_1_beschreibung": "Elsie Wakefield beschreibt Psilocybe cyanescens erstmals wissenschaftlich basierend auf Funden in den Royal Botanic Gardens Kew",
+  "meilenstein_1_schluesselpersonen": ["Elsie Maud Wakefield"],
+  "meilenstein_1_ort": "Kew Gardens, London",
+  "meilenstein_2_jahr": 1958,
+  "meilenstein_2_titel": "Psilocybin-Entdeckung",
+  "meilenstein_2_kategorie": "chemical",
+  "meilenstein_2_beschreibung": "Albert Hofmann bei Sandoz isoliert Psilocybin und Psilocin aus Psilocybe-Arten und synthetisiert diese",
+  "meilenstein_3_jahr": 1996,
+  "meilenstein_3_titel": "Stamets Standardwerk",
+  "meilenstein_3_kategorie": "taxonomic",
+  "meilenstein_3_beschreibung": "Paul Stamets veroeffentlicht 'Psilocybin Mushrooms of the World' mit detaillierter P. cyanescens Beschreibung",
+  "meilenstein_4_jahr": 2017,
+  "meilenstein_4_titel": "Biosynthese aufgeklaert",
+  "meilenstein_4_kategorie": "genomic",
+  "meilenstein_4_beschreibung": "Fricke et al. charakterisieren das vollstaendige psi-Gencluster fuer Psilocybin-Biosynthese",
+  "meilenstein_5_jahr": 2018,
+  "meilenstein_5_titel": "FDA Breakthrough Therapy",
+  "meilenstein_5_kategorie": "regulatory",
+  "meilenstein_5_beschreibung": "US FDA erteilt Breakthrough Therapy Designation fuer Psilocybin bei behandlungsresistenter Depression",
+  "kultivierungs_status": "experimental",
+  "domestizierungs_level": "wild",
+  "erste_kultivierung_jahr": 1980,
+  "erste_kultivierung_ort": "USA (Underground)",
+  "erste_kultivierung_methode": "Holzspansubstrat outdoor",
+  "kultivierungs_pioniere": [
+    "Paul Stamets",
+    "Underground-Kultivatoren"
+  ],
+  "methoden_evolution_1980er": "Erste erfolgreiche Outdoor-Kultivierung auf Holzsubstrat",
+  "methoden_evolution_2000er": "Verbesserte Spawn-Techniken, Kartonage-Methoden",
+  "methoden_evolution_2020er": "Weiterhin schwierig zu kultivieren, hauptsaechlich wild gesammelt",
+  "technologie_meilensteine": [
+    "Outdoor-Holzspan-Beetkultivierung",
+    "Kartonage-Kolonisierung",
+    "Kalte Schock-Fruchtungsinduktion"
+  ],
+  "aufkommende_methoden": [
+    "Kontrollierte Outdoor-Beete",
+    "Temperaturgesteuerte Fruchtungsraeume"
+  ],
+  "klima_projektionen": {
+    "modell": "CMIP6 Ensemble",
+    "szenario": "RCP4.5"
+  },
+  "klima_projektion_modell": "CMIP6 Ensemble",
+  "klima_projektion_szenario": "RCP4.5",
+  "klima_projektion_zeithorizont": "2050-2100",
+  "klima_projektion_basisjahr": 2000,
+  "klima_projektion_zieljahr": 2100,
+  "klima_projektion_konfidenz": {
+    "value": 60,
+    "max": 100,
+    "unit": "%"
+  },
+  "areal_verschiebung_richtung": "north",
+  "areal_verschiebung_distanz_km_dekade": 25,
+  "areal_verschiebung_hoehe_m_dekade": 50,
+  "areal_projektion_2050": "Nordwaerts-Verschiebung, etabliert bis Suedskandinavien",
+  "areal_projektion_2100": "Potenzielle Etablierung in Nordskandinavien bei milderen Wintern",
+  "areal_gewinn_regionen": [
+    "Suedskandinavien",
+    "Baltikum",
+    "Nordrussland"
+  ],
+  "areal_verlust_regionen": [
+    "Suedeuropa (zu trocken)",
+    "Mittelmeerraum"
+  ],
+  "areal_stabil_regionen": [
+    "Britische Inseln",
+    "Pazifischer Nordwesten",
+    "Neuseeland"
+  ],
+  "phenologie_projektion_frueheres_erscheinen_tage": -5,
+  "phenologie_projektion_spaeteres_ende_tage": 10,
+  "phenologie_projektion_saison_aenderung_tage": 15,
+  "phenologie_projektion_peak_verschiebung_tage": 10,
+  "mismatch_risiko": {
+    "wirt": false,
+    "bestauber": false,
+    "verbreiter": false
+  },
+  "mismatch_risiko_wirt": false,
+  "mismatch_risiko_schwere": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "populations_projektion_trend": "stable",
+  "populations_projektion_aenderung_prozent": 5,
+  "habitateignung_projektion_trend": "stable",
+  "naturschutz_prognose": {
+    "aktuell": "Not Evaluated",
+    "projiziert": "Least Concern"
+  },
+  "naturschutz_prognose_aktueller_status": {
+    "status": "Not Evaluated",
+    "variant": "info"
+  },
+  "naturschutz_prognose_projizierter_status": {
+    "status": "Least Concern",
+    "variant": "success"
+  },
+  "naturschutz_prognose_bedrohungsniveau": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "aussterbe_risiko": {
+    "wahrscheinlichkeit_2050": 1,
+    "wahrscheinlichkeit_2100": 2
+  },
+  "aussterbe_wahrscheinlichkeit_2050": {
+    "value": 1,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "aussterbe_primaere_treiber": [
+    "Habitatverlust durch Urbanisierung",
+    "Aenderung der Gartenpraktiken",
+    "Klimawandel-induzierte Trockenheit"
+  ],
+  "anpassungspotenzial": {
+    "genetisch": "moderate",
+    "plastizitaet": "high",
+    "ausbreitung": "high"
+  },
+  "anpassungspotenzial_genetisch": "moderate",
+  "anpassungspotenzial_plastizitaet": "high",
+  "anpassungspotenzial_ausbreitung": "high",
+  "anpassungspotenzial_overall_score": {
+    "value": 70,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "red"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "green"}
+    ]
+  },
+  "climate_refugia_vorhanden": true,
+  "climate_refugia_orte": [
+    "Pazifischer Nordwesten (temperiert-ozeanisch)",
+    "Britische Inseln",
+    "Neuseeland",
+    "Suedchile"
+  ],
+  "climate_refugia_qualitaet": "high",
+  "assisted_migration_kandidat": false,
+  "zukunfts_szenarien": {
+    "best_case": "Stabile Populationen, Arealexpansion nordwaerts",
+    "moderate": "Leichte Verschiebung, lokale Rueckgaenge im Sueden",
+    "worst_case": "Fragmentierung durch Trockenheit, urbane Verdichtung"
+  },
+  "szenario_best_case": "Expansion",
+  "szenario_best_case_beschreibung": "Fortsetzung der Ausbreitung durch Mulch-Handel, Etablierung neuer Populationen in skandinavischen Laendern",
+  "szenario_best_case_wahrscheinlichkeit": {
+    "value": 40,
+    "max": 100,
+    "unit": "%"
+  },
+  "szenario_moderate": "Stabil",
+  "szenario_moderate_beschreibung": "Erhalt aktueller Verbreitungsgebiete mit saisonaler Verschiebung der Fruchtungszeit",
+  "szenario_moderate_wahrscheinlichkeit": {
+    "value": 45,
+    "max": 100,
+    "unit": "%"
+  },
+  "szenario_worst_case": "Rueckgang",
+  "szenario_worst_case_beschreibung": "Lokale Aussterbeereignisse in suedlichen Regionen durch Trockenheit und veraenderte Landnutzung",
+  "szenario_worst_case_wahrscheinlichkeit": {
+    "value": 15,
+    "max": 100,
+    "unit": "%"
+  },
+  "monitoring_empfehlungen": [
+    "Citizen Science Fruchtungs-Monitoring",
+    "Phenologie-Tracking ueber iNaturalist",
+    "Langzeit-Beobachtungsflaechen",
+    "Genetische Diversitaets-Studien"
+  ],
+  "forschungs_prioritaeten": [
+    "Klimawandel-Reaktionen",
+    "Invasionsoekologie",
+    "Populationsgenetik",
+    "Phenologie-Modellierung"
+  ],
+  "temporal_daten_quellen": [
+    "iNaturalist",
+    "GBIF",
+    "Pilze Deutschland",
+    "Mushroom Observer",
+    "British Mycological Society"
+  ],
+  "temporal_daten_letzte_validierung": "2024-12-01",
+  "temporal_daten_naechste_ueberpruefung": "2025-06-01",
+  "temporal_daten_qualitaets_score": {
+    "value": 75,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "red"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "green"}
+    ]
+  },
+  "temporal_daten_vollstaendigkeit": {
+    "value": 70,
+    "max": 100,
+    "unit": "%"
+  },
+  "phenology_shift_observed": true,
+  "phenology_shift_days_per_decade": 4,
+  "phenology_shift_direction": "later",
+  "phenology_baseline_period": "1980-2000",
+  "phenology_current_vs_baseline": "Fruchtungsbeginn ca. 8-10 Tage spaeter als historische Baseline",
+  "phenology_drivers": [
+    "Waermere Herbsttemperaturen",
+    "Veraenderte Niederschlagsmuster",
+    "Verlaengerte Vegetationsperiode"
+  ],
+  "mismatch_with_partners": false,
+  "adaptation_capacity_phenology": "high",
+  "calendar_jan": 15,
+  "calendar_feb": 0,
+  "calendar_mar": 0,
+  "calendar_apr": 0,
+  "calendar_may": 0,
+  "calendar_jun": 0,
+  "calendar_jul": 0,
+  "calendar_aug": 0,
+  "calendar_sep": 25,
+  "calendar_oct": 60,
+  "calendar_nov": 100,
+  "calendar_dec": 50,
+  "peak_activity_months": [10, 11, 12],
+  "dormancy_months": [2, 3, 4, 5, 6, 7, 8],
+  "optimal_observation_window": "Mitte Oktober bis Ende November",
+  "phenology_predictability": "high",
+  "primary_phenology_cue": "temperature",
+  "secondary_phenology_cues": [
+    "Niederschlag",
+    "Photoperiode",
+    "Bodenfeuchtigkeit"
+  ],
+  "temperature_threshold_celsius": 15,
+  "rainfall_threshold_mm": 20,
+  "phenology_forecast_accuracy": {
+    "value": 75,
+    "max": 100,
+    "unit": "%"
+  },
+  "historical_phenology_records": [
+    "Kew Gardens 1946 - Typuslokalitaet",
+    "Oregon 1979 - erste Nordamerika-Dokumentation",
+    "Neuseeland 1990er - Etablierung dokumentiert"
+  ],
+  "earliest_recorded_date": "September 15",
+  "latest_recorded_date": "January 31",
+  "historical_average_date": "November 5",
+  "phenology_long_term_datasets": [
+    "British Mycological Society Records (1946-present)",
+    "Pacific Northwest Fungal Ecology Project",
+    "iNaturalist Citizen Science Data"
+  ],
+  "phenology_citizen_science_data": [
+    "iNaturalist (>5000 observations)",
+    "Mushroom Observer",
+    "Pilze Deutschland"
+  ],
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 1996,
+    "title": "Psilocybin Mushrooms of the World",
+    "journal": "Ten Speed Press",
+    "doi": "ISBN 978-0898158397"
+  }
+}

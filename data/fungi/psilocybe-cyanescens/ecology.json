@@ -1,0 +1,339 @@
+{
+  "scientific": "Psilocybe cyanescens",
+  "trophic_mode_primary": "Saprotroph",
+  "trophic_mode_secondary": "Lignicolous",
+  "trophic_flexibility": {
+    "status": "Low",
+    "variant": "info"
+  },
+  "trophic_notes": "Strikt saprophytisch auf Holzsubstrat, keine bekannten Mykorrhiza-Assoziationen",
+  "decomposer_type": "White rot (Weissfaeule)",
+  "decomposition_rate": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "lignin_degradation_capability": true,
+  "cellulose_degradation_capability": true,
+  "hemicellulose_degradation_capability": true,
+  "enzyme_laccase_activity": {
+    "value": 65,
+    "min": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "enzyme_cellulase_activity": {
+    "value": 55,
+    "min": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "ecological_guild": "Lignicolous saprotroph",
+  "guild_confidence": {
+    "status": "High",
+    "variant": "success"
+  },
+  "primary_ecosystem_function": "Organic matter decomposition",
+  "secondary_ecosystem_functions": [
+    "Nutrient cycling",
+    "Soil structure improvement",
+    "Carbon cycling"
+  ],
+  "ecosystem_function_intensity": {
+    "rating": 6,
+    "max": 10
+  },
+  "carbon_flux_role": "Decomposer - Carbon release",
+  "soil_carbon_contribution": {
+    "rating": 5,
+    "max": 10
+  },
+  "ecosystem_type": "Urban/Periurban",
+  "ecosystem_subtype": "Gardens, Parks, Landscaped areas",
+  "association_strength": {
+    "status": "Strong with wood mulch habitats",
+    "variant": "success"
+  },
+  "dominant_vegetation_type": "Mixed deciduous",
+  "associated_plant_families": [
+    "Betulaceae (Birkengewaechse)",
+    "Fagaceae (Buchengewaechse)",
+    "Aceraceae (Ahorngewaechse)",
+    "Rosaceae (Rosengewaechse)"
+  ],
+  "associated_plant_genera": [
+    "Alnus (Erle)",
+    "Betula (Birke)",
+    "Fagus (Buche)",
+    "Acer (Ahorn)",
+    "Salix (Weide)"
+  ],
+  "microhabitat_primary": "Wood chip mulch",
+  "microhabitat_secondary": "Bark mulch, decaying wood debris",
+  "substrate_specificity": {
+    "status": "Moderate - Prefers hardwood",
+    "variant": "warning"
+  },
+  "substrate_type_primary": "Hardwood chips/mulch",
+  "substrate_types_secondary": [
+    "Bark mulch",
+    "Buried wood debris",
+    "Landscaping substrates",
+    "Wood edges/borders"
+  ],
+  "wood_decay_stage_preference": "Early to intermediate",
+  "minimum_substrate_diameter": 1,
+  "optimal_substrate_diameter": 5,
+  "canopy_cover_minimum": 0,
+  "canopy_cover_optimal": 50,
+  "canopy_cover_maximum": 90,
+  "light_requirement": "Partial shade to full sun",
+  "elevation_minimum_m": 0,
+  "elevation_optimal_min_m": 0,
+  "elevation_optimal_max_m": 500,
+  "elevation_maximum_m": 1200,
+  "slope_preference": "Flat to gentle",
+  "topographic_position": "Valley, riparian, urban",
+  "moisture_regime": "Mesic to wet",
+  "flooding_tolerance": {
+    "rating": 4,
+    "max": 10
+  },
+  "drought_tolerance": {
+    "rating": 3,
+    "max": 10
+  },
+  "soil_ph_minimum": 5.0,
+  "soil_ph_optimal_min": 5.5,
+  "soil_ph_optimal_max": 7.0,
+  "soil_ph_maximum": 7.5,
+  "soil_nutrient_preference": "Moderate to high",
+  "soil_texture_preference": "Varies - grows on mulch layer",
+  "organic_matter_preference": "High",
+  "climate_zone": "Oceanic temperate (Cfb, Csb)",
+  "temperature_minimum_mean_c": 0,
+  "temperature_optimal_min_c": 7,
+  "temperature_optimal_max_c": 15,
+  "temperature_maximum_mean_c": 20,
+  "precipitation_minimum_mm": 800,
+  "precipitation_optimal_min_mm": 1000,
+  "precipitation_optimal_max_mm": 2500,
+  "precipitation_maximum_mm": 4000,
+  "seasonality_preference": "Cool, wet autumn/winter",
+  "disturbance_response": "Pioneer - benefits from disturbance",
+  "fire_response": "Absent post-fire",
+  "logging_response": "Benefits from wood debris",
+  "spatial_distribution_pattern": "Clustered/gregarious",
+  "typical_population_density": 50,
+  "patch_size_typical": 10,
+  "temp_growth_minimum_c": 5,
+  "temp_growth_optimum_min_c": 15,
+  "temp_growth_optimum_max_c": 22,
+  "temp_growth_maximum_c": 28,
+  "temp_fruiting_minimum_c": 2,
+  "temp_fruiting_optimum_c": 10,
+  "temp_fruiting_maximum_c": 18,
+  "frost_tolerance": {
+    "rating": 8,
+    "max": 10
+  },
+  "heat_stress_response": "Fruiting suppressed, mycelium dormant",
+  "water_activity_minimum": 0.85,
+  "water_activity_optimum": 0.95,
+  "relative_humidity_minimum": 70,
+  "relative_humidity_optimum": 90,
+  "desiccation_tolerance": {
+    "rating": 3,
+    "max": 10
+  },
+  "cadmium_accumulator": true,
+  "lead_accumulator": true,
+  "mercury_accumulator": true,
+  "zinc_accumulator": true,
+  "is_bioindicator": false,
+  "invasiveness_score": {
+    "value": 65,
+    "min": 0,
+    "max": 100,
+    "unit": ""
+  },
+  "invasive_in_regions": [
+    "Introduced to Pacific Northwest USA",
+    "New Zealand",
+    "Australia",
+    "Parts of mainland Europe"
+  ],
+  "native_range": "British Isles and Western Europe",
+  "introduction_pathways": [
+    "Wood chip/mulch trade",
+    "Intentional introduction",
+    "Landscaping materials"
+  ],
+  "establishment_probability": {
+    "value": 80,
+    "min": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "spread_rate_potential": "Moderate",
+  "fungivore_species": [
+    "Slugs (Gastropoda)",
+    "Mycetophilidae larvae (Fungus gnats)",
+    "Collembola (Springtails)"
+  ],
+  "fungivore_importance": {
+    "status": "Low to moderate",
+    "variant": "info"
+  },
+  "dispersal_vector_type": "Wind (spores), Human-mediated (substrate)",
+  "dispersal_distance": {
+    "min": 0,
+    "max": 100,
+    "unit": "km"
+  },
+  "dispersal_mechanism": "Basidiospore ejection and wind dispersal, Human-assisted via mulch transport",
+  "invertebrate_dispersers": [
+    "Beetles",
+    "Mites",
+    "Diptera larvae"
+  ],
+  "trophic_level": 1,
+  "trophic_category": "Primary decomposer",
+  "food_web_role": "Base - organic matter processing",
+  "energy_source_primary": "Dead plant material (lignin, cellulose)",
+  "consumer_insects": [
+    "Fungus gnats (Mycetophilidae)",
+    "Sciaridae",
+    "Platypezidae"
+  ],
+  "consumer_mollusks": [
+    "Arion species (Slugs)",
+    "Deroceras reticulatum"
+  ],
+  "predation_pressure": {
+    "status": "Low to moderate",
+    "variant": "info"
+  },
+  "fruiting_season_start": 9,
+  "fruiting_season_end": 1,
+  "fruiting_peak_month": 11,
+  "fruiting_duration_weeks": 12,
+  "fruiting_frequency": "Annual",
+  "fruiting_predictability": {
+    "rating": 7,
+    "max": 10
+  },
+  "fruiting_triggers": [
+    "Temperature drop below 15C",
+    "First autumn frosts",
+    "Sustained rainfall",
+    "High humidity"
+  ],
+  "fruiting_inhibitors": [
+    "Drought",
+    "High temperatures (>20C)",
+    "Substrate desiccation"
+  ],
+  "mycelial_activity_season": [
+    {"month": 1, "active": true},
+    {"month": 2, "active": true},
+    {"month": 3, "active": true},
+    {"month": 4, "active": true},
+    {"month": 5, "active": true},
+    {"month": 6, "active": false},
+    {"month": 7, "active": false},
+    {"month": 8, "active": false},
+    {"month": 9, "active": true},
+    {"month": 10, "active": true},
+    {"month": 11, "active": true},
+    {"month": 12, "active": true}
+  ],
+  "dormancy_period": "Summer (June-August)",
+  "dormancy_type": "Heat-induced dormancy",
+  "perennation_strategy": "Perennial mycelium in substrate",
+  "iucn_global_status": {
+    "status": "Not Evaluated",
+    "variant": "info"
+  },
+  "regional_status": {
+    "status": "Locally common where established",
+    "variant": "success"
+  },
+  "primary_threats": [
+    "Habitat loss (urban development)",
+    "Wood chip removal",
+    "Herbicide application",
+    "Climate change"
+  ],
+  "habitat_loss_causes": [
+    "Urban development",
+    "Change in landscaping practices",
+    "Removal of mulch substrates"
+  ],
+  "climate_threat_vulnerability": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "climate_change_sensitivity": {
+    "status": "Moderate - depends on autumn precipitation",
+    "variant": "warning"
+  },
+  "climate_change_response_predicted": "Range shift northward and to higher elevations",
+  "range_shift_direction": "North and upslope",
+  "typical_species_associations": [
+    "Stropharia aeruginosa",
+    "Hypholoma species",
+    "Agrocybe species",
+    "Coprinus species"
+  ],
+  "positive_associations": [
+    "Wood mulch availability",
+    "Moderate shade",
+    "Cool maritime climate"
+  ],
+  "negative_associations": [
+    "Dry conditions",
+    "High temperatures",
+    "Lack of wood substrate"
+  ],
+  "forms_common_mycelial_network": true,
+  "interplant_resource_transfer": false,
+  "network_persistence": "Years to decades in suitable substrate",
+  "optimal_survey_method": "Visual search in mulched areas",
+  "survey_timing_optimal": "October-December after first frost",
+  "survey_frequency_recommended": "Weekly during peak season",
+  "detection_probability": {
+    "value": 70,
+    "min": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "citizen_science_suitability": {
+    "rating": 6,
+    "max": 10
+  },
+  "identification_difficulty_field": {
+    "status": "Intermediate - confusion risk",
+    "variant": "warning"
+  },
+  "photo_identification_reliable": true,
+  "inat_observation_count": 5000,
+  "gbif_record_count": 3500,
+  "ecology_data_quality_score": {
+    "rating": 7,
+    "max": 10
+  },
+  "ecology_evidence_basis": "Field observations, citizen science, literature",
+  "ecology_data_gaps": [
+    "Long-term population dynamics",
+    "Climate change impacts",
+    "Invasive range expansion rates",
+    "Mycelium longevity data"
+  ],
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 1996,
+    "title": "Psilocybin Mushrooms of the World",
+    "journal": "Ten Speed Press",
+    "doi": "ISBN 978-0898158397"
+  }
+}

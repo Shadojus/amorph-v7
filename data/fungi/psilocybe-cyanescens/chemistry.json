@@ -1,0 +1,284 @@
+{
+  "scientific": "Psilocybe cyanescens",
+  "chemotype": "Psilocybin-Psilocin dominant",
+  "total_alkaloid_content": {
+    "min": 0.85,
+    "max": 2.0,
+    "unit": "% dry weight"
+  },
+  "alkaloid_content_by_part": [
+    {"label": "Hut (Pileus)", "value": 1.68},
+    {"label": "Stiel (Stipe)", "value": 0.75},
+    {"label": "Gesamter Fruchtkörper", "value": 1.20}
+  ],
+  "primary_metabolites": {
+    "carbohydrates": {
+      "total_percent": 45,
+      "types": ["Chitin", "Glucane", "Trehalose", "Glycogen"]
+    },
+    "proteins": {
+      "total_percent": 22,
+      "amino_acids": ["Tryptophan (Precursor)", "Glutamat", "Asparagin"]
+    },
+    "lipids": {
+      "total_percent": 3.5,
+      "fatty_acids": ["Linolsäure", "Ölsäure", "Palmitinsäure"]
+    }
+  },
+  "secondary_metabolites": [
+    "Psilocybin (O-Phosphoryl-4-hydroxy-N,N-dimethyltryptamin)",
+    "Psilocin (4-Hydroxy-N,N-dimethyltryptamin)",
+    "Baeocystin (4-Phosphoryloxy-N-methyltryptamin)",
+    "Norbaeocystin (4-Phosphoryloxy-tryptamin)",
+    "Aeruginascin (N,N,N-Trimethyl-4-phosphoryloxytryptamin)"
+  ],
+  "alkaloid_compounds": [
+    {
+      "name": "Psilocybin",
+      "cas": "520-52-5",
+      "formula": "C12H17N2O4P",
+      "molecular_weight": 284.25,
+      "content_range": {"min": 0.85, "max": 1.96, "unit": "% DW"},
+      "pharmacological_class": "5-HT2A Agonist (Prodrug)",
+      "mechanism": "Dephosphoryliert zu Psilocin, partieller Agonist an serotonergen Rezeptoren"
+    },
+    {
+      "name": "Psilocin",
+      "cas": "520-53-6",
+      "formula": "C12H16N2O",
+      "molecular_weight": 204.27,
+      "content_range": {"min": 0.01, "max": 0.28, "unit": "% DW"},
+      "pharmacological_class": "5-HT2A Agonist (aktiv)",
+      "mechanism": "Direkter partieller Agonist an 5-HT2A, 5-HT2C und anderen Serotonin-Rezeptoren"
+    },
+    {
+      "name": "Baeocystin",
+      "cas": "21420-58-6",
+      "formula": "C11H15N2O4P",
+      "molecular_weight": 270.22,
+      "content_range": {"min": 0.01, "max": 0.05, "unit": "% DW"},
+      "pharmacological_class": "Psychoaktiv (schwächer als Psilocybin)"
+    },
+    {
+      "name": "Norbaeocystin",
+      "cas": "21420-57-5",
+      "formula": "C10H13N2O4P",
+      "molecular_weight": 256.19,
+      "content_range": {"min": 0.001, "max": 0.01, "unit": "% DW"},
+      "pharmacological_class": "Möglicherweise psychoaktiv"
+    },
+    {
+      "name": "Aeruginascin",
+      "formula": "C13H20N2O4P+",
+      "molecular_weight": 299.28,
+      "content_range": {"min": 0.001, "max": 0.005, "unit": "% DW"},
+      "pharmacological_class": "Möglicherweise euphorisierend, anxiolytisch"
+    }
+  ],
+  "alkaloid_profile_radar": [
+    {"axis": "Psilocybin", "value": 95},
+    {"axis": "Psilocin", "value": 35},
+    {"axis": "Baeocystin", "value": 15},
+    {"axis": "Norbaeocystin", "value": 5},
+    {"axis": "Aeruginascin", "value": 3}
+  ],
+  "indole_alkaloids": {
+    "class": "Tryptamine-Alkaloide",
+    "biosynthetic_origin": "L-Tryptophan",
+    "characteristic": "4-Hydroxy-substituierte Tryptamine",
+    "pharmacophore": "Indol-Kern mit Ethylamin-Seitenkette"
+  },
+  "biosynthesis_pathway": {
+    "precursors": ["L-Tryptophan", "S-Adenosylmethionin (SAM)", "ATP"],
+    "key_intermediates": ["Tryptamin", "4-Hydroxytryptamin", "Norbaeocystin", "Baeocystin"],
+    "key_enzymes": [
+      "PsiD (Tryptophan-Decarboxylase)",
+      "PsiK (Kinase - Phosphorylierung)",
+      "PsiM (Methyltransferase)",
+      "PsiH (Hydroxylase - P450)"
+    ],
+    "gene_cluster": "psi-Gencluster (psiD, psiK, psiM, psiH)",
+    "regulation": "Expression abhängig von Entwicklungsstadium, maximale Produktion während Sporulation"
+  },
+  "biosynthesis_steps": [
+    {"step": 1, "enzyme": "PsiD", "reaction": "Tryptophan → Tryptamin", "cofactor": "PLP"},
+    {"step": 2, "enzyme": "PsiH", "reaction": "Tryptamin → 4-Hydroxytryptamin", "cofactor": "NADPH, O2"},
+    {"step": 3, "enzyme": "PsiK", "reaction": "4-Hydroxytryptamin → Norbaeocystin", "cofactor": "ATP"},
+    {"step": 4, "enzyme": "PsiM", "reaction": "Norbaeocystin → Baeocystin → Psilocybin", "cofactor": "SAM"}
+  ],
+  "bluing_reaction": {
+    "mechanism": "Oxidation von Psilocin durch atmosphärischen Sauerstoff und Laccase-Enzyme",
+    "product": "Blaue Oligomere (Psilocybin-Chinone)",
+    "indicator": "Diagnostisch für psilocybinhaltige Arten",
+    "speed": "Sekunden bis Minuten nach Verletzung"
+  },
+  "seasonal_variation": [
+    {"label": "September", "value": 0.9},
+    {"label": "Oktober", "value": 1.3},
+    {"label": "November (Peak)", "value": 1.68},
+    {"label": "Dezember", "value": 1.4},
+    {"label": "Januar", "value": 1.0}
+  ],
+  "variation_factors": [
+    {"label": "Junge Fruchtkörper", "value": 1.8},
+    {"label": "Reife Fruchtkörper", "value": 1.4},
+    {"label": "Überreife Fruchtkörper", "value": 0.9},
+    {"label": "Nach Frost", "value": 1.5}
+  ],
+  "environmental_factors": {
+    "temperature": "Niedrige Temperaturen (5-15°C) fördern Alkaloidproduktion",
+    "substrate": "Holzreiche Substrate erhöhen Ertrag und Potenz",
+    "moisture": "Hohe Feuchtigkeit während Fruchtung wichtig",
+    "light": "Indirektes Licht für normale Entwicklung",
+    "freezing": "Frost kann Zellwände aufbrechen und Psilocin-Freisetzung erhöhen"
+  },
+  "potency_comparison": [
+    {"label": "P. cyanescens (Hut)", "value": 100},
+    {"label": "P. azurescens", "value": 110},
+    {"label": "P. cubensis", "value": 55},
+    {"label": "P. semilanceata", "value": 70},
+    {"label": "P. baeocystis", "value": 60}
+  ],
+  "analytical_methods": [
+    "HPLC-UV (254 nm, 280 nm)",
+    "HPLC-MS/MS (Gold-Standard)",
+    "LC-ESI-MS",
+    "TLC (Dünnschichtchromatographie) mit Ehrlich-Reagenz",
+    "GC-MS nach Derivatisierung",
+    "NMR-Spektroskopie",
+    "Immunoassays (ELISA)"
+  ],
+  "detection_methods": {
+    "field": "Ehrlich-Reagenz (violette Färbung bei Indol-Alkaloiden)",
+    "laboratory": "HPLC-MS/MS für präzise Quantifizierung",
+    "forensic": "GC-MS für Nachweis in biologischen Proben",
+    "research": "NMR für Strukturaufklärung neuer Metabolite"
+  },
+  "stability": {
+    "light_sensitivity": "Hoch - Psilocin degradiert schnell unter UV-Licht",
+    "heat_sensitivity": "Mäßig - Degradation über 180°C beschleunigt",
+    "ph_sensitivity": "Stabil bei neutralem pH, Degradation in alkalischem Milieu",
+    "oxidation": "Psilocin sehr oxidationsempfindlich (Blaufärbung)",
+    "storage_conditions": "Trocken, dunkel, kühl - mehrere Jahre stabil wenn getrocknet"
+  },
+  "pharmacokinetics": {
+    "absorption": "Schnelle orale Absorption (Tmax 20-40 min)",
+    "distribution": "ZNS-gängig, Verteilungsvolumen ~1 L/kg",
+    "metabolism": "Dephosphorylierung zu Psilocin durch alkalische Phosphatasen",
+    "first_pass": "Ja, hepatische Dephosphorylierung und Glucuronidierung",
+    "half_life": "2-4 Stunden (Psilocin)",
+    "elimination": "Renal, als Glucuronid-Konjugate",
+    "bioavailability": "Ca. 50% (oral)"
+  },
+  "pharmacodynamics": {
+    "primary_target": "5-HT2A Serotonin-Rezeptor (partieller Agonist)",
+    "secondary_targets": ["5-HT2C", "5-HT1A", "D2 (schwach)"],
+    "ec50": "~10 nM am 5-HT2A",
+    "receptor_binding": "Höhere Affinität als Serotonin am 5-HT2A",
+    "downstream_effects": [
+      "Erhöhte kortikale Glutamat-Freisetzung",
+      "Modulation des Default Mode Network",
+      "Verstärkte sensorische Verarbeitung",
+      "Erhöhte neuronale Plastizität"
+    ]
+  },
+  "receptor_affinity_radar": [
+    {"axis": "5-HT2A", "value": 95},
+    {"axis": "5-HT2C", "value": 70},
+    {"axis": "5-HT1A", "value": 45},
+    {"axis": "5-HT2B", "value": 30},
+    {"axis": "D2", "value": 15}
+  ],
+  "toxic_dose": {
+    "threshold_mg": 2,
+    "typical_mg": 10,
+    "strong_mg": 25,
+    "heavy_mg": 40,
+    "ld50_estimated_mg_kg": 280,
+    "note": "LD50 basiert auf Tierstudien, kein dokumentierter menschlicher Todesfall durch Psilocybin-Überdosis allein"
+  },
+  "quality_markers": [
+    {
+      "marker": "Psilocybin-Gehalt",
+      "typical_range": "0.85-1.96% DW",
+      "method": "HPLC-MS"
+    },
+    {
+      "marker": "Psilocin-Gehalt",
+      "typical_range": "0.01-0.28% DW",
+      "method": "HPLC-MS"
+    },
+    {
+      "marker": "Baeocystin-Gehalt",
+      "typical_range": "0.01-0.05% DW",
+      "method": "HPLC-MS"
+    }
+  ],
+  "extraction_methods": {
+    "traditional": "Heißwasserextraktion (teilweise Degradation)",
+    "laboratory": "Methanol/Wasser-Extraktion mit anschließender HPLC-Reinigung",
+    "research": "Ethanol-Extraktion, Festphasenextraktion für hochreine Präparate"
+  },
+  "legal_classification": {
+    "international": "Psilocybin und Psilocin sind UN Schedule I Substanzen",
+    "germany": "BtMG Anlage I - Nicht verkehrsfähig",
+    "austria": "SMG - Suchtmittelgesetz",
+    "switzerland": "BetmG - Betäubungsmittelgesetz",
+    "usa": "DEA Schedule I",
+    "netherlands": "Frische Pilze legal, getrocknete illegal",
+    "note": "Rechtliche Situation in einigen Jurisdiktionen im Wandel (Dekriminalisierung, medizinische Verwendung)"
+  },
+  "research_applications": [
+    "Depression (therapieresistent)",
+    "Angststörungen",
+    "PTSD",
+    "Suchterkrankungen",
+    "Cluster-Kopfschmerzen",
+    "Existenzielle Angst bei Terminalkranken",
+    "Neuroplastizitätsforschung"
+  ],
+  "nutritional_values": {
+    "energy_kcal": 22,
+    "protein_g": 2.2,
+    "carbohydrates_g": 4.5,
+    "fiber_g": 1.5,
+    "fat_g": 0.35,
+    "water_content_percent": 90
+  },
+  "mineral_content": [
+    {"label": "Kalium", "value": 280},
+    {"label": "Phosphor", "value": 95},
+    {"label": "Calcium", "value": 10},
+    {"label": "Magnesium", "value": 12},
+    {"label": "Natrium", "value": 5}
+  ],
+  "vitamin_content": [
+    {"label": "Niacin (B3)", "value": 3.5},
+    {"label": "Riboflavin (B2)", "value": 0.35},
+    {"label": "Folsäure", "value": 0.015},
+    {"label": "Vitamin D2", "value": 0.002}
+  ],
+  "source": {
+    "authors": "Stamets, P. & Gartz, J.",
+    "year": 1995,
+    "title": "A new caerulescent Psilocybe from the Pacific Coast of northwestern North America",
+    "journal": "Integration",
+    "doi": ""
+  },
+  "additional_sources": [
+    {
+      "authors": "Fricke, J. et al.",
+      "year": 2017,
+      "title": "The chemistry of psilocybin producing fungi",
+      "journal": "Angewandte Chemie",
+      "doi": "10.1002/anie.201705489"
+    },
+    {
+      "authors": "Gotvaldová, K. et al.",
+      "year": 2021,
+      "title": "Stability of psilocybin and its four analogs in the biomass of the psychotropic mushroom Psilocybe cubensis",
+      "journal": "Drug Testing and Analysis",
+      "doi": "10.1002/dta.2950"
+    }
+  ]
+}

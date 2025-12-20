@@ -1,0 +1,234 @@
+{
+  "scientific": "Atropa belladonna",
+  "pharmacopoeia_names": [
+    "Belladonnae folium (Tollkirschenblaetter)",
+    "Belladonnae radix (Tollkirschenwurzel)",
+    "Atropinum sulfuricum (Atropinsulfat)"
+  ],
+  "description": "Atropa belladonna ist eine der wichtigsten Arzneipflanzen der Geschichte und liefert die klinisch bedeutsamen Tropanalkaloide Atropin und Scopolamin. Diese Wirkstoffe werden heute vor allem synthetisch hergestellt, aber die Pflanze dient weiterhin als Ausgangsmaterial fuer Extraktpraeparate und in der Homeopathie.",
+  "traditional_medicine": {
+    "systems": ["European Folk Medicine", "Ayurveda", "Unani", "Homeopathy"],
+    "historical_use": "Seit der Antike bekannt. Verwendet von Dioskurides und Galen. Im Mittelalter als Hexenkraut und Narkotikum verwendet. Ab dem 19. Jahrhundert wichtige pharmazeutische Droge.",
+    "traditional_indications": [
+      "Krampfloesend bei Magen-Darm-Beschwerden",
+      "Schmerzlinderung",
+      "Sedierung",
+      "Augenheilkunde (Pupillenerweiterung)",
+      "Atemwegserkrankungen (Asthma)",
+      "Parkinsonismus"
+    ]
+  },
+  "who_monograph_exists": true,
+  "who_monograph_volume": "WHO Monographs on Selected Medicinal Plants, Vol. 2",
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": [
+    "Spasmen im Magen-Darm-Bereich",
+    "Gallenkoliken",
+    "Dysmenorrhoe",
+    "Asthma bronchiale (obsolet)"
+  ],
+  "german_commission_e_status": {
+    "status": "Positiv (mit Einschraenkungen)",
+    "variant": "warning"
+  },
+  "german_commission_e_indication": [
+    "Spasmen und kolikartige Schmerzen im Bereich des Gastrointestinaltraktes und der Gallenwege"
+  ],
+  "active_substances": [
+    "Atropin (dl-Hyoscyamin)",
+    "Hyoscyamin (L-Atropin)",
+    "Scopolamin (L-Hyoscin)"
+  ],
+  "effect_profile": [
+    {"axis": "Spasmolytisch", "value": 90},
+    {"axis": "Anticholinerg", "value": 95},
+    {"axis": "Mydriatisch", "value": 100},
+    {"axis": "Antisekretorisch", "value": 85},
+    {"axis": "Tachykard", "value": 80},
+    {"axis": "ZNS-Wirkung", "value": 40}
+  ],
+  "therapeutic_categories": [
+    "Anticholinergika",
+    "Parasympatholytika",
+    "Spasmolytika",
+    "Mydriatika",
+    "Praemedikation"
+  ],
+  "clinical_indications": [
+    {
+      "indication": "Praeoperative Medikation",
+      "evidence_level": "1a",
+      "use": "Reduktion von Speichel- und Bronchialsekretion"
+    },
+    {
+      "indication": "Ophthalmologie",
+      "evidence_level": "1a",
+      "use": "Mydriasis fuer Fundoskopie und Refraktionsbestimmung"
+    },
+    {
+      "indication": "Bradykardie",
+      "evidence_level": "1a",
+      "use": "Behandlung symptomatischer Bradykardie"
+    },
+    {
+      "indication": "Vergiftungen",
+      "evidence_level": "1b",
+      "use": "Antidot bei Cholinesterase-Hemmer-Vergiftungen (Organophosphate)"
+    },
+    {
+      "indication": "Gastrointestinale Spasmen",
+      "evidence_level": "2b",
+      "use": "Kolikartige Beschwerden (heute selten)"
+    },
+    {
+      "indication": "Reisekrankheit",
+      "evidence_level": "1a",
+      "use": "Scopolamin-Pflaster zur Prophylaxe"
+    }
+  ],
+  "evidence_level": {
+    "status": "1a (fuer Atropin)",
+    "variant": "success"
+  },
+  "pharmacokinetics_absorption": "Atropin: Gut resorbiert aus dem GI-Trakt (50%), sublingual noch besser. Bioverfuegbarkeit ca. 50%.",
+  "pharmacokinetics_distribution": "Atropin: Ueberwindet Blut-Hirn-Schranke. Verteilungsvolumen 2-3 L/kg. Plasmaproteinbindung ca. 50%.",
+  "pharmacokinetics_metabolism": "Hepatischer Metabolismus durch CYP450-Enzyme. Partielle Hydrolyse zu Tropin und Tropasaeure.",
+  "pharmacokinetics_elimination": "Renale Ausscheidung, ca. 50% unveraendert. Halbwertszeit: 2-4 Stunden. Bei Kindern verkuerzt, bei Aelteren verlaengert.",
+  "safety_score": {
+    "value": 25,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "red"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "green"}
+    ]
+  },
+  "toxicology_ld50_oral": {
+    "min": 400,
+    "max": 600,
+    "unit": "mg/kg (Ratte, Atropin)"
+  },
+  "toxicology_therapeutic_index": 10,
+  "side_effects": [
+    {"level": "high", "typ": "Anticholinerges Syndrom", "beschreibung": "Tachykardie, Mundtrockenheit, Mydriasis, Obstipation, Harnverhalt"},
+    {"level": "medium", "typ": "ZNS-Effekte", "beschreibung": "Unruhe, Verwirrtheit, Halluzinationen bei hoeheren Dosen"},
+    {"level": "medium", "typ": "Kardiovaskulaer", "beschreibung": "Tachykardie, Arrhythmien"},
+    {"level": "low", "typ": "Augen", "beschreibung": "Akkommodationsstoerungen, Photophobie, Glaukomanfall"}
+  ],
+  "interactions": [
+    {"level": "high", "typ": "Anticholinergika", "beschreibung": "Additive Wirkungen mit anderen anticholinergen Substanzen"},
+    {"level": "high", "typ": "MAO-Hemmer", "beschreibung": "Verstaerkte anticholinerge Wirkung"},
+    {"level": "medium", "typ": "Trizyklische Antidepressiva", "beschreibung": "Additive anticholinerge Effekte"},
+    {"level": "medium", "typ": "Antihistaminika", "beschreibung": "Additive Sedierung und anticholinerge Effekte"},
+    {"level": "low", "typ": "Antazida", "beschreibung": "Verminderte Resorption bei gleichzeitiger Gabe"}
+  ],
+  "contraindications": [
+    "Engwinkelglaukom",
+    "Prostatahyperplasie mit Restharnbildung",
+    "Mechanische Stenosen im GI-Trakt",
+    "Myasthenia gravis",
+    "Tachyarrhythmien",
+    "Akute Blutungen",
+    "Megakolon"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Kontraindiziert (FDA: C)",
+    "variant": "danger"
+  },
+  "special_populations_lactation": {
+    "status": "Kontraindiziert",
+    "variant": "danger"
+  },
+  "special_populations_children": {
+    "status": "Nur unter strenger Indikation",
+    "variant": "warning"
+  },
+  "special_populations_elderly": {
+    "status": "Erhoehte Empfindlichkeit - Vorsicht",
+    "variant": "warning"
+  },
+  "special_populations_renal_impairment": {
+    "status": "Dosisanpassung erforderlich",
+    "variant": "warning"
+  },
+  "special_populations_hepatic_impairment": {
+    "status": "Dosisanpassung erforderlich",
+    "variant": "warning"
+  },
+  "dosage_schemes": {
+    "unit": "mg",
+    "oral_dose": "0.25 mg, 3-4x taeglich",
+    "iv_dose": "0.5-1 mg einmalig",
+    "notes": "Spasmolytische Indikation: oral. Bradykardie/Notfall: i.v. Bei Organophosphat-Vergiftung hoehere Dosen erforderlich."
+  },
+  "dosage_notes": "Atropin-Dosierung: 0.25 mg oral 3-4x taeglich fuer spasmolytische Indikation. 0.5-1 mg i.v. einmalig fuer Bradykardie, Notfall und Praemedikation. Bei Organophosphat-Vergiftung sind deutlich hoehere Dosen erforderlich (bis zu mehreren Gramm).",
+  "preparation_forms": [
+    "Augentropfen (Atropinsulfat 0.5-1%)",
+    "Injektionsloesung",
+    "Tabletten (selten)",
+    "Scopolamin-Pflaster (Scopoderm TTS)",
+    "Belladonna-Extrakt (Phyto)",
+    "Homoeopathische Zubereitungen"
+  ],
+  "status_by_region": {
+    "eu": "Rx (verschreibungspflichtig)",
+    "usa": "Rx",
+    "japan": "Rx",
+    "china": "Rx",
+    "canada": "Rx",
+    "australia": "S4"
+  },
+  "drug_approvals": [
+    "Atropinsulfat: Zugelassenes Arzneimittel weltweit",
+    "Scopolamin: TTS zur Prophylaxe von Kinetosen",
+    "Belladonna-Extrakt: Traditionelles pflanzliches Arzneimittel (THMP)"
+  ],
+  "origin_wild_collection": {
+    "available": true,
+    "regions": ["Balkan", "Suedosteuropa", "Tuerkei"],
+    "sustainability_concerns": "Wildsammlungen ruecklaeufig, Anbau bevorzugt"
+  },
+  "origin_cultivation": {
+    "available": true,
+    "regions": ["Deutschland", "Polen", "Ungarn", "Frankreich", "USA"],
+    "methods": "Feldanbau, Ernte der Blaetter vor der Bluete fuer hoechsten Alkaloidgehalt"
+  },
+  "medical_score": {
+    "rating": 9,
+    "max": 10
+  },
+  "profile": "Hochpotente Arzneipflanze mit wichtigen klinischen Anwendungen. Die isolierten Alkaloide Atropin und Scopolamin gehoeren zu den wichtigsten Notfall- und Augenarzneimitteln. Strenge Indikationsstellung erforderlich.",
+  "evidence_grade_overall": {
+    "status": "A",
+    "variant": "success"
+  },
+  "cochrane_reviews_count": 3,
+  "meta_analyses_count": 12,
+  "rcts_count": 150,
+  "evidence_summary": "Atropin und Scopolamin sind gut untersuchte Wirkstoffe mit umfangreicher klinischer Evidenz. Die Anwendung der Gesamtdroge ist weitgehend durch isolierte Wirkstoffe ersetzt worden.",
+  "bioavailability_oral": {
+    "value": 50,
+    "max": 100,
+    "unit": "%"
+  },
+  "half_life_hours": 3,
+  "time_to_peak_hours": 1,
+  "metabolism_pathway": "CYP450-vermittelte Oxidation, partielle Ester-Hydrolyse",
+  "excretion_route": "renal",
+  "monitoring_recommended": true,
+  "monitoring_parameters": [
+    "Herzfrequenz",
+    "Blutdruck",
+    "Pupillenweite",
+    "Miktionsfrequenz",
+    "ZNS-Status"
+  ],
+  "source": {
+    "authors": "Blaschek, W., Ebel, S., Hackenthal, E., Holzgrabe, U., Keller, K., Reichling, J., Schulz, V.",
+    "year": 2016,
+    "title": "HagerROM 2016: Hagers Enzyklopaedie der Arzneistoffe und Drogen",
+    "journal": "Springer Medizin Verlag",
+    "doi": "ISBN 978-3-642-41495-4"
+  }
+}

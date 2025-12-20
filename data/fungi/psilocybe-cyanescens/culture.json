@@ -1,0 +1,373 @@
+{
+  "scientific": "Psilocybe cyanescens",
+  "ethnobiology": "Psilocybe cyanescens ist eine europaeische Art ohne historische indigene Nutzung. Seit ihrer Entdeckung 1946 und der Identifizierung ihrer psychoaktiven Eigenschaften in den 1960er Jahren hat sie erhebliche kulturelle Bedeutung in der modernen psychedelischen Bewegung erlangt. Die Art symbolisiert die Verbindung zwischen wissenschaftlicher Forschung und der Renaissance psychedelischer Therapien im 21. Jahrhundert.",
+  "cultural_significance": {
+    "status": "High",
+    "variant": "success"
+  },
+  "historical_importance": {
+    "rating": 7,
+    "max": 10
+  },
+  "symbolic_meaning": "Symbol der psychedelischen Renaissance, Verbindung zwischen Natur und Bewusstseinsforschung, Hoffnungstraeger fuer psychische Gesundheit",
+  "traditional_knowledge": "Als europaeische Art mit Erstbeschreibung 1946 existiert kein traditionelles indigenes Wissen zu P. cyanescens. Das Wissen um verwandte mesoamerikanische Psilocybe-Arten (P. mexicana, P. cubensis) reicht jedoch Jahrtausende zurueck.",
+  "indigenous_names": [
+    "Keine historischen indigenen Namen (europaeische Art)",
+    "Verwandte Arten: Teonanacatl (Nahuatl) - 'Goetterfleisch'"
+  ],
+  "indigenous_uses": [
+    "Keine dokumentierte indigene Nutzung von P. cyanescens",
+    "Verwandte Psilocybe-Arten: Spirituelle Zeremonien (Mesoamerika)",
+    "Heilrituale (Mazateken)",
+    "Divination und Orakel"
+  ],
+  "oral_traditions": [
+    "Moderne muendliche Ueberlieferung in psychedelischen Gemeinschaften",
+    "Erfahrungsberichte und 'Trip Reports'",
+    "Dosierungswissen und Set/Setting-Prinzipien"
+  ],
+  "folk_classifications": [
+    "Magic Mushrooms",
+    "Psilos",
+    "Cyans",
+    "Wavy Caps",
+    "Blue Meanies (gelegentlich, aber normalerweise P. cubensis var.)"
+  ],
+  "tk_community_source": "Keine traditionelle Gemeinschaft - moderne psychedelische Subkultur",
+  "tk_intellectual_property": {
+    "status": "Public Domain",
+    "variant": "info"
+  },
+  "tk_icnp_compliance": false,
+  "tk_oral_history_archived": true,
+  "tk_language_of_record": "Englisch/Deutsch",
+  "mythology": "Keine historische Mythologie zu P. cyanescens. Die Art wurde erst 1946 beschrieben. Moderne 'Mythologie' umfasst Narrative der psychedelischen Bewegung, Geschichten ueber Bewusstseinserweiterung und spirituelle Transformation.",
+  "religious_significance": "Verwendet in modernen neo-schamanischen und spirituellen Praktiken. Teil der Sakramente einiger synkretistischer Bewegungen. In einigen Laendern religioeser Gebrauch als Verteidigung vorgebracht.",
+  "sacred_uses": [
+    "Neo-schamanische Zeremonien",
+    "Spirituelle Retreats (legal in einigen Jurisdiktionen)",
+    "Bewusstseins-Exploration",
+    "Meditation und kontemplative Praktiken"
+  ],
+  "ritual_practices": [
+    "Zeremonielle Einnahme mit Intention",
+    "Set und Setting-Vorbereitung",
+    "Integrationsrituale",
+    "Gemeinschaftliche Erfahrungen"
+  ],
+  "spiritual_symbolism": "Transformation, Ego-Aufloesung, Einheit mit der Natur, mystische Erfahrung, Heilung",
+  "cosmological_role": "In modernen psychedelischen Weltanschauungen: Werkzeug zur Bewusstseinserweiterung und zum Verstaendnis der Verbundenheit allen Lebens",
+  "folklore": "Moderne urbane Folklore umfasst Geschichten ueber unerwartete Funde in Gaerten und Parks, legendaere Fundorte und die Verbreitung durch Holzmulch-Handel.",
+  "legends": [
+    "Legende der Ausbreitung durch Mulch-LKWs im Pazifischen Nordwesten",
+    "Geschichten ueber Kew Gardens als urspruengliche Quelle",
+    "Erzaehlungen ueber besonders potente Standorte"
+  ],
+  "superstitions": [
+    "Blaufaerbung zeigt Potenz an (wissenschaftlich nicht direkt korreliert)",
+    "Erster Frost bringt beste Fruchtung",
+    "Vollmond beeinflusst Wachstum (nicht belegt)"
+  ],
+  "folk_beliefs": [
+    "Naturverbindung durch Pilzerfahrung",
+    "Heilende Kraft der Pilze",
+    "Pilze als Lehrer und Fuehrer"
+  ],
+  "art_representations": [
+    "Psychedelische Kunst seit den 1960ern",
+    "Alex Grey - Visionary Art mit Pilz-Motiven",
+    "Album-Cover der psychedelischen Musikszene",
+    "Moderne digitale Kunst und NFTs"
+  ],
+  "literary_references": [
+    "Terence McKenna - Food of the Gods (1992)",
+    "Michael Pollan - How to Change Your Mind (2018)",
+    "Paul Stamets - Psilocybin Mushrooms of the World (1996)",
+    "Aldous Huxley - The Doors of Perception (allgemein Psychedelika)"
+  ],
+  "music_references": [
+    "Psychedelischer Rock (1960er-70er)",
+    "Psytrance und Goa (1990er-heute)",
+    "Ambient und Chill-Out Musik",
+    "Beatles - Lucy in the Sky with Diamonds (allgemein psychedelisch)"
+  ],
+  "film_references": [
+    "Fantastic Fungi (2019) - Dokumentarfilm",
+    "How to Change Your Mind (2022) - Netflix-Serie",
+    "Have a Good Trip (2020) - Netflix-Dokumentation",
+    "Magic Medicine (2018) - Dokumentarfilm"
+  ],
+  "etymology": "Psilocybe: Griechisch 'psilos' (kahl) + 'kybe' (Kopf) - bezieht sich auf den glatten, kahlen Hut. Cyanescens: Lateinisch 'blau werdend' - beschreibt die charakteristische Blaufaerbung bei Verletzung des Gewebes.",
+  "common_names": [
+    "Blauender Kahlkopf (Deutsch)",
+    "Wavy Cap (Englisch)",
+    "Potent Psilocybe (Englisch)",
+    "Cyanescens (informell)"
+  ],
+  "regional_names": {
+    "de": "Blauender Kahlkopf, Gewellter Kahlkopf",
+    "en": "Wavy Cap, Potent Psilocybe, Blue Halo",
+    "fr": "Psilocybe azure",
+    "es": "Psilocybe azulante",
+    "it": "Psilocibe ceruleo",
+    "ja": "シアネッセンス (Shianessensu)",
+    "zh": "蓝染光盖伞 (Lanran Guanggai San)"
+  },
+  "historical_names": [
+    "Geophila cyanescens (Kuehner & Romagn.) 1953"
+  ],
+  "linguistic_analysis": "Der Gattungsname Psilocybe kombiniert griechische Elemente fuer 'kahl' und 'Kopf'. Das Art-Epitheton cyanescens ist ein lateinisches Partizip Praesens, das einen fortlaufenden Prozess beschreibt - das 'Blau-Werden' bei Beruehrung.",
+  "name_origins": {
+    "scientific": "Griechisch psilos (kahl) + kybe (Kopf); Latein cyanescens (blau werdend)",
+    "common": "Wavy Cap bezieht sich auf den wellenfoermigen Hutrand",
+    "folk": "Blue Meanie, Magic Mushroom - informelle Bezeichnungen"
+  },
+  "traditional_food_uses": [
+    "Keine traditionelle Nahrungsnutzung dokumentiert"
+  ],
+  "traditional_medicine_uses": [
+    "Keine historische traditionelle Medizin (Art erst 1946 beschrieben)",
+    "Moderne Verwendung: Psychedelisch-assistierte Therapie",
+    "Microdosing fuer kognitive und emotionale Benefits"
+  ],
+  "ceremonial_uses": [
+    "Neo-schamanische Zeremonien",
+    "Moderne spirituelle Retreats",
+    "Therapeutische Sitzungen"
+  ],
+  "european_traditions": {
+    "celtic": "Keine historische Verbindung",
+    "germanic": "Keine historische Verbindung",
+    "slavic": "Keine historische Verbindung",
+    "mediterranean": "Keine historische Verbindung",
+    "nordic": "Keine historische Verbindung - Art erst 1946 beschrieben"
+  },
+  "american_traditions": {
+    "native_american": "Keine dokumentierte Verwendung von P. cyanescens",
+    "mesoamerican": "Verwandte Psilocybe-Arten: Teonanacatl-Tradition der Mazateken und Azteken",
+    "south_american": "Andere psilocybinhaltige Arten verwendet"
+  },
+  "historical_timeline": [
+    {"date": "1946", "event": "Wissenschaftliche Erstbeschreibung", "description": "Elsie Wakefield beschreibt P. cyanescens aus Kew Gardens, London"},
+    {"date": "1957", "event": "Life Magazine Artikel", "description": "R. Gordon Wasson veroeffentlicht 'Seeking the Magic Mushroom' - bringt Psilocybe in oeffentliches Bewusstsein"},
+    {"date": "1958", "event": "Psilocybin-Isolierung", "description": "Albert Hofmann isoliert und synthetisiert Psilocybin bei Sandoz"},
+    {"date": "1960er", "event": "Harvard Psilocybin Project", "description": "Timothy Leary und Richard Alpert erforschen Psilocybin-Effekte"},
+    {"date": "1970", "event": "Controlled Substances Act", "description": "Psilocybin wird Schedule I in den USA"},
+    {"date": "1996", "event": "Stamets Standardwerk", "description": "Psilocybin Mushrooms of the World veroeffentlicht"},
+    {"date": "2006", "event": "Johns Hopkins Studie", "description": "Erste moderne klinische Studie zu Psilocybin und mystischer Erfahrung"},
+    {"date": "2018", "event": "FDA Breakthrough Therapy", "description": "Psilocybin erhaelt Breakthrough Therapy Designation"},
+    {"date": "2020", "event": "Oregon Measure 109", "description": "Oregon legalisiert therapeutische Psilocybin-Anwendung"},
+    {"date": "2023", "event": "Australien Rescheduling", "description": "Australien erlaubt Psilocybin fuer behandlungsresistente Depression"}
+  ],
+  "ancient_uses": "Keine antike Verwendung dokumentiert - Art erst 1946 beschrieben. Verwandte Psilocybe-Arten wurden in Mesoamerika seit mindestens 3000 Jahren verwendet (Pilzsteine, Codices).",
+  "medieval_uses": "Keine mittelalterliche Verwendung bekannt",
+  "early_modern_uses": "Keine Verwendung vor der wissenschaftlichen Beschreibung 1946",
+  "modern_perception": "Transformiert von wissenschaftlicher Kuriosität (1946) ueber Gegenkultur-Symbol (1960er) zum vielversprechenden Therapeutikum (2020er). Zunehmende Akzeptanz durch klinische Forschung.",
+  "contemporary_revival": "Renaissance psychedelischer Therapie seit 2006. Wachsende Legalisierungsbewegung. Integration in Mainstream-Psychiatrie. Microdosing-Trend.",
+  "festivals": [
+    "Keine spezifischen P. cyanescens Festivals",
+    "Psychedelic Science Conference (MAPS)",
+    "Breaking Convention (UK)",
+    "Horizons Psychedelic Conference (NYC)",
+    "Spirit Plant Medicine Conference"
+  ],
+  "seasonal_celebrations": [
+    {"month": 1, "active": false},
+    {"month": 2, "active": false},
+    {"month": 3, "active": false},
+    {"month": 4, "active": false},
+    {"month": 5, "active": false},
+    {"month": 6, "active": false},
+    {"month": 7, "active": false},
+    {"month": 8, "active": false},
+    {"month": 9, "active": false},
+    {"month": 10, "active": true},
+    {"month": 11, "active": true},
+    {"month": 12, "active": false}
+  ],
+  "harvest_traditions": [
+    "Moderne Forager-Kultur im Herbst",
+    "Citizen Science Dokumentation (iNaturalist)",
+    "Respektvolle Erntepraktiken in psychedelischen Gemeinschaften"
+  ],
+  "cultural_events": [
+    "Psychedelic Science Conference",
+    "Fungi Fest",
+    "Mycelium Underground Events"
+  ],
+  "pop_culture_references": [
+    "Fantastic Fungi Documentary (2019)",
+    "How to Change Your Mind Book und Netflix-Serie",
+    "Joe Rogan Experience - haeufige Diskussion",
+    "Gwyneth Paltrows Goop - Psychedelic Content"
+  ],
+  "movies_featured_in": [
+    "Fantastic Fungi (2019)",
+    "Magic Medicine (2018)",
+    "Have a Good Trip (2020)",
+    "From Shock to Awe (2018)"
+  ],
+  "tv_series_featured_in": [
+    "How to Change Your Mind (Netflix 2022)",
+    "Hamilton's Pharmacopeia (Vice)",
+    "The Mind Explained (Netflix)"
+  ],
+  "books_featured_in": [
+    "Psilocybin Mushrooms of the World - Paul Stamets",
+    "How to Change Your Mind - Michael Pollan",
+    "The Psilocybin Mushroom Bible - Virginia Haze",
+    "Mycelium Running - Paul Stamets"
+  ],
+  "memes_and_internet_culture": [
+    "Mushroom Wojak Memes",
+    "Trip Report Communities (Reddit)",
+    "Shroomery Forum Culture",
+    "Ego Death Memes"
+  ],
+  "emoji_representation": "No dedicated emoji",
+  "instagram_hashtag_popularity": 250000,
+  "tiktok_trend_involvement": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "youtube_content_volume": 150000,
+  "pinterest_board_frequency": 50000,
+  "social_media_sentiment": {
+    "status": "Mostly positive",
+    "variant": "success"
+  },
+  "viral_moments": [
+    "Joe Rogan Psilocybin Discussions",
+    "Michael Pollan Book Release (2018)",
+    "Fantastic Fungi Premiere (2019)",
+    "Oregon Legalization (2020)"
+  ],
+  "influencer_mentions": [
+    "Paul Stamets",
+    "Michael Pollan",
+    "Tim Ferriss (Psychedelic Advocate)",
+    "Aubrey Marcus",
+    "Joe Rogan"
+  ],
+  "trending_keywords": [
+    "Psilocybin therapy",
+    "Magic mushrooms",
+    "Microdosing",
+    "Psychedelic renaissance",
+    "Mental health treatment"
+  ],
+  "art_historical_depictions": [
+    "Keine historischen Darstellungen (Art erst 1946 beschrieben)",
+    "Moderne psychedelische Kunst seit 1960er"
+  ],
+  "famous_artworks_featuring": [
+    "Alex Grey - Chapel of Sacred Mirrors (allgemein Pilze/Psychedelika)",
+    "Amanda Sage - Visionary Art",
+    "Android Jones - Digital Art"
+  ],
+  "artists_known_for_depicting": [
+    "Alex Grey",
+    "Amanda Sage",
+    "Robert Venosa",
+    "Android Jones",
+    "Luke Brown"
+  ],
+  "art_movement_associations": [
+    "Visionary Art",
+    "Psychedelic Art",
+    "Surrealism",
+    "Digital Art / NFT Art"
+  ],
+  "tattoo_popularity": {
+    "rating": 6,
+    "max": 10
+  },
+  "tattoo_meanings": [
+    "Spirituelle Transformation",
+    "Naturverbundenheit",
+    "Psychedelische Erfahrung",
+    "Heilung und Wachstum",
+    "Bewusstseinserweiterung"
+  ],
+  "idioms_featuring": [
+    "Magic mushrooms (allgemein fuer psilocybinhaltige Pilze)",
+    "Tripping (psychedelische Erfahrung)",
+    "Going down the rabbit hole"
+  ],
+  "metaphors_common": [
+    "Pilze als Lehrer",
+    "Die Reise (Trip)",
+    "Ego-Tod und Wiedergeburt",
+    "Oeffnung der Tueren der Wahrnehmung"
+  ],
+  "scientific_name_etymology": "Psilocybe: Griechisch psilos (kahl, nackt) + kybe (Kopf) = kahler Kopf. Cyanescens: Lateinisch = blau werdend, vom griechischen kyanos (blau)",
+  "common_name_origins": "Wavy Cap: Bezieht sich auf den charakteristisch wellenfoermigen Hutrand bei reifen Exemplaren",
+  "name_variations_by_region": {
+    "europe": "Blauender Kahlkopf, Psilocybe azure",
+    "asia": "No traditional names",
+    "americas": "Wavy Cap, Potent Psilocybe",
+    "africa": "No traditional names",
+    "oceania": "Blue Meanies (Neuseeland)"
+  },
+  "humorous_names": [
+    "Cyans",
+    "Wavies",
+    "Garden Gnomes",
+    "Mulch Monsters"
+  ],
+  "dedicated_festivals": [
+    "Keine spezifischen P. cyanescens Festivals"
+  ],
+  "festival_dates": [
+    {"month": 1, "active": false},
+    {"month": 2, "active": false},
+    {"month": 3, "active": false},
+    {"month": 4, "active": false},
+    {"month": 5, "active": true},
+    {"month": 6, "active": true},
+    {"month": 7, "active": false},
+    {"month": 8, "active": false},
+    {"month": 9, "active": true},
+    {"month": 10, "active": false},
+    {"month": 11, "active": false},
+    {"month": 12, "active": false}
+  ],
+  "competitive_events": [
+    "Keine bekannten Wettbewerbe"
+  ],
+  "awareness_days": [
+    "World Mushroom Day (October 15)",
+    "Bicycle Day (April 19 - allgemein Psychedelika)"
+  ],
+  "ecotourism_opportunities": [
+    "Pilzwanderungen im Pazifischen Nordwesten",
+    "Mykologie-Kurse in Grossbritannien",
+    "Wissenschaftliche Exkursionen"
+  ],
+  "educational_tours": [
+    "Kew Gardens Mykologie-Programme",
+    "Pacific Northwest Fungal Ecology Tours",
+    "University Mycology Field Courses"
+  ],
+  "museums_featuring": [
+    "Natural History Museum London (Sammlungen)",
+    "Royal Botanic Gardens Kew (Fungarium)",
+    "Burke Museum Seattle"
+  ],
+  "botanical_gardens_featuring": [
+    "Royal Botanic Gardens Kew (Typuslokalitaet)",
+    "Edinburgh Royal Botanic Garden",
+    "Various Pacific Northwest gardens"
+  ],
+  "economic_value_tourism": {
+    "value": 0,
+    "currency": "EUR"
+  },
+  "source": {
+    "authors": "Letcher, A.",
+    "year": 2006,
+    "title": "Shroom: A Cultural History of the Magic Mushroom",
+    "journal": "Faber and Faber",
+    "doi": "ISBN 978-0571227716"
+  }
+}

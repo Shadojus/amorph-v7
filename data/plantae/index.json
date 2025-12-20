@@ -1,0 +1,22 @@
+{
+  "kingdom": "plantae",
+  "name": "Plantae",
+  "icon": "🌿",
+  "count": 1,
+  "species": [
+    {
+      "slug": "deadly-nightshade",
+      "name": "Tollkirsche",
+      "scientific_name": "Atropa belladonna",
+      "perspectives": [
+        "chemistry",
+        "culture",
+        "ecology",
+        "geography",
+        "identification",
+        "medicine",
+        "safety"
+      ]
+    }
+  ]
+}

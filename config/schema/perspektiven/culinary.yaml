@@ -1,0 +1,1260 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: CULINARY
+# Professional interface for culinary data of biological species
+# Version: 1.0.0 | Universal for all edible biological species
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# TARGET AUDIENCE:
+# - Professional chefs & restaurateurs
+# - Food scientists
+# - Foragers & wild harvesters
+# - Ethnobotanists & food historians
+# - Fermentation experts
+# - Nutritionists & dietitians
+# - Food photographers & stylists
+#
+# DESIGN PHILOSOPHY:
+# Every field must answer a clear QUESTION that a professional would ask.
+# Data must be ACTIONABLE - not just informative.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: culinary
+name: Culinary
+symbol: 🍳
+
+# Warm orange-beige - distinct culinary pastels
+colors:
+  - "rgba(245, 180, 130, 0.75)"
+  - "rgba(240, 170, 120, 0.70)"
+  - "rgba(235, 160, 110, 0.65)"
+  - "rgba(230, 150, 100, 0.60)"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FIELDS - Ordered by professional workflow
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# A chef/forager asks in this order:
+# 1. What is it? (Identification)
+# 2. Can I eat it? (Safety)
+# 3. How does it taste/smell/feel? (Sensory)
+# 4. How do I prepare it? (Technique)
+# 5. What pairs with it? (Composition)
+# 6. How do I store it? (Logistics)
+# 7. What is the nutritional value? (Science)
+# 8. How is it traditionally used? (Culture)
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+fields:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SAFETY & SUITABILITY
+  # "Can I eat this? What should I consider?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - edibility_status          
+  - edibility_rating          
+  - edibility_requirements    
+  - edibility_warnings        
+  - edibility_risk_groups     
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SENSORY PROFILE
+  # "How does it taste/smell/feel?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - sensory                   
+  - taste_primary             
+  - taste_secondary           
+  - aroma_profile             
+  - texture_raw               
+  - texture_cooked            
+  - appearance                
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PREPARATION TECHNIQUES
+  # "How do I prepare it optimally?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - preparation_methods       
+  - preparation_temperatures  
+  - preparation_times         
+  - preparation_techniques    
+  - preparation_mistakes      
+  - prep_work                 
+
+# ─────────────────────────────────────────────────────────────────────────────
+  # FLAVOR PAIRING & KOMBINATIONEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - flavor_profile_primary               # Hauptgeschmacksprofil
+  - flavor_profile_secondary             # Sekundäre Geschmacksnoten
+  - aroma_compounds_key                  # Schlüssel-Aromastoffe
+  - pairs_well_with_proteins             # Gute Protein-Kombinationen
+  - pairs_well_with_vegetables           # Gute Gemüse-Kombinationen
+  - pairs_well_with_grains               # Gute Getreide-Kombinationen
+  - pairs_well_with_dairy                # Gute Milchprodukt-Kombinationen
+  - pairs_well_with_herbs                # Passende Kräuter
+  - pairs_well_with_spices               # Passende Gewürze
+  - wine_pairing                         # Weinempfehlungen
+  - beer_pairing                         # Bierempfehlungen
+  - flavor_bridges                       # Gemeinsame Aromastoffe mit anderen Zutaten
+  - avoid_combining_with                 # Schlechte Kombinationen
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SUBSTITUTIONEN & ALTERNATIVEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - substitute_for                       # Kann X ersetzen in Rezepten
+  - can_be_substituted_by                # Kann ersetzt werden durch
+  - substitution_ratio                   # Mengenverhältnis bei Ersatz
+  - substitution_notes                   # Hinweise zum Ersatz
+  - vegan_alternative_for                # Vegane Alternative für
+  - budget_alternative_for               # Günstigere Alternative für
+  - luxury_upgrade_for                   # Luxuriöse Alternative für
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # KOCHTECHNIKEN & TIMING
+  # ─────────────────────────────────────────────────────────────────────────────
+  - best_cooking_methods                 # Beste Zubereitungsarten (ranked)
+  - worst_cooking_methods                # Ungeeignete Zubereitungsarten
+  - cooking_time_raw                     # Kochzeit roh
+  - cooking_time_dried                   # Kochzeit getrocknet
+  - cooking_time_frozen                  # Kochzeit gefroren
+  - internal_temperature_target          # Ziel-Kerntemperatur
+  - texture_when_overcooked              # Textur bei Überkochen
+  - texture_when_undercooked             # Textur bei Unterkochen
+  - resting_time_recommended             # Empfohlene Ruhezeit
+  - reheating_instructions               # Aufwärm-Anleitung
+  - reheating_quality_loss               # Qualitätsverlust beim Aufwärmen
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # HALTBARKEIT NACH ZUBEREITUNGSART
+  # ─────────────────────────────────────────────────────────────────────────────
+  - shelf_life_fresh_room_temp           # Haltbarkeit frisch/Raumtemperatur
+  - shelf_life_fresh_refrigerated        # Haltbarkeit frisch/Kühlschrank
+  - shelf_life_cooked_refrigerated       # Haltbarkeit gekocht/Kühlschrank
+  - shelf_life_frozen                    # Haltbarkeit gefroren
+  - shelf_life_dried                     # Haltbarkeit getrocknet
+  - shelf_life_pickled                   # Haltbarkeit eingelegt
+  - shelf_life_canned                    # Haltbarkeit eingedost
+  - freezing_instructions                # Einfrier-Anleitung
+  - thawing_instructions                 # Auftau-Anleitung
+  - signs_of_spoilage                    # Verderbnis-Anzeichen
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # RESTAURANT & PROFI-KÜCHE
+  # ─────────────────────────────────────────────────────────────────────────────
+  - michelin_restaurant_usage            # Verwendung in Sterne-Restaurants
+  - signature_dishes_famous              # Berühmte Gerichte mit dieser Zutat
+  - trending_preparations                # Aktuelle Trend-Zubereitungen
+  - molecular_gastronomy_applications    # Molekularküche-Anwendungen
+  - professional_prep_tips               # Profi-Zubereitungstipps
+  - plate_presentation_ideas             # Anrichtevorschläge
+  - garnish_applications                 # Verwendung als Garnitur
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # EINKAUF & VERFÜGBARKEIT
+  # ─────────────────────────────────────────────────────────────────────────────
+  - peak_season_months                   # Hauptsaison (Monate)
+  - availability_year_round              # Ganzjährig verfügbar
+  - best_sources_fresh                   # Beste Bezugsquellen frisch
+  - best_sources_dried                   # Beste Bezugsquellen getrocknet
+  - price_category                       # budget/moderate/premium/luxury
+  - price_seasonality                    # Preisschwankungen nach Saison
+  - quality_indicators_buying            # Qualitätsmerkmale beim Kauf
+  - avoid_when_buying                    # Warnzeichen beim Kauf
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ALLERGENE & UNVERTRÄGLICHKEITEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - allergen_classification              # EU-Allergen-Kategorie
+  - cross_reactivity_allergens           # Kreuzallergien
+  - histamine_level                      # Histamin-Gehalt (low/medium/high)
+  - fodmap_category                      # FODMAP-Klassifikation
+  - oxalate_level                        # Oxalat-Gehalt
+  - purine_level                         # Purin-Gehalt (für Gicht)
+  - goitrogen_content                    # Goitrogen-Gehalt (Schilddrüse)
+  - tyramine_level                       # Tyramin-Gehalt (MAO-Hemmer)
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # ERNÄHRUNGSTRENDS & DIÄTEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - suitable_for_keto                    # Keto-geeignet
+  - suitable_for_paleo                   # Paleo-geeignet
+  - suitable_for_whole30                 # Whole30-geeignet
+  - suitable_for_mediterranean           # Mediterrane Diät
+  - suitable_for_dash                    # DASH-Diät
+  - suitable_for_fodmap_elimination      # FODMAP-Elimination
+  - insulin_index                        # Insulin-Index
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # COMPOSITION & PAIRINGS
+  # "What goes together? Why?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - pairings_classic          
+  - pairings_modern           
+  - pairings_beverages        
+  - pairings_science          
+  - synergies                 
+  - contrasts                 
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # STORAGE & SHELF LIFE
+  # "How do I preserve quality?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - storage_temperature       
+  - storage_humidity          
+  - storage_container         
+  - storage_shelf_life_days   
+  - storage_indicators        
+  - preservation              
+  - preservation_methods      
+  - preservation_quality      
+  - preservation_shelf_life   
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # NUTRITION - MACRONUTRIENTS
+  # "What am I consuming? (Macros)"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - nutrition                 
+  - energy_kcal               
+  - energy_kj                 
+  - protein                   
+  - protein_quality           
+  - fat                       
+  - fat_saturated             
+  - fat_monounsaturated       
+  - fat_polyunsaturated       
+  - omega_3                   
+  - omega_6                   
+  - carbohydrates             
+  - sugar                     
+  - fiber                     
+  - fiber_soluble             
+  - fiber_insoluble           
+  - water                     
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # NUTRITION - VITAMINS
+  # "Which vitamins are contained?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - vitamins                  
+  - vitamin_a                 
+  - beta_carotene             
+  - vitamin_b1                
+  - vitamin_b2                
+  - vitamin_b3                
+  - vitamin_b5                
+  - vitamin_b6                
+  - vitamin_b7                
+  - vitamin_b9                
+  - vitamin_b12               
+  - vitamin_c                 
+  - vitamin_d                 
+  - vitamin_d2                
+  - vitamin_e                 
+  - vitamin_k                 
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # NUTRITION - MINERALS
+  # "Which minerals are contained?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - minerals                  
+  - potassium                 
+  - sodium                    
+  - calcium                   
+  - magnesium                 
+  - phosphorus                
+  - iron                      
+  - zinc                      
+  - copper                    
+  - manganese                 
+  - selenium                  
+  - iodine                    
+  - chromium                  
+  - molybdenum                
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # NUTRITION - AMINO ACIDS
+  # "Which amino acids are contained?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - amino_acids               
+  - amino_acids_essential     
+  - leucine                   
+  - isoleucine                
+  - valine                    
+  - lysine                    
+  - methionine                
+  - phenylalanine             
+  - threonine                 
+  - tryptophan                
+  - histidine                 
+  - amino_acids_semi_essential
+  - arginine                  
+  - cysteine                  
+  - tyrosine                  
+  - glutamic_acid             
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # NUTRITION - BIOACTIVE SUBSTANCES
+  # "What makes it particularly valuable?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - bioactive_substances      
+  - beta_glucans              
+  - ergothioneine             
+  - ergosterol                
+  - chitin                    
+  - chitosan                  
+  - polyphenols               
+  - flavonoids                
+  - carotenoids               
+  - phytosterols              
+  - nutrition_highlights      
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # NUTRITION - INDICES & RATINGS
+  # "How do I evaluate the nutritional value?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - glycemic_index            
+  - glycemic_load             
+  - nutri_score               
+  - nutrient_density          
+  - satiety_index             
+  - bioavailability           
+  - antinutrients             
+  - interactions              
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CULTURAL CONTEXT
+  # "How is it used worldwide?"
+  # ─────────────────────────────────────────────────────────────────────────────
+  - traditions                
+  - seasonality               
+  - availability              
+  - sustainability            
+  - history    
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CROSS-KINGDOM EDIBILITY (Entomophagy, Seaweed, Wild Plants, etc.)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - edibility_kingdom_specific           # Kingdom-specific considerations
+  - edibility_novel_food_status          # EU Novel Food regulation status
+  - edibility_fda_gras                   # FDA GRAS status
+  - edibility_codex_standard             # Codex Alimentarius reference
+  
+  # Entomophagy (Insect consumption)
+  - entomophagy_suitable                 # Suitable for human consumption
+  - entomophagy_traditional_regions      # Regions with traditional use
+  - entomophagy_preparation_essential    # Required preparation steps
+  - entomophagy_allergen_warning         # Crustacean cross-reactivity
+  
+  # Marine/Aquatic
+  - seafood_sustainability_rating        # MSC/ASC certification status
+  - seafood_mercury_level                # Low/Medium/High
+  - seafood_omega3_content               # EPA+DHA mg/100g
+  - algae_edible_species                 # Edible algae classification
+  
+  # Wild plants
+  - wild_plant_lookalike_warning         # Dangerous lookalikes exist
+  - wild_plant_harvest_season            # Optimal foraging time
+  - wild_plant_part_edible               # Which parts are edible               
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENUMERATIONS - Controlled vocabularies
+# ═══════════════════════════════════════════════════════════════════════════════
+
+enumerations:
+  edibility_status:
+    - choice_edible
+    - edible
+    - edible_with_caution
+    - conditionally_edible
+    - not_recommended
+    - inedible
+    - toxic
+    - unknown
+
+  preparation_method:
+    - raw
+    - cooked
+    - fried
+    - grilled
+    - steamed
+    - dried
+    - pickled
+    - fermented
+    - smoked
+    - blanched
+
+  price_category:
+    - budget                  # Günstig (<5€/kg)
+    - moderate                # Mittelpreisig (5-20€/kg)
+    - premium                 # Gehoben (20-100€/kg)
+    - luxury                  # Luxus (>100€/kg)
+    - seasonal_variable       # Stark saisonabhängig
+    
+  fodmap_category:
+    - low_fodmap              # FODMAP-arm
+    - moderate_fodmap         # Mäßig FODMAP
+    - high_fodmap             # FODMAP-reich
+    - variable_by_portion     # Portionsabhängig
+    
+  cooking_method_suitability:
+    - excellent               # Hervorragend geeignet
+    - good                    # Gut geeignet
+    - acceptable              # Akzeptabel
+    - not_recommended         # Nicht empfohlen
+    - destroys_quality        # Zerstört Qualität
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ADDITIONAL FIELDS - Fermentation & Biotransformation
+# ═══════════════════════════════════════════════════════════════════════════════
+
+additional_fields:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FERMENTATION & BIOTRANSFORMATION
+  # ─────────────────────────────────────────────────────────────────────────────
+  - fermentation_suitable                # Fermentierbar (true/false)
+  - fermentation_traditional_methods     # Traditionelle Fermentationsmethoden
+  - fermented_products_traditional       # Traditionelle fermentierte Produkte
+  - fermented_products_modern            # Moderne fermentierte Produkte
+  - fermentation_microorganisms          # Fermentations-Mikroorganismen
+  - fermentation_time_range              # Fermentationsdauer
+  - fermentation_temperature_optimal     # Optimale Fermentationstemperatur
+  - fermentation_flavor_changes          # Geschmacksveränderungen
+  - fermentation_nutritional_changes     # Nährwertveränderungen
+  - fermentation_safety_considerations   # Sicherheitsaspekte
+  - fermentation_failure_signs           # Anzeichen misslungener Fermentation
+  - fermentation_equipment_needed        # Benötigte Ausrüstung
+  - fermentation_difficulty              # Schwierigkeitsgrad
+  - fermentation_starter_culture         # Starterkultur
+  - fermentation_recipes_famous          # Berühmte Fermentationsrezepte
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KEYWORDS - For semantic search (multilingual)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+keywords:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # EDIBILITY (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - edible
+  - poisonous
+  - toxic
+  - inedible
+  - conditionally edible
+  - raw edible
+  - delicacy
+  - choice
+  - gourmet
+  - premium
+  # German
+  - essbar
+  - giftig
+  - ungenießbar
+  - bedingt essbar
+  - roh essbar
+  - delikatesse
+  # French
+  - comestible
+  - toxique
+  - vénéneux
+  - délicatesse
+  # Spanish
+  - comestible
+  - venenoso
+  - tóxico
+  - delicadeza
+  # Italian
+  - commestibile
+  - velenoso
+  - tossico
+  - prelibatezza
+  # Japanese
+  - 食用
+  - 毒
+  - 食べられる
+  - 珍味
+  # Chinese
+  - 可食用
+  - 有毒
+  - 美味
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PREPARATION (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - cooking
+  - cook
+  - frying
+  - fry
+  - sautéing
+  - sauté
+  - grilling
+  - grill
+  - roasting
+  - roast
+  - braising
+  - braise
+  - steaming
+  - steam
+  - boiling
+  - boil
+  - blanching
+  - blanch
+  - drying
+  - dry
+  - dehydrating
+  - pickling
+  - pickle
+  - fermenting
+  - ferment
+  - raw
+  - sous vide
+  - smoking
+  - smoke
+  - canning
+  - preserving
+  - candying
+  # German
+  - kochen
+  - braten
+  - dünsten
+  - grillen
+  - schmoren
+  - trocknen
+  - einlegen
+  - fermentieren
+  - roh
+  - blanchieren
+  - räuchern
+  - einkochen
+  - kandieren
+  # French
+  - cuisson
+  - cuire
+  - frire
+  - griller
+  - rôtir
+  - braiser
+  - sécher
+  - mariner
+  - fermenter
+  - cru
+  - fumer
+  # Spanish
+  - cocinar
+  - freír
+  - asar
+  - hervir
+  - secar
+  - encurtir
+  - fermentar
+  - crudo
+  - ahumar
+  # Italian
+  - cucinare
+  - friggere
+  - grigliare
+  - arrostire
+  - brasare
+  - seccare
+  - marinare
+  - fermentare
+  - crudo
+  - affumicare
+  # Japanese
+  - 調理
+  - 料理
+  - 焼く
+  - 炒める
+  - 煮る
+  - 蒸す
+  - 乾燥
+  - 発酵
+  - 生
+  - 燻製
+  # Chinese
+  - 烹饪
+  - 煎
+  - 炸
+  - 烤
+  - 炖
+  - 蒸
+  - 干燥
+  - 发酵
+  - 生吃
+  - 熏制
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TASTE (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - taste
+  - flavor
+  - flavour
+  - savory
+  - savoury
+  - mild
+  - nutty
+  - umami
+  - bitter
+  - sweet
+  - sour
+  - salty
+  - earthy
+  - fruity
+  - peppery
+  - meaty
+  - smoky
+  - mineral
+  - delicate
+  - robust
+  - intense
+  # German
+  - geschmack
+  - würzig
+  - mild
+  - nussig
+  - bitter
+  - süß
+  - sauer
+  - erdig
+  - fruchtig
+  - pfeffrig
+  - fleischig
+  - rauchig
+  - mineralisch
+  # French
+  - goût
+  - saveur
+  - salé
+  - doux
+  - amer
+  - acide
+  - terreux
+  - fruité
+  - fumé
+  # Spanish
+  - sabor
+  - salado
+  - dulce
+  - amargo
+  - ácido
+  - terroso
+  - afrutado
+  - ahumado
+  # Italian
+  - sapore
+  - gusto
+  - salato
+  - dolce
+  - amaro
+  - acido
+  - terroso
+  - fruttato
+  - affumicato
+  # Japanese
+  - 味
+  - 旨味
+  - うま味
+  - 甘い
+  - 苦い
+  - 酸っぱい
+  - 塩辛い
+  - 香ばしい
+  # Chinese
+  - 味道
+  - 鲜味
+  - 甜
+  - 苦
+  - 酸
+  - 咸
+  - 香
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # TEXTURE (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - texture
+  - mouthfeel
+  - firm
+  - tender
+  - crisp
+  - crispy
+  - crunchy
+  - creamy
+  - fibrous
+  - spongy
+  - chewy
+  - al dente
+  - melting
+  - silky
+  - velvety
+  # German
+  - textur
+  - fest
+  - zart
+  - knackig
+  - cremig
+  - faserig
+  - schwammig
+  - knusprig
+  - bissfest
+  - schmelzend
+  # French
+  - texture
+  - ferme
+  - tendre
+  - croustillant
+  - crémeux
+  - fibreux
+  - spongieux
+  - fondant
+  # Spanish
+  - textura
+  - firme
+  - tierno
+  - crujiente
+  - cremoso
+  - fibroso
+  - esponjoso
+  # Italian
+  - consistenza
+  - sodo
+  - tenero
+  - croccante
+  - cremoso
+  - fibroso
+  - spugnoso
+  # Japanese
+  - 食感
+  - 歯ごたえ
+  - 柔らかい
+  - 硬い
+  - サクサク
+  - クリーミー
+  # Chinese
+  - 口感
+  - 质地
+  - 脆
+  - 软
+  - 嫩
+  - 滑
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # AROMA (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - aroma
+  - scent
+  - smell
+  - fragrance
+  - aromatic
+  - fragrant
+  - intense
+  - subtle
+  - delicate
+  - woodsy
+  - forest
+  - floral
+  # German
+  - duft
+  - geruch
+  - aromatisch
+  - intensiv
+  - dezent
+  - waldig
+  - blumig
+  # French
+  - arôme
+  - parfum
+  - odeur
+  - parfumé
+  - boisé
+  - floral
+  # Spanish
+  - aroma
+  - olor
+  - fragancia
+  - aromático
+  - boscoso
+  - floral
+  # Italian
+  - aroma
+  - profumo
+  - odore
+  - aromatico
+  - boscoso
+  - floreale
+  # Japanese
+  - 香り
+  - 匂い
+  - 芳香
+  # Chinese
+  - 香气
+  - 香味
+  - 芳香
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PAIRINGS (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - pairing
+  - pairs with
+  - goes with
+  - combine
+  - combination
+  - complement
+  - accompaniment
+  - harmony
+  - match
+  - wine pairing
+  # German
+  - passt zu
+  - kombinieren
+  - begleiter
+  - dazu
+  - harmonie
+  # French
+  - accord
+  - accompagnement
+  - association
+  - mariage
+  # Spanish
+  - maridaje
+  - combinación
+  - acompañamiento
+  # Italian
+  - abbinamento
+  - combinazione
+  - accompagnamento
+  # Japanese
+  - ペアリング
+  - 相性
+  - 組み合わせ
+  # Chinese
+  - 搭配
+  - 配对
+  - 组合
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # STORAGE (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - storage
+  - store
+  - shelf life
+  - preserve
+  - preservation
+  - freeze
+  - freezing
+  - refrigerate
+  - refrigeration
+  - dry
+  - drying
+  - dehydrate
+  - pickle
+  - can
+  - ferment
+  # German
+  - lagerung
+  - haltbarkeit
+  - konservieren
+  - einfrieren
+  - aufbewahren
+  - trocknen
+  - einlegen
+  - fermentieren
+  # French
+  - conservation
+  - conserver
+  - congeler
+  - réfrigérer
+  - sécher
+  # Spanish
+  - almacenamiento
+  - conservación
+  - congelar
+  - refrigerar
+  - secar
+  # Italian
+  - conservazione
+  - conservare
+  - congelare
+  - refrigerare
+  - essiccare
+  # Japanese
+  - 保存
+  - 貯蔵
+  - 冷凍
+  - 冷蔵
+  - 乾燥
+  # Chinese
+  - 储存
+  - 保存
+  - 冷冻
+  - 冷藏
+  - 干燥
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CULTURE (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - traditional
+  - regional
+  - seasonal
+  - local
+  - native
+  - indigenous
+  - wild harvested
+  - foraged
+  - cultivated
+  - farmed
+  # German
+  - traditionell
+  - regional
+  - saisonal
+  - heimisch
+  - wildsammlung
+  - zucht
+  # French
+  - traditionnel
+  - régional
+  - saisonnier
+  - local
+  - sauvage
+  - cultivé
+  # Spanish
+  - tradicional
+  - regional
+  - estacional
+  - local
+  - silvestre
+  - cultivado
+  # Italian
+  - tradizionale
+  - regionale
+  - stagionale
+  - locale
+  - selvatico
+  - coltivato
+  # Japanese
+  - 伝統的
+  - 地域
+  - 季節
+  - 野生
+  - 栽培
+  # Chinese
+  - 传统
+  - 地方
+  - 季节
+  - 野生
+  - 栽培
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # NUTRITION - MACRONUTRIENTS (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - nutrition
+  - nutritional value
+  - calories
+  - kcal
+  - energy
+  - protein
+  - fat
+  - carbohydrates
+  - carbs
+  - fiber
+  - fibre
+  - dietary fiber
+  - sugar
+  # German
+  - nährwert
+  - kalorien
+  - energie
+  - protein
+  - eiweiß
+  - fett
+  - kohlenhydrate
+  - ballaststoffe
+  - zucker
+  # French
+  - valeur nutritive
+  - calories
+  - énergie
+  - protéine
+  - lipides
+  - glucides
+  - fibres
+  - sucre
+  # Spanish
+  - valor nutricional
+  - calorías
+  - energía
+  - proteína
+  - grasa
+  - carbohidratos
+  - fibra
+  - azúcar
+  # Italian
+  - valore nutrizionale
+  - calorie
+  - energia
+  - proteine
+  - grassi
+  - carboidrati
+  - fibre
+  - zucchero
+  # Japanese
+  - 栄養
+  - 栄養価
+  - カロリー
+  - エネルギー
+  - タンパク質
+  - 脂質
+  - 炭水化物
+  - 食物繊維
+  - 糖質
+  # Chinese
+  - 营养
+  - 营养价值
+  - 卡路里
+  - 能量
+  - 蛋白质
+  - 脂肪
+  - 碳水化合物
+  - 膳食纤维
+  - 糖
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # NUTRITION - VITAMINS (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - vitamin
+  - vitamin d
+  - vitamin b
+  - vitamin c
+  - folic acid
+  - folate
+  - b12
+  - thiamin
+  - riboflavin
+  - niacin
+  # German
+  - folsäure
+  # French
+  - vitamine
+  - acide folique
+  # Spanish
+  - vitamina
+  - ácido fólico
+  # Italian
+  - vitamina
+  - acido folico
+  # Japanese
+  - ビタミン
+  - 葉酸
+  # Chinese
+  - 维生素
+  - 叶酸
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # NUTRITION - MINERALS (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - mineral
+  - minerals
+  - potassium
+  - iron
+  - zinc
+  - selenium
+  - magnesium
+  - calcium
+  - phosphorus
+  - copper
+  - sodium
+  # German
+  - mineralstoff
+  - mineralstoffe
+  - kalium
+  - eisen
+  - zink
+  - selen
+  - magnesium
+  - calcium
+  - phosphor
+  - kupfer
+  - natrium
+  # French
+  - minéral
+  - minéraux
+  - potassium
+  - fer
+  - zinc
+  - sélénium
+  # Spanish
+  - mineral
+  - minerales
+  - potasio
+  - hierro
+  - zinc
+  - selenio
+  # Italian
+  - minerale
+  - minerali
+  - potassio
+  - ferro
+  - zinco
+  - selenio
+  # Japanese
+  - ミネラル
+  - カリウム
+  - 鉄
+  - 亜鉛
+  - セレン
+  # Chinese
+  - 矿物质
+  - 钾
+  - 铁
+  - 锌
+  - 硒
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # NUTRITION - AMINO ACIDS (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - amino acid
+  - amino acids
+  - leucine
+  - lysine
+  - tryptophan
+  - essential
+  - protein quality
+  # German
+  - aminosäure
+  - aminosäuren
+  - leucin
+  - lysin
+  - tryptophan
+  - essentiell
+  - proteinqualität
+  # French
+  - acide aminé
+  - acides aminés
+  - leucine
+  - lysine
+  - tryptophane
+  - essentiel
+  # Spanish
+  - aminoácido
+  - aminoácidos
+  - leucina
+  - lisina
+  - triptófano
+  - esencial
+  # Italian
+  - aminoacido
+  - aminoacidi
+  - leucina
+  - lisina
+  - triptofano
+  - essenziale
+  # Japanese
+  - アミノ酸
+  - ロイシン
+  - リジン
+  - トリプトファン
+  - 必須
+  # Chinese
+  - 氨基酸
+  - 亮氨酸
+  - 赖氨酸
+  - 色氨酸
+  - 必需
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # NUTRITION - BIOACTIVE (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - beta glucan
+  - beta glucans
+  - ergothioneine
+  - antioxidant
+  - antioxidants
+  - polyphenol
+  - polyphenols
+  # German
+  - beta glucan
+  - beta glucane
+  - ergothionein
+  - antioxidans
+  - antioxidantien
+  - polyphenol
+  - polyphenole
+  # French
+  - bêta-glucane
+  - antioxydant
+  - antioxydants
+  - polyphénol
+  # Spanish
+  - beta glucano
+  - antioxidante
+  - antioxidantes
+  - polifenol
+  # Italian
+  - beta glucano
+  - antiossidante
+  - antiossidanti
+  - polifenolo
+  # Japanese
+  - ベータグルカン
+  - 抗酸化物質
+  - ポリフェノール
+  # Chinese
+  - β-葡聚糖
+  - 抗氧化剂
+  - 多酚
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # NUTRITION - RATINGS (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - glycemic
+  - glycemic index
+  - glycemic load
+  - nutri score
+  - nutrient density
+  - bioavailable
+  - bioavailability
+  - healthy
+  - nutritious
+  - nutrient-rich
+  # German
+  - glykämisch
+  - glykämischer index
+  - nutri score
+  - nährstoffdichte
+  - bioverfügbar
+  - gesund
+  - nahrhaft
+  - nährstoffreich
+  # French
+  - glycémique
+  - indice glycémique
+  - nutri-score
+  - densité nutritionnelle
+  - biodisponible
+  - sain
+  - nutritif
+  # Spanish
+  - glucémico
+  - índice glucémico
+  - nutri-score
+  - densidad nutricional
+  - biodisponible
+  - saludable
+  - nutritivo
+  # Italian
+  - glicemico
+  - indice glicemico
+  - nutri-score
+  - densità nutrizionale
+  - biodisponibile
+  - sano
+  - nutriente
+  # Japanese
+  - 血糖
+  - 血糖指数
+  - 栄養密度
+  - 健康
+  - 栄養豊富
+  # Chinese
+  - 血糖
+  - 血糖指数
+  - 营养密度
+  - 健康
+  - 营养丰富

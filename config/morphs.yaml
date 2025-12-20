@@ -1,0 +1,8 @@
+# Morph Configuration
+# DATA-DRIVEN: Morphs are detected from data structure!
+
+# This file loads the modular morph configuration system.
+# Main config: config/morphs/index.yaml
+# Primitives:  config/morphs/primitives/*.yaml
+
+source: morphs/index.yaml

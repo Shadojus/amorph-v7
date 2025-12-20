@@ -1,0 +1,197 @@
+{
+  "ethnobiology": "Die Tollkirsche hat eine jahrtausendealte Geschichte in der europaeischen Kultur. Sie war sowohl als toedliches Gift als auch als machtvolles Heilmittel und magische Pflanze bekannt. Ihr Name 'belladonna' verweist auf die Verwendung durch italienische Frauen zur Pupillenerweiterung.",
+  "cultural_significance": {
+    "status": "high",
+    "variant": "success"
+  },
+  "historical_importance": {
+    "rating": 10,
+    "max": 10
+  },
+  "symbolic_meaning": "Symbol fuer Schoenheit, Gefahr, Tod und dunkle Magie. Die Pflanze verkoepert den Dualismus von Heilung und Zerstoerung.",
+  "mythology": "In der griechischen Mythologie war Atropos eine der drei Moiren (Schicksalsgoettinnen). Sie schnitt den Lebensfaden ab - daher der Gattungsname 'Atropa'. Die Pflanze galt als Attribut der Hekate, Goettin der Magie und Unterwelt.",
+  "religious_significance": "In vorchristlicher Zeit als heilige Pflanze bei Opferkulten verwendet. Im Mittelalter mit Hexerei und dem Teufel assoziiert.",
+  "sacred_uses": [
+    "Orakeltraenke in der Antike",
+    "Rauchopfer in keltischen Ritualen",
+    "Bestandteil von Hexensalben"
+  ],
+  "ritual_practices": [
+    "Hexensabbat (legendaer)",
+    "Flugsalben-Herstellung",
+    "Divinationsrituale",
+    "Totenkulte"
+  ],
+  "spiritual_symbolism": "Verbindung zur Anderswelt, Grenzueberschreitung, Tod und Transformation",
+  "cosmological_role": "Verbindung zur Unterwelt und dem Reich der Toten",
+  "folklore": "Die Tollkirsche ist von unzaehligen Sagen und Geschichten umwoben. Sie galt als Pflanze der Hexen und Zaechuberer, die mit ihr flegen und sich in Tiere verwandeln konnten. Der Teufel selbst soll die Pflanze hueten.",
+  "legends": [
+    "Der Teufel huetet die Tollkirsche jede Nacht ausser in der Walpurgisnacht",
+    "Hexen rieben sich mit Tollkirschensalbe ein, um zum Sabbat zu fliegen",
+    "Wer Tollkirschen isst, wird vom Teufel geholt",
+    "Die Pflanze waechst dort, wo Hexen verbrannt wurden"
+  ],
+  "superstitions": [
+    "Das Ausgraben der Wurzel bringt Unglueck",
+    "Die Pflanze darf nie mit blossen Haenden beruehrt werden",
+    "Tollkirschen im Haus schuetzen vor boesen Geistern (oder locken sie an)",
+    "Wer die Pflanze bei Vollmond erntet, erhaelt die groesste Wirkung"
+  ],
+  "folk_beliefs": [
+    "Die Pflanze verraet sich durch naechtliches Leuchten",
+    "Hunde bellen nachts an Tollkirschenstaenden",
+    "Die Beere macht unsichtbar",
+    "Verwuenschte Weiber nehmen die Gestalt einer Tollkirsche an"
+  ],
+  "etymology": "Der Gattungsname 'Atropa' stammt von Atropos, der griechischen Schicksalsgoettin, die den Lebensfaden durchschneidet. 'Belladonna' bedeutet 'schoene Frau' (italienisch) und bezieht sich auf die kosmetische Verwendung zur Pupillenerweiterung. Der deutsche Name 'Tollkirsche' verweist auf die 'tolle' (wahnsinnige) Wirkung der Fruechte.",
+  "common_names": [
+    "Tollkirsche",
+    "Belladonna",
+    "Teufelskirsche",
+    "Wolfskirsche",
+    "Schlafkirsche",
+    "Waldnachtschatten",
+    "Schwindelkirsche",
+    "Irrbeere",
+    "Tollkraut"
+  ],
+  "regional_names": {
+    "de": "Tollkirsche",
+    "en": "Deadly Nightshade, Belladonna",
+    "fr": "Belladone",
+    "es": "Belladona",
+    "it": "Belladonna",
+    "ja": "",
+    "zh": ""
+  },
+  "historical_names": [
+    "Solanum mortale (Mittelalter)",
+    "Solanum furiosum",
+    "Solanum maniacum",
+    "Herba bella donna"
+  ],
+  "name_origins": {
+    "scientific": "Atropa von Atropos (Schicksalsgoettin); belladonna von ital. 'bella donna' (schoene Frau)",
+    "common": "Tollkirsche: 'toll' im Sinne von 'wahnsinnig, verrueckt' + Kirsche (Aehnlichkeit der Beeren)",
+    "folk": "Teufelskirsche, Wolfskirsche - Bezug zur dunklen, gefaehrlichen Natur"
+  },
+  "traditional_food_uses": [
+    "KEINE - Pflanze ist toedlich giftig"
+  ],
+  "traditional_medicine_uses": [
+    "Narkotikum bei Operationen (Antike)",
+    "Schmerzmittel",
+    "Augenmittel zur Pupillenerweiterung",
+    "Asthma-Zigaretten (19. Jahrhundert)",
+    "Parkinson-Behandlung (historisch)"
+  ],
+  "ceremonial_uses": [
+    "Bestandteil von 'Hexensalben' und 'Flugsalben'",
+    "Rauschmittel bei Initiationsriten",
+    "Orakeltraenke",
+    "Liebestraenke"
+  ],
+  "european_traditions": {
+    "celtic": "Verbindung zu Samhain und der Anderswelt",
+    "germanic": "Pflanze der Holda/Frau Holle, Bestandteil von Flugsalben",
+    "slavic": "Verwendet in Volksmedizin und Magie",
+    "mediterranean": "Kosmetische Verwendung, Giftmorde",
+    "nordic": "Weniger verbreitet aufgrund des Klimas"
+  },
+  "historical_timeline": [
+    {"date": "100 v.Chr.", "event": "Erste Erwaehnung", "description": "Dioskurides beschreibt die Pflanze in De Materia Medica"},
+    {"date": "1", "event": "Roemische Verwendung", "description": "Plinius der Aeltere warnt vor der Giftigkeit"},
+    {"date": "1000", "event": "Mittelalterliche Magie", "description": "Verwendung in Hexensalben dokumentiert"},
+    {"date": "1500", "event": "Kosmetische Mode", "description": "Italienische Frauen verwenden Extrakt zur Pupillenerweiterung"},
+    {"date": "1753", "event": "Wissenschaftliche Benennung", "description": "Linne beschreibt Atropa belladonna"},
+    {"date": "1831", "event": "Atropin isoliert", "description": "Mein isoliert das Hauptalkaloid Atropin"},
+    {"date": "1867", "event": "Strukturaufklaerung", "description": "Chemische Struktur des Atropins teilweise aufgeklaert"},
+    {"date": "1900", "event": "Pharmazeutische Nutzung", "description": "Standardmaessige Verwendung in der Augenheilkunde"},
+    {"date": "1950", "event": "Synthetische Alternativen", "description": "Entwicklung synthetischer Anticholinergika"}
+  ],
+  "ancient_uses": "Bereits in der Antike als Narkotikum und Gift bekannt. Dioskurides beschrieb die Pflanze ausfuehrlich. Verwendet fuer Narkose bei Operationen, aber auch als Mordgift.",
+  "medieval_uses": "Zentraler Bestandteil der 'Hexensalben' und 'Flugsalben'. In der Volksmedizin als Schmerzmittel. Beruechtigtes Mordgift. Verbindung mit Hexerei fuehrte zu zahlreichen Hinrichtungen.",
+  "early_modern_uses": "Wissenschaftliche Erforschung der Wirkstoffe. Kosmetische Verwendung durch Frauen der Oberschicht (Pupillenerweiterung galt als attraktiv). Beginn der pharmazeutischen Nutzung.",
+  "modern_perception": "Heute vor allem als hochgiftige Wildpflanze bekannt. Medizinische Bedeutung durch isolierte Wirkstoffe. Symbol fuer die dunkle Seite der Natur in Literatur und Film.",
+  "literary_references": [
+    "Shakespeare: Romeo und Julia (Schlaftrunk)",
+    "Keats: La Belle Dame sans Merci",
+    "Nathaniel Hawthorne: Rappaccini's Daughter",
+    "Agatha Christie: Detektivromane (Giftmorde)"
+  ],
+  "art_representations": [
+    "Mittelalterliche Kraeuterbuecher (Hortus sanitatis)",
+    "Botanische Illustrationen der Renaissance",
+    "Symbolistische Malerei des 19. Jahrhunderts"
+  ],
+  "pop_culture_references": [
+    "Harry Potter (Zaubertrank-Zutat)",
+    "The Witcher (Alchemie)",
+    "Skyrim und andere Videospiele (Gift-Zutat)",
+    "Gothic-Subkultur (Symbol)"
+  ],
+  "movies_featured_in": [
+    "Practical Magic (1998)",
+    "The Witch (2015)",
+    "Agatha Christie Verfilmungen"
+  ],
+  "books_featured_in": [
+    "Agatha Christie: A Caribbean Mystery",
+    "Umberto Eco: Der Name der Rose",
+    "Margaret Atwood: The Handmaid's Tale"
+  ],
+  "scientific_name_etymology": "Atropa: von griech. Atropos, einer der drei Moiren (Schicksalsgoettinnen), die den Lebensfaden durchschneidet - Verweis auf die toedliche Wirkung. Belladonna: ital. 'bella donna' = schoene Frau, da der Extrakt von Frauen zur Pupillenerweiterung verwendet wurde.",
+  "idioms_featuring": [
+    "Wie von der Tollkirsche berauscht (wahnsinnig handelnd)"
+  ],
+  "proverbs_featuring": [
+    "Die Tollkirsche schmeckt suess, aber ihr Ende ist bitter"
+  ],
+  "witchcraft_connection": {
+    "hexensalben": "Die Tollkirsche war Hauptbestandteil der legendaeren Hexensalben. Die Alkaloide werden ueber die Haut aufgenommen und verursachen Halluzinationen und Flugtraeume.",
+    "walpurgisnacht": "Besonders mit der Walpurgisnacht (30. April) verbunden, in der Hexen angeblich zum Blocksberg flogen.",
+    "familiar": "Galt als Pflanze des Teufels, der sie persoenlich huetet.",
+    "transformation": "Angeblich ermoeglichte sie die Verwandlung in Tiere."
+  },
+  "famous_poisoning_cases": [
+    "Agrippina die Juengere soll ihren Mann Kaiser Claudius mit Tollkirsche vergiftet haben (54 n.Chr.)",
+    "Vergiftung eines schottischen Heeres durch Duncan I. (1040)",
+    "Zahlreiche Giftmorde in der Renaissance, besonders in Italien",
+    "Dr. Hawley Harvey Crippen (1910) - Hyoscin-Mord an seiner Frau"
+  ],
+  "tattoo_popularity": {
+    "rating": 5,
+    "max": 10
+  },
+  "tattoo_meanings": [
+    "Gefahr und Schoenheit",
+    "Femme fatale",
+    "Naturverbundenheit mit dunkler Seite",
+    "Hexerei und Magie",
+    "Tod und Transformation"
+  ],
+  "ecotourism_opportunities": [
+    "Botanische Wanderungen in den Alpen",
+    "Kraeuterfuehrungen in Botanischen Gaerten",
+    "Giftpflanzen-Exkursionen"
+  ],
+  "botanical_gardens_featuring": [
+    "Botanischer Garten Berlin",
+    "Botanischer Garten Muenchen",
+    "Chelsea Physic Garden London",
+    "Jardin des Plantes Paris",
+    "Giftgarten Alnwick Castle"
+  ],
+  "museums_featuring": [
+    "Deutsches Apothekenmuseum Heidelberg",
+    "Pharmaziehistorisches Museum Basel",
+    "Museum of Witchcraft and Magic, Cornwall"
+  ],
+  "source": {
+    "authors": "Marzell, H.",
+    "year": 2000,
+    "title": "Woerterbuch der deutschen Pflanzennamen",
+    "journal": "S. Hirzel Verlag, Reprint",
+    "doi": "ISBN 978-3-7776-0901-3"
+  }
+}

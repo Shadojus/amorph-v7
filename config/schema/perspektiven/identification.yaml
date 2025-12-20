@@ -1,0 +1,1491 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: IDENTIFICATION
+# Universal interface for biological species identification
+# Version: 3.0.0 | Universal for all biological kingdoms
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# COMPLETE IDENTIFICATION SYSTEM
+# Covers all levels of species identification across all kingdoms:
+# - Species identification & taxonomy
+# - Macroscopic features (eye, magnifier)
+# - Microscopic features (light microscope, SEM)
+# - Chemical reactions (spot tests)
+# - Molecular data (DNA barcoding)
+# - Ecological context
+# - Confusion partners
+# - Identification aids & keys
+# - Media & documentation
+# - Collection data
+#
+# UNIVERSAL DESIGN:
+# All fields are kingdom-agnostic. The data determines which fields are relevant.
+# Morphological structures use universal terminology that maps to any organism.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: identification
+name: Identification
+symbol: 🔍
+
+# Teal-green - distinct analysis pastels (no blue)
+colors:
+  - "rgba(100, 190, 180, 0.75)"
+  - "rgba(90, 180, 170, 0.70)"
+  - "rgba(80, 170, 160, 0.65)"
+  - "rgba(70, 160, 150, 0.60)"   
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FIELDS - Ordered by identification workflow
+# ═══════════════════════════════════════════════════════════════════════════════
+
+fields:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 1. SPECIES IDENTIFICATION
+  # Basic taxonomic classification - Universal for all life
+  # ─────────────────────────────────────────────────────────────────────────────
+  - scientific_name
+  - author_citation
+  - accepted_name
+  - basionym
+  - protonym
+
+  # Taxonomy hierarchy - Universal ranks
+  - taxonomy_domain
+  - taxonomy_kingdom
+  - taxonomy_phylum
+  - taxonomy_class
+  - taxonomy_order
+  - taxonomy_family
+  - taxonomy_genus
+  - taxonomy_species
+  - taxonomy_subspecies
+  - taxonomy_variety
+  - taxonomy_form
+  - taxonomy_cultivar
+  - taxonomy_strain
+  - taxonomy_ecotype
+  - taxonomy_morph
+
+  # Synonyms & alternative names
+  - synonyms
+  - nomenclatural_synonyms
+  - taxonomic_synonyms
+  - homonyms
+  - common_names
+  - international_names
+  - vernacular_names
+  - trade_names
+
+  # External references - Multi-kingdom databases
+  - gbif_key
+  - inaturalist_taxon_id
+  - bold_taxon_id
+  - ncbi_taxid
+  - wikidata_id
+  - eol_id
+  - itis_tsn
+  - col_id
+  - tropicos_id
+  - ipni_id
+  - zoobank_id
+  - mycobank_id
+  - index_fungorum_id
+  - species_fungorum_id
+  - algaebase_id
+  - fishbase_id
+  - amphibiaweb_id
+  - avibase_id
+  - mammal_diversity_db_id
+  - world_flora_online_id
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # DNA BARCODING - Kingdom-specific markers (BOLD/UNITE/GenBank standard)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - barcode_marker_primary              # COI/ITS/rbcL/16S depending on kingdom
+  - barcode_marker_secondary            # Additional markers
+  - barcode_sequence_length_bp          # Sequence length in base pairs
+  - barcode_bin_uri                     # BOLD BIN or UNITE SH identifier
+  - barcode_genbank_accession           # GenBank/ENA/DDBJ accession
+  - barcode_bold_process_id             # BOLD specimen process ID
+  - barcode_unite_sh                    # UNITE Species Hypothesis (Fungi)
+  - barcode_primers_forward             # Forward primer used
+  - barcode_primers_reverse             # Reverse primer used
+  - barcode_quality_score               # Sequence quality (HQ/MQ/LQ)
+  
+  # Kingdom-conditional markers
+  - barcode_coi                         # Animalia: COI (~650bp Folmer region)
+  - barcode_16s_rrna                    # Animalia/Bacteria: 16S rRNA
+  - barcode_12s_rrna                    # Animalia: 12S rRNA
+  - barcode_its                         # Fungi: ITS region
+  - barcode_its1                        # Fungi: ITS1 subregion
+  - barcode_its2                        # Fungi/Plantae: ITS2 subregion
+  - barcode_lsu                         # Fungi: Large subunit (28S)
+  - barcode_rpb1                        # Fungi: RNA polymerase B1
+  - barcode_rpb2                        # Fungi: RNA polymerase B2
+  - barcode_tef1                        # Fungi: Translation elongation factor
+  - barcode_rbcl                        # Plantae: RuBisCO large subunit
+  - barcode_matk                        # Plantae: Maturase K
+  - barcode_trnl_trnf                   # Plantae: trnL-trnF intergenic spacer
+  - barcode_18s_rrna                    # Protista: 18S rRNA (V4 region)
+  - barcode_cpn60                       # Bacteria: Chaperonin-60
+
+  # Taxonomic status
+  - taxonomy_status
+  - uncertainty_level
+  - revision_status
+  - type_status
+  - nomenclatural_code
+
+# ─────────────────────────────────────────────────────────────────────────────
+  # PRAKTISCHE SCHNELLBESTIMMUNG
+  # ─────────────────────────────────────────────────────────────────────────────
+  - quick_id_checklist                   # 3-5 Schlüsselmerkmale für Schnellcheck
+  - identification_difficulty            # beginner/intermediate/expert/specialist
+  - time_to_identify_minutes             # Geschätzte Zeit für sichere Bestimmung
+  - minimum_equipment_needed             # Lupe/Mikroskop/Chemikalien/keine
+  - field_identifiable                   # Im Feld bestimmbar ohne Labor (true/false)
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # VERWECHSLUNGSGEFAHREN-MATRIX
+  # ─────────────────────────────────────────────────────────────────────────────
+  - confusion_species_list               # Liste ähnlicher Arten
+  - confusion_risk_level                 # none/low/medium/high/critical
+  - confusion_consequences               # harmless/unpleasant/dangerous/lethal
+  - key_differentiating_features         # Entscheidende Unterscheidungsmerkmale
+  - confusion_comparison_table           # Strukturierter Vergleich
+  - lookalike_photo_comparison_url       # Link zu Vergleichsfotos
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SAISONALE BESTIMMUNGSMERKMALE
+  # ─────────────────────────────────────────────────────────────────────────────
+  - appearance_by_season                 # Wie sieht es in welcher Jahreszeit aus
+  - spring_identification_notes          # Frühlings-spezifische Merkmale
+  - summer_identification_notes          # Sommer-spezifische Merkmale
+  - autumn_identification_notes          # Herbst-spezifische Merkmale
+  - winter_identification_notes          # Winter-spezifische Merkmale
+  - age_stage_variations                 # Veränderungen mit Alter/Entwicklung
+  - weather_dependent_appearance         # Wie Wetter Erscheinung beeinflusst
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # CHEMISCHE SCHNELLTESTS (Feldtests)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - chemical_spot_tests                  # KOH, FeSO4, Melzer's etc.
+  - koh_reaction                         # Reaktion auf Kaliumhydroxid
+  - feso4_reaction                       # Reaktion auf Eisensulfat
+  - ammonia_reaction                     # Reaktion auf Ammoniak
+  - bruising_color_change                # Verfärbung bei Druck/Verletzung
+  - cut_surface_color_change             # Verfärbung beim Anschneiden
+  - latex_color                          # Milchsaft-Farbe (falls vorhanden)
+  - spore_print_color                    # Sporenabdruck-Farbe
+  - fluorescence_uv                      # Fluoreszenz unter UV-Licht
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SENSORISCHE SCHNELLMERKMALE
+  # ─────────────────────────────────────────────────────────────────────────────
+  - smell_description                    # Geruchsbeschreibung für Laien
+  - smell_comparable_to                  # "Riecht wie..." (bekannte Vergleiche)
+  - taste_safe_to_test                   # Geschmackstest sicher? (true/false)
+  - taste_description                    # Falls sicher: Geschmacksbeschreibung
+  - texture_touch_description            # Haptische Beschreibung
+  - sound_when_handled                   # Geräusch (knackig, quietschend, etc.)
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # KI/APP-UNTERSTÜTZUNG
+  # ─────────────────────────────────────────────────────────────────────────────
+  - ai_identification_reliability        # Wie gut erkennen Apps diese Art
+  - inaturalist_cv_accuracy              # iNaturalist Computer Vision Genauigkeit
+  - common_ai_misidentifications         # Häufige KI-Fehlbestimmungen
+  - photo_angle_recommendations          # Beste Fotowinkel für KI
+  - minimum_photos_for_id                # Mindestanzahl Fotos für sichere ID
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # MIKROSKOPIE-LEITFADEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - microscopy_required                  # Mikroskopie nötig für sichere ID
+  - microscopy_key_features              # Wichtigste mikroskopische Merkmale
+  - recommended_magnification            # Empfohlene Vergrößerung
+  - staining_recommendations             # Empfohlene Färbemethoden
+  - spore_measurement_diagnostic         # Diagnostische Sporenmaße
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 2. MACROSCOPIC FEATURES
+  # What is visible to the naked eye or magnifier?
+  # Universal morphological terminology
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  # Habit & overall impression - Universal
+  - habit
+  - growth_form
+  - body_plan
+  - symmetry
+  - size_min_cm
+  - size_max_cm
+  - size_typical_cm
+  - basic_shape
+  - silhouette
+  - life_stages
+  - age_stages
+  - sexual_dimorphism
+  - polymorphism
+
+  # Overall dimensions
+  - length_min
+  - length_max
+  - width_min
+  - width_max
+  - height_min
+  - height_max
+  - diameter_min
+  - diameter_max
+  - mass_min_g
+  - mass_max_g
+
+  # Surface & texture - Universal
+  - surface_type
+  - surface_detail
+  - surface_pattern
+  - hairiness
+  - pubescence
+  - scaling
+  - pruinosity
+  - waxiness
+  - structural_elements
+  - ornamentation
+  - sculpture
+
+  # Color (comprehensive) - Universal
+  - color_primary
+  - color_secondary
+  - color_pattern
+  - color_fresh
+  - color_mature
+  - color_old
+  - color_wet
+  - color_dry
+  - color_injury
+  - color_zones
+  - color_distribution
+  - color_variance_description
+  - color_sexual_dimorphism
+  - munsell_codes
+  - rgb_hex_values
+  - ral_codes
+  - pantone_codes
+
+  # Consistency & haptics - Universal
+  - consistency_fresh
+  - consistency_mature
+  - consistency_old
+  - break_behavior
+  - elasticity
+  - toughness
+  - brittleness
+  - flexibility
+  - moisture_content
+  - texture_tactile
+
+  # Smell & taste - Universal
+  - smell_fresh
+  - smell_mature
+  - smell_old
+  - smell_crushed
+  - smell_dried
+  - smell_intensity
+  - smell_description
+  - taste
+  - taste_warning
+  - aftertaste
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PRIMARY STRUCTURE
+  # Main body part of the organism
+  # ─────────────────────────────────────────────────────────────────────────────
+  - primary_structure_present
+  - primary_structure_type
+  - primary_structure_diameter_min
+  - primary_structure_diameter_max
+  - primary_structure_length_min
+  - primary_structure_length_max
+  - primary_structure_shape_young
+  - primary_structure_shape_mature
+  - primary_structure_shape_old
+  - primary_structure_margin
+  - primary_structure_apex
+  - primary_structure_base
+  - primary_structure_surface
+  - primary_structure_color
+  - primary_structure_pattern
+  - primary_structure_texture
+  - primary_structure_appendages
+  - primary_structure_special_features
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SUPPORT STRUCTURE
+  # Supporting/connecting part of the organism
+  # ─────────────────────────────────────────────────────────────────────────────
+  - support_structure_present
+  - support_structure_type
+  - support_structure_length_min
+  - support_structure_length_max
+  - support_structure_thickness_min
+  - support_structure_thickness_max
+  - support_structure_shape
+  - support_structure_base
+  - support_structure_apex
+  - support_structure_surface
+  - support_structure_color
+  - support_structure_consistency
+  - support_structure_hollowness
+  - support_structure_pattern
+  - support_structure_branching
+  - support_structure_nodes
+  - support_structure_internodes
+
+# ─────────────────────────────────────────────────────────────────────────────
+  # BESTÄUBUNG (für Landwirtschaft & Naturschutz)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - pollination_syndrome                 # Bestäubungssyndrom
+  - primary_pollinators                  # Hauptbestäuber
+  - secondary_pollinators                # Sekundäre Bestäuber
+  - pollinator_specificity               # Bestäuber-Spezifität
+  - pollinator_dependence_percent        # Bestäuber-Abhängigkeit %
+  - selfing_rate                         # Selbstbestäubungsrate
+  - pollen_reward_quality                # Pollenbelohnungs-Qualität
+  - nectar_production_rate               # Nektarproduktionsrate
+  - nectar_sugar_concentration           # Nektar-Zuckerkonzentration
+  - nectar_volume_per_flower             # Nektarvolumen pro Blüte
+  - flowering_overlap_with_crops         # Blühüberlappung mit Kulturpflanzen
+  - pollinator_forage_value              # Futterwert für Bestäuber
+  - pollinator_habitat_provisioning      # Bestäuber-Habitatbereitstellung
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # BIOLOGISCHE SCHÄDLINGSBEKÄMPFUNG
+  # ─────────────────────────────────────────────────────────────────────────────
+  - biocontrol_agent_for                 # Biologischer Bekämpfungsagent für
+  - biocontrol_target_pests              # Ziel-Schädlinge
+  - biocontrol_efficacy                  # Bekämpfungs-Effizienz
+  - biocontrol_mechanism                 # Wirkmechanismus
+  - biocontrol_commercial_availability   # Kommerzielle Verfügbarkeit
+  - biocontrol_application_method        # Anwendungsmethode
+  - biocontrol_release_rate              # Ausbringungsrate
+  - biocontrol_establishment_success     # Etablierungserfolg
+  - biocontrol_non_target_effects        # Nicht-Ziel-Effekte
+  - pest_of_crops                        # Schädling von Kulturen
+  - pest_damage_type                     # Schadenstyp
+  - pest_economic_threshold              # Wirtschaftliche Schwelle
+  - natural_enemies                      # Natürliche Feinde
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # KRANKHEITSÜBERTRAGUNG & VEKTOREN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - disease_vector                       # Krankheitsüberträger
+  - diseases_transmitted                 # Übertragene Krankheiten
+  - pathogen_reservoir                   # Pathogen-Reservoir
+  - zoonotic_potential                   # Zoonotisches Potential
+  - transmission_mechanism               # Übertragungsmechanismus
+  - vector_competence                    # Vektor-Kompetenz
+  - amplifying_host                      # Amplifikations-Wirt
+  - dead_end_host                        # Sackgassen-Wirt
+  - host_specificity                     # Wirts-Spezifität
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # SYMBIOSEN & MUTUALISMEN
+  # ─────────────────────────────────────────────────────────────────────────────
+  - mutualism_type                       # Mutualismus-Typ
+  - mutualism_partners                   # Mutualismus-Partner
+  - mutualism_obligate                   # Obligater Mutualismus
+  - mutualism_benefits_received          # Erhaltene Vorteile
+  - mutualism_benefits_provided          # Bereitgestellte Vorteile
+  - mutualism_breakdown_consequences     # Konsequenzen bei Zusammenbruch
+  - commensalism_partners                # Kommensalismus-Partner
+  - parasitism_hosts                     # Parasitismus-Wirte
+  - parasitism_effects                   # Parasitismus-Effekte
+  - parasitism_prevalence                # Parasitismus-Prävalenz
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # NAHRUNGSNETZE
+  # ─────────────────────────────────────────────────────────────────────────────
+  - trophic_level                        # Trophische Ebene
+  - diet_composition                     # Nahrungszusammensetzung
+  - diet_breadth                         # Nahrungsspektrum
+  - prey_species                         # Beutearten
+  - prey_preference                      # Beutepräferenz
+  - predator_species                     # Räuberarten
+  - predation_pressure                   # Prädationsdruck
+  - anti_predator_adaptations            # Anti-Räuber-Anpassungen
+  - food_web_position                    # Position im Nahrungsnetz
+  - energy_transfer_efficiency           # Energietransfer-Effizienz
+  
+  # ─────────────────────────────────────────────────────────────────────────────
+  # FERTILE/REPRODUCTIVE SURFACE
+  # Structures involved in reproduction
+  # ─────────────────────────────────────────────────────────────────────────────
+  - fertile_surface_type
+  - fertile_surface_arrangement
+  - fertile_surface_attachment
+  - fertile_surface_density
+  - fertile_surface_color
+  - fertile_surface_discoloration
+  - fertile_surface_edge
+  - fertile_surface_shape
+  - fertile_surface_size
+  - fertile_surface_branching
+
+  # Lamellate structures
+  - lamellae_present
+  - lamellae_attachment
+  - lamellae_density
+  - lamellae_width
+  - lamellae_color
+  - lamellae_discoloration
+  - lamellae_edge
+  - lamellae_forking
+  - lamellae_crossveins
+  - lamellulae_present
+
+  # Tubular/porous structures
+  - tubes_present
+  - tubes_length
+  - tubes_color
+  - tubes_discoloration
+  - pores_shape
+  - pores_size
+  - pores_color
+  - pores_discoloration
+
+  # Spiny/tooth-like structures
+  - spines_present
+  - spines_length
+  - spines_density
+  - spines_color
+  - spines_attachment
+
+  # Smooth surface structures
+  - hymenium_smooth
+  - hymenium_wrinkled
+  - hymenium_veined
+  - hymenium_ridged
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # PROTECTIVE STRUCTURES
+  # Coverings, sheaths, shells, scales
+  # ─────────────────────────────────────────────────────────────────────────────
+  - protective_structure_present
+  - protective_structure_type
+  - partial_covering
+  - partial_covering_remnants
+  - universal_covering
+  - universal_covering_remnants
+  - ring_present
+  - ring_position
+  - ring_shape
+  - ring_consistency
+  - ring_mobility
+  - basal_structure_present
+  - basal_structure_type
+  - basal_structure_shape
+  - basal_structure_color
+  - surface_remnants
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # INTERNAL TISSUE
+  # Inner structures and context
+  # ─────────────────────────────────────────────────────────────────────────────
+  - tissue_color
+  - tissue_discoloration
+  - tissue_consistency
+  - tissue_thickness
+  - tissue_structure
+  - tissue_break_pattern
+  - tissue_fibers
+  - tissue_layers
+  - exudate_present
+  - exudate_type
+  - exudate_color
+  - exudate_discoloration
+  - exudate_taste
+  - exudate_consistency
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # APPENDAGES & SPECIALIZED ORGANS
+  # Universal structures across kingdoms
+  # ─────────────────────────────────────────────────────────────────────────────
+  - appendages_type
+  - appendages_count
+  - appendages_arrangement
+  - appendages_shape
+  - appendages_size
+  - appendages_color
+  - appendages_function
+
+  # Locomotor organs
+  - locomotor_organs_type
+  - locomotor_organs_count
+  - locomotor_organs_shape
+
+  # Sensory organs
+  - sensory_organs_type
+  - sensory_organs_position
+
+  # Photosynthetic organs
+  - photosynthetic_organs_present
+  - photosynthetic_organs_type
+  - photosynthetic_organs_arrangement
+  - photosynthetic_organs_shape
+  - photosynthetic_organs_margin
+  - photosynthetic_organs_venation
+  - photosynthetic_organs_surface
+  - photosynthetic_organs_color
+
+  # Root/anchoring structures
+  - anchoring_structure_type
+  - anchoring_structure_depth
+  - anchoring_structure_spread
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # REPRODUCTIVE STRUCTURES
+  # Universal: spores, seeds, eggs, gametes
+  # ─────────────────────────────────────────────────────────────────────────────
+  - reproductive_mode
+  - reproductive_structure_type
+  - reproductive_structure_color
+  - reproductive_structure_shape
+  - reproductive_structure_size
+  - reproductive_structure_ornamentation
+  - reproductive_structure_dispersal
+
+  # Propagule characteristics (spores/seeds/eggs)
+  - propagule_shape
+  - propagule_length_min
+  - propagule_length_max
+  - propagule_width_min
+  - propagule_width_max
+  - propagule_color
+  - propagule_wall_thickness
+  - propagule_ornamentation
+  - propagule_ornamentation_detail
+  - propagule_surface
+  - propagule_appendages
+  - propagule_germination_structures
+  - propagule_oil_content
+  - propagule_storage_compounds
+
+  # Propagule print/deposit
+  - propagule_deposit_color
+  - propagule_deposit_amount
+  - propagule_deposit_method
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 3. MICROSCOPIC FEATURES
+  # What is visible under the microscope?
+  # Universal cellular and subcellular structures
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  # Cell characteristics - Universal
+  - cell_type
+  - cell_shape
+  - cell_size_min
+  - cell_size_max
+  - cell_wall_present
+  - cell_wall_thickness
+  - cell_wall_composition
+  - cell_wall_layers
+  - cell_membrane_features
+  - cell_content
+  - cell_inclusions
+  - cell_pigmentation
+
+  # Reproductive cells - Universal
+  - reproductive_cell_shape
+  - reproductive_cell_length_min
+  - reproductive_cell_length_max
+  - reproductive_cell_width_min
+  - reproductive_cell_width_max
+  - reproductive_cell_ratio
+  - reproductive_cell_ornamentation
+  - reproductive_cell_color
+  - reproductive_cell_wall
+  - reproductive_cell_apertures
+  - reproductive_cell_appendages
+  - reproductive_cell_content
+  - reproductive_cell_3d_shape
+
+  # Spore-producing structures
+  - sporangium_type
+  - sporangium_shape
+  - sporangium_size
+  - sporangium_count
+  - sporangium_wall
+  - sporangium_dehiscence
+  - sporangium_stalk
+
+  # Gamete-producing structures
+  - gametangium_type
+  - gametangium_shape
+  - gametangium_size
+  - gametangium_position
+
+  # Sterile cells and structures
+  - sterile_cells_present
+  - sterile_cells_type
+  - sterile_cells_shape
+  - sterile_cells_size
+  - sterile_cells_position
+  - sterile_cells_content
+  - sterile_cells_wall
+  - sterile_cells_apex
+
+  # Filamentous structures
+  - filaments_present
+  - filaments_type
+  - filaments_diameter
+  - filaments_septation
+  - filaments_branching
+  - filaments_pigmentation
+  - filaments_wall
+  - filaments_clamp_connections
+  - filaments_content
+
+  # Tissue organization
+  - tissue_type_micro
+  - tissue_arrangement
+  - tissue_differentiation
+  - surface_layer_type
+  - surface_layer_structure
+  - surface_layer_pigment
+
+  # Crystals & mineral deposits
+  - crystals_present
+  - crystals_type
+  - crystals_shape
+  - crystals_location
+  - crystals_composition
+
+  # Pigments
+  - pigment_type
+  - pigment_location
+  - pigment_solubility
+  - pigment_color_microscopic
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 4. CHEMICAL REACTIONS
+  # How does it react to chemicals?
+  # Universal reagent tests
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  # Alkaline reactions
+  - koh_reaction
+  - koh_tissue
+  - koh_surface
+  - naoh_reaction
+  - ammonia_reaction
+
+  # Iodine reactions
+  - iodine_reaction
+  - lugol_reaction
+  - melzer_reaction
+  - melzer_tissue
+  - melzer_reproductive_cells
+
+  # Iron reactions
+  - feso4_reaction
+  - feso4_tissue
+  - fecl3_reaction
+
+  # Other standard reactions
+  - guaiac_reaction
+  - phenol_reaction
+  - sulfo_vanillin_reaction
+  - cresyl_blue_reaction
+  - congo_red_reaction
+  - phloxin_reaction
+  - cotton_blue_reaction
+  - safranin_reaction
+  - toluidine_blue_reaction
+
+  # Acid reactions
+  - hcl_reaction
+  - h2so4_reaction
+  - nitric_acid_reaction
+
+  # UV fluorescence
+  - uv_365nm_reaction
+  - uv_254nm_reaction
+  - uv_description
+  - uv_fluorescent_compounds
+
+  # Specialized tests
+  - alpha_naphthol_reaction
+  - schiff_reaction
+  - sudan_reaction
+  - biuret_reaction
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 5. MOLECULAR DATA
+  # What does the DNA/RNA say?
+  # Universal genetic markers across all kingdoms
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  # KINGDOM-SPECIFIC PRIMARY BARCODES (BOLD/UNITE/GenBank standards)
+  # Fungi: ITS (Internal Transcribed Spacer) - UNITE database
+  - its_region                           # ITS1-5.8S-ITS2 sequence
+  - its_accession                        # GenBank/UNITE accession
+  - its_length                           # Sequence length bp
+  - its_quality                          # Sequence quality score
+  - unite_sh                             # UNITE Species Hypothesis code
+  - unite_doi                            # UNITE DOI reference
+  
+  # Fungi secondary markers
+  - lsu_sequence                         # Large Subunit (28S) D1-D2
+  - lsu_accession
+  - ssu_sequence                         # Small Subunit (18S)
+  - ssu_accession
+
+  # Animalia: COI (Cytochrome Oxidase I) - BOLD Systems
+  - coi_sequence                         # COI Folmer region (~650bp)
+  - coi_accession                        # BOLD/GenBank accession
+  - bold_bin                             # Barcode Index Number
+  - bold_uri                             # BOLD URI identifier
+  - bold_similarity                      # % match to reference
+  
+  # Animalia secondary markers
+  - cytb_sequence                        # Cytochrome b
+  - cytb_accession
+  - 16s_sequence                         # 16S rRNA (mitochondrial)
+  - 16s_accession
+  - 12s_sequence                         # 12S rRNA
+  - 12s_accession
+
+  # Plantae: rbcL + matK (chloroplast) - BOLD/GenBank
+  - rbcl_sequence                        # RuBisCO large subunit
+  - rbcl_accession
+  - matk_sequence                        # Maturase K
+  - matk_accession
+  - trnl_sequence                        # trnL-trnF intergenic
+  - trnl_accession
+  - its2_sequence                        # Plant ITS2 barcode
+  - its2_accession
+
+  # Bacteria/Archaea: 16S rRNA (~1.5kb) - RDP/SILVA
+  - 16s_rrna_sequence                    # Full 16S rRNA gene
+  - 16s_rrna_accession
+  - 16s_v_region                         # Variable region sequenced (V3-V4, etc.)
+  - rpob_sequence                        # RNA polymerase B
+  - cpn60_sequence                       # Chaperonin-60
+
+  # Protista: 18S rRNA V4 region
+  - 18s_sequence                         # 18S rRNA gene
+  - 18s_accession
+  - 28s_sequence                         # 28S rRNA D1-D2
+  - 28s_accession
+
+  # Protein-coding markers (Fungi-specific)
+  - rpb1_sequence                        # RNA polymerase II subunit 1
+  - rpb2_sequence                        # RNA polymerase II subunit 2
+  - tef1_sequence                        # Translation elongation factor 1-α
+  - tub2_sequence                        # β-tubulin
+  - act1_sequence                        # Actin
+  - gapdh_sequence                       # Glyceraldehyde-3-phosphate dehydrogenase
+  - his3_sequence                        # Histone H3
+  - cmd_sequence                         # Calmodulin
+
+  # Universal database references
+  - genbank_accession                    # NCBI GenBank
+  - ena_accession                        # European Nucleotide Archive
+  - ddbj_accession                       # DNA Data Bank of Japan
+  - ncbi_bioproject                      # NCBI BioProject ID
+  - ncbi_biosample                       # NCBI BioSample ID
+
+  # Phylogenetic position
+  - phylogeny_clade
+  - phylogeny_position
+  - phylogeny_support
+  - closest_relatives
+  - genetic_distance
+  - molecular_clock_age
+
+  # Genome data
+  - genome_size_mb
+  - chromosome_count
+  - ploidy_level
+  - gc_content
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 6. ECOLOGICAL CONTEXT
+  # Where and how does it live?
+  # Universal ecological parameters
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  # Nutrition/Trophic mode
+  - nutrition_type
+  - nutrition_type_detail
+  - trophic_level
+  - trophic_position
+  - feeding_strategy
+  - diet_type
+  - diet_specialization
+
+  # Habitat
+  - habitat_type
+  - habitat_detail
+  - biotope
+  - microhabitat
+  - vegetation_type
+  - soil_type
+  - soil_moisture
+  - light_conditions
+  - water_body_type
+
+  # Substrate/Host
+  - substrate_category
+  - substrate_species
+  - substrate_specificity
+  - substrate_condition
+  - host_species
+  - host_specificity
+  - host_tissue
+  - decomposition_stage
+
+  # Symbioses - Universal
+  - symbiosis_type
+  - symbiosis_partner
+  - symbiosis_specificity
+  - symbiosis_obligate
+  - mutualism_type
+  - parasitism_type
+  - commensalism_type
+
+  # Associated species
+  - associated_species
+  - indicator_species
+  - co_occurring_species
+  - predators
+  - prey
+  - competitors
+
+  # Site factors
+  - altitude_zone
+  - altitude_min
+  - altitude_max
+  - climate_zone
+  - precipitation_range
+  - temperature_range
+  - continentality
+
+  # Phenology
+  - season_start
+  - season_end
+  - season_peak
+  - activity_trigger
+  - diurnal_pattern
+  - annual_pattern
+  - perennial
+  - lifespan
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 7. CONFUSION & DIFFERENTIATION
+  # What can it be confused with?
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  - confusion_species          
+  - most_dangerous_confusion
+  - confusion_consequence
+  - differentiation_table
+  - critical_features
+  - reliable_features
+  - unreliable_features
+  - species_complex
+  - cryptic_species_complex
+  - identification_confidence_level
+  - minimum_features_needed
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 8. IDENTIFICATION AIDS
+  # How do I get to the species?
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  # Diagnostic features
+  - primary_diagnostic_features
+  - secondary_diagnostic_features
+  - field_features
+  - lab_features
+  - beginner_features
+  - expert_features
+  - minimal_feature_combination
+  - seasonal_variation
+  - geographic_variation
+
+  # Identification keys
+  - key_entry
+  - key_path
+  - key_position
+  - alternative_routes
+  - dichotomous_key_position
+  - multi_access_key_traits
+
+  # Literature
+  - identification_literature
+  - monographs
+  - field_guides
+  - online_keys
+  - video_guides
+  - apps
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 9. MEDIA & DOCUMENTATION
+  # Visual references
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  # Primary image
+  - primary_image
+  - primary_image_description
+  - primary_image_typical
+
+  # Image gallery
+  - image_gallery
+  - images_habit
+  - images_detail
+  - images_cross_section
+  - images_habitat
+
+  # Life stages
+  - image_juvenile
+  - image_adult
+  - image_mature
+  - image_senescent
+  - development_series
+
+  # Microscopy images
+  - image_cells
+  - image_reproductive_structures
+  - image_surface_structure
+  - image_cross_section_micro
+  - image_tissue
+  - microscopy_scale_bar
+
+  # 3D & interactive
+  - view_360
+  - model_3d
+  - model_format
+  - model_textured
+  - ct_scan
+
+  # AI features
+  - visual_signature
+  - embedding_vector
+  - recognition_confidence
+  - similar_images
+
+  # Audio (for organisms with vocalizations)
+  - audio_recording
+  - vocalization_type
+  - spectrogram
+
+  # ─────────────────────────────────────────────────────────────────────────────
+  # 10. COLLECTION DATA
+  # Documentation of individual specimens
+  # ─────────────────────────────────────────────────────────────────────────────
+
+  # Identification
+  - identification_status
+  - identified_by
+  - identification_method
+  - identification_confidence
+  - revision_history
+
+  # Location
+  - collection_latitude
+  - collection_longitude
+  - collection_accuracy_m
+  - collection_elevation_m
+  - collection_depth_m
+  - collection_country
+  - collection_region
+  - collection_place
+  - collection_locality
+  - collection_habitat_description
+
+  # Date
+  - collection_date
+  - collection_time
+  - collection_weather
+  - collection_temperature
+
+  # Collector & collection
+  - collector
+  - collection_number
+  - collection_institution
+  - voucher_id
+  - voucher_condition
+  - preservation_method
+
+  # Site details
+  - exposure
+  - inclination
+  - accompanying_species
+  - microclimate
+  - disturbance
+
+  # Documentation
+  - specimen_documented
+  - preserved_specimen
+  - culture_established
+  - tissue_sample
+  - dna_extracted
+  - sequence_available
+  - field_notes
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENUMERATIONS
+# Controlled vocabularies for important fields - Universal
+# ═══════════════════════════════════════════════════════════════════════════════
+
+enumerations:
+
+  barcode_marker_type:
+    - COI                # Animalia standard
+    - 16S_rRNA           # Bacteria/Archaea standard
+    - 12S_rRNA           # Vertebrate supplement
+    - ITS                # Fungi primary
+    - ITS1               # Fungi subregion
+    - ITS2               # Fungi/Plantae
+    - LSU                # Fungi secondary
+    - RPB1               # Fungi phylogenetic
+    - RPB2               # Fungi phylogenetic
+    - TEF1               # Fungi phylogenetic
+    - rbcL               # Plantae primary
+    - matK               # Plantae primary
+    - trnL_trnF          # Plantae secondary
+    - 18S_rRNA           # Protista/Eukaryote
+    - cpn60              # Bacteria alternative
+    - multiple           # Combined approach
+
+  # Taxonomic domain
+  taxonomy_domain:
+    - Bacteria
+    - Archaea
+    - Eukarya
+
+  # Taxonomic kingdom
+  taxonomy_kingdom:
+    - Animalia
+    - Plantae
+    - Fungi
+    - Protista
+    - Chromista
+    - Bacteria
+    - Archaea
+
+  # Nomenclatural codes
+  nomenclatural_code:
+    - ICN
+    - ICZN
+    - ICNP
+    - ICVCN
+
+  # Taxonomic status
+  taxonomy_status:
+    - accepted
+    - synonym
+    - uncertain
+    - provisional
+    - invalid
+    - illegitimate
+    - nomen_dubium
+    - nomen_nudum
+
+  # Type status
+  type_status:
+    - holotype
+    - isotype
+    - lectotype
+    - neotype
+    - epitype
+    - paratype
+    - syntype
+    - topotype
+    - no_type
+
+  # Body symmetry
+  symmetry:
+    - bilateral
+    - radial
+    - biradial
+    - spherical
+    - asymmetrical
+
+  # Growth form - Universal
+  growth_form:
+    - erect
+    - prostrate
+    - climbing
+    - floating
+    - sessile
+    - motile
+    - colonial
+    - solitary
+    - encrusting
+    - pendant
+    - rosette
+    - cushion
+    - mat
+    - filamentous
+    - branched
+    - unbranched
+
+  # Habit - Universal
+  habit:
+    - terrestrial
+    - aquatic
+    - marine
+    - freshwater
+    - epiphytic
+    - epilithic
+    - endophytic
+    - parasitic
+    - free_living
+    - arborescent
+    - shrubby
+    - herbaceous
+    - succulent
+    - gelatinous
+    - leathery
+    - woody
+    - fleshy
+    - membranous
+    - filamentous
+    - crustose
+    - foliose
+    - fruticose
+
+  # Nutrition type - Universal
+  nutrition_type:
+    - autotrophic
+    - heterotrophic
+    - mixotrophic
+    - photosynthetic
+    - chemosynthetic
+    - saprotrophic
+    - parasitic
+    - predatory
+    - filter_feeding
+    - deposit_feeding
+    - grazing
+    - browsing
+    - scavenging
+    - symbiotic
+
+  # Symbiosis type
+  symbiosis_type:
+    - mutualism
+    - commensalism
+    - parasitism
+    - amensalism
+    - competition
+    - predation
+    - herbivory
+
+  # Substrate category - Universal
+  substrate_category:
+    - soil
+    - rock
+    - sand
+    - mud
+    - water
+    - air
+    - living_organism
+    - dead_organism
+    - dung
+    - decaying_matter
+    - artificial
+
+  # Reproductive mode
+  reproductive_mode:
+    - sexual
+    - asexual
+    - vegetative
+    - parthenogenetic
+    - hermaphroditic
+    - dioecious
+    - monoecious
+    - alternation_of_generations
+
+  # Identification confidence
+  identification_confidence:
+    - certain
+    - very_likely
+    - likely
+    - uncertain
+    - cf      
+    - aff     
+    - sp      
+    - s_l     
+    - s_str   
+    - agg     
+
+  # Identification method
+  identification_method:
+    - morphological
+    - microscopic
+    - chemical
+    - molecular
+    - acoustic
+    - behavioral
+    - ecological
+    - expert
+    - ai_supported
+    - combined
+
+  # Preservation method
+  preservation_method:
+    - dried
+    - frozen
+    - ethanol
+    - formalin
+    - silica_gel
+    - herbarium_sheet
+    - liquid_nitrogen
+    - living_culture
+    - pinned
+    - mounted
+    - sectioned
+
+identification_difficulty:
+    - beginner                # Mit Grundwissen bestimmbar
+    - intermediate            # Erfahrung nötig
+    - advanced                # Umfangreiche Erfahrung nötig
+    - expert                  # Spezialistenkenntnis nötig
+    - specialist_only         # Nur mit Spezialliteratur/Labor
+    - molecular_required      # Nur molekular unterscheidbar
+    
+confusion_risk_level:
+    - none                    # Keine Verwechslungsgefahr
+    - low                     # Kaum Verwechslungsgefahr
+    - moderate                # Mäßige Verwechslungsgefahr
+    - high                    # Hohe Verwechslungsgefahr
+    - critical                # Kritisch - tödliche Doppelgänger
+    
+minimum_equipment:
+    - none                    # Keine Ausrüstung nötig
+    - hand_lens               # Lupe (10x) hilfreich
+    - hand_lens_required      # Lupe zwingend nötig
+    - microscope_helpful      # Mikroskop hilfreich
+    - microscope_required     # Mikroskop zwingend
+    - chemical_tests          # Chemische Tests nötig
+    - molecular_analysis      # DNA-Analyse nötig
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KEYWORDS - For semantic search (multilingual)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+keywords:
+  # ─────────────────────────────────────────────────────────────────────────────
+  # IDENTIFICATION (EN/DE/FR/ES/IT/JP/ZH)
+  # ─────────────────────────────────────────────────────────────────────────────
+  - identification
+  - determination
+  - recognition
+  - species
+  - taxonomy
+  - systematics
+  - classification
+  - nomenclature
+  - scientific name
+  - genus
+  - family
+  - order
+  - class
+  - phylum
+  - kingdom
+  - domain
+  - synonym
+  - morphology
+  - anatomy
+  - structure
+  - appearance
+  - shape
+  - color
+  - size
+  - habit
+  - feature
+  - characteristic
+  - surface
+  - texture
+  - smell
+  - taste
+  - microscope
+  - cell
+  - tissue
+  - organ
+  - reproduction
+  - propagule
+  - spore
+  - seed
+  - egg
+  - gamete
+  - genetics
+  - dna
+  - barcoding
+  - sequence
+  - molecular
+  - phylogeny
+  - evolution
+  - ecology
+  - habitat
+  - substrate
+  - host
+  - symbiosis
+  - distribution
+  - confusion
+  - similar
+  - difference
+  - key
+  - diagnosis
+  - specimen
+  - collection
+  - voucher
+
+  # German
+  - identification
+  - identifikation
+  - erkennung
+  - art
+  - taxonomie
+  - systematik
+  - klassifikation
+  - nomenklatur
+  - wissenschaftlicher name
+  - gattung
+  - familie
+  - ordnung
+  - klasse
+  - stamm
+  - reich
+  - domäne
+  - synonym
+  - morphologie
+  - anatomie
+  - struktur
+  - aussehen
+  - form
+  - farbe
+  - größe
+  - habitus
+  - merkmal
+  - oberfläche
+  - textur
+  - geruch
+  - geschmack
+  - mikroskop
+  - zelle
+  - gewebe
+  - organ
+  - fortpflanzung
+  - spore
+  - samen
+  - ei
+  - genetik
+  - dns
+  - sequenz
+  - molekular
+  - phylogenie
+  - evolution
+  - ökologie
+  - lebensraum
+  - substrat
+  - wirt
+  - symbiose
+  - verbreitung
+  - verwechslung
+  - ähnlich
+  - unterschied
+  - schlüssel
+  - diagnose
+  - beleg
+  - sammlung
+
+  # French
+  - identification
+  - détermination
+  - espèce
+  - taxonomie
+  - classification
+  - nomenclature
+  - morphologie
+  - anatomie
+  - structure
+  - apparence
+  - forme
+  - couleur
+  - taille
+  - caractéristique
+  - microscopie
+  - cellule
+  - tissu
+  - organe
+  - reproduction
+  - spore
+  - graine
+  - œuf
+  - génétique
+  - adn
+  - séquence
+  - moléculaire
+  - phylogénie
+  - évolution
+  - écologie
+  - habitat
+  - substrat
+  - hôte
+  - symbiose
+  - distribution
+  - confusion
+  - similaire
+  - différence
+  - clé
+  - diagnostic
+  - spécimen
+  - collection
+
+  # Spanish
+  - identificación
+  - determinación
+  - especie
+  - taxonomía
+  - clasificación
+  - nomenclatura
+  - morfología
+  - anatomía
+  - estructura
+  - apariencia
+  - forma
+  - color
+  - tamaño
+  - característica
+  - microscopía
+  - célula
+  - tejido
+  - órgano
+  - reproducción
+  - espora
+  - semilla
+  - huevo
+  - genética
+  - adn
+  - secuencia
+  - molecular
+  - filogenia
+  - evolución
+  - ecología
+  - hábitat
+  - sustrato
+  - huésped
+  - simbiosis
+  - distribución
+  - confusión
+  - similar
+  - diferencia
+  - clave
+  - diagnóstico
+  - espécimen
+  - colección

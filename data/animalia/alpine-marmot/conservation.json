@@ -1,0 +1,205 @@
+{
+  "conservation_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "iucn_status": {
+    "status": "Least Concern",
+    "variant": "success"
+  },
+  "iucn_criteria_met": [],
+  "assessment_date": "2016-05-01",
+  "iucn_assessment_authority": "IUCN SSC Small Mammal Specialist Group",
+  "iucn_generation_length_years": 5,
+  "trend": {
+    "status": "stable",
+    "variant": "success"
+  },
+  "population_estimate": {
+    "total": 100000,
+    "count": 100000,
+    "min": 80000,
+    "max": 150000,
+    "avg": 100000
+  },
+  "national_status": {
+    "country": "Multi-country",
+    "status": "Protected in most range states",
+    "legislation": "Bern Convention Appendix III, EU Habitats Directive Annex V"
+  },
+  "regional_status": {
+    "region": "Alps",
+    "status": "Stable",
+    "authority": "Alpine Convention"
+  },
+  "protected_status": true,
+  "cites_listing": {
+    "status": "not_listed",
+    "variant": "neutral"
+  },
+  "legal_protection": [
+    "Bern Convention Appendix III",
+    "EU Habitats Directive Annex V",
+    "Nationale Jagdgesetze",
+    "Naturschutzgesetze der Alpenlaender"
+  ],
+  "national_legislation": [
+    "Oesterreich: Jagdbare Art mit Schonzeiten",
+    "Schweiz: Geschuetzt, lokale Jagd erlaubt",
+    "Deutschland: Streng geschuetzt (BNatSchG)",
+    "Italien: Jagdbar mit Regulierung",
+    "Frankreich: Jagdbar mit Saisons"
+  ],
+  "international_agreements": [
+    "Bern Convention (1979)",
+    "EU Habitats Directive (1992)",
+    "Alpine Convention (1991)"
+  ],
+  "threats": [
+    {"label": "Klimawandel", "value": 70},
+    {"label": "Habitatverlust", "value": 40},
+    {"label": "Tourismus", "value": 35},
+    {"label": "Krankheiten", "value": 30},
+    {"label": "Jagd (lokal)", "value": 20}
+  ],
+  "threat_severity": {
+    "value": 35,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 33, "color": "rgba(100, 220, 140, 0.2)"},
+      {"min": 33, "max": 66, "color": "rgba(255, 200, 100, 0.2)"},
+      {"min": 66, "max": 100, "color": "rgba(240, 80, 80, 0.2)"}
+    ]
+  },
+  "climate_change_impact": [
+    {
+      "level": "medium",
+      "typ": "Climate Change",
+      "beschreibung": "Verschiebung des Lebensraums in hoehere Lagen durch steigende Temperaturen. Verringerung geeigneter Habitate auf Gipfeln."
+    }
+  ],
+  "habitat_loss": [
+    {
+      "level": "low",
+      "typ": "Habitat Loss",
+      "beschreibung": "Auflassung traditioneller Almwirtschaft fuehrt zu Verbuschung. Skigebietsausbau in manchen Regionen."
+    }
+  ],
+  "disease_pressure": [
+    {
+      "level": "medium",
+      "typ": "Disease",
+      "beschreibung": "Empfaenglichkeit fuer verschiedene Parasiten und Krankheiten. Klimawandel koennte neue Pathogene bringen."
+    }
+  ],
+  "overexploitation": [
+    {
+      "level": "low",
+      "typ": "Overexploitation",
+      "beschreibung": "Historisch stark bejagt, heute regulierte Jagd in einigen Laendern."
+    }
+  ],
+  "threat_severity_scores": [
+    {"axis": "Klimawandel", "value": 70},
+    {"axis": "Habitatverlust", "value": 40},
+    {"axis": "Tourismus", "value": 35},
+    {"axis": "Krankheiten", "value": 30},
+    {"axis": "Bejagung", "value": 20}
+  ],
+  "habitat_requirements": [
+    "Offene alpine Matten oberhalb der Baumgrenze",
+    "Tiefgruendiger Boden fuer Baue",
+    "Ausreichend Nahrungspflanzen",
+    "Suedexponierte Haenge",
+    "Schneebedeckung im Winter"
+  ],
+  "critical_habitat": "Alpine Graslaender zwischen 1500-2500m Hoehe",
+  "habitat_quality": {
+    "rating": 7,
+    "max": 10
+  },
+  "conservation_actions": [
+    "Schutzgebietsmanagement",
+    "Monitoring von Populationen",
+    "Erhaltung traditioneller Almwirtschaft",
+    "Klimawandel-Anpassungsstrategien",
+    "Oekologische Korridore zwischen Populationen"
+  ],
+  "monitoring_programs": [
+    "Nationalpark-Monitoring Programme",
+    "Jagdstatistik-Erhebungen",
+    "Citizen Science (iNaturalist)",
+    "Wissenschaftliche Langzeitstudien"
+  ],
+  "research_priorities": [
+    "Klimawandel-Auswirkungen",
+    "Populationsgenetik und Konnektivitaet",
+    "Krankheitsrisiken",
+    "Anpassungsfaehigkeit"
+  ],
+  "ecosystem_role": "Das Alpenmurmeltier ist ein wichtiger Oekosystem-Ingenieur, der durch seine Grabtaetigkeit den Boden belueftet und durchmischt. Als Beutetier fuer Steinadler und andere Praedatoren spielt es eine wichtige Rolle in der alpinen Nahrungskette.",
+  "ecological_importance": [
+    {"axis": "Bodendurchlueftung", "value": 85},
+    {"axis": "Naehrstoffkreislauf", "value": 70},
+    {"axis": "Nahrungskette", "value": 80},
+    {"axis": "Samenverbreitung", "value": 40},
+    {"axis": "Habitatschaffung", "value": 75}
+  ],
+  "keystone_status": true,
+  "indicator_species": true,
+  "ecosystem_services": [
+    "Bodendurchlueftung",
+    "Naehrstoffanreicherung",
+    "Biotopschaffung",
+    "Klimawandel-Indikator",
+    "Tourismus-Attraktion"
+  ],
+  "protected_area_coverage": {
+    "value": 45,
+    "max": 100
+  },
+  "protected_areas_list": [
+    "Nationalpark Hohe Tauern",
+    "Schweizerischer Nationalpark",
+    "Parco Nazionale Gran Paradiso",
+    "Parc National de la Vanoise",
+    "Nationalpark Berchtesgaden",
+    "Triglav Nationalpark"
+  ],
+  "citizen_science_projects": [
+    "iNaturalist Murmeltier-Beobachtungen",
+    "Alpenverein Wildtier-Monitoring",
+    "Nationalpark Citizen Science Programme"
+  ],
+  "how_public_can_help": [
+    "Murmeltier-Beobachtungen melden (iNaturalist)",
+    "Stoerungen in Habitaten vermeiden",
+    "Hunde an der Leine fuehren",
+    "Naturschutzorganisationen unterstuetzen"
+  ],
+  "conservation_organizations_active": [
+    "IUCN Small Mammal Specialist Group",
+    "Alpine Convention",
+    "WWF Alps Programme",
+    "Pro Natura (CH)",
+    "Naturschutzbund (AT)"
+  ],
+  "conservation_attention_needed": {
+    "status": "adequate",
+    "variant": "success"
+  },
+  "action_urgency": {
+    "status": "low",
+    "variant": "success"
+  },
+  "zims_studbook_exists": false,
+  "frozen_zoo_status": false,
+  "source": {
+    "authors": "Herrero, J., Zima, J. & Coroiu, I.",
+    "year": 2016,
+    "title": "Marmota marmota. The IUCN Red List of Threatened Species 2016",
+    "journal": "IUCN",
+    "doi": "10.2305/IUCN.UK.2016-3.RLTS.T12835A22259161.en"
+  }
+}

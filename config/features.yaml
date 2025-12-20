@@ -1,0 +1,40 @@
+# Aktive Features
+aktiv:
+  - header
+  - grid
+  - ansichten
+  - vergleich      # Vektorraum-View für Vergleiche
+  - einzelansicht  # Einzelansicht als eigene Page (/:slug)
+  - infinitescroll # Automatisches Nachladen beim Scrollen
+
+# Suche-Konfiguration
+suche:
+  live: true
+  debounce: 300
+  limit: 50
+  placeholder: Suchen...
+  # suchfelder werden automatisch aus schema.yaml geladen
+
+# Perspektiven-Konfiguration
+# Liste wird automatisch aus schema.yaml/perspektiven geladen!
+perspektiven:
+  maxAktiv: 4
+
+# Ansicht-Konfiguration (im Header)
+ansicht:
+  default: karten
+  ansichten:
+    - id: karten
+      label: Karten
+      icon: ⊞
+      layout: grid
+      minAuswahl: 0     # Immer verfügbar
+    - id: vergleich
+      label: Vergleich
+      icon: ▥
+      layout: kompakt
+      minAuswahl: 1     # Nur wenn mindestens 1 Feld ausgewählt
+
+# Externe Features (optional)
+# extern:
+#   meinFeature: ./custom/mein-feature.js

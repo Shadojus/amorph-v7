@@ -1,0 +1,277 @@
+{
+  "population": {
+    "total": 100000,
+    "count": 100000,
+    "min": 80000,
+    "max": 150000,
+    "avg": 100000
+  },
+  "population_estimate": {
+    "min": 80000,
+    "max": 150000,
+    "unit": "individuals"
+  },
+  "population_range": {
+    "min": 80000,
+    "max": 150000,
+    "unit": "individuals"
+  },
+  "population_trend": {
+    "status": "stable",
+    "variant": "success"
+  },
+  "population_density": 2.5,
+  "abundance_index": 0.8,
+  "generation_time": {
+    "min": 4,
+    "max": 6,
+    "unit": "years"
+  },
+  "distribution": "Alpen und angrenzende Gebirgszuege in Mitteleuropa",
+  "range_size": {
+    "min": 180000,
+    "max": 220000,
+    "unit": "km2"
+  },
+  "area_of_occupancy": 50000,
+  "extent_of_occurrence": 300000,
+  "distribution_pattern": "disjunct",
+  "fragmentation_index": {
+    "value": 35,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "endemism_score": {
+    "value": 75,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "occurrence": {
+    "total": 45000,
+    "count": 45000,
+    "min": 1,
+    "max": 500,
+    "avg": 25
+  },
+  "observation_count": 45000,
+  "specimen_count": 850,
+  "first_record": "1758",
+  "last_record": "2024",
+  "recording_frequency": "common",
+  "data_quality": {
+    "status": "high",
+    "variant": "success"
+  },
+  "seasonality": [
+    {"month": 1, "active": false},
+    {"month": 2, "active": false},
+    {"month": 3, "active": false},
+    {"month": 4, "active": true},
+    {"month": 5, "active": true},
+    {"month": 6, "active": true},
+    {"month": 7, "active": true},
+    {"month": 8, "active": true},
+    {"month": 9, "active": true},
+    {"month": 10, "active": false},
+    {"month": 11, "active": false},
+    {"month": 12, "active": false}
+  ],
+  "peak_occurrence": [7, 8],
+  "phenology_data": {
+    "start_month": 4,
+    "peak_month": 7,
+    "end_month": 10
+  },
+  "annual_variation": [95, 98, 100, 97, 102, 99, 101, 98, 100, 97],
+  "long_term_trends": [100, 99, 100, 101, 100, 99, 100, 100, 100, 99],
+  "habitat_statistics": [
+    {"label": "Alpine Matten", "value": 45},
+    {"label": "Gebirgsweiden", "value": 30},
+    {"label": "Felsige Haenge", "value": 15},
+    {"label": "Schutthalden", "value": 10}
+  ],
+  "habitat_preference": [
+    {"axis": "Alpine Matten", "value": 90},
+    {"axis": "Gebirgsweiden", "value": 85},
+    {"axis": "Felsige Haenge", "value": 60},
+    {"axis": "Schutthalden", "value": 50},
+    {"axis": "Waldgrenze", "value": 30}
+  ],
+  "elevation_range": {
+    "min": 800,
+    "max": 3200,
+    "unit": "m"
+  },
+  "climate_envelope": {
+    "temp_min": -20,
+    "temp_max": 25,
+    "precip_min": 800,
+    "precip_max": 2500
+  },
+  "size_statistics": {
+    "total": 200,
+    "count": 200,
+    "min": 50,
+    "max": 60,
+    "avg": 55
+  },
+  "size_range": {
+    "min": 50,
+    "max": 60,
+    "unit": "cm"
+  },
+  "size_mean": 55,
+  "sexual_dimorphism": 1.15,
+  "genetic_diversity": {
+    "value": 65,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "red"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "green"}
+    ]
+  },
+  "population_structure": [
+    {"label": "Westalpen", "value": 35},
+    {"label": "Zentralalpen", "value": 45},
+    {"label": "Ostalpen", "value": 15},
+    {"label": "Eingefuehrte Pop.", "value": 5}
+  ],
+  "effective_population_size": 50000,
+  "relative_abundance": {
+    "value": 70,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "red"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "green"}
+    ]
+  },
+  "commonness_category": "common",
+  "rarity_score": {
+    "value": 25,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "data_sources": [
+    "GBIF",
+    "iNaturalist",
+    "IUCN Red List",
+    "Nationalpark-Monitoring",
+    "Wissenschaftliche Literatur"
+  ],
+  "survey_methods": [
+    "Direktzaehlungen",
+    "Mark-Recapture",
+    "Citizen Science",
+    "Kamerafallen"
+  ],
+  "sample_size": 5000,
+  "confidence_intervals": {
+    "lower": 80000,
+    "upper": 150000,
+    "confidence": 95
+  },
+  "data_gaps": [
+    "Einige entlegene Gebiete untererfasst",
+    "Winterschlafmortalitaet schwer zu erfassen",
+    "Populationsdichte in manchen Regionen unbekannt"
+  ],
+  "data_reliability": {
+    "status": "high",
+    "variant": "success"
+  },
+  "gbif_total_occurrences": 42500,
+  "gbif_georeferenced_percent": {
+    "value": 85,
+    "max": 100,
+    "unit": "%"
+  },
+  "gbif_temporal_coverage_start": 1850,
+  "gbif_temporal_coverage_end": 2024,
+  "inaturalist_observation_count": 15000,
+  "inaturalist_observer_count": 8500,
+  "citizen_science_contribution": {
+    "value": 35,
+    "max": 100,
+    "unit": "%"
+  },
+  "population_trend_direction": "stable",
+  "population_trend_percent_per_year": 0,
+  "population_trend_confidence": {
+    "value": 80,
+    "max": 100,
+    "unit": "%"
+  },
+  "population_trend_data_years": 30,
+  "range_trend_direction": "stable",
+  "range_change_percent": -2,
+  "population_forecast_2050": {
+    "min": 70000,
+    "max": 130000,
+    "unit": "individuals"
+  },
+  "population_forecast_2100": {
+    "min": 50000,
+    "max": 120000,
+    "unit": "individuals"
+  },
+  "forecast_scenarios": {
+    "best": 130000,
+    "moderate": 90000,
+    "worst": 50000
+  },
+  "extinction_probability_2100": {
+    "value": 5,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "data_quality_overall": {
+    "status": "high",
+    "variant": "success"
+  },
+  "data_coverage_spatial": {
+    "value": 75,
+    "max": 100,
+    "unit": "%"
+  },
+  "data_coverage_temporal": {
+    "value": 85,
+    "max": 100,
+    "unit": "%"
+  },
+  "detection_probability": {
+    "value": 80,
+    "max": 100,
+    "unit": "%"
+  },
+  "source": {
+    "authors": "Herrero, J., Zima, J. & Coroiu, I.",
+    "year": 2016,
+    "title": "Marmota marmota. The IUCN Red List of Threatened Species 2016",
+    "journal": "IUCN",
+    "doi": "10.2305/IUCN.UK.2016-3.RLTS.T12835A22259161.en"
+  }
+}

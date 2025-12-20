@@ -1,0 +1,520 @@
+{
+  "safety_edibility_status": {
+    "status": "Psychoactive - Not Edible",
+    "variant": "danger"
+  },
+  "safety_edibility_confidence": {
+    "value": 100,
+    "max": 100,
+    "unit": "%"
+  },
+  "safety_edibility_notes": "Psilocybe cyanescens ist ein stark psychoaktiver Pilz, der die kontrollierten Substanzen Psilocybin und Psilocin enthaelt. In den meisten Laendern ist der Besitz, die Verwendung und der Handel illegal und kann strafrechtlich verfolgt werden. Der Pilz ist nicht als Nahrungsmittel geeignet.",
+  "safety_potentially_deadly": false,
+  "safety_deadliness_frequency": "Not directly lethal",
+  "safety_toxicity_score": {
+    "value": 45,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_toxicity_components": [
+    "Psilocybin (prodrug)",
+    "Psilocin (aktiver Metabolit)",
+    "Baeocystin",
+    "Norbaeocystin"
+  ],
+  "safety_ld50_kg": 280,
+  "safety_min_toxic_dose_g": 1,
+  "safety_lethal_dose_g": 0,
+  "safety_warning_level": {
+    "status": "Danger - Controlled Substance",
+    "variant": "danger"
+  },
+  "safety_warning_text": "ACHTUNG: Psilocybe cyanescens enthaelt die kontrollierten psychoaktiven Substanzen Psilocybin und Psilocin. Der Besitz, die Ernte und der Konsum sind in den meisten Laendern illegal. Der Pilz kann starke Halluzinationen, veraenderte Wahrnehmung und psychische Krisen ausloesen. Verwechslungsgefahr mit toedlich giftigen Galerina-Arten! NICHT SAMMELN, NICHT KONSUMIEREN.",
+  "safety_warning_text_short": "ILLEGAL - Stark psychoaktiv - Verwechslungsgefahr mit toedlichen Arten",
+  "safety_warning_symbols": [
+    "Psychoaktiv",
+    "Kontrollierte Substanz",
+    "Illegal in DE/AT/CH",
+    "Verwechslungsgefahr"
+  ],
+  "safety_summary": "Psilocybe cyanescens ist ein potenter psilocybinhaltiger Pilz mit hohem Verwechslungsrisiko zu toedlich giftigen Arten wie Galerina marginata. Der Konsum ist in den meisten Laendern illegal und kann zu unvorhersehbaren psychologischen Reaktionen fuehren.",
+  "safety_risk_inherent": {
+    "value": 60,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_confusion": {
+    "value": 80,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_preparation": {
+    "value": 20,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_individual": {
+    "value": 75,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_cumulative": false,
+  "safety_risk_environment": [
+    "Unsichere Umgebung waehrend Wirkung",
+    "Alleiniges Konsumieren ohne Aufsicht",
+    "Mischen mit anderen Substanzen"
+  ],
+  "safety_risk_groups": [
+    "Personen mit psychischen Vorerkrankungen",
+    "Personen mit Schizophrenie-Praedisposition",
+    "Schwangere und Stillende",
+    "Kinder und Jugendliche",
+    "Personen unter Medikamenten (v.a. SSRIs, MAOIs)",
+    "Personen mit Herzerkrankungen"
+  ],
+  "safety_contraindications": [
+    "Schizophrenie oder schizotype Stoerungen",
+    "Bipolare Stoerung",
+    "Schwere Angststoerungen",
+    "Schwangerschaft und Stillzeit",
+    "Einnahme von SSRIs oder MAO-Hemmern",
+    "Psychosen in der Vorgeschichte"
+  ],
+  "safety_regions": [
+    "Europa (v.a. Westeuropa)",
+    "Nordamerika (Pazifikkueste)",
+    "Neuseeland",
+    "Australien (eingefuehrt)"
+  ],
+  "safety_regional_variations": "Alkaloidgehalt variiert je nach Standort und Wachstumsbedingungen. Populationen im Pazifischen Nordwesten gelten als besonders potent.",
+  "safety_season_risk": [
+    {"month": 1, "active": false},
+    {"month": 2, "active": false},
+    {"month": 3, "active": false},
+    {"month": 4, "active": false},
+    {"month": 5, "active": false},
+    {"month": 6, "active": false},
+    {"month": 7, "active": false},
+    {"month": 8, "active": false},
+    {"month": 9, "active": true},
+    {"month": 10, "active": true},
+    {"month": 11, "active": true},
+    {"month": 12, "active": true}
+  ],
+  "safety_main_risk_months": [10, 11, 12],
+  "safety_id_difficulty": {
+    "status": "Intermediate - Expert recommended",
+    "variant": "warning"
+  },
+  "safety_id_requirements": [
+    "Wellenfoermiger Hutrand erkennen",
+    "Blauverfaerbung pruefen",
+    "Sporenabdruck nehmen (purpur-braun)",
+    "Habitat dokumentieren",
+    "Ring am Stiel ausschliessen (Galerina-Check)",
+    "Lamellen-Farbe pruefen (nicht gruenlich)"
+  ],
+  "safety_microscopy_needed": false,
+  "safety_chemtests_needed": false,
+  "safety_sporeprint_needed": true,
+  "safety_expert_reviewed": true,
+  "safety_reviewer_credentials": "Mycological literature review",
+  "safety_last_review": "2024-12",
+  "safety_confidence_level": {
+    "status": "High",
+    "variant": "success"
+  },
+  "safety_completeness": {
+    "value": 85,
+    "max": 100,
+    "unit": "%"
+  },
+  "toxin_class_primary": "Indol-Alkaloide (Tryptamine)",
+  "toxin_classes_secondary": [
+    "Psilocybin",
+    "Psilocin",
+    "Baeocystin"
+  ],
+  "toxin_names": [
+    "Psilocybin (O-Phosphoryl-4-hydroxy-N,N-dimethyltryptamin)",
+    "Psilocin (4-Hydroxy-N,N-dimethyltryptamin)",
+    "Baeocystin (4-Phosphoryloxy-N-methyltryptamin)",
+    "Norbaeocystin (4-Phosphoryloxy-tryptamin)"
+  ],
+  "toxin_concentrations": [
+    {"label": "Psilocybin", "value": 1.68},
+    {"label": "Psilocin", "value": 0.28},
+    {"label": "Baeocystin", "value": 0.02}
+  ],
+  "toxidrome_primary": "Hallucinogenic/Psychedelic",
+  "toxidrome_secondary": [
+    "Serotonergic",
+    "Mild Sympathomimetic"
+  ],
+  "toxidrome_mnemonic": "5-HT2A Agonist - Perception alteration, visual/auditory distortions, mood changes",
+  "toxidrome_key_findings": [
+    "Mydriasis (geweitete Pupillen)",
+    "Visuelle Verzerrungen und Halluzinationen",
+    "Veraenderte Zeit- und Raumwahrnehmung",
+    "Emotionale Intensivierung",
+    "Leichte Tachykardie",
+    "Uebelkeit (initial)"
+  ],
+  "toxin_target_organs_primary": [
+    "Zentrales Nervensystem",
+    "Serotonin-Rezeptoren (5-HT2A)"
+  ],
+  "toxin_target_organs_secondary": [
+    "Kardiovaskulaeres System (mild)",
+    "Gastrointestinaltrakt (initial)"
+  ],
+  "toxin_organ_damage_severity": [
+    {"level": "low", "typ": "ZNS", "beschreibung": "Keine dauerhafte Organschaedigung bekannt bei einmaliger Verwendung"},
+    {"level": "medium", "typ": "Psyche", "beschreibung": "Risiko fuer HPPD (Hallucinogen Persisting Perception Disorder) bei wiederholtem Gebrauch"}
+  ],
+  "toxin_organ_damage_reversible": true,
+  "toxin_mechanism": "Psilocybin wird im Koerper zu Psilocin dephosphoryliert, welches als partieller Agonist an serotonergen 5-HT2A-Rezeptoren wirkt. Dies fuehrt zu veraenderter sensorischer Verarbeitung, visuellen Halluzinationen, Synesthesie und Veraenderungen des Bewusstseins und der Emotionen.",
+  "toxin_mechanism_short": "5-HT2A Rezeptor-Agonismus im ZNS",
+  "toxin_cellular_targets": [
+    "5-HT2A Serotonin-Rezeptoren",
+    "5-HT2C Rezeptoren",
+    "5-HT1A Rezeptoren (partiell)"
+  ],
+  "toxin_onset_min_hours": 0.25,
+  "toxin_onset_max_hours": 1,
+  "toxin_onset_typical_hours": 0.5,
+  "toxin_onset_classification": "Fast (15-60 Minuten)",
+  "toxin_duration_min_hours": 4,
+  "toxin_duration_max_hours": 8,
+  "toxin_heat_stable": false,
+  "toxin_degradation_temp_c": 180,
+  "toxin_drying_stable": true,
+  "toxin_frost_stable": true,
+  "toxin_water_soluble": true,
+  "toxin_alcohol_soluble": true,
+  "toxin_stability_notes": "Psilocybin ist relativ stabil beim Trocknen und Lagern. UV-Licht und hohe Temperaturen (ueber 180C) fuehren zu Degradation. In getrockneter Form jahrelang haltbar.",
+  "toxin_preparation_reduces": false,
+  "toxin_safe_methods": [],
+  "toxin_unsafe_methods": [
+    "Roher Verzehr",
+    "Jede Form des Konsums ist illegal"
+  ],
+  "toxin_preparation_warnings": [
+    {"level": "critical", "typ": "Legal", "beschreibung": "Jegliche Zubereitung zum Konsum ist in den meisten Laendern strafbar"},
+    {"level": "high", "typ": "Verwechslung", "beschreibung": "Verwechslung mit Galerina marginata kann toedlich sein"}
+  ],
+  "toxin_cumulative": false,
+  "toxin_chronic_effects": [
+    "HPPD (Hallucinogen Persisting Perception Disorder)",
+    "Moegliche Triggerung latenter Psychosen",
+    "Flashbacks"
+  ],
+  "toxin_carcinogenic": false,
+  "toxin_mutagenic": false,
+  "toxin_teratogenic": false,
+  "toxin_drug_interactions": [
+    {"level": "critical", "typ": "MAO-Hemmer", "beschreibung": "Lebensgefaehrliche Interaktion moeglich - Serotonin-Syndrom"},
+    {"level": "high", "typ": "Lithium", "beschreibung": "Erhoehtes Risiko fuer Krampfanfaelle"},
+    {"level": "high", "typ": "SSRI/SNRI", "beschreibung": "Reduzierte Wirkung oder Serotonin-Syndrom"},
+    {"level": "medium", "typ": "Cannabis", "beschreibung": "Verstaerkte und unvorhersehbare Wirkung"}
+  ],
+  "toxin_alcohol_interaction": true,
+  "toxin_alcohol_severity": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "first_aid_immediate_steps": [
+    {"step": 1, "label": "Ruhe bewahren, sichere Umgebung schaffen", "status": "pending"},
+    {"step": 2, "label": "Person nicht allein lassen", "status": "pending"},
+    {"step": 3, "label": "Bei schlechtem Trip: Talking down, beruhigend sprechen", "status": "pending"},
+    {"step": 4, "label": "Bei Panik oder Psychose: Notarzt rufen", "status": "pending"},
+    {"step": 5, "label": "Pilzreste und Erbrochenes fuer Analyse sichern", "status": "pending"}
+  ],
+  "first_aid_what_not_to_do": [
+    "Nicht schreien oder erschrecken",
+    "Keine hektischen Bewegungen",
+    "Nicht mit anderen Substanzen mischen",
+    "Nicht allein lassen"
+  ],
+  "induce_vomiting_recommended": {
+    "status": "Only if very recent ingestion",
+    "variant": "warning"
+  },
+  "activated_charcoal_useful": {
+    "status": "Limited effect within 1h",
+    "variant": "warning"
+  },
+  "milk_or_water_helpful": false,
+  "when_to_call_emergency": "Bei Panikattacken, selbst- oder fremdgefaehrdendem Verhalten, Krampfanfaellen, Bewusstlosigkeit, oder wenn Verdacht auf Galerina-Verwechslung besteht",
+  "information_for_emergency_call": [
+    "Welche Pilze wurden konsumiert (Fotos zeigen)",
+    "Wann wurde konsumiert",
+    "Wie viele Pilze/Welche Menge",
+    "Welche Symptome bestehen",
+    "Wurden andere Substanzen konsumiert",
+    "Vorerkrankungen und Medikamente"
+  ],
+  "hospital_transport_urgency": {
+    "status": "Urgent if severe symptoms",
+    "variant": "warning"
+  },
+  "symptom_onset_minutes": {
+    "min": 15,
+    "max": 60,
+    "unit": "min"
+  },
+  "symptom_onset_range": "15-60 Minuten nach Einnahme",
+  "symptom_peak_hours": 2,
+  "symptom_duration_hours": 6,
+  "symptom_phases": [
+    {"phase": "Come-up (Anfluten)", "duration": "15-60 Minuten"},
+    {"phase": "Peak (Hoehepunkt)", "duration": "1-2 Stunden"},
+    {"phase": "Plateau", "duration": "2-3 Stunden"},
+    {"phase": "Come-down (Abklingen)", "duration": "1-2 Stunden"},
+    {"phase": "Afterglow", "duration": "Stunden bis Tage"}
+  ],
+  "delayed_symptoms_possible": false,
+  "symptom_resolution_timeline": "Vollstaendige Erholung meist innerhalb von 6-8 Stunden, gelegentlich anhaltende Veraenderungen der Wahrnehmung (HPPD)",
+  "symptom_onset_category": "Fast",
+  "symptom_onset_typical_min": 30,
+  "symptom_organs_primary": [
+    "Zentrales Nervensystem",
+    "Visuelle Cortex",
+    "Limbisches System"
+  ],
+  "symptom_organs_secondary": [
+    "Gastrointestinaltrakt",
+    "Kardiovaskulaeres System"
+  ],
+  "symptom_max_severity": {
+    "status": "Severe (psychological crisis possible)",
+    "variant": "danger"
+  },
+  "symptom_typical_severity": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "symptom_severity_factors": [
+    "Eingenommene Dosis",
+    "Individuelle Empfindlichkeit",
+    "Set (mentale Verfassung)",
+    "Setting (Umgebung)",
+    "Vorerkrankungen",
+    "Interaktionen mit anderen Substanzen"
+  ],
+  "symptom_description": "Typische Wirkungen umfassen veraenderte Wahrnehmung, visuelle Muster und Farben, veraenderte Zeitwahrnehmung, emotionale Intensitaet, Uebelkeit (initial), geweitete Pupillen und leichte Herzfrequenzerhohung.",
+  "symptom_gi_nausea": true,
+  "symptom_gi_vomiting": false,
+  "symptom_gi_abdominal_pain": false,
+  "symptom_neuro_confusion": true,
+  "symptom_neuro_hallucinations": true,
+  "symptom_neuro_ataxia": false,
+  "symptom_neuro_seizures": false,
+  "symptom_neuro_mydriasis": true,
+  "symptom_auto_tachycardia": true,
+  "symptom_red_flags": [
+    {"level": "critical", "typ": "Krampfanfaelle", "beschreibung": "Sofortige Notaufnahme erforderlich"},
+    {"level": "critical", "typ": "Anzeichen einer Galerina-Vergiftung", "beschreibung": "Spaetes Einsetzen von GI-Symptomen nach 6+ Stunden deutet auf Amatoxin-Vergiftung"},
+    {"level": "high", "typ": "Suizidgedanken", "beschreibung": "Sofortige psychiatrische Intervention"},
+    {"level": "high", "typ": "Psychose", "beschreibung": "Psychiatrische Notaufnahme"}
+  ],
+  "syndrome_name": "Psilocybin-Syndrom",
+  "syndrome_code": "PSI",
+  "syndrome_category": "Halluzinogen",
+  "syndrome_primary_toxins": [
+    "Psilocybin",
+    "Psilocin"
+  ],
+  "syndrome_causative_genera": [
+    "Psilocybe",
+    "Panaeolus",
+    "Gymnopilus",
+    "Pluteus",
+    "Inocybe (einige Arten)"
+  ],
+  "syndrome_prototype_species": "Psilocybe cubensis",
+  "syndrome_description": "Das Psilocybin-Syndrom ist gekennzeichnet durch veraenderte Sinneswahrnehmung, Halluzinationen, Stimmungsschwankungen und veraenderte Kognition, ausgeloest durch serotonerge Agonisten an 5-HT2A-Rezeptoren.",
+  "syndrome_onset_category": "Fast",
+  "syndrome_onset_range_h": {
+    "min": 0.25,
+    "max": 1,
+    "unit": "h"
+  },
+  "syndrome_typical_course": "Schneller Wirkungseintritt, 4-6 Stunden Wirkdauer, vollstaendige Erholung innerhalb von 24 Stunden. Selten anhaltende Wahrnehmungsstoerungen (HPPD).",
+  "syndrome_max_severity": {
+    "status": "Severe (psychological)",
+    "variant": "warning"
+  },
+  "syndrome_mortality": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "syndrome_mortality_untreated": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "syndrome_mortality_treated": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "syndrome_organs_affected": [
+    "Zentrales Nervensystem"
+  ],
+  "syndrome_organ_failure_risk": false,
+  "syndrome_long_term_effects": [
+    "HPPD (selten)",
+    "Triggern latenter Psychosen",
+    "Positive psychologische Veraenderungen moeglich"
+  ],
+  "confusion_partner": [
+    {"name": "Galerina marginata", "type": "deadly", "intensity": 95},
+    {"name": "Hypholoma fasciculare", "type": "toxic", "intensity": 70},
+    {"name": "Psilocybe allenii", "type": "similar", "intensity": 90},
+    {"name": "Psilocybe azurescens", "type": "similar", "intensity": 85}
+  ],
+  "confusion_risk_level": {
+    "status": "Critical (deadly lookalikes exist)",
+    "variant": "danger"
+  },
+  "confusion_frequency": "Common",
+  "confusion_safety_critical": true,
+  "confusion_visual_similarity": {
+    "value": 70,
+    "max": 100,
+    "unit": "%"
+  },
+  "confusion_similarity_details": "Galerina marginata kann im gleichen Habitat (Holzmulch) vorkommen und aehnliche Groesse und Faerbung aufweisen. Der kritische Unterschied ist der Ring am Stiel bei Galerina und der rostbraune (nicht purpur-braune) Sporenabdruck.",
+  "confusion_key_features": [
+    "Stielring (Galerina hat Ring, Psilocybe nicht)",
+    "Sporenabdruckfarbe (rostbraun vs. purpur-braun)",
+    "Blauverfaerbung (nur Psilocybe)",
+    "Wellenfoermiger Hutrand (Psilocybe cyanescens)"
+  ],
+  "confusion_best_feature": "Sporenabdruck: Purpur-braun (Psilocybe) vs. Rostbraun (Galerina)",
+  "confusion_secondary_features": [
+    "Stielring vorhanden/fehlend",
+    "Blauverfaerbung",
+    "Wachstumsweise"
+  ],
+  "confusion_unreliable_features": [
+    "Hutfarbe",
+    "Groesse",
+    "Geruch"
+  ],
+  "confusion_habitat_overlap": true,
+  "confusion_time_overlap": true,
+  "confusion_geo_overlap": true,
+  "confusion_joint_frequency": "Common",
+  "confusion_sporeprint_diff": "Psilocybe: Dunkel purpur-braun bis violett-braun. Galerina: Rostbraun bis ockerbraun.",
+  "confusion_smell_diff": "Beide haben schwachen, unspezifischen Geruch - nicht zuverlaessig!",
+  "confusion_id_instructions": "1. IMMER Sporenabdruck nehmen. 2. Auf Ring am Stiel pruefen. 3. Blauverfaerbung dokumentieren. 4. Im Zweifelsfall NIEMALS konsumieren.",
+  "confusion_common_errors": [
+    "Verlassen auf Hutfarbe allein",
+    "Uebersehen des Stielrings bei Galerina",
+    "Nicht auf Sporenabdruck warten"
+  ],
+  "confusion_expert_tips": [
+    "Galerina waechst oft einzeln, Psilocybe cyanescens haeufig in Gruppen",
+    "Der Ring bei Galerina kann vergaenglich sein - Ringzone pruefen",
+    "Blauverfaerbung ist bei Psilocybe schnell und intensiv"
+  ],
+  "confusion_if_in_doubt": "NIEMALS konsumieren. Pilze fuer Expertenbestimmung fotografieren und Probe konservieren. Verwechslung mit Galerina ist potenziell toedlich!",
+  "treatment_urgency": {
+    "status": "Supportive unless severe",
+    "variant": "warning"
+  },
+  "treatment_setting": "Usually outpatient, ICU for severe cases",
+  "treatment_specialist_needed": false,
+  "treatment_specialist_type": "Psychiater bei schweren psychischen Reaktionen",
+  "treatment_summary": "Behandlung ist in der Regel supportiv. Beruhigende Umgebung, Talking-down bei Angstreaktionen. Benzodiazepine bei schwerer Agitation oder Panik. Keine spezifischen Antidote erforderlich.",
+  "treatment_antidotes": [],
+  "treatment_antidote_availability": {
+    "status": "Not required",
+    "variant": "success"
+  },
+  "treatment_neuro_support": "Benzodiazepine (z.B. Diazepam, Lorazepam) bei schwerer Angst oder Agitation. Antipsychotika nur in Ausnahmefaellen.",
+  "treatment_discharge_criteria": [
+    "Orientiert und ansprechbar",
+    "Keine Gefaehrdung mehr",
+    "Vitale Parameter stabil",
+    "Psychische Stabilisierung"
+  ],
+  "emergency_contact_poison_control": "Giftnotruf Deutschland: 030-19240, Oesterreich: 01-406 43 43, Schweiz: 145",
+  "emergency_transport_priority": {
+    "status": "Routine unless severe psychological crisis",
+    "variant": "warning"
+  },
+  "emergency_sample_preservation": "Pilzreste, Erbrochenes und Sporenabdruck fuer Identifikation sichern",
+  "incident_type": "Intentional psychoactive use",
+  "incident_severity": {
+    "status": "Usually mild to moderate",
+    "variant": "warning"
+  },
+  "incident_risk_factors": [
+    "Unbeabsichtigte Ueberdosierung",
+    "Verwechslung mit anderen Arten",
+    "Vorbestehende psychische Erkrankungen",
+    "Unguenstiges Set und Setting",
+    "Mischkonsum"
+  ],
+  "incident_lessons_learned": [
+    "Immer sichere Identifikation vor jeglicher Verwendung",
+    "Verwechslungsgefahr mit toedlichen Arten ernst nehmen",
+    "Set und Setting sind entscheidend"
+  ],
+  "regional_seasonality": [
+    {"month": 1, "active": false},
+    {"month": 2, "active": false},
+    {"month": 3, "active": false},
+    {"month": 4, "active": false},
+    {"month": 5, "active": false},
+    {"month": 6, "active": false},
+    {"month": 7, "active": false},
+    {"month": 8, "active": false},
+    {"month": 9, "active": true},
+    {"month": 10, "active": true},
+    {"month": 11, "active": true},
+    {"month": 12, "active": true}
+  ],
+  "regional_hotspots": [
+    "Pazifischer Nordwesten (USA)",
+    "Grossbritannien",
+    "Westeuropa",
+    "Neuseeland"
+  ],
+  "source": {
+    "authors": "Stamets, P. & Gartz, J.",
+    "year": 1995,
+    "title": "A new caerulescent Psilocybe from the Pacific Coast of northwestern North America",
+    "journal": "Integration",
+    "doi": ""
+  }
+}

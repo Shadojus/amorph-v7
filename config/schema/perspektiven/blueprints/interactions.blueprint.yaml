@@ -1,0 +1,828 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTERACTIONS PERSPECTIVE BLUEPRINT
+# Schema mit leeren Datenstrukturen für Morph-Erkennung
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ─────────────────────────────────────────────────────────────────────────────
+# INTERACTION OVERVIEW
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+interactions: ""
+
+# morph: list
+interaction_types:
+  - ""
+
+# morph: network
+interaction_network:
+  - name: ""
+    type: ""
+    intensity: 0
+
+# morph: list
+key_partners:
+  - ""
+
+# morph: list
+obligate_associations:
+  - ""
+
+# morph: list
+facultative_associations:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GloBI STANDARD FIELDS (Global Biotic Interactions)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+globi_source_taxon: ""
+
+# morph: text
+globi_target_taxon: ""
+
+# morph: tag
+globi_interaction_type: ""
+
+# morph: tag
+globi_evidence_type: ""
+
+# morph: text
+globi_body_part_source: ""
+
+# morph: text
+globi_body_part_target: ""
+
+# morph: tag
+globi_life_stage_source: ""
+
+# morph: tag
+globi_life_stage_target: ""
+
+# morph: map
+globi_locality:
+  lat: 0
+  lng: 0
+  region: ""
+
+# morph: text
+globi_reference_doi: ""
+
+# morph: text
+globi_interaction_id: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GloBI EXTENDED METADATA
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: gauge
+globi_interaction_strength:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# morph: tag
+globi_interaction_frequency: ""
+
+# morph: calendar
+globi_seasonality:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: tag
+globi_study_type: ""
+
+# morph: number
+globi_sample_size: 0
+
+# morph: progress
+globi_confidence_score:
+  value: 0
+  max: 100
+  unit: "%"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CROSS-KINGDOM INTERACTION NETWORKS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: number
+network_node_degree: 0
+
+# morph: number
+network_betweenness: 0
+
+# morph: number
+network_clustering_coefficient: 0
+
+# morph: text
+network_module_id: ""
+
+# morph: gauge
+keystone_interaction_score:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MUTUALISM
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+mutualism:
+  # morph: boolean
+  present: false
+  # morph: tag
+  type: ""
+  # morph: list
+  partners:
+    - ""
+  # morph: text
+  description: ""
+
+# morph: object
+symbiosis:
+  # morph: boolean
+  obligate: false
+  # morph: tag
+  type: ""
+  # morph: list
+  partners:
+    - ""
+  # morph: text
+  benefits: ""
+
+# morph: object
+mycorrhiza:
+  # morph: boolean
+  present: false
+  # morph: tag
+  type: ""
+  # morph: list
+  host_plants:
+    - ""
+  # morph: progress
+  colonization_rate:
+    value: 0
+    max: 100
+    unit: "%"
+  # morph: text
+  benefits_to_host: ""
+  # morph: text
+  benefits_to_fungus: ""
+
+# morph: object
+lichens:
+  # morph: boolean
+  forming: false
+  # morph: list
+  photobionts:
+    - ""
+  # morph: list
+  cyanobionts:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+nitrogen_fixation:
+  # morph: boolean
+  present: false
+  # morph: list
+  partners:
+    - ""
+  # morph: range
+  fixation_rate:
+    min: 0
+    max: 0
+    unit: "kg/ha/year"
+  # morph: text
+  notes: ""
+
+# morph: object
+pollination:
+  # morph: boolean
+  involved: false
+  # morph: tag
+  role: ""
+  # morph: list
+  partners:
+    - ""
+  # morph: text
+  mechanism: ""
+
+# morph: object
+seed_dispersal:
+  # morph: boolean
+  involved: false
+  # morph: tag
+  role: ""
+  # morph: list
+  partners:
+    - ""
+  # morph: range
+  dispersal_distance:
+    min: 0
+    max: 0
+    unit: "m"
+
+# morph: object
+cleaning_symbiosis:
+  # morph: boolean
+  present: false
+  # morph: tag
+  role: ""
+  # morph: list
+  partners:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: network
+mutualist_partners:
+  - name: ""
+    type: ""
+    intensity: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# COMMENSALISM
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+commensalism:
+  # morph: boolean
+  present: false
+  # morph: tag
+  role: ""
+  # morph: list
+  partners:
+    - ""
+  # morph: text
+  description: ""
+
+# morph: object
+epiphytism:
+  # morph: boolean
+  present: false
+  # morph: tag
+  role: ""
+  # morph: list
+  host_species:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+inquilinism:
+  # morph: boolean
+  present: false
+  # morph: tag
+  role: ""
+  # morph: list
+  partners:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+phoresy:
+  # morph: boolean
+  present: false
+  # morph: tag
+  role: ""
+  # morph: list
+  partners:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: network
+commensal_partners:
+  - name: ""
+    type: ""
+    intensity: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PARASITISM & PATHOGENICITY
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+parasitism:
+  # morph: boolean
+  present: false
+  # morph: tag
+  type: ""
+  # morph: tag
+  role: ""
+  # morph: list
+  partners:
+    - ""
+  # morph: text
+  mechanism: ""
+
+# morph: object
+pathogenicity:
+  # morph: boolean
+  present: false
+  # morph: tag
+  type: ""
+  # morph: list
+  target_organisms:
+    - ""
+  # morph: severity
+  severity:
+    - level: ""
+      typ: ""
+      beschreibung: ""
+
+# morph: network
+host_species:
+  - name: ""
+    type: ""
+    intensity: 0
+
+# morph: list
+host_range:
+  - ""
+
+# morph: tag
+host_specificity: ""
+
+# morph: text
+infection_mechanism: ""
+
+# morph: list
+disease_symptoms:
+  - ""
+
+# morph: gauge
+virulence:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# morph: object
+hyperparasitism:
+  # morph: boolean
+  present: false
+  # morph: list
+  targets:
+    - ""
+  # morph: text
+  notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PREDATION & HERBIVORY
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+predation:
+  # morph: boolean
+  present: false
+  # morph: tag
+  role: ""
+  # morph: list
+  targets:
+    - ""
+  # morph: text
+  hunting_strategy: ""
+
+# morph: object
+herbivory:
+  # morph: boolean
+  present: false
+  # morph: tag
+  role: ""
+  # morph: list
+  species:
+    - ""
+  # morph: text
+  impact: ""
+
+# morph: network
+predators:
+  - name: ""
+    type: ""
+    intensity: 0
+
+# morph: network
+prey:
+  - name: ""
+    type: ""
+    intensity: 0
+
+# morph: list
+food_sources:
+  - ""
+
+# morph: pie
+diet:
+  - label: ""
+    value: 0
+
+# morph: text
+hunting_strategy: ""
+
+# morph: list
+defense_mechanisms:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# COMPETITION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+competition:
+  # morph: boolean
+  present: false
+  # morph: tag
+  type: ""
+  # morph: list
+  competitors:
+    - ""
+  # morph: text
+  resources_contested: ""
+
+# morph: object
+interspecific_competition:
+  # morph: boolean
+  present: false
+  # morph: list
+  species:
+    - ""
+  # morph: gauge
+  intensity:
+    value: 0
+    min: 0
+    max: 100
+    zones:
+      - min: 0
+        max: 30
+        color: "green"
+      - min: 30
+        max: 70
+        color: "yellow"
+      - min: 70
+        max: 100
+        color: "red"
+
+# morph: object
+intraspecific_competition:
+  # morph: boolean
+  present: false
+  # morph: text
+  type: ""
+  # morph: gauge
+  intensity:
+    value: 0
+    min: 0
+    max: 100
+    zones:
+      - min: 0
+        max: 30
+        color: "green"
+      - min: 30
+        max: 70
+        color: "yellow"
+      - min: 70
+        max: 100
+        color: "red"
+
+# morph: boolean
+competitive_exclusion: false
+
+# morph: progress
+niche_overlap:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: list
+resource_competition:
+  - ""
+
+# morph: text
+interference_competition: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DECOMPOSITION & NUTRIENT CYCLING
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+decomposition:
+  # morph: boolean
+  involved: false
+  # morph: tag
+  role: ""
+  # morph: list
+  substrates:
+    - ""
+  # morph: text
+  mechanism: ""
+
+# morph: object
+saprotrophy:
+  # morph: boolean
+  present: false
+  # morph: tag
+  type: ""
+  # morph: list
+  substrates:
+    - ""
+  # morph: text
+  enzymes: ""
+
+# morph: object
+nutrient_cycling:
+  # morph: boolean
+  involved: false
+  # morph: list
+  nutrients:
+    - ""
+  # morph: flow
+  pathways:
+    - from: ""
+      to: ""
+      value: 0
+
+# morph: list
+organic_matter:
+  - ""
+
+# morph: list
+substrate_preferences:
+  - ""
+
+# morph: range
+decomposition_rate:
+  min: 0
+  max: 0
+  unit: "days"
+
+# morph: lifecycle
+succession:
+  - phase: ""
+    duration: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ECOSYSTEM SERVICES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+ecosystem_services:
+  - ""
+
+# morph: flow
+nutrient_transfer:
+  - from: ""
+    to: ""
+    value: 0
+
+# morph: object
+carbon_cycling:
+  # morph: boolean
+  involved: false
+  # morph: tag
+  role: ""
+  # morph: range
+  sequestration_rate:
+    min: 0
+    max: 0
+    unit: "kg/ha/year"
+
+# morph: object
+water_relations:
+  # morph: boolean
+  involved: false
+  # morph: tag
+  role: ""
+  # morph: text
+  mechanism: ""
+
+# morph: object
+soil_formation:
+  # morph: boolean
+  involved: false
+  # morph: tag
+  role: ""
+  # morph: text
+  mechanism: ""
+
+# morph: object
+habitat_provision:
+  # morph: boolean
+  provider: false
+  # morph: list
+  species_supported:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+biological_control:
+  # morph: boolean
+  agent: false
+  # morph: list
+  targets:
+    - ""
+  # morph: progress
+  efficacy:
+    value: 0
+    max: 100
+    unit: "%"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HUMAN INTERACTIONS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+human_interactions:
+  - ""
+
+# morph: object
+agricultural_impact:
+  # morph: tag
+  type: ""
+  # morph: tag
+  direction: ""
+  # morph: severity
+  severity:
+    - level: ""
+      typ: ""
+      beschreibung: ""
+  # morph: text
+  details: ""
+
+# morph: object
+forestry_impact:
+  # morph: tag
+  type: ""
+  # morph: tag
+  direction: ""
+  # morph: severity
+  severity:
+    - level: ""
+      typ: ""
+      beschreibung: ""
+  # morph: text
+  details: ""
+
+# morph: object
+human_health_impact:
+  # morph: tag
+  type: ""
+  # morph: severity
+  severity:
+    - level: ""
+      typ: ""
+      beschreibung: ""
+  # morph: text
+  details: ""
+
+# morph: object
+economic_impact:
+  # morph: tag
+  type: ""
+  # morph: tag
+  direction: ""
+  # morph: currency
+  estimated_value:
+    amount: 0
+    currency: ""
+  # morph: text
+  details: ""
+
+# morph: text
+cultural_significance: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ENUMERATIONS (Reference values)
+# ─────────────────────────────────────────────────────────────────────────────
+
+_enums:
+  interaction_type:
+    - mutualism
+    - commensalism
+    - parasitism
+    - predation
+    - competition
+    - amensalism
+    - neutralism
+
+  globi_interaction_type:
+    # Mutualistic
+    - pollinates
+    - pollinated_by
+    - disperses_seeds_of
+    - has_seeds_dispersed_by
+    - provides_nutrients_for
+    - symbiont_of
+    # Parasitic/pathogenic
+    - parasite_of
+    - has_parasite
+    - pathogen_of
+    - has_pathogen
+    - parasitoid_of
+    - ectoparasite_of
+    - endoparasite_of
+    - hyperparasite_of
+    - kleptoparasite_of
+    - vector_of
+    # Trophic
+    - eats
+    - eaten_by
+    - preys_on
+    - preyed_upon_by
+    - host_of
+    - has_host
+    # Commensal
+    - commensal_with
+    - epiphyte_of
+    - inquiline_of
+    - phoretic_with
+    # Competition and other
+    - competes_with
+    - adjacent_to
+    - co_occurs_with
+    - visits_flowers_of
+    - creates_habitat_for
+    - kills
+    - damages
+
+  mycorrhiza_type:
+    - ectomycorrhiza
+    - endomycorrhiza
+    - arbuscular
+    - ericoid
+    - orchid
+
+  evidence_type:
+    - observation
+    - literature
+    - inference
+    - experiment
+
+  interaction_frequency:
+    - obligate
+    - facultative
+    - rare
+    - occasional
+    - common
+
+  study_type:
+    - field_observation
+    - experiment
+    - literature
+    - meta_analysis
