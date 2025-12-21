@@ -1,4 +1,22 @@
 # ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: TEMPORAL
+# Version: 2.0.0 | Comprehensive temporal dynamics for biological species
+# Lifecycle, Phenology, Circadian Rhythms, Historical Records, Future Projections
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# TARGET AUDIENCE:
+# - Researchers studying fungal time dynamics
+# - Phenologists
+# - Climate scientists
+# - Cultivation planners
+# - Citizen scientists
+# - Conservation planners
+#
+# DESIGN PHILOSOPHY:
+# Documents all temporal aspects of fungal species including lifecycle stages,
+# phenological patterns, circadian rhythms, historical documentation,
+# and future projections based on climate scenarios.
+# ═══════════════════════════════════════════════════════════════════════════════
 # TEMPORAL PERSPECTIVE BLUEPRINT
 # Schema mit leeren Datenstrukturen für Morph-Erkennung
 # ═══════════════════════════════════════════════════════════════════════════════

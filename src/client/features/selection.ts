@@ -42,7 +42,7 @@ const state: SelectionState = {
   items: new Map(),
   fields: new Map(),  // NEW
   maxItems: 6,
-  maxFields: 24  // NEW: Allow more fields since they're smaller
+  maxFields: 99  // Bis zu 99 Felder auswählbar
 };
 
 const listeners: Set<() => void> = new Set();

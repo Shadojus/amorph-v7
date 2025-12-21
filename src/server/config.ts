@@ -4,7 +4,7 @@
  * Lädt YAML-Konfigurationen für SSR.
  */
 
-import { readFileSync, existsSync, readdirSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { parse as parseYAML } from 'yaml';
@@ -89,18 +89,36 @@ function loadSchema(): SchemaConfig {
     schema.semantik = semantik;
   }
   
-  // Load perspectives
-  const perspektivenPath = join(CONFIG_PATH, 'schema/perspektiven');
-  if (existsSync(perspektivenPath)) {
-    const files = readdirSync(perspektivenPath).filter(f => f.endsWith('.yaml') && f !== 'index.yaml');
-    
-    for (const file of files) {
-      const id = file.replace('.yaml', '');
-      const perspektive = loadYAML<Perspective>(`schema/perspektiven/${file}`);
-      if (perspektive) {
-        schema.perspektiven![id] = { ...perspektive, id };
-        schema.reihenfolge!.push(id);
-      }
+  // Perspektiven-Metadaten (Name, Symbol für Anzeige)
+  const perspektivenMeta: Record<string, { name: string; symbol: string }> = {
+    culinary: { name: 'Kulinarisch', symbol: '🍳' },
+    safety: { name: 'Sicherheit', symbol: '⚠️' },
+    cultivation: { name: 'Anbau', symbol: '🌱' },
+    medicine: { name: 'Medizin', symbol: '💊' },
+    chemistry: { name: 'Chemie', symbol: '⚗️' },
+    ecology: { name: 'Ökologie', symbol: '🌿' },
+    statistics: { name: 'Statistik', symbol: '📊' },
+    geography: { name: 'Geografie', symbol: '🗺️' },
+    temporal: { name: 'Zeitlich', symbol: '📅' },
+    economy: { name: 'Wirtschaft', symbol: '💰' },
+    conservation: { name: 'Naturschutz', symbol: '🛡️' },
+    culture: { name: 'Kultur', symbol: '🎭' },
+    research: { name: 'Forschung', symbol: '🔬' },
+    interactions: { name: 'Interaktionen', symbol: '🔗' },
+    identification: { name: 'Bestimmung', symbol: '🔍' }
+  };
+  
+  // Load perspectives from index.yaml
+  const perspektivenIndex = loadYAML<{ aktiv?: string[] }>('schema/perspektiven/index.yaml');
+  if (perspektivenIndex?.aktiv) {
+    for (const id of perspektivenIndex.aktiv) {
+      const meta = perspektivenMeta[id] || { name: id.charAt(0).toUpperCase() + id.slice(1), symbol: '●' };
+      schema.perspektiven![id] = { 
+        id,
+        name: meta.name,
+        symbol: meta.symbol
+      };
+      schema.reihenfolge!.push(id);
     }
   }
   

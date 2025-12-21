@@ -203,6 +203,25 @@ export async function getItems(slugs: string[]): Promise<ItemData[]> {
 // SEARCH
 // ═══════════════════════════════════════════════════════════════════════════════
 
+/**
+ * Hilfsfunktion: Sucht rekursiv in einem Wert (String, Array, Objekt)
+ */
+function searchInValue(value: unknown, searchLower: string): boolean {
+  if (typeof value === 'string') {
+    return value.toLowerCase().includes(searchLower);
+  }
+  if (typeof value === 'number') {
+    return String(value).includes(searchLower);
+  }
+  if (Array.isArray(value)) {
+    return value.some(v => searchInValue(v, searchLower));
+  }
+  if (value && typeof value === 'object') {
+    return Object.values(value).some(v => searchInValue(v, searchLower));
+  }
+  return false;
+}
+
 export interface SearchOptions {
   query?: string;
   perspectives?: string[];
@@ -224,20 +243,33 @@ export async function searchItems(options: SearchOptions = {}): Promise<SearchRe
   const { query = '', perspectives = [], limit = 50, offset = 0 } = options;
   
   let items = await loadAllItems();
-  const allPerspectives = getAllPerspectives();
   
-  // NEW: Finde Perspektiven die zum Query matchen (erst ab 4 Buchstaben!)
-  const matchedPerspectives: string[] = [];
+  // Track welche Perspektiven Treffer haben (über alle Items)
+  const matchedPerspectivesSet = new Set<string>();
+  
+  // Filter by query und finde Perspektiven mit Treffern
   if (query && query.length >= 4) {
     const lower = query.toLowerCase();
-    for (const p of allPerspectives) {
-      if (p.name?.toLowerCase().includes(lower) || 
-          p.id?.toLowerCase().includes(lower) ||
-          p.beschreibung?.toLowerCase().includes(lower)) {
-        matchedPerspectives.push(p.id);
+    
+    // Durchsuche alle Items nach Treffern in Perspektiven-Daten
+    for (const item of items) {
+      if (item._perspectives) {
+        for (const [perspId, perspData] of Object.entries(item._perspectives as Record<string, unknown>)) {
+          if (!perspData || typeof perspData !== 'object') continue;
+          
+          // Durchsuche alle Werte in dieser Perspektive
+          for (const value of Object.values(perspData as Record<string, unknown>)) {
+            if (searchInValue(value, lower)) {
+              matchedPerspectivesSet.add(perspId);
+              break; // Eine Perspektive pro Item reicht
+            }
+          }
+        }
       }
     }
   }
+  
+  const matchedPerspectives = [...matchedPerspectivesSet];
   
   // Filter by query
   if (query) {
@@ -249,16 +281,7 @@ export async function searchItems(options: SearchOptions = {}): Promise<SearchRe
       // Search in all string fields
       for (const [key, value] of Object.entries(item)) {
         if (key.startsWith('_')) continue;
-        if (typeof value === 'string' && value.toLowerCase().includes(lower)) {
-          return true;
-        }
-        if (Array.isArray(value)) {
-          for (const v of value) {
-            if (typeof v === 'string' && v.toLowerCase().includes(lower)) {
-              return true;
-            }
-          }
-        }
+        if (searchInValue(value, lower)) return true;
       }
       
       return false;

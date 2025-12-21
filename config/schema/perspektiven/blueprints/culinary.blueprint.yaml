@@ -1,4 +1,22 @@
 # ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: CULINARY
+# Professional interface for culinary data of biological species
+# Version: 1.0.0 | Universal for all edible biological species
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# TARGET AUDIENCE:
+# - Professional chefs & restaurateurs
+# - Food scientists
+# - Foragers & wild harvesters
+# - Ethnobotanists & food historians
+# - Fermentation experts
+# - Nutritionists & dietitians
+# - Food photographers & stylists
+#
+# DESIGN PHILOSOPHY:
+# Every field must answer a clear QUESTION that a professional would ask.
+# Data must be ACTIONABLE - not just informative.
+# ═══════════════════════════════════════════════════════════════════════════════
 # CULINARY PERSPECTIVE - DATA BLUEPRINT
 # Empty schema with correct morph data structures
 # Version: 1.0.0

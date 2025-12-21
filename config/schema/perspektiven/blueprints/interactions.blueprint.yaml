@@ -1,4 +1,24 @@
 # ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: INTERACTIONS
+# Ecological interactions, symbioses, and biological relationships
+# Version: 1.1.0 | Universal for all biological species
+# Implements GloBI (Global Biotic Interactions) & OBO Relations Ontology standards
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# TARGET AUDIENCE:
+# - Ecologists
+# - Evolutionary biologists
+# - Conservation biologists
+# - Agriculture specialists
+# - Forestry professionals
+# - Microbiologists
+# - Ecosystem managers
+#
+# DESIGN PHILOSOPHY:
+# Documents all types of biological interactions including symbioses,
+# predation, parasitism, competition, and mutualism.
+# Uses GloBI standardized interaction vocabulary (OBO Relations Ontology).
+# ═══════════════════════════════════════════════════════════════════════════════
 # INTERACTIONS PERSPECTIVE BLUEPRINT
 # Schema mit leeren Datenstrukturen für Morph-Erkennung
 # ═══════════════════════════════════════════════════════════════════════════════

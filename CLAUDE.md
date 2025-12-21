@@ -150,7 +150,7 @@ Statt ganze Items zu vergleichen, können einzelne **Datenfelder** ausgewählt w
 
 - Cards zeigen **scrollbaren Content** für Perspektiven-Daten
 - Jede Perspektive hat eigene **Section mit Symbol + Label**
-- **Perspektiven-Farben** werden via `--persp-color` CSS Variable weitergegeben
+- **Perspektiven-Farben** werden via `data-perspektive` Attribut und CSS Variable `--perspektive-rgb` weitergegeben
 - Morph-Rendering für alle Datentypen (inkl. Radar-Charts, Sparklines, etc.)
 
 ## 🎨 Design System

@@ -48,14 +48,12 @@ export function initApp(): void {
   // Search
   const searchInput = document.querySelector<HTMLInputElement>('.amorph-search input');
   const gridContainer = document.querySelector<HTMLElement>('.amorph-grid');
-  const perspectiveButtons = document.querySelectorAll('.persp-btn');
   const activePerspectivesContainer = document.querySelector<HTMLElement>('.active-perspectives');
   
   if (searchInput && gridContainer) {
     initSearch({
       input: searchInput,
       grid: gridContainer,
-      perspectiveButtons,
       activePerspectivesContainer: activePerspectivesContainer || undefined
     });
   }

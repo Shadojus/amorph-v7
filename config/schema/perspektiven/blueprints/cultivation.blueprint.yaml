@@ -1,4 +1,18 @@
 # ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: CULTIVATION
+# Bio-Phosphor - Bioluminescent green like growing life
+# Version: 3.0.0 | Universal cultivation data model for all biological species
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# UNIVERSAL DESIGN:
+# This schema covers cultivation/propagation of all organisms:
+# - Microorganisms (bacteria, yeasts, molds, algae)
+# - Plants (crops, ornamentals, forestry)
+# - Animals (livestock, aquaculture, insects, invertebrates)
+# - Fungi (edible, medicinal, industrial)
+#
+# The data determines which fields are relevant for each organism type.
+# ═══════════════════════════════════════════════════════════════════════════════
 # BLUEPRINT: CULTIVATION
 # Leere Datenstruktur mit korrekten Morph-Typen
 # Generiert aus: cultivation.yaml

@@ -1,4 +1,27 @@
 # ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: ECONOMY
+# Economic value, market data, trade, and commercial aspects
+# Version: 2.0.0 | Universal for all biological species
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# IMPLEMENTATION-READY SCHEMA
+# Optimized for: Read-heavy workloads, analytical queries
+#
+# TARGET AUDIENCE:
+# - Economists, Market analysts
+# - Agricultural businesses, Trade organizations
+# - Policy makers, Entrepreneurs, Investors
+# - Supply chain managers, Procurement specialists
+#
+# DESIGN PHILOSOPHY:
+# Documents economic value, market dynamics, trade flows, production,
+# value chains, and commercial potential for biological species.
+#
+# ENTITIES COVERED:
+# Part 1: Profile, Value, Market Data, Price History
+# Part 2: Trade, Production, Cultivation Economics, Value Chain, Industry
+# Part 3: Certifications, Employment, Relationships, Validation
+# ═══════════════════════════════════════════════════════════════════════════════
 # BLUEPRINT: ECONOMY
 # Leere Datenstruktur mit korrekten Morph-Typen
 # Generiert aus: economy.yaml

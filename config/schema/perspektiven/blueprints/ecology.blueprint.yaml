@@ -1,4 +1,18 @@
 # ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: ECOLOGY
+# Ecological roles, habitat relationships, environmental indicators
+# Version: 3.0.0 | Universal for all biological species
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# TARGET AUDIENCE:
+# - Ecologists
+# - Conservation Biologists
+# - Ecosystem Researchers
+#
+# DESIGN PHILOSOPHY:
+# Documents ecological roles, habitat relationships, and environmental
+# indicators. Covers: Core Ecology, Symbioses & Interactions, Phenology & Monitoring
+# ═══════════════════════════════════════════════════════════════════════════════
 # BLUEPRINT: ECOLOGY
 # Leere Datenstruktur mit korrekten Morph-Typen
 # Generiert aus: ecology.yaml

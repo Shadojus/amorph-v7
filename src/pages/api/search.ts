@@ -85,13 +85,12 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
           // Nur aktive Perspektiven anzeigen
           if (!activePerspectives.has(perspId) || !perspData || typeof perspData !== 'object') continue;
           
-          // Get perspective config for colors
+          // Get perspective config for symbol/name
           const perspConfig = getPerspective(perspId);
-          const perspColor = perspConfig?.colors?.[0] || 'rgba(0, 255, 200, 0.75)';
-          const perspSymbol = perspConfig?.symbol || '📊';
+          const perspSymbol = perspConfig?.symbol || '●';
           
-          // Perspektiven-Header mit Farbe
-          perspectiveFields.push(`<div class="persp-divider" data-perspective="${escapeAttribute(perspId)}" style="--persp-color: ${perspColor}">
+          // Perspektiven-Header - Farbe kommt via CSS über data-perspektive
+          perspectiveFields.push(`<div class="persp-divider" data-perspektive="${escapeAttribute(perspId)}">
             <span class="persp-divider-icon">${perspSymbol}</span>
             <span class="persp-divider-label">${escapeHtml(perspConfig?.name || perspId)}</span>
           </div>`);
@@ -123,13 +122,16 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
         }
       }
       const fieldPerspectiveJson = JSON.stringify(fieldPerspectiveMap);
-      
+
       return `
         <article class="amorph-item" data-slug="${escapeAttribute(item.slug)}" data-id="${escapeAttribute(item.id)}" data-name="${escapeAttribute(item.name)}" data-field-perspectives="${escapeAttribute(fieldPerspectiveJson)}">
           <div class="item-header">
             ${item.bild ? `<div class="item-image"><img src="${escapeAttribute(item.bild)}" alt="${escapeAttribute(item.name)}" loading="lazy" /></div>` : ''}
-            <h2 class="item-name">${escapeHtml(item.name)}</h2>
-            ${item.wissenschaftlich ? `<span class="item-scientific">${escapeHtml(item.wissenschaftlich)}</span>` : ''}
+            <div class="item-title-row">
+              <h2 class="item-name">${escapeHtml(item.name)}</h2>
+              <a href="/${escapeAttribute(item.slug)}" class="item-detail-link" title="Details anzeigen">→</a>
+            </div>
+            ${item.wissenschaftlich ? `<span class="item-scientific">${escapeHtml(String(item.wissenschaftlich))}</span>` : ''}
           </div>
           <div class="item-body">${allFields}</div>
           <div class="item-actions">

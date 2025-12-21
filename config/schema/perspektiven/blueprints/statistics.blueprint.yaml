@@ -1,4 +1,22 @@
 # ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: STATISTICS
+# Population data, distribution statistics, and quantitative analysis
+# Version: 1.0.0 | Universal for all biological species
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# TARGET AUDIENCE:
+# - Biostatisticians
+# - Population ecologists
+# - Conservation analysts
+# - Environmental agencies
+# - Academic researchers
+# - Data scientists
+# - Policy makers
+#
+# DESIGN PHILOSOPHY:
+# Provides quantitative data and statistical analysis for species
+# populations, distributions, and trends.
+# ═══════════════════════════════════════════════════════════════════════════════
 # STATISTICS PERSPECTIVE BLUEPRINT
 # Schema mit leeren Datenstrukturen für Morph-Erkennung
 # ═══════════════════════════════════════════════════════════════════════════════

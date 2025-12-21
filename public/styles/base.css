@@ -126,39 +126,39 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   PERSPEKTIVEN FARBSYSTEM
+   PERSPEKTIVEN FARBSYSTEM - 15 Pastellfarben (kein Blau)
    ───────────────────────────────────────────────────────────────────────────── */
 
-/* Culinary - Warm Orange */
-[data-perspektive="culinary"] { --perspektive-rgb: 245, 180, 130; --perspektive-h: 30; }
-/* Safety - Rose Coral */
-[data-perspektive="safety"] { --perspektive-rgb: 250, 160, 170; --perspektive-h: 353; }
-/* Cultivation - Mint Green */
-[data-perspektive="cultivation"] { --perspektive-rgb: 130, 220, 180; --perspektive-h: 153; }
-/* Medicine - Soft Violet */
-[data-perspektive="medicine"] { --perspektive-rgb: 200, 160, 220; --perspektive-h: 280; }
-/* Chemistry - Magenta */
-[data-perspektive="chemistry"] { --perspektive-rgb: 200, 140, 200; --perspektive-h: 300; }
-/* Ecology - Sage Green */
-[data-perspektive="ecology"] { --perspektive-rgb: 140, 200, 160; --perspektive-h: 140; }
-/* Statistics - Sky Blue */
-[data-perspektive="statistics"] { --perspektive-rgb: 140, 180, 220; --perspektive-h: 210; }
-/* Geography - Earth Brown */
-[data-perspektive="geography"] { --perspektive-rgb: 210, 170, 130; --perspektive-h: 30; }
-/* Temporal - Amber */
-[data-perspektive="temporal"] { --perspektive-rgb: 230, 190, 120; --perspektive-h: 38; }
-/* Economy - Gold */
-[data-perspektive="economy"] { --perspektive-rgb: 240, 200, 100; --perspektive-h: 43; }
-/* Conservation - Teal */
-[data-perspektive="conservation"] { --perspektive-rgb: 100, 190, 180; --perspektive-h: 173; }
-/* Culture - Dusty Rose */
-[data-perspektive="culture"] { --perspektive-rgb: 200, 160, 180; --perspektive-h: 330; }
-/* Research - Slate Blue */
-[data-perspektive="research"] { --perspektive-rgb: 160, 170, 200; --perspektive-h: 225; }
-/* Interactions - Coral */
-[data-perspektive="interactions"] { --perspektive-rgb: 230, 150, 140; --perspektive-h: 7; }
-/* Identification - Teal Green */
-[data-perspektive="identification"] { --perspektive-rgb: 100, 190, 180; --perspektive-h: 173; }
+/* Culinary - Warm Apricot */
+[data-perspektive="culinary"] { --perspektive-rgb: 255, 180, 140; --perspektive-h: 24; }
+/* Safety - Soft Coral Pink */
+[data-perspektive="safety"] { --perspektive-rgb: 255, 150, 160; --perspektive-h: 354; }
+/* Cultivation - Fresh Mint */
+[data-perspektive="cultivation"] { --perspektive-rgb: 140, 230, 180; --perspektive-h: 150; }
+/* Medicine - Soft Lavender */
+[data-perspektive="medicine"] { --perspektive-rgb: 200, 170, 230; --perspektive-h: 264; }
+/* Chemistry - Orchid Pink */
+[data-perspektive="chemistry"] { --perspektive-rgb: 230, 160, 200; --perspektive-h: 326; }
+/* Ecology - Forest Sage */
+[data-perspektive="ecology"] { --perspektive-rgb: 160, 200, 140; --perspektive-h: 100; }
+/* Statistics - Warm Sand */
+[data-perspektive="statistics"] { --perspektive-rgb: 230, 210, 170; --perspektive-h: 40; }
+/* Geography - Terracotta */
+[data-perspektive="geography"] { --perspektive-rgb: 220, 160, 130; --perspektive-h: 20; }
+/* Temporal - Soft Gold */
+[data-perspektive="temporal"] { --perspektive-rgb: 240, 210, 140; --perspektive-h: 42; }
+/* Economy - Warm Mustard */
+[data-perspektive="economy"] { --perspektive-rgb: 235, 195, 100; --perspektive-h: 42; }
+/* Conservation - Seafoam */
+[data-perspektive="conservation"] { --perspektive-rgb: 120, 200, 180; --perspektive-h: 165; }
+/* Culture - Dusty Mauve */
+[data-perspektive="culture"] { --perspektive-rgb: 210, 170, 190; --perspektive-h: 330; }
+/* Research - Cool Silver */
+[data-perspektive="research"] { --perspektive-rgb: 190, 195, 210; --perspektive-h: 225; }
+/* Interactions - Bright Salmon */
+[data-perspektive="interactions"] { --perspektive-rgb: 250, 160, 140; --perspektive-h: 11; }
+/* Identification - Olive Moss */
+[data-perspektive="identification"] { --perspektive-rgb: 180, 190, 130; --perspektive-h: 70; }
 
 [data-perspektive] {
   --perspektive: rgb(var(--perspektive-rgb));
@@ -168,18 +168,18 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   PILZ FARBSYSTEM (Compare Mode)
+   PILZ FARBSYSTEM (Compare Mode) - 8 Neon-Farben
    ───────────────────────────────────────────────────────────────────────────── */
 :root {
-  /* 8 Neon Colors for Compare */
-  --pilz-0-rgb: 255, 0, 128;    /* Neon Pink */
-  --pilz-1-rgb: 0, 255, 200;    /* Neon Cyan */
-  --pilz-2-rgb: 200, 100, 255;  /* Neon Purple */
-  --pilz-3-rgb: 255, 200, 0;    /* Neon Gold */
-  --pilz-4-rgb: 0, 200, 255;    /* Neon Blue */
-  --pilz-5-rgb: 255, 100, 50;   /* Neon Orange */
-  --pilz-6-rgb: 100, 255, 100;  /* Neon Green */
-  --pilz-7-rgb: 255, 150, 200;  /* Neon Rose */
+  /* 8 Neon Colors for Compare - maximaler Kontrast */
+  --pilz-0-rgb: 255, 50, 150;   /* Neon Magenta */
+  --pilz-1-rgb: 0, 255, 180;    /* Neon Mint */
+  --pilz-2-rgb: 180, 80, 255;   /* Neon Violet */
+  --pilz-3-rgb: 255, 220, 0;    /* Neon Yellow */
+  --pilz-4-rgb: 0, 240, 255;    /* Neon Cyan */
+  --pilz-5-rgb: 255, 120, 0;    /* Neon Orange */
+  --pilz-6-rgb: 50, 255, 100;   /* Neon Lime */
+  --pilz-7-rgb: 255, 100, 100;  /* Neon Coral */
 }
 
 .pilz-0 { --pilz-rgb: var(--pilz-0-rgb); }

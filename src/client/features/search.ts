@@ -20,8 +20,13 @@ let lastMatchedPerspectives: string[] = []; // Track for counter display
 let perspectiveMatchCounts: Map<string, number> = new Map(); // Count per perspective
 let isSearchInitialized = false; // Guard gegen doppelte Initialisierung
 
+// Highlight Navigation State
+let currentHighlightIndex = 0;
+let highlightElements: HTMLElement[] = [];
+let searchNavContainer: HTMLElement | null = null;
+
 const DEBOUNCE_MS = 300;
-const MAX_ACTIVE_PERSPECTIVES = 4; // FIFO limit
+const MAX_ACTIVE_PERSPECTIVES = 99; // Praktisch unbegrenzt
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // INITIALIZATION
@@ -30,7 +35,6 @@ const MAX_ACTIVE_PERSPECTIVES = 4; // FIFO limit
 export interface SearchConfig {
   input: HTMLInputElement;
   grid: HTMLElement;
-  perspectiveButtons?: NodeListOf<Element>;
   activePerspectivesContainer?: HTMLElement;
 }
 
@@ -45,34 +49,36 @@ export function initSearch(config: SearchConfig): void {
   gridContainer = config.grid;
   activePerspectivesContainer = config.activePerspectivesContainer || null;
   
+  // Search Navigation Container
+  searchNavContainer = document.querySelector('.search-nav');
+  
+  // Search Navigation Buttons
+  document.querySelector('.search-nav-prev')?.addEventListener('click', () => navigateHighlight(-1));
+  document.querySelector('.search-nav-next')?.addEventListener('click', () => navigateHighlight(1));
+  
   // Search input handler
   searchInput.addEventListener('input', () => {
     if (searchTimeout) clearTimeout(searchTimeout);
     searchTimeout = window.setTimeout(performSearch, DEBOUNCE_MS);
   });
   
-  // Enter key
+  // Enter key - navigate to next highlight
   searchInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
-      if (searchTimeout) clearTimeout(searchTimeout);
-      performSearch();
-    }
-  });
-  
-  // Perspective buttons
-  config.perspectiveButtons?.forEach(btn => {
-    btn.addEventListener('click', (e) => {
       e.preventDefault();
-      e.stopPropagation();
-      debug.amorph('Perspective button clicked', { id: (btn as HTMLElement).dataset.perspektive });
-      togglePerspective(btn as HTMLElement);
-    });
+      if (highlightElements.length > 0) {
+        navigateHighlight(e.shiftKey ? -1 : 1);
+      } else {
+        if (searchTimeout) clearTimeout(searchTimeout);
+        performSearch();
+      }
+    }
   });
   
   // Initialize active perspective UI
   updateActivePerspectivesUI();
   
-  debug.amorph('Search initialized', { perspectiveCount: config.perspectiveButtons?.length || 0 });
+  debug.amorph('Search initialized');
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -100,6 +106,9 @@ export async function performSearch(): Promise<void> {
     if (gridContainer && data.html) {
       gridContainer.innerHTML = data.html;
     }
+    
+    // Update highlight navigation
+    updateHighlightNavigation(query);
     
     // Update perspective buttons with data status
     updatePerspectiveStatus(data.perspectivesWithData || []);
@@ -209,12 +218,6 @@ export function setActivePerspectives(ids: string[]): void {
   activePerspectives = new Set(limitedIds);
   activePerspectivesOrder = [...limitedIds];
   
-  // Update UI
-  document.querySelectorAll('.persp-btn').forEach(btn => {
-    const id = (btn as HTMLElement).dataset.perspektive || (btn as HTMLElement).dataset.perspective;
-    btn.classList.toggle('is-active', id ? activePerspectives.has(id) : false);
-  });
-  
   // Update active perspectives display
   updateActivePerspectivesUI();
 }
@@ -223,36 +226,12 @@ export function getActivePerspectives(): string[] {
   return [...activePerspectives];
 }
 
-function updatePerspectiveStatus(withData: string[]): void {
-  const dataSet = new Set(withData);
-  
-  document.querySelectorAll('.persp-btn').forEach(btn => {
-    const id = (btn as HTMLElement).dataset.perspektive || (btn as HTMLElement).dataset.perspective;
-    btn.classList.toggle('has-data', id ? dataSet.has(id) : false);
-  });
-}
-
-// Update counters on perspective buttons for matched (but not active) perspectives
+// Update counters - nur für interne Verwendung (keine DOM-Buttons mehr)
 function updatePerspectiveCounters(matchedPerspectives: string[]): void {
-  document.querySelectorAll('.persp-btn').forEach(btn => {
-    const id = (btn as HTMLElement).dataset.perspektive || (btn as HTMLElement).dataset.perspective;
-    if (!id) return;
-    
-    // Entferne bestehenden Counter
-    const existingCounter = btn.querySelector('.persp-counter');
-    existingCounter?.remove();
-    
-    // Counter nur für nicht-aktive Perspektiven mit Matches
-    if (matchedPerspectives.includes(id) && !activePerspectives.has(id)) {
-      const counter = document.createElement('span');
-      counter.className = 'persp-counter';
-      counter.textContent = '!';
-      btn.appendChild(counter);
-      btn.classList.add('has-match');
-    } else {
-      btn.classList.remove('has-match');
-    }
-  });
+  perspectiveMatchCounts.clear();
+  for (const id of matchedPerspectives) {
+    perspectiveMatchCounts.set(id, 1);
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -304,5 +283,140 @@ export function restoreFromURL(): void {
   
   if (query || perspectives.length) {
     performSearch();
+  }
+}
+// ═══════════════════════════════════════════════════════════════════════════════
+// HIGHLIGHT NAVIGATION
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function updateHighlightNavigation(query: string): void {
+  // Wende Highlighting auf den Content an
+  applyHighlighting(query);
+  
+  // Sammle alle Highlight-Elemente
+  highlightElements = Array.from(document.querySelectorAll('.search-highlight')) as HTMLElement[];
+  currentHighlightIndex = 0;
+  
+  // Zeige/verstecke Navigation
+  if (searchNavContainer) {
+    if (highlightElements.length > 0 && query.length >= 2) {
+      searchNavContainer.style.display = 'flex';
+      updateHighlightCounter();
+      // Scrolle zum ersten Treffer
+      if (highlightElements[0]) {
+        scrollToHighlight(0);
+      }
+    } else {
+      searchNavContainer.style.display = 'none';
+    }
+  }
+}
+
+// Client-side Text Highlighting
+function applyHighlighting(query: string): void {
+  if (!gridContainer || !query || query.length < 2) return;
+  
+  const lowerQuery = query.toLowerCase();
+  const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+  
+  // Finde alle Textknoten im Grid
+  const walker = document.createTreeWalker(
+    gridContainer,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode: (node) => {
+        // Überspringe leere Knoten und bereits markierte
+        if (!node.textContent?.trim()) return NodeFilter.FILTER_REJECT;
+        if (node.parentElement?.closest('mark')) return NodeFilter.FILTER_REJECT;
+        if (node.parentElement?.closest('script')) return NodeFilter.FILTER_REJECT;
+        if (node.parentElement?.closest('style')) return NodeFilter.FILTER_REJECT;
+        // Nur Knoten die den Suchbegriff enthalten
+        if (!node.textContent.toLowerCase().includes(lowerQuery)) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    }
+  );
+  
+  const textNodes: Text[] = [];
+  let node: Text | null;
+  while ((node = walker.nextNode() as Text | null)) {
+    textNodes.push(node);
+  }
+  
+  // Ersetze Textknoten mit Highlights
+  for (const textNode of textNodes) {
+    const text = textNode.textContent || '';
+    if (!regex.test(text)) continue;
+    
+    // Reset regex
+    regex.lastIndex = 0;
+    
+    const fragment = document.createDocumentFragment();
+    let lastIndex = 0;
+    let match: RegExpExecArray | null;
+    
+    while ((match = regex.exec(text)) !== null) {
+      // Text vor dem Match
+      if (match.index > lastIndex) {
+        fragment.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+      }
+      
+      // Highlight
+      const mark = document.createElement('mark');
+      mark.className = 'search-highlight';
+      mark.textContent = match[1];
+      fragment.appendChild(mark);
+      
+      lastIndex = regex.lastIndex;
+    }
+    
+    // Rest nach dem letzten Match
+    if (lastIndex < text.length) {
+      fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
+    }
+    
+    // Ersetze den Textknoten
+    textNode.parentNode?.replaceChild(fragment, textNode);
+  }
+}
+
+function navigateHighlight(direction: number): void {
+  if (highlightElements.length === 0) return;
+  
+  // Entferne aktuelle Markierung
+  highlightElements[currentHighlightIndex]?.classList.remove('is-current');
+  
+  // Berechne neuen Index
+  currentHighlightIndex += direction;
+  if (currentHighlightIndex >= highlightElements.length) {
+    currentHighlightIndex = 0;
+  } else if (currentHighlightIndex < 0) {
+    currentHighlightIndex = highlightElements.length - 1;
+  }
+  
+  // Setze neue Markierung und scrolle
+  scrollToHighlight(currentHighlightIndex);
+  updateHighlightCounter();
+}
+
+function scrollToHighlight(index: number): void {
+  const element = highlightElements[index];
+  if (!element) return;
+  
+  // Markiere als aktuell
+  highlightElements.forEach(el => el.classList.remove('is-current'));
+  element.classList.add('is-current');
+  
+  // Scrolle Element in den sichtbaren Bereich
+  element.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  });
+}
+
+function updateHighlightCounter(): void {
+  const countEl = document.querySelector('.search-nav-count');
+  if (countEl) {
+    countEl.textContent = `${currentHighlightIndex + 1}/${highlightElements.length}`;
   }
 }

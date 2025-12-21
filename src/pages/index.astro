@@ -76,13 +76,24 @@ const { items, total, perspectivesWithData } = await searchItems({
 // Get perspectives
 const perspectives = getAllPerspectives();
 
-// Build perspective colors map for client
-const perspectiveColors: Record<string, string[]> = {};
-for (const p of perspectives) {
-  if (p.colors && p.colors.length > 0) {
-    perspectiveColors[p.id] = p.colors;
-  }
-}
+// Perspektiven-Farben - zentral definiert (RGB Werte aus base.css)
+const perspectiveColors: Record<string, string[]> = {
+  culinary: ['rgba(255, 180, 140, 0.75)'],
+  safety: ['rgba(255, 150, 160, 0.75)'],
+  cultivation: ['rgba(140, 230, 180, 0.75)'],
+  medicine: ['rgba(200, 170, 230, 0.75)'],
+  chemistry: ['rgba(230, 160, 200, 0.75)'],
+  ecology: ['rgba(160, 200, 140, 0.75)'],
+  statistics: ['rgba(230, 210, 170, 0.75)'],
+  geography: ['rgba(220, 160, 130, 0.75)'],
+  temporal: ['rgba(240, 210, 140, 0.75)'],
+  economy: ['rgba(235, 195, 100, 0.75)'],
+  conservation: ['rgba(120, 200, 180, 0.75)'],
+  culture: ['rgba(210, 170, 190, 0.75)'],
+  research: ['rgba(190, 195, 210, 0.75)'],
+  interactions: ['rgba(250, 160, 140, 0.75)'],
+  identification: ['rgba(180, 190, 130, 0.75)']
+};
 
 // Render context for grid items
 const gridContext: RenderContext = {
@@ -93,9 +104,10 @@ const gridContext: RenderContext = {
 ---
 
 <Base title="AMORPH – Übersicht">
-  <!-- Perspektiven-Farben für Client -->
-  <script define:vars={{ perspectiveColors }}>
+  <!-- Perspektiven-Daten für Client -->
+  <script define:vars={{ perspectiveColors, perspectives }}>
     window.AMORPH_PERSPECTIVE_COLORS = perspectiveColors;
+    window.AMORPH_PERSPECTIVES = perspectives;
   </script>
   
   <!-- Header (nur Logo + Compare) -->
@@ -107,6 +119,11 @@ const gridContext: RenderContext = {
       <span class="count">0</span>
     </button>
   </header>
+  
+  <!-- Aktive Perspektiven unter Header -->
+  <div class="active-perspectives-bar">
+    <div class="active-perspectives"></div>
+  </div>
   
   <!-- Main Grid -->
   <main class="amorph-main">
@@ -170,42 +187,25 @@ const gridContext: RenderContext = {
   <!-- Search Footer (unten fixiert - Mobile-First) -->
   <footer class="amorph-search-footer">
     <div class="search-footer-inner">
-      <!-- Suchleiste OBEN -->
+      <!-- Suchleiste OBEN - Prominentes Design -->
       <div class="amorph-search">
         <div class="search-wrapper">
-          <div class="active-perspectives"></div>
+          <span class="search-icon">🔍</span>
           <input 
             type="search" 
             placeholder="Suchen..." 
             value={query}
             autocomplete="off"
           />
+          <div class="search-nav" style="display: none;">
+            <span class="search-nav-count">0/0</span>
+            <button type="button" class="search-nav-prev" aria-label="Vorheriger Treffer">↑</button>
+            <button type="button" class="search-nav-next" aria-label="Nächster Treffer">↓</button>
+          </div>
         </div>
       </div>
       
-      <!-- Perspektiven-Buttons UNTEN (horizontal scrollbar) -->
-      <div class="perspective-filters">
-        {perspectives.map(p => {
-          const primaryColor = p.colors?.[0] || 'rgba(77, 136, 255, 0.75)';
-          return (
-            <button 
-              type="button"
-              class:list={[
-                'persp-btn',
-                { 'is-active': perspectiveIds.includes(p.id) },
-                { 'has-data': perspectivesWithData.includes(p.id) }
-              ]}
-              data-perspektive={p.id}
-              data-name={p.name}
-              data-color={primaryColor}
-              title={p.name}
-              style={`--persp-color: ${primaryColor}`}
-            >
-              {p.symbol || p.name.charAt(0)}
-            </button>
-          );
-        })}
-      </div>
+
     </div>
   </footer>
   

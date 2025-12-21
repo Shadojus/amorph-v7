@@ -1326,25 +1326,7 @@
 .pilz-6 { --pilz-color: #f8f; --pilz-rgb: 255, 136, 255; }
 .pilz-7 { --pilz-color: #8f0; --pilz-rgb: 136, 255, 0; }
 
-/* ─────────────────────────────────────────────────────────────────────────────
-   PERSPEKTIVEN FARBSYSTEM  
-   Colors defined for data-perspektive attribute
-   ───────────────────────────────────────────────────────────────────────────── */
-[data-perspektive="culinary"] { --perspektive-rgb: 245, 180, 130; }
-[data-perspektive="safety"] { --perspektive-rgb: 250, 160, 170; }
-[data-perspektive="cultivation"] { --perspektive-rgb: 130, 220, 180; }
-[data-perspektive="medicine"] { --perspektive-rgb: 200, 160, 220; }
-[data-perspektive="chemistry"] { --perspektive-rgb: 200, 140, 200; }
-[data-perspektive="ecology"] { --perspektive-rgb: 140, 200, 160; }
-[data-perspektive="statistics"] { --perspektive-rgb: 140, 180, 220; }
-[data-perspektive="geography"] { --perspektive-rgb: 210, 170, 130; }
-[data-perspektive="temporal"] { --perspektive-rgb: 230, 190, 120; }
-[data-perspektive="economy"] { --perspektive-rgb: 240, 200, 100; }
-[data-perspektive="conservation"] { --perspektive-rgb: 100, 190, 180; }
-[data-perspektive="culture"] { --perspektive-rgb: 200, 160, 180; }
-[data-perspektive="research"] { --perspektive-rgb: 160, 170, 200; }
-[data-perspektive="interactions"] { --perspektive-rgb: 180, 200, 150; }
-[data-perspektive="identification"] { --perspektive-rgb: 100, 190, 180; }
+/* Perspektiven-Farben sind in base.css definiert via data-perspektive Attribut */
 
 /* ═══════════════════════════════════════════════════════════════════════════════
    COMPARE MODE STYLES - All Morphs

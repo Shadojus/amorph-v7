@@ -1,4 +1,27 @@
 # ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: CHEMISTRY
+# Molecular-chemical perspective for biological species analytics
+# Version: 1.0.0 | Schema based on complete DB model
+# Universal for all biological species across all kingdoms
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# TARGET AUDIENCE:
+# - Natural product chemists & pharmacists
+# - Food chemists & analysts
+# - Biotechnologists & enzymologists
+# - Toxin researchers
+# - Aroma chemists
+# - Metabolomics researchers
+#
+# DESIGN PHILOSOPHY:
+# Complete coverage of all chemical aspects of biological organisms:
+# - Primary metabolites (nutrients, macros, vitamins, minerals)
+# - Secondary metabolites (bioactive compounds, toxins)
+# - Volatile compounds (aroma substances, odor profile)
+# - Enzymes (industrial, digestive)
+# - Analytical data (MS, NMR, chromatography)
+#
+# ═══════════════════════════════════════════════════════════════════════════════
 # CHEMISTRY PERSPECTIVE - DATA BLUEPRINT
 # Empty schema with correct morph data structures
 # Version: 1.0.0

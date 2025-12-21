@@ -1,4 +1,26 @@
 # ═══════════════════════════════════════════════════════════════════════════════
+# PERSPECTIVE: IDENTIFICATION
+# Universal interface for biological species identification
+# Version: 3.0.0 | Universal for all biological kingdoms
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# COMPLETE IDENTIFICATION SYSTEM
+# Covers all levels of species identification across all kingdoms:
+# - Species identification & taxonomy
+# - Macroscopic features (eye, magnifier)
+# - Microscopic features (light microscope, SEM)
+# - Chemical reactions (spot tests)
+# - Molecular data (DNA barcoding)
+# - Ecological context
+# - Confusion partners
+# - Identification aids & keys
+# - Media & documentation
+# - Collection data
+#
+# UNIVERSAL DESIGN:
+# All fields are kingdom-agnostic. The data determines which fields are relevant.
+# Morphological structures use universal terminology that maps to any organism.
+# ═══════════════════════════════════════════════════════════════════════════════
 # IDENTIFICATION PERSPECTIVE BLUEPRINT
 # Schema mit leeren Datenstrukturen für Morph-Erkennung
 # ═══════════════════════════════════════════════════════════════════════════════
