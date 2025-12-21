@@ -60,19 +60,15 @@ body {
   --system-light-rgb: 120, 165, 255;
   --system-dark-rgb: 50, 100, 200;
   
-  /* Multi-Layer Glow System */
+  /* Multi-Layer Glow System - Subtle */
   --system-glow: 
-    0 0 8px rgba(var(--system-rgb), 0.4),
-    0 0 20px rgba(var(--system-rgb), 0.3),
-    0 0 40px rgba(var(--system-rgb), 0.15);
+    0 0 6px rgba(var(--system-rgb), 0.25),
+    0 0 12px rgba(var(--system-rgb), 0.15);
   --system-glow-intense: 
-    0 0 10px rgba(var(--system-light-rgb), 0.5),
-    0 0 25px rgba(var(--system-rgb), 0.5),
-    0 0 50px rgba(var(--system-rgb), 0.3),
-    0 0 80px rgba(var(--system-dark-rgb), 0.2);
+    0 0 8px rgba(var(--system-rgb), 0.3),
+    0 0 20px rgba(var(--system-rgb), 0.2);
   --system-glow-subtle:
-    0 0 6px rgba(var(--system-rgb), 0.2),
-    0 0 15px rgba(var(--system-rgb), 0.1);
+    0 0 4px rgba(var(--system-rgb), 0.15);
   
   /* System Gradient Presets */
   --system-gradient: linear-gradient(165deg, 
@@ -90,9 +86,8 @@ body {
   
   /* System Text Shadow for Depth */
   --system-text-glow: 
-    0 0 10px rgba(var(--system-rgb), 0.5),
-    0 0 30px rgba(var(--system-rgb), 0.3),
-    0 2px 4px rgba(0, 0, 0, 0.4);
+    0 0 8px rgba(var(--system-rgb), 0.3),
+    0 1px 2px rgba(0, 0, 0, 0.3);
   
   /* External - Cyan with Depth */
   --extern-h: 185;
@@ -102,9 +97,8 @@ body {
   --extern-rgb: 0, 200, 220;
   --extern-light-rgb: 50, 230, 245;
   --extern-glow: 
-    0 0 8px rgba(var(--extern-rgb), 0.4),
-    0 0 20px rgba(var(--extern-rgb), 0.25),
-    0 0 40px rgba(var(--extern-rgb), 0.1);
+    0 0 6px rgba(var(--extern-rgb), 0.25),
+    0 0 12px rgba(var(--extern-rgb), 0.15);
   
   /* Background Layers */
   --bg-void: #000000;
@@ -126,25 +120,18 @@ body {
   --glass-blur-heavy: 40px;
   --glass-blur-light: 10px;
   
-  /* Multi-Layer Shadow System */
+  /* Multi-Layer Shadow System - Simplified */
   --glass-shadow: 
-    0 2px 4px rgba(0, 0, 0, 0.3),
-    0 8px 24px rgba(0, 0, 0, 0.4),
-    0 16px 32px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+    0 2px 8px rgba(0, 0, 0, 0.25),
+    0 8px 24px rgba(0, 0, 0, 0.2);
   --glass-shadow-elevated: 
-    0 4px 8px rgba(0, 0, 0, 0.3),
-    0 16px 40px rgba(0, 0, 0, 0.5),
-    0 24px 64px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 16px 40px rgba(0, 0, 0, 0.25);
   --glass-shadow-inset: 
-    inset 0 2px 8px rgba(0, 0, 0, 0.4),
-    inset 0 1px 2px rgba(0, 0, 0, 0.3);
+    inset 0 2px 6px rgba(0, 0, 0, 0.3);
   --glass-shadow-subtle: 
-    0 1px 3px rgba(0, 0, 0, 0.2),
-    0 4px 12px rgba(0, 0, 0, 0.15);
+    0 1px 3px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.1);
   
   /* Inner Glow for depth */
   --glass-inner-glow: inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 1px 0 0 rgba(255, 255, 255, 0.03);
@@ -269,10 +256,10 @@ body {
 
 [class^="pilz-"], [class*=" pilz-"] {
   --pilz: rgb(var(--pilz-rgb));
-  --pilz-glow: 0 0 10px rgba(var(--pilz-rgb), 0.5), 0 0 20px rgba(var(--pilz-rgb), 0.3);
-  --pilz-bg: rgba(var(--pilz-rgb), 0.15);
-  --pilz-border: rgba(var(--pilz-rgb), 0.4);
-  --pilz-line: rgba(var(--pilz-rgb), 0.8);
+  --pilz-glow: 0 0 8px rgba(var(--pilz-rgb), 0.3);
+  --pilz-bg: rgba(var(--pilz-rgb), 0.1);
+  --pilz-border: rgba(var(--pilz-rgb), 0.3);
+  --pilz-line: rgba(var(--pilz-rgb), 0.6);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -403,32 +390,18 @@ a[href^="http"]:not([href*="amorph"]):hover {
 .btn-primary {
   background: var(--system-gradient);
   color: var(--text-inverse);
-  border: 1px solid rgba(var(--system-light-rgb), 0.4);
-  border-top-color: rgba(var(--system-light-rgb), 0.6);
-  border-bottom-color: rgba(var(--system-dark-rgb), 0.5);
-  box-shadow: 
-    0 2px 8px rgba(var(--system-rgb), 0.25),
-    0 4px 16px rgba(var(--system-rgb), 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(var(--system-light-rgb), 0.3);
+  box-shadow: 0 2px 8px rgba(var(--system-rgb), 0.2);
 }
 
 .btn-primary:hover:not(:disabled) {
-  background: var(--system-gradient-radial);
-  box-shadow: 
-    var(--system-glow),
-    0 4px 12px rgba(var(--system-rgb), 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(var(--system-rgb), 0.25);
+  transform: translateY(-1px);
 }
 
 .btn-primary:active:not(:disabled) {
   transform: translateY(0);
-  box-shadow: 
-    0 1px 4px rgba(var(--system-rgb), 0.3),
-    inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 4px rgba(var(--system-rgb), 0.2);
 }
 
 /* Ghost Button */
@@ -450,22 +423,15 @@ a[href^="http"]:not([href*="amorph"]):hover {
   height: 40px;
   padding: 0;
   border-radius: var(--radius-md);
-  background: linear-gradient(165deg, rgba(18, 18, 28, 0.7) 0%, rgba(12, 12, 20, 0.8) 100%);
+  background: rgba(18, 18, 28, 0.7);
   border: 1px solid var(--glass-border);
-  border-top-color: rgba(255, 255, 255, 0.08);
   color: var(--text-secondary);
-  box-shadow: 
-    0 2px 6px rgba(0, 0, 0, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .btn-icon:hover:not(:disabled) {
   color: var(--system);
-  border-color: rgba(var(--system-rgb), 0.3);
-  box-shadow: 
-    var(--system-glow-subtle),
-    0 2px 8px rgba(0, 0, 0, 0.25),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border-color: rgba(var(--system-rgb), 0.25);
 }
 
 /* Small Buttons */
@@ -482,15 +448,12 @@ a[href^="http"]:not([href*="amorph"]):hover {
   padding: var(--space-sm) var(--space-md);
   font-size: 0.9375rem;
   color: var(--text-primary);
-  background: linear-gradient(180deg, rgba(18, 18, 28, 0.8) 0%, rgba(22, 22, 35, 0.7) 100%);
+  background: rgba(18, 18, 28, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-top-color: rgba(0, 0, 0, 0.3);
   border-radius: var(--radius-md);
   outline: none;
   transition: all var(--transition-fast);
-  box-shadow: 
-    inset 0 2px 4px rgba(0, 0, 0, 0.2),
-    inset 0 1px 2px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 .input::placeholder {
@@ -498,12 +461,10 @@ a[href^="http"]:not([href*="amorph"]):hover {
 }
 
 .input:focus {
-  border-color: rgba(var(--system-rgb), 0.4);
-  border-top-color: rgba(var(--system-rgb), 0.3);
+  border-color: rgba(var(--system-rgb), 0.35);
   box-shadow: 
-    0 0 0 3px rgba(var(--system-rgb), 0.1),
-    var(--system-glow-subtle),
-    inset 0 2px 4px rgba(0, 0, 0, 0.15);
+    0 0 0 2px rgba(var(--system-rgb), 0.08),
+    inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Search Input */
@@ -549,14 +510,9 @@ a[href^="http"]:not([href*="amorph"]):hover {
 }
 
 .badge-info {
-  background: linear-gradient(165deg, rgba(var(--system-rgb), 0.18) 0%, rgba(var(--system-rgb), 0.12) 100%);
-  border-color: rgba(var(--system-rgb), 0.25);
-  border-top-color: rgba(var(--system-light-rgb), 0.35);
+  background: rgba(var(--system-rgb), 0.1);
+  border-color: rgba(var(--system-rgb), 0.2);
   color: var(--system-light);
-  box-shadow: 
-    0 2px 4px rgba(0, 0, 0, 0.15),
-    0 0 10px rgba(var(--system-rgb), 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -573,20 +529,14 @@ a[href^="http"]:not([href*="amorph"]):hover {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, 
-    rgba(var(--system-light-rgb), 0.35) 0%,
-    rgba(var(--system-rgb), 0.25) 50%,
-    rgba(var(--system-dark-rgb), 0.3) 100%);
+  background: rgba(var(--system-rgb), 0.25);
   border-radius: var(--radius-full);
   border: 2px solid transparent;
   background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, 
-    rgba(var(--system-light-rgb), 0.5) 0%,
-    rgba(var(--system-rgb), 0.4) 50%,
-    rgba(var(--system-dark-rgb), 0.45) 100%);
+  background: rgba(var(--system-rgb), 0.35);
   background-clip: padding-box;
 }
 
@@ -648,15 +598,10 @@ a[href^="http"]:not([href*="amorph"]):hover {
 
 @keyframes pulse-glow {
   0%, 100% { 
-    box-shadow: 
-      0 0 8px rgba(var(--system-rgb), 0.3),
-      0 0 20px rgba(var(--system-rgb), 0.2);
+    box-shadow: 0 0 6px rgba(var(--system-rgb), 0.2);
   }
   50% { 
-    box-shadow: 
-      0 0 15px rgba(var(--system-light-rgb), 0.4),
-      0 0 35px rgba(var(--system-rgb), 0.35),
-      0 0 60px rgba(var(--system-rgb), 0.2);
+    box-shadow: 0 0 12px rgba(var(--system-rgb), 0.3);
   }
 }
 

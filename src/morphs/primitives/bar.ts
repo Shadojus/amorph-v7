@@ -49,7 +49,7 @@ export const bar = createUnifiedMorph(
       </div>
     `;
   },
-  // Compare: Grouped bars with statistics
+  // Compare: Grouped bars with unified 2px track + dot design
   (values) => {
     const allLabels = new Set<string>();
     const itemData = new Map<string, Map<string, number>>();
@@ -100,8 +100,11 @@ export const bar = createUnifiedMorph(
                   const val = itemData.get(item.id)?.get(label) ?? 0;
                   const pct = (val / max) * 100;
                   return `
-                    <div class="bar-grouped" style="--item-color: ${escapeHtml(color)}; width: ${Math.max(pct, 5)}%">
-                      <span class="bar-value">${formatNumber(val)}</span>
+                    <div class="bar-grouped-row">
+                      <div class="bar-grouped-track">
+                        <div class="bar-grouped-fill" style="--item-color: ${escapeHtml(color)}; width: ${pct}%"></div>
+                      </div>
+                      <span class="bar-grouped-value">${formatNumber(val)}</span>
                     </div>
                   `;
                 }).join('')}
