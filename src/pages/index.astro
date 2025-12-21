@@ -147,7 +147,10 @@ const gridContext: RenderContext = {
                   <img src={String(item.bild)} alt={item.name} loading="lazy" />
                 </div>
               )}
-              <h2 class="item-name">{item.name}</h2>
+              <div class="item-title-row">
+                <h2 class="item-name">{item.name}</h2>
+                <a href={`/${item.slug}`} class="item-detail-link" title="Details anzeigen">→</a>
+              </div>
               {item.wissenschaftlich && (
                 <span class="item-scientific">{String(item.wissenschaftlich)}</span>
               )}

@@ -204,6 +204,160 @@ export async function getItems(slugs: string[]): Promise<ItemData[]> {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 /**
+ * Levenshtein-Distanz für Fuzzy Matching
+ * Misst wie viele Änderungen nötig sind um String A in B zu verwandeln
+ */
+function levenshteinDistance(a: string, b: string): number {
+  const matrix: number[][] = [];
+  
+  for (let i = 0; i <= b.length; i++) {
+    matrix[i] = [i];
+  }
+  for (let j = 0; j <= a.length; j++) {
+    matrix[0][j] = j;
+  }
+  
+  for (let i = 1; i <= b.length; i++) {
+    for (let j = 1; j <= a.length; j++) {
+      if (b.charAt(i - 1) === a.charAt(j - 1)) {
+        matrix[i][j] = matrix[i - 1][j - 1];
+      } else {
+        matrix[i][j] = Math.min(
+          matrix[i - 1][j - 1] + 1, // substitution
+          matrix[i][j - 1] + 1,     // insertion
+          matrix[i - 1][j] + 1      // deletion
+        );
+      }
+    }
+  }
+  
+  return matrix[b.length][a.length];
+}
+
+/**
+ * Prüft ob ein String fuzzy zu einem anderen passt
+ * Erlaubt Tippfehler basierend auf Wortlänge
+ */
+function fuzzyMatch(search: string, target: string): { matches: boolean; score: number } {
+  const searchLower = search.toLowerCase();
+  const targetLower = target.toLowerCase();
+  
+  // Exakter Match
+  if (targetLower === searchLower) {
+    return { matches: true, score: 100 };
+  }
+  
+  // Starts with
+  if (targetLower.startsWith(searchLower)) {
+    return { matches: true, score: 90 };
+  }
+  
+  // Contains
+  if (targetLower.includes(searchLower)) {
+    return { matches: true, score: 70 };
+  }
+  
+  // Fuzzy nur für Begriffe >= 4 Zeichen (sonst zu viele false positives)
+  if (search.length >= 4) {
+    // Prüfe jedes Wort im Target
+    const targetWords = targetLower.split(/\s+/);
+    for (const word of targetWords) {
+      if (word.length < 3) continue;
+      
+      const distance = levenshteinDistance(searchLower, word);
+      // Erlaubte Distanz: 1 für kurze Wörter, 2 für längere
+      const maxDistance = search.length <= 6 ? 1 : 2;
+      
+      if (distance <= maxDistance) {
+        // Score basierend auf Ähnlichkeit (0 = perfekt)
+        const similarity = 1 - (distance / Math.max(search.length, word.length));
+        return { matches: true, score: Math.round(50 * similarity) };
+      }
+    }
+  }
+  
+  return { matches: false, score: 0 };
+}
+
+/**
+ * Berechnet Relevanz-Score für ein Item
+ */
+function calculateRelevanceScore(item: ItemData, searchTerms: string[]): number {
+  if (searchTerms.length === 0) return 0;
+  
+  let totalScore = 0;
+  let matchedTerms = 0;
+  
+  const name = item.name || '';
+  const scientific = item.wissenschaftlich ? String(item.wissenschaftlich) : '';
+  
+  for (const term of searchTerms) {
+    let termScore = 0;
+    
+    // Name (höchste Priorität) - mit Fuzzy
+    const nameMatch = fuzzyMatch(term, name);
+    if (nameMatch.matches) {
+      termScore = Math.max(termScore, nameMatch.score);
+    }
+    
+    // Wissenschaftlicher Name - mit Fuzzy
+    const sciMatch = fuzzyMatch(term, scientific);
+    if (sciMatch.matches) {
+      termScore = Math.max(termScore, sciMatch.score * 0.8); // Etwas weniger als Name
+    }
+    
+    // Andere Felder (nur exact/contains, kein fuzzy)
+    if (termScore === 0) {
+      for (const [key, value] of Object.entries(item)) {
+        if (key.startsWith('_') || key === 'name' || key === 'wissenschaftlich') continue;
+        if (searchInValue(value, term.toLowerCase())) {
+          termScore = 20;
+          break;
+        }
+      }
+    }
+    
+    if (termScore > 0) {
+      matchedTerms++;
+      totalScore += termScore;
+    }
+  }
+  
+  // Bonus wenn mehrere Begriffe matchen
+  if (searchTerms.length > 1 && matchedTerms > 0) {
+    // Prozentual wie viele Begriffe getroffen wurden
+    const matchRatio = matchedTerms / searchTerms.length;
+    totalScore *= (1 + matchRatio * 0.5);
+  }
+  
+  return Math.round(totalScore);
+}
+
+/**
+ * Tokenisiert Suchanfrage
+ * - Komma trennt ODER-Gruppen (mehrere Spezies)
+ * - Leerzeichen innerhalb einer Gruppe = zusammengehörig
+ */
+function tokenizeQuery(query: string): { orGroups: string[][], allTerms: string[] } {
+  // Komma = mehrere Spezies (ODER)
+  const orParts = query.split(',').map(p => p.trim()).filter(p => p.length > 0);
+  
+  const orGroups: string[][] = [];
+  const allTerms: string[] = [];
+  
+  for (const part of orParts) {
+    // Jeder Teil wird in Wörter aufgeteilt
+    const terms = part.toLowerCase().split(/\s+/).filter(t => t.length >= 2);
+    if (terms.length > 0) {
+      orGroups.push(terms);
+      allTerms.push(...terms);
+    }
+  }
+  
+  return { orGroups, allTerms: [...new Set(allTerms)] };
+}
+
+/**
  * Hilfsfunktion: Sucht rekursiv in einem Wert (String, Array, Objekt)
  */
 function searchInValue(value: unknown, searchLower: string): boolean {
@@ -247,10 +401,11 @@ export async function searchItems(options: SearchOptions = {}): Promise<SearchRe
   // Track welche Perspektiven Treffer haben (über alle Items)
   const matchedPerspectivesSet = new Set<string>();
   
-  // Filter by query und finde Perspektiven mit Treffern
-  if (query && query.length >= 4) {
-    const lower = query.toLowerCase();
-    
+  // Tokenisiere Query - unterstützt Komma für mehrere Spezies
+  const { orGroups, allTerms } = query ? tokenizeQuery(query) : { orGroups: [], allTerms: [] };
+  
+  // Filter by query und finde Perspektiven mit Treffern (ab 3 Zeichen)
+  if (allTerms.length > 0 && allTerms.some(t => t.length >= 3)) {
     // Durchsuche alle Items nach Treffern in Perspektiven-Daten
     for (const item of items) {
       if (item._perspectives) {
@@ -259,9 +414,10 @@ export async function searchItems(options: SearchOptions = {}): Promise<SearchRe
           
           // Durchsuche alle Werte in dieser Perspektive
           for (const value of Object.values(perspData as Record<string, unknown>)) {
-            if (searchInValue(value, lower)) {
+            // Prüfe ob mindestens ein Suchbegriff trifft
+            if (allTerms.some(term => searchInValue(value, term))) {
               matchedPerspectivesSet.add(perspId);
-              break; // Eine Perspektive pro Item reicht
+              break;
             }
           }
         }
@@ -271,21 +427,26 @@ export async function searchItems(options: SearchOptions = {}): Promise<SearchRe
   
   const matchedPerspectives = [...matchedPerspectivesSet];
   
-  // Filter by query
-  if (query) {
-    const lower = query.toLowerCase();
-    items = items.filter(item => {
-      // Search in name
-      if (item.name?.toLowerCase().includes(lower)) return true;
+  // Filter und Score by query
+  if (orGroups.length > 0) {
+    // Für jedes Item: Prüfe ob es zu mindestens einer OR-Gruppe passt
+    const scoredItems = items.map(item => {
+      let bestScore = 0;
       
-      // Search in all string fields
-      for (const [key, value] of Object.entries(item)) {
-        if (key.startsWith('_')) continue;
-        if (searchInValue(value, lower)) return true;
+      // Prüfe jede OR-Gruppe (Komma-getrennte Teile)
+      for (const groupTerms of orGroups) {
+        const score = calculateRelevanceScore(item, groupTerms);
+        bestScore = Math.max(bestScore, score);
       }
       
-      return false;
+      return { item, score: bestScore };
     });
+    
+    // Filtere Items ohne Treffer und sortiere nach Relevanz
+    items = scoredItems
+      .filter(({ score }) => score > 0)
+      .sort((a, b) => b.score - a.score)
+      .map(({ item }) => item);
   }
   
   // Determine which perspectives have data

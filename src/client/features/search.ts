@@ -110,15 +110,13 @@ export async function performSearch(): Promise<void> {
     // Update highlight navigation
     updateHighlightNavigation(query);
     
-    // Update perspective buttons with data status
-    updatePerspectiveStatus(data.perspectivesWithData || []);
-    
     // Speichere matched perspectives für Counter-Anzeige
     lastMatchedPerspectives = data.matchedPerspectives || [];
     updatePerspectiveCounters(lastMatchedPerspectives);
     
-    // Auto-activate matched perspectives (nur wenn unter Limit, ab 4 Zeichen)
-    if (query.length >= 4 && data.matchedPerspectives?.length > 0) {
+    // Auto-activate matched perspectives (ab 3 Zeichen, max 3 Perspektiven)
+    // Nur aktivieren wenn es nicht zu viele Matches gibt (sonst zu unspezifisch)
+    if (query.length >= 3 && data.matchedPerspectives?.length > 0 && data.matchedPerspectives.length <= 3) {
       for (const pId of data.matchedPerspectives) {
         if (!activePerspectives.has(pId)) {
           activatePerspectiveById(pId);
@@ -178,34 +176,50 @@ export function togglePerspective(btn: HTMLElement): void {
 
 // Activate a perspective by ID (respects FIFO limit)
 function activatePerspectiveById(id: string): void {
-  const btn = document.querySelector(`.persp-btn[data-perspektive="${id}"]`) as HTMLElement;
-  if (btn && !activePerspectives.has(id)) {
-    // Nur aktivieren wenn unter dem Limit
-    if (activePerspectives.size < MAX_ACTIVE_PERSPECTIVES) {
-      activePerspectives.add(id);
-      activePerspectivesOrder.push(id);
-      btn.classList.add('is-active');
-      updateActivePerspectivesUI();
-    }
+  if (activePerspectives.has(id)) return;
+  
+  // Nur aktivieren wenn unter dem Limit
+  if (activePerspectives.size < MAX_ACTIVE_PERSPECTIVES) {
+    activePerspectives.add(id);
+    activePerspectivesOrder.push(id);
+    updateActivePerspectivesUI();
+    debug.amorph('Perspective activated by search', { id, count: activePerspectives.size });
   }
 }
 
-// NEW: Update the active perspectives display in search bar
+// Deaktiviere eine Perspektive
+function deactivatePerspective(id: string): void {
+  if (!activePerspectives.has(id)) return;
+  
+  activePerspectives.delete(id);
+  activePerspectivesOrder = activePerspectivesOrder.filter(p => p !== id);
+  
+  updateActivePerspectivesUI();
+  performSearch();
+  
+  debug.amorph('Perspective deactivated', { id, count: activePerspectives.size });
+}
+
+// NEW: Update the active perspectives display
 function updateActivePerspectivesUI(): void {
   if (!activePerspectivesContainer) return;
+  
+  // Hole Perspektiven-Daten vom Window-Objekt
+  const perspectivesData = (window as any).AMORPH_PERSPECTIVES || [];
   
   activePerspectivesContainer.innerHTML = '';
   
   for (const id of activePerspectives) {
-    const btn = document.querySelector(`.persp-btn[data-perspektive="${id}"]`) as HTMLElement;
-    const name = btn?.dataset.name || id;
+    // Finde Perspektive in globalen Daten
+    const perspData = perspectivesData.find((p: any) => p.id === id);
+    const name = perspData?.name || id;
     
     const pill = document.createElement('button');
     pill.className = 'active-persp-pill';
     pill.dataset.perspektive = id;
     pill.innerHTML = `<span>${name}</span><span class="remove">×</span>`;
     pill.addEventListener('click', () => {
-      if (btn) togglePerspective(btn);
+      deactivatePerspective(id);
     });
     
     activePerspectivesContainer.appendChild(pill);
@@ -290,6 +304,8 @@ export function restoreFromURL(): void {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 function updateHighlightNavigation(query: string): void {
+  console.log('[Highlight] updateHighlightNavigation called', { query });
+  
   // Wende Highlighting auf den Content an
   applyHighlighting(query);
   
@@ -297,9 +313,13 @@ function updateHighlightNavigation(query: string): void {
   highlightElements = Array.from(document.querySelectorAll('.search-highlight')) as HTMLElement[];
   currentHighlightIndex = 0;
   
+  console.log('[Highlight] Found highlight elements:', highlightElements.length);
+  console.log('[Highlight] searchNavContainer:', !!searchNavContainer);
+  
   // Zeige/verstecke Navigation
   if (searchNavContainer) {
-    if (highlightElements.length > 0 && query.length >= 2) {
+    if (highlightElements.length > 0 && query.length >= 3) {
+      console.log('[Highlight] Showing navigation');
       searchNavContainer.style.display = 'flex';
       updateHighlightCounter();
       // Scrolle zum ersten Treffer
@@ -307,6 +327,7 @@ function updateHighlightNavigation(query: string): void {
         scrollToHighlight(0);
       }
     } else {
+      console.log('[Highlight] Hiding navigation');
       searchNavContainer.style.display = 'none';
     }
   }
@@ -314,10 +335,17 @@ function updateHighlightNavigation(query: string): void {
 
 // Client-side Text Highlighting
 function applyHighlighting(query: string): void {
-  if (!gridContainer || !query || query.length < 2) return;
+  console.log('[Highlight] applyHighlighting called', { query, gridContainer: !!gridContainer });
+  
+  if (!gridContainer || !query || query.length < 3) {
+    console.log('[Highlight] Early return - missing gridContainer or query too short');
+    return;
+  }
   
   const lowerQuery = query.toLowerCase();
   const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+  
+  console.log('[Highlight] Looking for text nodes containing:', lowerQuery);
   
   // Finde alle Textknoten im Grid
   const walker = document.createTreeWalker(
@@ -342,6 +370,8 @@ function applyHighlighting(query: string): void {
   while ((node = walker.nextNode() as Text | null)) {
     textNodes.push(node);
   }
+  
+  console.log('[Highlight] Found text nodes with query:', textNodes.length);
   
   // Ersetze Textknoten mit Highlights
   for (const textNode of textNodes) {
