@@ -23,6 +23,8 @@ export interface SelectedField {
   itemName: string;
   fieldName: string;
   value: unknown;
+  color: string;  // Selection color
+  index: number;  // Selection order index
 }
 
 export interface SelectionState {
@@ -86,7 +88,7 @@ export function toggleItem(item: SelectedItem): boolean {
 
 export function clearSelection(): void {
   state.items.clear();
-  state.fields.clear();  // NEW
+  state.fields.clear();
   debug.selection('Selection cleared');
   notifyListeners();
 }
@@ -100,14 +102,34 @@ export function getSelectedItems(): SelectedItem[] {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// FIELD SELECTION (NEW)
+// FIELD SELECTION
 // ═══════════════════════════════════════════════════════════════════════════════
+
+// Get perspective colors from global config (set by index.astro)
+declare global {
+  interface Window {
+    AMORPH_PERSPECTIVE_COLORS?: Record<string, string[]>;
+  }
+}
+
+function getPerspectiveColor(perspectiveId: string): string | null {
+  const perspColors = window.AMORPH_PERSPECTIVE_COLORS;
+  if (!perspColors || !perspColors[perspectiveId]) return null;
+  
+  const colors = perspColors[perspectiveId];
+  return colors && colors.length > 0 ? colors[0] : null;
+}
+
+function getFallbackColor(): string {
+  // Fallback if no perspective color available
+  return 'rgba(77, 136, 255, 0.75)';
+}
 
 function getFieldKey(itemSlug: string, fieldName: string): string {
   return `${itemSlug}:${fieldName}`;
 }
 
-export function selectField(itemSlug: string, itemName: string, fieldName: string, value: unknown): boolean {
+export function selectField(itemSlug: string, itemName: string, fieldName: string, value: unknown, perspectiveId?: string): boolean {
   if (state.fields.size >= state.maxFields) {
     debug.selection(`Max fields (${state.maxFields}) reached`);
     return false;
@@ -119,8 +141,11 @@ export function selectField(itemSlug: string, itemName: string, fieldName: strin
     return false;
   }
   
-  state.fields.set(key, { itemSlug, itemName, fieldName, value });
-  debug.selection(`Selected field: ${fieldName} from ${itemName}`, { count: state.fields.size });
+  // Get color from perspective or use fallback
+  const color = perspectiveId ? (getPerspectiveColor(perspectiveId) || getFallbackColor()) : getFallbackColor();
+  const index = state.fields.size;
+  state.fields.set(key, { itemSlug, itemName, fieldName, value, color, index });
+  debug.selection(`Selected field: ${fieldName} from ${itemName}`, { count: state.fields.size, color, perspectiveId });
   notifyListeners();
   return true;
 }
@@ -139,6 +164,11 @@ export function deselectField(itemSlug: string, fieldName: string): boolean {
 
 export function isFieldSelected(itemSlug: string, fieldName: string): boolean {
   return state.fields.has(getFieldKey(itemSlug, fieldName));
+}
+
+export function getFieldColor(itemSlug: string, fieldName: string): string | null {
+  const field = state.fields.get(getFieldKey(itemSlug, fieldName));
+  return field?.color ?? null;
 }
 
 export function getSelectedFields(): SelectedField[] {

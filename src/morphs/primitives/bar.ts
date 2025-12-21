@@ -40,10 +40,9 @@ export const bar = createUnifiedMorph(
             <div class="morph-bar-item">
               ${label ? `<span class="morph-bar-label">${escapeHtml(label)}</span>` : ''}
               <div class="morph-bar-track">
-                <div class="morph-bar-fill" style="width: ${pct}%">
-                  <span class="morph-bar-value">${formatNumber(val)}</span>
-                </div>
+                <div class="morph-bar-fill" style="width: ${pct}%"></div>
               </div>
+              <span class="morph-bar-value">${formatNumber(val)}</span>
             </div>
           `;
         }).join('')}

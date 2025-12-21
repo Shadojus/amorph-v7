@@ -45,20 +45,20 @@
 .morph-tag {
   display: inline-flex;
   align-items: center;
-  padding: 0.25em 0.625em;
+  padding: 0.375em 0.75em;
   font-size: 0.8125rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(77, 136, 255, 0.1);
-  border: 1px solid rgba(77, 136, 255, 0.2);
-  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(77, 136, 255, 0.12);
+  border: 1px solid rgba(77, 136, 255, 0.25);
+  border-radius: 8px;
   white-space: nowrap;
 }
 
 .morph-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem;
+  gap: 0.375rem;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -68,15 +68,15 @@
   display: inline-flex;
   align-items: center;
   gap: 0.375em;
-  padding: 0.375em 0.75em;
-  font-size: 0.75rem;
+  padding: 0.5em 0.875em;
+  font-size: 0.8125rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.03em;
   border-radius: 9999px;
   background: rgba(15, 15, 25, 0.6);
-  border: 1px solid rgba(77, 136, 255, 0.2);
-  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(77, 136, 255, 0.25);
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .morph-badge-success {
@@ -184,27 +184,30 @@
 .morph-progress {
   display: flex;
   flex-direction: column;
-  gap: 0.375em;
+  gap: 0.5em;
 }
 
 .morph-progress-header {
   display: flex;
   justify-content: space-between;
-  font-size: 0.75rem;
+  align-items: baseline;
+  font-size: 0.8125rem;
 }
 
 .morph-progress-label {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .morph-progress-value {
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-variant-numeric: tabular-nums;
 }
 
 .morph-progress-bar {
-  height: 6px;
-  background: rgba(77, 136, 255, 0.1);
+  height: 10px;
+  background: rgba(77, 136, 255, 0.12);
   border-radius: 9999px;
   overflow: hidden;
 }
@@ -218,6 +221,7 @@
   border-radius: 9999px;
   transition: width 0.4s ease;
   box-shadow: 0 0 10px rgba(77, 136, 255, 0.4);
+  min-width: 4px;
 }
 
 /* Progress Variants */
@@ -242,17 +246,18 @@
 .morph-range {
   display: flex;
   flex-direction: column;
-  gap: 0.375rem;
+  gap: 0.5rem;
   font-variant-numeric: tabular-nums;
   color: rgba(255, 255, 255, 0.85);
+  padding: 0.25rem 0;
 }
 
 .morph-range-track {
   position: relative;
-  height: 8px;
+  height: 12px;
   background: rgba(77, 136, 255, 0.15);
-  border-radius: 4px;
-  overflow: hidden;
+  border-radius: 6px;
+  overflow: visible;
 }
 
 .morph-range-fill {
@@ -261,26 +266,28 @@
   left: 0;
   height: 100%;
   background: linear-gradient(90deg, rgba(77, 136, 255, 0.6), rgba(77, 136, 255, 0.9));
-  border-radius: 4px;
+  border-radius: 6px;
   transition: width 0.3s ease;
 }
 
 .morph-range-marker {
   position: absolute;
-  top: -2px;
-  width: 12px;
-  height: 12px;
+  top: -4px;
+  width: 20px;
+  height: 20px;
   background: #4d88ff;
-  border: 2px solid rgba(10, 10, 15, 0.8);
+  border: 3px solid rgba(10, 10, 15, 0.9);
   border-radius: 50%;
   transform: translateX(-50%);
-  box-shadow: 0 0 8px rgba(77, 136, 255, 0.5);
+  box-shadow: 0 0 12px rgba(77, 136, 255, 0.6);
 }
 
 .morph-range-labels {
   display: flex;
   justify-content: space-between;
-  font-size: 0.6875rem;
+  align-items: center;
+  font-size: 0.8125rem;
+  padding-top: 0.25rem;
 }
 
 .morph-range-min,
@@ -290,8 +297,9 @@
 }
 
 .morph-range-current {
-  font-weight: 600;
-  color: rgba(77, 136, 255, 0.9);
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: rgba(77, 136, 255, 0.95);
 }
 
 .morph-range-separator {
@@ -383,8 +391,9 @@
 
 .morph-list-item {
   position: relative;
-  padding: 0.375em 0 0.375em 1.25em;
-  color: rgba(255, 255, 255, 0.75);
+  padding: 0.5em 0 0.5em 1.5em;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.875rem;
   line-height: 1.5;
 }
 
@@ -392,12 +401,12 @@
   content: '';
   position: absolute;
   left: 0;
-  top: 0.75em;
-  width: 6px;
-  height: 6px;
+  top: 0.875em;
+  width: 8px;
+  height: 8px;
   background: rgba(77, 136, 255, 0.8);
   border-radius: 50%;
-  box-shadow: 0 0 6px rgba(77, 136, 255, 0.5);
+  box-shadow: 0 0 8px rgba(77, 136, 255, 0.5);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -546,30 +555,35 @@
 .morph-bar {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.625rem;
+  width: 100%;
 }
 
 .morph-bar-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap: 0.25rem 0.5rem;
   align-items: center;
-  gap: 0.5rem;
 }
 
 .morph-bar-label {
-  flex: 0 0 100px;
+  grid-column: 1;
+  grid-row: 1;
   font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.7);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.3;
+  /* Allow wrapping instead of truncating */
 }
 
 .morph-bar-track {
-  flex: 1;
-  height: 20px;
+  grid-column: 1;
+  grid-row: 2;
+  height: 22px;
   background: rgba(77, 136, 255, 0.1);
   border-radius: 6px;
   overflow: hidden;
+  min-width: 60px;
 }
 
 .morph-bar-fill {
@@ -580,18 +594,19 @@
   );
   border-radius: 6px;
   transition: width 0.4s ease;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 0.5rem;
+  min-width: 4px;
   box-shadow: 0 0 10px rgba(77, 136, 255, 0.3);
 }
 
 .morph-bar-value {
-  font-size: 0.6875rem;
+  grid-column: 2;
+  grid-row: 2;
+  font-size: 0.8125rem;
   font-weight: 600;
-  color: #0a0a0f;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  font-variant-numeric: tabular-nums;
+  color: rgba(77, 136, 255, 0.95);
+  min-width: 2.5rem;
+  text-align: right;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -600,42 +615,47 @@
 .morph-radar {
   position: relative;
   width: 100%;
-  max-width: 300px;
+  max-width: 280px;
+  min-width: 180px;
   aspect-ratio: 1;
   margin: 0 auto;
+  padding: 1rem;
 }
 
 .morph-radar svg {
   width: 100%;
   height: 100%;
+  overflow: visible;
 }
 
 .morph-radar-grid {
   fill: none;
-  stroke: rgba(255, 255, 255, 0.1);
+  stroke: rgba(255, 255, 255, 0.12);
   stroke-width: 1;
 }
 
 .morph-radar-axis {
-  stroke: rgba(255, 255, 255, 0.15);
+  stroke: rgba(255, 255, 255, 0.18);
   stroke-width: 1;
 }
 
 .morph-radar-area {
-  fill: rgba(77, 136, 255, 0.2);
-  stroke: rgba(77, 136, 255, 0.8);
-  stroke-width: 2;
+  fill: rgba(77, 136, 255, 0.25);
+  stroke: rgba(77, 136, 255, 0.85);
+  stroke-width: 2.5;
 }
 
 .morph-radar-point {
   fill: #4d88ff;
   stroke: #0a0a0f;
   stroke-width: 2;
+  r: 4;
 }
 
 .morph-radar-label {
-  font-size: 0.6875rem;
-  fill: rgba(255, 255, 255, 0.5);
+  font-size: 0.75rem;
+  fill: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -644,15 +664,17 @@
 .morph-sparkline {
   display: inline-flex;
   align-items: flex-end;
-  height: 30px;
-  gap: 2px;
+  height: 40px;
+  gap: 3px;
+  padding: 0.25rem 0;
 }
 
 .morph-sparkline-bar {
-  width: 4px;
+  width: 6px;
   background: rgba(77, 136, 255, 0.6);
-  border-radius: 2px 2px 0 0;
+  border-radius: 3px 3px 0 0;
   transition: background 0.15s ease;
+  min-height: 3px;
 }
 
 .morph-sparkline-bar:hover {
@@ -662,13 +684,13 @@
 
 /* Line version */
 .morph-sparkline-svg {
-  height: 30px;
+  height: 40px;
 }
 
 .morph-sparkline-line {
   fill: none;
   stroke: #4d88ff;
-  stroke-width: 2;
+  stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
@@ -727,26 +749,26 @@
    ───────────────────────────────────────────────────────────────────────────── */
 .morph-object {
   display: grid;
-  gap: 0.25rem;
+  gap: 0.375rem;
   margin: 0;
   padding: 0;
 }
 
 /* Nested objects are indented */
 .morph-object-nested {
-  margin-left: 0.5rem;
-  padding-left: 0.5rem;
-  border-left: 2px solid rgba(77, 136, 255, 0.2);
+  margin-left: 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 2px solid rgba(77, 136, 255, 0.25);
 }
 
 .morph-object .object-row,
 .morph-object-row {
   display: grid;
-  grid-template-columns: minmax(60px, auto) 1fr;
-  gap: 0.5rem;
-  padding: 0.25rem 0;
-  border-bottom: 1px solid rgba(77, 136, 255, 0.08);
-  align-items: start;
+  grid-template-columns: minmax(80px, auto) 1fr;
+  gap: 0.75rem;
+  padding: 0.375rem 0;
+  border-bottom: 1px solid rgba(77, 136, 255, 0.1);
+  align-items: baseline;
 }
 
 .morph-object .object-row:last-child,
@@ -756,15 +778,16 @@
 
 .morph-object dt,
 .morph-object-key {
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 500;
-  color: rgba(77, 136, 255, 0.7);
+  color: rgba(77, 136, 255, 0.8);
   text-transform: capitalize;
+  word-break: break-word;
 }
 
 .morph-object dd,
 .morph-object-value {
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.9);
   margin: 0;
 }
@@ -849,7 +872,14 @@
   }
   
   .morph-bar-label {
-    flex: 0 0 80px;
+    font-size: 0.75rem;
+  }
+  
+  .morph-bar-track {
+    height: 18px;
+  }
+  
+  .morph-bar-value {
     font-size: 0.75rem;
   }
   
@@ -858,7 +888,54 @@
   }
   
   .morph-radar {
-    max-width: 250px;
+    max-width: 220px;
+    min-width: 160px;
+    padding: 0.5rem;
+  }
+  
+  .morph-radar-label {
+    font-size: 0.6875rem;
+  }
+  
+  .morph-range-track {
+    height: 10px;
+  }
+  
+  .morph-range-marker {
+    width: 16px;
+    height: 16px;
+    top: -3px;
+  }
+  
+  .morph-range-labels {
+    font-size: 0.75rem;
+  }
+  
+  .morph-progress-bar {
+    height: 8px;
+  }
+  
+  .morph-sparkline {
+    height: 32px;
+  }
+  
+  .morph-sparkline-bar {
+    width: 5px;
+  }
+  
+  .morph-object-row {
+    grid-template-columns: minmax(70px, auto) 1fr;
+    gap: 0.5rem;
+  }
+  
+  .morph-object dt,
+  .morph-object-key {
+    font-size: 0.75rem;
+  }
+  
+  .morph-object dd,
+  .morph-object-value {
+    font-size: 0.8125rem;
   }
 }
 

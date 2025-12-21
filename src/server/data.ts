@@ -86,7 +86,8 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
                 id: itemBase.id || slug,
                 slug: slug,
                 _perspectives: {},
-                _loadedPerspectives: [] as string[]  // Track which perspectives are loaded
+                _loadedPerspectives: [] as string[],  // Track which perspectives are loaded
+                _fieldPerspective: {} as Record<string, string>  // Track field → perspective mapping
               };
               
               // Lade Perspektiven und merge Felder ins Item
@@ -105,6 +106,8 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
                     for (const [key, value] of Object.entries(perspData)) {
                       if (!key.startsWith('_') && item[key] === undefined) {
                         item[key] = value;
+                        // Track which perspective this field came from
+                        (item._fieldPerspective as Record<string, string>)[key] = perspName;
                         mergedCount++;
                       }
                     }

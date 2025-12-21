@@ -1145,9 +1145,10 @@
 }
 
 .persp-btn.is-active {
-  background: rgba(77, 136, 255, 0.25);
-  border-color: rgba(77, 136, 255, 0.6);
-  box-shadow: 0 0 15px rgba(77, 136, 255, 0.4);
+  background: var(--persp-color, rgba(77, 136, 255, 0.25));
+  border-color: var(--persp-color, rgba(77, 136, 255, 0.6));
+  box-shadow: 0 0 15px var(--persp-color, rgba(77, 136, 255, 0.4));
+  opacity: 1;
 }
 
 /* Perspective with matches (not active) - glow + counter */
@@ -2024,116 +2025,35 @@
   color: rgba(255, 255, 255, 0.85);
 }
 
-/* Field select button (+) - Mobile-First: Touch-friendly */
-.field-select {
-  position: absolute;
-  top: 50%;
-  right: 0.25rem;
-  transform: translateY(-50%);
-  /* Mobile: Min 44px Touch Target */
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1rem;
-  font-weight: 600;
-  color: rgba(77, 136, 255, 0.7);
-  background: rgba(77, 136, 255, 0.1);
-  border: 1px solid rgba(77, 136, 255, 0.3);
-  border-radius: 6px;
+/* Selectable field - click anywhere on field to select */
+.amorph-item .amorph-field {
   cursor: pointer;
-  /* Mobile: Immer sichtbar für Touch */
-  opacity: 0.7;
-  transition: all 0.15s ease;
+  user-select: none;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
 
-/* Desktop: Kleiner, nur bei Hover */
-@media (min-width: 768px) {
-  .field-select {
-    width: 22px;
-    height: 22px;
-    font-size: 0.875rem;
-    opacity: 0;
-    background: transparent;
-  }
-  
-  .amorph-item .amorph-field:hover .field-select {
-    opacity: 1;
-  }
-}
-
-.field-select:hover {
-  color: rgba(255, 255, 255, 0.95);
-  background: rgba(77, 136, 255, 0.3);
-  border-color: rgba(77, 136, 255, 0.6);
-}
-
-/* Selected field */
+/* Selected field - uses perspective color via CSS variable */
 .amorph-item .amorph-field.is-selected {
   background: rgba(77, 136, 255, 0.15);
+  background: var(--selection-bg, rgba(77, 136, 255, 0.15));
   border: 1px solid rgba(77, 136, 255, 0.4);
+  border-color: var(--selection-border, rgba(77, 136, 255, 0.4));
 }
 
-.amorph-item .amorph-field.is-selected .field-select {
-  opacity: 1;
-  color: var(--bg-deep);
-  background: var(--system);
-  border-color: var(--system);
-}
-
-.amorph-item .amorph-field.is-selected .field-select::before {
+.amorph-item .amorph-field.is-selected::after {
   content: '✓';
-  font-size: 0.625rem;
-}
-
-/* Item actions (select all) - Mobile-First */
-.item-actions {
-  display: flex;
-  justify-content: flex-end;
-  padding: 0.75rem 1rem;
-  border-top: 1px solid rgba(77, 136, 255, 0.1);
-}
-
-.item-select-all {
-  /* Mobile: Touch Target min 44px */
-  width: 44px;
-  height: 44px;
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  width: 18px;
+  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(15, 15, 25, 0.6);
-  border: 2px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  touch-action: manipulation;
-  transition: all var(--transition-fast);
+  font-size: 0.625rem;
+  color: var(--bg-deep);
+  background: var(--selection-color, var(--system));
+  border-radius: 50%;
 }
 
-.item-select-all:hover {
-  border-color: var(--system);
-  background: rgba(var(--system-rgb), 0.2);
-}
-
-.amorph-item.is-selected .item-select-all {
-  background: var(--system);
-  border-color: var(--system);
-}
-
-.item-select-all .select-icon::before {
-  content: '';
-  display: block;
-  width: 12px;
-  height: 12px;
-  border: 2px solid var(--text-secondary);
-  border-radius: 2px;
-}
-
-.amorph-item.is-selected .item-select-all .select-icon::before {
-  background: var(--bg-deep);
-  border-color: var(--bg-deep);
-  box-shadow: inset 0 0 0 2px var(--system);
-}

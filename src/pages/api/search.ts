@@ -108,8 +108,24 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
       
       const allFields = [...standardFields, ...perspectiveFields].join('');
       
+      // Build field-perspective mapping for client-side color selection
+      const fieldPerspectiveMap: Record<string, string> = {};
+      if (item._fieldPerspective) {
+        Object.assign(fieldPerspectiveMap, item._fieldPerspective);
+      }
+      // Also add perspective fields from active perspectives
+      if (item._perspectives && activePerspectives.size > 0) {
+        for (const [perspId, perspData] of Object.entries(item._perspectives as Record<string, unknown>)) {
+          if (!activePerspectives.has(perspId) || !perspData || typeof perspData !== 'object') continue;
+          for (const key of Object.keys(perspData as Record<string, unknown>)) {
+            fieldPerspectiveMap[key] = perspId;
+          }
+        }
+      }
+      const fieldPerspectiveJson = JSON.stringify(fieldPerspectiveMap);
+      
       return `
-        <article class="amorph-item" data-slug="${escapeAttribute(item.slug)}" data-id="${escapeAttribute(item.id)}" data-name="${escapeAttribute(item.name)}">
+        <article class="amorph-item" data-slug="${escapeAttribute(item.slug)}" data-id="${escapeAttribute(item.id)}" data-name="${escapeAttribute(item.name)}" data-field-perspectives="${escapeAttribute(fieldPerspectiveJson)}">
           <div class="item-header">
             ${item.bild ? `<div class="item-image"><img src="${escapeAttribute(item.bild)}" alt="${escapeAttribute(item.name)}" loading="lazy" /></div>` : ''}
             <h2 class="item-name">${escapeHtml(item.name)}</h2>

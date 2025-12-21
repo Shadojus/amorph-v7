@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bar Test</title>
+  <link rel="stylesheet" href="/styles/base.css?v=10">
+  <link rel="stylesheet" href="/styles/components.css?v=10">
+  <link rel="stylesheet" href="/styles/morphs.css?v=10">
+  <style>
+    body {
+      background: #0a0a14;
+      padding: 2rem;
+    }
+    .test-container {
+      max-width: 400px;
+      padding: 1rem;
+      background: rgba(15, 15, 25, 0.8);
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="color: white;">Bar Chart Test</h1>
+  
+  <div class="test-container">
+    <h3 style="color: white;">Standard Bar (from morphs.css)</h3>
+    <div class="morph-bar">
+      <div class="morph-bar-item">
+        <span class="morph-bar-label">Test 100%</span>
+        <div class="morph-bar-track">
+          <div class="morph-bar-fill" style="width: 100%">
+            <span class="morph-bar-value">1,8</span>
+          </div>
+        </div>
+      </div>
+      <div class="morph-bar-item">
+        <span class="morph-bar-label">Test 50%</span>
+        <div class="morph-bar-track">
+          <div class="morph-bar-fill" style="width: 50%">
+            <span class="morph-bar-value">0,9</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <br><br>
+  
+  <div class="test-container amorph-item">
+    <h3 style="color: white;">Grid Bar (from components.css .amorph-item)</h3>
+    <div class="morph-bar">
+      <div class="morph-bar-item">
+        <span class="morph-bar-label">Test 100%</span>
+        <div class="morph-bar-track">
+          <div class="morph-bar-fill" style="width: 100%">
+            <span class="morph-bar-value">1,8</span>
+          </div>
+        </div>
+      </div>
+      <div class="morph-bar-item">
+        <span class="morph-bar-label">Test 75%</span>
+        <div class="morph-bar-track">
+          <div class="morph-bar-fill" style="width: 75%">
+            <span class="morph-bar-value">1,4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <br><br>
+  
+  <div class="test-container">
+    <h3 style="color: white;">Inline Styled Bar (no CSS dependency)</h3>
+    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="color: white; font-size: 12px; width: 80px;">Test 100%</span>
+        <div style="flex: 1; height: 20px; background: rgba(77,136,255,0.1); border-radius: 6px; overflow: hidden;">
+          <div style="width: 100%; height: 100%; background: linear-gradient(90deg, rgba(77,136,255,0.7), rgba(77,136,255,0.95)); border-radius: 6px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px;">
+            <span style="font-size: 11px; font-weight: 600; color: #0a0a0f;">1,8</span>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; gap: 0.5rem;">
+        <span style="color: white; font-size: 12px; width: 80px;">Test 50%</span>
+        <div style="flex: 1; height: 20px; background: rgba(77,136,255,0.1); border-radius: 6px; overflow: hidden;">
+          <div style="width: 50%; height: 100%; background: linear-gradient(90deg, rgba(77,136,255,0.7), rgba(77,136,255,0.95)); border-radius: 6px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px;">
+            <span style="font-size: 11px; font-weight: 600; color: #0a0a0f;">0,9</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

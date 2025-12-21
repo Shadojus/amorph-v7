@@ -76,6 +76,14 @@ const { items, total, perspectivesWithData } = await searchItems({
 // Get perspectives
 const perspectives = getAllPerspectives();
 
+// Build perspective colors map for client
+const perspectiveColors: Record<string, string[]> = {};
+for (const p of perspectives) {
+  if (p.colors && p.colors.length > 0) {
+    perspectiveColors[p.id] = p.colors;
+  }
+}
+
 // Render context for grid items
 const gridContext: RenderContext = {
   mode: 'grid',
@@ -85,6 +93,11 @@ const gridContext: RenderContext = {
 ---
 
 <Base title="AMORPH – Übersicht">
+  <!-- Perspektiven-Farben für Client -->
+  <script define:vars={{ perspectiveColors }}>
+    window.AMORPH_PERSPECTIVE_COLORS = perspectiveColors;
+  </script>
+  
   <!-- Header (nur Logo + Compare) -->
   <header class="amorph-header">
     <a href="/" class="amorph-logo">🍄</a>
@@ -98,44 +111,45 @@ const gridContext: RenderContext = {
   <!-- Main Grid -->
   <main class="amorph-main">
     <div class="amorph-grid">
-      {items.map(item => (
-        <article 
-          class="amorph-item"
-          data-slug={item.slug}
-          data-id={item.id}
-          data-name={item.name}
-        >
-          <div class="item-header">
-            {item.bild && (
-              <div class="item-image">
-                <img src={String(item.bild)} alt={item.name} loading="lazy" />
-              </div>
-            )}
-            <h2 class="item-name">{item.name}</h2>
-            {item.wissenschaftlich && (
-              <span class="item-scientific">{String(item.wissenschaftlich)}</span>
-            )}
-          </div>
-          
-          <div class="item-body">
-            {sortFieldsByInterest(
-              Object.entries(item)
-                .filter(([k]) => !['id', 'slug', 'name', 'bild', 'wissenschaftlich'].includes(k) && !k.startsWith('_'))
-            )
-              .slice(0, 6)
-              .map(([key, value]) => (
-                <Fragment set:html={renderValue(value, key, gridContext)} />
-              ))
-            }
-          </div>
-          
-          <div class="item-actions">
-            <button class="item-select-all" aria-label="Alle Felder auswählen">
-              <span class="select-icon"></span>
-            </button>
-          </div>
-        </article>
-      ))}
+      {items.map(item => {
+        // Encode field-perspective mapping for client-side use
+        const fieldPerspectiveMap = item._fieldPerspective || {};
+        const fieldPerspectiveJson = JSON.stringify(fieldPerspectiveMap);
+        
+        return (
+          <article 
+            class="amorph-item"
+            data-slug={item.slug}
+            data-id={item.id}
+            data-name={item.name}
+            data-field-perspectives={fieldPerspectiveJson}
+          >
+            <div class="item-header">
+              {item.bild && (
+                <div class="item-image">
+                  <img src={String(item.bild)} alt={item.name} loading="lazy" />
+                </div>
+              )}
+              <h2 class="item-name">{item.name}</h2>
+              {item.wissenschaftlich && (
+                <span class="item-scientific">{String(item.wissenschaftlich)}</span>
+              )}
+            </div>
+            
+            <div class="item-body">
+              {sortFieldsByInterest(
+                Object.entries(item)
+                  .filter(([k]) => !['id', 'slug', 'name', 'bild', 'wissenschaftlich'].includes(k) && !k.startsWith('_'))
+              )
+                .slice(0, 6)
+                .map(([key, value]) => (
+                  <Fragment set:html={renderValue(value, key, gridContext)} />
+                ))
+              }
+            </div>
+          </article>
+        );
+      })}
     </div>
     
     {items.length === 0 && (
@@ -171,21 +185,26 @@ const gridContext: RenderContext = {
       
       <!-- Perspektiven-Buttons UNTEN (horizontal scrollbar) -->
       <div class="perspective-filters">
-        {perspectives.map(p => (
-          <button 
-            type="button"
-            class:list={[
-              'persp-btn',
-              { 'is-active': perspectiveIds.includes(p.id) },
-              { 'has-data': perspectivesWithData.includes(p.id) }
-            ]}
-            data-perspektive={p.id}
-            data-name={p.name}
-            title={p.name}
-          >
-            {p.symbol || p.name.charAt(0)}
-          </button>
-        ))}
+        {perspectives.map(p => {
+          const primaryColor = p.colors?.[0] || 'rgba(77, 136, 255, 0.75)';
+          return (
+            <button 
+              type="button"
+              class:list={[
+                'persp-btn',
+                { 'is-active': perspectiveIds.includes(p.id) },
+                { 'has-data': perspectivesWithData.includes(p.id) }
+              ]}
+              data-perspektive={p.id}
+              data-name={p.name}
+              data-color={primaryColor}
+              title={p.name}
+              style={`--persp-color: ${primaryColor}`}
+            >
+              {p.symbol || p.name.charAt(0)}
+            </button>
+          );
+        })}
       </div>
     </div>
   </footer>
