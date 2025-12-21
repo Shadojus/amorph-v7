@@ -30,15 +30,16 @@ describe('text compare', () => {
   it('should show identical indicator when same', () => {
     const ctx = createCompareContextWithValues('description', ['Same Text', 'Same Text']);
     const html = text(null, ctx);
-    expect(html).toContain('morph-text-compare');
-    expect(html).toContain('text-same');
-    expect(html).toContain('Identisch');
+    expect(html).toContain('text-compare-wrapper');
+    expect(html).toContain('text-all-same');
   });
 
-  it('should show variants when different', () => {
+  it('should show rows when different', () => {
     const ctx = createCompareContextWithValues('description', ['Text A', 'Text B']);
     const html = text(null, ctx);
-    expect(html).toContain('text-variant');
-    expect(html).toContain('2 Varianten');
+    expect(html).toContain('text-compare-wrapper');
+    expect(html).toContain('text-row');
+    expect(html).toContain('text-dot');
+    expect(html).toContain('text-value');
   });
 });

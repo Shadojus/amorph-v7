@@ -40,35 +40,32 @@ describe('progress morph', () => {
 });
 
 describe('progress compare', () => {
-  it('should show stacked bars with item names', () => {
+  it('should render bar visualization', () => {
     const ctx = createCompareContextWithValues('completion', [80, 60]);
     const html = progress(null, ctx);
-    expect(html).toContain('morph-progress-compare');
-    expect(html).toContain('progress-stack');
-    expect(html).toContain('Steinpilz');
-    expect(html).toContain('Fliegenpilz');
+    expect(html).toContain('progress-compare-wrapper');
+    expect(html).toContain('progress-bars');
+    expect(html).toContain('bar-row');
   });
 
   it('should show average line', () => {
     const ctx = createCompareContextWithValues('completion', [80, 60]);
     const html = progress(null, ctx);
-    expect(html).toContain('progress-avg-line');
+    expect(html).toContain('bar-avg-line');
   });
 
-  it('should highlight min and max values', () => {
+  it('should show bar values', () => {
     const ctx = createCompareContextWithValues('completion', [90, 30]);
     const html = progress(null, ctx);
-    expect(html).toContain('progress-max');
-    expect(html).toContain('progress-min');
+    expect(html).toContain('bar-val');
+    expect(html).toContain('90%');
+    expect(html).toContain('30%');
   });
 
-  it('should show statistics', () => {
+  it('should show fill tracks', () => {
     const ctx = createCompareContextWithValues('completion', [80, 40]);
     const html = progress(null, ctx);
-    expect(html).toContain('progress-stats');
-    expect(html).toContain('Ø'); // Average
-    expect(html).toContain('Min');
-    expect(html).toContain('Max');
-    expect(html).toContain('Δ'); // Difference
+    expect(html).toContain('bar-fill-track');
+    expect(html).toContain('bar-fill');
   });
 });

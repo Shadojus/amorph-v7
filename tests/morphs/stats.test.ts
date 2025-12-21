@@ -26,35 +26,37 @@ describe('stats morph', () => {
 });
 
 describe('stats compare', () => {
-  it('should render table with all keys', () => {
+  it('should render rows with all keys', () => {
     const ctx = createCompareContextWithValues('metrics', [
       { size: 10, weight: 50 },
       { size: 15, weight: 30 }
     ]);
     const html = stats(null, ctx);
-    expect(html).toContain('morph-stats-compare');
-    expect(html).toContain('stats-table');
+    expect(html).toContain('stats-compare-wrapper');
+    expect(html).toContain('stats-row');
     expect(html).toContain('size');
     expect(html).toContain('weight');
   });
 
-  it('should highlight max and min values', () => {
+  it('should show bar visualization', () => {
     const ctx = createCompareContextWithValues('metrics', [
       { score: 100 },
       { score: 50 }
     ]);
     const html = stats(null, ctx);
-    expect(html).toContain('stats-max');
-    expect(html).toContain('stats-min');
+    expect(html).toContain('stats-bar-item');
+    expect(html).toContain('stats-bar-track');
+    expect(html).toContain('stats-bar-fill');
   });
 
-  it('should show avg and diff for numeric values', () => {
+  it('should show values', () => {
     const ctx = createCompareContextWithValues('metrics', [
       { num: 20 },
       { num: 10 }
     ]);
     const html = stats(null, ctx);
-    expect(html).toContain('Ø'); // Average
-    expect(html).toContain('Δ'); // Difference
+    expect(html).toContain('stats-bar-val');
+    expect(html).toContain('20');
+    expect(html).toContain('10');
   });
 });

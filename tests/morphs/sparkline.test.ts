@@ -32,39 +32,38 @@ describe('sparkline compare', () => {
       [15, 25, 35, 45]
     ]);
     const html = sparkline(null, ctx);
-    expect(html).toContain('morph-sparkline-compare');
-    expect(html).toContain('sparkline-overlay');
+    expect(html).toContain('sparkline-compare-wrapper');
+    expect(html).toContain('sparkline-svg');
     // Should have 2 polylines
     expect((html.match(/<polyline/g) || []).length).toBe(2);
   });
 
-  it('should show grid lines', () => {
+  it('should show legend', () => {
     const ctx = createCompareContextWithValues('trend', [
       [10, 50, 90],
       [20, 60, 80]
     ]);
     const html = sparkline(null, ctx);
-    expect(html).toContain('sparkline-grid');
+    expect(html).toContain('sparkline-legend');
+    expect(html).toContain('sparkline-legend-item');
   });
 
-  it('should show legend with averages', () => {
+  it('should show dots and values', () => {
     const ctx = createCompareContextWithValues('trend', [
       [10, 20, 30],
       [20, 30, 40]
     ]);
     const html = sparkline(null, ctx);
-    expect(html).toContain('sparkline-legend');
-    expect(html).toContain('Steinpilz');
-    expect(html).toContain('Fliegenpilz');
-    expect(html).toContain('legend-avg');
+    expect(html).toContain('sparkline-dot');
+    expect(html).toContain('sparkline-val');
   });
 
-  it('should show scale', () => {
+  it('should show trend indicator', () => {
     const ctx = createCompareContextWithValues('trend', [
       [0, 100],
       [25, 75]
     ]);
     const html = sparkline(null, ctx);
-    expect(html).toContain('sparkline-scale');
+    expect(html).toContain('↑'); // Upward trend
   });
 });

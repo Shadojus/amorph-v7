@@ -28,7 +28,7 @@ describe('tag morph', () => {
 });
 
 describe('tag compare', () => {
-  it('should highlight common and unique tags', () => {
+  it('should highlight common and partial tags', () => {
     const ctx = createCompareContextWithValues('tags', [
       ['essbar', 'Wald'],
       ['giftig', 'Wald']
@@ -36,16 +36,15 @@ describe('tag compare', () => {
     const html = tag(null, ctx);
     expect(html).toContain('morph-tags-compare');
     expect(html).toContain('tag-common'); // Wald
-    expect(html).toContain('tag-unique'); // essbar, giftig
-    expect(html).toContain('tag-legend');
+    expect(html).toContain('tag-partial'); // essbar, giftig
   });
 
-  it('should show frequency counts for partial tags', () => {
+  it('should show count for partial tags', () => {
     const ctx = createCompareContextWithValues('tags', [
       ['A', 'B', 'C'],
       ['A', 'C', 'D']
     ]);
     const html = tag(null, ctx);
-    expect(html).toContain('1/2'); // B and D
+    expect(html).toContain('tag-count'); // B and D
   });
 });

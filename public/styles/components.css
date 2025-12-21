@@ -838,6 +838,218 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
+   MORPH SHOWCASE - First Load Demo
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-showcase-details {
+  margin-bottom: 1.5rem;
+  background: rgba(15, 17, 25, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.showcase-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  cursor: pointer;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(20, 22, 30, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  transition: background 0.2s;
+  list-style: none;
+}
+
+.showcase-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.showcase-toggle::before {
+  content: '▶';
+  font-size: 0.625rem;
+  transition: transform 0.2s;
+  color: rgba(77, 136, 255, 0.7);
+}
+
+.morph-showcase-details[open] .showcase-toggle::before {
+  transform: rotate(90deg);
+}
+
+.showcase-toggle:hover {
+  background: rgba(25, 28, 38, 0.6);
+}
+
+.showcase-toggle-icon {
+  font-size: 1rem;
+}
+
+.showcase-count {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25em 0.625em;
+  background: rgba(77, 136, 255, 0.15);
+  border-radius: 4px;
+  color: rgba(77, 136, 255, 0.9);
+}
+
+.morph-showcase {
+  padding: 1rem;
+}
+
+.showcase-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.showcase-header h2 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.25rem;
+}
+
+.showcase-subtitle {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.showcase-item {
+  background: rgba(20, 22, 30, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: border-color 0.2s, background 0.2s;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.showcase-item:hover {
+  border-color: rgba(77, 136, 255, 0.25);
+  background: rgba(25, 28, 38, 0.7);
+}
+
+.showcase-item-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.showcase-type {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 0.2em 0.4em;
+  background: rgba(77, 136, 255, 0.15);
+  border: 1px solid rgba(77, 136, 255, 0.3);
+  border-radius: 3px;
+  color: rgba(77, 136, 255, 0.9);
+  text-transform: uppercase;
+}
+
+.showcase-source {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-style: italic;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.showcase-item-key {
+  font-size: 0.6875rem;
+  font-family: 'JetBrains Mono', monospace;
+  color: rgba(255, 255, 255, 0.4);
+  padding: 0.125rem 0.375rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 3px;
+  width: fit-content;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.showcase-item-content {
+  margin-top: 0.125rem;
+  overflow: hidden;
+}
+
+/* Kompaktere Morphs in Showcase */
+.showcase-item .morph-timeline {
+  max-height: 200px;
+  overflow-y: auto;
+  font-size: 0.8125rem;
+}
+
+.showcase-item .morph-list {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.showcase-item .morph-object {
+  max-height: 180px;
+  overflow-y: auto;
+  font-size: 0.8125rem;
+}
+
+.showcase-item .morph-bar,
+.showcase-item .morph-radar-container {
+  max-height: 140px;
+}
+
+.showcase-footer {
+  text-align: center;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.showcase-footer p {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 1200px) {
+  .showcase-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .showcase-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .morph-showcase {
+    padding: 0.75rem;
+  }
+  
+  .showcase-toggle {
+    padding: 0.625rem 0.75rem;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
    INFINITE SCROLL
    ───────────────────────────────────────────────────────────────────────────── */
 .infinite-scroll-trigger {

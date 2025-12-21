@@ -136,16 +136,27 @@ Jedes Feld wird mit Auswahl-Button gerendert:
 </div>
 ```
 
-### matchedPerspectives (NEU)
+### matchedPerspectives Auto-Activation (NEU)
 
-Wenn der Suchbegriff eine Perspektive matcht (Name, ID oder Beschreibung):
+Wenn der Suchbegriff eine Perspektive matcht (Name, ID oder Beschreibung), werden die gematchten Perspektiven automatisch zu `activePerspectives` hinzugefügt, wenn keine expliziten Perspektiven ausgewählt sind:
 
 ```
 GET /api/search?q=chemie
 → matchedPerspectives: ["chemistry"]
+→ activePerspectives: ["chemistry"]  // Auto-aktiviert wenn leer!
 ```
 
-Der Client aktiviert passende Perspektiven automatisch.
+Dies stellt sicher, dass Suchergebnisse immer die relevanten Felder anzeigen:
+- Suche nach "alkaloid" → chemistry-Perspektive wird aktiviert
+- Felder aus chemistry werden in den Ergebnis-Cards angezeigt
+- matchedPerspectives bleiben unverändert zur Client-Information
+
+```typescript
+// api/search.ts - Auto-Activation Logic
+if (matchedPerspectives.length > 0 && activePerspectives.length === 0) {
+  activePerspectives.push(...matchedPerspectives);
+}
+```
 ```
 
 ### Implementation

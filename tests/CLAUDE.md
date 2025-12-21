@@ -1,6 +1,6 @@
 # AMORPH v7 - Test Suite
 
-> 227 Tests mit Vitest für vollständige Code-Abdeckung.
+> 343 Tests mit Vitest für vollständige Code-Abdeckung.
 
 ## 📁 Struktur
 
@@ -8,27 +8,28 @@
 tests/
 ├── detection.test.ts     # 80 Tests - Struktur-basierte Typ-Erkennung
 ├── security.test.ts      # 49 Tests - Security Functions (vollständig)
+├── morphs.test.ts        # 81 Tests - Haupt-Morph-Tests
 ├── observer.test.ts      # 8 Tests  - Debug Observer
 ├── integration.test.ts   # 9 Tests  - Module Integration
-└── morphs/               # 81 Tests - Feature-basiert aufgeteilt
+└── morphs/               # 116 Tests - Feature-basiert aufgeteilt
     ├── _setup.ts         # Shared contexts (single, compare, grid)
-    ├── text.test.ts      # 3 Tests
-    ├── number.test.ts    # 3 Tests
-    ├── boolean.test.ts   # 3 Tests
-    ├── badge.test.ts     # 4 Tests
-    ├── tag.test.ts       # 3 Tests
-    ├── progress.test.ts  # 5 Tests
-    ├── rating.test.ts    # 2 Tests
+    ├── text.test.ts      # 5 Tests
+    ├── number.test.ts    # 7 Tests
+    ├── boolean.test.ts   # 6 Tests
+    ├── badge.test.ts     # 6 Tests
+    ├── tag.test.ts       # 5 Tests
+    ├── progress.test.ts  # 9 Tests
+    ├── rating.test.ts    # 6 Tests
     ├── range.test.ts     # 4 Tests
-    ├── stats.test.ts     # 3 Tests
+    ├── stats.test.ts     # 6 Tests
     ├── image.test.ts     # 7 Tests
     ├── link.test.ts      # 3 Tests
-    ├── list.test.ts      # 3 Tests
+    ├── list.test.ts      # 5 Tests
     ├── object.test.ts    # 9 Tests (inkl. compare mode)
-    ├── date.test.ts      # 2 Tests
-    ├── timeline.test.ts  # 1 Test
+    ├── date.test.ts      # 5 Tests
+    ├── timeline.test.ts  # 3 Tests
     ├── bar.test.ts       # 4 Tests
-    ├── sparkline.test.ts # 3 Tests
+    ├── sparkline.test.ts # 7 Tests
     ├── radar.test.ts     # 7 Tests (inkl. compare mode)
     ├── base.test.ts      # 6 Tests (wrapInField, Base64)
     └── renderValue.test.ts # 6 Tests

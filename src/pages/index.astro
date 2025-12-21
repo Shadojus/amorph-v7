@@ -2,12 +2,12 @@
 /**
  * AMORPH v7 - Index Page
  * 
- * Hauptseite mit Grid-Ansicht.
+ * Hauptseite mit Grid-Ansicht und Morph-Showcase.
  */
 
 import Base from '../layouts/Base.astro';
 import { loadConfig, getAllPerspectives } from '../server/config';
-import { searchItems } from '../server/data';
+import { searchItems, loadAllItems } from '../server/data';
 import { renderValue, createSingleContext } from '../morphs';
 import { detectType } from '../core/detection';
 import type { RenderContext, MorphType } from '../core/types';
@@ -44,7 +44,6 @@ const MORPH_PRIORITY: Record<MorphType, number> = {
   'network': 9,
   'gauge': 9,
   'citation': 9,
-  'currency': 9,
   'dosage': 9
 };
 
@@ -60,6 +59,108 @@ function sortFieldsByInterest(entries: [string, unknown][]): [string, unknown][]
     return prioA - prioB;
   });
 }
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// MORPH SHOWCASE - Echte Felder aus den Datensätzen gruppiert nach Morph-Typ
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// Alle Items laden um Showcase-Daten zu sammeln
+const allItems = await loadAllItems();
+
+/**
+ * Prüft ob ein Wert als gutes Showcase-Beispiel taugt
+ */
+function isGoodShowcaseValue(value: unknown, type: MorphType): boolean {
+  if (value === null || value === undefined) return false;
+  if (value === '') return false;
+  if (typeof value === 'string' && value.length < 2) return false;
+  
+  // Progress/Range sollten nicht 0 sein
+  if (type === 'progress') {
+    if (typeof value === 'object' && value !== null) {
+      const v = (value as any).value;
+      if (v === 0 || v === undefined) return false;
+      if (v < 10) return false; // Mindestens 10% für sichtbaren Progress
+    }
+  }
+  
+  // Rating sollte einen sichtbaren Wert haben
+  if (type === 'rating') {
+    if (typeof value === 'object' && value !== null) {
+      const rating = (value as any).rating ?? (value as any).value;
+      if (!rating || rating < 1) return false;
+    }
+    if (typeof value === 'number' && value < 1) return false;
+  }
+  
+  // Badge sollte status haben
+  if (type === 'badge') {
+    if (typeof value === 'object' && value !== null) {
+      const status = (value as any).status;
+      if (!status || typeof status !== 'string') return false;
+    }
+  }
+  
+  // Arrays sollten Inhalt haben
+  if (Array.isArray(value)) {
+    if (value.length === 0) return false;
+    // Bar/Radar brauchen mindestens 3 Einträge
+    if ((type === 'bar' || type === 'radar') && value.length < 3) return false;
+  }
+  
+  // Text sollte nicht zu kurz sein
+  if (type === 'text') {
+    if (typeof value === 'string' && value.length < 10) return false;
+  }
+  
+  // Number sollte nicht 0 sein
+  if (type === 'number') {
+    if (typeof value === 'number' && value === 0) return false;
+  }
+  
+  return true;
+}
+
+// Felder die nicht als Showcase verwendet werden sollen
+const EXCLUDED_KEYS = new Set([
+  'image', 'bild', 'foto', 'picture', 'thumbnail',
+  'scientific', 'scientific_name', 'wissenschaftlich',
+  'description', 'beschreibung', 'notes', 'notizen',
+  'searchText', '_fieldPerspective'
+]);
+
+// Sammle ein Beispiel für jeden Morph-Typ aus echten Daten
+const morphShowcase: Array<{type: MorphType, key: string, value: unknown, source: string}> = [];
+const foundTypes = new Set<MorphType>();
+
+// Durchsuche alle Items und ihre Felder
+for (const item of allItems) {
+  for (const [key, value] of Object.entries(item)) {
+    // Skip interne und ausgeschlossene Felder
+    if (key.startsWith('_') || ['id', 'slug', 'name'].includes(key)) continue;
+    if (EXCLUDED_KEYS.has(key.toLowerCase())) continue;
+    
+    const morphType = detectType(value, key);
+    
+    // Nur ein Beispiel pro Morph-Typ, und nur gute Beispiele
+    if (!foundTypes.has(morphType) && morphType !== 'null' && isGoodShowcaseValue(value, morphType)) {
+      foundTypes.add(morphType);
+      morphShowcase.push({
+        type: morphType,
+        key,
+        value,
+        source: item.name || item.slug || 'Unknown'
+      });
+    }
+  }
+}
+
+// Sortiere nach Morph-Priorität (visuelle zuerst)
+morphShowcase.sort((a, b) => {
+  const prioA = MORPH_PRIORITY[a.type] ?? 8;
+  const prioB = MORPH_PRIORITY[b.type] ?? 8;
+  return prioA - prioB;
+});
 
 // Get search params
 const url = new URL(Astro.request.url);
@@ -127,6 +228,36 @@ const gridContext: RenderContext = {
   
   <!-- Main Grid -->
   <main class="amorph-main">
+    <!-- Morph Showcase - Immer sichtbar oben -->
+    <details class="morph-showcase-details" open>
+      <summary class="showcase-toggle">
+        <span class="showcase-toggle-icon">🎨</span>
+        <span>Morph Showcase</span>
+        <span class="showcase-count">{morphShowcase.length} Typen</span>
+      </summary>
+      <div class="morph-showcase">
+        <div class="showcase-header">
+          <h2>AMORPH Visualisierungen</h2>
+          <p class="showcase-subtitle">Automatisch erkannte Morph-Typen aus {allItems.length} Datensätzen</p>
+        </div>
+        
+        <div class="showcase-grid">
+          {morphShowcase.map(({ type, key, value, source }) => (
+            <div class="showcase-item" data-morph-type={type}>
+              <div class="showcase-item-header">
+                <span class="showcase-type">{type.toUpperCase()}</span>
+                <span class="showcase-source">{source}</span>
+              </div>
+              <div class="showcase-item-key">{key}</div>
+              <div class="showcase-item-content">
+                <Fragment set:html={renderValue(value, key, gridContext)} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </details>
+    
     <div class="amorph-grid">
       {items.map(item => {
         // Encode field-perspective mapping for client-side use

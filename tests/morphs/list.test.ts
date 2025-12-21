@@ -34,18 +34,18 @@ describe('list compare', () => {
       ['A', 'C', 'D']
     ]);
     const html = list(null, ctx);
-    expect(html).toContain('morph-list-compare');
+    expect(html).toContain('list-compare-wrapper');
     expect(html).toContain('list-common'); // A, C
     expect(html).toContain('list-unique'); // B, D
   });
 
-  it('should show item sources for unique items', () => {
+  it('should show section labels', () => {
     const ctx = createCompareContextWithValues('items', [
-      ['nur-hier'],
-      ['anders']
+      ['gemeinsam', 'nur-hier'],
+      ['gemeinsam', 'anders']
     ]);
     const html = list(null, ctx);
-    expect(html).toContain('Steinpilz'); // Source name
-    expect(html).toContain('Fliegenpilz');
+    expect(html).toContain('Gemeinsam');
+    expect(html).toContain('Einzigartig');
   });
 });

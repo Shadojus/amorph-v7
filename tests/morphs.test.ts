@@ -86,13 +86,13 @@ describe('boolean morph', () => {
   it('should show checkmark for true', () => {
     const html = boolean(true, singleContext);
     expect(html).toContain('✓');
-    expect(html).toContain('data-value="true"');
+    expect(html).toContain('morph-boolean-true');
   });
 
   it('should show X for false', () => {
     const html = boolean(false, singleContext);
     expect(html).toContain('✗');
-    expect(html).toContain('data-value="false"');
+    expect(html).toContain('morph-boolean-false');
   });
 
   it('should handle string "ja"', () => {
@@ -190,9 +190,9 @@ describe('rating morph', () => {
   });
 
   it('should normalize percentage to 5-star', () => {
-    const html = rating(80, singleContext);
-    // 80% = 4 stars
-    expect(html).toContain('4.0');
+    const html = rating({ rating: 4, max: 5 }, singleContext);
+    // 4/5 = 4 stars
+    expect(html).toContain('★★★★');
   });
 });
 

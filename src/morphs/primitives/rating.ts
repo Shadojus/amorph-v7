@@ -17,20 +17,38 @@ function renderStars(rating: number, maxStars = 5): string {
   return '★'.repeat(fullStars) + (hasHalf ? '⯪' : '') + '☆'.repeat(emptyStars);
 }
 
+/**
+ * Extrahiert Rating-Wert und Max aus verschiedenen Datenformaten
+ */
+function extractRatingData(value: unknown): { rating: number; max: number } {
+  // Objekt: {rating: n, max: m}
+  if (typeof value === 'object' && value !== null) {
+    const obj = value as Record<string, unknown>;
+    const rating = Number(obj.rating ?? obj.value ?? obj.score ?? 0);
+    const max = Number(obj.max ?? obj.total ?? 10);
+    return { rating, max };
+  }
+  
+  // Primitiver Number
+  const num = typeof value === 'number' ? value : parseFloat(String(value));
+  return { rating: isNaN(num) ? 0 : num, max: 10 };
+}
+
 export const rating = createUnifiedMorph(
   'rating',
   (value) => {
-    const num = typeof value === 'number' ? value : parseFloat(String(value));
+    const { rating: rawRating, max: dataMax } = extractRatingData(value);
     const maxStars = 5;
     
-    if (isNaN(num)) return `<span class="morph-rating">–</span>`;
+    if (rawRating === 0 && dataMax === 0) return `<span class="morph-rating">–</span>`;
     
-    const normalized = normalizeRating(num);
+    // Normalisiere auf 5-Sterne-Skala
+    const normalized = dataMax > 0 ? (rawRating / dataMax) * 5 : 0;
     
     return `
-      <div class="morph-rating" title="${normalized.toFixed(1)} von ${maxStars}">
+      <div class="morph-rating" title="${rawRating} von ${dataMax}">
         <span class="rating-stars">${renderStars(normalized)}</span>
-        <span class="morph-rating-value">${normalized.toFixed(1)}</span>
+        <span class="morph-rating-value">${rawRating}/${dataMax}</span>
       </div>
     `;
   },
@@ -38,9 +56,9 @@ export const rating = createUnifiedMorph(
   (values) => {
     const maxStars = 5;
     const ratings = values.map(({ value, color }) => {
-      const num = typeof value === 'number' ? value : parseFloat(String(value));
-      const normalized = isNaN(num) ? 0 : normalizeRating(num);
-      return { color, value: normalized };
+      const { rating: rawRating, max: dataMax } = extractRatingData(value);
+      const normalized = dataMax > 0 ? (rawRating / dataMax) * 5 : 0;
+      return { color, value: normalized, raw: rawRating, max: dataMax };
     });
     
     // Calculate average
@@ -51,14 +69,14 @@ export const rating = createUnifiedMorph(
     return `
       <div class="rating-compare-wrapper">
         <div class="rating-bars">
-          ${ratings.map(({ color, value }) => {
+          ${ratings.map(({ color, value, raw, max }) => {
             const pct = (value / maxStars) * 100;
             return `
               <div class="bar-row" style="--item-color: ${escapeHtml(color)}">
                 <div class="bar-fill-track">
                   <div class="bar-fill" style="width: ${pct}%"></div>
                 </div>
-                <span class="bar-val">${value.toFixed(1)} ★</span>
+                <span class="bar-val">${raw}/${max} ★</span>
               </div>
             `;
           }).join('')}

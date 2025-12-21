@@ -77,8 +77,12 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
       compact: true
     };
     
-    // Set der aktiven Perspektiven
+    // Set der aktiven Perspektiven - inklusive der Perspektiven mit Treffern!
+    // Wenn keine spezifischen Perspektiven gewählt, zeige die mit Treffern
     const activePerspectives = new Set(perspectives);
+    if (activePerspectives.size === 0 && result.matchedPerspectives) {
+      result.matchedPerspectives.forEach(p => activePerspectives.add(p));
+    }
     
     const html = result.items.map(item => {
       // Standard-Felder (ohne Perspektiven) - renderValue gibt bereits komplettes amorph-field zurück

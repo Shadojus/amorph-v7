@@ -306,11 +306,11 @@ function calculateRelevanceScore(item: ItemData, searchTerms: string[]): number 
       termScore = Math.max(termScore, sciMatch.score * 0.8); // Etwas weniger als Name
     }
     
-    // Andere Felder (nur exact/contains, kein fuzzy)
+    // Andere Felder (nur exact/contains, kein fuzzy) - suche in Key UND Value!
     if (termScore === 0) {
       for (const [key, value] of Object.entries(item)) {
         if (key.startsWith('_') || key === 'name' || key === 'wissenschaftlich') continue;
-        if (searchInValue(value, term.toLowerCase())) {
+        if (searchInKeyValue(key, value, term.toLowerCase())) {
           termScore = 20;
           break;
         }
@@ -376,6 +376,18 @@ function searchInValue(value: unknown, searchLower: string): boolean {
   return false;
 }
 
+/**
+ * Hilfsfunktion: Sucht in Key UND Value
+ */
+function searchInKeyValue(key: string, value: unknown, searchLower: string): boolean {
+  // Suche im Feldnamen (z.B. "annual_variation")
+  if (key.toLowerCase().includes(searchLower)) {
+    return true;
+  }
+  // Suche im Wert
+  return searchInValue(value, searchLower);
+}
+
 export interface SearchOptions {
   query?: string;
   perspectives?: string[];
@@ -412,10 +424,10 @@ export async function searchItems(options: SearchOptions = {}): Promise<SearchRe
         for (const [perspId, perspData] of Object.entries(item._perspectives as Record<string, unknown>)) {
           if (!perspData || typeof perspData !== 'object') continue;
           
-          // Durchsuche alle Werte in dieser Perspektive
-          for (const value of Object.values(perspData as Record<string, unknown>)) {
-            // Prüfe ob mindestens ein Suchbegriff trifft
-            if (allTerms.some(term => searchInValue(value, term))) {
+          // Durchsuche alle Keys UND Values in dieser Perspektive
+          for (const [key, value] of Object.entries(perspData as Record<string, unknown>)) {
+            // Prüfe ob mindestens ein Suchbegriff in Key oder Value trifft
+            if (allTerms.some(term => searchInKeyValue(key, value, term))) {
               matchedPerspectivesSet.add(perspId);
               break;
             }

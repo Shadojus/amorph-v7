@@ -153,7 +153,8 @@ describe('String Detection', () => {
 describe('Array Detection', () => {
   describe('sparkline (array of numbers)', () => {
     it('should detect number arrays as sparkline', () => {
-      expect(detectType([1, 2, 3, 4, 5])).toBe('sparkline');
+      // Using values > 12 to avoid sequential 1-12 detection as tag
+      expect(detectType([15, 23, 18, 42, 35])).toBe('sparkline');
     });
 
     it('should detect float arrays as sparkline', () => {

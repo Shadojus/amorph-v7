@@ -3,6 +3,7 @@
 > Unified Morph Architecture mit 18 Primitives (45+ MorphTypes für Erweiterbarkeit).
 > Visualisiert biologische Daten: Taxonomie, Chemie, Ökologie, Medizin, etc.
 > **Struktur-basierte Detection** - Typ wird aus Datenstruktur erkannt, nicht aus Feldnamen!
+> **Object-Parsing** - Badge/Rating/Progress parsen strukturierte Objekte automatisch.
 
 ## 📁 Struktur
 
@@ -152,33 +153,106 @@ image('https://example.com/img.png') // ✓
 | Morph | Single | Compare | CSS Klasse |
 |-------|--------|---------|------------|
 | **text** | Escaped text | Side-by-side | `.morph-text` |
-| **number** | German locale | Horizontal bars | `.morph-number` |
-| **boolean** | ✓ / ✗ | Side-by-side | `.morph-boolean` |
-| **badge** | Colored label | Highlight diff | `.morph-badge` |
-| **tag** | Pill list | Common/Unique | `.morph-tag` |
-| **progress** | Bar 0-100% | Stacked bars | `.morph-progress` |
-| **rating** | ★★★★☆ | Horizontal | `.morph-rating` |
-| **range** | min–max | Overlap visual | `.morph-range` |
-| **stats** | min/avg/max | Side-by-side | `.morph-stats` |
+| **number** | German locale | Horizontal bars | `.number-compare-wrapper` |
+| **boolean** | ✓ / ✗ | Side-by-side | `.boolean-compare-wrapper` |
+| **badge** | Colored label | Highlight diff | `.badge-compare-wrapper` |
+| **tag** | Pill list | Common/Partial/Unique | `.tag-compare-wrapper` |
+| **progress** | Bar 0-100% | Stacked bars | `.progress-compare-wrapper` |
+| **rating** | ★★★★☆ | Horizontal | `.rating-compare-wrapper` |
+| **range** | min–max | Overlap visual | `.range-compare-wrapper` |
+| **stats** | min/avg/max | Side-by-side | `.stats-compare-wrapper` |
 | **image** | Thumbnail | Gallery | `.morph-image` |
 | **link** | Clickable | List | `.morph-link` |
-| **list** | Bullet list | Side-by-side | `.morph-list` |
+| **list** | Bullet list | Common/Unique Sections | `.list-compare-wrapper` |
 | **date** | Formatted | Side-by-side | `.morph-date` |
-| **bar** | Chart bars | Grouped + Ø/Δ | `.morph-bar` |
-| **sparkline** | Mini chart | Overlay | `.morph-sparkline` |
+| **bar** | Chart bars | Grouped + Ø | `.bar-compare-wrapper` |
+| **sparkline** | Mini chart | Overlay | `.sparkline-compare-wrapper` |
 | **radar** | Spider chart | Overlay + Insights | `.morph-radar` |
 | **timeline** | Event list | Side-by-side | `.morph-timeline` |
 | **object** | Key-value | Tabelle + Max/Min/Δ | `.morph-object` |
 
-### Bar Compare-Modus
-- Gruppierte Balken pro Label
-- **Ø** (Durchschnitt) und **Δ** (Differenz) Statistiken pro Gruppe
-- Farbige Item-Legende
+## 🔧 Object-Parsing in Morphs (NEU)
 
-### Radar Compare-Modus
-- Überlagerte Radar-Charts mit gemeinsamer Achsen-Skala
-- **Insights-Box**: Zeigt automatisch die 3 größten Unterschiede (Δ)
+Badge, Rating und Progress parsen automatisch strukturierte Objekte:
+
+### Badge
+```typescript
+// String-Format
+badge('edible')  // → "edible" mit auto-detected variant
+
+// Object-Format (aus Blueprints)
+badge({ status: 'edible', variant: 'success' })  // → "edible" mit success variant
+```
+
+### Rating
+```typescript
+// Zahl-Format  
+rating(4)  // → ★★★★☆ (4/5)
+
+// Object-Format (aus Blueprints)
+rating({ rating: 7, max: 10 })  // → "7/10" ★★★☆☆ (7 von 10)
+```
+
+### Progress
+```typescript
+// Zahl-Format
+progress(75)  // → 75% Bar
+
+// Object-Format (aus Blueprints)
+progress({ value: 75, max: 100, unit: '%' })  // → 75% Bar mit Unit
+```
+
+## 🎨 Compare Design System (Unified)
+
+Alle Compare-Morphs verwenden einheitliches CSS-Pattern:
 - Transparente Flächen für bessere Überlagerung
+
+### Unified Compare CSS Pattern (NEU)
+
+Alle Compare-Morphs verwenden konsistentes Design:
+
+```css
+/* Wrapper */
+.{type}-compare-wrapper { ... }
+
+/* Bar-Row für jeden Wert */
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Farbiger Dot pro Item */
+.bar-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--item-color);
+}
+
+/* Track mit 68% Breite */
+.bar-fill-track {
+  flex: 1;
+  max-width: 68%;
+  height: 10px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+}
+
+/* Durchschnitts-Linie */
+.bar-avg-line {
+  position: absolute;
+  width: 2px;
+  height: 14px;
+  background: rgba(255,255,255,0.5);
+}
+
+/* Wert-Anzeige */
+.bar-val {
+  font-size: 0.9375rem;
+  color: var(--item-color);
+}
+```
 
 ### Object Compare-Modus
 - **Tabellarische Darstellung** statt verschachtelt
@@ -223,13 +297,13 @@ Alle Morph-Styles sind in `public/styles/morphs.css`:
 
 ## 🧪 Tests
 
-`tests/morphs.test.ts` - 81 Tests:
+`tests/morphs/` - 116 Tests aufgeteilt nach Morph:
 - text: HTML Escaping
-- number: German locale
-- boolean: true/false/ja/nein
-- badge: Variant Detection
-- progress: Clamping 0-100
-- rating: Star Rendering
+- number: German locale, compare with bar-row
+- boolean: true/false/ja/nein, compare all-same/different
+- badge: Variant Detection, object parsing
+- progress: Clamping 0-100, object parsing
+- rating: Star Rendering, object parsing
 - object: Nested objects, arrays, compare table
 - radar: Single + compare overlay mit insights
 - bar: Single + compare mit Statistiken

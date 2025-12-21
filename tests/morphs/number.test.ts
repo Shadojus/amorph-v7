@@ -24,41 +24,32 @@ describe('number morph', () => {
 });
 
 describe('number compare', () => {
-  it('should render bar visualization with names', () => {
+  it('should render bar visualization', () => {
     const ctx = createCompareContextWithValues('value', [100, 50]);
     const html = number(null, ctx);
-    expect(html).toContain('morph-number-compare');
+    expect(html).toContain('number-compare-wrapper');
     expect(html).toContain('number-bars');
-    expect(html).toContain('Steinpilz');
-    expect(html).toContain('Fliegenpilz');
+    expect(html).toContain('bar-row');
   });
 
   it('should show average line', () => {
     const ctx = createCompareContextWithValues('value', [100, 50]);
     const html = number(null, ctx);
-    expect(html).toContain('number-avg-line');
+    expect(html).toContain('bar-avg-line');
   });
 
-  it('should highlight min and max', () => {
+  it('should show bar values', () => {
     const ctx = createCompareContextWithValues('value', [200, 10]);
     const html = number(null, ctx);
-    expect(html).toContain('number-max');
-    expect(html).toContain('number-min');
+    expect(html).toContain('bar-val');
+    expect(html).toContain('200');
+    expect(html).toContain('10');
   });
 
-  it('should show statistics', () => {
+  it('should show fill tracks', () => {
     const ctx = createCompareContextWithValues('value', [100, 50]);
     const html = number(null, ctx);
-    expect(html).toContain('number-stats');
-    expect(html).toContain('Ø'); // Average
-    expect(html).toContain('Min');
-    expect(html).toContain('Max');
-    expect(html).toContain('Δ'); // Difference
-  });
-
-  it('should show scale with min and max', () => {
-    const ctx = createCompareContextWithValues('value', [10, 90]);
-    const html = number(null, ctx);
-    expect(html).toContain('number-scale');
+    expect(html).toContain('bar-fill-track');
+    expect(html).toContain('bar-fill');
   });
 });

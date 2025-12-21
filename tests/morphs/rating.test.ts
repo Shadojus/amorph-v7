@@ -12,9 +12,10 @@ describe('rating morph', () => {
     expect(html).toContain('★');
   });
 
-  it('should normalize percentage to 5-star', () => {
-    const html = rating(80, singleContext);
-    expect(html).toContain('4.0');
+  it('should handle object format', () => {
+    const html = rating({ rating: 7, max: 10 }, singleContext);
+    expect(html).toContain('7/10');
+    expect(html).toContain('★');
   });
 });
 
@@ -22,30 +23,28 @@ describe('rating compare', () => {
   it('should render bar chart', () => {
     const ctx = createCompareContextWithValues('quality', [4.5, 3.0]);
     const html = rating(null, ctx);
-    expect(html).toContain('morph-rating-compare');
+    expect(html).toContain('rating-compare-wrapper');
     expect(html).toContain('rating-bars');
-    expect(html).toContain('Steinpilz');
-    expect(html).toContain('Fliegenpilz');
+    expect(html).toContain('bar-row');
   });
 
   it('should show average line', () => {
     const ctx = createCompareContextWithValues('quality', [4.5, 3.5]);
     const html = rating(null, ctx);
-    expect(html).toContain('rating-avg-line');
+    expect(html).toContain('bar-avg-line');
   });
 
-  it('should show scale 1-5', () => {
+  it('should show bar values with stars', () => {
     const ctx = createCompareContextWithValues('quality', [4, 3]);
     const html = rating(null, ctx);
-    expect(html).toContain('rating-scale');
-    expect(html).toContain('>1<');
-    expect(html).toContain('>5<');
+    expect(html).toContain('bar-val');
+    expect(html).toContain('★');
   });
 
-  it('should highlight min and max', () => {
+  it('should show fill tracks', () => {
     const ctx = createCompareContextWithValues('quality', [5, 2]);
     const html = rating(null, ctx);
-    expect(html).toContain('rating-max');
-    expect(html).toContain('rating-min');
+    expect(html).toContain('bar-fill-track');
+    expect(html).toContain('bar-fill');
   });
 });

@@ -153,23 +153,58 @@ border: 1px solid rgba(77, 136, 255, 0.2);
 Jeder Morph hat eigene Styles:
 
 - `.morph-text` - Einfacher Text
-- `.morph-number` - Zahlen mit Bar
-- `.morph-boolean` - Checkmark/X
-- `.morph-badge` - Farbige Labels
-- `.morph-tag` - Pill-Liste
-- `.morph-progress` - Fortschrittsbalken
-- `.morph-rating` - Sterne
-- `.morph-range` - Min-Max Bereich
-- `.morph-stats` - Statistik-Karte
+- `.morph-number` / `.number-compare-wrapper` - Zahlen mit Bar
+- `.morph-boolean` / `.boolean-compare-wrapper` - Checkmark/X
+- `.morph-badge` / `.badge-compare-wrapper` - Farbige Labels
+- `.morph-tag` / `.tag-compare-wrapper` - Pill-Liste
+- `.morph-progress` / `.progress-compare-wrapper` - Fortschrittsbalken
+- `.morph-rating` / `.rating-compare-wrapper` - Sterne
+- `.morph-range` / `.range-compare-wrapper` - Min-Max Bereich
+- `.morph-stats` / `.stats-compare-wrapper` - Statistik-Karte
 - `.morph-image` - Thumbnail
 - `.morph-link` - Klickbarer Link
-- `.morph-list` - Aufzählung
+- `.morph-list` / `.list-compare-wrapper` - Aufzählung
 - `.morph-date` - Formatiertes Datum
-- `.morph-bar` - Balkendiagramm
-- `.morph-sparkline` - Mini-Chart (SVG)
+- `.morph-bar` / `.bar-compare-wrapper` - Balkendiagramm
+- `.morph-sparkline` / `.sparkline-compare-wrapper` - Mini-Chart (SVG)
 - `.morph-radar` - Spider-Chart (SVG)
 - `.morph-timeline` - Ereignis-Liste
 - `.morph-object` - Key-Value Paare
+
+### Unified Compare CSS Pattern (NEU)
+
+```css
+/* Standard-Werte für alle Compare-Morphs */
+.bar-row { display: flex; align-items: center; gap: 8px; }
+.bar-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--item-color); }
+.bar-fill-track { flex: 1; max-width: 68%; height: 10px; background: rgba(255,255,255,0.1); }
+.bar-avg-line { width: 2px; height: 14px; background: rgba(255,255,255,0.5); }
+.bar-val { font-size: 0.9375rem; color: var(--item-color); }
+```
+
+### Search Showcase (NEU)
+
+"First Load" Ansicht zeigt jeden Morph-Typ einmal mit Echtdaten:
+
+```css
+.showcase-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* 4 Spalten */
+  gap: 12px;
+  max-height: calc(100vh - 300px);
+}
+
+.showcase-item {
+  background: rgba(30, 30, 50, 0.6);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+/* Größenbeschränkungen für große Morphs */
+.showcase-item[data-morph="timeline"] { max-height: 200px; overflow-y: auto; }
+.showcase-item[data-morph="list"] { max-height: 150px; overflow-y: auto; }
+.showcase-item[data-morph="object"] { max-height: 180px; overflow-y: auto; }
+```
 
 ### Badge Variants
 

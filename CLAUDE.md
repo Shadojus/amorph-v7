@@ -6,10 +6,13 @@
 
 ## Status: ✅ Production Ready
 
-- **227 Tests** bestanden (Detection, Security, Morphs, Observer, Integration)
+- **343 Tests** bestanden (Detection, Security, Morphs, Observer, Integration)
 - **18 Morph Primitives** implementiert (45+ MorphTypes definiert für Erweiterbarkeit)
 - **Struktur-basierte Detection** - Typ-Erkennung rein aus Datenstruktur, nicht Feldnamen
-- **Compare-Optimierung** - Radar-Insights, Object-Tabellen mit Δ-Differenzen, Bar-Statistiken
+- **Object-Parsing in Morphs** - Badge/Rating/Progress parsen strukturierte Objekte
+- **Compare-Optimierung** - Vereinheitlichtes Design mit bar-row/bar-fill-track Pattern
+- **Search Showcase** - "First Load" Ansicht zeigt jeden Morph-Typ einmal mit Echtdaten
+- **matchedPerspectives Auto-Activation** - Suchergebnisse zeigen automatisch relevante Felder
 - **Observer System** standardmäßig aktiviert
 - **Debug-Logging** standardmäßig aktiviert für Entwicklung
 - **Black Glass Morphism** Design mit Psychedelic Blue (#4d88ff)

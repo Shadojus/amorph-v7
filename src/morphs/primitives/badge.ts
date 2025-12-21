@@ -20,12 +20,29 @@ function detectVariant(str: string): string {
   return 'default';
 }
 
+/**
+ * Extrahiert Status und Variant aus verschiedenen Datenformaten
+ */
+function extractBadgeData(value: unknown): { status: string; variant: string } {
+  // Objekt: {status: "...", variant: "..."}
+  if (typeof value === 'object' && value !== null) {
+    const obj = value as Record<string, unknown>;
+    const status = String(obj.status || obj.text || obj.label || '');
+    const variant = String(obj.variant || obj.type || '') || detectVariant(status);
+    return { status, variant };
+  }
+  
+  // Primitiver Wert
+  const str = String(value);
+  return { status: str, variant: detectVariant(str) };
+}
+
 export const badge = createUnifiedMorph(
   'badge',
   (value) => {
-    const str = String(value);
-    const variant = detectVariant(str);
-    return `<span class="morph-badge badge-${variant}">${escapeHtml(str)}</span>`;
+    const { status, variant } = extractBadgeData(value);
+    if (!status) return `<span class="morph-badge badge-default">–</span>`;
+    return `<span class="morph-badge badge-${variant}">${escapeHtml(status)}</span>`;
   },
   // Compare: Group badges by value, show frequency
   (values) => {
@@ -33,12 +50,11 @@ export const badge = createUnifiedMorph(
     const badgeGroups = new Map<string, { variant: string; items: string[] }>();
     
     values.forEach(({ item, value }) => {
-      const str = String(value);
-      const variant = detectVariant(str);
+      const { status, variant } = extractBadgeData(value);
       
-      const existing = badgeGroups.get(str) || { variant, items: [] };
+      const existing = badgeGroups.get(status) || { variant, items: [] };
       existing.items.push(item.name);
-      badgeGroups.set(str, existing);
+      badgeGroups.set(status, existing);
     });
     
     // Sort: most common first
