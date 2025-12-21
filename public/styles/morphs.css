@@ -1170,18 +1170,18 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   COMPARE BAR CHART - Unified 2px track + dot design
+   COMPARE BAR CHART - Clean inline layout
    ───────────────────────────────────────────────────────────────────────────── */
 .morph-bar-compare {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.625rem;
 }
 
 .bar-group {
   display: flex;
   flex-direction: column;
-  gap: 0.375rem;
+  gap: 0.25rem;
 }
 
 .bar-group-label {
@@ -1190,39 +1190,41 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.bar-group-bars {
+/* Container for all bars in a group */
+.bar-group-track {
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 4px;
 }
 
-/* Unified row: track + value */
-.bar-grouped-row {
+/* Single bar row: track + value */
+.bar-row {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-/* 2px track matching single-view design */
-.bar-grouped-track {
-  flex: 1;
+/* The track (75% width to leave room for value) */
+.bar-fill-track {
+  flex: 0 0 75%;
   height: 2px;
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 1px;
   position: relative;
 }
 
-/* Fill with item color and glowing dot */
-.bar-grouped-fill {
+/* The fill bar */
+.bar-fill {
   height: 100%;
-  background: color-mix(in srgb, var(--item-color) 40%, transparent);
+  background: color-mix(in srgb, var(--item-color) 50%, transparent);
   border-radius: 1px;
   position: relative;
-  min-width: 2px;
   transition: width 0.3s ease;
 }
 
-.bar-grouped-fill::after {
+/* Glowing dot */
+.bar-fill::after {
   content: '';
   position: absolute;
   right: -2px;
@@ -1235,14 +1237,24 @@
   box-shadow: 0 0 6px var(--item-color);
 }
 
-/* Value outside track */
-.bar-grouped-value {
+/* Value - always in view */
+.bar-val {
   font-size: 0.6875rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.6);
   font-variant-numeric: tabular-nums;
+  color: var(--item-color);
+  opacity: 0.85;
   min-width: 2.5rem;
-  text-align: right;
+}
+
+/* Average line */
+.bar-avg-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  z-index: 2;
 }
 
 /* Statistics row */

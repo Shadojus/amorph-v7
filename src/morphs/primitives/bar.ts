@@ -49,7 +49,7 @@ export const bar = createUnifiedMorph(
       </div>
     `;
   },
-  // Compare: Grouped bars with unified 2px track + dot design
+  // Compare: Compact inline bars with values
   (values) => {
     const allLabels = new Set<string>();
     const itemData = new Map<string, Map<string, number>>();
@@ -78,43 +78,33 @@ export const bar = createUnifiedMorph(
     return `
       <div class="morph-bar-compare">
         ${[...allLabels].map(label => {
-          // Collect values for this label
           const valuesForLabel = values.map(({ item }) => 
             itemData.get(item.id)?.get(label) ?? 0
           );
-          
-          // Calculate statistics
           const validValues = valuesForLabel.filter(v => v > 0);
           const avg = validValues.length > 0 
             ? validValues.reduce((a, b) => a + b, 0) / validValues.length 
             : 0;
-          const minVal = Math.min(...validValues);
-          const maxVal = Math.max(...validValues);
-          const diff = maxVal - minVal;
+          const avgPct = (avg / max) * 100;
           
           return `
             <div class="bar-group">
               <span class="bar-group-label">${escapeHtml(label)}</span>
-              <div class="bar-group-bars">
+              <div class="bar-group-track">
                 ${values.map(({ item, color }) => {
                   const val = itemData.get(item.id)?.get(label) ?? 0;
                   const pct = (val / max) * 100;
                   return `
-                    <div class="bar-grouped-row">
-                      <div class="bar-grouped-track">
-                        <div class="bar-grouped-fill" style="--item-color: ${escapeHtml(color)}; width: ${pct}%"></div>
+                    <div class="bar-row" style="--item-color: ${escapeHtml(color)}">
+                      <div class="bar-fill-track">
+                        <div class="bar-fill" style="width: ${pct}%"></div>
                       </div>
-                      <span class="bar-grouped-value">${formatNumber(val)}</span>
+                      <span class="bar-val">${formatNumber(val)}</span>
                     </div>
                   `;
                 }).join('')}
+                ${validValues.length > 1 ? `<div class="bar-avg-line" style="left: calc(${avgPct}% * 0.75)"></div>` : ''}
               </div>
-              ${validValues.length > 1 ? `
-                <div class="bar-group-stats">
-                  <span class="stat"><span class="stat-label">Ø</span> <span class="stat-value">${formatNumber(avg)}</span></span>
-                  <span class="stat"><span class="stat-label">Δ</span> <span class="stat-value">${formatNumber(diff)}</span></span>
-                </div>
-              ` : ''}
             </div>
           `;
         }).join('')}
