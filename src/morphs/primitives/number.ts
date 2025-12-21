@@ -11,7 +11,7 @@ export const number = createUnifiedMorph(
     if (isNaN(num)) return `<span class="morph-number">–</span>`;
     return `<span class="morph-number">${formatNumber(num)}</span>`;
   },
-  // Compare: Bar visualization with average line and statistics
+  // Compare: Bar-style layout matching bar chart
   (values) => {
     const nums = values.map(v => typeof v.value === 'number' ? v.value : parseFloat(String(v.value)));
     const validNums = nums.filter(n => !isNaN(n));
@@ -22,38 +22,24 @@ export const number = createUnifiedMorph(
     const avgPct = range > 0 ? ((avg - min) / range) * 100 : 50;
     
     return `
-      <div class="morph-number-compare">
+      <div class="number-compare-wrapper">
         <div class="number-bars">
-          ${values.map(({ item, color }, idx) => {
+          ${values.map(({ color }, idx) => {
             const num = nums[idx];
-            if (isNaN(num)) return `<div class="morph-number-row morph-number-empty">–</div>`;
+            if (isNaN(num)) return `<div class="bar-row"><span class="bar-val">–</span></div>`;
             
             const pct = range > 0 ? ((num - min) / range) * 100 : 50;
-            const isMin = num === min && range > 0;
-            const isMax = num === max && range > 0;
             
             return `
-              <div class="number-row ${isMin ? 'number-min' : ''} ${isMax ? 'number-max' : ''}" 
-                   style="--item-color: ${escapeHtml(color)}">
-                <span class="number-item-name">${escapeHtml(item.name)}</span>
-                <div class="number-track">
-                  <div class="number-bar" style="width: ${Math.max(pct, 3)}%"></div>
+              <div class="bar-row" style="--item-color: ${escapeHtml(color)}">
+                <div class="bar-fill-track">
+                  <div class="bar-fill" style="width: ${Math.max(pct, 3)}%"></div>
                 </div>
-                <span class="number-value">${formatNumber(num)}</span>
+                <span class="bar-val">${formatNumber(num)}</span>
               </div>
             `;
           }).join('')}
-          <div class="number-avg-line" style="left: ${avgPct}%"></div>
-        </div>
-        <div class="number-scale">
-          <span>${formatNumber(min)}</span>
-          <span>${formatNumber(max)}</span>
-        </div>
-        <div class="number-stats">
-          <span class="stat"><span class="stat-label">Ø</span> ${formatNumber(avg)}</span>
-          <span class="stat"><span class="stat-label">Min</span> ${formatNumber(min)}</span>
-          <span class="stat"><span class="stat-label">Max</span> ${formatNumber(max)}</span>
-          <span class="stat"><span class="stat-label">Δ</span> ${formatNumber(range)}</span>
+          ${validNums.length > 1 ? `<div class="bar-avg-line" style="left: calc(${avgPct}% * 0.75)"></div>` : ''}
         </div>
       </div>
     `;

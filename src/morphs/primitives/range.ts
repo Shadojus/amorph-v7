@@ -49,7 +49,7 @@ export const range = createUnifiedMorph(
       </div>
     `;
   },
-  // Compare: Overlapping ranges
+  // Compare: Bar-style range visualization
   (values) => {
     let globalMin = Infinity;
     let globalMax = -Infinity;
@@ -68,25 +68,26 @@ export const range = createUnifiedMorph(
     const globalRange = globalMax - globalMin || 1;
     
     return `
-      <div class="morph-range-compare">
-        <div class="morph-range-compare-track">
-          ${values.map(({ item, color }, idx) => {
+      <div class="range-compare-wrapper">
+        <div class="range-scale">
+          <span class="range-scale-min">${formatNumber(globalMin)}</span>
+          <span class="range-scale-max">${formatNumber(globalMax)}</span>
+        </div>
+        <div class="range-bars">
+          ${values.map(({ color }, idx) => {
             const r = ranges[idx];
             if (!r) return '';
             const left = ((r.min - globalMin) / globalRange) * 100;
-            const width = ((r.max - r.min) / globalRange) * 100;
+            const width = Math.max(((r.max - r.min) / globalRange) * 100, 2);
             return `
-              <div class="morph-range-bar" style="
-                left: ${left}%;
-                width: ${width}%;
-                --item-color: ${escapeHtml(color)};
-              " title="${escapeHtml(item.name)}: ${formatNumber(r.min)} – ${formatNumber(r.max)}"></div>
+              <div class="range-row" style="--item-color: ${escapeHtml(color)}">
+                <div class="range-track">
+                  <div class="range-fill" style="left: ${left}%; width: ${width}%"></div>
+                </div>
+                <span class="range-val">${formatNumber(r.min)}–${formatNumber(r.max)}</span>
+              </div>
             `;
           }).join('')}
-        </div>
-        <div class="morph-range-scale">
-          <span>${formatNumber(globalMin)}</span>
-          <span>${formatNumber(globalMax)}</span>
         </div>
       </div>
     `;

@@ -57,6 +57,19 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
       offset
     });
     
+    // Helper: Check if a value contains the search query
+    const searchLower = query.toLowerCase();
+    const matchesQuery = (value: unknown): boolean => {
+      if (!query || query.length < 3) return false;
+      if (typeof value === 'string') return value.toLowerCase().includes(searchLower);
+      if (typeof value === 'number') return String(value).includes(searchLower);
+      if (Array.isArray(value)) return value.some(v => matchesQuery(v));
+      if (value && typeof value === 'object') {
+        return Object.values(value).some(v => matchesQuery(v));
+      }
+      return false;
+    };
+    
     // Render items as HTML with escaped values
     const gridContext: RenderContext = {
       mode: 'grid',
@@ -79,6 +92,7 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
         .filter(html => html); // Remove empty strings
       
       // Perspektiven-Felder NUR für aktive Perspektiven - als normale Felder!
+      // Priorisiere Felder die den Suchbegriff enthalten!
       const perspectiveFields: string[] = [];
       if (item._perspectives && activePerspectives.size > 0) {
         for (const [perspId, perspData] of Object.entries(item._perspectives as Record<string, unknown>)) {
@@ -95,8 +109,25 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
             <span class="persp-divider-label">${escapeHtml(perspConfig?.name || perspId)}</span>
           </div>`);
           
-          // Felder als normale amorph-fields - renderValue gibt komplettes Feld zurück
-          for (const [key, value] of Object.entries(perspData as Record<string, unknown>).slice(0, 5)) {
+          // Filtere und sortiere Felder: Bei aktiver Query nur die die matchen!
+          const entries = Object.entries(perspData as Record<string, unknown>);
+          
+          let filteredEntries = entries;
+          if (query.length >= 3) {
+            // Nur Felder zeigen die im Key ODER Value den Suchbegriff enthalten
+            filteredEntries = entries.filter(([key, value]) => {
+              const keyMatches = key.toLowerCase().includes(searchLower);
+              const valMatches = matchesQuery(value);
+              return keyMatches || valMatches;
+            });
+          }
+          
+          // Wenn keine Matches, zeige die ersten paar Standard-Felder
+          if (filteredEntries.length === 0) {
+            filteredEntries = entries.slice(0, 4);
+          }
+          
+          for (const [key, value] of filteredEntries) {
             const morphHtml = renderValue(value, key, gridContext);
             // Skip empty renders
             if (!morphHtml) continue;

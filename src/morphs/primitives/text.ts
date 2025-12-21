@@ -7,12 +7,11 @@ import { createUnifiedMorph, escapeHtml } from '../base.js';
 export const text = createUnifiedMorph(
   'text',
   (value) => `<span class="morph-text">${escapeHtml(value)}</span>`,
-  // Compare: Show differences or grouped view
+  // Compare: Clean list with color dots
   (values) => {
-    const texts = values.map(({ item, value, color }) => ({
-      item,
+    const texts = values.map(({ value, color }) => ({
       color,
-      text: String(value)
+      text: String(value ?? '')
     }));
     
     // Check if all same
@@ -20,39 +19,20 @@ export const text = createUnifiedMorph(
     
     if (allSame) {
       return `
-        <div class="morph-text-compare text-same">
+        <div class="text-compare-wrapper text-all-same">
           <span class="morph-text">${escapeHtml(texts[0].text)}</span>
-          <span class="text-match">✓ Identisch</span>
         </div>
       `;
     }
     
-    // Group by value
-    const groups = new Map<string, { color: string; items: string[] }>();
-    texts.forEach(({ item, color, text }) => {
-      const existing = groups.get(text) || { color, items: [] };
-      existing.items.push(item.name);
-      groups.set(text, existing);
-    });
-    
-    // Calculate similarity (simple character overlap)
-    const allChars = new Set(texts.flatMap(t => t.text.split('')));
-    const commonChars = [...allChars].filter(c => 
-      texts.every(t => t.text.includes(c))
-    ).length;
-    const similarity = allChars.size > 0 ? Math.round((commonChars / allChars.size) * 100) : 0;
-    
     return `
-      <div class="morph-text-compare">
-        ${[...groups.entries()].map(([text, { color, items }]) => `
-          <div class="text-variant" style="--item-color: ${escapeHtml(color)}">
-            <span class="morph-text">${escapeHtml(text)}</span>
-            <span class="text-sources">${items.length > 1 ? `${items.length}×` : escapeHtml(items[0])}</span>
+      <div class="text-compare-wrapper">
+        ${texts.map(({ color, text }) => `
+          <div class="text-row" style="--item-color: ${escapeHtml(color)}">
+            <span class="text-dot"></span>
+            <span class="text-value">${escapeHtml(text)}</span>
           </div>
         `).join('')}
-        <div class="text-stats">
-          <span class="text-variants">${groups.size} Varianten</span>
-        </div>
       </div>
     `;
   }

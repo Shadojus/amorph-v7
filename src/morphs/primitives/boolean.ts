@@ -12,37 +12,39 @@ export const boolean = createUnifiedMorph(
   'boolean',
   (value) => {
     const bool = parseBoolean(value);
-    return `<span class="morph-boolean" data-value="${bool}">${bool ? '✓' : '✗'}</span>`;
+    return `
+      <span class="morph-boolean morph-boolean-${bool ? 'true' : 'false'}">
+        <span class="bool-icon">${bool ? '✓' : '✗'}</span>
+      </span>
+    `;
   },
-  // Compare: Matrix showing agreement/disagreement
+  // Compare: Clean grid with colored indicators
   (values) => {
-    const bools = values.map(({ value }) => parseBoolean(value));
-    const trueCount = bools.filter(b => b).length;
-    const falseCount = bools.length - trueCount;
-    const allSame = trueCount === 0 || falseCount === 0;
-    const majority = trueCount >= falseCount;
+    const bools = values.map(({ value, color }) => ({ 
+      bool: parseBoolean(value), 
+      color 
+    }));
+    
+    const allSame = bools.every(b => b.bool === bools[0].bool);
+    
+    if (allSame) {
+      return `
+        <div class="boolean-compare-wrapper boolean-all-same">
+          <span class="bool-result ${bools[0].bool ? 'bool-true' : 'bool-false'}">
+            ${bools[0].bool ? '✓ Alle ja' : '✗ Alle nein'}
+          </span>
+        </div>
+      `;
+    }
     
     return `
-      <div class="morph-boolean-compare">
-        <div class="boolean-matrix">
-          ${values.map(({ item, color }, idx) => {
-            const bool = bools[idx];
-            const isOutlier = bool !== majority && !allSame;
-            return `
-              <div class="boolean-cell ${bool ? 'bool-true' : 'bool-false'} ${isOutlier ? 'bool-outlier' : ''}" 
-                   style="--item-color: ${escapeHtml(color)}"
-                   title="${escapeHtml(item.name)}">
-                ${bool ? '✓' : '✗'}
-              </div>
-            `;
-          }).join('')}
-        </div>
-        <div class="boolean-summary">
-          ${allSame 
-            ? `<span class="bool-unanimous">${majority ? '✓' : '✗'} Einstimmig</span>`
-            : `<span class="bool-split">✓ ${trueCount} / ✗ ${falseCount}</span>`
-          }
-        </div>
+      <div class="boolean-compare-wrapper">
+        ${bools.map(({ bool, color }) => `
+          <div class="bool-row" style="--item-color: ${escapeHtml(color)}">
+            <span class="bool-dot"></span>
+            <span class="bool-icon ${bool ? 'bool-true' : 'bool-false'}">${bool ? '✓' : '✗'}</span>
+          </div>
+        `).join('')}
       </div>
     `;
   }

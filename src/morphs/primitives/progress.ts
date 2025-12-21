@@ -2,7 +2,7 @@
  * AMORPH v7 - Progress Morph
  */
 
-import { createUnifiedMorph, escapeHtml, formatPercent, formatNumber } from '../base.js';
+import { createUnifiedMorph, escapeHtml, formatPercent } from '../base.js';
 
 export const progress = createUnifiedMorph(
   'progress',
@@ -19,44 +19,32 @@ export const progress = createUnifiedMorph(
       </div>
     `;
   },
-  // Compare: Overlapping bars with average line and stats
+  // Compare: Bar-style layout matching bar chart
   (values) => {
     const nums = values.map(({ value }) => {
       const num = typeof value === 'number' ? value : parseFloat(String(value));
       return Math.min(100, Math.max(0, isNaN(num) ? 0 : num));
     });
     
-    // Calculate statistics
-    const avg = nums.reduce((a, b) => a + b, 0) / nums.length;
-    const min = Math.min(...nums);
-    const max = Math.max(...nums);
-    const diff = max - min;
+    // Calculate average
+    const validNums = nums.filter(n => !isNaN(n));
+    const avg = validNums.length > 0 ? validNums.reduce((a, b) => a + b, 0) / validNums.length : 0;
     
     return `
-      <div class="morph-progress-compare">
-        <div class="progress-stack">
-          ${values.map(({ item, color }, idx) => {
+      <div class="progress-compare-wrapper">
+        <div class="progress-bars">
+          ${values.map(({ color }, idx) => {
             const pct = nums[idx];
-            const isMin = pct === min && diff > 0;
-            const isMax = pct === max && diff > 0;
             return `
-              <div class="progress-row ${isMin ? 'progress-min' : ''} ${isMax ? 'progress-max' : ''}" 
-                   style="--item-color: ${escapeHtml(color)}">
-                <span class="progress-item-name">${escapeHtml(item.name)}</span>
-                <div class="progress-track">
-                  <div class="progress-fill" style="width: ${pct}%"></div>
+              <div class="bar-row" style="--item-color: ${escapeHtml(color)}">
+                <div class="bar-fill-track">
+                  <div class="bar-fill" style="width: ${pct}%"></div>
                 </div>
-                <span class="progress-value">${formatPercent(pct)}</span>
+                <span class="bar-val">${formatPercent(pct)}</span>
               </div>
             `;
           }).join('')}
-          <div class="progress-avg-line" style="left: ${avg}%"></div>
-        </div>
-        <div class="progress-stats">
-          <span class="stat"><span class="stat-label">Ø</span> ${formatPercent(avg)}</span>
-          <span class="stat"><span class="stat-label">Min</span> ${formatPercent(min)}</span>
-          <span class="stat"><span class="stat-label">Max</span> ${formatPercent(max)}</span>
-          <span class="stat"><span class="stat-label">Δ</span> ${formatNumber(diff)} pp</span>
+          ${validNums.length > 1 ? `<div class="bar-avg-line" style="left: calc(${avg}% * 0.75)"></div>` : ''}
         </div>
       </div>
     `;

@@ -64,10 +64,10 @@ import type { MorphType } from './types';
 // ═══════════════════════════════════════════════════════════════════════════════
 
 /**
- * Erkennt Morph-Typ NUR aus Datenstruktur.
- * Feldname wird nur für tie-breaker verwendet, nicht für primäre Detection.
+ * Erkennt Morph-Typ aus Datenstruktur.
+ * Feldname wird für semantische Hinweise verwendet (z.B. "months" für Monatszahlen).
  */
-export function detectType(value: unknown, _fieldName?: string): MorphType {
+export function detectType(value: unknown, fieldName?: string): MorphType {
   // Null/Undefined → text (empty)
   if (value === null || value === undefined) return 'text';
   
@@ -82,9 +82,9 @@ export function detectType(value: unknown, _fieldName?: string): MorphType {
     return detectStringStructure(value);
   }
   
-  // Array → detectArrayStructure
+  // Array → detectArrayStructure (with field name hint)
   if (Array.isArray(value)) {
-    return detectArrayStructure(value);
+    return detectArrayStructure(value, fieldName);
   }
   
   // Object → detectObjectStructure
@@ -152,15 +152,39 @@ function detectStringStructure(value: string): MorphType {
 // ARRAY DETECTION
 // ═══════════════════════════════════════════════════════════════════════════════
 
-function detectArrayStructure(arr: unknown[]): MorphType {
+function detectArrayStructure(arr: unknown[], fieldName?: string): MorphType {
   if (arr.length === 0) return 'list';
   
   const first = arr[0];
+  const fieldLower = fieldName?.toLowerCase() || '';
   
   // ─────────────────────────────────────────────────────────────────────────────
-  // SPARKLINE: Array of numbers [0, 1, 2, ...]
+  // NUMBER ARRAYS: Check if they're semantic (months, years) vs data points
   // ─────────────────────────────────────────────────────────────────────────────
   if (arr.every(item => typeof item === 'number')) {
+    // MONTH NUMBERS: Field name contains "month" and all values 1-12
+    // → Render as tag list with month names, not sparkline
+    if (fieldLower.includes('month') && arr.every(n => Number.isInteger(n) && n >= 1 && n <= 12)) {
+      return 'tag'; // Will be rendered as month names by tag morph
+    }
+    
+    // YEAR NUMBERS: Field name contains "year" and all values look like years (1900-2100)
+    if (fieldLower.includes('year') && arr.every(n => Number.isInteger(n) && n >= 1900 && n <= 2100)) {
+      return 'tag'; // Render as year list
+    }
+    
+    // Small integer lists (1-10 items, all small integers 1-12): likely categorical, not trend data
+    // But only if they look sequential or categorical (not random values)
+    if (arr.length <= 12 && arr.every(n => Number.isInteger(n) && n >= 1 && n <= 12)) {
+      // Check if it's sequential-ish (consecutive months, ranks, etc.)
+      const sorted = [...arr].sort((a, b) => (a as number) - (b as number));
+      const isSequential = sorted.every((n, i) => i === 0 || (n as number) - (sorted[i-1] as number) <= 2);
+      if (isSequential) {
+        return 'tag'; // Likely month list or similar categorical data
+      }
+    }
+    
+    // Default: sparkline for general numeric arrays
     return 'sparkline';
   }
   

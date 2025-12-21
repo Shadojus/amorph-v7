@@ -14,7 +14,7 @@ export const list = createUnifiedMorph(
       </ul>
     `;
   },
-  // Compare: Highlight common/unique items
+  // Compare: Clean grouped display with icons
   (values) => {
     // Count occurrences of each item
     const itemCounts = new Map<string, { count: number; sources: string[] }>();
@@ -48,33 +48,38 @@ export const list = createUnifiedMorph(
     const unique = sorted.filter(([, { count }]) => count === 1);
     
     return `
-      <div class="morph-list-compare">
+      <div class="list-compare-wrapper">
         ${common.length > 0 ? `
-          <div class="list-group list-common">
-            <span class="list-group-label">✓ Gemeinsam (${common.length})</span>
-            <ul>
-              ${common.map(([item]) => `<li>${escapeHtml(item)}</li>`).join('')}
-            </ul>
+          <div class="list-section list-common">
+            <span class="list-section-label">✓ Gemeinsam</span>
+            <div class="list-items">
+              ${common.slice(0, 8).map(([item]) => `
+                <span class="list-item">${escapeHtml(item)}</span>
+              `).join('')}
+              ${common.length > 8 ? `<span class="list-more">+${common.length - 8}</span>` : ''}
+            </div>
           </div>
         ` : ''}
         ${partial.length > 0 ? `
-          <div class="list-group list-partial">
-            <span class="list-group-label">◐ Teilweise (${partial.length})</span>
-            <ul>
-              ${partial.map(([item, { count, sources }]) => `
-                <li title="${sources.join(', ')}">${escapeHtml(item)} <span class="list-count">${count}/${totalSources}</span></li>
+          <div class="list-section list-partial">
+            <span class="list-section-label">◐ Teilweise</span>
+            <div class="list-items">
+              ${partial.slice(0, 6).map(([item, { count }]) => `
+                <span class="list-item" title="${count}/${totalSources}">${escapeHtml(item)} <span class="list-count">${count}</span></span>
               `).join('')}
-            </ul>
+              ${partial.length > 6 ? `<span class="list-more">+${partial.length - 6}</span>` : ''}
+            </div>
           </div>
         ` : ''}
         ${unique.length > 0 ? `
-          <div class="list-group list-unique">
-            <span class="list-group-label">○ Einzigartig (${unique.length})</span>
-            <ul>
-              ${unique.map(([item, { sources }]) => `
-                <li title="${sources[0]}">${escapeHtml(item)} <span class="list-source">${escapeHtml(sources[0])}</span></li>
+          <div class="list-section list-unique">
+            <span class="list-section-label">○ Einzigartig</span>
+            <div class="list-items">
+              ${unique.slice(0, 6).map(([item]) => `
+                <span class="list-item">${escapeHtml(item)}</span>
               `).join('')}
-            </ul>
+              ${unique.length > 6 ? `<span class="list-more">+${unique.length - 6}</span>` : ''}
+            </div>
           </div>
         ` : ''}
       </div>

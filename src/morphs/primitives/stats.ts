@@ -22,7 +22,7 @@ export const stats = createUnifiedMorph(
       </div>
     `;
   },
-  // Compare: Table with bars and statistics
+  // Compare: Compact cards with bar visualization
   (values) => {
     // Collect all keys
     const allKeys = new Set<string>();
@@ -32,8 +32,8 @@ export const stats = createUnifiedMorph(
       }
     });
     
-    // Build data map
-    const data = new Map<string, { values: (number | string | null)[]; isNumeric: boolean }>();
+    // Build data map with ranges
+    const stats: { key: string; vals: (number | string | null)[]; isNumeric: boolean; min: number; max: number; range: number }[] = [];
     
     [...allKeys].forEach(key => {
       const vals = values.map(({ value }) => {
@@ -45,63 +45,51 @@ export const stats = createUnifiedMorph(
       const numericVals = vals.filter(v => typeof v === 'number' || (typeof v === 'string' && !isNaN(parseFloat(v))));
       const isNumeric = numericVals.length === vals.filter(v => v !== null).length && numericVals.length > 0;
       
-      data.set(key, { 
-        values: vals as (number | string | null)[], 
-        isNumeric 
-      });
+      let min = 0, max = 100, range = 100;
+      if (isNumeric) {
+        const nums = vals.map(v => v !== null ? parseFloat(String(v)) : NaN).filter(n => !isNaN(n));
+        if (nums.length > 0) {
+          min = Math.min(...nums);
+          max = Math.max(...nums);
+          range = max - min || 1;
+        }
+      }
+      
+      stats.push({ key, vals: vals as (number | string | null)[], isNumeric, min, max, range });
     });
     
     return `
-      <div class="morph-stats-compare">
-        <table class="stats-table">
-          <thead>
-            <tr>
-              <th>Metrik</th>
-              ${values.map(({ item, color }) => `
-                <th style="--item-color: ${escapeHtml(color)}">${escapeHtml(item.name)}</th>
-              `).join('')}
-              <th class="stats-summary">Ø / Δ</th>
-            </tr>
-          </thead>
-          <tbody>
-            ${[...data.entries()].map(([key, { values: vals, isNumeric }]) => {
-              // Calculate stats for numeric values
-              let statsHtml = '–';
-              let minIdx = -1, maxIdx = -1;
-              
-              if (isNumeric) {
-                const nums = vals.map(v => v !== null ? parseFloat(String(v)) : NaN);
-                const validNums = nums.filter(n => !isNaN(n));
+      <div class="stats-compare-wrapper">
+        ${stats.map(({ key, vals, isNumeric, min, range }) => `
+          <div class="stats-row">
+            <span class="stats-label">${escapeHtml(key.replace(/_/g, ' '))}</span>
+            <div class="stats-values">
+              ${vals.map((v, idx) => {
+                const color = values[idx]?.color || '#888';
+                if (v === null) return `<span class="stats-val stats-empty">–</span>`;
                 
-                if (validNums.length > 1) {
-                  const avg = validNums.reduce((a, b) => a + b, 0) / validNums.length;
-                  const min = Math.min(...validNums);
-                  const max = Math.max(...validNums);
-                  minIdx = nums.findIndex(n => n === min);
-                  maxIdx = nums.findIndex(n => n === max);
-                  statsHtml = `<span class="avg">Ø ${formatNumber(avg)}</span><span class="diff">Δ ${formatNumber(max - min)}</span>`;
+                if (isNumeric) {
+                  const num = parseFloat(String(v));
+                  const pct = range > 0 ? ((num - min) / range) * 100 : 50;
+                  return `
+                    <div class="stats-bar-item" style="--item-color: ${escapeHtml(color)}">
+                      <div class="stats-bar-track">
+                        <div class="stats-bar-fill" style="width: ${Math.max(pct, 3)}%"></div>
+                      </div>
+                      <span class="stats-bar-val">${formatNumber(num)}</span>
+                    </div>
+                  `;
                 }
-              }
-              
-              return `
-                <tr>
-                  <td class="stats-key">${escapeHtml(key)}</td>
-                  ${vals.map((v, idx) => {
-                    if (v === null) return '<td class="stats-val stats-empty">–</td>';
-                    
-                    const classes = ['stats-val'];
-                    if (idx === minIdx) classes.push('stats-min');
-                    if (idx === maxIdx) classes.push('stats-max');
-                    
-                    const displayVal = typeof v === 'number' ? formatNumber(v) : escapeHtml(v);
-                    return `<td class="${classes.join(' ')}">${displayVal}</td>`;
-                  }).join('')}
-                  <td class="stats-summary">${statsHtml}</td>
-                </tr>
-              `;
-            }).join('')}
-          </tbody>
-        </table>
+                return `
+                  <div class="stats-text-item" style="--item-color: ${escapeHtml(color)}">
+                    <span class="stats-dot"></span>
+                    <span class="stats-text-val">${escapeHtml(v)}</span>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </div>
+        `).join('')}
       </div>
     `;
   }

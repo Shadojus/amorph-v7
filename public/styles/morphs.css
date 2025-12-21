@@ -76,6 +76,20 @@
   gap: 0.375rem;
 }
 
+/* Month tag styling */
+.morph-months .tag-months {
+  background: rgba(77, 136, 255, 0.08);
+  border-color: rgba(77, 136, 255, 0.15);
+  color: rgba(77, 136, 255, 0.9);
+  font-weight: 500;
+}
+
+.morph-months-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 /* ─────────────────────────────────────────────────────────────────────────────
    BADGE
    ───────────────────────────────────────────────────────────────────────────── */
@@ -1175,7 +1189,7 @@
 .morph-bar-compare {
   display: flex;
   flex-direction: column;
-  gap: 0.625rem;
+  gap: 0.75rem;
 }
 
 .bar-group {
@@ -1185,9 +1199,11 @@
 }
 
 .bar-group-label {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+  overflow: visible;
 }
 
 /* Container for all bars in a group */
@@ -1195,21 +1211,21 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 3px;
 }
 
 /* Single bar row: track + value */
 .bar-row {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.625rem;
 }
 
-/* The track (75% width to leave room for value) */
+/* The track */
 .bar-fill-track {
-  flex: 0 0 75%;
+  flex: 0 0 68%;
   height: 2px;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: 1px;
   position: relative;
 }
@@ -1217,7 +1233,7 @@
 /* The fill bar */
 .bar-fill {
   height: 100%;
-  background: color-mix(in srgb, var(--item-color) 50%, transparent);
+  background: color-mix(in srgb, var(--item-color) 30%, transparent);
   border-radius: 1px;
   position: relative;
   transition: width 0.3s ease;
@@ -1227,11 +1243,11 @@
 .bar-fill::after {
   content: '';
   position: absolute;
-  right: -2px;
+  right: -3px;
   top: 50%;
   transform: translateY(-50%);
-  width: 4px;
-  height: 4px;
+  width: 6px;
+  height: 6px;
   background: var(--item-color);
   border-radius: 50%;
   box-shadow: 0 0 6px var(--item-color);
@@ -1239,12 +1255,12 @@
 
 /* Value - always in view */
 .bar-val {
-  font-size: 0.6875rem;
-  font-weight: 500;
+  font-size: 0.9375rem;
+  font-weight: 600;
   font-variant-numeric: tabular-nums;
   color: var(--item-color);
-  opacity: 0.85;
   min-width: 2.5rem;
+  white-space: nowrap;
 }
 
 /* Average line */
@@ -1282,67 +1298,437 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   COMPARE RADAR - Overlay mode with unified axes
+   COMPARE RADAR - Clean overlay with bar-style stats
    ───────────────────────────────────────────────────────────────────────────── */
-.radar-compare-container {
+.radar-compare-wrapper {
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
+}
+
+.radar-svg {
+  width: 100%;
+  max-width: 240px;
+  margin: 0 auto;
+}
+
+.radar-svg path {
+  transition: opacity 0.2s, stroke-width 0.2s;
+}
+
+.radar-svg:hover path {
+  opacity: 0.5;
+}
+
+.radar-svg path:hover {
+  opacity: 1;
+  stroke-width: 2;
+}
+
+.radar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  justify-content: center;
+}
+
+.radar-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+}
+
+.radar-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--item-color);
+  box-shadow: 0 0 6px var(--item-color);
+}
+
+.radar-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.radar-stat-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.radar-stat-label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.radar-stat-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.radar-stat-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.radar-bar-track {
+  flex: 0 0 68%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 1px;
+  position: relative;
+}
+
+.radar-bar-fill {
+  height: 100%;
+  background: color-mix(in srgb, var(--item-color) 30%, transparent);
+  border-radius: 1px;
+  position: relative;
+}
+
+.radar-bar-fill::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--item-color);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--item-color);
+}
+
+.radar-bar-val {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--item-color);
+  min-width: 2.5rem;
+  white-space: nowrap;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMPARE SPARKLINE - Overlapping lines with legend
+   ───────────────────────────────────────────────────────────────────────────── */
+.sparkline-compare-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sparkline-svg {
+  width: 100%;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+}
+
+.sparkline-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+
+.sparkline-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+}
+
+.sparkline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--item-color);
+  box-shadow: 0 0 6px var(--item-color);
+}
+
+.sparkline-val {
+  color: var(--item-color);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.sparkline-trend {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-variant-numeric: tabular-nums;
+}
+
+.morph-sparkline-single {
+  display: flex;
   align-items: center;
   gap: 0.75rem;
 }
 
-.morph-radar-compare {
-  width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
-}
-
-.morph-radar-compare path {
-  transition: opacity 0.2s, stroke-width 0.2s;
-}
-
-.morph-radar-compare:hover path {
-  opacity: 0.7;
-}
-
-.morph-radar-compare path:hover {
-  opacity: 1;
-  stroke-width: 2.5;
-}
-
-.morph-radar-compare text {
-  fill: rgba(255, 255, 255, 0.6);
-  font-family: inherit;
-}
-
-/* Radar Insights */
-.radar-insights {
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMPARE PROGRESS/NUMBER/RATING - Bar-style wrappers
+   ───────────────────────────────────────────────────────────────────────────── */
+.progress-compare-wrapper,
+.number-compare-wrapper,
+.rating-compare-wrapper {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 1rem;
-  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.progress-bars,
+.number-bars,
+.rating-bars {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMPARE RANGE - Visual range bars
+   ───────────────────────────────────────────────────────────────────────────── */
+.range-compare-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.range-scale {
+  display: flex;
+  justify-content: space-between;
   font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.6);
-  padding: 0.5rem 0.75rem;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 0 2%;
 }
 
-.radar-insights .insight-label {
-  color: rgba(255, 255, 255, 0.4);
-  font-weight: 500;
+.range-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.radar-insights .insight-item {
-  display: inline-flex;
+.range-row {
+  display: flex;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.75rem;
 }
 
-.radar-insights .insight-diff {
-  color: rgba(255, 200, 100, 0.8);
+.range-track {
+  flex: 0 0 65%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 3px;
+  position: relative;
+}
+
+.range-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: color-mix(in srgb, var(--item-color) 25%, transparent);
+  border-radius: 3px;
+  border-left: 2px solid var(--item-color);
+  border-right: 2px solid var(--item-color);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--item-color) 20%, transparent);
+}
+
+.range-val {
+  font-size: 0.8125rem;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
+  color: var(--item-color);
+  min-width: 5rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMPARE BOOLEAN - Clean icon grid
+   ───────────────────────────────────────────────────────────────────────────── */
+.boolean-compare-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.boolean-compare-wrapper.boolean-all-same {
+  justify-content: flex-start;
+}
+
+.bool-result {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.bool-result.bool-true {
+  color: rgba(0, 255, 136, 0.9);
+}
+
+.bool-result.bool-false {
+  color: rgba(255, 100, 100, 0.8);
+}
+
+.bool-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.bool-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--item-color);
+  box-shadow: 0 0 6px var(--item-color);
+}
+
+.bool-icon {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.bool-icon.bool-true {
+  color: rgba(0, 255, 136, 0.9);
+}
+
+.bool-icon.bool-false {
+  color: rgba(255, 100, 100, 0.8);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMPARE TEXT - Dot + text list
+   ───────────────────────────────────────────────────────────────────────────── */
+.text-compare-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.text-compare-wrapper.text-all-same {
+  padding: 0.375rem 0;
+}
+
+.text-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+}
+
+.text-dot {
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--item-color);
+  box-shadow: 0 0 6px var(--item-color);
+  margin-top: 0.35em;
+}
+
+.text-value {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMPARE STATS - Compact bar-based layout
+   ───────────────────────────────────────────────────────────────────────────── */
+.stats-compare-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.stats-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.stats-label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: capitalize;
+}
+
+.stats-values {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stats-bar-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.stats-bar-track {
+  flex: 0 0 65%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 1px;
+  position: relative;
+}
+
+.stats-bar-fill {
+  height: 100%;
+  background: color-mix(in srgb, var(--item-color) 30%, transparent);
+  border-radius: 1px;
+  position: relative;
+}
+
+.stats-bar-fill::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--item-color);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--item-color);
+}
+
+.stats-bar-val {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--item-color);
+  min-width: 3rem;
+}
+
+.stats-text-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stats-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--item-color);
+  box-shadow: 0 0 6px var(--item-color);
+}
+
+.stats-text-val {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -1591,72 +1977,31 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   TAG COMPARE - Common/Unique highlighting
+   TAG COMPARE - Clean tag list
    ───────────────────────────────────────────────────────────────────────────── */
 .morph-tags-compare {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  align-items: flex-start;
+  gap: 0.375rem;
 }
 
-.tag-compare {
+.morph-tags-compare .tag {
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
-  padding: 0.375em 0.75em;
-  font-size: 0.8125rem;
-  border-radius: 6px;
-  transition: all 0.2s ease;
 }
 
-.tag-common {
-  background: rgba(0, 255, 136, 0.15);
-  border: 1px solid rgba(0, 255, 136, 0.3);
-  color: #00ff88;
+.morph-tags-compare .tag-common {
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.tag-partial {
-  background: rgba(255, 170, 0, 0.15);
-  border: 1px solid rgba(255, 170, 0, 0.3);
-  color: #ffaa00;
+.morph-tags-compare .tag-partial {
+  opacity: 0.6;
 }
 
-.tag-unique {
-  background: rgba(77, 136, 255, 0.15);
-  border: 1px solid rgba(77, 136, 255, 0.3);
-  color: rgba(120, 170, 255, 0.9);
-}
-
-.tag-count {
-  font-size: 0.65rem;
-  padding: 0.1em 0.4em;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 4px;
-  margin-left: 0.25em;
-}
-
-.tag-legend {
-  width: 100%;
-  display: flex;
-  gap: 1rem;
-  padding-top: 0.75rem;
-  margin-top: 0.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 0.7rem;
-}
-
-.tag-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.tag-indicator {
-  width: 10px;
-  height: 10px;
-  border-radius: 3px;
+.morph-tags-compare .tag-count {
+  font-size: 0.6rem;
+  opacity: 0.6;
 }
 
 .tag-indicator.tag-common {
@@ -1712,67 +2057,84 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   LIST COMPARE - Common/Unique items
+   LIST COMPARE - Clean grouped display
    ───────────────────────────────────────────────────────────────────────────── */
-.morph-list-compare {
+.list-compare-wrapper {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.list-group {
-  padding: 0.75rem;
-  border-radius: 8px;
-  background: rgba(15, 15, 25, 0.4);
+.list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.list-group-label {
-  display: block;
-  font-size: 0.75rem;
+.list-section-label {
+  font-size: 0.8125rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.4px;
 }
 
-.list-common .list-group-label {
-  color: rgba(0, 255, 136, 0.8);
+.list-common .list-section-label {
+  color: rgba(0, 255, 136, 0.85);
 }
 
-.list-partial .list-group-label {
-  color: rgba(255, 170, 0, 0.8);
+.list-partial .list-section-label {
+  color: rgba(255, 170, 0, 0.85);
 }
 
-.list-unique .list-group-label {
-  color: rgba(77, 136, 255, 0.8);
+.list-unique .list-section-label {
+  color: rgba(77, 136, 255, 0.85);
 }
 
-.list-group ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.list-items {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 0.75rem;
+  gap: 0.375rem;
 }
 
-.list-group li {
+.list-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.3em 0.625em;
   font-size: 0.875rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
   color: rgba(255, 255, 255, 0.85);
 }
 
-.list-count {
-  font-size: 0.65rem;
-  padding: 0.1em 0.3em;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
-  margin-left: 0.25em;
+.list-common .list-item {
+  background: rgba(0, 255, 136, 0.04);
+  border-color: rgba(0, 255, 136, 0.12);
 }
 
-.list-source {
-  font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.4);
-  margin-left: 0.25em;
+.list-partial .list-item {
+  background: rgba(255, 170, 0, 0.04);
+  border-color: rgba(255, 170, 0, 0.12);
+}
+
+.list-unique .list-item {
+  background: rgba(77, 136, 255, 0.04);
+  border-color: rgba(77, 136, 255, 0.12);
+}
+
+.list-count {
+  font-size: 0.75rem;
+  padding: 0.15em 0.4em;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.list-more {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 0.25em 0.5em;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -1869,55 +2231,14 @@
    ───────────────────────────────────────────────────────────────────────────── */
 .morph-boolean-compare {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  align-items: flex-start;
-}
-
-.boolean-matrix {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.boolean-cell {
-  width: 2rem;
-  height: 2rem;
-  display: flex;
+  gap: 0.75rem;
   align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-  font-size: 1rem;
+}
+
+.cmp-bool {
+  font-size: 0.875rem;
   font-weight: 600;
-  border: 2px solid transparent;
-}
-
-.boolean-cell.bool-true {
-  background: rgba(0, 255, 136, 0.15);
-  color: #00ff88;
-  border-color: var(--item-color, rgba(0, 255, 136, 0.3));
-}
-
-.boolean-cell.bool-false {
-  background: rgba(255, 51, 102, 0.15);
-  color: #ff3366;
-  border-color: var(--item-color, rgba(255, 51, 102, 0.3));
-}
-
-.boolean-cell.bool-outlier {
-  box-shadow: 0 0 8px rgba(255, 170, 0, 0.5);
-}
-
-.boolean-summary {
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.bool-unanimous {
-  color: rgba(0, 255, 136, 0.8);
-}
-
-.bool-split {
-  color: rgba(255, 170, 0, 0.8);
+  color: var(--item-color);
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -1995,56 +2316,124 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   TEXT COMPARE - Variant display
+   TEXT COMPARE - Clean variant display
    ───────────────────────────────────────────────────────────────────────────── */
 .morph-text-compare {
   display: flex;
   flex-direction: column;
+  gap: 4px;
+}
+
+.cmp-text-row {
+  display: flex;
+  align-items: flex-start;
   gap: 0.5rem;
 }
 
-.morph-text-compare.text-same {
-  flex-direction: row;
-  align-items: center;
-  gap: 1rem;
-}
-
-.text-match {
-  font-size: 0.75rem;
-  color: rgba(0, 255, 136, 0.8);
-  font-weight: 500;
-}
-
-.text-variant {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.5rem;
-  padding-left: 0.75rem;
-  border-left: 3px solid var(--item-color, rgba(77, 136, 255, 0.5));
-  background: rgba(15, 15, 25, 0.3);
-  border-radius: 0 6px 6px 0;
-}
-
-.text-sources {
-  font-size: 0.65rem;
-  color: var(--item-color, rgba(255, 255, 255, 0.5));
-  white-space: nowrap;
-}
-
-.text-stats {
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
-  padding-top: 0.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+.cmp-text-dot {
+  flex-shrink: 0;
+  width: 4px;
+  height: 4px;
+  margin-top: 0.5em;
+  background: var(--item-color);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--item-color);
 }
 
 .text-variants {
   color: rgba(255, 170, 0, 0.8);
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════════
+   UNIFIED COMPARE STYLES - Clean inline layout for all compare views
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Container for compare morphs */
+.morph-progress-compare,
+.morph-number-compare,
+.morph-rating-compare,
+.morph-range-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Single compare row: track + value */
+.cmp-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Track (75% width) */
+.cmp-track {
+  flex: 0 0 75%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 1px;
+  position: relative;
+}
+
+/* Standard fill bar */
+.cmp-fill {
+  height: 100%;
+  background: color-mix(in srgb, var(--item-color) 50%, transparent);
+  border-radius: 1px;
+  position: relative;
+  transition: width 0.3s ease;
+}
+
+/* Glowing dot at end */
+.cmp-fill::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  background: var(--item-color);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--item-color);
+}
+
+/* Range fill (positioned absolutely within track) */
+.cmp-range-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: color-mix(in srgb, var(--item-color) 50%, transparent);
+  border-radius: 1px;
+}
+
+.cmp-range-fill::before,
+.cmp-range-fill::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  background: var(--item-color);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--item-color);
+}
+
+.cmp-range-fill::before { left: -2px; }
+.cmp-range-fill::after { right: -2px; }
+
+/* Value - always visible */
+.cmp-val {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--item-color);
+  opacity: 0.85;
+  min-width: 2.5rem;
+}
+
 /* ─────────────────────────────────────────────────────────────────────────────
-   PROGRESS COMPARE - Enhanced with average line
+   PROGRESS COMPARE (legacy cleanup)
    ───────────────────────────────────────────────────────────────────────────── */
 .morph-progress-compare {
   display: flex;
@@ -2259,71 +2648,16 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   SPARKLINE COMPARE - Enhanced with grid and legend
+   SPARKLINE COMPARE - Clean overlapping lines
    ───────────────────────────────────────────────────────────────────────────── */
 .morph-sparkline-compare {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  position: relative;
 }
 
-.sparkline-overlay {
+.sparkline-svg-compare {
   width: 100%;
-  height: 70px;
-  background: rgba(15, 15, 25, 0.4);
-  border-radius: 8px;
-}
-
-.sparkline-grid {
-  stroke: rgba(255, 255, 255, 0.1);
-  stroke-width: 0.5;
-  stroke-dasharray: 2, 2;
-}
-
-.sparkline-scale {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 70px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 0.25rem 0;
-  font-size: 0.6rem;
-  color: rgba(255, 255, 255, 0.4);
-  transform: translateX(-100%);
-  padding-right: 0.375rem;
-  text-align: right;
-}
-
-.sparkline-legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  padding-top: 0.25rem;
-}
-
-.sparkline-legend-item {
-  display: flex;
-  align-items: center;
-  gap: 0.375rem;
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.sparkline-legend-item::before {
-  content: '';
-  width: 16px;
-  height: 3px;
-  background: var(--item-color);
-  border-radius: 2px;
-}
-
-.legend-avg {
-  font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin-left: 0.25rem;
+  height: 32px;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
