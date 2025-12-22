@@ -1,0 +1,104 @@
+{
+  "cultural_significance": {
+    "status": "Extremely High",
+    "variant": "success"
+  },
+  "cultural_significance_description": "Der Fliegenpilz ist einer der kulturell bedeutendsten Pilze weltweit. Seine charakteristische Erscheinung macht ihn zum Inbegriff des 'Pilzes' in der westlichen Welt und er taucht in Kunst, Literatur, Religion und Popkultur seit Jahrtausenden auf.",
+  "historical_use": "Schamanische Rituale, Volksmedizin, Insektizid",
+  "historical_use_description": "Traditionell wurde der Fliegenpilz in sibirischen schamanischen Kulturen als Entheogen verwendet. Der Name 'Fliegenpilz' bezieht sich auf die historische Verwendung als Insektengift - in Milch eingelegt wurden Fliegen angelockt und betaeubt.",
+  "discovery_timeline": [
+    {"date": "1753-05-01", "event": "Wissenschaftliche Erstbeschreibung", "description": "Carl von Linne beschreibt die Art als Agaricus muscarius in Species Plantarum"},
+    {"date": "1783-01-01", "event": "Gattungszuordnung", "description": "Jean-Baptiste Lamarck transferiert die Art in die Gattung Amanita"},
+    {"date": "1869-01-01", "event": "Muscarin-Isolierung", "description": "Oswald Schmiedeberg isoliert Muscarin als vermeintliches Haupttoxin"},
+    {"date": "1960-01-01", "event": "Soma-Hypothese", "description": "R. Gordon Wasson schlaegt vor, dass der Fliegenpilz das vedische Soma sein koennte"},
+    {"date": "1964-01-01", "event": "Ibotensaeure-Entdeckung", "description": "Japanische Forscher identifizieren Ibotensaeure als Haupttoxin"},
+    {"date": "1968-01-01", "event": "Muscimol-Entdeckung", "description": "Muscimol wird als aktiver Metabolit identifiziert"}
+  ],
+  "mythology": "Soma-Hypothese: Moeglicherweise der goettliche Trank der vedischen Hymnen. Sibirischer Schamanismus: Flug der Schamanen in andere Welten. Weihnachtsmann-Theorie: Verbindung zu rot-weissem Gewand und fliegenden Rentieren. Berserker-Theorie: Moeglicherweise von nordischen Kriegern verwendet.",
+  "folklore": "Glueckssymbol in Mitteleuropa (Neujahrsglucksbringer). Feenringe und Zwergenstaetten in keltischer Tradition. Hexenpilz in mittelalterlicher Vorstellung. Zauberpilz in Maerchen und Sagen.",
+  "religious_significance": "Entheogen in sibirischen Religionen, moeglicherweise vedisches Soma",
+  "shamanic_use": {
+    "status": "Documented",
+    "variant": "success"
+  },
+  "shamanic_traditions": [
+    {"name": "Sibirische Voelker (Korjaken, Tschuktschen)", "type": "active_use", "intensity": 100},
+    {"name": "Saami (Lappland)", "type": "historical_use", "intensity": 75},
+    {"name": "Vedische Tradition (hypothetisch)", "type": "proposed", "intensity": 50}
+  ],
+  "literary_references": [
+    "Lewis Carroll: Alice im Wunderland (rauchender Caterpillar auf Pilz)",
+    "C.S. Lewis: Die Chroniken von Narnia (Pilzdarstellungen)",
+    "Diverse Maerchensammlungen der Brueder Grimm"
+  ],
+  "artistic_representations": [
+    "Mittelalterliche Buchmalereien",
+    "Jugendstil-Illustrationen",
+    "Hippie-Kunst der 1960er Jahre",
+    "Videospiel-Grafik (Super Mario)",
+    "Weihnachtsdekoration und Geschenkpapier"
+  ],
+  "pop_culture_references": [
+    {"label": "Super Mario (Nintendo)", "value": 100},
+    {"label": "Die Schluempfe (Pilzhaeuser)", "value": 85},
+    {"label": "Alice im Wunderland", "value": 80},
+    {"label": "Fantasia (Disney)", "value": 70},
+    {"label": "Gluecksbringer-Tradition", "value": 90}
+  ],
+  "symbolism": [
+    "Glueck und Wohlstand (Neujahr)",
+    "Magie und Zauberei",
+    "Natur und Wald",
+    "Kindheit und Maerchen",
+    "Psychedelische Erfahrung"
+  ],
+  "naming_origin": "Vom lateinischen 'musca' (Fliege) - historische Verwendung als Fliegengift",
+  "common_name_etymology": "Deutsch 'Fliegenpilz' bezieht sich auf die Tradition, den Pilz in Milch einzulegen um Fliegen anzulocken und zu betaeuben",
+  "scientific_name_etymology": "Amanita von griechisch 'Amanitai' (ein Berg in Kilikien), muscaria von lateinisch 'musca' (Fliege)",
+  "regional_traditions": [
+    {"region": "Sibirien", "tradition": "Schamanische Verwendung als Entheogen"},
+    {"region": "Mitteleuropa", "tradition": "Glueckssymbol zu Silvester"},
+    {"region": "Skandinavien", "tradition": "Verbindung zu Odin und Berserker"},
+    {"region": "Japan", "tradition": "Dekorative Darstellung, benibana-take"}
+  ],
+  "art_movements": [
+    "Art Nouveau / Jugendstil",
+    "Psychedelic Art",
+    "Fantasy Art",
+    "Kinderbuch-Illustration"
+  ],
+  "commercial_use": [
+    "Weihnachtsdekoration",
+    "Gluecksbringer und Souvenirs",
+    "Illustrationen und Drucke",
+    "Textilmuster"
+  ],
+  "legal_cultural_status": {
+    "status": "Unregulated symbol of luck",
+    "variant": "success"
+  },
+  "media_appearances": 847,
+  "google_search_interest": {
+    "value": 75,
+    "max": 100,
+    "unit": "relative"
+  },
+  "instagram_hashtag_count": 285000,
+  "wikipedia_languages": 87,
+  "source": {
+    "authors": "Wasson, R.G.",
+    "year": 1968,
+    "title": "Soma: Divine Mushroom of Immortality",
+    "journal": "Harcourt Brace Jovanovich",
+    "doi": ""
+  },
+  "additional_sources": [
+    {
+      "authors": "Letcher, A.",
+      "year": 2006,
+      "title": "Shroom: A Cultural History of the Magic Mushroom",
+      "journal": "Faber and Faber",
+      "doi": ""
+    }
+  ]
+}

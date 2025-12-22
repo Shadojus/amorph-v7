@@ -1,0 +1,126 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: LIFECYCLE
+   Universe Theme - Nachthimmel mit Lichtkugeln
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-lifecycle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.25rem 0;
+}
+
+.morph-lifecycle-phase {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  min-height: 32px;
+}
+
+.morph-lifecycle-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 12px;
+  flex-shrink: 0;
+}
+
+/* Verbindungslinie - dünn und dezent */
+.morph-lifecycle-line {
+  flex: 1;
+  width: var(--line-width);
+  background: var(--line-color);
+  min-height: 8px;
+}
+
+.morph-lifecycle-line--first,
+.morph-lifecycle-line--last {
+  background: transparent;
+}
+
+/* Lichtkugel wie bei Bar-Morph */
+.morph-lifecycle-dot {
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background: var(--dot-bg);
+  box-shadow: var(--dot-glow);
+  flex-shrink: 0;
+  opacity: 0.3;
+}
+
+/* Aktive Phase - leuchtende Kugel */
+.morph-lifecycle-phase--active .morph-lifecycle-dot {
+  opacity: 1;
+  box-shadow: var(--dot-glow);
+}
+
+/* Abgeschlossene Phase */
+.morph-lifecycle-phase--complete .morph-lifecycle-dot {
+  opacity: 0.6;
+  box-shadow: var(--dot-glow);
+}
+
+.morph-lifecycle-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  padding-bottom: 0.5rem;
+  flex: 1;
+}
+
+.morph-lifecycle-name {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.morph-lifecycle-phase--active .morph-lifecycle-name {
+  color: var(--morph-accent);
+}
+
+.morph-lifecycle-duration {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   LIFECYCLE COMPARE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-lifecycle-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.lifecycle-phase-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.lifecycle-phase-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.lifecycle-phase-values {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.lifecycle-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Lichtkugel via .cmp-dot aus _compare.css */
+
+.lifecycle-duration {
+  font-size: 0.65rem;
+}

@@ -1,17 +1,17 @@
 {
   "version": "1.0",
-  "generated": "2025-12-18T15:00:02.625Z",
-  "total": 3,
+  "generated": "2025-12-21T14:05:36.484Z",
+  "total": 6,
   "kingdoms": {
     "fungi": {
       "name": "Fungi",
       "icon": "🍄",
-      "count": 1
+      "count": 3
     },
     "plantae": {
       "name": "Plantae",
       "icon": "🌿",
-      "count": 1
+      "count": 2
     },
     "animalia": {
       "name": "Animalia",
@@ -25,6 +25,86 @@
     }
   },
   "species": [
+    {
+      "id": "fungi-002",
+      "slug": "amanita-muscaria",
+      "name": "Fliegenpilz",
+      "scientific_name": "Amanita muscaria",
+      "image": "",
+      "description": "Der Fliegenpilz (Amanita muscaria) ist einer der bekanntesten und ikonischsten Pilze weltweit. Mit seinem leuchtend roten Hut und den charakteristischen weissen Flocken ist er das Urbild eines Pilzes in der westlichen Kultur. Obwohl er giftig ist, werden die Alkaloide Ibotensaeure und Muscimol traditionell in schamanischen Ritualen verschiedener Kulturen verwendet. Der Name 'Fliegenpilz' stammt von der historischen Verwendung als Insektizid - in Milch eingelegt lockt er Fliegen an und betaeubt sie. Der Pilz geht eine Mykorrhiza-Symbiose mit verschiedenen Baumarten ein, besonders mit Birken und Fichten. In der Popkultur ist er durch Super Mario, Schlumpfhaeuser und zahlreiche Maerchen allgegenwaertig.",
+      "kingdom": "fungi",
+      "kingdom_name": "Fungi",
+      "kingdom_icon": "🍄",
+      "perspectives": [
+        "chemistry",
+        "culture",
+        "ecology",
+        "geography",
+        "identification",
+        "safety",
+        "temporal"
+      ],
+      "tags": [
+        "boreale und temperate nadelwaelder",
+        "mischwaelder",
+        "laubwaelder mit birken",
+        "subalpine waelder",
+        "parklandschaften mit geeigneten baeumen",
+        "naehe zu mykorrhiza-wirtsbaeumen",
+        "saurer bis neutraler boden (ph 4.5-7)",
+        "gute bodenfeuchtigkeit",
+        "humusreicher waldboden",
+        "halbschattige standorte",
+        "nadelwaelder (fichte, kiefer, tanne)",
+        "birkenwaelder",
+        "plantagen mit mykorrhiza-wirtsbaeumen",
+        "spaetsommer bis herbst"
+      ],
+      "searchText": "ibotensaeure (alpha-amino-3-hydroxy-5-isoxazolessigsaeure) muscimol (5-aminomethyl-3-hydroxyisoxazol) muscazon (oxazol-derivat) muscarin (in spuren) betalaine (rote und gelbe farbstoffe) muscaflavin (gelbes pigment) muscapurpurin (rotes pigment) hplc-uv (254 nm) hplc-ms/ms gc-ms nach derivatisierung tlc mit ninhydrin-detektion nmr-spektroskopie lewis carroll: alice im wunderland (rauchender caterpillar auf pilz) c.s. lewis: die chroniken von narnia (pilzdarstellungen) diverse maerchensammlungen "
+    },
+    {
+      "id": "fungi-003",
+      "slug": "physarum-polycephalum",
+      "name": "Vielkoepfiger Schleimpilz",
+      "scientific_name": "Physarum polycephalum",
+      "image": "",
+      "description": "Physarum polycephalum, der vielkoepfige Schleimpilz, ist ein faszinierender Organismus, der weder Pilz noch Tier ist, sondern zu den Myxomyceten (Schleimpilzen) gehoert. Dieser einzellige, aber makroskopische Organismus kann Labyrinthe loesen, den kuerzesten Weg zwischen Nahrungsquellen finden und komplexe Netzwerke bilden, die menschlichen Transportnetzen aehneln. Das leuchtend gelbe Plasmodium kann mehrere Quadratmeter gross werden und bewegt sich mit bis zu 5 cm pro Stunde. In Stresssituationen bildet es Sporen bildende Fruchtkoerper. Physarum wird intensiv in der Forschung eingesetzt - von der Zellbiologie ueber Computerwissenschaften bis hin zur Stadtplanung. 2010 wurde gezeigt, dass ein Schleimpilz das Tokioter U-Bahn-Netz nachbilden kann. Der Organismus zeigt eine primitive Form von Lernen und Gedaechtnis, obwohl er kein Nervensystem besitzt.",
+      "kingdom": "fungi",
+      "kingdom_name": "Fungi",
+      "kingdom_icon": "🍄",
+      "perspectives": [
+        "chemistry",
+        "cultivation",
+        "culture",
+        "ecology",
+        "identification",
+        "research",
+        "statistics"
+      ],
+      "tags": [
+        "bio-art installationen",
+        "lebende skulpturen",
+        "interaktive ausstellungen",
+        "performance-kunst",
+        "#slimemold",
+        "#physarum",
+        "#theblob",
+        "#intelligentslime",
+        "temperierte laubwaelder",
+        "mischwaelder",
+        "parkanlagen",
+        "gaerten mit kompost",
+        "tropische regenwaelder",
+        "hohe luftfeuchtigkeit (>70%)",
+        "schattige bis dunkle bedingungen",
+        "verrottendes organisches material",
+        "feucht aber nicht wasserstaendig",
+        "nahe bakterielle oder pilzliche nahrung",
+        "heterotroph (phagotroph)",
+        "das plasmodium umfliesst und verdaut bakterien, hefen, pilzsporen und organische partikel durch phagozytose. es zeigt klare nahrungspraeferenzen."
+      ],
+      "searchText": "physarochrome a und b physarorubin polysaccharide (schleimsubstanzen) verschiedene organische saeuren schwermetall-detektion toxizitaetstests umweltmonitoring nahrungsmittelsicherheit carolina biological supply ward's science atcc (american type culture collection) universitaetslabore diy-community (tausch) nicht giftig oder pathogen sicher fuer schulen und heimlabore allergien sehr selten haende nach handhabung waschen ngss life sciences ap biology lab curriculum ib biology practical work deuts"
+    },
     {
       "id": "fungi-001",
       "slug": "psilocybe-cyanescens",
@@ -132,11 +212,45 @@
       "searchText": "hyoscyamin (l-atropin) atropin (dl-hyoscyamin) scopolamin (l-hyoscin) apoatropin belladonnin rutin quercetin kaempferol chlorogensaeure kaffeesaeure scopoletin aesculetin beta-sitosterol stigmasterol campesterol linalool caryophyllen oleanolsaeure hplc-uv (usp/ph. eur. methoden) gc-ms fuer alkaloidprofile immunoassays (elisa) duennschichtchromatographie (dc) karl-fischer-titration (wassergehalt) europaeisches arzneibuch (ph. eur.) - belladonnae folium usp-nf - belladonna leaf dab (deutsches arzn"
     },
     {
+      "id": "plantae-002",
+      "slug": "sequoia-sempervirens",
+      "name": "Kuestenmammutbaum",
+      "scientific_name": "Sequoia sempervirens",
+      "image": "",
+      "description": "Der Kuestenmammutbaum (Sequoia sempervirens) ist das hoechste lebende Wesen auf der Erde. Diese majesteatischen Baeume koennen Hoehen von ueber 115 Metern erreichen und leben mehrere tausend Jahre. Sie sind endemisch in einem schmalen Kuestenstreifen von Suedoregon bis Zentralkalifornien, wo sie vom Kuestennebel profitieren, der bis zu 40 Prozent ihres Wasserbedarfs deckt. Die rotbraune, faserige Rinde kann bis zu 30 cm dick werden und schuetzt den Baum vor Feuer. Diese Giganten sind oekologisch einzigartig und beherbergen in ihren Kronen ganze Oekosysteme mit Farnen, Blaubeerbueschen und sogar kleinen Baeumen. Der Kuestenmammutbaum ist ein lebendes Fossil, dessen Vorfahren bereits vor 200 Millionen Jahren existierten. Die Art ist durch Abholzung auf etwa 4 Prozent ihrer urspruenglichen Verbreitung geschrumpft und steht heute unter Schutz.",
+      "kingdom": "plantae",
+      "kingdom_name": "Plantae",
+      "kingdom_icon": "🌿",
+      "perspectives": [
+        "conservation",
+        "ecology",
+        "geography",
+        "identification",
+        "statistics"
+      ],
+      "tags": [
+        "kuesten-nebelwald",
+        "flussebenen und alluvialboeden",
+        "steile hanglagen mit nebeleinfluss",
+        "gemischte nadelwaelder",
+        "ganzjaehrig maritime nebellage",
+        "tiefgruendige, naehrstoffreiche boeden",
+        "gute wasserspeicherkapazitaet",
+        "minimale frostexposition",
+        "milde winter (keine extremtemperaturen)",
+        "flussebenen und alluvialboeden (hoechste baeume)",
+        "nebelexponierte westhaenge",
+        "tiefe kuestentaeler",
+        "sturmgeschuetzte kuestenstreifen"
+      ],
+      "searchText": "dramatischer rueckgang 1850 1970 durch holzeinschlag, seitdem stabilisierung schutz abhaengigkeit von maritimem nebelklima enge klimatische nische langsame reproduktion und migration fragmentierte populationen botanic gardens (87 institutions) seed banks (usda, rancho santa ana, uc berkeley) usda national genetic resources program rancho santa ana botanic garden uc berkeley botanical garden nationalpark- und staatsparksystem land trust erwerbungen oekologische restaurierung abgeholzter gebiete g"
+    },
+    {
       "id": "animalia-001",
       "slug": "alpine-marmot",
       "name": "Alpenmurmeltier",
       "scientific_name": "Marmota marmota",
-      "image": "data/animalia/alpine-marmot/hauptbild.jpg",
+      "image": "",
       "description": "Das Alpenmurmeltier (Marmota marmota) ist ein Nagetier aus der Familie der Hoernchen (Sciuridae). Es ist das groesste einheimische Nagetier der Alpen und bewohnt alpine Matten und Gebirgsweiden oberhalb der Baumgrenze in Hoehen von 800 bis 3200 Metern. Die Tiere leben in komplexen Familiengruppen und halten einen ausgedehnten Winterschlaf von Oktober bis April. Mit ihrem charakteristischen Warnpfiff warnen sie Artgenossen vor Fressfeinden wie dem Steinadler.",
       "kingdom": "animalia",
       "kingdom_name": "Animalia",

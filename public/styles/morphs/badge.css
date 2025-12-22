@@ -1,0 +1,81 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: BADGE
+   Universe Theme - Dezent mit Lichtkugel-Akzenten
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375em;
+  padding: 0.35em 0.6em;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-radius: 5px;
+  background: var(--track-bg);
+  border: 1px solid var(--line-color);
+  color: var(--text-secondary);
+  transition: all 0.15s ease;
+}
+
+/* Alle Badge-Varianten in Universe Blue */
+.morph-badge-success,
+.morph-badge-warning,
+.morph-badge-danger,
+.morph-badge-info {
+  background: rgba(var(--morph-color-rgb), 0.1);
+  border-color: rgba(var(--morph-color-rgb), 0.2);
+  color: var(--morph-accent);
+}
+
+.morph-badge-muted {
+  background: var(--track-bg);
+  border-color: var(--line-color);
+  color: var(--text-muted);
+  box-shadow: none;
+}
+
+.morph-badge-icon {
+  font-size: 1em;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BADGE COMPARE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-badge-compare {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.badge-group {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.badge-group.badge-unanimous .morph-badge {
+  box-shadow: var(--dot-glow);
+}
+
+.badge-frequency {
+  font-size: 0.65rem;
+  padding: 0.1em 0.4em;
+  background: var(--track-bg);
+  border-radius: 4px;
+  color: var(--text-secondary);
+}
+
+.badge-match {
+  color: var(--morph-accent);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.badge-diff {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-weight: 500;
+}

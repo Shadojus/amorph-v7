@@ -13,15 +13,22 @@ export const sparkline = createUnifiedMorph(
     const min = Math.min(...data);
     const max = Math.max(...data);
     const range = max - min || 1;
-    const width = 100;
-    const height = 24;
-    const step = width / (data.length - 1 || 1);
+    // Größere ViewBox für bessere Darstellung
+    const width = 120;
+    const height = 32;
+    const padding = 4;
+    const step = (width - padding * 2) / (data.length - 1 || 1);
     
     const points = data.map((val, idx) => {
-      const x = idx * step;
-      const y = height - 2 - ((val - min) / range) * (height - 4);
-      return `${x},${y}`;
-    }).join(' ');
+      const x = padding + idx * step;
+      const y = height - padding - ((val - min) / range) * (height - padding * 2);
+      return { x, y };
+    });
+    
+    const polylinePoints = points.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
+    
+    // Lichtkugel am letzten Datenpunkt
+    const lastPoint = points[points.length - 1];
     
     const last = data[data.length - 1];
     const first = data[0];
@@ -29,10 +36,12 @@ export const sparkline = createUnifiedMorph(
     
     return `
       <div class="morph-sparkline-single">
-        <svg class="morph-sparkline" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none">
-          <polyline points="${points}" fill="none" stroke="currentColor" stroke-width="1.5" />
+        <svg class="morph-sparkline" viewBox="0 0 ${width} ${height}">
+          <polyline class="sparkline-path" points="${polylinePoints}" />
+          <circle class="sparkline-point" cx="${lastPoint.x.toFixed(1)}" cy="${lastPoint.y.toFixed(1)}" r="3" />
         </svg>
-        <span class="sparkline-trend">${trend} ${formatNumber(last)}</span>
+        <span class="sparkline-value">${formatNumber(last)}</span>
+        <span class="sparkline-trend sparkline-trend--${trend === '↑' ? 'up' : trend === '↓' ? 'down' : 'flat'}">${trend}</span>
       </div>
     `;
   },
@@ -70,7 +79,7 @@ export const sparkline = createUnifiedMorph(
               const y = height - padding - ((val - globalMin) / globalRange) * (height - 2 * padding);
               return `${x},${y}`;
             }).join(' ');
-            return `<polyline points="${points}" fill="none" stroke="${escapeHtml(color)}" stroke-width="1.5" opacity="0.9" />`;
+            return `<polyline class="sparkline-line" points="${points}" style="--item-color: ${escapeHtml(color)}" />`;
           }).join('')}
         </svg>
         <div class="sparkline-legend">
@@ -78,7 +87,7 @@ export const sparkline = createUnifiedMorph(
             const trend = last > first ? '↑' : last < first ? '↓' : '→';
             return `
               <div class="sparkline-legend-item" style="--item-color: ${escapeHtml(color)}">
-                <span class="sparkline-dot"></span>
+                <span class="cmp-dot"></span>
                 <span class="sparkline-val">${formatNumber(last)} ${trend}</span>
               </div>
             `;

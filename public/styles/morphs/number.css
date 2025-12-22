@@ -1,0 +1,164 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: NUMBER
+   Universe Theme - Wichtige Zahlen blau leuchtend
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Wichtige Zahlen - blau leuchtend */
+.morph-number {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: 1.125rem;
+  color: var(--morph-accent);
+  letter-spacing: -0.01em;
+  text-shadow: var(--text-glow-strong);
+}
+
+.morph-number-large {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--morph-accent);
+  text-shadow: var(--text-glow-strong);
+}
+
+/* Units - grau und dezent */
+.morph-number-unit {
+  font-size: 0.65em;
+  font-weight: 500;
+  color: var(--text-muted, rgba(255, 255, 255, 0.3));
+  margin-left: 0.25em;
+  text-shadow: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   NUMBER COMPARE
+   ───────────────────────────────────────────────────────────────────────────── */
+.number-compare-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.number-bars {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.morph-number-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.number-bars {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-right: 3.5rem;
+}
+
+.number-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.number-item-name {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  min-width: 80px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.number-track {
+  height: var(--track-height);
+  background: var(--track-bg);
+  border-radius: var(--track-radius);
+  position: relative;
+}
+
+.number-bar {
+  height: 100%;
+  background: color-mix(in srgb, var(--item-color, var(--morph-accent)) 40%, transparent);
+  border-radius: var(--track-radius);
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.number-bar::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background: var(--item-color, var(--dot-bg));
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--item-color, var(--morph-accent));
+}
+
+.number-value {
+  font-size: 0.8125rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  color: var(--text-primary);
+  min-width: 4rem;
+  text-align: right;
+}
+
+/* Max/Min Values - alle in Universe Blue */
+.number-row.number-max .number-value {
+  color: var(--morph-accent);
+  font-weight: 600;
+}
+
+.number-row.number-min .number-value {
+  color: var(--text-muted);
+}
+
+.number-avg-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--line-width);
+  background: var(--morph-accent);
+  box-shadow: var(--dot-glow);
+  z-index: 1;
+}
+
+.number-scale {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3.5rem 0 0;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.number-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line-color);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .number-item-name {
+    min-width: 60px;
+    font-size: 0.65rem;
+  }
+  
+  .number-bars {
+    padding-right: 2.5rem;
+  }
+}

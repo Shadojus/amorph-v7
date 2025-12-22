@@ -10,7 +10,7 @@ export const list = createUnifiedMorph(
     const items = Array.isArray(value) ? value : [value];
     return `
       <ul class="morph-list">
-        ${items.map(item => `<li>${escapeHtml(item)}</li>`).join('')}
+        ${items.map(item => `<li class="morph-list-item">${escapeHtml(item)}</li>`).join('')}
       </ul>
     `;
   },

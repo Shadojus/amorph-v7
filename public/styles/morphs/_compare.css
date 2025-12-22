@@ -1,0 +1,241 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   COMPARE MODE - SHARED STYLES
+   Pilz Colors, Field Layout & Unified Compare Elements
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PILZ FARBSYSTEM (Neon Colors for Compare)
+   ───────────────────────────────────────────────────────────────────────────── */
+.pilz-0 { --pilz-color: #0ff; --pilz-rgb: 0, 255, 255; }
+.pilz-1 { --pilz-color: #f0f; --pilz-rgb: 255, 0, 255; }
+.pilz-2 { --pilz-color: #ff0; --pilz-rgb: 255, 255, 0; }
+.pilz-3 { --pilz-color: #0f8; --pilz-rgb: 0, 255, 136; }
+.pilz-4 { --pilz-color: #f64; --pilz-rgb: 255, 100, 100; }
+.pilz-5 { --pilz-color: #4cf; --pilz-rgb: 68, 200, 255; }
+.pilz-6 { --pilz-color: #f8f; --pilz-rgb: 255, 136, 255; }
+.pilz-7 { --pilz-color: #8f0; --pilz-rgb: 136, 255, 0; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMPARE MODE BAR COLORS
+   ───────────────────────────────────────────────────────────────────────────── */
+.compare-mode .morph-bar-item:nth-child(1) .morph-bar-fill { 
+  background: linear-gradient(90deg, rgba(0, 255, 255, 0.7), rgba(0, 255, 255, 0.95)); 
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+.compare-mode .morph-bar-item:nth-child(2) .morph-bar-fill { 
+  background: linear-gradient(90deg, rgba(255, 0, 255, 0.7), rgba(255, 0, 255, 0.95)); 
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
+}
+.compare-mode .morph-bar-item:nth-child(3) .morph-bar-fill { 
+  background: linear-gradient(90deg, rgba(255, 255, 0, 0.7), rgba(255, 255, 0, 0.95)); 
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.4);
+}
+.compare-mode .morph-bar-item:nth-child(4) .morph-bar-fill { 
+  background: linear-gradient(90deg, rgba(0, 255, 136, 0.7), rgba(0, 255, 136, 0.95)); 
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.4);
+}
+.compare-mode .morph-bar-item:nth-child(5) .morph-bar-fill { 
+  background: linear-gradient(90deg, rgba(255, 100, 100, 0.7), rgba(255, 100, 100, 0.95)); 
+  box-shadow: 0 0 10px rgba(255, 100, 100, 0.4);
+}
+.compare-mode .morph-bar-item:nth-child(6) .morph-bar-fill { 
+  background: linear-gradient(90deg, rgba(100, 200, 255, 0.7), rgba(100, 200, 255, 0.95)); 
+  box-shadow: 0 0 10px rgba(100, 200, 255, 0.4);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMPARE FIELD LAYOUT
+   ───────────────────────────────────────────────────────────────────────────── */
+.compare-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.compare-field-row {
+  background: var(--glass-bg);
+  border-radius: 12px;
+  border: 1px solid var(--glass-border-subtle);
+  border-top-color: var(--glass-border);
+  overflow: hidden;
+  box-shadow: var(--glass-reflection);
+}
+
+.compare-field-row .field-name {
+  padding: 0.75rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-secondary);
+  background: var(--track-bg);
+  border-bottom: 2px solid var(--track-bg);
+}
+
+.compare-field-row .field-values {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: color-mix(in srgb, var(--morph-color) 5%, transparent);
+}
+
+@media (min-width: 768px) {
+  .compare-field-row .field-values[data-simple="true"] {
+    flex-direction: row;
+  }
+}
+
+.field-value-item {
+  padding: 0.75rem 1rem;
+  background: var(--glass-bg-subtle);
+  border-left: 3px solid var(--item-color, var(--morph-color));
+}
+
+.field-value-item .item-label {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--item-color, var(--text-primary));
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.field-value-item .value-content {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.field-value-item .morph-object {
+  font-size: 0.8125rem;
+}
+
+.field-value-item .morph-object-row {
+  padding: 0.375rem 0;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   COMPARE LEGEND
+   ───────────────────────────────────────────────────────────────────────────── */
+.compare-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: var(--glass-bg-subtle);
+  border: 1px solid var(--glass-border-subtle);
+  border-radius: 8px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: var(--glass-reflection);
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.legend-item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--item-color, var(--morph-color));
+  box-shadow: 0 0 6px var(--item-color, var(--morph-color));
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   UNIFIED CMP ELEMENTS
+   ───────────────────────────────────────────────────────────────────────────── */
+.cmp-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cmp-track {
+  flex: 0 0 75%;
+  height: 2px;
+  background: var(--line-color);
+  border-radius: 1px;
+  position: relative;
+}
+
+.cmp-fill {
+  height: 100%;
+  background: color-mix(in srgb, var(--item-color) 50%, transparent);
+  border-radius: 1px;
+  position: relative;
+  transition: width 0.3s ease;
+}
+
+.cmp-fill::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--item-color);
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--item-color);
+}
+
+.cmp-val {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  min-width: 2.5rem;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   UNIFIED DOT / LICHTKUGEL
+   Die EINE Dot-Klasse für alle Compare-Morphs
+   ───────────────────────────────────────────────────────────────────────────── */
+.cmp-dot {
+  display: inline-block;
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background: var(--item-color, var(--dot-bg));
+  box-shadow: 0 0 6px var(--item-color, var(--morph-accent));
+  flex-shrink: 0;
+}
+
+.cmp-dot--active {
+  box-shadow: 0 0 8px var(--item-color, var(--morph-accent));
+}
+
+.cmp-dot--muted {
+  opacity: 0.3;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SHARED STAT STYLING
+   ───────────────────────────────────────────────────────────────────────────── */
+.stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--text-secondary);
+}
+
+.stat-label {
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.stat-value {
+  font-variant-numeric: tabular-nums;
+}

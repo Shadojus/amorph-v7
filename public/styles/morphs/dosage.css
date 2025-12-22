@@ -1,0 +1,88 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: DOSAGE
+   Universe Theme - Wichtige Werte blau
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-dosage {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.morph-dosage-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+/* Wichtiger Wert - blau leuchtend */
+.morph-dosage-amount {
+  font-weight: 600;
+  color: var(--morph-accent);
+  text-shadow: var(--text-glow);
+}
+
+/* Frequenz - grau */
+.morph-dosage-frequency {
+  color: var(--text-secondary, rgba(255, 255, 255, 0.45));
+}
+
+/* Route - sehr dezent */
+.morph-dosage-route {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  padding: 0.1rem 0.4rem;
+  background: var(--track-bg);
+  border-radius: 3px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   DOSAGE COMPARE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-dosage-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.dosage-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--line-color);
+}
+
+/* Lichtkugel statt Border */
+.dosage-row {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  align-items: center;
+}
+
+.dosage-row::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--item-color, var(--morph-accent));
+  box-shadow: 0 0 6px var(--item-color, var(--morph-accent));
+}
+
+.dosage-amount {
+  font-weight: 500;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.45));
+}
+
+.dosage-freq,
+.dosage-route {
+  color: var(--text-muted, rgba(255, 255, 255, 0.3));
+}

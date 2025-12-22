@@ -1,6 +1,6 @@
 # AMORPH v7 - Morphs Module
 
-> Unified Morph Architecture mit 18 Primitives (45+ MorphTypes für Erweiterbarkeit).
+> Unified Morph Architecture mit **27 Primitives** (45+ MorphTypes für Erweiterbarkeit).
 > Visualisiert biologische Daten: Taxonomie, Chemie, Ökologie, Medizin, etc.
 > **Struktur-basierte Detection** - Typ wird aus Datenstruktur erkannt, nicht aus Feldnamen!
 > **Object-Parsing** - Badge/Rating/Progress parsen strukturierte Objekte automatisch.
@@ -11,26 +11,52 @@
 morphs/
 ├── base.ts           # createUnifiedMorph() Factory + wrapInField() mit Base64
 ├── debug.ts          # Morph Debug System
-├── primitives/       # 18 Morph-Implementierungen
+├── primitives/       # 27 Morph-Implementierungen
 │   ├── index.ts      # Re-Exports + Registry
-│   ├── text.ts
-│   ├── number.ts
-│   ├── boolean.ts
-│   ├── badge.ts
-│   ├── tag.ts
-│   ├── progress.ts
-│   ├── rating.ts
-│   ├── range.ts
-│   ├── stats.ts
-│   ├── image.ts
-│   ├── link.ts
-│   ├── list.ts
-│   ├── date.ts
-│   ├── bar.ts
-│   ├── sparkline.ts
-│   ├── radar.ts
-│   ├── timeline.ts
-│   └── object.ts
+│   │
+│   │── # TEXT & BASICS
+│   ├── text.ts       # Langer Text
+│   ├── number.ts     # Zahlen
+│   ├── boolean.ts    # true/false
+│   │
+│   │── # LABELS & TAGS  
+│   ├── badge.ts      # {status, variant}
+│   ├── tag.ts        # Kurze Strings ≤20 Zeichen
+│   │
+│   │── # PROGRESS & RATING
+│   ├── progress.ts   # {value, max, unit}
+│   ├── rating.ts     # {rating, max}
+│   ├── range.ts      # {min, max, unit}
+│   ├── stats.ts      # {min, max, avg, ...}
+│   ├── gauge.ts      # {value, max, zones} ⭐ NEU
+│   │
+│   │── # MEDIA
+│   ├── image.ts      # URL mit Bildendung
+│   ├── link.ts       # http(s)://...
+│   │
+│   │── # COLLECTIONS
+│   ├── list.ts       # ["string", ...]
+│   ├── object.ts     # Generic Object
+│   │
+│   │── # TEMPORAL
+│   ├── date.ts       # ISO-Datum
+│   ├── timeline.ts   # [{date, event}]
+│   ├── lifecycle.ts  # [{phase, duration}] ⭐ NEU
+│   ├── steps.ts      # [{step, label, status}] ⭐ NEU
+│   ├── calendar.ts   # [{month, active}] ⭐ NEU
+│   │
+│   │── # CHARTS
+│   ├── bar.ts        # [{label, value}]
+│   ├── pie.ts        # [{label, value}] ⭐ NEU
+│   ├── sparkline.ts  # [0, 1, 2, ...]
+│   ├── radar.ts      # [{axis, value}]
+│   │
+│   │── # SPECIALIZED
+│   ├── severity.ts   # [{level, typ, beschreibung}] ⭐ NEU
+│   ├── dosage.ts     # [{amount, unit, frequency}] ⭐ NEU
+│   ├── citation.ts   # {authors, year, title} ⭐ NEU
+│   └── currency.ts   # {amount, currency} ⭐ NEU
+│
 └── index.ts          # Main API
 ```
 
@@ -275,6 +301,9 @@ Der `radar` Morph unterstützt zwei Formate:
   { axis: "Baeocystin", value: 15 }
 ]
 ```
+
+**Wichtig:** Radar-Labels werden **NIEMALS** gekürzt. ViewBox und text-anchor 
+werden dynamisch angepasst um alle Labels vollständig darzustellen.
 
 | **timeline** | Event list | Side-by-side | `.morph-timeline` |
 | **object** | Key-value | Side-by-side | `.morph-object` |

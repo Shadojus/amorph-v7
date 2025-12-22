@@ -1,0 +1,139 @@
+{
+  "habitat_primary": "Kuesten-Nebelwald",
+  "habitat_secondary": [
+    "Flussebenen und Alluvialboeden",
+    "Steile Hanglagen mit Nebeleinfluss",
+    "Gemischte Nadelwaelder"
+  ],
+  "habitat_description": "Der Kuestenmammutbaum ist auf einen schmalen Kuestenstreifen beschraenkt, wo maritime Nebel und milde Temperaturen ganzjaehrig fuer hohe Luftfeuchtigkeit sorgen. Die Baeume wachsen am besten auf tiefgruendigen Alluvialboeden in Flusstälern, kommen aber auch an steilen Haengen vor. Der Nebel liefert bis zu 40 Prozent des Wasserbedarfs ueber Nebelinterzeption.",
+  "elevation_range": {
+    "min": 0,
+    "max": 900,
+    "unit": "m"
+  },
+  "elevation_optimal": {
+    "min": 50,
+    "max": 300,
+    "unit": "m"
+  },
+  "climate_preferences": {
+    "annual_temp_min": 7,
+    "annual_temp_max": 16,
+    "precipitation_min": 640,
+    "precipitation_max": 3100
+  },
+  "fog_dependency": {
+    "status": "Critical",
+    "variant": "danger"
+  },
+  "fog_contribution_percent": {
+    "min": 25,
+    "max": 40,
+    "unit": "%"
+  },
+  "microhabitat_requirements": [
+    "Ganzjaehrig maritime Nebellage",
+    "Tiefgruendige, naehrstoffreiche Boeden",
+    "Gute Wasserspeicherkapazitaet",
+    "Minimale Frostexposition",
+    "Milde Winter (keine Extremtemperaturen)"
+  ],
+  "substrate_preferences": [
+    "Alluviale Schwemmboeden",
+    "Tiefgruendige Lehmboeden",
+    "Saure bis neutrale Boeden (pH 5-7)"
+  ],
+  "vegetation_associations": [
+    "Coast Redwood Forest (Sequoia sempervirens Alliance)",
+    "Tanoak-Madrone Unterholz",
+    "Rhododendron-Vaccinium Strauchschicht",
+    "Farnreiche Krautschicht (Polystichum, Woodwardia)"
+  ],
+  "ecological_role": "Oekosystem-Ingenieur und Klimaregulator",
+  "ecological_role_description": "Kuestenmammutbaeume sind oekologische Schluessselarten, die lokales Klima moderieren, Nebel auffangen und einzigartige Mikrohabitate in ihren Kronen schaffen. Sie speichern enorme Mengen an Kohlenstoff und bieten Lebensraum fuer hunderte Arten.",
+  "ecological_importance": [
+    {"axis": "Kohlenstoffspeicherung", "value": 100},
+    {"axis": "Nebelinterzeption", "value": 95},
+    {"axis": "Biodiversitaet", "value": 90},
+    {"axis": "Klimaregulation", "value": 88},
+    {"axis": "Bodenstabilisierung", "value": 85}
+  ],
+  "carbon_storage": {
+    "min": 500,
+    "max": 2500,
+    "avg": 1200,
+    "unit": "tons per hectare"
+  },
+  "biomass_per_hectare": {
+    "min": 2000,
+    "max": 6000,
+    "avg": 4000,
+    "unit": "metric tons"
+  },
+  "trophic_level": 1,
+  "trophic_category": "primary_producer",
+  "symbiosis_partners": [
+    {"name": "Arbuskulaere Mykorrhiza", "type": "mutualist", "intensity": 80},
+    {"name": "Farnepiphyten (Polypodium)", "type": "commensal", "intensity": 70},
+    {"name": "Kronenstaeucher (Vaccinium ovatum)", "type": "commensal", "intensity": 65},
+    {"name": "Marbled Murrelet (Nistplatz)", "type": "dependent", "intensity": 95}
+  ],
+  "co_occurring_species": [
+    "Pseudotsuga menziesii (Douglasie)",
+    "Tsuga heterophylla (Westliche Hemlock)",
+    "Lithocarpus densiflorus (Tanoak)",
+    "Arbutus menziesii (Madrone)",
+    "Rhododendron macrophyllum"
+  ],
+  "dependent_species_count": 238,
+  "endemic_epiphytes": [
+    "Polypodium scouleri (Leather Fern)",
+    "Vaccinium ovatum (Huckleberry)",
+    "Dryopteris arguta (Coastal Wood Fern)"
+  ],
+  "canopy_soil_present": true,
+  "canopy_soil_description": "In alten Redwoods sammeln sich organische Ablagerungen in Astgabelungen zu 'Kronenboeden' von bis zu 1m Tiefe, die eigene Pflanzengemeinschaften tragen",
+  "predators_and_consumers": [
+    "Rindenkaeferarten (Dendroctonus, Ips)",
+    "Nadelfressende Raupen",
+    "Reh- und Maultierhirsch (Jungpflanzen)"
+  ],
+  "fire_ecology": {
+    "status": "Fire-adapted",
+    "variant": "success"
+  },
+  "fire_adaptation": "Dicke feuerfeste Rinde, Faehigkeit zur Regeneration aus Stammknollen und Wurzeln nach Feuer",
+  "fire_frequency_years": {
+    "min": 50,
+    "max": 250,
+    "unit": "years"
+  },
+  "post_fire_recovery": "Schnelle Regeneration durch Basalaustriebe innerhalb von Monaten",
+  "ecosystem_services": [
+    "Kohlenstoffsequestrierung (bis 2500 t/ha)",
+    "Nebelwasser-Sammlung",
+    "Erosionskontrolle",
+    "Luftqualitaetsverbesserung",
+    "Klimaregulation",
+    "Erholungswert und Tourismus",
+    "Genetische Ressource"
+  ],
+  "water_cycle_role": {
+    "fog_interception": "25-40% des Wasserbedarfs ueber Nebeltropen",
+    "rainfall_redistribution": "Erhoeht Bodenfeuchtigkeit durch Kroneninterception",
+    "groundwater_recharge": "Tiefe Wurzeln foerdern Grundwasserneubildung"
+  },
+  "indicator_species": true,
+  "indicator_for": [
+    "Nebelklimazone",
+    "Intakte Kuestennahe Oekosysteme",
+    "Langzeitige Klimastabilitaet"
+  ],
+  "source": {
+    "authors": "Noss, R.F.",
+    "year": 2000,
+    "title": "The Redwood Forest: History, Ecology, and Conservation of the Coast Redwoods",
+    "journal": "Island Press",
+    "doi": ""
+  }
+}

@@ -1,0 +1,98 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: SEVERITY
+   Universe Theme - Nachthimmel mit Lichtkugeln
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-severity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+}
+
+.morph-severity-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.25rem 0;
+}
+
+/* Lichtkugel wie bei Bar-Morph */
+.morph-severity-dot {
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background: var(--severity-color, var(--dot-bg));
+  box-shadow: 0 0 8px var(--severity-color, var(--morph-accent));
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+}
+
+.morph-severity-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.morph-severity-header {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.morph-severity-level {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-transform: capitalize;
+}
+
+.morph-severity-type {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  padding: 0.125rem 0.375rem;
+  background: var(--track-bg);
+  border-radius: 3px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.morph-severity-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SEVERITY COMPARE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-severity-compare {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.severity-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+/* Lichtkugel im Compare Mode */
+.severity-cell::before {
+  content: '';
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background: var(--item-color, var(--dot-bg));
+  box-shadow: 0 0 8px var(--item-color, var(--morph-accent));
+}
+
+.severity-label {
+  font-size: 0.7rem;
+  color: var(--text-secondary);
+  text-transform: capitalize;
+}

@@ -86,7 +86,14 @@ import {
   loadAllItems,
   searchItems,
   getItem,          // Einzelnes Item (war: getItemBySlug)
-  getItems          // Mehrere Items (für Compare)
+  getItems,         // Mehrere Items (für Compare)
+  // Lazy Loading für Perspektiven
+  loadPerspective,  // Lädt eine Perspektive bei Bedarf
+  loadPerspectives, // Lädt mehrere Perspektiven batch
+  hasPerspective,   // Prüft ob Perspektive existiert
+  // Error Handling
+  getLoadErrors,    // Gibt Ladefehler zurück
+  invalidateCache   // Cache invalidieren
 } from './server/data';
 
 // Alle Items laden
@@ -100,10 +107,57 @@ const { items, total, perspectivesWithData } = await searchItems({
 });
 
 // Einzelnes Item
-const steinpilz = await getItemBySlug('steinpilz');
+const steinpilz = await getItem('steinpilz');
 
-// Nach Perspektive
-const edible = await getItemsByPerspective('culinary');
+// Lazy Loading: Perspektive erst bei Bedarf laden
+const chemistry = await loadPerspective('psilocybe-cyanescens', 'chemistry');
+if (chemistry) {
+  // chemistry-Daten sind jetzt verfügbar und gecached
+}
+
+// Batch: Mehrere Perspektiven laden
+const perspMap = await loadPerspectives('steinpilz', ['chemistry', 'ecology']);
+
+// Prüfen ohne zu laden
+const exists = await hasPerspective('steinpilz', 'culinary');
+
+// Error Handling
+const errors = getLoadErrors();  // [{path, error}, ...]
+invalidateCache();               // Force reload
+```
+
+### Lazy Loading für Perspektiven
+
+Statt alle Perspektiven beim Item-Laden zu mergen, können sie on-demand geladen werden:
+
+```typescript
+// loadPerspective(slug, name) -> Record<string, unknown> | null
+const chemistry = await loadPerspective('psilocybe-cyanescens', 'chemistry');
+
+// Automatisches Caching: Zweiter Aufruf nutzt Cache
+const sameData = await loadPerspective('psilocybe-cyanescens', 'chemistry');
+
+// loadPerspectives(slug, names) -> Map<string, Record<string, unknown>>
+const batch = await loadPerspectives('steinpilz', ['ecology', 'safety', 'culinary']);
+batch.get('ecology');  // Ecology-Daten oder undefined
+
+// hasPerspective(slug, name) -> boolean
+// Prüft Dateisystem ohne zu laden (für UI-Checks)
+if (await hasPerspective('steinpilz', 'chemistry')) {
+  // Button anzeigen
+}
+```
+
+### Error Handling
+
+```typescript
+// Ladefehler abrufen
+const errors = getLoadErrors();
+// [{ path: '/path/to/file.json', error: 'Invalid JSON syntax: ...' }]
+
+// Cache invalidieren (z.B. nach Daten-Update)
+invalidateCache();
+const freshItems = await loadAllItems(true);  // force reload
 ```
 
 ### Such-Features

@@ -2,7 +2,7 @@
   "kingdom": "plantae",
   "name": "Plantae",
   "icon": "🌿",
-  "count": 1,
+  "count": 2,
   "species": [
     {
       "slug": "deadly-nightshade",
@@ -16,6 +16,18 @@
         "identification",
         "medicine",
         "safety"
+      ]
+    },
+    {
+      "slug": "sequoia-sempervirens",
+      "name": "Kuestenmammutbaum",
+      "scientific_name": "Sequoia sempervirens",
+      "perspectives": [
+        "conservation",
+        "ecology",
+        "geography",
+        "identification",
+        "statistics"
       ]
     }
   ]

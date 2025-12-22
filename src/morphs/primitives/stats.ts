@@ -14,9 +14,9 @@ export const stats = createUnifiedMorph(
     return `
       <div class="morph-stats">
         ${entries.map(([key, val]) => `
-          <div class="stat">
-            <span class="stat-value">${escapeHtml(val)}</span>
-            <span class="stat-label">${escapeHtml(key)}</span>
+          <div class="morph-stat">
+            <span class="morph-stat-value">${escapeHtml(val)}</span>
+            <span class="morph-stat-label">${escapeHtml(key)}</span>
           </div>
         `).join('')}
       </div>
@@ -82,7 +82,7 @@ export const stats = createUnifiedMorph(
                 }
                 return `
                   <div class="stats-text-item" style="--item-color: ${escapeHtml(color)}">
-                    <span class="stats-dot"></span>
+                    <span class="cmp-dot"></span>
                     <span class="stats-text-val">${escapeHtml(v)}</span>
                   </div>
                 `;

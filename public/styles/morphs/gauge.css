@@ -1,0 +1,197 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: GAUGE
+   Universe Theme - Nachthimmel mit Lichtkugel-Marker
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-gauge {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+}
+
+/* SVG Arc Version - dezente Linien */
+.morph-gauge-arc {
+  fill: none;
+  stroke: var(--track-bg);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+}
+
+.morph-gauge-fill {
+  fill: none;
+  stroke: var(--track-fill);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.4s ease;
+}
+
+/* Track Version - dünn und dezent */
+.morph-gauge-track {
+  position: relative;
+  height: var(--track-height);
+  background: var(--track-bg);
+  border-radius: var(--track-radius);
+  overflow: visible;
+}
+
+/* Fill - direkt in track */
+.morph-gauge-fill {
+  position: relative;
+  height: 100%;
+  background: var(--track-fill);
+  border-radius: var(--track-radius);
+  transition: width 0.3s ease;
+}
+
+.morph-gauge-fill-bar {
+  position: relative;
+  height: 100%;
+  background: var(--track-fill);
+  border-radius: var(--track-radius);
+  transition: width 0.3s ease;
+}
+
+/* Lichtkugel als Marker - NICHT rechteckig! */
+.morph-gauge-marker {
+  position: absolute;
+  top: 50%;
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background: var(--dot-bg);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: var(--dot-glow-active);
+}
+
+/* Lichtkugel am Ende des Fills */
+.morph-gauge-fill-bar::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background: var(--dot-bg);
+  border-radius: 50%;
+  box-shadow: var(--dot-glow);
+}
+
+.morph-gauge-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.morph-gauge-value {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--morph-accent);
+  text-shadow: 0 0 10px rgba(var(--morph-color-rgb), 0.4);
+}
+
+.morph-gauge-label {
+  position: absolute;
+  bottom: -1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.625rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Zone Variants */
+.morph-gauge-zone {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  opacity: 0.2;
+}
+
+.morph-gauge-zone--danger { background: var(--morph-danger); }
+.morph-gauge-zone--warning { background: var(--morph-warning); }
+.morph-gauge-zone--success { background: var(--morph-success); }
+.morph-gauge-zone--muted { background: var(--text-muted); }
+.morph-gauge-zone--default { background: var(--morph-accent); }
+
+/* Gauge variant classes for fill color */
+.morph-gauge--danger .morph-gauge-fill { background: var(--morph-danger); }
+.morph-gauge--danger .morph-gauge-value { color: var(--morph-danger); }
+.morph-gauge--warning .morph-gauge-fill { background: var(--morph-warning); }
+.morph-gauge--warning .morph-gauge-value { color: var(--morph-warning); }
+.morph-gauge--success .morph-gauge-fill { background: var(--morph-success); }
+.morph-gauge--success .morph-gauge-value { color: var(--morph-success); }
+.morph-gauge--default .morph-gauge-fill { background: var(--morph-accent); }
+.morph-gauge--default .morph-gauge-value { color: var(--morph-accent); }
+
+/* Compare row variants */
+.gauge-row--danger .gauge-fill { background: var(--morph-danger); }
+.gauge-row--danger .gauge-val { color: var(--morph-danger); }
+.gauge-row--warning .gauge-fill { background: var(--morph-warning); }
+.gauge-row--warning .gauge-val { color: var(--morph-warning); }
+.gauge-row--success .gauge-fill { background: var(--morph-success); }
+.gauge-row--success .gauge-val { color: var(--morph-success); }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   GAUGE COMPARE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-gauge-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.gauge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Lichtkugel am Anfang */
+.gauge-row::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--item-color, var(--morph-accent));
+  box-shadow: 0 0 6px var(--item-color, var(--morph-accent));
+}
+
+.gauge-track {
+  flex: 1;
+  height: 2px;
+  background: var(--track-bg);
+  border-radius: 1px;
+  position: relative;
+}
+
+.gauge-fill {
+  height: 100%;
+  background: color-mix(in srgb, var(--item-color, var(--morph-accent)) 30%, transparent);
+  border-radius: 1px;
+  position: relative;
+}
+
+/* Lichtkugel am Ende */
+.gauge-fill::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--item-color, var(--morph-accent));
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--item-color, var(--morph-accent));
+}
+
+.gauge-val {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.45));
+  min-width: 50px;
+  text-align: right;
+}

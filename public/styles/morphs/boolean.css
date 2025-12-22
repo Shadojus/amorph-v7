@@ -1,0 +1,111 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: BOOLEAN
+   Universe Theme
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-boolean {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625em;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.morph-boolean-icon {
+  width: 1.5em;
+  height: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.875em;
+  transition: all 0.2s ease;
+}
+
+/* Beide Zustände in Universe Blue - Unterscheidung durch Intensität */
+.morph-boolean-true .morph-boolean-icon {
+  background: rgba(var(--morph-color-rgb), 0.2);
+  color: var(--morph-accent);
+  box-shadow: var(--dot-glow-active);
+}
+
+.morph-boolean-false .morph-boolean-icon {
+  background: var(--track-bg);
+  color: var(--text-muted);
+  box-shadow: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BOOLEAN COMPARE
+   ───────────────────────────────────────────────────────────────────────────── */
+.boolean-compare-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  align-items: center;
+}
+
+.boolean-compare-wrapper.boolean-all-same {
+  justify-content: flex-start;
+}
+
+.bool-result {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.bool-result.bool-true {
+  color: var(--morph-accent);
+}
+
+.bool-result.bool-false {
+  color: var(--text-muted);
+}
+
+.bool-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Lichtkugel via .cmp-dot aus _compare.css */
+
+.bool-icon {
+  font-size: 0.9375rem;
+  font-weight: 600;
+}
+
+.bool-icon.bool-true {
+  color: var(--morph-accent);
+}
+
+.bool-icon.bool-false {
+  color: var(--text-muted);
+}
+
+.morph-boolean-compare {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.cmp-bool {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .boolean-cell {
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.8rem;
+  }
+}

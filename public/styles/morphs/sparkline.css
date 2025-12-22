@@ -1,0 +1,148 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: SPARKLINE
+   Universe Theme - Clean minimal design
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-sparkline {
+  display: block;
+  width: 100%;
+  min-width: 80px;
+  height: 32px;
+  overflow: visible;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SPARKLINE SINGLE - Clean layout with more space
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-sparkline-single {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-height: 36px;
+}
+
+.morph-sparkline-single svg {
+  flex: 1;
+  min-width: 80px;
+  max-width: 140px;
+  height: 32px;
+}
+
+/* Linie - dezent transparent */
+.sparkline-path {
+  fill: none;
+  stroke: rgba(77, 136, 255, 0.4);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Lichtkugel am Ende */
+.sparkline-point {
+  fill: var(--morph-accent, #4d88ff);
+  filter: drop-shadow(0 0 4px var(--morph-accent, #4d88ff));
+}
+
+/* Wichtiger Wert - BLAU */
+.sparkline-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--morph-accent, #4d88ff);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Trend */
+.sparkline-trend {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.sparkline-trend--up { color: #22c55e; }
+.sparkline-trend--down { color: #ef4444; }
+.sparkline-trend--flat { color: var(--text-muted); }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SPARKLINE COMPARE
+   ───────────────────────────────────────────────────────────────────────────── */
+.sparkline-compare-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sparkline-svg {
+  width: 100%;
+  height: 60px;
+  min-height: 50px;
+  background: var(--track-bg);
+  border-radius: 4px;
+  overflow: visible;
+}
+
+/* Compare sparklines - use item-color */
+.sparkline-line {
+  fill: none;
+  stroke: var(--item-color);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.9;
+}
+
+.sparkline-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+}
+
+.sparkline-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+/* Lichtkugel via .cmp-dot aus _compare.css */
+
+.sparkline-val {
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.sparkline-trend {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.morph-sparkline-compare {
+  display: flex;
+  flex-direction: column;
+}
+
+.sparkline-svg-compare {
+  width: 100%;
+  height: 32px;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .morph-sparkline {
+    height: 24px;
+  }
+  
+  .morph-sparkline-bar {
+    width: 2px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sparkline-scale {
+    display: none;
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "habitat_primary": "Temperierte Laubwaelder",
+  "habitat_secondary": [
+    "Mischwaelder",
+    "Parkanlagen",
+    "Gaerten mit Kompost",
+    "Tropische Regenwaelder"
+  ],
+  "habitat_description": "Physarum polycephalum findet sich weltweit in feuchten, schattigen Waldhabitaten. Es bevorzugt verrottendes Holz, Laubstreu und Rindenmulch als Substrat. Der Organismus ist nachtaktiv und meidet Licht, bewegt sich im Dunkeln auf der Suche nach Nahrung.",
+  "elevation_range": {
+    "min": 0,
+    "max": 2000,
+    "unit": "m"
+  },
+  "elevation_optimal": {
+    "min": 100,
+    "max": 800,
+    "unit": "m"
+  },
+  "climate_preferences": {
+    "annual_temp_min": 10,
+    "annual_temp_max": 30,
+    "precipitation_min": 500,
+    "precipitation_max": 3000
+  },
+  "temperature_optimal": {
+    "min": 20,
+    "max": 28,
+    "unit": "C"
+  },
+  "humidity_requirement": {
+    "min": 70,
+    "max": 100,
+    "unit": "%"
+  },
+  "microhabitat_requirements": [
+    "Hohe Luftfeuchtigkeit (>70%)",
+    "Schattige bis dunkle Bedingungen",
+    "Verrottendes organisches Material",
+    "Feucht aber nicht wasserstaendig",
+    "Nahe bakterielle oder pilzliche Nahrung"
+  ],
+  "substrate_preferences": [
+    "Verrottendes Holz (Fallholz)",
+    "Feuchte Laubstreu",
+    "Rindenmulch",
+    "Kompost"
+  ],
+  "light_response": {
+    "status": "Photophobic",
+    "variant": "danger"
+  },
+  "light_avoidance": true,
+  "light_avoidance_description": "Das Plasmodium meidet Licht aktiv und bewegt sich in dunklere Bereiche. UV-Licht loest Sporulation aus.",
+  "ecological_role": "Sekundaerer Zersetzer und Bakterienfresser",
+  "ecological_role_description": "Physarum ist ein Dekomposer, der Bakterien, Pilzhyphen und organische Partikel aufnimmt. Es traegt zum Naehrstoffkreislauf in Waldboeden bei.",
+  "ecological_importance": [
+    {"axis": "Bakterienkonsum", "value": 80},
+    {"axis": "Naehrstoffkreislauf", "value": 65},
+    {"axis": "Bodenstruktur", "value": 40},
+    {"axis": "Pilzsporen-Verbreitung", "value": 35},
+    {"axis": "Nahrungsnetz", "value": 50}
+  ],
+  "trophic_level": 2,
+  "trophic_category": "consumer",
+  "diet_type": "Heterotroph (Phagotroph)",
+  "diet_description": "Das Plasmodium umfliesst und verdaut Bakterien, Hefen, Pilzsporen und organische Partikel durch Phagozytose. Es zeigt klare Nahrungspraeferenzen.",
+  "diet_composition": [
+    {"label": "Bakterien", "value": 50},
+    {"label": "Hefen", "value": 25},
+    {"label": "Pilzsporen", "value": 15},
+    {"label": "Organische Partikel", "value": 10}
+  ],
+  "preferred_food_sources": [
+    "Haferflocken (Laborstandard)",
+    "Bakterienkolonien",
+    "Hefen (Saccharomyces)",
+    "Pilzsporen verschiedener Arten"
+  ],
+  "food_aversions": [
+    "Salz",
+    "Koffein",
+    "Chinin",
+    "Starkes Licht",
+    "Trockenheit"
+  ],
+  "foraging_behavior": "Exploratives Netzwerk mit anschliessender Optimierung",
+  "foraging_description": "Das Plasmodium bildet zunaechst ein weitlaeufiges Netzwerk zur Exploration. Nach Entdeckung von Nahrungsquellen werden ineffiziente Verbindungen zurueckgebildet und optimale Pfade verstaerkt.",
+  "network_optimization_time_hours": {
+    "min": 12,
+    "max": 48
+  },
+  "chemotaxis": true,
+  "chemotaxis_attractants": [
+    "Haferflocken-Geruchsstoffe",
+    "Glucose",
+    "Peptone",
+    "Bakterielle Metabolite"
+  ],
+  "chemotaxis_repellents": [
+    "Salz",
+    "Schwermetalle",
+    "Licht",
+    "Trockenheit"
+  ],
+  "predators_and_consumers": [
+    "Nematoden",
+    "Amoebenarten",
+    "Insektenlarven",
+    "Gastropoden (Schnecken)"
+  ],
+  "defense_mechanisms": [
+    "Scleriotiumbildung bei Stress",
+    "Toxinproduktion (limitiert)",
+    "Schnelle Rueckzugsbewegung"
+  ],
+  "stress_responses": {
+    "drought": "Sclerotium (Ruhestadium, jahrelang ueberlebensfaehig)",
+    "cold": "Verlangsamung, Sclerotium",
+    "light": "Aktive Vermeidung, eventuelle Sporulation",
+    "starvation": "Sporulation"
+  },
+  "sclerotium_survival_years": {
+    "min": 1,
+    "max": 10,
+    "unit": "years"
+  },
+  "dispersal_mechanism": "Sporenvverbreitung durch Wind, Wasser und Arthropoden",
+  "dispersal_range": {
+    "min": 0.1,
+    "max": 100,
+    "unit": "km"
+  },
+  "life_cycle": "Heterothallisch mit Paarungstypen",
+  "reproduction_modes": [
+    "Sexuell (Syngamie von Myxamoeben)",
+    "Asexuell (Fragmentierung des Plasmodiums)",
+    "Sclerotium-Regeneration"
+  ],
+  "generation_time_days": {
+    "min": 3,
+    "max": 14
+  },
+  "global_distribution": true,
+  "native_to": "Wahrscheinlich kosmopolitisch",
+  "indicator_species": true,
+  "indicator_for": [
+    "Feuchte Waldbodenbedingungen",
+    "Intakte Zersetzerketten",
+    "Niedrige Umweltverschmutzung"
+  ],
+  "source": {
+    "authors": "Stephenson, S.L. & Stempen, H.",
+    "year": 1994,
+    "title": "Myxomycetes: A Handbook of Slime Molds",
+    "journal": "Timber Press",
+    "doi": ""
+  }
+}

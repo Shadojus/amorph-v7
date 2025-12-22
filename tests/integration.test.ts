@@ -111,3 +111,19 @@ describe('security integration', () => {
     expect(html).toContain('&lt;img');
   });
 });
+
+describe('data module', () => {
+  it('should export getLoadErrors and invalidateCache', async () => {
+    const data = await import('../src/server/data.js');
+    expect(data.getLoadErrors).toBeDefined();
+    expect(data.invalidateCache).toBeDefined();
+    expect(typeof data.getLoadErrors).toBe('function');
+    expect(typeof data.invalidateCache).toBe('function');
+  });
+  
+  it('getLoadErrors should return an array', async () => {
+    const { getLoadErrors } = await import('../src/server/data.js');
+    const errors = getLoadErrors();
+    expect(Array.isArray(errors)).toBe(true);
+  });
+});

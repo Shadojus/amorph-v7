@@ -1,0 +1,134 @@
+{
+  "cultivability": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "cultivation_difficulty": {
+    "rating": 2,
+    "max": 5
+  },
+  "cultivation_description": "Physarum polycephalum ist einer der am einfachsten zu kultivierenden Organismen. Es benoetigt nur einen feuchten Behaelter, Haferflocken als Nahrung und Dunkelheit. Ideal fuer Schulen, Heimlabore und Forschung.",
+  "cultivation_history": "Seit den 1930er Jahren als Labororganismus etabliert, breite Verfuegbarkeit seit den 1960er Jahren",
+  "culture_sources": [
+    "Carolina Biological Supply",
+    "Ward's Science",
+    "ATCC (American Type Culture Collection)",
+    "Universitaetslabore",
+    "DIY-Community (Tausch)"
+  ],
+  "starter_culture_cost": {
+    "min": 10,
+    "max": 30,
+    "unit": "EUR"
+  },
+  "basic_requirements": {
+    "container": "Plastikdose mit Deckel (nicht luftdicht)",
+    "substrate": "Feuchtes Kuechenpapier oder Agar",
+    "food": "Haferflocken (ungekocht)",
+    "temperature": "20-26 Grad Celsius",
+    "humidity": "85-95 Prozent",
+    "light": "Dunkelheit oder diffuses Licht"
+  },
+  "setup_time_minutes": 15,
+  "initial_growth_visible_hours": {
+    "min": 12,
+    "max": 48
+  },
+  "feeding_frequency": "Alle 2-3 Tage neue Haferflocken",
+  "feeding_amount": "2-3 Haferflocken pro Fuetterung",
+  "maintenance_time_per_week_minutes": 20,
+  "culture_methods": [
+    {"name": "Feuchtpapier-Methode", "difficulty": "Einfach", "equipment": "Minimal"},
+    {"name": "Agar-Platte", "difficulty": "Mittel", "equipment": "Petrischalen, Agar"},
+    {"name": "Haferagar", "difficulty": "Mittel", "equipment": "Haferflocken, Agar"},
+    {"name": "Semi-definiertes Medium", "difficulty": "Fortgeschritten", "equipment": "Laborausruestung"}
+  ],
+  "recommended_method": "Feuchtpapier-Methode fuer Anfaenger",
+  "substrate_recipes": {
+    "simple": "Feuchtes Kuechenpapier auf Plastikdeckel",
+    "agar_basic": "2% Agar in Wasser, autoklaviert",
+    "oat_agar": "2% Agar mit 0.1% Haferflockenpulver"
+  },
+  "troubleshooting": [
+    {"problem": "Kein Wachstum", "solution": "Temperatur und Feuchtigkeit pruefen"},
+    {"problem": "Sclerotiumbildung", "solution": "Feuchtigkeit erhoehen, regelmaessig fuettern"},
+    {"problem": "Schimmelkontamination", "solution": "Auf sauberes Substrat umsetzen"},
+    {"problem": "Zu langsames Wachstum", "solution": "Temperatur auf 24-26 Grad erhoehen"},
+    {"problem": "Sporulation", "solution": "Licht reduzieren, Feuchtigkeit erhoehen"}
+  ],
+  "growth_progress_indicator": {
+    "value": 85,
+    "max": 100,
+    "unit": "%"
+  },
+  "typical_growth_timeline": [
+    {"phase": "Akklimatisierung", "duration": "24 Stunden"},
+    {"phase": "Initiales Wachstum", "duration": "2-3 Tage"},
+    {"phase": "Exponentielles Wachstum", "duration": "5-7 Tage"},
+    {"phase": "Netzwerk-Etablierung", "duration": "7-14 Tage"},
+    {"phase": "Stabiles Stadium", "duration": "Unbegrenzt mit Pflege"}
+  ],
+  "experiment_ideas": [
+    {"name": "Labyrinth-Experiment", "difficulty": "Einfach", "time": "24-48 Stunden"},
+    {"name": "Nahrungspraeferenz-Test", "difficulty": "Einfach", "time": "24 Stunden"},
+    {"name": "Licht-Aversion", "difficulty": "Einfach", "time": "1-2 Stunden"},
+    {"name": "Netzwerk-Optimierung", "difficulty": "Mittel", "time": "48-72 Stunden"},
+    {"name": "Salz-Vermeidung", "difficulty": "Einfach", "time": "12-24 Stunden"}
+  ],
+  "preservation_methods": [
+    {"method": "Sclerotium auf Papier", "duration": "Monate bis Jahre", "difficulty": "Einfach"},
+    {"method": "Kryopreservation", "duration": "Jahrzehnte", "difficulty": "Fortgeschritten"},
+    {"method": "Lyophilisation", "duration": "Jahre", "difficulty": "Fortgeschritten"}
+  ],
+  "sclerotium_revival_success_rate": {
+    "value": 90,
+    "max": 100,
+    "unit": "%"
+  },
+  "revival_time_hours": {
+    "min": 2,
+    "max": 24
+  },
+  "safety_considerations": {
+    "status": "Safe",
+    "variant": "success"
+  },
+  "safety_notes": [
+    "Nicht giftig oder pathogen",
+    "Sicher fuer Schulen und Heimlabore",
+    "Allergien sehr selten",
+    "Haende nach Handhabung waschen"
+  ],
+  "age_appropriateness": {
+    "minimum_age": 6,
+    "supervision_required_under": 12
+  },
+  "educational_standards_alignment": [
+    "NGSS Life Sciences",
+    "AP Biology Lab Curriculum",
+    "IB Biology Practical Work",
+    "Deutsche Lehrplaene Biologie"
+  ],
+  "cost_per_month_ongoing": {
+    "min": 2,
+    "max": 10,
+    "unit": "EUR"
+  },
+  "commercial_availability": {
+    "status": "Widely available",
+    "variant": "success"
+  },
+  "strain_variants": [
+    {"name": "Standard yellow", "use": "General purpose"},
+    {"name": "White mutant", "use": "Pigment studies"},
+    {"name": "Temperature-sensitive", "use": "Cell cycle research"},
+    {"name": "Drug-resistant", "use": "Genetic studies"}
+  ],
+  "source": {
+    "authors": "Daniel, J.W. & Rusch, H.P.",
+    "year": 1961,
+    "title": "The pure culture of Physarum polycephalum on a partially defined soluble medium",
+    "journal": "Journal of General Microbiology",
+    "doi": "10.1099/00221287-25-1-47"
+  }
+}

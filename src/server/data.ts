@@ -2,6 +2,7 @@
  * AMORPH v7 - Server Data
  * 
  * Lädt JSON-Daten aus data/ Verzeichnis.
+ * Mit robuster Fehlerbehandlung für korrupte/fehlende Dateien.
  */
 
 import { readFileSync, existsSync, readdirSync } from 'fs';
@@ -23,6 +24,48 @@ const DATA_PATH = join(__dirname, '../../data');
 
 let cachedItems: ItemData[] | null = null;
 let cachedIndex: Record<string, ItemData> | null = null;
+let loadErrors: { path: string; error: string }[] = [];
+
+/**
+ * Gibt die letzten Ladefehler zurück (für Debugging).
+ */
+export function getLoadErrors(): { path: string; error: string }[] {
+  return [...loadErrors];
+}
+
+/**
+ * Invalidiert den Cache (z.B. nach Datenänderung).
+ */
+export function invalidateCache(): void {
+  cachedItems = null;
+  cachedIndex = null;
+  loadErrors = [];
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// SAFE JSON PARSER
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * Liest und parst JSON mit detaillierter Fehlerbehandlung.
+ */
+function safeReadJson<T>(filePath: string): { data: T | null; error: string | null } {
+  try {
+    if (!existsSync(filePath)) {
+      return { data: null, error: `File not found: ${filePath}` };
+    }
+    const content = readFileSync(filePath, 'utf-8');
+    const data = JSON.parse(content) as T;
+    return { data, error: null };
+  } catch (e) {
+    const errorMsg = e instanceof SyntaxError 
+      ? `Invalid JSON syntax: ${e.message}`
+      : e instanceof Error 
+        ? e.message 
+        : 'Unknown error';
+    return { data: null, error: `${filePath}: ${errorMsg}` };
+  }
+}
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // DATA LOADER
@@ -42,124 +85,133 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
   }
   
   const items: ItemData[] = [];
+  loadErrors = [];
   
-  console.log(`[Data] DATA_PATH: ${DATA_PATH}`);
-  console.log(`[Data] DATA_PATH exists: ${existsSync(DATA_PATH)}`);
+  if (!existsSync(DATA_PATH)) {
+    loadErrors.push({ path: DATA_PATH, error: 'Data directory not found' });
+    console.error(`[Data] DATA_PATH does not exist: ${DATA_PATH}`);
+    return items;
+  }
   
   // Durchsuche Kingdoms
   const kingdoms = ['fungi', 'plantae', 'animalia', 'bacteria'];
   
   for (const kingdom of kingdoms) {
     const kingdomPath = join(DATA_PATH, kingdom);
-    console.log(`[Data] Checking kingdom: ${kingdom} at ${kingdomPath}`);
     if (!existsSync(kingdomPath)) {
-      console.log(`[Data] Kingdom path does not exist: ${kingdomPath}`);
       continue;
     }
     
     // Prüfe auf index.json
     const indexPath = join(kingdomPath, 'index.json');
-    if (existsSync(indexPath)) {
-      try {
-        const indexData = JSON.parse(readFileSync(indexPath, 'utf-8'));
+    const indexResult = safeReadJson<{ species?: Array<{ slug: string; perspectives?: string[] }>; dateien?: string[]; files?: string[] }>(indexPath);
+    
+    if (indexResult.data) {
+      const indexData = indexResult.data;
+      
+      // Neue Struktur: species Array
+      const speciesList = indexData.species || [];
+      
+      for (const speciesEntry of speciesList) {
+        const slug = speciesEntry.slug;
+        if (!slug) continue;
         
-        // Neue Struktur: species Array
-        const speciesList = indexData.species || [];
+        // Lade Item aus Unterordner
+        const speciesPath = join(kingdomPath, slug);
+        const speciesIndexPath = join(speciesPath, 'index.json');
         
-        for (const speciesEntry of speciesList) {
-          const slug = speciesEntry.slug;
-          if (!slug) continue;
+        const itemResult = safeReadJson<Record<string, unknown>>(speciesIndexPath);
+        if (itemResult.error) {
+          loadErrors.push({ path: speciesIndexPath, error: itemResult.error });
+          continue;
+        }
+        
+        if (itemResult.data) {
+          const itemBase = itemResult.data;
           
-          // Lade Item aus Unterordner
-          const speciesPath = join(kingdomPath, slug);
-          const speciesIndexPath = join(speciesPath, 'index.json');
+          // Merge mit species entry Daten
+          const item: ItemData = {
+            ...itemBase,
+            ...speciesEntry,  // Überschreibt mit index.json Daten
+            _kingdom: kingdom,
+            id: (itemBase.id as string) || slug,
+            slug: slug,
+            name: (itemBase.name as string) || slug,
+            _perspectives: {},
+            _loadedPerspectives: [] as string[],
+            _fieldPerspective: {} as Record<string, string>
+          };
           
-          if (existsSync(speciesIndexPath)) {
-            try {
-              const itemBase = JSON.parse(readFileSync(speciesIndexPath, 'utf-8'));
+          // Lade Perspektiven und merge Felder ins Item
+          const perspectiveFiles = (speciesEntry.perspectives || []) as string[];
+          for (const perspName of perspectiveFiles) {
+            const perspPath = join(speciesPath, `${perspName}.json`);
+            const perspResult = safeReadJson<Record<string, unknown>>(perspPath);
+            
+            if (perspResult.error) {
+              loadErrors.push({ path: perspPath, error: perspResult.error });
+              continue;
+            }
+            
+            if (perspResult.data) {
+              const perspData = perspResult.data;
+              item._perspectives![perspName] = perspData;
+              (item._loadedPerspectives as string[]).push(perspName);
               
-              // Merge mit species entry Daten
-              const item: ItemData = {
-                ...itemBase,
-                ...speciesEntry,  // Überschreibt mit index.json Daten
-                _kingdom: kingdom,
-                id: itemBase.id || slug,
-                slug: slug,
-                _perspectives: {},
-                _loadedPerspectives: [] as string[],  // Track which perspectives are loaded
-                _fieldPerspective: {} as Record<string, string>  // Track field → perspective mapping
-              };
-              
-              // Lade Perspektiven und merge Felder ins Item
-              const perspectiveFiles = (speciesEntry.perspectives || []) as string[];
-              for (const perspName of perspectiveFiles) {
-                const perspPath = join(speciesPath, `${perspName}.json`);
-                if (existsSync(perspPath)) {
-                  try {
-                    const perspData = JSON.parse(readFileSync(perspPath, 'utf-8'));
-                    item._perspectives![perspName] = perspData;
-                    (item._loadedPerspectives as string[]).push(perspName);
-                    
-                    // Merge perspective fields into main item (for display)
-                    // Skip internal fields and already existing fields
-                    let mergedCount = 0;
-                    for (const [key, value] of Object.entries(perspData)) {
-                      if (!key.startsWith('_') && item[key] === undefined) {
-                        item[key] = value;
-                        // Track which perspective this field came from
-                        (item._fieldPerspective as Record<string, string>)[key] = perspName;
-                        mergedCount++;
-                      }
-                    }
-                    console.log(`[Data] Merged ${mergedCount}/${Object.keys(perspData).length} fields from ${perspName} into ${slug}`);
-                  } catch (e) {
-                    console.error(`Error loading perspective ${perspName}:`, e);
-                  }
+              // Merge perspective fields into main item
+              for (const [key, value] of Object.entries(perspData)) {
+                if (!key.startsWith('_') && item[key] === undefined) {
+                  item[key] = value;
+                  (item._fieldPerspective as Record<string, string>)[key] = perspName;
                 }
               }
-              
-              items.push(item);
-            } catch (error) {
-              console.error(`Error loading ${kingdom}/${slug}/index.json:`, error);
             }
           }
+          
+          items.push(item);
         }
-        
-        // Alte Struktur: dateien/files Array
-        const files = indexData.dateien || indexData.files || [];
-        for (const file of files) {
-          const filePath = join(kingdomPath, file);
-          if (existsSync(filePath)) {
-            const item = JSON.parse(readFileSync(filePath, 'utf-8'));
-            items.push({
-              ...item,
-              _kingdom: kingdom,
-              id: item.id || item.slug || file.replace('.json', ''),
-              slug: item.slug || file.replace('.json', '')
-            });
-          }
-        }
-      } catch (error) {
-        console.error(`Error loading ${kingdom}/index.json:`, error);
       }
-    } else {
-      // Direkt JSON-Dateien laden
-      const files = readdirSync(kingdomPath).filter(f => f.endsWith('.json'));
       
+      // Alte Struktur: dateien/files Array
+      const files = indexData.dateien || indexData.files || [];
       for (const file of files) {
-        try {
-          const filePath = join(kingdomPath, file);
-          const item = JSON.parse(readFileSync(filePath, 'utf-8'));
+        const filePath = join(kingdomPath, file);
+        const fileResult = safeReadJson<Record<string, unknown>>(filePath);
+        if (fileResult.data) {
+          const item = fileResult.data;
           items.push({
             ...item,
             _kingdom: kingdom,
-            id: item.id || item.slug || file.replace('.json', ''),
-            slug: item.slug || file.replace('.json', '')
-          });
-        } catch (error) {
-          console.error(`Error loading ${kingdom}/${file}:`, error);
+            id: (item.id as string) || (item.slug as string) || file.replace('.json', ''),
+            slug: (item.slug as string) || file.replace('.json', ''),
+            name: (item.name as string) || file.replace('.json', '')
+          } as ItemData);
+        } else if (fileResult.error) {
+          loadErrors.push({ path: filePath, error: fileResult.error });
         }
       }
+    } else if (indexResult.error && indexResult.error.includes('not found')) {
+      // Direkt JSON-Dateien laden (keine index.json vorhanden)
+      const files = readdirSync(kingdomPath).filter(f => f.endsWith('.json'));
+      
+      for (const file of files) {
+        const filePath = join(kingdomPath, file);
+        const fileResult = safeReadJson<Record<string, unknown>>(filePath);
+        if (fileResult.data) {
+          const item = fileResult.data;
+          items.push({
+            ...item,
+            _kingdom: kingdom,
+            id: (item.id as string) || (item.slug as string) || file.replace('.json', ''),
+            slug: (item.slug as string) || file.replace('.json', ''),
+            name: (item.name as string) || file.replace('.json', '')
+          } as ItemData);
+        } else if (fileResult.error) {
+          loadErrors.push({ path: filePath, error: fileResult.error });
+        }
+      }
+    } else if (indexResult.error) {
+      loadErrors.push({ path: indexPath, error: indexResult.error });
     }
   }
   
@@ -174,7 +226,12 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
     }
   }
   
-  console.log(`[Data] Loaded ${items.length} items`);
+  // Log summary
+  if (loadErrors.length > 0) {
+    console.warn(`[Data] Loaded ${items.length} items with ${loadErrors.length} errors`);
+  } else {
+    console.log(`[Data] Loaded ${items.length} items successfully`);
+  }
   
   return items;
 }
@@ -197,6 +254,109 @@ export async function getItems(slugs: string[]): Promise<ItemData[]> {
     await loadAllItems();
   }
   return slugs.map(slug => cachedIndex?.[slug]).filter(Boolean) as ItemData[];
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// LAZY LOADING FOR PERSPECTIVES
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * Lädt eine spezifische Perspektive für ein Item (Lazy Loading).
+ * Wenn bereits geladen, gibt gecachte Daten zurück.
+ * 
+ * @param slug - Item-Slug
+ * @param perspectiveName - Name der Perspektive (z.B. 'chemistry')
+ * @returns Perspektiven-Daten oder null wenn nicht vorhanden
+ */
+export async function loadPerspective(
+  slug: string,
+  perspectiveName: string
+): Promise<Record<string, unknown> | null> {
+  const item = await getItem(slug);
+  if (!item) return null;
+  
+  // Prüfe ob bereits geladen
+  const cached = item._perspectives?.[perspectiveName];
+  if (cached && typeof cached === 'object') {
+    return cached as Record<string, unknown>;
+  }
+  
+  // Finde Kingdom und lade
+  const kingdom = item._kingdom || 'fungi';
+  const perspPath = join(DATA_PATH, kingdom, slug, `${perspectiveName}.json`);
+  
+  const result = safeReadJson<Record<string, unknown>>(perspPath);
+  if (result.error || !result.data) {
+    return null;
+  }
+  
+  // Cache in Item
+  if (!item._perspectives) {
+    item._perspectives = {} as Record<string, Record<string, unknown>>;
+  }
+  item._perspectives[perspectiveName] = result.data;
+  
+  // Merge neue Felder ins Item
+  for (const [key, value] of Object.entries(result.data)) {
+    if (!key.startsWith('_') && item[key] === undefined) {
+      item[key] = value;
+      if (!item._fieldPerspective) {
+        item._fieldPerspective = {} as Record<string, string>;
+      }
+      (item._fieldPerspective as Record<string, string>)[key] = perspectiveName;
+    }
+  }
+  
+  // Update _loadedPerspectives
+  const loadedPersp = item._loadedPerspectives as string[] | undefined;
+  if (!Array.isArray(loadedPersp)) {
+    item._loadedPerspectives = [perspectiveName];
+  } else if (!loadedPersp.includes(perspectiveName)) {
+    loadedPersp.push(perspectiveName);
+  }
+  
+  return result.data;
+}
+
+/**
+ * Lädt mehrere Perspektiven für ein Item (Batch Lazy Loading).
+ * 
+ * @param slug - Item-Slug
+ * @param perspectiveNames - Liste der Perspektiven
+ * @returns Map von Perspektiv-Name zu Daten
+ */
+export async function loadPerspectives(
+  slug: string,
+  perspectiveNames: string[]
+): Promise<Map<string, Record<string, unknown>>> {
+  const results = new Map<string, Record<string, unknown>>();
+  
+  for (const name of perspectiveNames) {
+    const data = await loadPerspective(slug, name);
+    if (data) {
+      results.set(name, data);
+    }
+  }
+  
+  return results;
+}
+
+/**
+ * Prüft ob eine Perspektive für ein Item verfügbar ist (ohne zu laden).
+ */
+export async function hasPerspective(slug: string, perspectiveName: string): Promise<boolean> {
+  const item = await getItem(slug);
+  if (!item) return false;
+  
+  // Bereits geladen?
+  if (item._perspectives?.[perspectiveName]) {
+    return true;
+  }
+  
+  // Prüfe Dateisystem
+  const kingdom = item._kingdom || 'fungi';
+  const perspPath = join(DATA_PATH, kingdom, slug, `${perspectiveName}.json`);
+  return existsSync(perspPath);
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════

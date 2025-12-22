@@ -1,0 +1,129 @@
+{
+  "native_range": ["Nordhemisphaere (circumpolar)"],
+  "native_range_description": "Der Fliegenpilz ist in den temperaten und borealen Zonen der gesamten Nordhemisphere heimisch. Sein urspruengliches Verbreitungsgebiet erstreckt sich von Europa ueber Nordasien bis Nordamerika.",
+  "introduced_range": [
+    "Australien (mit importierten Baeumen)",
+    "Neuseeland",
+    "Suedafrika",
+    "Suedamerika (Anden, mit Kiefernpflanzungen)"
+  ],
+  "distribution_status": {
+    "status": "Introduced expanding",
+    "variant": "warning"
+  },
+  "global_distribution": [
+    {"label": "Europa", "value": 95},
+    {"label": "Nordasien", "value": 90},
+    {"label": "Nordamerika", "value": 85},
+    {"label": "Australien", "value": 60},
+    {"label": "Neuseeland", "value": 55},
+    {"label": "Suedamerika", "value": 40}
+  ],
+  "biogeographic_realm": ["Holarktis"],
+  "climate_zones": [
+    "Boreales Klima (Dfb, Dfc)",
+    "Temperates ozeanisches Klima (Cfb)",
+    "Temperates kontinentales Klima (Dfb)",
+    "Mediterranes Bergklima (Csb)"
+  ],
+  "european_distribution": {
+    "status": "Widespread",
+    "variant": "success"
+  },
+  "european_countries": [
+    "Deutschland", "Oesterreich", "Schweiz", "Frankreich",
+    "Skandinavien", "Grossbritannien", "Italien", "Spanien",
+    "Polen", "Russland", "Baltikum", "Benelux"
+  ],
+  "german_distribution": {
+    "status": "Sehr haeufig",
+    "variant": "success"
+  },
+  "german_regions": [
+    "Alpenvorland und Alpen",
+    "Schwarzwald",
+    "Bayerischer Wald",
+    "Mittelgebirge",
+    "Norddeutsche Tiefebene (Kiefernwaelder)"
+  ],
+  "occurrence_points": [
+    {"lat": 48.1374, "lng": 11.5755, "region": "Muenchen, Deutschland"},
+    {"lat": 59.9343, "lng": 10.7184, "region": "Oslo, Norwegen"},
+    {"lat": 55.7558, "lng": 37.6173, "region": "Moskau, Russland"},
+    {"lat": 47.3769, "lng": 8.5417, "region": "Zuerich, Schweiz"},
+    {"lat": 51.5074, "lng": -0.1278, "region": "London, UK"}
+  ],
+  "type_locality": {"lat": 52.52, "lng": 13.40, "region": "Europa (nicht spezifiziert, Linné 1753)"},
+  "elevation_global": {
+    "min": 0,
+    "max": 2500,
+    "unit": "m"
+  },
+  "elevation_europe": {
+    "min": 0,
+    "max": 2200,
+    "unit": "m"
+  },
+  "elevation_alps": {
+    "min": 400,
+    "max": 2200,
+    "unit": "m"
+  },
+  "habitat_in_range": [
+    "Nadelwaelder (Fichte, Kiefer, Tanne)",
+    "Mischwaelder",
+    "Birkenwaelder",
+    "Subalpine Waelder",
+    "Plantagen mit Mykorrhiza-Wirtsbaeumen"
+  ],
+  "invasion_history": [
+    {"date": "1800-01-01", "event": "Erste Berichte ausserhalb Europas", "description": "Mit europaeischen Siedlern und Baeumen nach Nordamerika"},
+    {"date": "1900-01-01", "event": "Etablierung in Australien", "description": "Mit importierten europaeischen Baumarten eingeschleppt"},
+    {"date": "1950-01-01", "event": "Ausbreitung in Neuseeland", "description": "In Verbindung mit Kiefern- und Birkenpflanzungen"},
+    {"date": "1980-01-01", "event": "Suedamerikanische Ausbreitung", "description": "In Kiefernplantagen der Anden etabliert"}
+  ],
+  "invasion_potential": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "invasion_concerns": [
+    "Konkurrenz mit einheimischen Mykorrhiza-Pilzen",
+    "Veraenderung von Bodenpilzgemeinschaften",
+    "Vergiftungsrisiko in neuen Gebieten ohne Kulturwissen"
+  ],
+  "population_trend": {
+    "status": "Stable",
+    "variant": "success"
+  },
+  "population_trend_description": "Stabile bis zunehmende Populationen weltweit, profitiert von Klimawandel in noerdlichen Regionen",
+  "migration_pattern": "Keines - standorttreu durch Mykorrhiza-Bindung",
+  "dispersal_barriers": [
+    "Meere und grosse Wasserflaechen",
+    "Wuesten und Trockengebiete",
+    "Fehlen geeigneter Wirtsbaeume"
+  ],
+  "connectivity_index": {
+    "value": 75,
+    "max": 100,
+    "unit": "%"
+  },
+  "human_mediated_spread": true,
+  "spread_vectors": [
+    "Import von Baumschulware mit kontaminierten Wurzelballen",
+    "Kiefern- und Birkenpflanzungen",
+    "Sporentransport auf Kleidung und Ausruestung"
+  ],
+  "climate_change_impact": {
+    "status": "Likely beneficial",
+    "variant": "success"
+  },
+  "climate_change_projection": "Erwarterter Arealgewinn in noerdlichen Regionen, moegliche Verluste in suedlichen Verbreitungsgebieten durch Trockenheit",
+  "phenology_shift": "Frueherer Fruchtungsbeginn und laengere Saison beobachtet",
+  "source": {
+    "authors": "Pringle, A. & Vellinga, E.C.",
+    "year": 2006,
+    "title": "Last chance to know? Using literature to explore the biogeography and invasion biology of the death cap mushroom",
+    "journal": "Biological Invasions",
+    "doi": "10.1007/s10530-005-1839-y"
+  }
+}

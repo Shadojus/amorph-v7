@@ -29,7 +29,7 @@ describe('object morph', () => {
 
   it('should handle empty objects', () => {
     const html = object({}, singleContext);
-    expect(html).toContain('{}');
+    expect(html).toContain('–'); // Clean design: empty = dash
   });
 
   it('should handle null values', () => {

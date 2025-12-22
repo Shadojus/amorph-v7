@@ -57,11 +57,21 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
       offset
     });
     
+    // Helper: Normalisiere String für Suche (Unterstriche = Leerzeichen)
+    const normalizeForSearch = (str: string): string => {
+      return str.toLowerCase().replace(/_/g, ' ');
+    };
+    
     // Helper: Check if a value contains the search query
     const searchLower = query.toLowerCase();
+    const searchNormalized = normalizeForSearch(query);
+    
     const matchesQuery = (value: unknown): boolean => {
       if (!query || query.length < 3) return false;
-      if (typeof value === 'string') return value.toLowerCase().includes(searchLower);
+      if (typeof value === 'string') {
+        const normalizedValue = normalizeForSearch(value);
+        return normalizedValue.includes(searchNormalized) || value.toLowerCase().includes(searchLower);
+      }
       if (typeof value === 'number') return String(value).includes(searchLower);
       if (Array.isArray(value)) return value.some(v => matchesQuery(v));
       if (value && typeof value === 'object') {
@@ -119,8 +129,10 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
           let filteredEntries = entries;
           if (query.length >= 3) {
             // Nur Felder zeigen die im Key ODER Value den Suchbegriff enthalten
+            // Unterstriche in Keys werden als Leerzeichen behandelt
             filteredEntries = entries.filter(([key, value]) => {
-              const keyMatches = key.toLowerCase().includes(searchLower);
+              const keyNormalized = normalizeForSearch(key);
+              const keyMatches = keyNormalized.includes(searchNormalized) || key.toLowerCase().includes(searchLower);
               const valMatches = matchesQuery(value);
               return keyMatches || valMatches;
             });

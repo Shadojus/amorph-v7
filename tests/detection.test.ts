@@ -211,11 +211,11 @@ describe('Array Detection', () => {
   });
 
   describe('steps [{step, label, status}]', () => {
-    it('should detect step/label arrays as timeline', () => {
+    it('should detect step/label arrays as steps', () => {
       expect(detectType([
         { step: 1, label: 'Kochen', status: 'done' },
         { step: 2, label: 'Servieren', status: 'pending' }
-      ])).toBe('timeline');
+      ])).toBe('steps');
     });
   });
 });
@@ -257,7 +257,7 @@ describe('Object Detection', () => {
   });
 
   describe('gauge {value, max, zones}', () => {
-    it('should detect gauge structure as progress', () => {
+    it('should detect gauge structure as gauge', () => {
       expect(detectType({
         value: 7.2,
         min: 0,
@@ -266,7 +266,7 @@ describe('Object Detection', () => {
           { start: 0, end: 6, color: 'red' },
           { start: 6, end: 8, color: 'green' }
         ]
-      })).toBe('progress');
+      })).toBe('gauge');
     });
   });
 
@@ -471,11 +471,11 @@ describe('Real Blueprint Structures', () => {
       })).toBe('rating');
     });
 
-    it('edibility_steps (steps) should be timeline', () => {
+    it('edibility_steps (steps) should be steps', () => {
       expect(detectType([
         { step: 1, label: 'Thoroughly cook', status: 'pending' },
         { step: 2, label: 'Remove tough parts', status: 'pending' }
-      ])).toBe('timeline');
+      ])).toBe('steps');
     });
   });
 

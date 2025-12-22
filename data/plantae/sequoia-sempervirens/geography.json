@@ -1,0 +1,136 @@
+{
+  "native_range": ["Pazifikkueste Nordamerikas"],
+  "native_range_description": "Der Kuestenmammutbaum ist auf einen schmalen Kuestenstreifen von etwa 750 km Laenge und maximal 56 km Breite entlang der Pazifikkueste Nordamerikas beschraenkt. Das Areal erstreckt sich von Suedwest-Oregon bis etwa 200 km suedlich von San Francisco.",
+  "endemic": true,
+  "endemic_region": "Kalifornien und Suedwest-Oregon, USA",
+  "distribution_status": {
+    "status": "Endemic restricted",
+    "variant": "warning"
+  },
+  "range_length_km": 750,
+  "range_width_km": 56,
+  "range_area_km2": 8100,
+  "current_range_km2": 324,
+  "northernmost_occurrence": {
+    "lat": 42.08,
+    "lng": -124.15,
+    "region": "Chetco River, Oregon"
+  },
+  "southernmost_occurrence": {
+    "lat": 35.78,
+    "lng": -121.28,
+    "region": "Big Sur, Kalifornien"
+  },
+  "type_locality": {"lat": 36.60, "lng": -121.89, "region": "Monterey, Kalifornien"},
+  "global_distribution": [
+    {"label": "Kalifornien", "value": 95},
+    {"label": "Oregon", "value": 5},
+    {"label": "Kultiviert weltweit", "value": 15}
+  ],
+  "biogeographic_realm": ["Nearktis"],
+  "climate_zones": [
+    "Mediterranes Kuestenklima (Csb)",
+    "Ozeanisches Klima (Cfb)",
+    "Nebelklimazone"
+  ],
+  "occurrence_points": [
+    {"lat": 41.21, "lng": -124.01, "region": "Redwood National Park, CA"},
+    {"lat": 40.35, "lng": -124.00, "region": "Humboldt Redwoods State Park, CA"},
+    {"lat": 37.90, "lng": -122.58, "region": "Muir Woods, CA"},
+    {"lat": 37.17, "lng": -122.23, "region": "Big Basin State Park, CA"},
+    {"lat": 36.25, "lng": -121.80, "region": "Big Sur, CA"}
+  ],
+  "key_populations": [
+    {"name": "Humboldt-Del Norte Region", "size_percent": 55, "protection": "Largely protected"},
+    {"name": "Mendocino County", "size_percent": 20, "protection": "Mixed"},
+    {"name": "Santa Cruz Mountains", "size_percent": 10, "protection": "Largely protected"},
+    {"name": "Big Sur", "size_percent": 5, "protection": "Protected"},
+    {"name": "Other fragments", "size_percent": 10, "protection": "Variable"}
+  ],
+  "elevation_distribution": [
+    {"label": "Flussebenen (0-100m)", "value": 45},
+    {"label": "Untere Haenge (100-300m)", "value": 35},
+    {"label": "Mittlere Haenge (300-600m)", "value": 15},
+    {"label": "Obere Grenze (600-900m)", "value": 5}
+  ],
+  "elevation_range": {
+    "min": 0,
+    "max": 900,
+    "unit": "m"
+  },
+  "vertical_zonation": [
+    {"label": "Flussebenen (0-100m)", "value": 45},
+    {"label": "Untere Haenge (100-300m)", "value": 35},
+    {"label": "Mittlere Haenge (300-600m)", "value": 15},
+    {"label": "Obere Grenze (600-900m)", "value": 5}
+  ],
+  "habitat_in_range": [
+    "Flussebenen und Alluvialboeden (hoechste Baeume)",
+    "Nebelexponierte Westhaenge",
+    "Tiefe Kuestentaeler",
+    "Sturmgeschuetzte Kuestenstreifen"
+  ],
+  "soil_types": [
+    "Alluviale Schwemmboeden",
+    "Ultisole (stark verwitterte Waldboeden)",
+    "Inceptisole an Haengen"
+  ],
+  "geology": "Franciscan Formation, Kuesten-Sedimentgesteine",
+  "introduced_range": [
+    "Europa (als Zierbaum)",
+    "Neuseeland (Forstwirtschaft)",
+    "Australien (Forstwirtschaft)",
+    "Suedafrika"
+  ],
+  "cultivation_status": {
+    "status": "Widely cultivated",
+    "variant": "success"
+  },
+  "cultivation_countries": [
+    "Vereinigtes Koenigreich",
+    "Frankreich",
+    "Portugal",
+    "Neuseeland",
+    "Australien",
+    "Chile"
+  ],
+  "tallest_outside_native_range": {
+    "location": "Portugal",
+    "height_m": 72,
+    "age_years": 140
+  },
+  "climate_envelope": {
+    "mean_annual_temp_c": {"min": 10, "max": 16},
+    "mean_annual_precip_mm": {"min": 640, "max": 3100},
+    "frost_free_days": {"min": 200, "max": 365},
+    "summer_fog_days": {"min": 30, "max": 100}
+  },
+  "limiting_factors": [
+    "Sommerliche Trockenheit ohne Nebel",
+    "Winterfroeste unter -10C",
+    "Kontinentales Klima ohne maritime Einfluesse",
+    "Zu niedrige Luftfeuchtigkeit"
+  ],
+  "climate_change_projection": {
+    "status": "Range contraction likely",
+    "variant": "danger"
+  },
+  "climate_projection_details": "Modelle zeigen potenzielle Habitatreduktion von 30-50% bis 2100, besonders am suedlichen Arealrand und in niedrigen Lagen durch Nebelreduktion",
+  "migration_potential": {
+    "status": "Very Limited",
+    "variant": "danger"
+  },
+  "migration_barriers": [
+    "Langsame natuerliche Ausbreitung",
+    "Begrenzte Nebelklima-Zonen noerdlich",
+    "Habitatfragmentierung",
+    "Urbanisierung an Kuestengebieten"
+  ],
+  "source": {
+    "authors": "Johnstone, J.A. & Dawson, T.E.",
+    "year": 2010,
+    "title": "Climatic context and ecological implications of summer fog decline in the coast redwood region",
+    "journal": "PNAS",
+    "doi": "10.1073/pnas.0915062107"
+  }
+}

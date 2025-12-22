@@ -41,8 +41,8 @@ export const badge = createUnifiedMorph(
   'badge',
   (value) => {
     const { status, variant } = extractBadgeData(value);
-    if (!status) return `<span class="morph-badge badge-default">–</span>`;
-    return `<span class="morph-badge badge-${variant}">${escapeHtml(status)}</span>`;
+    if (!status) return `<span class="morph-badge morph-badge-default">–</span>`;
+    return `<span class="morph-badge morph-badge-${variant}">${escapeHtml(status)}</span>`;
   },
   // Compare: Group badges by value, show frequency
   (values) => {
@@ -70,7 +70,7 @@ export const badge = createUnifiedMorph(
           const isUnanimous = items.length === totalItems;
           return `
             <div class="badge-group ${isUnanimous ? 'badge-unanimous' : ''}">
-              <span class="morph-badge badge-${variant}">${escapeHtml(badgeStr)}</span>
+              <span class="morph-badge morph-badge-${variant}">${escapeHtml(badgeStr)}</span>
               <span class="badge-frequency" title="${items.join(', ')}">${items.length}/${totalItems}</span>
             </div>
           `;

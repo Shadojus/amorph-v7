@@ -2,8 +2,36 @@
   "kingdom": "fungi",
   "name": "Fungi",
   "icon": "🍄",
-  "count": 1,
+  "count": 3,
   "species": [
+    {
+      "slug": "amanita-muscaria",
+      "name": "Fliegenpilz",
+      "scientific_name": "Amanita muscaria",
+      "perspectives": [
+        "chemistry",
+        "culture",
+        "ecology",
+        "geography",
+        "identification",
+        "safety",
+        "temporal"
+      ]
+    },
+    {
+      "slug": "physarum-polycephalum",
+      "name": "Vielkoepfiger Schleimpilz",
+      "scientific_name": "Physarum polycephalum",
+      "perspectives": [
+        "chemistry",
+        "cultivation",
+        "culture",
+        "ecology",
+        "identification",
+        "research",
+        "statistics"
+      ]
+    },
     {
       "slug": "psilocybe-cyanescens",
       "name": "Blauender Kahlkopf",

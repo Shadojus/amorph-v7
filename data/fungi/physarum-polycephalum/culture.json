@@ -1,0 +1,116 @@
+{
+  "cultural_significance": {
+    "status": "High in Science Communication",
+    "variant": "success"
+  },
+  "cultural_significance_description": "Physarum polycephalum hat in den letzten Jahrzehnten erhebliche oeffentliche Aufmerksamkeit als 'intelligenter' Einzeller gewonnen. Besonders die Faehigkeit, komplexe Probleme zu loesen, hat die oeffentliche Vorstellung von Intelligenz und Kognition herausgefordert.",
+  "popular_names": [
+    "The Blob",
+    "Intelligent Slime",
+    "Brainless Genius",
+    "Le Blob (Franzoesisch)"
+  ],
+  "media_breakthrough_year": 2010,
+  "media_breakthrough_description": "Die Veroeffentlichung in Science ueber die Nachbildung des Tokioer U-Bahn-Netzes machte Physarum weltweit bekannt",
+  "viral_moments": [
+    {"date": "2000-09-28", "event": "Nature-Publikation Labyrinth", "description": "Erstmals zeigt ein Einzeller Problemloesungsfaehigkeiten"},
+    {"date": "2010-01-22", "event": "Science Tokyo Network", "description": "Physarum baut effizientes Netzwerk wie Tokioer U-Bahn"},
+    {"date": "2019-10-01", "event": "Paris Zoo The Blob", "description": "Der Pariser Zoo zeigt Physarum als Attraktion namens 'Le Blob'"},
+    {"date": "2021-05-29", "event": "ISS-Experiment", "description": "Physarum wird auf der ISS fuer Citizen Science verwendet"}
+  ],
+  "zoo_exhibitions_worldwide": 45,
+  "notable_exhibitions": [
+    {"name": "Le Blob", "location": "Zoo de Paris", "year": 2019},
+    {"name": "Slime Mould Exhibition", "location": "Natural History Museum London", "year": 2015},
+    {"name": "Das Blob", "location": "Naturkundemuseum Berlin", "year": 2020}
+  ],
+  "paris_zoo_blob_stats": {
+    "visitors_first_month": 150000,
+    "media_articles": 500,
+    "languages_covered": 32
+  },
+  "citizen_science_projects": [
+    {"name": "Blob On It", "participants": 15000, "year": 2021},
+    {"name": "ISS Blob Experiment", "schools": 4500, "year": 2021}
+  ],
+  "iss_experiment": {
+    "date": "2021-05-29",
+    "astronaut": "Thomas Pesquet",
+    "schools_participating": 4500,
+    "students_involved": 350000,
+    "objective": "Compare Physarum behavior in microgravity vs Earth"
+  },
+  "philosophical_impact": [
+    "Neudefinition von Intelligenz (ohne Neuronen)",
+    "Emergentes Verhalten in einfachen Systemen",
+    "Grenzen zwischen Lebensformen",
+    "Dezentrale Problemloesung"
+  ],
+  "artistic_uses": [
+    "Bio-Art Installationen",
+    "Lebende Skulpturen",
+    "Interaktive Ausstellungen",
+    "Performance-Kunst"
+  ],
+  "art_exhibitions_featuring_physarum": [
+    {"label": "Bio-Art", "value": 45},
+    {"label": "Science-Art", "value": 35},
+    {"label": "Interactive", "value": 25},
+    {"label": "Educational", "value": 85}
+  ],
+  "documentary_appearances": [
+    {"title": "Moving Art: Patterns", "year": 2016, "platform": "Netflix"},
+    {"title": "The Blob: A Genius Without a Brain", "year": 2019, "platform": "Arte"},
+    {"title": "Nature's Building Blocks", "year": 2021, "platform": "BBC"}
+  ],
+  "books_featuring_physarum": [
+    {"title": "The Creeping Garden", "author": "Grabham & Sharp", "year": 2015},
+    {"title": "Slime: How Algae Created Us", "author": "Kassinger", "year": 2019},
+    {"title": "Entangled Life", "author": "Merlin Sheldrake", "year": 2020}
+  ],
+  "educational_impact": {
+    "status": "Widely adopted",
+    "variant": "success"
+  },
+  "educational_use_cases": [
+    "MINT-Unterricht an Schulen",
+    "Universitaetslabore weltweit",
+    "Science Center und Museen",
+    "Citizen Science Projekte",
+    "YouTube-Wissenschaftsvideos"
+  ],
+  "youtube_channels_featuring": [
+    "Kurzgesagt",
+    "SciShow",
+    "Veritasium",
+    "PBS Eons",
+    "It's Okay To Be Smart"
+  ],
+  "social_media_hashtags": [
+    "#SlimeMold",
+    "#Physarum",
+    "#TheBlob",
+    "#IntelligentSlime"
+  ],
+  "instagram_posts_count": 45000,
+  "twitter_mentions_annual": 12000,
+  "reddit_communities": [
+    "r/slimemolds",
+    "r/mycology",
+    "r/biology"
+  ],
+  "diy_culture_popularity": {
+    "status": "Growing",
+    "variant": "success"
+  },
+  "diy_culture_description": "Eine wachsende Community zuechtet Physarum zu Hause als lebendes Haustier und fuehrt eigene Experimente durch",
+  "home_culture_starter_kits_sold": 50000,
+  "pet_slime_community_members": 25000,
+  "source": {
+    "authors": "Adamatzky, A.",
+    "year": 2016,
+    "title": "Advances in Physarum Machines: Sensing and Computing with Slime Mould",
+    "journal": "Springer",
+    "doi": "10.1007/978-3-319-26662-6"
+  }
+}

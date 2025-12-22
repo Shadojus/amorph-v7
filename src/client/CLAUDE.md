@@ -19,10 +19,6 @@ client/
 
 ## 🔍 Perspektiven-System
 
-### Max 4 aktive Perspektiven (FIFO)
-
-- Maximal **4 Perspektiven** gleichzeitig aktivierbar
-- Bei Überschreitung: **Älteste wird entfernt** (First In First Out)
 - Aktive Perspektiven erscheinen als **Text-Pills** im Suchfeld
 
 ### Perspektiven-Suche (ab 4 Zeichen)

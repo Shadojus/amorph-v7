@@ -7,37 +7,50 @@
 ```
 public/
 ├── styles/
-│   ├── base.css        # Design Tokens + Reset
-│   ├── components.css  # UI-Komponenten
-│   └── morphs.css      # Morph-spezifische Styles
+│   ├── base.css        # BLACK GLASS SYSTEM (Single Source of Truth) + Universe BG
+│   ├── components.css  # UI-Komponenten (nutzen System-Variablen)
+│   ├── morphs.css      # Morph-spezifische Styles
+│   └── morphs/
+│       ├── _card.css   # Morph Cards (nutzen System-Variablen)
+│       └── _compare.css # Compare Mode (nutzen System-Variablen)
 └── icons/
     └── (PWA Icons)
 ```
 
-## 🎨 Design System
+## 🎨 Design System: BLACK GLASS MORPHISM
 
-### Farbpalette
+### Universe Background
 
-**System Color**: Psychedelic Blue `#4d88ff`
+**Schwarzer Weltraum mit ultramarinblauen Nebelschwaden**:
+```css
+background: #000000;
+background-image: 
+  radial-gradient(ellipse at 0% 10%, rgba(30, 60, 220, 0.5) 0%, transparent 55%),
+  radial-gradient(ellipse at 100% 90%, rgba(40, 70, 200, 0.4) 0%, transparent 55%);
+```
 
-**Background Gradient**:
+### Black Glass Components
+
+**Standard Glass Panel** (Aus _glass.css):
 ```css
 background: linear-gradient(
-  135deg,
-  #0a0a0f 0%,
-  #1a0a2e 25%,
-  #0d0d1f 50%,
-  #0a1a2e 75%,
-  #0a0a0f 100%
+  145deg,
+  rgba(12, 18, 45, 0.65) 0%,
+  rgba(6, 10, 28, 0.75) 50%,
+  rgba(10, 16, 40, 0.65) 100%
 );
+border: 1px solid rgba(80, 120, 255, 0.12);
+border-top-color: rgba(130, 170, 255, 0.2);
+box-shadow: 
+  inset 0 1px 0 rgba(255, 255, 255, 0.06),
+  0 8px 32px rgba(0, 0, 0, 0.4);
 ```
 
-**Glass Effect**:
-```css
-background: rgba(13, 13, 31, 0.85);
-backdrop-filter: blur(20px);
-border: 1px solid rgba(77, 136, 255, 0.2);
-```
+**KEIN BLUR** - Klares, scharfes Glas mit Lichtreflexionen
+
+### System Color
+
+**Psychedelic Blue**: `#4d88ff` / `rgb(77, 136, 255)`
 
 ### Perspektiven-Farben (15)
 

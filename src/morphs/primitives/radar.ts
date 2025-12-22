@@ -40,14 +40,11 @@ function normalizeRadarData(value: unknown): RadarEntry[] {
 }
 
 /**
- * Format axis label
+ * Format axis label - NO TRUNCATION
+ * Labels werden NICHT gekürzt, CSS/ViewBox muss angepasst werden
  */
-function formatAxisLabel(label: string, maxLen = 10): string {
-  let clean = label.replace(/_/g, ' ').trim();
-  if (clean.length > maxLen) {
-    return clean.slice(0, maxLen - 1) + '…';
-  }
-  return clean || label;
+function formatAxisLabel(label: string): string {
+  return label.replace(/_/g, ' ').trim() || label;
 }
 
 export const radar = createUnifiedMorph(
@@ -56,39 +53,55 @@ export const radar = createUnifiedMorph(
     const entries = normalizeRadarData(value);
     if (entries.length < 3) return `<span class="morph-text">${escapeHtml(JSON.stringify(value).slice(0, 50))}...</span>`;
     
-    const size = 100;
+    // Größere ViewBox für volle Label-Darstellung
+    const size = 200;
     const center = size / 2;
-    const radius = (size / 2) - 15;
+    const radius = 55;  // Kleinerer Radius, mehr Platz für Labels
     const angleStep = (2 * Math.PI) / entries.length;
     const max = Math.max(...entries.map(e => e.value), 1);
     
+    // Grid-Kreise - sehr dezent
     const gridCircles = [0.25, 0.5, 0.75, 1].map(pct => {
       const r = radius * pct;
-      return `<circle cx="${center}" cy="${center}" r="${r}" fill="none" stroke="rgba(77,136,255,0.15)" stroke-width="0.5"/>`;
+      return `<circle class="radar-grid" cx="${center}" cy="${center}" r="${r}"/>`;
     }).join('');
     
+    // Achsenlinien - dezent
     const axisLines = entries.map((_, idx) => {
       const angle = idx * angleStep - Math.PI / 2;
       const x2 = center + Math.cos(angle) * radius;
       const y2 = center + Math.sin(angle) * radius;
-      return `<line x1="${center}" y1="${center}" x2="${x2}" y2="${y2}" stroke="rgba(77,136,255,0.1)" stroke-width="0.5"/>`;
+      return `<line class="radar-axis" x1="${center}" y1="${center}" x2="${x2}" y2="${y2}"/>`;
     }).join('');
     
+    // Datenpunkte berechnen
     const points = entries.map((entry, idx) => {
       const angle = idx * angleStep - Math.PI / 2;
       const r = (entry.value / max) * radius;
       return { x: center + Math.cos(angle) * r, y: center + Math.sin(angle) * r };
     });
     
+    // Datenfläche als Pfad
     const pathD = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ') + ' Z';
     
+    // LICHTKUGELN an jedem Datenpunkt!
+    const dataPoints = points.map(p => 
+      `<circle class="radar-point" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="3"/>`
+    ).join('');
+    
+    // Labels - grau und dezent
     const labels = entries.map((entry, idx) => {
       const angle = idx * angleStep - Math.PI / 2;
-      const labelR = radius + 10;
+      const labelR = radius + 25;
+      let anchor = 'middle';
+      const x = center + Math.cos(angle) * labelR;
+      if (x < center - 10) anchor = 'end';
+      else if (x > center + 10) anchor = 'start';
       return { 
-        x: center + Math.cos(angle) * labelR, 
+        x, 
         y: center + Math.sin(angle) * labelR, 
-        text: formatAxisLabel(entry.axis, 8)
+        text: formatAxisLabel(entry.axis),
+        anchor
       };
     });
     
@@ -96,9 +109,10 @@ export const radar = createUnifiedMorph(
       <svg class="morph-radar" viewBox="0 0 ${size} ${size}">
         ${gridCircles}
         ${axisLines}
-        <path d="${pathD}" fill="rgba(77,136,255,0.2)" stroke="rgba(77,136,255,0.8)" stroke-width="1.5" />
+        <path class="radar-area" d="${pathD}"/>
+        ${dataPoints}
         ${labels.map(l => `
-          <text x="${l.x}" y="${l.y}" text-anchor="middle" dominant-baseline="middle" font-size="5" fill="rgba(255,255,255,0.6)">
+          <text class="radar-label" x="${l.x}" y="${l.y}" text-anchor="${l.anchor}" dominant-baseline="middle">
             ${escapeHtml(l.text)}
           </text>
         `).join('')}
@@ -129,19 +143,22 @@ export const radar = createUnifiedMorph(
       entries.forEach(e => { if (e.value > max) max = e.value; });
     });
     
+    // Grid-Kreise - dezent
     const gridCircles = [0.5, 1].map(pct => {
       const r = radius * pct;
-      return `<circle cx="${center}" cy="${center}" r="${r}" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>`;
+      return `<circle class="radar-grid" cx="${center}" cy="${center}" r="${r}"/>`;
     }).join('');
     
+    // Achsenlinien - dezent
     const axisLines = axes.map((_, idx) => {
       const angle = idx * angleStep - Math.PI / 2;
       const x2 = center + Math.cos(angle) * radius;
       const y2 = center + Math.sin(angle) * radius;
-      return `<line x1="${center}" y1="${center}" x2="${x2}" y2="${y2}" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>`;
+      return `<line class="radar-axis" x1="${center}" y1="${center}" x2="${x2}" y2="${y2}"/>`;
     }).join('');
     
-    const paths = normalizedValues.map(({ entries, color }) => {
+    // Pfade UND Lichtkugeln für jede Spezies
+    const pathsAndPoints = normalizedValues.map(({ entries, color }) => {
       const entryMap = new Map(entries.map(e => [e.axis, e.value]));
       const points = axes.map((axis, idx) => {
         const angle = idx * angleStep - Math.PI / 2;
@@ -150,13 +167,17 @@ export const radar = createUnifiedMorph(
         return { x: center + Math.cos(angle) * r, y: center + Math.sin(angle) * r };
       });
       const d = points.map((p, i) => `${i === 0 ? 'M' : 'L'} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`).join(' ') + ' Z';
-      return { d, color };
+      return { d, color, points };
     });
     
     const labels = axes.map((axis, idx) => {
       const angle = idx * angleStep - Math.PI / 2;
       const labelR = radius + 25;
-      return { x: center + Math.cos(angle) * labelR, y: center + Math.sin(angle) * labelR, text: formatAxisLabel(axis, 20) };
+      const x = center + Math.cos(angle) * labelR;
+      let anchor = 'middle';
+      if (x < center - 10) anchor = 'end';
+      else if (x > center + 10) anchor = 'start';
+      return { x, y: center + Math.sin(angle) * labelR, text: formatAxisLabel(axis), anchor };
     });
 
     // Calculate stats per axis for comparison
@@ -175,11 +196,14 @@ export const radar = createUnifiedMorph(
         <svg class="radar-svg" viewBox="0 0 ${size} ${size}">
           ${gridCircles}
           ${axisLines}
-          ${paths.map(p => `
-            <path d="${p.d}" fill="${escapeHtml(p.color)}" fill-opacity="0.12" stroke="${escapeHtml(p.color)}" stroke-width="1.5"/>
+          ${pathsAndPoints.map(p => `
+            <path class="radar-area-compare" d="${p.d}" style="--item-color: ${escapeHtml(p.color)}"/>
           `).join('')}
+          ${pathsAndPoints.map(p => p.points.map(pt => `
+            <circle class="radar-point-compare" cx="${pt.x.toFixed(1)}" cy="${pt.y.toFixed(1)}" r="2.5" style="--item-color: ${escapeHtml(p.color)}"/>
+          `).join('')).join('')}
           ${labels.map(l => `
-            <text x="${l.x}" y="${l.y}" text-anchor="middle" dominant-baseline="middle" font-size="9" fill="rgba(255,255,255,0.7)">
+            <text class="radar-label" x="${l.x}" y="${l.y}" text-anchor="${l.anchor}" dominant-baseline="middle">
               ${escapeHtml(l.text)}
             </text>
           `).join('')}
@@ -187,7 +211,7 @@ export const radar = createUnifiedMorph(
         <div class="radar-legend">
           ${normalizedValues.map(({ color, name }) => `
             <div class="radar-legend-item" style="--item-color: ${escapeHtml(color)}">
-              <span class="radar-dot"></span>
+              <span class="cmp-dot"></span>
               <span class="radar-name">${escapeHtml(name)}</span>
             </div>
           `).join('')}
@@ -196,7 +220,7 @@ export const radar = createUnifiedMorph(
           <div class="radar-stats">
             ${axisStats.filter(s => s.diff > 0).slice(0, 3).map(({ axis, values, diff }) => `
               <div class="radar-stat-row">
-                <span class="radar-stat-label">${escapeHtml(formatAxisLabel(axis, 12))}</span>
+                <span class="radar-stat-label">${escapeHtml(formatAxisLabel(axis))}</span>
                 <div class="radar-stat-bars">
                   ${values.map((val, idx) => {
                     const pct = max > 0 ? (val / max) * 100 : 0;

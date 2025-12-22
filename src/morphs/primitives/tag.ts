@@ -124,9 +124,9 @@ export const tag = createUnifiedMorph(
             const months = (Array.isArray(value) ? value : [value]).map(Number);
             const formatted = formatMonthRange(months);
             return `
-              <div class="cmp-text-row" style="--item-color: ${color}">
+              <div class="text-row" style="--item-color: ${color}">
                 <span class="cmp-dot"></span>
-                <span class="cmp-text" title="${months.map(m => MONTH_NAMES_FULL[m-1]).join(', ')}">📅 ${escapeHtml(formatted)}</span>
+                <span class="text-value" title="${months.map(m => MONTH_NAMES_FULL[m-1]).join(', ')}">📅 ${escapeHtml(formatted)}</span>
               </div>
             `;
           }).join('')}

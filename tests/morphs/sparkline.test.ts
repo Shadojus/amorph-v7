@@ -54,7 +54,7 @@ describe('sparkline compare', () => {
       [20, 30, 40]
     ]);
     const html = sparkline(null, ctx);
-    expect(html).toContain('sparkline-dot');
+    expect(html).toContain('cmp-dot');
     expect(html).toContain('sparkline-val');
   });
 

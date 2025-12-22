@@ -45,7 +45,7 @@ describe('boolean compare', () => {
   it('should include colored dots per item', () => {
     const ctx = createCompareContextWithValues('active', [true, false]);
     const html = boolean(null, ctx);
-    expect(html).toContain('bool-dot');
+    expect(html).toContain('cmp-dot');
     expect(html).toContain('--item-color');
   });
 });

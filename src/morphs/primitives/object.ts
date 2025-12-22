@@ -9,12 +9,12 @@
 import { createUnifiedMorph, escapeHtml, formatNumber } from '../base.js';
 
 /**
- * Rekursives Rendering von Werten
+ * Rekursives Rendering von Werten - CLEAN DESIGN
  */
 function renderValue(val: unknown, depth = 0): string {
   // Schutz gegen zu tiefe Verschachtelung
   if (depth > 3) {
-    return `<span class="morph-text morph-muted">...</span>`;
+    return `<span class="morph-text morph-muted">…</span>`;
   }
   
   // Null/undefined
@@ -24,13 +24,16 @@ function renderValue(val: unknown, depth = 0): string {
   
   // Primitive Typen
   if (typeof val !== 'object') {
+    if (typeof val === 'number') {
+      return `<span class="morph-object-num">${formatNumber(val as number)}</span>`;
+    }
     return `<span class="morph-text">${escapeHtml(val)}</span>`;
   }
   
   // Arrays
   if (Array.isArray(val)) {
     if (val.length === 0) {
-      return `<span class="morph-text morph-muted">[]</span>`;
+      return `<span class="morph-text morph-muted">–</span>`;
     }
     // Prüfen ob Array von Primitiven oder Objekten
     const isPrimitiveArray = val.every(item => typeof item !== 'object' || item === null);
@@ -41,34 +44,29 @@ function renderValue(val: unknown, depth = 0): string {
         </span>
       `;
     }
-    // Array von Objekten
+    // Array von Objekten - compact list
     return `
-      <div class="morph-object-list">
-        ${val.map((item, i) => `
-          <div class="morph-object-list-item">
-            <span class="morph-object-list-index">${i + 1}</span>
-            ${renderValue(item, depth + 1)}
-          </div>
-        `).join('')}
+      <div class="morph-object-items">
+        ${val.map(item => renderValue(item, depth + 1)).join('')}
       </div>
     `;
   }
   
-  // Objekte
+  // Objekte - Clean Key-Value Layout
   const entries = Object.entries(val as Record<string, unknown>);
   if (entries.length === 0) {
-    return `<span class="morph-text morph-muted">{}</span>`;
+    return `<span class="morph-text morph-muted">–</span>`;
   }
   
   return `
-    <dl class="morph-object${depth > 0 ? ' morph-object-nested' : ''}">
+    <div class="morph-object${depth > 0 ? ' morph-object-nested' : ''}">
       ${entries.map(([key, v]) => `
         <div class="morph-object-row">
-          <dt>${escapeHtml(key)}</dt>
-          <dd>${renderValue(v, depth + 1)}</dd>
+          <span class="morph-object-key">${escapeHtml(key.replace(/_/g, ' '))}</span>
+          <span class="morph-object-value">${renderValue(v, depth + 1)}</span>
         </div>
       `).join('')}
-    </dl>
+    </div>
   `;
 }
 
@@ -224,7 +222,7 @@ export const object = createUnifiedMorph(
               <th class="object-compare-header-key"></th>
               ${objectValues.map(({ color, name }) => `
                 <th class="object-compare-header-item" style="--item-color: ${escapeHtml(color)}">
-                  <span class="object-compare-dot"></span>
+                  <span class="cmp-dot"></span>
                   ${escapeHtml(name)}
                 </th>
               `).join('')}

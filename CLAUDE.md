@@ -6,13 +6,14 @@
 
 ## Status: ✅ Production Ready
 
-- **343 Tests** bestanden (Detection, Security, Morphs, Observer, Integration)
+- **421 Tests** bestanden (Detection, Security, Morphs, Observer, Integration, Real-Data, API, Error-Handling)
 - **18 Morph Primitives** implementiert (45+ MorphTypes definiert für Erweiterbarkeit)
 - **Struktur-basierte Detection** - Typ-Erkennung rein aus Datenstruktur, nicht Feldnamen
 - **Object-Parsing in Morphs** - Badge/Rating/Progress parsen strukturierte Objekte
 - **Compare-Optimierung** - Vereinheitlichtes Design mit bar-row/bar-fill-track Pattern
 - **Search Showcase** - "First Load" Ansicht zeigt jeden Morph-Typ einmal mit Echtdaten
-- **matchedPerspectives Auto-Activation** - Suchergebnisse zeigen automatisch relevante Felder
+- **Suchmaschinen-UX** - Perspektiven werden automatisch durch Suche aktiviert (ab 3 Zeichen)
+- **Lazy-Loading** für Perspektiven (loadPerspective, loadPerspectives, hasPerspective)
 - **Observer System** standardmäßig aktiviert
 - **Debug-Logging** standardmäßig aktiviert für Entwicklung
 - **Black Glass Morphism** Design mit Psychedelic Blue (#4d88ff)
@@ -20,8 +21,9 @@
 - **Astro 5.16** mit SSR auf Port 4323
 - **XSS-Schutz** in Image-Morph via validateUrl
 - **Feld-basierte Selektion** für granularen Compare
-- **Base64 Raw Values** für Compare-Modus (bis 10KB)
+- **Base64 Raw Values** für Compare-Modus (bis 10KB, mit Circular-Reference-Schutz)
 - **Double-Init Guards** verhindern mehrfache Event-Registrierung
+- **Robuste Fehlerbehandlung** bei JSON-Parsing mit detaillierten Fehlerberichten (getLoadErrors, invalidateCache)
 
 ## 🎯 Kernkonzept
 
@@ -45,7 +47,7 @@ badge(value, context);  // Single ODER Compare je nach Context
 cd amorph-v7
 npm install
 npm run dev          # Port 4323
-npm test             # 215 Tests
+npm test             # 421 Tests im Watch-Modus
 npm run test:run     # Einmalig ohne Watch
 ```
 
@@ -94,7 +96,7 @@ amorph-v7/
 │   ├── styles/          # base.css, components.css, morphs.css
 │   └── icons/           # PWA Icons
 │
-└── tests/               # 5 Test-Suites, 227 Tests
+└── tests/               # 28 Test-Suites, 421 Tests
 ```
 
 ## 📱 Layout (Mobile-First)
@@ -135,19 +137,15 @@ Statt ganze Items zu vergleichen, können einzelne **Datenfelder** ausgewählt w
 └─────────────────────────────────┘
 ```
 
-## 🔍 Perspektiven-System
+## 🔍 Perspektiven-System (Suchmaschinen-Modus)
 
-### Max 4 aktive Perspektiven (FIFO)
+### Automatische Perspektiven-Aktivierung
 
-- Maximal **4 Perspektiven** gleichzeitig aktivierbar
-- Bei Überschreitung: **Älteste wird entfernt** (First In First Out)
+- **Keine manuellen Perspektiven-Buttons** - reine Suchmaschinen-UX
+- Perspektiven werden **automatisch aktiviert** basierend auf Suchbegriffen
+- Auto-Aktivierung ab **3 Zeichen** Sucheingabe
+- Suche nach **"chem"** → Perspektive "Chemistry" wird automatisch aktiviert
 - Aktive Perspektiven erscheinen als **Text-Pills** im Suchfeld
-
-### Perspektiven-Suche (ab 4 Zeichen)
-
-- Suche nach **"chem"** → Perspektive "Chemistry" matcht
-- Gematchte (aber nicht aktive) Perspektiven bekommen **Glow + Counter**
-- Auto-Aktivierung respektiert das 4er-Limit
 
 ### Perspektiven-Daten in Cards
 

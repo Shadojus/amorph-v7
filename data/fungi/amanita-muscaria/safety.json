@@ -1,0 +1,206 @@
+{
+  "edibility": {
+    "status": "poisonous",
+    "variant": "danger"
+  },
+  "toxicity_level": {
+    "status": "Moderately Toxic",
+    "variant": "warning"
+  },
+  "edibility_rating": {
+    "rating": 1,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Unregulated in most countries",
+    "variant": "muted"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Kein Verzehr - giftig",
+    "Haende nach Beruehrung waschen",
+    "Kindern den Umgang beibringen",
+    "Nicht mit essbaren Pilzen gemeinsam lagern"
+  ],
+  "toxin_classes": [
+    "Isoxazole (Ibotensaeure, Muscimol)",
+    "Muscarin (in geringen Mengen)"
+  ],
+  "primary_toxins": [
+    {
+      "name": "Ibotensaeure",
+      "cas": "2552-55-8",
+      "mechanism": "NMDA-Rezeptor-Agonist, exzitotoxisch",
+      "lethal_dose": "Nicht toedlich in typischen Mengen"
+    },
+    {
+      "name": "Muscimol",
+      "cas": "2763-96-4",
+      "mechanism": "GABA-A-Rezeptor-Agonist, sedativ-hypnotisch",
+      "lethal_dose": "LD50 ca. 45 mg/kg (Maus)"
+    },
+    {
+      "name": "Muscarin",
+      "cas": "300-54-9",
+      "mechanism": "Muscarinischer Acetylcholin-Rezeptor-Agonist",
+      "lethal_dose": "Nur in Spuren vorhanden"
+    }
+  ],
+  "toxin_distribution": [
+    {"label": "Muscimol", "value": 45},
+    {"label": "Ibotensaeure", "value": 35},
+    {"label": "Muscazon", "value": 12},
+    {"label": "Muscarin", "value": 3},
+    {"label": "Andere", "value": 5}
+  ],
+  "toxin_concentration": {
+    "min": 0.1,
+    "max": 0.5,
+    "unit": "% dry weight"
+  },
+  "minimum_toxic_dose": {
+    "min": 6,
+    "max": 10,
+    "unit": "mg Muscimol"
+  },
+  "onset_time": {
+    "min": 30,
+    "max": 120,
+    "unit": "minutes"
+  },
+  "duration_of_effects": {
+    "min": 4,
+    "max": 12,
+    "unit": "hours"
+  },
+  "symptoms_by_severity": [
+    {"level": "low", "typ": "Gastrointestinal", "beschreibung": "Uebelkeit, Erbrechen, Durchfall in den ersten 1-2 Stunden"},
+    {"level": "medium", "typ": "Neurologisch", "beschreibung": "Schwindel, Verwirrtheit, Euphorie oder Dysphorie, visuelle Stoerungen"},
+    {"level": "high", "typ": "Motorisch", "beschreibung": "Muskelzuckungen, Ataxie, Kraempfe in schweren Faellen"},
+    {"level": "medium", "typ": "Psychisch", "beschreibung": "Halluzinationen, veraendertes Zeitempfinden, Delirium"}
+  ],
+  "symptoms_acute": [
+    "Uebelkeit und Erbrechen",
+    "Speichelfluss",
+    "Schwindel",
+    "Verwirrtheit",
+    "Euphorie oder Angst",
+    "Muskelzuckungen",
+    "Ataxie",
+    "Sedierung bis Bewusstlosigkeit"
+  ],
+  "symptoms_delayed": [
+    "Kater-aehnlicher Zustand",
+    "Muedigkeit",
+    "Kopfschmerzen",
+    "Amnesie fuer die Intoxikationsperiode"
+  ],
+  "fatality_rate": {
+    "value": 0.1,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "fatality_note": "Todesfaelle extrem selten, meist durch Unfaelle waehrend Intoxikation oder bei Kindern",
+  "affected_systems": [
+    "Zentrales Nervensystem (ZNS)",
+    "Gastrointestinaltrakt",
+    "Autonomes Nervensystem"
+  ],
+  "risk_groups": [
+    "Kinder (hoechstes Risiko wegen attraktivem Aussehen)",
+    "Personen mit neurologischen Vorerkrankungen",
+    "Aeltere Menschen",
+    "Personen unter Alkohol- oder Drogeneinfluss"
+  ],
+  "first_aid_immediate": [
+    "Kein Erbrechen ausloesen (Aspirationsgefahr bei Sedierung)",
+    "Betroffenen beruhigen und ueberwachen",
+    "Stabile Seitenlage bei Bewusstlosigkeit",
+    "Giftnotruf kontaktieren",
+    "Pilzreste fuer Identifikation sichern"
+  ],
+  "first_aid_medical": [
+    "Symptomatische Behandlung",
+    "Aktivkohle wenn innerhalb 1 Stunde nach Ingestion",
+    "Ueberwachung von Atmung und Kreislauf",
+    "Benzodiazepine bei schwerer Agitation",
+    "Fluessigkeitssubstitution"
+  ],
+  "antidote": "Kein spezifisches Antidot vorhanden",
+  "medical_treatment": "Supportive Therapie, Sedierung bei Agitation, Monitoring",
+  "poison_control_relevant": true,
+  "poison_control_number": "Giftnotruf Deutschland: 030 19240",
+  "hospital_admission_criteria": [
+    "Kindervergiftung",
+    "Bewusstseinsstoerung",
+    "Schwere neurologische Symptome",
+    "Ateminsuffizienz"
+  ],
+  "prognosis": {
+    "status": "Excellent with supportive care",
+    "variant": "success"
+  },
+  "recovery_time": {
+    "min": 12,
+    "max": 48,
+    "unit": "hours"
+  },
+  "long_term_effects": "Keine bekannten Langzeitfolgen bei einmaliger Exposition",
+  "cross_reactivity": [
+    "Amanita pantherina (staerkere Toxizitaet, gleiche Toxine)",
+    "Amanita gemmata (aehnliches Toxinprofil)"
+  ],
+  "environmental_risks": {
+    "status": "None",
+    "variant": "success"
+  },
+  "environmental_risk_description": "Keine Umweltgefaehrdung, natuerlicher Bestandteil von Waldoekosystemen",
+  "collection_warnings": [
+    "Nicht sammeln zum Verzehr",
+    "Nicht mit essbaren Pilzen in einem Behaelter transportieren",
+    "Kinder ueber Gefaehrlichkeit aufklaeren",
+    "Fuer wissenschaftliche Zwecke: Handschuhe optional"
+  ],
+  "storage_risks": "Toxine bleiben auch nach Trocknung aktiv",
+  "processing_risks": [
+    "Kochen reduziert Toxizitaet NICHT zuverlaessig",
+    "Trocknung kann Ibotensaeure zu Muscimol umwandeln",
+    "Keine sichere Zubereitungsmethode bekannt"
+  ],
+  "drug_interactions": [
+    "Alkohol - verstaerkt sedative Wirkung",
+    "Benzodiazepine - additive ZNS-Depression",
+    "Opioide - Atemdepressionsrisiko",
+    "Anticholinergika - verstaerkte Wirkung"
+  ],
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "contraindications": [
+    "Schwangerschaft",
+    "Stillzeit",
+    "Neurologische Erkrankungen",
+    "Psychische Erkrankungen",
+    "Leber- oder Niereninsuffizienz"
+  ],
+  "safety_studies_available": true,
+  "clinical_case_reports": [
+    {
+      "authors": "Michelot, D. & Melendez-Howell, L.M.",
+      "year": 2003,
+      "title": "Amanita muscaria: Chemistry, Biology, Toxicology, and Ethnomycology",
+      "journal": "Mycological Research",
+      "doi": "10.1017/S0953756203007305"
+    }
+  ],
+  "source": {
+    "authors": "Vendramin, A. & Brvar, M.",
+    "year": 2014,
+    "title": "Amanita muscaria and Amanita pantherina poisoning: Two cases",
+    "journal": "Clinical Toxicology",
+    "doi": "10.3109/15563650.2014.888451"
+  }
+}

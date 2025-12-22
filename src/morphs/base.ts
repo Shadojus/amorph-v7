@@ -215,17 +215,26 @@ export function wrapInField(
   let valueAttr = '';
   if (rawValue !== undefined && rawValue !== null) {
     try {
-      const jsonStr = JSON.stringify(rawValue);
+      // Check for circular references before stringify
+      const seen = new WeakSet();
+      const jsonStr = JSON.stringify(rawValue, (key, value) => {
+        if (typeof value === 'object' && value !== null) {
+          if (seen.has(value)) {
+            return '[Circular]';
+          }
+          seen.add(value);
+        }
+        return value;
+      });
+      
       // Limit size to avoid massive attributes (>10KB)
       if (jsonStr.length <= 10000) {
         // Base64 encode for safe transport
         const base64 = Buffer.from(jsonStr, 'utf-8').toString('base64');
         valueAttr = ` data-raw-value="${base64}"`;
-      } else {
-        console.log(`[wrapInField] Skipping raw value for ${fieldName}: too large (${jsonStr.length} bytes)`);
       }
     } catch (e) {
-      console.warn(`[wrapInField] Failed to serialize raw value for ${fieldName}:`, e);
+      // Silently skip - not critical for rendering
     }
   }
   

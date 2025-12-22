@@ -1,0 +1,96 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: PIE
+   Universe Theme - Lichtkugeln als Legende
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-pie {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.morph-pie--empty {
+  color: var(--text-muted, rgba(255, 255, 255, 0.3));
+  font-style: italic;
+  font-size: 0.8rem;
+}
+
+.morph-pie-chart {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--pie-gradient);
+}
+
+.morph-pie-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.morph-pie-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.7rem;
+}
+
+/* Lichtkugel in Legende - Farben per Index */
+.morph-pie-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.morph-pie-item[data-pie-idx="0"] .morph-pie-dot { background: var(--morph-accent); box-shadow: 0 0 8px var(--morph-accent); }
+.morph-pie-item[data-pie-idx="1"] .morph-pie-dot { background: color-mix(in srgb, var(--morph-accent) 70%, transparent); box-shadow: 0 0 8px color-mix(in srgb, var(--morph-accent) 70%, transparent); }
+.morph-pie-item[data-pie-idx="2"] .morph-pie-dot { background: color-mix(in srgb, var(--morph-accent) 50%, transparent); box-shadow: 0 0 8px color-mix(in srgb, var(--morph-accent) 50%, transparent); }
+.morph-pie-item[data-pie-idx="3"] .morph-pie-dot { background: color-mix(in srgb, var(--morph-accent) 35%, transparent); box-shadow: 0 0 6px color-mix(in srgb, var(--morph-accent) 35%, transparent); }
+.morph-pie-item[data-pie-idx="4"] .morph-pie-dot { background: color-mix(in srgb, var(--morph-accent) 20%, transparent); box-shadow: 0 0 4px color-mix(in srgb, var(--morph-accent) 20%, transparent); }
+.morph-pie-item[data-pie-idx="5"] .morph-pie-dot { background: var(--text-muted); box-shadow: none; }
+
+/* Labels - grau */
+.morph-pie-label {
+  color: var(--text-secondary, rgba(255, 255, 255, 0.45));
+}
+
+/* Werte - dezent */
+.morph-pie-value {
+  color: var(--text-muted, rgba(255, 255, 255, 0.3));
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PIE COMPARE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-pie-compare {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.pie-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Lichtkugel im Compare */
+.pie-cell::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--item-color, var(--morph-accent));
+  box-shadow: 0 0 8px var(--item-color, var(--morph-accent));
+}
+
+.pie-mini {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--pie-gradient);
+}

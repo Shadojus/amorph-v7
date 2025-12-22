@@ -1,0 +1,222 @@
+{
+  "scientific": "Amanita muscaria",
+  "chemotype": "Isoxazole-Alkaloid dominant",
+  "total_alkaloid_content": {
+    "min": 0.1,
+    "max": 0.5,
+    "unit": "% dry weight"
+  },
+  "alkaloid_content_by_part": [
+    {"label": "Hut (Pileus)", "value": 0.35},
+    {"label": "Huthaut (Cuticula)", "value": 0.50},
+    {"label": "Stiel (Stipe)", "value": 0.15},
+    {"label": "Lamellen", "value": 0.25}
+  ],
+  "primary_metabolites": {
+    "carbohydrates": {
+      "total_percent": 50,
+      "types": ["Chitin", "Glucane", "Trehalose", "Mannitol"]
+    },
+    "proteins": {
+      "total_percent": 25,
+      "amino_acids": ["Glutaminsaeure", "Asparaginsaeure", "Alanin"]
+    },
+    "lipids": {
+      "total_percent": 3,
+      "fatty_acids": ["Linolsaeure", "Oelsaeure", "Palmitinsaeure"]
+    }
+  },
+  "secondary_metabolites": [
+    "Ibotensaeure (alpha-Amino-3-hydroxy-5-isoxazolessigsaeure)",
+    "Muscimol (5-Aminomethyl-3-hydroxyisoxazol)",
+    "Muscazon (Oxazol-Derivat)",
+    "Muscarin (in Spuren)",
+    "Betalaine (rote und gelbe Farbstoffe)",
+    "Muscaflavin (gelbes Pigment)",
+    "Muscapurpurin (rotes Pigment)"
+  ],
+  "alkaloid_compounds": [
+    {
+      "name": "Ibotensaeure",
+      "cas": "2552-55-8",
+      "formula": "C5H6N2O4",
+      "molecular_weight": 158.11,
+      "content_range": {"min": 0.03, "max": 0.10, "unit": "% DW"},
+      "pharmacological_class": "NMDA-Rezeptor-Agonist, Prodrug",
+      "mechanism": "Exzitatorische Aminosaeue, neurotoxisch, decarboxyliert zu Muscimol"
+    },
+    {
+      "name": "Muscimol",
+      "cas": "2763-96-4",
+      "formula": "C4H6N2O2",
+      "molecular_weight": 114.10,
+      "content_range": {"min": 0.01, "max": 0.18, "unit": "% DW"},
+      "pharmacological_class": "GABA-A-Rezeptor-Agonist",
+      "mechanism": "Potenter GABA-Agonist, wirkt sedativ-hypnotisch, halluzinogen"
+    },
+    {
+      "name": "Muscazon",
+      "cas": "2255-39-2",
+      "formula": "C5H6N2O3",
+      "molecular_weight": 142.11,
+      "content_range": {"min": 0.003, "max": 0.01, "unit": "% DW"},
+      "pharmacological_class": "Schwach aktiv, Photoabbauprodukt"
+    },
+    {
+      "name": "Muscarin",
+      "cas": "300-54-9",
+      "formula": "C9H20NO2+",
+      "molecular_weight": 174.26,
+      "content_range": {"min": 0.0002, "max": 0.003, "unit": "% DW"},
+      "pharmacological_class": "Muskarinischer Acetylcholin-Rezeptor-Agonist",
+      "mechanism": "Parasympathomimetisch, aber in zu geringer Menge fuer klinische Effekte"
+    }
+  ],
+  "alkaloid_profile_radar": [
+    {"axis": "Ibotensaeure", "value": 60},
+    {"axis": "Muscimol", "value": 45},
+    {"axis": "Muscazon", "value": 15},
+    {"axis": "Muscarin", "value": 3},
+    {"axis": "Andere Isoxazole", "value": 10}
+  ],
+  "pigment_compounds": [
+    {
+      "name": "Muscaflavin",
+      "color": "Gelb",
+      "chemical_class": "Betalain",
+      "function": "Lichtschutz, Antioxidans"
+    },
+    {
+      "name": "Muscapurpurin",
+      "color": "Rot-Orange",
+      "chemical_class": "Betalain",
+      "function": "Warnsignal, Lichtschutz"
+    },
+    {
+      "name": "Muscaurin",
+      "color": "Orange",
+      "chemical_class": "Betalain",
+      "function": "Farbpigment der Huthaut"
+    }
+  ],
+  "color_chemistry": {
+    "red_pigments": "Betalaine (Muscapurpurin, Muscaurin)",
+    "yellow_pigments": "Muscaflavin",
+    "white_spots": "Reste der Universalhulle (Velum universale)",
+    "biosynthesis": "Betalain-Weg aus Tyrosin via Betalaminsaeure"
+  },
+  "biosynthesis_pathway": {
+    "precursors": ["L-Glutaminsaeure", "Hydroxylamin", "Tyrosin"],
+    "key_intermediates": ["3-Hydroxy-isoxazol", "Betalaminsaeure"],
+    "key_enzymes": [
+      "Isoxazol-Synthase",
+      "Decarboxylasen",
+      "DOPA-Dioxygenase (fuer Betalaine)"
+    ],
+    "gene_cluster": "Nicht vollstaendig charakterisiert",
+    "regulation": "Entwicklungsabhaengig, maximal in reifen Fruchtkoerpern"
+  },
+  "biosynthesis_steps": [
+    {"step": 1, "enzyme": "Unbekannt", "reaction": "Glutamat-Derivat → 3-Hydroxy-isoxazol", "cofactor": "Unbekannt"},
+    {"step": 2, "enzyme": "Aminotransferase", "reaction": "Isoxazol → Ibotensaeure", "cofactor": "PLP"},
+    {"step": 3, "enzyme": "Decarboxylase", "reaction": "Ibotensaeure → Muscimol", "cofactor": "PLP"},
+    {"step": 4, "enzyme": "DOPA-Dioxygenase", "reaction": "Tyrosin → Betalaminsaeure (Farbstoffe)", "cofactor": "O2"}
+  ],
+  "seasonal_variation": [
+    {"label": "Juli", "value": 0.15},
+    {"label": "August", "value": 0.25},
+    {"label": "September (Peak)", "value": 0.38},
+    {"label": "Oktober", "value": 0.32},
+    {"label": "November", "value": 0.22}
+  ],
+  "drying_conversion": {
+    "process": "Ibotensaeure → Muscimol",
+    "mechanism": "Spontane Decarboxylierung bei Trocknung",
+    "conversion_rate": "50-70% bei sachgemaesser Trocknung",
+    "result": "Getrocknetes Material potenter als frisches"
+  },
+  "stability": {
+    "light_sensitivity": "Muscimol stabil, Ibotensaeure photolabil",
+    "heat_sensitivity": "Decarboxylierung beschleunigt ueber 60C",
+    "ph_sensitivity": "Stabil bei neutralem pH",
+    "storage_conditions": "Trocken, dunkel, kuehl - mehrere Jahre stabil"
+  },
+  "pharmacokinetics": {
+    "absorption": "Schnelle orale Absorption (Tmax 30-90 min)",
+    "distribution": "ZNS-gaengig, lipophil",
+    "metabolism": "Ibotensaeure zu Muscimol (spontan und enzymatisch)",
+    "half_life": "Muscimol: 4-6 Stunden",
+    "elimination": "Renal, Muscimol weitgehend unveraendert"
+  },
+  "pharmacodynamics": {
+    "primary_target": "GABA-A Rezeptor (Muscimol)",
+    "secondary_targets": ["NMDA-Rezeptor (Ibotensaeure)", "Glycin-Rezeptor"],
+    "mechanism": "Muscimol: GABA-Mimetikum, Ibotensaeure: exzitatorisch/neurotoxisch",
+    "downstream_effects": [
+      "ZNS-Depression (Muscimol)",
+      "Halluzinationen und Delirium",
+      "Muskelrelaxation",
+      "Sedierung"
+    ]
+  },
+  "receptor_affinity_radar": [
+    {"axis": "GABA-A (Muscimol)", "value": 95},
+    {"axis": "NMDA (Ibotensaeure)", "value": 75},
+    {"axis": "Glycin-Rezeptor", "value": 30},
+    {"axis": "mAChR (Muscarin)", "value": 5},
+    {"axis": "5-HT-Rezeptoren", "value": 3}
+  ],
+  "analytical_methods": [
+    "HPLC-UV (254 nm)",
+    "HPLC-MS/MS",
+    "GC-MS nach Derivatisierung",
+    "TLC mit Ninhydrin-Detektion",
+    "NMR-Spektroskopie"
+  ],
+  "detection_methods": {
+    "field": "Kein zuverlaessiger Feldtest verfuegbar",
+    "laboratory": "HPLC-MS/MS fuer Quantifizierung",
+    "forensic": "GC-MS fuer biologische Proben"
+  },
+  "nutritional_values": {
+    "energy_kcal": 27,
+    "protein_g": 2.5,
+    "carbohydrates_g": 5.0,
+    "fiber_g": 1.2,
+    "fat_g": 0.3,
+    "water_content_percent": 90
+  },
+  "mineral_content": [
+    {"label": "Kalium", "value": 320},
+    {"label": "Phosphor", "value": 110},
+    {"label": "Vanadium", "value": 85},
+    {"label": "Magnesium", "value": 15},
+    {"label": "Calcium", "value": 8}
+  ],
+  "vanadium_accumulation": {
+    "status": "High bioaccumulator",
+    "variant": "warning"
+  },
+  "vanadium_content": {
+    "min": 40,
+    "max": 400,
+    "unit": "mg/kg dry weight"
+  },
+  "vanadium_note": "Amanita muscaria ist ein bekannter Vanadium-Hyperakkumulator, der Grund dafuer ist unbekannt",
+  "source": {
+    "authors": "Michelot, D. & Melendez-Howell, L.M.",
+    "year": 2003,
+    "title": "Amanita muscaria: Chemistry, Biology, Toxicology, and Ethnomycology",
+    "journal": "Mycological Research",
+    "doi": "10.1017/S0953756203007305"
+  },
+  "additional_sources": [
+    {
+      "authors": "Tsunoda, K. et al.",
+      "year": 1993,
+      "title": "Determination of ibotenic acid and muscimol in Amanita mushrooms",
+      "journal": "Journal of Food Hygienic Society of Japan",
+      "doi": ""
+    }
+  ]
+}

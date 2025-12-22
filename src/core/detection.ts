@@ -66,6 +66,25 @@ import type { MorphType } from './types';
 /**
  * Erkennt Morph-Typ aus Datenstruktur.
  * Feldname wird für semantische Hinweise verwendet (z.B. "months" für Monatszahlen).
+ * 
+ * WICHTIG: Erkennungsreihenfolge ist kritisch!
+ * 
+ * Primitive (in dieser Reihenfolge):
+ *   1. null/undefined → text
+ *   2. boolean → boolean  
+ *   3. number → number
+ *   4. string → image > link > date > tag > text
+ *   5. array → siehe detectArrayStructure
+ *   6. object → siehe detectObjectStructure
+ * 
+ * Object-Erkennung (Reihenfolge wichtig wegen Überlappung):
+ *   1. {status, variant} → badge
+ *   2. {rating, max?} → rating  
+ *   3. {value, max} → progress (vor range, da spezifischer)
+ *   4. {min, max, avg} → stats (vor range, da mehr Keys)
+ *   5. {min, max} → range
+ *   6. 3+ numeric keys → radar
+ *   7. fallback → object
  */
 export function detectType(value: unknown, fieldName?: string): MorphType {
   // Null/Undefined → text (empty)
@@ -230,17 +249,17 @@ function detectArrayStructure(arr: unknown[], fieldName?: string): MorphType {
     
     // STEPS: [{step: 1, label: "", status: ""}]
     if (hasKeys(obj, ['step', 'label'])) {
-      return 'timeline';
+      return 'steps';
     }
     
     // LIFECYCLE: [{phase: "", duration: ""}]
     if (hasKeys(obj, ['phase', 'duration'])) {
-      return 'timeline';
+      return 'lifecycle';
     }
     
     // CALENDAR: [{month: 1, active: false}]
-    if (hasKeys(obj, ['month', 'active'])) {
-      return 'timeline';
+    if (hasKeys(obj, ['month', 'active']) || hasKeys(obj, ['monat', 'aktiv'])) {
+      return 'calendar';
     }
     
     // ─────────────────────────────────────────────────────────────────────────
@@ -249,12 +268,12 @@ function detectArrayStructure(arr: unknown[], fieldName?: string): MorphType {
     
     // SEVERITY: [{level: "", typ: "", beschreibung: ""}]
     if (hasKeys(obj, ['level', 'typ']) || hasKeys(obj, ['level', 'type'])) {
-      return 'list';
+      return 'severity';
     }
     
     // DOSAGE: [{amount: 0, unit: "", frequency: ""}]
-    if (hasKeys(obj, ['amount', 'unit', 'frequency'])) {
-      return 'list';
+    if (hasKeys(obj, ['amount', 'unit', 'frequency']) || hasKeys(obj, ['menge', 'einheit', 'frequenz'])) {
+      return 'dosage';
     }
     
     // NETWORK: [{name: "", type: "", intensity: 0}]
@@ -308,7 +327,7 @@ function detectObjectStructure(obj: Record<string, unknown>): MorphType {
   if (hasKeys(obj, ['value', 'max'])) {
     // GAUGE: has zones
     if (hasKey(obj, 'zones') && Array.isArray(obj.zones)) {
-      return 'progress'; // Gauge rendered as enhanced progress
+      return 'gauge';
     }
     return 'progress';
   }
@@ -343,14 +362,14 @@ function detectObjectStructure(obj: Record<string, unknown>): MorphType {
   // CITATION: {authors: "", year: 0, title: ""}
   // ─────────────────────────────────────────────────────────────────────────────
   if (hasKeys(obj, ['authors', 'year', 'title']) || hasKeys(obj, ['autor', 'jahr', 'titel'])) {
-    return 'object';
+    return 'citation';
   }
   
   // ─────────────────────────────────────────────────────────────────────────────
   // CURRENCY: {amount: 0, currency: ""}
   // ─────────────────────────────────────────────────────────────────────────────
-  if (hasKeys(obj, ['amount', 'currency'])) {
-    return 'number'; // Currency rendered as enhanced number
+  if (hasKeys(obj, ['amount', 'currency']) || hasKeys(obj, ['betrag', 'waehrung'])) {
+    return 'currency';
   }
   
   // ─────────────────────────────────────────────────────────────────────────────

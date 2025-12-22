@@ -1,0 +1,183 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: RATING
+   Universe Theme - Leuchtende Sterne
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+/* Inaktive Sterne - sehr dezent */
+.morph-rating-star {
+  font-size: 1rem;
+  color: color-mix(in srgb, var(--morph-accent) 10%, transparent);
+  transition: all 0.15s ease;
+}
+
+/* Gefüllte Sterne - leuchtend wie Lichtkugeln */
+.morph-rating-star.filled {
+  color: var(--morph-accent);
+  text-shadow: var(--text-glow-strong);
+}
+
+.morph-rating-star.half {
+  background: linear-gradient(90deg, var(--morph-accent) 50%, color-mix(in srgb, var(--morph-accent) 10%, transparent) 50%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Sterne via text-rendering */
+.rating-stars {
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+/* Rating Wert - blau leuchtend */
+.morph-rating-value {
+  margin-left: 0.5em;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--morph-accent);
+  text-shadow: 0 0 8px rgba(var(--morph-color-rgb), 0.4);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RATING COMPARE
+   ───────────────────────────────────────────────────────────────────────────── */
+.rating-compare-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.rating-bars {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.morph-rating-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.rating-bars {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-right: 3.5rem;
+}
+
+.rating-bar-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.rating-item-name {
+  font-size: 0.7rem;
+  color: var(--text-muted, rgba(255, 255, 255, 0.35));
+  min-width: 80px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.rating-track {
+  height: var(--track-height);
+  background: var(--track-bg);
+  border-radius: var(--track-radius);
+  position: relative;
+}
+
+.rating-fill {
+  height: 100%;
+  background: color-mix(in srgb, var(--item-color, var(--morph-accent)) 40%, transparent);
+  border-radius: var(--track-radius);
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.rating-fill::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background: var(--item-color, var(--dot-bg));
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--item-color, var(--morph-accent));
+}
+
+.rating-bar-row .rating-value {
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  min-width: 3rem;
+  text-align: right;
+}
+
+/* Max/Min - alle in Universe Blue */
+.rating-bar-row.rating-max .rating-value {
+  color: var(--morph-accent);
+  font-weight: 600;
+}
+
+.rating-bar-row.rating-min .rating-value {
+  color: var(--text-muted);
+}
+
+.rating-avg-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--line-width);
+  background: var(--morph-accent);
+  box-shadow: var(--dot-glow);
+  z-index: 1;
+}
+
+.rating-scale {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 3.5rem 0.25rem 0;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+.rating-scale .scale-mark {
+  width: 20%;
+  text-align: center;
+}
+
+.rating-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .rating-item-name {
+    min-width: 60px;
+    font-size: 0.65rem;
+  }
+  
+  .rating-bars {
+    padding-right: 2.5rem;
+  }
+}

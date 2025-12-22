@@ -1,0 +1,77 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: CURRENCY
+   Universe Theme
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-currency {
+  display: inline-flex;
+  align-items: center;
+}
+
+.morph-currency-value {
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--morph-accent);
+}
+
+.morph-currency--positive .morph-currency-value {
+  color: var(--morph-accent);
+  text-shadow: var(--text-glow);
+}
+
+.morph-currency--negative .morph-currency-value {
+  color: var(--morph-accent);
+  opacity: 0.6;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CURRENCY COMPARE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-currency-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.currency-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.currency-row::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--item-color, var(--morph-accent));
+  box-shadow: 0 0 4px var(--item-color, var(--morph-accent));
+  flex-shrink: 0;
+}
+
+.currency-bar {
+  height: 4px;
+  background: var(--item-color, var(--morph-accent));
+  border-radius: 2px;
+  opacity: 0.3;
+}
+
+.currency-row--negative .currency-bar {
+  background: var(--morph-accent);
+  opacity: 0.4;
+}
+
+.currency-val {
+  font-size: 0.75rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  min-width: 80px;
+  text-align: right;
+  color: var(--morph-accent);
+}
+
+.currency-row--negative .currency-val {
+  opacity: 0.6;
+}

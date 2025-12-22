@@ -16,7 +16,8 @@ import type { RenderContext, MorphType } from '../core/types';
 await loadConfig();
 
 // Morph-Priorisierung: Visuelle Morphs zuerst
-const MORPH_PRIORITY: Record<MorphType, number> = {
+// Partial Record - nicht alle MorphTypes müssen definiert sein
+const MORPH_PRIORITY: Partial<Record<MorphType, number>> = {
   'bar': 1,
   'radar': 1,
   'sparkline': 2,
@@ -34,17 +35,7 @@ const MORPH_PRIORITY: Record<MorphType, number> = {
   'number': 8,
   'boolean': 8,
   'date': 8,
-  'link': 8,
-  'null': 10,
-  // Nicht implementiert
-  'map': 9,
-  'pie': 9,
-  'steps': 9,
-  'lifecycle': 9,
-  'network': 9,
-  'gauge': 9,
-  'citation': 9,
-  'dosage': 9
+  'link': 8
 };
 
 /**

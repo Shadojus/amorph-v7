@@ -41,7 +41,7 @@ export const boolean = createUnifiedMorph(
       <div class="boolean-compare-wrapper">
         ${bools.map(({ bool, color }) => `
           <div class="bool-row" style="--item-color: ${escapeHtml(color)}">
-            <span class="bool-dot"></span>
+            <span class="cmp-dot"></span>
             <span class="bool-icon ${bool ? 'bool-true' : 'bool-false'}">${bool ? '✓' : '✗'}</span>
           </div>
         `).join('')}

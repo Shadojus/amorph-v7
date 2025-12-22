@@ -29,7 +29,7 @@ export const text = createUnifiedMorph(
       <div class="text-compare-wrapper">
         ${texts.map(({ color, text }) => `
           <div class="text-row" style="--item-color: ${escapeHtml(color)}">
-            <span class="text-dot"></span>
+            <span class="cmp-dot"></span>
             <span class="text-value">${escapeHtml(text)}</span>
           </div>
         `).join('')}

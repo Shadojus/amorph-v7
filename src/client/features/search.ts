@@ -1,7 +1,9 @@
 /**
  * AMORPH v7 - Client Search
  * 
- * Suche und Perspektiven-Filter.
+ * Suchmaschine mit automatischer Perspektiven-Aktivierung.
+ * Perspektiven werden nicht manuell gewählt, sondern automatisch
+ * basierend auf Suchbegriffen aktiviert (ab 3 Zeichen).
  */
 
 import { debug } from './debug';
@@ -13,12 +15,12 @@ import { debug } from './debug';
 let searchInput: HTMLInputElement | null = null;
 let gridContainer: HTMLElement | null = null;
 let activePerspectives: Set<string> = new Set();
-let activePerspectivesOrder: string[] = []; // FIFO order tracking
 let activePerspectivesContainer: HTMLElement | null = null;
 let searchTimeout: number | null = null;
 let lastMatchedPerspectives: string[] = []; // Track for counter display
 let perspectiveMatchCounts: Map<string, number> = new Map(); // Count per perspective
 let isSearchInitialized = false; // Guard gegen doppelte Initialisierung
+let lastSearchQuery = ''; // Track last query to detect changes
 
 // Highlight Navigation State
 let currentHighlightIndex = 0;
@@ -26,7 +28,6 @@ let highlightElements: HTMLElement[] = [];
 let searchNavContainer: HTMLElement | null = null;
 
 const DEBOUNCE_MS = 300;
-const MAX_ACTIVE_PERSPECTIVES = 99; // Praktisch unbegrenzt
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // INITIALIZATION
@@ -87,6 +88,15 @@ export function initSearch(config: SearchConfig): void {
 
 export async function performSearch(): Promise<void> {
   const query = searchInput?.value.trim() || '';
+  
+  // Reset Perspektiven nur wenn sich der Query geändert hat (neuer Suchbegriff)
+  // Nicht wenn performSearch durch Perspektiven-Klick aufgerufen wird
+  if (query !== lastSearchQuery && query.length >= 1) {
+    activePerspectives.clear();
+    updateActivePerspectivesUI();
+  }
+  lastSearchQuery = query;
+  
   const perspectives = [...activePerspectives];
   
   debug.api('Search', { query, perspectives });
@@ -137,67 +147,69 @@ export async function performSearch(): Promise<void> {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// PERSPECTIVES
+// PERSPECTIVES (Auto-Aktivierung durch Suche)
 // ═══════════════════════════════════════════════════════════════════════════════
 
-export function togglePerspective(btn: HTMLElement): void {
-  const id = btn.dataset.perspektive || btn.dataset.perspective;
-  if (!id) return;
-  
-  if (activePerspectives.has(id)) {
-    // Deaktivieren
-    activePerspectives.delete(id);
-    activePerspectivesOrder = activePerspectivesOrder.filter(p => p !== id);
-    btn.classList.remove('is-active');
-  } else {
-    // Aktivieren mit FIFO Limit
-    if (activePerspectives.size >= MAX_ACTIVE_PERSPECTIVES) {
-      // Älteste entfernen (FIFO)
-      const oldest = activePerspectivesOrder.shift();
-      if (oldest) {
-        activePerspectives.delete(oldest);
-        const oldBtn = document.querySelector(`.persp-btn[data-perspektive="${oldest}"]`);
-        oldBtn?.classList.remove('is-active');
-      }
-    }
-    activePerspectives.add(id);
-    activePerspectivesOrder.push(id);
-    btn.classList.add('is-active');
-  }
-  
-  // Update active perspectives in search bar
-  updateActivePerspectivesUI();
-  
-  debug.amorph('Perspective toggled', { id, active: activePerspectives.has(id), count: activePerspectives.size });
-  
-  // Trigger search
-  performSearch();
-}
-
-// Activate a perspective by ID (respects FIFO limit)
+/**
+ * Aktiviert eine Perspektive automatisch (durch Suchtreffer).
+ * Keine manuelle Aktivierung - reine Suchmaschinen-UX.
+ */
 function activatePerspectiveById(id: string): void {
   if (activePerspectives.has(id)) return;
   
-  // Nur aktivieren wenn unter dem Limit
-  if (activePerspectives.size < MAX_ACTIVE_PERSPECTIVES) {
-    activePerspectives.add(id);
-    activePerspectivesOrder.push(id);
-    updateActivePerspectivesUI();
-    debug.amorph('Perspective activated by search', { id, count: activePerspectives.size });
-  }
+  activePerspectives.add(id);
+  updateActivePerspectivesUI();
+  debug.amorph('Perspective auto-activated by search', { id, count: activePerspectives.size });
 }
 
-// Deaktiviere eine Perspektive
+/**
+ * Deaktiviert eine Perspektive (durch Klick auf Pill).
+ */
 function deactivatePerspective(id: string): void {
   if (!activePerspectives.has(id)) return;
   
   activePerspectives.delete(id);
-  activePerspectivesOrder = activePerspectivesOrder.filter(p => p !== id);
-  
   updateActivePerspectivesUI();
-  performSearch();
+  
+  // Suche erneut ausführen mit aktuellen Perspektiven
+  // Aber lastSearchQuery nicht ändern, damit kein Reset passiert
+  performSearchWithCurrentPerspectives();
   
   debug.amorph('Perspective deactivated', { id, count: activePerspectives.size });
+}
+
+/**
+ * Suche ohne Perspektiven-Reset (für Perspektiven-Klicks)
+ */
+async function performSearchWithCurrentPerspectives(): Promise<void> {
+  const query = searchInput?.value.trim() || '';
+  const perspectives = [...activePerspectives];
+  
+  debug.api('Search (perspective change)', { query, perspectives });
+  
+  const params = new URLSearchParams();
+  if (query) params.set('q', query);
+  if (perspectives.length) params.set('p', perspectives.join(','));
+  
+  try {
+    const response = await fetch(`/api/search?${params}`);
+    if (!response.ok) throw new Error(`Search error: ${response.status}`);
+    
+    const data = await response.json();
+    
+    if (gridContainer && data.html) {
+      gridContainer.innerHTML = data.html;
+    }
+    
+    updateHighlightNavigation(query);
+    
+    document.dispatchEvent(new CustomEvent('amorph:search-complete', {
+      detail: { query, perspectives, count: data.total }
+    }));
+    
+  } catch (error) {
+    debug.api('Search error', error);
+  }
 }
 
 // NEW: Update the active perspectives display
@@ -227,12 +239,7 @@ function updateActivePerspectivesUI(): void {
 }
 
 export function setActivePerspectives(ids: string[]): void {
-  // Respektiere FIFO Limit
-  const limitedIds = ids.slice(0, MAX_ACTIVE_PERSPECTIVES);
-  activePerspectives = new Set(limitedIds);
-  activePerspectivesOrder = [...limitedIds];
-  
-  // Update active perspectives display
+  activePerspectives = new Set(ids);
   updateActivePerspectivesUI();
 }
 
@@ -342,8 +349,17 @@ function applyHighlighting(query: string): void {
     return;
   }
   
+  // Normalisiere Query: Leerzeichen und Unterstriche sind äquivalent
   const lowerQuery = query.toLowerCase();
-  const regex = new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi');
+  const normalizedQuery = lowerQuery.replace(/[_\s]+/g, '[_\\s]+');
+  const regex = new RegExp(`(${normalizedQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\[_\\s\]\+/g, '[_\\s]+')})`, 'gi');
+  
+  // Für einfache Textsuche auch mit normalisiertem String
+  const searchVariants = [
+    lowerQuery,
+    lowerQuery.replace(/\s+/g, '_'),
+    lowerQuery.replace(/_/g, ' ')
+  ];
   
   console.log('[Highlight] Looking for text nodes containing:', lowerQuery);
   
@@ -358,8 +374,11 @@ function applyHighlighting(query: string): void {
         if (node.parentElement?.closest('mark')) return NodeFilter.FILTER_REJECT;
         if (node.parentElement?.closest('script')) return NodeFilter.FILTER_REJECT;
         if (node.parentElement?.closest('style')) return NodeFilter.FILTER_REJECT;
-        // Nur Knoten die den Suchbegriff enthalten
-        if (!node.textContent.toLowerCase().includes(lowerQuery)) return NodeFilter.FILTER_REJECT;
+        // Prüfe alle Varianten (mit/ohne Unterstriche)
+        const textLower = node.textContent.toLowerCase();
+        const textNormalized = textLower.replace(/_/g, ' ');
+        const matches = searchVariants.some(v => textLower.includes(v) || textNormalized.includes(v.replace(/_/g, ' ')));
+        if (!matches) return NodeFilter.FILTER_REJECT;
         return NodeFilter.FILTER_ACCEPT;
       }
     }
@@ -373,19 +392,25 @@ function applyHighlighting(query: string): void {
   
   console.log('[Highlight] Found text nodes with query:', textNodes.length);
   
+  // Erstelle flexibles Regex das Leerzeichen UND Unterstriche matcht
+  // "climate zones" matcht auch "climate_zones" und umgekehrt
+  const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const flexiblePattern = escapedQuery.replace(/[\s_]+/g, '[\\s_]+');
+  const flexibleRegex = new RegExp(`(${flexiblePattern})`, 'gi');
+  
   // Ersetze Textknoten mit Highlights
   for (const textNode of textNodes) {
     const text = textNode.textContent || '';
-    if (!regex.test(text)) continue;
+    if (!flexibleRegex.test(text)) continue;
     
     // Reset regex
-    regex.lastIndex = 0;
+    flexibleRegex.lastIndex = 0;
     
     const fragment = document.createDocumentFragment();
     let lastIndex = 0;
     let match: RegExpExecArray | null;
     
-    while ((match = regex.exec(text)) !== null) {
+    while ((match = flexibleRegex.exec(text)) !== null) {
       // Text vor dem Match
       if (match.index > lastIndex) {
         fragment.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
@@ -397,7 +422,7 @@ function applyHighlighting(query: string): void {
       mark.textContent = match[1];
       fragment.appendChild(mark);
       
-      lastIndex = regex.lastIndex;
+      lastIndex = flexibleRegex.lastIndex;
     }
     
     // Rest nach dem letzten Match

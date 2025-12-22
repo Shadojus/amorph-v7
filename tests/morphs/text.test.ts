@@ -39,7 +39,7 @@ describe('text compare', () => {
     const html = text(null, ctx);
     expect(html).toContain('text-compare-wrapper');
     expect(html).toContain('text-row');
-    expect(html).toContain('text-dot');
+    expect(html).toContain('cmp-dot');
     expect(html).toContain('text-value');
   });
 });

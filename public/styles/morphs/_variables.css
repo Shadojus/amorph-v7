@@ -1,0 +1,204 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   AMORPH v7 - UNIVERSE THEME DESIGN SYSTEM
+   ═══════════════════════════════════════════════════════════════════════════════
+   
+   SINGLE SOURCE OF TRUTH
+   ─────────────────────────────────────────
+   Alle visuellen Konstanten und wiederverwendbaren Styles sind hier definiert.
+   Morph-Dateien verwenden diese Variablen und Utility-Klassen.
+   
+   NACHTHIMMEL-PRINZIP:
+   ─────────────────────────────────────────
+   • Hintergrund: Dunkel wie der Nachthimmel
+   • Text: Grau - dezent wie ferne Nebel (NIE weiß!)
+   • Datenpunkte: Blaue Lichtkugeln - leuchtend wie Sterne
+   • Linien: Dünn und dezent - kaum sichtbare Strukturen
+   • Wichtige Werte: Blau leuchtend - ziehen Aufmerksamkeit
+   
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   1. CSS CUSTOM PROPERTIES
+   ═══════════════════════════════════════════════════════════════════════════════ */
+:root {
+  /* ─── Systemfarben ─── */
+  --morph-color: #4d88ff;
+  --morph-accent: #4d88ff;
+  --morph-color-rgb: 77, 136, 255;
+  --morph-success: #00ff88;
+  --morph-warning: #ffaa00;
+  --morph-danger: #ff3366;
+  
+  /* ─── Text-Hierarchie (GRAU - nie weiß!) ─── */
+  --text-primary: rgba(255, 255, 255, 0.55);   /* Haupttext */
+  --text-secondary: rgba(255, 255, 255, 0.4);  /* Sekundär */
+  --text-muted: rgba(255, 255, 255, 0.25);     /* Sehr dezent */
+  --text-value: var(--morph-accent);           /* Wichtige Werte = BLAU */
+  
+  /* ─── Text Glow (für wichtige Werte) ─── */
+  --text-glow: 0 0 10px rgba(77, 136, 255, 0.4);
+  --text-glow-strong: 0 0 12px rgba(77, 136, 255, 0.5);
+  
+  /* ─── Lichtkugel (Glowing Dot) ─── */
+  --dot-size: 6px;
+  --dot-color: var(--morph-accent);
+  --dot-bg: var(--morph-accent);
+  --dot-glow: 0 0 8px var(--morph-accent);
+  --dot-glow-active: 0 0 12px var(--morph-accent), 0 0 20px rgba(77, 136, 255, 0.4);
+  
+  /* ─── Track/Bar ─── */
+  --track-height: 2px;
+  --track-bg: rgba(255, 255, 255, 0.04);
+  --track-fill: color-mix(in srgb, var(--morph-color) 30%, transparent);
+  --track-radius: 1px;
+  
+  /* ─── Connector/Lines ─── */
+  --line-width: 1px;
+  --line-color: rgba(255, 255, 255, 0.06);
+  
+  /* ─── Type Badge ─── */
+  --morph-type-badge: #4d88ff;
+  --morph-type-badge-bg: rgba(77, 136, 255, 0.12);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   2. LICHTKUGEL (Glowing Dot) - DAS WICHTIGSTE ELEMENT
+   ═══════════════════════════════════════════════════════════════════════════════
+   
+   Verwendung in HTML: <span class="dot"></span>
+   Verwendung in CSS:  .element::before { @extend .dot-pseudo; } oder die Mixins
+   
+   ─────────────────────────────────────────────────────────────────────────────── */
+
+/* Basis-Lichtkugel */
+.dot,
+.morph-dot {
+  display: inline-block;
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background: var(--dot-bg);
+  box-shadow: var(--dot-glow);
+  flex-shrink: 0;
+}
+
+/* Aktive/Hervorgehobene Lichtkugel */
+.dot--active,
+.morph-dot--active {
+  box-shadow: var(--dot-glow-active);
+}
+
+/* Gedämpfte Lichtkugel */
+.dot--muted,
+.morph-dot--muted {
+  opacity: 0.4;
+  box-shadow: 0 0 4px var(--morph-accent);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   3. TRACK & FILL - Für Bars, Progress, Range
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-track {
+  height: var(--track-height);
+  background: var(--track-bg);
+  border-radius: var(--track-radius);
+  position: relative;
+  overflow: visible;
+}
+
+.morph-fill {
+  height: 100%;
+  background: var(--track-fill);
+  border-radius: var(--track-radius);
+  position: relative;
+  transition: width 0.3s ease;
+}
+
+/* Lichtkugel am Ende des Fills */
+.morph-fill::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background: var(--dot-bg);
+  border-radius: 50%;
+  box-shadow: var(--dot-glow);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   4. CONNECTOR - Verbindungslinien
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-connector {
+  width: var(--line-width);
+  background: var(--line-color);
+  flex: 1;
+  min-height: 8px;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   5. TEXT UTILITIES
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-text-primary { color: var(--text-primary) !important; }
+.morph-text-secondary { color: var(--text-secondary) !important; }
+.morph-text-muted { color: var(--text-muted) !important; }
+
+/* Wichtiger Wert - BLAU mit Glow */
+.morph-value {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-value);
+  text-shadow: 0 0 10px rgba(77, 136, 255, 0.4);
+}
+
+/* Label - sehr dezent */
+.morph-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Einheit neben Werten */
+.morph-unit {
+  font-size: 0.7em;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-left: 0.2em;
+  text-shadow: none;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   6. ITEM COLOR SYSTEM (für Compare-Mode)
+   Erlaubt individuelle Farben per Item via --item-color Variable
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Wenn --item-color gesetzt ist, überschreibt es die Standard-Farben */
+[style*="--item-color"] {
+  --dot-bg: var(--item-color);
+  --dot-glow: 0 0 8px var(--item-color);
+  --track-fill: color-mix(in srgb, var(--item-color) 30%, transparent);
+}
+
+/* Pseudo-Element Lichtkugeln mit Item-Color */
+[style*="--item-color"]::before {
+  background: var(--item-color) !important;
+  box-shadow: 0 0 8px var(--item-color) !important;
+}
+
+[style*="--item-color"] .morph-fill::after {
+  background: var(--item-color);
+  box-shadow: 0 0 8px var(--item-color);
+}
+

@@ -1,0 +1,96 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: CITATION
+   Universe Theme - Clean, minimal academic citation
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-citation {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* Main line: Authors (Year) */
+.citation-main {
+  display: flex;
+  align-items: baseline;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+}
+
+.citation-authors {
+  font-size: 0.875rem;
+  color: var(--text-primary, rgba(255, 255, 255, 0.9));
+  font-weight: 500;
+}
+
+.citation-year {
+  font-size: 0.8rem;
+  color: var(--text-muted, rgba(255, 255, 255, 0.5));
+}
+
+/* Title - secondary emphasis */
+.citation-title {
+  font-size: 0.8rem;
+  color: var(--text-secondary, rgba(255, 255, 255, 0.7));
+  line-height: 1.35;
+}
+
+/* Meta line: Journal + DOI */
+.citation-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.125rem;
+}
+
+.citation-journal {
+  font-size: 0.75rem;
+  color: var(--text-muted, rgba(255, 255, 255, 0.5));
+  font-style: italic;
+}
+
+.citation-doi {
+  font-size: 0.7rem;
+  color: var(--morph-accent, #4d88ff);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.citation-doi:hover {
+  text-decoration: underline;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CITATION COMPARE
+   ───────────────────────────────────────────────────────────────────────────── */
+.morph-citation-compare {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.citation-cell {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+}
+
+.citation-cell::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--item-color, var(--morph-accent));
+  box-shadow: 0 0 3px var(--item-color, var(--morph-accent));
+}
+
+.citation-authors {
+  color: var(--text-primary);
+}
+
+.citation-year {
+  color: var(--text-muted);
+  font-size: 0.7rem;
+}

@@ -1,0 +1,135 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: LIST
+   Universe Theme
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(var(--morph-color-rgb), 0.3) transparent;
+}
+
+.morph-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.morph-list::-webkit-scrollbar-track {
+  background: var(--track-bg);
+  border-radius: 2px;
+}
+
+.morph-list::-webkit-scrollbar-thumb {
+  background: rgba(var(--morph-color-rgb), 0.3);
+  border-radius: 2px;
+}
+
+.morph-list-item {
+  position: relative;
+  padding: 0.5em 0 0.5em 1.25em;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  line-height: 1.4;
+  border-bottom: 1px solid var(--line-color);
+}
+
+.morph-list-item:last-child {
+  border-bottom: none;
+}
+
+.morph-list-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75em;
+  width: 4px;
+  height: 4px;
+  background: var(--dot-bg);
+  border-radius: 50%;
+  box-shadow: var(--dot-glow);
+}
+
+/* Links inside list items */
+.morph-list a,
+.morph-list-item a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.morph-list a:hover,
+.morph-list-item a:hover {
+  color: var(--morph-accent);
+  text-shadow: none;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   LIST COMPARE
+   ───────────────────────────────────────────────────────────────────────────── */
+.list-compare-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.list-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.list-section-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* Alle Sections in Universe Blue */
+.list-common .list-section-label,
+.list-partial .list-section-label,
+.list-unique .list-section-label {
+  color: var(--morph-accent);
+}
+
+.list-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.list-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25em 0.5em;
+  font-size: 0.9375rem;
+  background: var(--track-bg);
+  border: 1px solid var(--line-color);
+  border-radius: 4px;
+  color: var(--text-secondary);
+}
+
+/* Alle List-Item-Varianten in Universe Blue */
+.list-common .list-item,
+.list-partial .list-item,
+.list-unique .list-item {
+  background: rgba(var(--morph-color-rgb), 0.04);
+  border-color: rgba(var(--morph-color-rgb), 0.12);
+}
+
+.list-count {
+  font-size: 0.8125rem;
+  padding: 0.125em 0.375em;
+  background: var(--track-bg);
+  border-radius: 3px;
+  color: var(--text-secondary);
+}
+
+.list-more {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  padding: 0.25em 0.5em;
+}

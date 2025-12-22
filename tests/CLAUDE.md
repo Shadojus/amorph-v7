@@ -1,37 +1,40 @@
 # AMORPH v7 - Test Suite
 
-> 343 Tests mit Vitest für vollständige Code-Abdeckung.
+> **421 Tests** mit Vitest für vollständige Code-Abdeckung.
 
 ## 📁 Struktur
 
 ```
 tests/
-├── detection.test.ts     # 80 Tests - Struktur-basierte Typ-Erkennung
-├── security.test.ts      # 49 Tests - Security Functions (vollständig)
-├── morphs.test.ts        # 81 Tests - Haupt-Morph-Tests
-├── observer.test.ts      # 8 Tests  - Debug Observer
-├── integration.test.ts   # 9 Tests  - Module Integration
-└── morphs/               # 116 Tests - Feature-basiert aufgeteilt
-    ├── _setup.ts         # Shared contexts (single, compare, grid)
-    ├── text.test.ts      # 5 Tests
-    ├── number.test.ts    # 7 Tests
-    ├── boolean.test.ts   # 6 Tests
-    ├── badge.test.ts     # 6 Tests
-    ├── tag.test.ts       # 5 Tests
-    ├── progress.test.ts  # 9 Tests
-    ├── rating.test.ts    # 6 Tests
-    ├── range.test.ts     # 4 Tests
-    ├── stats.test.ts     # 6 Tests
-    ├── image.test.ts     # 7 Tests
-    ├── link.test.ts      # 3 Tests
-    ├── list.test.ts      # 5 Tests
-    ├── object.test.ts    # 9 Tests (inkl. compare mode)
-    ├── date.test.ts      # 5 Tests
-    ├── timeline.test.ts  # 3 Tests
-    ├── bar.test.ts       # 4 Tests
-    ├── sparkline.test.ts # 7 Tests
-    ├── radar.test.ts     # 7 Tests (inkl. compare mode)
-    ├── base.test.ts      # 6 Tests (wrapInField, Base64)
+├── detection.test.ts      # 80 Tests  - Struktur-basierte Typ-Erkennung
+├── security.test.ts       # 49 Tests  - Security Functions (vollständig)
+├── morphs.test.ts         # 81 Tests  - Haupt-Morph-Tests
+├── observer.test.ts       # 8 Tests   - Debug Observer
+├── integration.test.ts    # 11 Tests  - Module Integration + Data Module
+├── real-data.test.ts      # 34 Tests  - Echte Daten aus psilocybe-cyanescens
+├── error-handling.test.ts # 14 Tests  - Error Handling, Security, Edge Cases
+├── api-integration.test.ts # 27 Tests - API, Search, Compare, Lazy-Loading
+└── morphs/                # 117 Tests - Feature-basiert aufgeteilt
+    ├── _setup.ts          # Shared contexts (single, compare, grid)
+    ├── text.test.ts       # 5 Tests
+    ├── number.test.ts     # 7 Tests
+    ├── boolean.test.ts    # 6 Tests
+    ├── badge.test.ts      # 6 Tests
+    ├── tag.test.ts        # 5 Tests
+    ├── progress.test.ts   # 9 Tests
+    ├── rating.test.ts     # 6 Tests
+    ├── range.test.ts      # 4 Tests
+    ├── stats.test.ts      # 6 Tests
+    ├── image.test.ts      # 7 Tests
+    ├── link.test.ts       # 3 Tests
+    ├── list.test.ts       # 5 Tests
+    ├── object.test.ts     # 9 Tests (inkl. compare mode)
+    ├── date.test.ts       # 5 Tests
+    ├── timeline.test.ts   # 3 Tests
+    ├── bar.test.ts        # 4 Tests
+    ├── sparkline.test.ts  # 7 Tests
+    ├── radar.test.ts      # 7 Tests (inkl. compare mode)
+    ├── base.test.ts       # 7 Tests (wrapInField, Base64, Circular Reference)
     └── renderValue.test.ts # 6 Tests
 ```
 
@@ -209,7 +212,7 @@ describe('debug observer', () => {
 });
 ```
 
-## 📦 integration.test.ts (9 Tests)
+## 📦 integration.test.ts (11 Tests)
 
 Testet Modul-Integration:
 
@@ -231,17 +234,111 @@ Testet Modul-Integration:
 
 - escape user input in morphs
 
-### Beispiel
+### Data Module (2)
 
-```typescript
-describe('morph rendering', () => {
-  it('should detect and use correct morph based on structure', () => {
-    // Progress requires {value, max} object
-    const html = renderValue({ value: 75, max: 100 }, 'fortschritt', gridContext);
-    expect(html).toContain('morph-progress');
-  });
-});
-```
+- getLoadErrors und invalidateCache exports
+- getLoadErrors returns array
+
+## 📦 real-data.test.ts (34 Tests) - NEU
+
+**Tests mit echten Daten aus psilocybe-cyanescens:**
+
+### chemistry.json (11 Tests)
+- Radar Morph mit alkaloid_profile_radar
+- Bar Morph mit alkaloid_content_by_part  
+- Range Morph mit total_alkaloid_content
+- Object Morph mit alkaloid_compounds
+
+### ecology.json (12 Tests)
+- Badge Morph mit status/variant (info, warning, success)
+- Progress Morph mit Enzym-Aktivitäten (65%, 55%)
+- Rating Morph mit ecosystem_function_intensity
+- List Morph mit secondary_ecosystem_functions
+
+### identification.json (9 Tests)
+- Timeline Morph mit quick_id_checklist (step/label/status Struktur)
+- Object Morph mit appearance_by_season
+- List Morph mit common_names
+- Confusion Species mit danger Level
+
+### Compare-Modus (2 Tests)
+- Zwei Radar-Charts mit verschiedenen Alkaloid-Profilen
+
+## 📦 error-handling.test.ts (14 Tests) - NEU
+
+**Tests für robuste Fehlerbehandlung:**
+
+### safeReadJson Verhalten (2 Tests)
+- Fehlende Dateien graceful handeln
+- Korruptes JSON graceful handeln
+
+### invalidateCache / getLoadErrors (2 Tests)
+- Cache und Fehler zurücksetzen
+- Kopie des Error-Arrays zurückgeben
+
+### Security: Malicious Data (3 Tests)
+- escapeHtml verhindert XSS durch Tag-Escaping
+- validateSlug blockt Path Traversal (gibt null zurück)
+- validateSlug erlaubt valide Slugs
+
+### Circular Reference Protection (1 Test)
+- wrapInField erkennt zirkuläre Referenzen in rawValue
+
+### Type Detection Edge Cases (6 Tests)
+- null und undefined graceful handeln
+- leere Objekte/Arrays
+- sehr tiefe Objekte ohne Stack Overflow
+- sehr große Arrays (tag detection)
+- Array von Zahlen als sparkline
+
+## 📦 api-integration.test.ts (27 Tests) - NEU
+
+**Tests für API-Endpoints und Lazy-Loading:**
+
+### Query Validation (2 Tests)
+- Validierung und Normalisierung
+- Query-Länge limitieren
+
+### Perspective Validation (2 Tests)
+- Perspektiven-Liste parsen
+- Ungültige Perspektiven blocken
+
+### Search Function (3 Tests)
+- Items nach Query durchsuchen
+- Nach Perspektiven filtern
+- Pagination respektieren
+
+### Slug Validation (2 Tests)
+- Item-Slugs validieren
+- Anzahl der Slugs limitieren
+
+### Item Loading (3 Tests)
+- Items nach Slugs laden
+- Fehlende Items graceful handeln
+- Mehrere Items für Vergleich laden
+
+### Grid/Compare Rendering (4 Tests)
+- Grid-Modus (compact) rendern
+- Komplexe Daten für Grid
+- Vergleich zwischen Items
+- Fehlende Werte im Vergleich
+
+### Rate Limiting (2 Tests)
+- Normale Anfragen erlauben
+- Zu viele Anfragen limitieren
+
+### Response Headers (1 Test)
+- Security Headers hinzufügen
+
+### Lazy Loading für Perspektiven (8 Tests)
+- loadPerspective für existierendes Item
+- null für nicht-existierende Perspektive
+- null für nicht-existierendes Item
+- Caching geladener Perspektiven
+- loadPerspectives batch laden
+- Nicht-existierende Perspektiven graceful ignorieren
+- hasPerspective ohne zu laden
+- false für nicht-existierende Perspektive
 
 ## 📊 Coverage
 

@@ -51,6 +51,23 @@ describe('wrapInField', () => {
     expect(html).not.toContain('data-raw-value=');
   });
 
+  it('should handle circular references gracefully', () => {
+    const obj: Record<string, unknown> = { name: 'test' };
+    obj.self = obj; // Circular reference
+    
+    // Should not throw, and should encode with [Circular] marker
+    const html = wrapInField('<span>test</span>', 'object', 'circular_field', undefined, obj);
+    expect(html).toContain('data-raw-value="');
+    
+    const match = html.match(/data-raw-value="([^"]+)"/);
+    expect(match).toBeTruthy();
+    if (match) {
+      const decoded = JSON.parse(Buffer.from(match[1], 'base64').toString('utf-8'));
+      expect(decoded.name).toBe('test');
+      expect(decoded.self).toBe('[Circular]');
+    }
+  });
+
   it('should handle null/undefined raw values', () => {
     const html1 = wrapInField('<span>test</span>', 'text', 'field1', undefined, null);
     const html2 = wrapInField('<span>test</span>', 'text', 'field2', undefined, undefined);

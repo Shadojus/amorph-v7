@@ -23,21 +23,27 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
   min-height: 100vh;
-  background: var(--bg-deep);
+  background: #000000;
   color: var(--text-primary);
   
-  /* Psychedelic background with depth vignette */
+  /* UNIVERSUM - Tiefschwarzer Raum mit leuchtenden Ultramarinblauen Nebeln */
+  /* 64% Black Overlay zuerst, dann die Nebel */
   background-image: 
-    /* Vignette - darkens edges for depth */
-    radial-gradient(ellipse at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.4) 100%),
-    /* Primary glow - upper left */
-    radial-gradient(ellipse at 15% -5%, rgba(77, 136, 255, 0.18) 0%, transparent 45%),
-    /* Secondary glow - lower right */
-    radial-gradient(ellipse at 85% 105%, rgba(77, 136, 255, 0.12) 0%, transparent 45%),
-    /* Subtle purple accent - center */
-    radial-gradient(ellipse at 50% 50%, rgba(100, 50, 150, 0.06) 0%, transparent 60%),
-    /* Subtle noise texture illusion via gradient */
-    linear-gradient(180deg, rgba(255, 255, 255, 0.01) 0%, transparent 2%, transparent 98%, rgba(0, 0, 0, 0.02) 100%);
+    /* 64% Black Overlay - macht alles dunkler */
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    /* Großer Hauptnebel links - INTENSIV */
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(25, 50, 200, 0.6) 0%, rgba(18, 35, 160, 0.25) 30%, transparent 55%),
+    /* Großer Nebel rechts unten */
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(30, 55, 190, 0.5) 0%, rgba(20, 40, 150, 0.2) 35%, transparent 55%),
+    /* Kleiner heller Nebel oben rechts */
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(45, 80, 230, 0.45) 0%, transparent 50%),
+    /* Nebelfaden durch die Mitte */
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(20, 45, 180, 0.15) 0%, transparent 50%),
+    /* Dezenter Nebel links unten */
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(22, 55, 200, 0.35) 0%, transparent 45%),
+    /* Hintergrund-Schimmer */
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(15, 30, 120, 0.08) 0%, transparent 60%);
+  background-color: #000000;
   background-attachment: fixed;
 }
 
@@ -100,41 +106,49 @@ body {
     0 0 6px rgba(var(--extern-rgb), 0.25),
     0 0 12px rgba(var(--extern-rgb), 0.15);
   
-  /* Background Layers */
+  /* ═══════════════════════════════════════════════════════════════════════════
+     BLACK GLASS MORPHISM SYSTEM - Single Source of Truth
+     NUR TRANSPARENTES SCHWARZ - Kein Blau in den Hintergründen!
+     ═══════════════════════════════════════════════════════════════════════════ */
+  
+  /* Universe Background - Reines Schwarz */
   --bg-void: #000000;
-  --bg-deep: #050508;
-  --bg-base: #0a0a0f;
-  --bg-elevated: #12121a;
-  --bg-surface: #1a1a25;
-  --bg-overlay: #222230;
+  --bg-deep: #000000;
+  --bg-base: #000000;
+  --bg-elevated: rgba(0, 0, 0, 0.7);
+  --bg-surface: rgba(0, 0, 0, 0.6);
+  --bg-overlay: rgba(0, 0, 0, 0.8);
   
-  /* Glass Morphism - Enhanced Depth System */
-  --glass-bg: rgba(15, 15, 25, 0.7);
-  --glass-bg-solid: rgba(20, 20, 35, 0.85);
-  --glass-bg-subtle: rgba(10, 10, 18, 0.4);
-  --glass-bg-deep: rgba(8, 8, 14, 0.95);
-  --glass-border: rgba(var(--system-rgb), 0.12);
-  --glass-border-hover: rgba(var(--system-rgb), 0.35);
-  --glass-border-subtle: rgba(255, 255, 255, 0.04);
-  --glass-blur: 20px;
-  --glass-blur-heavy: 40px;
-  --glass-blur-light: 10px;
+  /* Black Glass - NUR TRANSPARENTES SCHWARZ */
+  --glass-bg: rgba(0, 0, 0, 0.5);
+  --glass-bg-solid: rgba(0, 0, 0, 0.75);
+  --glass-bg-subtle: rgba(0, 0, 0, 0.3);
+  --glass-bg-deep: rgba(0, 0, 0, 0.9);
   
-  /* Multi-Layer Shadow System - Simplified */
-  --glass-shadow: 
-    0 2px 8px rgba(0, 0, 0, 0.25),
-    0 8px 24px rgba(0, 0, 0, 0.2);
+  /* Glass Borders - Subtile blaue Kanten (der einzige Ort für Blau!) */
+  --glass-border: rgba(80, 120, 255, 0.15);
+  --glass-border-hover: rgba(100, 150, 255, 0.3);
+  --glass-border-light: rgba(130, 170, 255, 0.25);
+  --glass-border-subtle: rgba(80, 120, 255, 0.08);
+  
+  /* Glass Reflections - Weiße Lichtreflexe an den Kanten */
+  --glass-reflection: inset 0 1px 0 rgba(255, 255, 255, 0.08), inset 1px 0 0 rgba(255, 255, 255, 0.04);
+  --glass-reflection-strong: inset 0 1px 0 rgba(255, 255, 255, 0.12), inset 1px 0 0 rgba(255, 255, 255, 0.06);
+  
+  /* Glass Shadows */
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
   --glass-shadow-elevated: 
-    0 4px 12px rgba(0, 0, 0, 0.3),
-    0 16px 40px rgba(0, 0, 0, 0.25);
-  --glass-shadow-inset: 
-    inset 0 2px 6px rgba(0, 0, 0, 0.3);
-  --glass-shadow-subtle: 
-    0 1px 3px rgba(0, 0, 0, 0.15),
-    0 4px 12px rgba(0, 0, 0, 0.1);
+    0 16px 48px rgba(0, 0, 0, 0.7),
+    0 0 30px rgba(77, 136, 255, 0.1);
+  --glass-shadow-glow:
+    0 8px 32px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(77, 136, 255, 0.15);
+  --glass-shadow-inset: inset 0 2px 6px rgba(0, 0, 0, 0.4);
   
-  /* Inner Glow for depth */
-  --glass-inner-glow: inset 0 1px 0 rgba(255, 255, 255, 0.06), inset 1px 0 0 rgba(255, 255, 255, 0.03);
+  /* KEIN BLUR - Klares Glas */
+  --glass-blur: 0px;
+  --glass-blur-heavy: 0px;
+  --glass-blur-light: 0px;
   
   /* Text */
   --text-primary: rgba(255, 255, 255, 0.95);
@@ -423,10 +437,10 @@ a[href^="http"]:not([href*="amorph"]):hover {
   height: 40px;
   padding: 0;
   border-radius: var(--radius-md);
-  background: rgba(18, 18, 28, 0.7);
+  background: rgba(0, 0, 0, 0.5);
   border: 1px solid var(--glass-border);
   color: var(--text-secondary);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .btn-icon:hover:not(:disabled) {
@@ -448,12 +462,12 @@ a[href^="http"]:not([href*="amorph"]):hover {
   padding: var(--space-sm) var(--space-md);
   font-size: 0.9375rem;
   color: var(--text-primary);
-  background: rgba(18, 18, 28, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--glass-border);
   border-radius: var(--radius-md);
   outline: none;
   transition: all var(--transition-fast);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .input::placeholder {

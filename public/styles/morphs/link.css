@@ -1,0 +1,29 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: LINK
+   Universe Theme - Blau leuchtend
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375em;
+  color: var(--morph-accent);
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  word-break: break-word;
+}
+
+.morph-link:hover {
+  color: var(--morph-accent);
+  text-shadow: var(--dot-glow);
+}
+
+.morph-link-icon {
+  font-size: 0.875em;
+  opacity: 0.7;
+}
+
+.morph-link:hover .morph-link-icon {
+  opacity: 1;
+}

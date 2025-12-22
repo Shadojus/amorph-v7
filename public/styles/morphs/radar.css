@@ -1,0 +1,204 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: RADAR CHART
+   Universe Theme - Nachthimmel mit Lichtkugeln an allen Datenpunkten
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-radar {
+  position: relative;
+  width: 100%;
+  max-width: 240px;
+  min-width: 180px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  padding: 1.5rem;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Grid - sehr dezent */
+.radar-grid {
+  fill: none;
+  stroke: var(--line-color);
+  stroke-width: 0.5;
+}
+
+/* Achsen - dünn und dezent */
+.radar-axis {
+  stroke: var(--track-bg);
+  stroke-width: 0.5;
+}
+
+/* Datenfläche - dezent gefüllt, SOLIDERE Linie */
+.radar-area {
+  fill: rgba(var(--morph-color-rgb), 0.08);
+  stroke: rgba(var(--morph-color-rgb), 0.6);
+  stroke-width: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   LICHTKUGELN - Das Wichtigste!
+   Jeder Datenpunkt ist eine leuchtende Kugel
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.radar-point {
+  fill: var(--morph-accent);
+  stroke: none;
+  filter: drop-shadow(0 0 4px var(--morph-accent)) 
+          drop-shadow(0 0 8px var(--morph-accent));
+}
+
+/* Labels - grau und dezent */
+.radar-label {
+  font-size: 9px;
+  fill: var(--text-muted);
+  font-weight: 500;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RADAR COMPARE
+   ───────────────────────────────────────────────────────────────────────────── */
+.radar-compare-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.radar-svg {
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
+  overflow: visible;
+  display: block;
+}
+
+/* Datenfläche im Compare - Pilzfarben */
+.radar-area-compare {
+  fill: color-mix(in srgb, var(--item-color) 10%, transparent);
+  stroke: var(--item-color);
+  stroke-opacity: 0.5;
+  stroke-width: 1;
+  transition: opacity 0.2s;
+}
+
+.radar-svg:hover .radar-area-compare {
+  opacity: 0.3;
+}
+
+.radar-svg .radar-area-compare:hover {
+  opacity: 1;
+  stroke-opacity: 0.8;
+}
+
+/* LICHTKUGELN im Compare - Pilzfarben */
+.radar-point-compare {
+  fill: var(--item-color);
+  stroke: none;
+  filter: drop-shadow(0 0 4px var(--item-color)) 
+          drop-shadow(0 0 8px var(--item-color));
+}
+
+.radar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  justify-content: center;
+}
+
+.radar-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+/* Lichtkugel via .cmp-dot aus _compare.css */
+
+.radar-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.radar-stat-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.radar-stat-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.radar-stat-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.radar-stat-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+/* Track - dünn und dezent */
+.radar-bar-track {
+  flex: 0 0 68%;
+  height: var(--track-height);
+  background: var(--track-bg);
+  border-radius: var(--track-radius);
+  position: relative;
+}
+
+.radar-bar-fill {
+  height: 100%;
+  background: color-mix(in srgb, var(--item-color) 30%, transparent);
+  border-radius: var(--track-radius);
+  position: relative;
+}
+
+/* Lichtkugel am Ende */
+.radar-bar-fill::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background: var(--item-color, var(--dot-bg));
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--item-color, var(--morph-accent));
+}
+
+.radar-bar-val {
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+  min-width: 2.5rem;
+  white-space: nowrap;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .morph-radar {
+    max-width: 220px;
+    min-width: 160px;
+    padding: 0.5rem;
+  }
+  
+  .morph-radar-label {
+    font-size: 0.6rem;
+  }
+}

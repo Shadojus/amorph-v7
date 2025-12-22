@@ -9,7 +9,7 @@ describe('list morph', () => {
   it('should render array as list', () => {
     const html = list(['Eins', 'Zwei', 'Drei'], singleContext);
     expect(html).toContain('morph-list');
-    expect(html).toContain('<li>');
+    expect(html).toContain('morph-list-item');
     expect(html).toContain('Eins');
     expect(html).toContain('Zwei');
     expect(html).toContain('Drei');
@@ -17,7 +17,8 @@ describe('list morph', () => {
   
   it('should wrap single value in list', () => {
     const html = list('Single Item', singleContext);
-    expect(html).toContain('<li>Single Item</li>');
+    expect(html).toContain('morph-list-item');
+    expect(html).toContain('Single Item');
   });
   
   it('should escape HTML in list items', () => {

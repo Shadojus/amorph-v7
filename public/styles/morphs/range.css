@@ -1,0 +1,226 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: RANGE
+   Universe Theme - Nachthimmel mit Lichtkugeln
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-range {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+  padding: 0.25rem 0;
+}
+
+/* Track - dünn und dezent */
+.morph-range-track {
+  position: relative;
+  height: var(--track-height);
+  background: var(--track-bg);
+  border-radius: var(--track-radius);
+  overflow: visible;
+}
+
+.morph-range-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--track-fill);
+  border-radius: var(--track-radius);
+  transition: width 0.3s ease;
+}
+
+/* Lichtkugel als Marker */
+.morph-range-marker {
+  position: absolute;
+  top: 50%;
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background: var(--dot-bg);
+  border: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: var(--dot-glow);
+}
+
+.morph-range-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+}
+
+/* Min/Max - grau und dezent */
+.morph-range-min,
+.morph-range-max {
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+/* Aktueller Wert - blau leuchtend */
+.morph-range-current {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--morph-accent);
+  text-align: center;
+  text-shadow: 0 0 10px rgba(var(--morph-color-rgb), 0.4);
+}
+
+.morph-range-separator {
+  color: var(--text-muted);
+}
+
+.morph-range-unit {
+  font-size: 0.875em;
+  color: var(--text-muted);
+  margin-left: 0.25em;
+  text-shadow: none;
+}
+
+/* Range Compare */
+.morph-range-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.morph-range-compare-track {
+  position: relative;
+  height: 12px;
+  background: transparent;
+  border-radius: 1px;
+}
+
+.morph-range-bar {
+  position: absolute;
+  top: 5px;
+  height: var(--track-height);
+  background: color-mix(in srgb, var(--item-color, var(--morph-accent)) 30%, transparent);
+  border-radius: var(--track-radius);
+  transition: all 0.3s ease;
+}
+
+.morph-range-bar::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background: var(--item-color, var(--dot-bg));
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--item-color, var(--morph-accent));
+}
+
+.morph-range-bar:hover {
+  opacity: 1;
+}
+
+.morph-range-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.625rem;
+  color: var(--text-muted);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RANGE COMPARE WRAPPER
+   ───────────────────────────────────────────────────────────────────────────── */
+.range-compare-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.range-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  padding: 0 2%;
+}
+
+.range-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.range-row {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.range-track {
+  flex: 0 0 68%;
+  height: 6px;
+  background: var(--track-bg);
+  border-radius: 3px;
+  position: relative;
+}
+
+.range-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: color-mix(in srgb, var(--item-color) 25%, transparent);
+  border-radius: 3px;
+  border-left: var(--track-height) solid var(--item-color);
+  border-right: var(--track-height) solid var(--item-color);
+  box-shadow: 0 0 6px color-mix(in srgb, var(--item-color) 20%, transparent);
+}
+
+.range-val {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  min-width: 5rem;
+  white-space: nowrap;
+}
+
+/* CMP Range Fill */
+.cmp-range-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: color-mix(in srgb, var(--item-color) 50%, transparent);
+  border-radius: var(--track-radius);
+}
+
+.cmp-range-fill::before,
+.cmp-range-fill::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background: var(--item-color, var(--dot-bg));
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--item-color, var(--morph-accent));
+}
+
+.cmp-range-fill::before { left: -3px; }
+.cmp-range-fill::after { right: -3px; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .morph-range-track {
+    height: 2px;
+  }
+  
+  .morph-range-marker {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .morph-range-labels {
+    font-size: 0.75rem;
+  }
+}

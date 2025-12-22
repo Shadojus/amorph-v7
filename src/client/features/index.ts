@@ -6,7 +6,7 @@
 
 export { debug } from './debug';
 export { initApp } from './app';
-export { initSearch, performSearch, togglePerspective, getActivePerspectives, restoreFromURL } from './search';
+export { initSearch, performSearch, getActivePerspectives, restoreFromURL } from './search';
 export { initGrid, updateSelectionUI } from './grid';
 export { initCompare, showCompare, hideCompare, toggleCompare, isCompareOpen } from './compare';
 export {

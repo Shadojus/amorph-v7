@@ -1,0 +1,210 @@
+{
+  "scientific_name": "Amanita muscaria",
+  "author_citation": "(L.) Lam. 1783",
+  "accepted_name": "Amanita muscaria (L.) Lam.",
+  "basionym": "Agaricus muscarius L. 1753",
+  "taxonomy_domain": "Eukarya",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Amanitaceae",
+  "taxonomy_genus": "Amanita",
+  "taxonomy_species": "muscaria",
+  "synonyms": [
+    "Agaricus muscarius L. 1753",
+    "Amanita muscaria var. formosa (Pers.) Bertill.",
+    "Amanita muscaria var. alba Peck",
+    "Agaricus pseudo-aurantiacus Bull. 1788"
+  ],
+  "common_names": [
+    "Fliegenpilz",
+    "Fly Agaric",
+    "Fly Amanita",
+    "Glueckspilz"
+  ],
+  "international_names": [
+    "Amanite tue-mouches (FR)",
+    "Oronja falsa (ES)",
+    "Ovolo malefico (IT)",
+    "Vliegenzwam (NL)",
+    "Muchomor czerwony (PL)",
+    "Krasnyi mukhomor (RU)"
+  ],
+  "gbif_key": "https://www.gbif.org/species/5259186",
+  "inaturalist_taxon_id": "https://www.inaturalist.org/taxa/48715",
+  "mycobank_id": "https://www.mycobank.org/page/Name%20details%20page/292387",
+  "index_fungorum_id": "https://www.indexfungorum.org/names/NamesRecord.asp?RecordID=292387",
+  "wikidata_id": "https://www.wikidata.org/wiki/Q134632",
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "first_described_date": "1753-05-01",
+  "quick_id_checklist": [
+    {"step": 1, "label": "Leuchtend roter bis orangeroter Hut", "status": "pending"},
+    {"step": 2, "label": "Weisse warzenfoermige Flocken auf dem Hut", "status": "pending"},
+    {"step": 3, "label": "Weisser Stiel mit haengender Manschette", "status": "pending"},
+    {"step": 4, "label": "Knollige Stielbasis mit Huellresten (Volva)", "status": "pending"},
+    {"step": 5, "label": "Weisses Sporenpulver", "status": "pending"},
+    {"step": 6, "label": "Wachstum bei Birken, Fichten, Kiefern", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 5,
+  "minimum_equipment_needed": [
+    "Keine Ausruestung erforderlich",
+    "Optional: Kamera fuer Dokumentation"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Amanita caesarea (Kaiserling - essbar, suedlich)",
+    "Amanita muscaria var. formosa (gelbe Variante)",
+    "Amanita muscaria var. guessowii (nordamerikanisch)",
+    "Amanita rubescens (Perlpilz - essbar nach Kochen)"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "low", "typ": "Amanita caesarea", "beschreibung": "Verwechslung unwahrscheinlich - Kaiserling hat orangegelbe Lamellen und keine weissen Flocken"},
+    {"level": "medium", "typ": "Amanita pantherina", "beschreibung": "Brauner Hut, aehnliche weisse Flocken - staerkere Toxizitaet"}
+  ],
+  "key_differentiating_features": [
+    "Roter bis orangeroter Hut mit weissen Warzen",
+    "Haengende weisse Manschette am Stiel",
+    "Knollige Stielbasis mit konzentrisch angeordneten Huellresten",
+    "Freie weisse Lamellen",
+    "Weisses Sporenpulver"
+  ],
+  "habit": "Terrestrisch, mykorrhizal",
+  "growth_form": "Einzeln oder in kleinen Gruppen",
+  "symmetry": "radial",
+  "size_range": {
+    "min": 8,
+    "max": 25,
+    "unit": "cm"
+  },
+  "size_typical_cm": 15,
+  "basic_shape": "Hutpilz mit zentralem Stiel und Manschette",
+  "height": {
+    "min": 10,
+    "max": 25,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 8,
+    "max": 20,
+    "unit": "cm"
+  },
+  "mass": {
+    "min": 50,
+    "max": 350,
+    "unit": "g"
+  },
+  "surface_type": "Glatt bis leicht klebrig, mit Huellresten",
+  "color_primary": "Leuchtend rot bis orangerot",
+  "color_secondary": "Weiss (Lamellen, Stiel, Flocken)",
+  "color_variations": [
+    "var. muscaria - klassisch rot",
+    "var. flavivolvata - gelborange",
+    "var. formosa - gelb bis orange",
+    "var. alba - komplett weiss (selten)"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Hut (Pileus)",
+  "primary_structure_diameter": {
+    "min": 8,
+    "max": 20,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Halbkugelig bis konvex",
+  "primary_structure_shape_mature": "Flach gewolbt bis ausgebreitet",
+  "primary_structure_margin": "Gerieft im Alter",
+  "primary_structure_surface": "Mit weissen pyramidalen Warzen besetzt",
+  "primary_structure_color": "Leuchtend rot, orange oder selten gelb",
+  "support_structure_present": true,
+  "support_structure_type": "Stiel (Stipe)",
+  "support_structure_length": {
+    "min": 10,
+    "max": 25,
+    "unit": "cm"
+  },
+  "support_structure_thickness": {
+    "min": 1.5,
+    "max": 3,
+    "unit": "cm"
+  },
+  "support_structure_shape": "Zylindrisch, zur Basis knollig verdickt",
+  "support_structure_base": "Kugelig-knollig mit konzentrischen Huellresten",
+  "support_structure_color": "Weiss",
+  "ring_present": true,
+  "ring_type": "Haengend, weiss, haeutig",
+  "ring_position": "Oberes Stieldrittel",
+  "basal_structure_present": true,
+  "basal_structure_type": "Knollige Volva mit konzentrischen Ringen",
+  "lamellae_present": true,
+  "lamellae_attachment": "Frei",
+  "lamellae_density": "Gedraengt",
+  "lamellae_color": "Weiss, auch im Alter",
+  "spore_print_color": "Weiss",
+  "smell_description": "Schwach, nicht charakteristisch",
+  "smell_comparable_to": "Leicht erdig, pilzig",
+  "taste_safe_to_test": false,
+  "taste_description": "NICHT testen - giftig",
+  "microscopy_required": false,
+  "microscopy_key_features": [
+    "Sporen breit ellipsoid bis subglobos",
+    "Basidien 4-sporig",
+    "Keine Schnallen an Hyphen"
+  ],
+  "spore_measurement_diagnostic": {
+    "min": 9,
+    "max": 13,
+    "unit": "um"
+  },
+  "appearance_by_season": {
+    "spring": "Selten, nur in waermeren Regionen",
+    "summer": "Erscheint ab Juli in hoeheren Lagen",
+    "autumn": "Hauptsaison August bis November",
+    "winter": "Nicht vorhanden"
+  },
+  "season_peak_months": [8, 9, 10],
+  "age_stage_variations": [
+    {"phase": "Ei-Stadium (Velum)", "duration": "2-3 Tage"},
+    {"phase": "Jung (geschlossen)", "duration": "1-2 Tage"},
+    {"phase": "Entfaltet", "duration": "3-5 Tage"},
+    {"phase": "Reif (flach)", "duration": "3-5 Tage"},
+    {"phase": "Ueberreif/Vergaenglich", "duration": "2-3 Tage"}
+  ],
+  "nutrition_type": "Mykorrhizal ektotroph",
+  "nutrition_type_detail": "Obligate Mykorrhiza mit Baeumen",
+  "substrate_species": [
+    "Betula (Birken)",
+    "Picea (Fichten)",
+    "Pinus (Kiefern)",
+    "Abies (Tannen)",
+    "Fagus (Buchen)"
+  ],
+  "identification_literature": {
+    "authors": "Tulloss, R.E. & Yang, Z.L.",
+    "year": 2020,
+    "title": "Amanitaceae Studies",
+    "journal": "Studies in the Amanitaceae",
+    "doi": "https://www.amanitaceae.org"
+  },
+  "monographs": [
+    "Neville, P. & Poumarat, S. (2004): Amaniteae - Fungi Europaei Vol. 9",
+    "Tulloss, R.E.: Studies in the Amanitaceae (online)"
+  ],
+  "source": {
+    "authors": "Linnaeus, C.",
+    "year": 1753,
+    "title": "Species Plantarum",
+    "journal": "Impensis Laurentii Salvii",
+    "doi": ""
+  }
+}

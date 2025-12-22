@@ -1,0 +1,226 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   MORPH: PROGRESS
+   Universe Theme - Nachthimmel mit Lichtkugeln
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.morph-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.morph-progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+/* Labels - grau und dezent */
+.morph-progress-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: var(--text-muted, rgba(255, 255, 255, 0.3));
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* Wichtiger Wert - blau leuchtend */
+.morph-progress-value {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--morph-accent);
+  font-variant-numeric: tabular-nums;
+  text-shadow: var(--text-glow);
+}
+
+/* Track - dünn und dezent */
+.morph-progress-bar {
+  height: 2px;
+  background: var(--track-bg);
+  border-radius: 1px;
+  overflow: visible;
+  position: relative;
+}
+
+.morph-progress-fill {
+  height: 100%;
+  background: color-mix(in srgb, var(--morph-color) 30%, transparent);
+  border-radius: 1px;
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 2px;
+  position: relative;
+}
+
+/* Lichtkugel am Ende */
+.morph-progress-fill::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background: var(--morph-color);
+  border-radius: 50%;
+  box-shadow: var(--dot-glow);
+}
+
+/* Progress Variants - ALLE in Universe Blue */
+.morph-progress-success .morph-progress-fill,
+.morph-progress-warning .morph-progress-fill,
+.morph-progress-danger .morph-progress-fill {
+  background: var(--track-fill);
+}
+
+.morph-progress-success .morph-progress-fill::after,
+.morph-progress-warning .morph-progress-fill::after,
+.morph-progress-danger .morph-progress-fill::after {
+  background: var(--dot-bg);
+  box-shadow: var(--dot-glow);
+}
+
+.morph-progress-success .morph-progress-value,
+.morph-progress-warning .morph-progress-value,
+.morph-progress-danger .morph-progress-value {
+  color: var(--morph-accent);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PROGRESS COMPARE
+   ───────────────────────────────────────────────────────────────────────────── */
+.progress-compare-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.progress-bars {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.morph-progress-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.progress-stack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-right: 3rem;
+}
+
+.progress-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.progress-item-name {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  min-width: 80px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.progress-track {
+  height: var(--track-height);
+  background: var(--track-bg);
+  border-radius: var(--track-radius);
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  background: color-mix(in srgb, var(--item-color, var(--morph-color)) 30%, transparent);
+  border-radius: var(--track-radius);
+  transition: width 0.3s ease;
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background: var(--item-color, var(--dot-bg));
+  border-radius: 50%;
+  box-shadow: 0 0 6px var(--item-color, var(--morph-accent));
+}
+
+.progress-value {
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  min-width: 3rem;
+  text-align: right;
+}
+
+/* Max/Min - alle in Universe Blue */
+.progress-row.progress-max .progress-value {
+  color: var(--morph-accent);
+  font-weight: 600;
+}
+
+.progress-row.progress-min .progress-value {
+  color: var(--text-muted);
+}
+
+.progress-avg-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--line-width);
+  background: var(--morph-accent);
+  box-shadow: var(--dot-glow);
+  z-index: 1;
+}
+
+.progress-avg-line::before {
+  content: 'Ø';
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  color: var(--text-secondary);
+}
+
+.progress-stats {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line-color);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   RESPONSIVE
+   ───────────────────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .morph-progress-bar {
+    height: 2px;
+  }
+}
+
+@media (max-width: 600px) {
+  .progress-item-name {
+    min-width: 60px;
+    font-size: 0.65rem;
+  }
+  
+  .progress-stack {
+    padding-right: 2.5rem;
+  }
+}
