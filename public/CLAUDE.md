@@ -31,19 +31,30 @@ background-image:
 
 ### Black Glass Components
 
-**Standard Glass Panel** (Aus _glass.css):
+**Standard Glass Panel**:
 ```css
-background: linear-gradient(
-  145deg,
-  rgba(12, 18, 45, 0.65) 0%,
-  rgba(6, 10, 28, 0.75) 50%,
-  rgba(10, 16, 40, 0.65) 100%
-);
-border: 1px solid rgba(80, 120, 255, 0.12);
-border-top-color: rgba(130, 170, 255, 0.2);
-box-shadow: 
-  inset 0 1px 0 rgba(255, 255, 255, 0.06),
-  0 8px 32px rgba(0, 0, 0, 0.4);
+background: rgba(5, 8, 15, 0.95);
+border: 1px solid transparent;
+border-radius: 20px;
+```
+
+**Animierte Bio-Border** (Suchleiste, Compare-Button):
+```css
+/* Pseudo-Element mit rotierender 8-Farben-Border */
+.element::before {
+  background: linear-gradient(
+    var(--bio-border-angle, 0deg),
+    var(--bio-foxfire) 0%,
+    var(--bio-myzel) 15%,
+    var(--bio-sporen) 30%,
+    var(--bio-tiefsee) 45%,
+    var(--bio-rhodotus) 60%,
+    var(--bio-chlorophyll) 75%,
+    var(--bio-carotin) 90%,
+    var(--bio-foxfire) 100%
+  );
+  animation: rotateBioBorder 10s linear infinite;
+}
 ```
 
 **KEIN BLUR** - Klares, scharfes Glas mit Lichtreflexionen
@@ -52,38 +63,42 @@ box-shadow:
 
 **Psychedelic Blue**: `#4d88ff` / `rgb(77, 136, 255)`
 
-### Perspektiven-Farben (15)
+### Perspektiven-Farben (15) - Matte Pastell-Töne
 
-| # | Name | Farbe |
-|---|------|-------|
-| 1 | Magenta | #ff0080 |
-| 2 | Cyan | #00ffff |
-| 3 | Orange | #ff8000 |
-| 4 | Lime | #80ff00 |
-| 5 | Purple | #8000ff |
-| 6 | Yellow | #ffff00 |
-| 7 | Pink | #ff0040 |
-| 8 | Teal | #00ff80 |
-| 9 | Blue | #0080ff |
-| 10 | Red | #ff4040 |
-| 11 | Green | #40ff40 |
-| 12 | Violet | #ff40ff |
-| 13 | Coral | #ff6060 |
-| 14 | Aqua | #60ffff |
-| 15 | Gold | #ffc000 |
+Dezent, nicht leuchtend - klar unterscheidbar von Bio-Lumineszenz:
 
-### Pilz-Farben für Compare (8)
+| Perspektive | Farbe | RGB |
+|-------------|-------|-----|
+| culinary | Matte Terracotta | 180, 140, 120 |
+| safety | Dusty Rose | 170, 130, 140 |
+| cultivation | Sage Grau | 120, 150, 130 |
+| medicine | Mauve Grau | 150, 140, 170 |
+| chemistry | Dusty Plum | 160, 140, 160 |
+| ecology | Olive Matte | 130, 150, 120 |
+| statistics | Taupe | 165, 155, 140 |
+| geography | Clay | 160, 135, 120 |
+| temporal | Khaki Matte | 170, 160, 130 |
+| economy | Sand Matte | 165, 150, 115 |
+| conservation | Seafoam Matte | 115, 150, 145 |
+| culture | Lavender Grau | 155, 140, 160 |
+| research | Steel Matte | 140, 145, 160 |
+| interactions | Apricot Matte | 175, 145, 135 |
+| identification | Moss Matte | 145, 155, 125 |
 
-| # | Name | Farbe |
-|---|------|-------|
-| 1 | Toxic Pink | #ff1493 |
-| 2 | Slime Green | #39ff14 |
-| 3 | Spore Purple | #bf00ff |
-| 4 | Bioluminescent Blue | #00f5ff |
-| 5 | Warning Orange | #ff6600 |
-| 6 | Mycelium Yellow | #fff700 |
-| 7 | Deadly Red | #ff0044 |
-| 8 | Magic Teal | #00ffa5 |
+### Bio-Lumineszenz Farben für Compare (8)
+
+Inspiriert von biologischer Lumineszenz (Pilze, Meeresorganismen, Pflanzen):
+
+| # | Name | Farbe | RGB |
+|---|------|-------|-----|
+| 0 | Foxfire | #00ffc8 | 0, 255, 200 |
+| 1 | Myzel | #a78bfa | 167, 139, 250 |
+| 2 | Sporen | #fbbf24 | 251, 191, 36 |
+| 3 | Tiefsee | #22d3ee | 34, 211, 238 |
+| 4 | Rhodotus | #f472b6 | 244, 114, 182 |
+| 5 | Chlorophyll | #a3e635 | 163, 230, 53 |
+| 6 | Carotin | #fb923c | 251, 146, 60 |
+| 7 | Lavendel | #c4b5fd | 196, 181, 253 |
 
 ## 📦 base.css
 

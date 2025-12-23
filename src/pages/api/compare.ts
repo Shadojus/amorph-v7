@@ -94,7 +94,17 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
   
   // Get unique items
   const uniqueItems = [...new Set(fields.map(f => f.itemSlug))];
-  const colors = ['#0df', '#f0d', '#fd0', '#0fd', '#d0f', '#df0'];
+  // Bio-Lumineszenz Palette
+  const colors = [
+    '#00ffc8', // Foxfire Grün
+    '#a78bfa', // Myzel Violett
+    '#fbbf24', // Sporen Amber
+    '#22d3ee', // Tiefsee Cyan
+    '#f472b6', // Rhodotus Rosa
+    '#a3e635', // Chlorophyll Grün
+    '#fb923c', // Carotin Orange
+    '#c4b5fd'  // Lavendel
+  ];
   const itemColors = new Map<string, string>();
   uniqueItems.forEach((slug, i) => itemColors.set(slug, colors[i % colors.length]));
   
@@ -116,7 +126,8 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
   html += '<div class="compare-legend">';
   for (const [slug, color] of itemColors) {
     const field = fields.find(f => f.itemSlug === slug);
-    html += `<span class="legend-item" style="--item-color: ${color}">${escapeHtml(field?.itemName || slug)}</span>`;
+    const name = field?.itemName || slug;
+    html += `<span class="legend-item" data-species="${escapeAttribute(name)}" style="--item-color: ${color}">${escapeHtml(name)}</span>`;
   }
   html += '</div>';
   
@@ -129,6 +140,7 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
     // Multiple items for this field - use overlay Compare mode
     if (fieldValues.length > 1) {
       // Build items with field values for Compare context
+      // WICHTIG: Farben aus der globalen itemColors Map verwenden!
       const compareItems = fieldValues.map(field => ({
         id: field.itemSlug,
         slug: field.itemSlug,
@@ -137,13 +149,14 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
         [fieldName]: field.value
       }));
       
-      // Build compare context
+      // Build compare context mit ALLEN Item-Farben (für konsistente Zuordnung)
+      // Die Farben-Reihenfolge muss der Items-Reihenfolge im compareContext entsprechen
       const compareContext: RenderContext = {
         mode: 'compare',
         itemCount: fieldValues.length,
         items: compareItems as any,
         fieldName: fieldName,
-        colors: fieldValues.map(f => itemColors.get(f.itemSlug) || '#fff')
+        colors: compareItems.map(item => item.color)
       };
       
       // Use renderValue which will detect Compare mode and use overlay rendering
@@ -159,7 +172,7 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
       const renderedValue = renderValue(field.value, field.fieldName, { mode: 'single', itemCount: 1 });
       const displayValue = renderedValue || `<span class="no-value">–</span>`;
       
-      html += `<div class="field-value-item" style="--item-color: ${color}">
+      html += `<div class="field-value-item" data-species="${escapeAttribute(field.itemName)}" style="--item-color: ${color}">
         <span class="item-label">${escapeHtml(field.itemName)}</span>
         <div class="value-content">${displayValue}</div>
       </div>`;
@@ -219,8 +232,17 @@ async function handleItemCompare(body: { items?: string[]; perspectives?: string
       });
     }
     
-    // Build compare context
-    const colors = ['#0df', '#f0d', '#fd0', '#0fd', '#d0f', '#df0'];
+    // Build compare context - Bio-Lumineszenz Palette
+    const colors = [
+      '#00ffc8', // Foxfire Grün
+      '#a78bfa', // Myzel Violett
+      '#fbbf24', // Sporen Amber
+      '#22d3ee', // Tiefsee Cyan
+      '#f472b6', // Rhodotus Rosa
+      '#a3e635', // Chlorophyll Grün
+      '#fb923c', // Carotin Orange
+      '#c4b5fd'  // Lavendel
+    ];
     const compareContext: RenderContext = {
       mode: 'compare',
       itemCount: items.length,

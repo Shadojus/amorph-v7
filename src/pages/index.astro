@@ -168,23 +168,23 @@ const { items, total, perspectivesWithData } = await searchItems({
 // Get perspectives
 const perspectives = getAllPerspectives();
 
-// Perspektiven-Farben - zentral definiert (RGB Werte aus base.css)
+// Perspektiven-Farben - Matte Pastell-Töne (nicht leuchtend, klar von Bio-Farben unterscheidbar)
 const perspectiveColors: Record<string, string[]> = {
-  culinary: ['rgba(255, 180, 140, 0.75)'],
-  safety: ['rgba(255, 150, 160, 0.75)'],
-  cultivation: ['rgba(140, 230, 180, 0.75)'],
-  medicine: ['rgba(200, 170, 230, 0.75)'],
-  chemistry: ['rgba(230, 160, 200, 0.75)'],
-  ecology: ['rgba(160, 200, 140, 0.75)'],
-  statistics: ['rgba(230, 210, 170, 0.75)'],
-  geography: ['rgba(220, 160, 130, 0.75)'],
-  temporal: ['rgba(240, 210, 140, 0.75)'],
-  economy: ['rgba(235, 195, 100, 0.75)'],
-  conservation: ['rgba(120, 200, 180, 0.75)'],
-  culture: ['rgba(210, 170, 190, 0.75)'],
-  research: ['rgba(190, 195, 210, 0.75)'],
-  interactions: ['rgba(250, 160, 140, 0.75)'],
-  identification: ['rgba(180, 190, 130, 0.75)']
+  culinary: ['rgba(180, 140, 120, 0.6)'],
+  safety: ['rgba(170, 130, 140, 0.6)'],
+  cultivation: ['rgba(120, 150, 130, 0.6)'],
+  medicine: ['rgba(150, 140, 170, 0.6)'],
+  chemistry: ['rgba(160, 140, 160, 0.6)'],
+  ecology: ['rgba(130, 150, 120, 0.6)'],
+  statistics: ['rgba(165, 155, 140, 0.6)'],
+  geography: ['rgba(160, 135, 120, 0.6)'],
+  temporal: ['rgba(170, 160, 130, 0.6)'],
+  economy: ['rgba(165, 150, 115, 0.6)'],
+  conservation: ['rgba(115, 150, 145, 0.6)'],
+  culture: ['rgba(155, 140, 160, 0.6)'],
+  research: ['rgba(140, 145, 160, 0.6)'],
+  interactions: ['rgba(175, 145, 135, 0.6)'],
+  identification: ['rgba(145, 155, 125, 0.6)']
 };
 
 // Render context for grid items
@@ -202,18 +202,49 @@ const gridContext: RenderContext = {
     window.AMORPH_PERSPECTIVES = perspectives;
   </script>
   
-  <!-- Header (nur Logo + Compare) -->
+  <!-- ═══════════════════════════════════════════════════════════════════════════
+       HEADER - Site-Switcher mit drei Bio-Spezies Bereichen
+       Funginomi (blau), Phytonomi (jade), Zoonomi (türkis)
+       ═══════════════════════════════════════════════════════════════════════════ -->
   <header class="amorph-header">
-    <a href="/" class="amorph-logo">🍄</a>
-    <span class="page-title">AMORPH</span>
-    <button type="button" class="compare-trigger" disabled>
-      <span class="icon">⚖</span>
-      <span class="count">0</span>
-    </button>
+    <nav class="site-switcher">
+      <a href="https://funginomi.com" class="site-link is-active" data-site="funginomi" title="Funginomi – Pilze & Fungi">
+        <span class="site-link-icon">🍄</span>
+        <span class="site-link-name">Funginomi</span>
+      </a>
+      <a href="https://phytonomi.com" class="site-link" data-site="phytonomi" title="Phytonomi – Pflanzen & Flora">
+        <span class="site-link-icon">🌿</span>
+        <span class="site-link-name">Phytonomi</span>
+      </a>
+      <a href="https://zoonomi.com" class="site-link" data-site="zoonomi" title="Zoonomi – Tiere & Fauna">
+        <span class="site-link-icon">🦋</span>
+        <span class="site-link-name">Zoonomi</span>
+      </a>
+    </nav>
   </header>
   
-  <!-- Aktive Perspektiven unter Header -->
-  <div class="active-perspectives-bar">
+  <!-- ═══════════════════════════════════════════════════════════════════════════
+       SEARCH BAR - Floating im Content
+       ═══════════════════════════════════════════════════════════════════════════ -->
+  <div class="search-bar-container">
+    <div class="search-bar-inner">
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="search" 
+          class="search-input-main"
+          placeholder="Suchen..." 
+          value={query}
+          autocomplete="off"
+        />
+        <div class="search-nav" style="display: none;">
+          <span class="search-nav-count">0/0</span>
+          <button type="button" class="search-nav-prev" aria-label="Vorheriger Treffer">↑</button>
+          <button type="button" class="search-nav-next" aria-label="Nächster Treffer">↓</button>
+        </div>
+      </div>
+    </div>
+    <!-- Aktive Perspektiven unter Suche -->
     <div class="active-perspectives"></div>
   </div>
   
@@ -309,32 +340,7 @@ const gridContext: RenderContext = {
     <button class="selection-clear">Alle entfernen</button>
   </div>
   
-  <!-- Search Footer (unten fixiert - Mobile-First) -->
-  <footer class="amorph-search-footer">
-    <div class="search-footer-inner">
-      <!-- Suchleiste OBEN - Prominentes Design -->
-      <div class="amorph-search">
-        <div class="search-wrapper">
-          <span class="search-icon">🔍</span>
-          <input 
-            type="search" 
-            placeholder="Suchen..." 
-            value={query}
-            autocomplete="off"
-          />
-          <div class="search-nav" style="display: none;">
-            <span class="search-nav-count">0/0</span>
-            <button type="button" class="search-nav-prev" aria-label="Vorheriger Treffer">↑</button>
-            <button type="button" class="search-nav-next" aria-label="Nächster Treffer">↓</button>
-          </div>
-        </div>
-      </div>
-      
-
-    </div>
-  </footer>
-  
-  <!-- Compare Panel -->
+  <!-- Compare Panel (Overlay) -->
   <aside class="amorph-compare">
     <div class="compare-header">
       <h2>Vergleich</h2>
@@ -344,4 +350,38 @@ const gridContext: RenderContext = {
       <!-- Filled via JS -->
     </div>
   </aside>
+  
+  <!-- ═══════════════════════════════════════════════════════════════════════════
+       FOOTER - Minimal
+       ═══════════════════════════════════════════════════════════════════════════ -->
+  <footer class="amorph-footer">
+    <div class="footer-content">
+      <nav class="footer-links">
+        <a href="/impressum" class="footer-link">Impressum</a>
+        <a href="/datenschutz" class="footer-link">Datenschutz</a>
+        <a href="/about" class="footer-link">Über AMORPH</a>
+        <a href="https://github.com" class="footer-link" target="_blank">GitHub</a>
+      </nav>
+      <p class="footer-copyright">© 2025 AMORPH · <a href="/">Formlos. Zustandslos. Transformierend.</a></p>
+    </div>
+  </footer>
+  
+  <!-- ═══════════════════════════════════════════════════════════════════════════
+       BOTTOM NAVIGATION - Fixed App Navigation
+       ═══════════════════════════════════════════════════════════════════════════ -->
+  <nav class="bottom-nav">
+    <a href="/" class="bottom-nav-item is-active" data-nav="home">
+      <span class="bottom-nav-icon">🏠</span>
+      <span class="bottom-nav-label">Home</span>
+    </a>
+    <button type="button" class="bottom-nav-item" data-nav="compare">
+      <span class="bottom-nav-icon">⚖️</span>
+      <span class="bottom-nav-label">Compare</span>
+      <span class="bottom-nav-badge">0</span>
+    </button>
+    <a href="/bifroest" class="bottom-nav-item" data-nav="bifroest">
+      <span class="bottom-nav-icon">🌈</span>
+      <span class="bottom-nav-label">Bifröst</span>
+    </a>
+  </nav>
 </Base>

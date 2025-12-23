@@ -11,20 +11,20 @@
    ─────────────────────────────────────────
    • Hintergrund: Dunkel wie der Nachthimmel
    • Text: Grau - dezent wie ferne Nebel (NIE weiß!)
-   • Datenpunkte: Blaue Lichtkugeln - leuchtend wie Sterne
+   • Datenpunkte: System-Color Lichtkugeln - leuchtend wie Sterne
    • Linien: Dünn und dezent - kaum sichtbare Strukturen
-   • Wichtige Werte: Blau leuchtend - ziehen Aufmerksamkeit
+   • Wichtige Werte: System-Color leuchtend - ziehen Aufmerksamkeit
    
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   1. CSS CUSTOM PROPERTIES
+   1. CSS CUSTOM PROPERTIES - Harmonisiert mit Base.css System
    ═══════════════════════════════════════════════════════════════════════════════ */
 :root {
-  /* ─── Systemfarben ─── */
-  --morph-color: #4d88ff;
-  --morph-accent: #4d88ff;
-  --morph-color-rgb: 77, 136, 255;
+  /* ─── Systemfarben (von base.css übernommen) ─── */
+  --morph-color: hsl(var(--system-h, 220), var(--system-s, 100%), var(--system-l, 65%));
+  --morph-accent: var(--morph-color);
+  --morph-color-rgb: var(--system-rgb, 77, 136, 255);
   --morph-success: #00ff88;
   --morph-warning: #ffaa00;
   --morph-danger: #ff3366;
@@ -33,18 +33,18 @@
   --text-primary: rgba(255, 255, 255, 0.55);   /* Haupttext */
   --text-secondary: rgba(255, 255, 255, 0.4);  /* Sekundär */
   --text-muted: rgba(255, 255, 255, 0.25);     /* Sehr dezent */
-  --text-value: var(--morph-accent);           /* Wichtige Werte = BLAU */
+  --text-value: var(--morph-accent);           /* Wichtige Werte = System-Color */
   
   /* ─── Text Glow (für wichtige Werte) ─── */
-  --text-glow: 0 0 10px rgba(77, 136, 255, 0.4);
-  --text-glow-strong: 0 0 12px rgba(77, 136, 255, 0.5);
+  --text-glow: 0 0 10px rgba(var(--morph-color-rgb), 0.4);
+  --text-glow-strong: 0 0 12px rgba(var(--morph-color-rgb), 0.5);
   
   /* ─── Lichtkugel (Glowing Dot) ─── */
   --dot-size: 6px;
   --dot-color: var(--morph-accent);
   --dot-bg: var(--morph-accent);
   --dot-glow: 0 0 8px var(--morph-accent);
-  --dot-glow-active: 0 0 12px var(--morph-accent), 0 0 20px rgba(77, 136, 255, 0.4);
+  --dot-glow-active: 0 0 12px var(--morph-accent), 0 0 20px rgba(var(--morph-color-rgb), 0.4);
   
   /* ─── Track/Bar ─── */
   --track-height: 2px;
@@ -57,8 +57,8 @@
   --line-color: rgba(255, 255, 255, 0.06);
   
   /* ─── Type Badge ─── */
-  --morph-type-badge: #4d88ff;
-  --morph-type-badge-bg: rgba(77, 136, 255, 0.12);
+  --morph-type-badge: var(--morph-color);
+  --morph-type-badge-bg: rgba(var(--morph-color-rgb), 0.12);
 }
 
 
@@ -152,12 +152,12 @@
 .morph-text-secondary { color: var(--text-secondary) !important; }
 .morph-text-muted { color: var(--text-muted) !important; }
 
-/* Wichtiger Wert - BLAU mit Glow */
+/* Wichtiger Wert - System-Color mit Glow */
 .morph-value {
   font-weight: 600;
   font-variant-numeric: tabular-nums;
   color: var(--text-value);
-  text-shadow: 0 0 10px rgba(77, 136, 255, 0.4);
+  text-shadow: 0 0 10px rgba(var(--morph-color-rgb), 0.4);
 }
 
 /* Label - sehr dezent */

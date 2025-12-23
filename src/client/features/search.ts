@@ -50,8 +50,9 @@ export function initSearch(config: SearchConfig): void {
   gridContainer = config.grid;
   activePerspectivesContainer = config.activePerspectivesContainer || null;
   
-  // Search Navigation Container
-  searchNavContainer = document.querySelector('.search-nav');
+  // Search Navigation Container - neue Position
+  searchNavContainer = document.querySelector('.search-bar-container .search-nav') ||
+                       document.querySelector('.search-nav');
   
   // Search Navigation Buttons
   document.querySelector('.search-nav-prev')?.addEventListener('click', () => navigateHighlight(-1));
@@ -344,15 +345,33 @@ function updateHighlightNavigation(query: string): void {
 function applyHighlighting(query: string): void {
   console.log('[Highlight] applyHighlighting called', { query, gridContainer: !!gridContainer });
   
-  if (!gridContainer || !query || query.length < 3) {
-    console.log('[Highlight] Early return - missing gridContainer or query too short');
+  if (!query || query.length < 3) {
+    console.log('[Highlight] Early return - query too short');
     return;
   }
   
+  // Prüfe ob Compare-Panel aktiv ist
+  const comparePanel = document.querySelector<HTMLElement>('.amorph-compare');
+  const isCompareActive = comparePanel?.classList.contains('active');
+  const compareContent = document.querySelector<HTMLElement>('.compare-content');
+  
+  // Bestimme Such-Container basierend auf Compare-Status
+  const searchContainers: HTMLElement[] = [];
+  
+  if (isCompareActive && compareContent && compareContent.innerHTML.trim()) {
+    // Compare aktiv → NUR im Compare suchen
+    searchContainers.push(compareContent);
+    console.log('[Highlight] Searching in Compare only');
+  } else if (gridContainer) {
+    // Compare nicht aktiv → NUR im Grid suchen
+    searchContainers.push(gridContainer);
+    console.log('[Highlight] Searching in Grid only');
+  }
+  
+  if (searchContainers.length === 0) return;
+  
   // Normalisiere Query: Leerzeichen und Unterstriche sind äquivalent
   const lowerQuery = query.toLowerCase();
-  const normalizedQuery = lowerQuery.replace(/[_\s]+/g, '[_\\s]+');
-  const regex = new RegExp(`(${normalizedQuery.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\[_\\s\]\+/g, '[_\\s]+')})`, 'gi');
   
   // Für einfache Textsuche auch mit normalisiertem String
   const searchVariants = [
@@ -363,9 +382,19 @@ function applyHighlighting(query: string): void {
   
   console.log('[Highlight] Looking for text nodes containing:', lowerQuery);
   
-  // Finde alle Textknoten im Grid
+  // Durchsuche alle Container
+  for (const container of searchContainers) {
+    highlightInContainer(container, query, searchVariants);
+  }
+}
+
+// Highlighting in einem Container - mit SVG-Schutz
+function highlightInContainer(container: HTMLElement, query: string, searchVariants: string[]): void {
+  const lowerQuery = query.toLowerCase();
+  
+  // Finde alle Textknoten im Container - KEINE SVG-Text-Elemente!
   const walker = document.createTreeWalker(
-    gridContainer,
+    container,
     NodeFilter.SHOW_TEXT,
     {
       acceptNode: (node) => {
@@ -374,6 +403,8 @@ function applyHighlighting(query: string): void {
         if (node.parentElement?.closest('mark')) return NodeFilter.FILTER_REJECT;
         if (node.parentElement?.closest('script')) return NodeFilter.FILTER_REJECT;
         if (node.parentElement?.closest('style')) return NodeFilter.FILTER_REJECT;
+        // WICHTIG: SVG-Text nicht modifizieren (zerstört das Rendering)
+        if (node.parentElement?.closest('svg')) return NodeFilter.FILTER_REJECT;
         // Prüfe alle Varianten (mit/ohne Unterstriche)
         const textLower = node.textContent.toLowerCase();
         const textNormalized = textLower.replace(/_/g, ' ');

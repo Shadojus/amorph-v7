@@ -8,14 +8,15 @@
 import { debug } from './debug';
 import { initSearch, restoreFromURL } from './search';
 import { initGrid } from './grid';
-import { initCompare, toggleCompare } from './compare';
+import { initCompare, toggleCompare, showCompare, hideCompare, isCompareOpen } from './compare';
 import { 
   loadFromStorage, 
   subscribe, 
   getSelectedItems, 
   getSelectedCount,
   clearSelection,
-  deselectItem 
+  deselectItem,
+  getSelectedFieldCount
 } from './selection';
 import { setupObservers, stopObservers, getObserverStats, debug as observerDebug } from '../../observer';
 import { morphDebug } from '../../morphs/debug';
@@ -45,10 +46,12 @@ export function initApp(): void {
   // Load persisted selection
   loadFromStorage();
   
-  // Search
-  const searchInput = document.querySelector<HTMLInputElement>('.amorph-search input');
+  // Search - neue prominente Suchleiste
+  const searchInput = document.querySelector<HTMLInputElement>('.search-input-main') ||
+                      document.querySelector<HTMLInputElement>('.amorph-search input');
   const gridContainer = document.querySelector<HTMLElement>('.amorph-grid');
-  const activePerspectivesContainer = document.querySelector<HTMLElement>('.active-perspectives');
+  const activePerspectivesContainer = document.querySelector<HTMLElement>('.search-bar-container .active-perspectives') ||
+                                       document.querySelector<HTMLElement>('.active-perspectives');
   
   if (searchInput && gridContainer) {
     initSearch({
@@ -69,9 +72,12 @@ export function initApp(): void {
     initCompare(comparePanel);
   }
   
-  // Compare button
+  // Compare button (legacy - im Header, jetzt versteckt)
   const compareBtn = document.querySelector('.compare-trigger');
   compareBtn?.addEventListener('click', () => toggleCompare());
+  
+  // Bottom Navigation
+  initBottomNav();
   
   // Selection bar
   initSelectionBar();
@@ -83,6 +89,62 @@ export function initApp(): void {
   initObservers();
   
   debug.amorph('AMORPH v7 ready');
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// BOTTOM NAVIGATION
+// ═══════════════════════════════════════════════════════════════════════════════
+
+function initBottomNav(): void {
+  const bottomNav = document.querySelector<HTMLElement>('.bottom-nav');
+  if (!bottomNav) return;
+  
+  const compareNavItem = bottomNav.querySelector<HTMLElement>('[data-nav="compare"]');
+  const badge = compareNavItem?.querySelector('.bottom-nav-badge');
+  
+  // Compare button in bottom nav
+  compareNavItem?.addEventListener('click', () => {
+    toggleCompare();
+    updateBottomNavState();
+  });
+  
+  // Subscribe to selection changes for badge
+  subscribe(() => {
+    const itemCount = getSelectedCount();
+    const fieldCount = getSelectedFieldCount();
+    const totalCount = itemCount + fieldCount;
+    
+    if (badge) {
+      badge.textContent = String(totalCount);
+      badge.classList.toggle('has-items', totalCount > 0);
+    }
+  });
+  
+  // Update nav state when compare panel changes
+  const observer = new MutationObserver(() => {
+    updateBottomNavState();
+  });
+  
+  const comparePanel = document.querySelector('.amorph-compare');
+  if (comparePanel) {
+    observer.observe(comparePanel, { attributes: true, attributeFilter: ['class'] });
+  }
+  
+  debug.amorph('Bottom navigation initialized');
+}
+
+function updateBottomNavState(): void {
+  const bottomNav = document.querySelector<HTMLElement>('.bottom-nav');
+  if (!bottomNav) return;
+  
+  const homeItem = bottomNav.querySelector('[data-nav="home"]');
+  const compareItem = bottomNav.querySelector('[data-nav="compare"]');
+  
+  const compareOpen = isCompareOpen();
+  
+  // Toggle active states
+  homeItem?.classList.toggle('is-active', !compareOpen);
+  compareItem?.classList.toggle('is-active', compareOpen);
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════

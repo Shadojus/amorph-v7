@@ -44,40 +44,33 @@
 
 .morph-progress-fill {
   height: 100%;
-  background: color-mix(in srgb, var(--morph-color) 30%, transparent);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--morph-color) 50%, transparent) 0%,
+    color-mix(in srgb, var(--morph-color) 35%, transparent) 70%,
+    color-mix(in srgb, var(--morph-color) 15%, transparent) 100%
+  );
   border-radius: 1px;
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 2px;
   position: relative;
 }
 
-/* Lichtkugel am Ende */
-.morph-progress-fill::after {
-  content: '';
-  position: absolute;
-  right: -3px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: var(--dot-size);
-  height: var(--dot-size);
-  background: var(--morph-color);
-  border-radius: 50%;
-  box-shadow: var(--dot-glow);
-}
+/* Kein Dot mehr - sanftes Ausfaden */
 
 /* Progress Variants - ALLE in Universe Blue */
 .morph-progress-success .morph-progress-fill,
 .morph-progress-warning .morph-progress-fill,
 .morph-progress-danger .morph-progress-fill {
-  background: var(--track-fill);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--track-fill) 50%, transparent) 0%,
+    color-mix(in srgb, var(--track-fill) 35%, transparent) 70%,
+    color-mix(in srgb, var(--track-fill) 15%, transparent) 100%
+  );
 }
 
-.morph-progress-success .morph-progress-fill::after,
-.morph-progress-warning .morph-progress-fill::after,
-.morph-progress-danger .morph-progress-fill::after {
-  background: var(--dot-bg);
-  box-shadow: var(--dot-glow);
-}
+/* Keine Dots mehr */
 
 .morph-progress-success .morph-progress-value,
 .morph-progress-warning .morph-progress-value,
@@ -140,24 +133,18 @@
 
 .progress-fill {
   height: 100%;
-  background: color-mix(in srgb, var(--item-color, var(--morph-color)) 30%, transparent);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--item-color, var(--morph-color)) 50%, transparent) 0%,
+    color-mix(in srgb, var(--item-color, var(--morph-color)) 35%, transparent) 70%,
+    color-mix(in srgb, var(--item-color, var(--morph-color)) 15%, transparent) 100%
+  );
   border-radius: var(--track-radius);
   transition: width 0.3s ease;
   position: relative;
 }
 
-.progress-fill::after {
-  content: '';
-  position: absolute;
-  right: -3px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: var(--dot-size);
-  height: var(--dot-size);
-  background: var(--item-color, var(--dot-bg));
-  border-radius: 50%;
-  box-shadow: 0 0 6px var(--item-color, var(--morph-accent));
-}
+/* Kein Dot - sanftes Ausfaden */
 
 .progress-value {
   font-size: 0.75rem;

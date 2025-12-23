@@ -71,7 +71,7 @@ export const sparkline = createUnifiedMorph(
     return `
       <div class="sparkline-compare-wrapper">
         <svg class="sparkline-svg" viewBox="0 0 ${width} ${height}" preserveAspectRatio="none">
-          ${datasets.map(({ data, color }) => {
+          ${datasets.map(({ data, color, name }) => {
             if (data.length === 0) return '';
             const step = width / (data.length - 1 || 1);
             const points = data.map((val, idx) => {
@@ -79,14 +79,14 @@ export const sparkline = createUnifiedMorph(
               const y = height - padding - ((val - globalMin) / globalRange) * (height - 2 * padding);
               return `${x},${y}`;
             }).join(' ');
-            return `<polyline class="sparkline-line" points="${points}" style="--item-color: ${escapeHtml(color)}" />`;
+            return `<polyline class="sparkline-line" data-species="${escapeHtml(name)}" points="${points}" style="--item-color: ${escapeHtml(color)}" />`;
           }).join('')}
         </svg>
         <div class="sparkline-legend">
           ${datasets.map(({ color, name, last, first }) => {
             const trend = last > first ? '↑' : last < first ? '↓' : '→';
             return `
-              <div class="sparkline-legend-item" style="--item-color: ${escapeHtml(color)}">
+              <div class="sparkline-legend-item" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(color)}">
                 <span class="cmp-dot"></span>
                 <span class="sparkline-val">${formatNumber(last)} ${trend}</span>
               </div>

@@ -38,27 +38,28 @@
   background: transparent;
 }
 
-/* Lichtkugel wie bei Bar-Morph */
+/* Lichtkugel - inaktiv gedimmt */
 .morph-lifecycle-dot {
   width: var(--dot-size);
   height: var(--dot-size);
   border-radius: 50%;
-  background: var(--dot-bg);
-  box-shadow: var(--dot-glow);
+  background: rgba(var(--morph-color-rgb), 0.25);
+  box-shadow: none;
   flex-shrink: 0;
-  opacity: 0.3;
+  transition: all 0.2s ease;
 }
 
 /* Aktive Phase - leuchtende Kugel */
 .morph-lifecycle-phase--active .morph-lifecycle-dot {
-  opacity: 1;
-  box-shadow: var(--dot-glow);
+  background: var(--dot-bg);
+  box-shadow: var(--dot-glow), 0 0 12px rgba(var(--morph-color-rgb), 0.5);
 }
 
-/* Abgeschlossene Phase */
+/* Abgeschlossene Phase - halb leuchtend */
 .morph-lifecycle-phase--complete .morph-lifecycle-dot {
-  opacity: 0.6;
+  background: var(--dot-bg);
   box-shadow: var(--dot-glow);
+  opacity: 0.6;
 }
 
 .morph-lifecycle-content {
@@ -70,7 +71,7 @@
 }
 
 .morph-lifecycle-name {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
   font-weight: 500;
   line-height: 1.3;
@@ -81,7 +82,7 @@
 }
 
 .morph-lifecycle-duration {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
 }
 

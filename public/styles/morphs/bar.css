@@ -41,26 +41,19 @@
 
 .morph-bar-fill {
   height: 100%;
-  background: var(--track-fill);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--track-fill) 60%, transparent) 0%,
+    var(--track-fill) 50%,
+    color-mix(in srgb, var(--track-fill) 40%, transparent) 100%
+  );
   border-radius: var(--track-radius);
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 2px;
   position: relative;
 }
 
-/* Lichtkugel am Ende */
-.morph-bar-fill::after {
-  content: '';
-  position: absolute;
-  right: -3px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: var(--dot-size);
-  height: var(--dot-size);
-  background: var(--dot-bg);
-  border-radius: 50%;
-  box-shadow: var(--dot-glow);
-}
+/* Kein Dot mehr - sanftes Ausfaden */
 
 /* Werte - etwas heller für Lesbarkeit */
 .morph-bar-value {
@@ -119,28 +112,21 @@
   position: relative;
 }
 
-/* The fill bar */
+/* The fill bar - Gradient-Fade statt Dot */
 .bar-fill {
   height: 100%;
-  background: color-mix(in srgb, var(--item-color) 30%, transparent);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--item-color) 50%, transparent) 0%,
+    color-mix(in srgb, var(--item-color) 35%, transparent) 70%,
+    color-mix(in srgb, var(--item-color) 15%, transparent) 100%
+  );
   border-radius: var(--track-radius);
   position: relative;
   transition: width 0.3s ease;
 }
 
-/* Glowing dot */
-.bar-fill::after {
-  content: '';
-  position: absolute;
-  right: -3px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: var(--dot-size);
-  height: var(--dot-size);
-  background: var(--item-color, var(--dot-bg));
-  border-radius: 50%;
-  box-shadow: 0 0 6px var(--item-color, var(--morph-accent));
-}
+/* Kein Dot mehr - sanftes Ausfaden */
 
 /* Werte - dezent */
 .bar-val {

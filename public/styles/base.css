@@ -48,15 +48,46 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   DESIGN TOKENS - Psychedelic Blue System
+   DESIGN TOKENS - Multi-Site Bio Species Color System
    ───────────────────────────────────────────────────────────────────────────── */
 :root {
-  /* System Color - Psychedelic Blue with Depth Variants */
-  --system-h: 220;
-  --system-s: 100%;
-  --system-l: 65%;
-  --system: hsl(var(--system-h), var(--system-s), var(--system-l));
-  --system-rgb: 77, 136, 255;
+  /* ═══════════════════════════════════════════════════════════════════════════
+     MULTI-SITE COLOR SYSTEM - Bio Species Farben
+     Funginomi: Psychedelic Blue (Pilze/Biolumineszenz)
+     Phytonomi: Jade Green (Pflanzen/Chlorophyll)
+     Zoonomi:   Turquoise Cyan (Tiere/Ozean)
+     ═══════════════════════════════════════════════════════════════════════════ */
+  
+  /* Site: Funginomi - Psychedelic Blue (Pilz-Biolumineszenz) */
+  --site-funginomi-h: 220;
+  --site-funginomi-s: 100%;
+  --site-funginomi-l: 65%;
+  --site-funginomi: hsl(220, 100%, 65%);
+  --site-funginomi-rgb: 77, 136, 255;
+  --site-funginomi-muted: hsl(220, 40%, 50%);
+  
+  /* Site: Phytonomi - Jade Green (Pflanzen-Chlorophyll) */
+  --site-phytonomi-h: 160;
+  --site-phytonomi-s: 60%;
+  --site-phytonomi-l: 50%;
+  --site-phytonomi: hsl(160, 60%, 50%);
+  --site-phytonomi-rgb: 51, 179, 128;
+  --site-phytonomi-muted: hsl(160, 35%, 42%);
+  
+  /* Site: Zoonomi - Turquoise Cyan (Tier-Ozean) */
+  --site-zoonomi-h: 175;
+  --site-zoonomi-s: 80%;
+  --site-zoonomi-l: 52%;
+  --site-zoonomi: hsl(175, 80%, 52%);
+  --site-zoonomi-rgb: 32, 201, 191;
+  --site-zoonomi-muted: hsl(175, 45%, 45%);
+  
+  /* ACTIVE SITE - Funginomi (Standard) */
+  --system-h: var(--site-funginomi-h);
+  --system-s: var(--site-funginomi-s);
+  --system-l: var(--site-funginomi-l);
+  --system: var(--site-funginomi);
+  --system-rgb: var(--site-funginomi-rgb);
   
   /* System Color Variants for Depth */
   --system-light: hsl(var(--system-h), var(--system-s), 75%);
@@ -203,39 +234,26 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   PERSPEKTIVEN FARBSYSTEM - 15 Pastellfarben (kein Blau)
+   PERSPEKTIVEN FARBSYSTEM - Matte Pastell-Töne
+   Dezent, nicht leuchtend - klar unterscheidbar von Bio-Lumineszenz
    ───────────────────────────────────────────────────────────────────────────── */
 
-/* Culinary - Warm Apricot */
-[data-perspektive="culinary"] { --perspektive-rgb: 255, 180, 140; --perspektive-h: 24; }
-/* Safety - Soft Coral Pink */
-[data-perspektive="safety"] { --perspektive-rgb: 255, 150, 160; --perspektive-h: 354; }
-/* Cultivation - Fresh Mint */
-[data-perspektive="cultivation"] { --perspektive-rgb: 140, 230, 180; --perspektive-h: 150; }
-/* Medicine - Soft Lavender */
-[data-perspektive="medicine"] { --perspektive-rgb: 200, 170, 230; --perspektive-h: 264; }
-/* Chemistry - Orchid Pink */
-[data-perspektive="chemistry"] { --perspektive-rgb: 230, 160, 200; --perspektive-h: 326; }
-/* Ecology - Forest Sage */
-[data-perspektive="ecology"] { --perspektive-rgb: 160, 200, 140; --perspektive-h: 100; }
-/* Statistics - Warm Sand */
-[data-perspektive="statistics"] { --perspektive-rgb: 230, 210, 170; --perspektive-h: 40; }
-/* Geography - Terracotta */
-[data-perspektive="geography"] { --perspektive-rgb: 220, 160, 130; --perspektive-h: 20; }
-/* Temporal - Soft Gold */
-[data-perspektive="temporal"] { --perspektive-rgb: 240, 210, 140; --perspektive-h: 42; }
-/* Economy - Warm Mustard */
-[data-perspektive="economy"] { --perspektive-rgb: 235, 195, 100; --perspektive-h: 42; }
-/* Conservation - Seafoam */
-[data-perspektive="conservation"] { --perspektive-rgb: 120, 200, 180; --perspektive-h: 165; }
-/* Culture - Dusty Mauve */
-[data-perspektive="culture"] { --perspektive-rgb: 210, 170, 190; --perspektive-h: 330; }
-/* Research - Cool Silver */
-[data-perspektive="research"] { --perspektive-rgb: 190, 195, 210; --perspektive-h: 225; }
-/* Interactions - Bright Salmon */
-[data-perspektive="interactions"] { --perspektive-rgb: 250, 160, 140; --perspektive-h: 11; }
-/* Identification - Olive Moss */
-[data-perspektive="identification"] { --perspektive-rgb: 180, 190, 130; --perspektive-h: 70; }
+/* Alle Perspektiven: Gedämpfte, matte Pastell-Farben */
+[data-perspektive="culinary"] { --perspektive-rgb: 180, 140, 120; --perspektive-h: 24; }      /* Matte Terracotta */
+[data-perspektive="safety"] { --perspektive-rgb: 170, 130, 140; --perspektive-h: 345; }       /* Dusty Rose */
+[data-perspektive="cultivation"] { --perspektive-rgb: 120, 150, 130; --perspektive-h: 140; }  /* Sage Grau */
+[data-perspektive="medicine"] { --perspektive-rgb: 150, 140, 170; --perspektive-h: 260; }     /* Mauve Grau */
+[data-perspektive="chemistry"] { --perspektive-rgb: 160, 140, 160; --perspektive-h: 300; }    /* Dusty Plum */
+[data-perspektive="ecology"] { --perspektive-rgb: 130, 150, 120; --perspektive-h: 100; }      /* Olive Matte */
+[data-perspektive="statistics"] { --perspektive-rgb: 165, 155, 140; --perspektive-h: 38; }    /* Taupe */
+[data-perspektive="geography"] { --perspektive-rgb: 160, 135, 120; --perspektive-h: 22; }     /* Clay */
+[data-perspektive="temporal"] { --perspektive-rgb: 170, 160, 130; --perspektive-h: 45; }      /* Khaki Matte */
+[data-perspektive="economy"] { --perspektive-rgb: 165, 150, 115; --perspektive-h: 42; }       /* Sand Matte */
+[data-perspektive="conservation"] { --perspektive-rgb: 115, 150, 145; --perspektive-h: 170; } /* Seafoam Matte */
+[data-perspektive="culture"] { --perspektive-rgb: 155, 140, 160; --perspektive-h: 285; }      /* Lavender Grau */
+[data-perspektive="research"] { --perspektive-rgb: 140, 145, 160; --perspektive-h: 225; }     /* Steel Matte */
+[data-perspektive="interactions"] { --perspektive-rgb: 175, 145, 135; --perspektive-h: 15; }  /* Apricot Matte */
+[data-perspektive="identification"] { --perspektive-rgb: 145, 155, 125; --perspektive-h: 80; } /* Moss Matte */
 
 [data-perspektive] {
   --perspektive: rgb(var(--perspektive-rgb));
@@ -245,28 +263,39 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   PILZ FARBSYSTEM (Compare Mode) - 8 Neon-Farben
+   BIO-LUMINESZENZ FARBSYSTEM (Compare Mode)
+   Inspiriert von biologischer Lumineszenz (Pilze, Meeresorganismen, Pflanzen)
    ───────────────────────────────────────────────────────────────────────────── */
 :root {
-  /* 8 Neon Colors for Compare - maximaler Kontrast */
-  --pilz-0-rgb: 255, 50, 150;   /* Neon Magenta */
-  --pilz-1-rgb: 0, 255, 180;    /* Neon Mint */
-  --pilz-2-rgb: 180, 80, 255;   /* Neon Violet */
-  --pilz-3-rgb: 255, 220, 0;    /* Neon Yellow */
-  --pilz-4-rgb: 0, 240, 255;    /* Neon Cyan */
-  --pilz-5-rgb: 255, 120, 0;    /* Neon Orange */
-  --pilz-6-rgb: 50, 255, 100;   /* Neon Lime */
-  --pilz-7-rgb: 255, 100, 100;  /* Neon Coral */
+  /* 8 Bio-Lumineszenz Farben */
+  --pilz-0-rgb: 0, 255, 200;    /* Foxfire Grün (Panellus stipticus) */
+  --pilz-1-rgb: 167, 139, 250;  /* Myzel Violett */
+  --pilz-2-rgb: 251, 191, 36;   /* Sporen Amber */
+  --pilz-3-rgb: 34, 211, 238;   /* Tiefsee Cyan */
+  --pilz-4-rgb: 244, 114, 182;  /* Rhodotus Rosa */
+  --pilz-5-rgb: 163, 230, 53;   /* Chlorophyll Grün */
+  --pilz-6-rgb: 251, 146, 60;   /* Carotin Orange */
+  --pilz-7-rgb: 196, 181, 253;  /* Lavendel */
+  
+  /* Semantic Bio-Aliases */
+  --bio-foxfire: rgb(var(--pilz-0-rgb));
+  --bio-myzel: rgb(var(--pilz-1-rgb));
+  --bio-sporen: rgb(var(--pilz-2-rgb));
+  --bio-tiefsee: rgb(var(--pilz-3-rgb));
+  --bio-rhodotus: rgb(var(--pilz-4-rgb));
+  --bio-chlorophyll: rgb(var(--pilz-5-rgb));
+  --bio-carotin: rgb(var(--pilz-6-rgb));
+  --bio-lavendel: rgb(var(--pilz-7-rgb));
 }
 
-.pilz-0 { --pilz-rgb: var(--pilz-0-rgb); }
-.pilz-1 { --pilz-rgb: var(--pilz-1-rgb); }
-.pilz-2 { --pilz-rgb: var(--pilz-2-rgb); }
-.pilz-3 { --pilz-rgb: var(--pilz-3-rgb); }
-.pilz-4 { --pilz-rgb: var(--pilz-4-rgb); }
-.pilz-5 { --pilz-rgb: var(--pilz-5-rgb); }
-.pilz-6 { --pilz-rgb: var(--pilz-6-rgb); }
-.pilz-7 { --pilz-rgb: var(--pilz-7-rgb); }
+.pilz-0 { --pilz-rgb: var(--pilz-0-rgb); --item-color: var(--bio-foxfire); }
+.pilz-1 { --pilz-rgb: var(--pilz-1-rgb); --item-color: var(--bio-myzel); }
+.pilz-2 { --pilz-rgb: var(--pilz-2-rgb); --item-color: var(--bio-sporen); }
+.pilz-3 { --pilz-rgb: var(--pilz-3-rgb); --item-color: var(--bio-tiefsee); }
+.pilz-4 { --pilz-rgb: var(--pilz-4-rgb); --item-color: var(--bio-rhodotus); }
+.pilz-5 { --pilz-rgb: var(--pilz-5-rgb); --item-color: var(--bio-chlorophyll); }
+.pilz-6 { --pilz-rgb: var(--pilz-6-rgb); --item-color: var(--bio-carotin); }
+.pilz-7 { --pilz-rgb: var(--pilz-7-rgb); --item-color: var(--bio-lavendel); }
 
 [class^="pilz-"], [class*=" pilz-"] {
   --pilz: rgb(var(--pilz-rgb));
@@ -274,6 +303,46 @@ body {
   --pilz-bg: rgba(var(--pilz-rgb), 0.1);
   --pilz-border: rgba(var(--pilz-rgb), 0.3);
   --pilz-line: rgba(var(--pilz-rgb), 0.6);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SPEZIES-HIGHLIGHT SYSTEM
+   Interaktive Verknüpfung zwischen Morphs - gleiche Spezies leuchtet auf
+   ───────────────────────────────────────────────────────────────────────────── */
+[data-species] {
+  transition: opacity 0.3s ease, filter 0.3s ease, transform 0.2s ease;
+}
+
+/* Wenn eine Spezies aktiv ist, andere dimmen */
+.species-highlight-active [data-species]:not(.species-highlighted) {
+  opacity: 0.25;
+  filter: grayscale(0.5);
+}
+
+/* Hervorgehobene Spezies leuchtet auf */
+[data-species].species-highlighted {
+  opacity: 1 !important;
+  filter: none !important;
+  z-index: 5;
+}
+
+/* Glow-Effekt für hervorgehobene Elemente */
+[data-species].species-highlighted .bar-fill,
+[data-species].species-highlighted .progress-fill,
+[data-species].species-highlighted .radar-area-compare,
+[data-species].species-highlighted .cmp-fill {
+  filter: drop-shadow(0 0 6px var(--item-color));
+}
+
+[data-species].species-highlighted .tag,
+[data-species].species-highlighted .morph-badge {
+  box-shadow: 0 0 8px var(--item-color);
+  transform: scale(1.05);
+}
+
+/* Cursor für interaktive Elemente */
+[data-species] {
+  cursor: pointer;
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -622,6 +691,19 @@ a[href^="http"]:not([href*="amorph"]):hover {
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
+}
+
+/* Bio-Border Animation für Compare-Trigger */
+@keyframes rotateBioBorder {
+  0% { --bio-border-angle: 0deg; }
+  100% { --bio-border-angle: 360deg; }
+}
+
+/* Property für Bio-Border Animation */
+@property --bio-border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
 }
 
 .animate-fade-in { animation: fade-in var(--transition-base) forwards; }

@@ -120,11 +120,12 @@ export const tag = createUnifiedMorph(
     if (allAreMonths) {
       return `
         <div class="morph-months-compare">
-          ${values.map(({ value, color }) => {
+          ${values.map(({ value, color, item }) => {
             const months = (Array.isArray(value) ? value : [value]).map(Number);
             const formatted = formatMonthRange(months);
+            const name = item.name || item.id;
             return `
-              <div class="text-row" style="--item-color: ${color}">
+              <div class="text-row" data-species="${escapeHtml(name)}" style="--item-color: ${color}">
                 <span class="cmp-dot"></span>
                 <span class="text-value" title="${months.map(m => MONTH_NAMES_FULL[m-1]).join(', ')}">📅 ${escapeHtml(formatted)}</span>
               </div>

@@ -74,6 +74,7 @@ export async function showCompare(): Promise<void> {
   isLoading = true;
   comparePanel.classList.add('active');
   comparePanel.classList.add('is-loading');
+  document.body.classList.add('compare-active');
   
   try {
     // Prepare request body based on mode
@@ -98,6 +99,9 @@ export async function showCompare(): Promise<void> {
     const content = comparePanel.querySelector('.compare-content');
     if (content && data.html) {
       content.innerHTML = data.html;
+      
+      // Initialize species highlight interactions
+      initSpeciesHighlight(content);
     }
     
     debug.compare('Compare loaded', { fields: data.fieldCount });
@@ -116,6 +120,7 @@ export function hideCompare(): void {
   
   isOpen = false;
   comparePanel.classList.remove('active');
+  document.body.classList.remove('compare-active');
   debug.compare('Compare hidden');
 }
 
@@ -130,6 +135,105 @@ export function toggleCompare(): void {
 export function isCompareOpen(): boolean {
   return isOpen;
 }
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// SPECIES HIGHLIGHT SYSTEM
+// Interaktive Verknüpfung - Hover/Click auf Spezies highlightet alle zugehörigen Daten
+// ═══════════════════════════════════════════════════════════════════════════════
+
+let activeSpecies: string | null = null;
+
+function initSpeciesHighlight(container: Element): void {
+  // Find all elements with data-species attribute
+  const speciesElements = container.querySelectorAll('[data-species]');
+  
+  speciesElements.forEach(el => {
+    // Hover events
+    el.addEventListener('mouseenter', handleSpeciesHover);
+    el.addEventListener('mouseleave', handleSpeciesLeave);
+    
+    // Click for sticky highlight (toggle)
+    el.addEventListener('click', handleSpeciesClick);
+  });
+  
+  // Legend items already have data-species from server, but add cursor styling
+  const legendItems = container.querySelectorAll('.legend-item[data-species], .radar-legend-item[data-species], .compare-item-header[data-species]');
+  legendItems.forEach(item => {
+    (item as HTMLElement).style.cursor = 'pointer';
+  });
+  
+  debug.compare('Species highlight initialized', { count: speciesElements.length });
+}
+
+function handleSpeciesHover(e: Event): void {
+  if (activeSpecies) return; // Don't override sticky highlight
+  const species = (e.currentTarget as HTMLElement).dataset.species;
+  if (species) highlightSpecies(species);
+}
+
+function handleSpeciesLeave(): void {
+  if (activeSpecies) return; // Keep sticky highlight
+  clearHighlight();
+}
+
+function handleSpeciesClick(e: Event): void {
+  e.stopPropagation();
+  const species = (e.currentTarget as HTMLElement).dataset.species;
+  if (species) toggleStickyHighlight(species);
+}
+
+function toggleStickyHighlight(species: string): void {
+  if (activeSpecies === species) {
+    // Clear sticky
+    activeSpecies = null;
+    clearHighlight();
+  } else {
+    // Set new sticky
+    activeSpecies = species;
+    highlightSpecies(species);
+  }
+}
+
+function highlightSpecies(species: string): void {
+  const container = comparePanel?.querySelector('.compare-content');
+  if (!container) return;
+  
+  // Add active class to container
+  container.classList.add('species-highlight-active');
+  
+  // Clear previous highlights
+  container.querySelectorAll('.species-highlighted').forEach(el => {
+    el.classList.remove('species-highlighted');
+  });
+  
+  // Highlight all elements of this species (data-species already includes legend items)
+  container.querySelectorAll(`[data-species="${species}"]`).forEach(el => {
+    el.classList.add('species-highlighted');
+  });
+  
+  debug.compare('Species highlighted', { species });
+}
+
+function clearHighlight(): void {
+  const container = comparePanel?.querySelector('.compare-content');
+  if (!container) return;
+  
+  container.classList.remove('species-highlight-active');
+  container.querySelectorAll('.species-highlighted').forEach(el => {
+    el.classList.remove('species-highlighted');
+  });
+}
+
+// Clear highlight when clicking outside
+document.addEventListener('click', (e) => {
+  if (activeSpecies && comparePanel) {
+    const target = e.target as HTMLElement;
+    if (!target.closest('[data-species]') && !target.closest('[data-species-legend]')) {
+      activeSpecies = null;
+      clearHighlight();
+    }
+  }
+});
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // ERROR HANDLING

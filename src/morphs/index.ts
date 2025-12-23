@@ -178,19 +178,29 @@ export function renderCompare(
     });
   });
   
+  // Bio-Lumineszenz Palette
   const colors = context.colors || [
-    '#0df', '#f0d', '#fd0', '#0fd', '#d0f', '#df0'
+    '#00ffc8', // Foxfire Grün
+    '#a78bfa', // Myzel Violett
+    '#fbbf24', // Sporen Amber
+    '#22d3ee', // Tiefsee Cyan
+    '#f472b6', // Rhodotus Rosa
+    '#a3e635', // Chlorophyll Grün
+    '#fb923c', // Carotin Orange
+    '#c4b5fd'  // Lavendel
   ];
   
-  // Header mit Item-Namen
+  // Header mit Item-Namen (mit data-species für Highlight-System)
   const header = `
     <div class="compare-header">
-      ${items.map((item, idx) => `
-        <div class="compare-item-header" style="--item-color: ${colors[idx % colors.length]}">
+      ${items.map((item, idx) => {
+        const name = (item as any).name || `Item ${idx + 1}`;
+        return `
+        <div class="compare-item-header" data-species="${escapeHtml(name)}" style="--item-color: ${colors[idx % colors.length]}">
           <span class="item-color-dot"></span>
-          <span class="item-name">${escapeHtml((item as any).name || `Item ${idx + 1}`)}</span>
+          <span class="item-name">${escapeHtml(name)}</span>
         </div>
-      `).join('')}
+      `;}).join('')}
     </div>
   `;
   

@@ -90,20 +90,31 @@ export function formatFieldLabel(key: string): string {
 
 /**
  * Extrahiert Werte aus mehreren Items für ein Feld.
+ * WICHTIG: Farben werden nach dem GLOBALEN Item-Index zugewiesen,
+ * damit dieselbe Spezies in verschiedenen Feldern dieselbe Farbe behält.
  */
 export function extractFieldValues(
   items: ItemData[],
-  fieldName: string
-): { item: ItemData; value: unknown; color: string }[] {
-  const colors = [
-    '#0df', '#f0d', '#fd0', '#0fd', '#d0f', '#df0',
-    '#0af', '#fa0', '#a0f', '#f0a', '#af0', '#0fa'
+  fieldName: string,
+  contextColors?: string[]
+): { item: ItemData; value: unknown; color: string; globalIndex: number }[] {
+  // Bio-Lumineszenz Palette
+  const colors = contextColors || [
+    '#00ffc8', // Foxfire Grün
+    '#a78bfa', // Myzel Violett
+    '#fbbf24', // Sporen Amber
+    '#22d3ee', // Tiefsee Cyan
+    '#f472b6', // Rhodotus Rosa
+    '#a3e635', // Chlorophyll Grün
+    '#fb923c', // Carotin Orange
+    '#c4b5fd'  // Lavendel
   ];
   
   return items.map((item, idx) => ({
     item,
     value: item[fieldName],
-    color: colors[idx % colors.length]
+    color: colors[idx % colors.length],
+    globalIndex: idx  // Globaler Index für konsistente Farbzuweisung
   }));
 }
 
@@ -154,9 +165,11 @@ export function createUnifiedMorph(
   return (value: unknown | unknown[], context: RenderContext): string => {
     // Auto-Detect: Compare-Modus wenn mehrere Items
     if (isCompareMode(context) && context.items && context.fieldName) {
-      const fieldValues = extractFieldValues(context.items, context.fieldName);
+      // Farben aus Context nutzen für konsistente Zuweisung
+      const fieldValues = extractFieldValues(context.items, context.fieldName, context.colors);
       
       // Filter out items without values for this field
+      // WICHTIG: Farbe bleibt erhalten (wird nicht neu zugewiesen!)
       const validValues = fieldValues.filter(fv => fv.value !== undefined && fv.value !== null);
       
       // Wenn Custom Compare-Renderer existiert UND mindestens 2 Items mit Werten, nutze ihn

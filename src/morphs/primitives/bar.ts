@@ -82,6 +82,10 @@ export const bar = createUnifiedMorph(
             itemData.get(item.id)?.get(label) ?? 0
           );
           const validValues = valuesForLabel.filter(v => v > 0);
+          
+          // Skip labels where no species has data
+          if (validValues.length === 0) return '';
+          
           const avg = validValues.length > 0 
             ? validValues.reduce((a, b) => a + b, 0) / validValues.length 
             : 0;
@@ -93,9 +97,12 @@ export const bar = createUnifiedMorph(
               <div class="bar-group-track">
                 ${values.map(({ item, color }) => {
                   const val = itemData.get(item.id)?.get(label) ?? 0;
+                  // Skip species with no value for this label
+                  if (val === 0) return '';
                   const pct = (val / max) * 100;
+                  const name = item.name || item.id;
                   return `
-                    <div class="bar-row" style="--item-color: ${escapeHtml(color)}">
+                    <div class="bar-row" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(color)}">
                       <div class="bar-fill-track">
                         <div class="bar-fill" style="width: ${pct}%"></div>
                       </div>

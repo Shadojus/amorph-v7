@@ -200,6 +200,29 @@ import {
   isCompareOpen 
 } from './compare';
 
+// Zeigt Compare-Panel
+showCompare();  // Fügt auch .compare-active zu body hinzu
+
+// Versteckt Compare-Panel  
+hideCompare();  // Entfernt .compare-active von body
+
+// Toggle
+toggleCompare();
+
+// Status prüfen
+if (isCompareOpen()) { ... }
+```
+
+### Body-Klasse für Responsive
+
+```css
+/* Wenn Compare aktiv: Suchleiste nicht sticky auf kleinen Screens */
+.compare-active .search-bar-container {
+  position: relative;
+}
+```
+} from './compare';
+
 // Panel öffnen (lädt Daten via API)
 await showCompare();
 

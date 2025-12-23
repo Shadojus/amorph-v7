@@ -1,9 +1,10 @@
 # AMORPH v7 - Morphs Module
 
-> Unified Morph Architecture mit **27 Primitives** (45+ MorphTypes für Erweiterbarkeit).
+> Unified Morph Architecture mit **18 Primitives** (45+ MorphTypes für Erweiterbarkeit).
 > Visualisiert biologische Daten: Taxonomie, Chemie, Ökologie, Medizin, etc.
 > **Struktur-basierte Detection** - Typ wird aus Datenstruktur erkannt, nicht aus Feldnamen!
 > **Object-Parsing** - Badge/Rating/Progress parsen strukturierte Objekte automatisch.
+> **Lichtkugel-Design** - Aktive Elemente leuchten, inaktive sind gedimmt.
 
 ## 📁 Struktur
 
@@ -317,12 +318,52 @@ Automatische Variant-Erkennung:
 - `info`: selten, häufig
 - `neutral`: default
 
-## 🎨 CSS in public/styles/morphs.css
+## 🎨 CSS in public/styles/morphs/
 
-Alle Morph-Styles sind in `public/styles/morphs.css`:
-- Hardcoded Colors (keine CSS Variables)
-- Pilz-Farben für Compare (8 Neon-Farben)
-- Perspektiven-Farben (15 Farben)
+Morph-Styles sind aufgeteilt in `public/styles/morphs/`:
+
+| Datei | Inhalt |
+|-------|--------|
+| `_card.css` | Morph Cards |
+| `_compare.css` | Compare Mode Layouts |
+| `_variables.css` | Design Tokens |
+| `bar.css` | Bar-Charts |
+| `radar.css` | Radar/Spider-Charts |
+| `steps.css` | Steps mit Lichtkugeln |
+| `lifecycle.css` | Lifecycle-Phasen |
+| `calendar.css` | Kalender-Lichtkugeln |
+| etc. | ... |
+
+### Lichtkugel-Design
+
+Steps, Lifecycle und Calendar verwenden leuchtende Dots:
+
+```css
+/* Inaktiv - gedimmt */
+.morph-step-dot {
+  background: rgba(var(--morph-color-rgb), 0.25);
+  box-shadow: none;
+}
+
+/* Aktiv - leuchtend */
+.morph-step--active .morph-step-dot {
+  background: var(--dot-bg);
+  box-shadow: var(--dot-glow), 0 0 12px rgba(var(--morph-color-rgb), 0.5);
+}
+```
+
+### Bio-Lumineszenz Farben (8)
+
+| Var | Farbe |
+|-----|-------|
+| `--bio-foxfire` | #00ffc8 |
+| `--bio-myzel` | #a78bfa |
+| `--bio-sporen` | #fbbf24 |
+| `--bio-tiefsee` | #22d3ee |
+| `--bio-rhodotus` | #f472b6 |
+| `--bio-chlorophyll` | #a3e635 |
+| `--bio-carotin` | #fb923c |
+| `--bio-lavendel` | #c4b5fd |
 
 ## 🧪 Tests
 

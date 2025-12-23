@@ -30,28 +30,28 @@
   stroke-width: 0.5;
 }
 
-/* Datenfläche - dezent gefüllt, SOLIDERE Linie */
+/* Datenfläche - organisch gefüllt mit weichen Kanten */
 .radar-area {
-  fill: rgba(var(--morph-color-rgb), 0.08);
-  stroke: rgba(var(--morph-color-rgb), 0.6);
+  fill: rgba(var(--morph-color-rgb), 0.06);
+  stroke: rgba(var(--morph-color-rgb), 0.4);
   stroke-width: 1;
+  filter: blur(0.3px);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   LICHTKUGELN - Das Wichtigste!
-   Jeder Datenpunkt ist eine leuchtende Kugel
+   LICHTKUGELN - Dezentere Datenpunkte
    ═══════════════════════════════════════════════════════════════════════════════ */
 .radar-point {
   fill: var(--morph-accent);
   stroke: none;
-  filter: drop-shadow(0 0 4px var(--morph-accent)) 
-          drop-shadow(0 0 8px var(--morph-accent));
+  opacity: 0.7;
+  filter: drop-shadow(0 0 3px var(--morph-accent));
 }
 
-/* Labels - grau und dezent */
+/* Labels - größer und besser lesbar */
 .radar-label {
-  font-size: 9px;
-  fill: var(--text-muted);
+  font-size: 11px;
+  fill: var(--text-secondary);
   font-weight: 500;
 }
 
@@ -72,30 +72,43 @@
   display: block;
 }
 
-/* Datenfläche im Compare - Pilzfarben */
+/* Datenfläche im Compare - organisch, weich überlappend */
 .radar-area-compare {
-  fill: color-mix(in srgb, var(--item-color) 10%, transparent);
+  fill: color-mix(in srgb, var(--item-color) 8%, transparent);
   stroke: var(--item-color);
-  stroke-opacity: 0.5;
+  stroke-opacity: 0.35;
   stroke-width: 1;
-  transition: opacity 0.2s;
+  filter: blur(0.3px);
+  transition: opacity 0.3s ease, fill 0.3s ease;
+  mix-blend-mode: screen;
 }
 
 .radar-svg:hover .radar-area-compare {
-  opacity: 0.3;
+  opacity: 0.5;
 }
 
 .radar-svg .radar-area-compare:hover {
   opacity: 1;
-  stroke-opacity: 0.8;
+  fill: color-mix(in srgb, var(--item-color) 12%, transparent);
+  stroke-opacity: 0.6;
 }
 
-/* LICHTKUGELN im Compare - Pilzfarben */
+/* Dezentere Punkte im Compare */
 .radar-point-compare {
   fill: var(--item-color);
   stroke: none;
-  filter: drop-shadow(0 0 4px var(--item-color)) 
-          drop-shadow(0 0 8px var(--item-color));
+  opacity: 0.6;
+  filter: drop-shadow(0 0 2px var(--item-color));
+  transition: opacity 0.2s ease;
+}
+
+.radar-svg:hover .radar-point-compare {
+  opacity: 0.4;
+}
+
+.radar-svg .radar-area-compare:hover ~ .radar-point-compare,
+.radar-point-compare:hover {
+  opacity: 0.9;
 }
 
 .radar-legend {
@@ -103,6 +116,7 @@
   flex-wrap: wrap;
   gap: 0.5rem 1.25rem;
   justify-content: center;
+  padding: 0.5rem 0;
 }
 
 .radar-legend-item {
@@ -110,8 +124,23 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 0.8rem;
-  color: var(--text-secondary);
+  /* Farbe aus --item-color für korrekte Species-Farbe */
+  color: var(--item-color, var(--text-secondary));
   white-space: nowrap;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.radar-legend-item:hover {
+  opacity: 0.8;
+}
+
+/* Lichtkugel verwendet --item-color */
+.radar-legend-item .cmp-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--item-color);
+  box-shadow: 0 0 6px var(--item-color);
 }
 
 /* Lichtkugel via .cmp-dot aus _compare.css */
@@ -160,24 +189,17 @@
 
 .radar-bar-fill {
   height: 100%;
-  background: color-mix(in srgb, var(--item-color) 30%, transparent);
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--item-color) 50%, transparent) 0%,
+    color-mix(in srgb, var(--item-color) 35%, transparent) 70%,
+    color-mix(in srgb, var(--item-color) 15%, transparent) 100%
+  );
   border-radius: var(--track-radius);
   position: relative;
 }
 
-/* Lichtkugel am Ende */
-.radar-bar-fill::after {
-  content: '';
-  position: absolute;
-  right: -3px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: var(--dot-size);
-  height: var(--dot-size);
-  background: var(--item-color, var(--dot-bg));
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--item-color, var(--morph-accent));
-}
+/* Kein Dot - sanftes Ausfaden */
 
 .radar-bar-val {
   font-size: 0.8rem;

@@ -196,12 +196,14 @@ export const radar = createUnifiedMorph(
         <svg class="radar-svg" viewBox="0 0 ${size} ${size}">
           ${gridCircles}
           ${axisLines}
-          ${pathsAndPoints.map(p => `
-            <path class="radar-area-compare" d="${p.d}" style="--item-color: ${escapeHtml(p.color)}"/>
+          ${pathsAndPoints.map((p, idx) => `
+            <g data-species="${escapeHtml(normalizedValues[idx].name)}" class="radar-species-group">
+              <path class="radar-area-compare" d="${p.d}" style="--item-color: ${escapeHtml(p.color)}"/>
+              ${p.points.map(pt => `
+                <circle class="radar-point-compare" cx="${pt.x.toFixed(1)}" cy="${pt.y.toFixed(1)}" r="2.5" style="--item-color: ${escapeHtml(p.color)}"/>
+              `).join('')}
+            </g>
           `).join('')}
-          ${pathsAndPoints.map(p => p.points.map(pt => `
-            <circle class="radar-point-compare" cx="${pt.x.toFixed(1)}" cy="${pt.y.toFixed(1)}" r="2.5" style="--item-color: ${escapeHtml(p.color)}"/>
-          `).join('')).join('')}
           ${labels.map(l => `
             <text class="radar-label" x="${l.x}" y="${l.y}" text-anchor="${l.anchor}" dominant-baseline="middle">
               ${escapeHtml(l.text)}
@@ -210,7 +212,7 @@ export const radar = createUnifiedMorph(
         </svg>
         <div class="radar-legend">
           ${normalizedValues.map(({ color, name }) => `
-            <div class="radar-legend-item" style="--item-color: ${escapeHtml(color)}">
+            <div class="radar-legend-item" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(color)}">
               <span class="cmp-dot"></span>
               <span class="radar-name">${escapeHtml(name)}</span>
             </div>
@@ -223,10 +225,13 @@ export const radar = createUnifiedMorph(
                 <span class="radar-stat-label">${escapeHtml(formatAxisLabel(axis))}</span>
                 <div class="radar-stat-bars">
                   ${values.map((val, idx) => {
+                    // Skip species with no value for this axis
+                    if (val === 0) return '';
                     const pct = max > 0 ? (val / max) * 100 : 0;
                     const color = normalizedValues[idx]?.color || '#888';
+                    const name = normalizedValues[idx]?.name || '';
                     return `
-                      <div class="radar-stat-bar" style="--item-color: ${escapeHtml(color)}">
+                      <div class="radar-stat-bar" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(color)}">
                         <div class="radar-bar-track">
                           <div class="radar-bar-fill" style="width: ${pct}%"></div>
                         </div>

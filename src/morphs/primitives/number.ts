@@ -14,8 +14,8 @@ export const number = createUnifiedMorph(
   // Compare: Bar-style layout matching bar chart
   (values) => {
     const nums = values.map(v => typeof v.value === 'number' ? v.value : parseFloat(String(v.value)));
-    const validNums = nums.filter(n => !isNaN(n));
-    if (validNums.length === 0) return '';
+    const validNums = nums.filter(n => !isNaN(n) && n !== 0);
+    if (validNums.length === 0) return '<span class="no-value">–</span>';
     
     const { min, max, range } = getNumericRange(validNums);
     const avg = validNums.reduce((a, b) => a + b, 0) / validNums.length;
@@ -24,14 +24,16 @@ export const number = createUnifiedMorph(
     return `
       <div class="number-compare-wrapper">
         <div class="number-bars">
-          ${values.map(({ color }, idx) => {
+          ${values.map(({ color, item }, idx) => {
             const num = nums[idx];
-            if (isNaN(num)) return `<div class="bar-row"><span class="bar-val">–</span></div>`;
+            const name = item.name || item.id;
+            // Skip items with no value or 0
+            if (isNaN(num) || num === 0) return '';
             
             const pct = range > 0 ? ((num - min) / range) * 100 : 50;
             
             return `
-              <div class="bar-row" style="--item-color: ${escapeHtml(color)}">
+              <div class="bar-row" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(color)}">
                 <div class="bar-fill-track">
                   <div class="bar-fill" style="width: ${Math.max(pct, 3)}%"></div>
                 </div>

@@ -11,19 +11,26 @@
 - **Struktur-basierte Detection** - Typ-Erkennung rein aus Datenstruktur, nicht Feldnamen
 - **Object-Parsing in Morphs** - Badge/Rating/Progress parsen strukturierte Objekte
 - **Compare-Optimierung** - Vereinheitlichtes Design mit bar-row/bar-fill-track Pattern
+- **Bio-Lumineszenz Farbsystem** - 8 leuchtende Farben für Compare (Foxfire, Myzel, Sporen, etc.)
+- **Multi-Site System** - Drei Bio-Spezies Sites mit eigenem Farbsystem:
+  - **Funginomi** (Psychedelic Blue) - Pilze & Fungi
+  - **Phytonomi** (Jade Green) - Pflanzen & Flora
+  - **Zoonomi** (Turquoise Cyan) - Tiere & Fauna
+- **Harmonisiertes Black Glass Morphism** - Einheitliches Design für alle Komponenten
+- **Site-Switcher Header** - Drei-Bereich Navigation zwischen den Bio-Sites
+- **Lichtkugel-Design** - Steps, Lifecycle, Calendar mit leuchtenden aktiven Elementen
+- **Perspektiven: Matte Pastell-Töne** - Klar unterscheidbar von Bio-Lumineszenz
+- **Suchleiste oben** - Harmonisiert mit Header-Design, System-Color Akzente
 - **Search Showcase** - "First Load" Ansicht zeigt jeden Morph-Typ einmal mit Echtdaten
 - **Suchmaschinen-UX** - Perspektiven werden automatisch durch Suche aktiviert (ab 3 Zeichen)
 - **Lazy-Loading** für Perspektiven (loadPerspective, loadPerspectives, hasPerspective)
 - **Observer System** standardmäßig aktiviert
 - **Debug-Logging** standardmäßig aktiviert für Entwicklung
-- **Black Glass Morphism** Design mit Psychedelic Blue (#4d88ff)
+- **Black Glass Morphism** Design mit System-Color Variables
 - **Mobile-First** responsive Layout mit Touch-optimierten Interaktionen
 - **Astro 5.16** mit SSR auf Port 4323
 - **XSS-Schutz** in Image-Morph via validateUrl
-- **Feld-basierte Selektion** für granularen Compare
-- **Base64 Raw Values** für Compare-Modus (bis 10KB, mit Circular-Reference-Schutz)
-- **Double-Init Guards** verhindern mehrfache Event-Registrierung
-- **Robuste Fehlerbehandlung** bei JSON-Parsing mit detaillierten Fehlerberichten (getLoadErrors, invalidateCache)
+- **SVG-Schutz** - Search-Highlighting modifiziert keine SVG-Text-Elemente
 
 ## 🎯 Kernkonzept
 
@@ -112,10 +119,13 @@ amorph-v7/
 - Sticky, mit Safe-Area-Padding oben
 - Compare-Button: Min 44px Touch Target
 
-### Search Footer (unten - fixiert)
-- **Perspektiven-Buttons**: 44px auf Mobile, 36px auf Desktop
-- **Suchleiste**: Full-width Input mit Glass-Effekt
-- Safe-Area für Mobile (iOS Home-Indicator) berücksichtigt
+### Search Footer (unten - fixiert) → VERALTET
+
+**NEU: Suchleiste ist jetzt OBEN unter dem Header**:
+- **Sticky unter Header** (top: 48px)
+- **Kompaktes Design** mit animierter Bio-Border
+- **Responsiv**: Nicht sticky bei aktivem Compare-Panel auf kleinen Screens
+- **Perspektiven-Pills** unter der Suchleiste mit dunklem Hintergrund
 
 ### Responsive Grid
 - **Mobile (<520px)**: 1 Spalte
@@ -156,11 +166,28 @@ Statt ganze Items zu vergleichen, können einzelne **Datenfelder** ausgewählt w
 
 ## 🎨 Design System
 
-- **Background**: Psychedelic Gradient (Black → Deep Purple → Blue)
+- **Background**: Schwarzer Weltraum mit ultramarinblauen Nebeln
 - **System Color**: Psychedelic Blue #4d88ff
-- **Glass Effect**: rgba(13, 13, 31, 0.85) + backdrop-blur
-- **15 Perspektiven-Farben**: Für Filter-Buttons
-- **8 Pilz-Farben**: Neon-Palette für Compare-Ansicht
+- **Glass Effect**: rgba(5, 8, 15, 0.95) - dunkles, scharfes Glas
+- **15 Perspektiven-Farben**: Matte Pastell-Töne (dezent, nicht leuchtend)
+- **8 Bio-Lumineszenz Farben**: Leuchtend für Compare-Ansicht (Foxfire, Myzel, Sporen, etc.)
+
+### Bio-Lumineszenz Farbpalette (Compare)
+| Name | Farbe | RGB |
+|------|-------|-----|
+| Foxfire | #00ffc8 | 0, 255, 200 |
+| Myzel | #a78bfa | 167, 139, 250 |
+| Sporen | #fbbf24 | 251, 191, 36 |
+| Tiefsee | #22d3ee | 34, 211, 238 |
+| Rhodotus | #f472b6 | 244, 114, 182 |
+| Chlorophyll | #a3e635 | 163, 230, 53 |
+| Carotin | #fb923c | 251, 146, 60 |
+| Lavendel | #c4b5fd | 196, 181, 253 |
+
+### UI-Elemente
+- **Suchleiste**: Kompakt, animierte Bio-Border (rotierende 8-Farben), dunkler Hintergrund
+- **Compare-Button**: Bio-Grid-Hintergrund + animierte Border wenn aktiv
+- **Morphs**: Lichtkugel-Design (leuchtende Dots bei aktiven Elementen)
 
 ## 🔧 Unified Morph API
 

@@ -25,25 +25,28 @@
   padding-top: 0.25rem;
 }
 
-/* Lichtkugel wie bei Bar-Morph */
+/* Lichtkugel - inaktiv gedimmt */
 .morph-step-dot {
   width: var(--dot-size);
   height: var(--dot-size);
   border-radius: 50%;
+  background: rgba(var(--morph-color-rgb), 0.3);
+  box-shadow: none;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+/* Aktiver Step - leuchtende Kugel */
+.morph-step--active .morph-step-dot {
+  background: var(--dot-bg);
+  box-shadow: var(--dot-glow), 0 0 12px rgba(var(--morph-color-rgb), 0.5);
+}
+
+/* Completed Step - halb leuchtend */
+.morph-step--complete .morph-step-dot {
   background: var(--dot-bg);
   box-shadow: var(--dot-glow);
-  opacity: 0.3;
-  flex-shrink: 0;
-}
-
-.morph-step--active .morph-step-dot {
-  opacity: 1;
-  box-shadow: var(--dot-glow);
-}
-
-.morph-step--complete .morph-step-dot {
   opacity: 0.6;
-  box-shadow: var(--dot-glow);
 }
 
 /* Verbindungslinie - dünn und dezent */
@@ -71,7 +74,7 @@
 }
 
 .morph-step-number {
-  font-size: 0.55rem;
+  font-size: 0.6rem;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -79,7 +82,7 @@
 }
 
 .morph-step-label {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   line-height: 1.3;
 }
