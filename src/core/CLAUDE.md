@@ -1,41 +1,36 @@
 # AMORPH v7 - Core Module
 
-> Fundamentale Typen, Detection und Security für biologische Daten aller Kingdoms.
+> Fundamentale Typen, Detection und Security.
 
 ## 📁 Dateien
 
 ```
 core/
-├── types.ts      # TypeScript Interfaces & Types
-├── detection.ts  # Automatische Typ-Erkennung
-├── security.ts   # Input Validation & XSS Schutz
+├── types.ts      # TypeScript Interfaces
+├── detection.ts  # Struktur-basierte Typ-Erkennung
+├── security.ts   # XSS-Schutz & Validierung
 └── index.ts      # Re-Exports
 ```
 
-## 📦 types.ts
+## 📦 types.ts - Zentrale Typen
 
 ### RenderContext
 ```typescript
 interface RenderContext {
   mode: 'single' | 'grid' | 'compare';
-  itemCount: number;           // 1 = single, >1 = compare
-  items?: ItemData[];          // Alle Items bei compare
-  itemIndex?: number;          // Index des aktuellen Items
-  colors?: string[];           // Farben für Compare
-  perspectives?: string[];     // Aktive Perspektiven
-  fieldName?: string;          // Aktuelles Feld
-  compact?: boolean;           // Grid = kompakt
+  itemCount: number;
+  compact?: boolean;      // Grid = kompakt
+  colors?: string[];      // Compare-Farben
 }
 ```
 
-### MorphType (19 Typen)
+### MorphType (18 Primitives)
 ```typescript
 type MorphType = 
   | 'text' | 'number' | 'boolean' | 'badge' | 'tag'
-  | 'progress' | 'rating' | 'range' | 'stats'
-  | 'image' | 'link' | 'list' | 'date'
-  | 'bar' | 'sparkline' | 'radar' | 'timeline'
-  | 'object' | 'null';
+  | 'progress' | 'rating' | 'range' | 'stats' | 'bar'
+  | 'image' | 'link' | 'list' | 'date' | 'timeline'
+  | 'sparkline' | 'radar' | 'object';
 ```
 
 ### ItemData
@@ -46,24 +41,13 @@ interface ItemData {
   name: string;
   wissenschaftlich?: string;
   bild?: string;
-  [key: string]: unknown;      // Dynamische Felder
+  [key: string]: unknown;  // Dynamische Felder
 }
 ```
 
-### CompareValue
-```typescript
-interface CompareValue {
-  item: ItemData;
-  value: unknown;
-  color: string;
-}
-```
+## 📦 detection.ts - Automatische Erkennung
 
-## 📦 detection.ts
-
-### detectType(value) - Struktur-basierte Erkennung
-
-**WICHTIG**: Erkennung basiert **nur auf Datenstruktur**, nicht auf Feldnamen!
+**WICHTIG**: Erkennung basiert **nur auf Datenstruktur**, nicht Feldnamen!
 
 | Struktur | → Morph |
 |----------|---------|
@@ -72,12 +56,28 @@ interface CompareValue {
 | Number | `number` |
 | String ≤20 chars | `tag` |
 | String >20 chars | `text` |
-| URL mit Bild-Extension (.jpg, .png, .webp, .svg) | `image` |
+| URL mit .jpg/.png/.webp/.svg | `image` |
 | http/https URL | `link` |
 | ISO Date (2024-12-20) | `date` |
 | `{status, variant}` | `badge` |
 | `{rating, max?}` | `rating` |
 | `{value, max}` | `progress` |
+| `{min, max, value?}` | `range` |
+| `{points: [...]}` | `sparkline` |
+| `{axes: [...], values: [...]}` | `radar` |
+| `{events: [...]}` | `timeline` |
+| `{segments: [...]}` | `bar` |
+| Array | `list` |
+| Object | `object` |
+
+## 📦 security.ts - XSS-Schutz
+
+```typescript
+import { escapeHtml, validateInput } from './security';
+
+escapeHtml('<script>') // '&lt;script&gt;'
+validateInput(value, maxLength)  // throws on invalid
+```
 | `{min, max}` ohne avg | `range` |
 | `{min, max, avg}` | `stats` |
 | `[{axis, value}]` | `radar` |

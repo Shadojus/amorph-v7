@@ -1,63 +1,72 @@
-# Data
+# AMORPH v7 - Data
 
-Modulare JSON-Daten für AMORPH - 4 Kingdoms × 15 Perspektiven.
+> JSON-Daten für biologische Spezies.
 
-## Struktur
+## 📁 Struktur
 
 ```
 data/
-├── universe-index.json           ← Haupt-Index (Frontend lädt diese)
-├── animalia/
-│   ├── index.json                ← Kingdom-Index
-│   └── alpine-marmot/            ← 1 Spezies
-│       ├── index.json            ← Core-Daten
-│       └── *.json                ← Perspektiven
-├── bacteria/
-│   └── index.json                ← Kingdom-Index (leer)
+├── universe-index.json     # Haupt-Index
 ├── fungi/
-│   ├── index.json                ← Kingdom-Index
-│   └── psilocybe-cyanescens/     ← 1 Spezies
-│       ├── index.json            ← Core-Daten
-│       ├── chemistry.json
-│       ├── culture.json
-│       ├── ecology.json
-│       ├── identification.json
-│       ├── medicine.json
-│       ├── safety.json
-│       └── temporal.json
-└── plantae/
-    ├── index.json                ← Kingdom-Index
-    └── deadly-nightshade/        ← 1 Spezies
-        ├── index.json
-        └── *.json                ← Perspektiven
+│   ├── index.json          # Kingdom-Index
+│   └── psilocybe-cyanescens/
+│       ├── index.json      # Core-Daten
+│       └── *.json          # Perspektiven
+├── plantae/
+│   ├── index.json
+│   └── deadly-nightshade/
+└── animalia/
+    ├── index.json
+    └── alpine-marmot/
 ```
 
----
+## 📦 Daten-Hierarchie
 
-## Aktuelle Daten
+### universe-index.json
+```json
+{
+  "kingdoms": ["fungi", "plantae", "animalia"],
+  "version": "7.0"
+}
+```
 
-| Kingdom | Spezies | Perspektiven |
-|---------|---------|--------------|
-| Animalia | alpine-marmot (Alpenmurmeltier) | 10 |
-| Fungi | psilocybe-cyanescens (Blauender Kahlkopf) | 7 |
-| Plantae | deadly-nightshade (Tollkirsche) | 7 |
-| Bacteria | - | 0 |
+### {kingdom}/index.json
+```json
+{
+  "kingdom": "fungi",
+  "items": [
+    {"id": "psilocybe-cyanescens", "name": "Blauender Kahlkopf"}
+  ]
+}
+```
 
-**Gesamt**: 3 Spezies, 24 Perspektiven-Dateien
+### {species}/index.json (Core)
+```json
+{
+  "id": "psilocybe-cyanescens",
+  "name": "Blauender Kahlkopf",
+  "wissenschaftlich": "Psilocybe cyanescens",
+  "bild": "https://..."
+}
+```
 
----
+### {species}/{perspective}.json
+```json
+{
+  "conservation_status": {"status": "LC", "variant": "success"},
+  "habitat": ["Totholz", "Parks", "Waldränder"],
+  "fruiting_season": {...}
+}
+```
 
-## SSR-Integration (NEU)
-
-Die Astro SSR-Layer (`src/lib/species.ts`) lädt Daten direkt aus diesen Ordnern:
+## 🔄 SSR-Integration
 
 ```typescript
-// Sucht in beiden Dateien:
-data/{kingdom}/{slug}/index.json
-data/{kingdom}/{slug}/data.json
-```
+import { getItem, searchItems } from './server';
 
----
+const item = await getItem('psilocybe-cyanescens');
+const results = await searchItems({ query: 'pilz' });
+```
 
 ## universe-index.json Format
 

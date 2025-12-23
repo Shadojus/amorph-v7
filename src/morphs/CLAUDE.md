@@ -1,63 +1,73 @@
 # AMORPH v7 - Morphs Module
 
-> Unified Morph Architecture mit **18 Primitives** (45+ MorphTypes für Erweiterbarkeit).
-> Visualisiert biologische Daten: Taxonomie, Chemie, Ökologie, Medizin, etc.
-> **Struktur-basierte Detection** - Typ wird aus Datenstruktur erkannt, nicht aus Feldnamen!
-> **Object-Parsing** - Badge/Rating/Progress parsen strukturierte Objekte automatisch.
-> **Lichtkugel-Design** - Aktive Elemente leuchten, inaktive sind gedimmt.
+> Unified Morph Architecture mit **18 Primitives**.
+> Struktur-basierte Detection - Typ wird aus Datenstruktur erkannt.
+> Object-Parsing - Badge/Rating/Progress parsen Objekte automatisch.
 
 ## 📁 Struktur
 
 ```
 morphs/
-├── base.ts           # createUnifiedMorph() Factory + wrapInField() mit Base64
-├── debug.ts          # Morph Debug System
-├── primitives/       # 27 Morph-Implementierungen
-│   ├── index.ts      # Re-Exports + Registry
-│   │
-│   │── # TEXT & BASICS
-│   ├── text.ts       # Langer Text
-│   ├── number.ts     # Zahlen
-│   ├── boolean.ts    # true/false
-│   │
-│   │── # LABELS & TAGS  
-│   ├── badge.ts      # {status, variant}
-│   ├── tag.ts        # Kurze Strings ≤20 Zeichen
-│   │
-│   │── # PROGRESS & RATING
-│   ├── progress.ts   # {value, max, unit}
-│   ├── rating.ts     # {rating, max}
-│   ├── range.ts      # {min, max, unit}
-│   ├── stats.ts      # {min, max, avg, ...}
-│   ├── gauge.ts      # {value, max, zones} ⭐ NEU
-│   │
-│   │── # MEDIA
-│   ├── image.ts      # URL mit Bildendung
-│   ├── link.ts       # http(s)://...
-│   │
-│   │── # COLLECTIONS
-│   ├── list.ts       # ["string", ...]
-│   ├── object.ts     # Generic Object
-│   │
-│   │── # TEMPORAL
-│   ├── date.ts       # ISO-Datum
-│   ├── timeline.ts   # [{date, event}]
-│   ├── lifecycle.ts  # [{phase, duration}] ⭐ NEU
-│   ├── steps.ts      # [{step, label, status}] ⭐ NEU
-│   ├── calendar.ts   # [{month, active}] ⭐ NEU
-│   │
-│   │── # CHARTS
-│   ├── bar.ts        # [{label, value}]
-│   ├── pie.ts        # [{label, value}] ⭐ NEU
-│   ├── sparkline.ts  # [0, 1, 2, ...]
-│   ├── radar.ts      # [{axis, value}]
-│   │
-│   │── # SPECIALIZED
-│   ├── severity.ts   # [{level, typ, beschreibung}] ⭐ NEU
-│   ├── dosage.ts     # [{amount, unit, frequency}] ⭐ NEU
-│   ├── citation.ts   # {authors, year, title} ⭐ NEU
-│   └── currency.ts   # {amount, currency} ⭐ NEU
-│
+├── base.ts           # createUnifiedMorph() Factory + wrapInField()
+├── debug.ts          # Morph Debug System (morphDebug.enable())
+├── index.ts          # Registry, renderValue(), renderCompare()
+└── primitives/       # 18 Morph-Implementierungen
+    ├── index.ts      # Re-Exports + Registry
+    ├── text.ts       # String >20 chars
+    ├── number.ts     # Numbers mit Formatierung
+    ├── boolean.ts    # true/false
+    ├── badge.ts      # {status, variant}
+    ├── tag.ts        # String ≤20 chars / ["short"]
+    ├── progress.ts   # {value, max, unit}
+    ├── rating.ts     # {rating, max}
+    ├── range.ts      # {min, max, unit}
+    ├── stats.ts      # {min, avg, max}
+    ├── image.ts      # URL mit .jpg/.png/.webp/.svg
+    ├── link.ts       # http(s)://
+    ├── list.ts       # ["strings"]
+    ├── object.ts     # Generic Object
+    ├── date.ts       # ISO-Datum
+    ├── timeline.ts   # [{date, event}]
+    ├── bar.ts        # [{label, value}]
+    ├── sparkline.ts  # [numbers]
+    └── radar.ts      # [{axis, value}]
+```
+
+## 🎯 Unified Morph API
+
+```typescript
+import { createUnifiedMorph } from './base';
+
+export const myMorph = createUnifiedMorph(
+  'myMorph',
+  // Single-Render
+  (value, ctx) => `<div class="morph-my">${value}</div>`,
+  // Compare-Render (optional)
+  (values, ctx) => `<div class="morph-my-compare">...</div>`
+);
+```
+
+## 🔧 RenderContext
+
+```typescript
+interface RenderContext {
+  mode: 'single' | 'grid' | 'compare';
+  itemCount: number;
+  items?: ItemData[];
+  itemIndex?: number;
+  colors?: string[];
+  fieldName?: string;
+  compact?: boolean;
+}
+```
+
+## 📊 Detection Priorität
+
+1. **Spezielle Strukturen**: `{min,max}`, `{rating}`, `{status}`, etc.
+2. **Arrays**: Prüfe auf `[{label,value}]`, `[{date,event}]`, `[numbers]`
+3. **URLs**: Image vs. Link
+4. **Strings**: Tag (≤20) vs. Text (>20)
+5. **Fallback**: `object` oder `text`
 └── index.ts          # Main API
 ```
 

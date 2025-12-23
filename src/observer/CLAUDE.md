@@ -6,98 +6,72 @@
 
 ```
 observer/
-├── debug.ts        # DebugObserver Klasse mit History
-├── interaction.ts  # InteractionObserver (Clicks, Hover, Input)
-├── rendering.ts    # RenderingObserver (Mount, Unmount, DOM)
-├── session.ts      # SessionObserver (Page Views, Zeit)
-├── target.ts       # Output Backends (Console, HTTP, WebSocket)
-└── index.ts        # setupObservers(), getObserverStats()
+├── debug.ts        # DebugObserver mit History
+├── interaction.ts  # Clicks, Hover, Input
+├── rendering.ts    # Mount, Unmount, DOM
+├── session.ts      # Page Views, Zeit
+├── target.ts       # Console, HTTP, WebSocket
+└── index.ts        # setupObservers()
 ```
 
 ## 🔧 Aktivierung
 
-Das Observer-System ist **standardmäßig AKTIVIERT** für einfaches Debugging.
+**Standardmäßig AKTIVIERT** für Debugging.
 
 ### Deaktivieren
-
 ```javascript
-// Per localStorage
 localStorage.setItem('amorph:observers', 'false');
-location.reload();
-
-// Per Console
+// oder
 window.amorphDebug.disable();
 ```
 
-### Per URL Parameter (überschreibt localStorage)
+### Per URL Parameter
 ```
-http://localhost:4323/?observe=false    // Deaktivieren
-http://localhost:4323/?observe=true     // Aktivieren
-```
-
-### Verbose Mode
-```javascript
-window.amorphDebug.setVerbose(true);  // Alle Kategorien
+?observe=false    // Deaktivieren
+?observe=true     // Aktivieren
 ```
 
-## 📦 debug.ts - DebugObserver
-
-Zentrales Logging mit farbigen Kategorien und History:
-
-### Kategorien
+## 📦 debug.ts - Kategorien
 
 | Kategorie | Farbe | Beschreibung |
 |-----------|-------|--------------|
-| **System** | | |
 | `amorph` | #f472b6 | Haupt-Events |
 | `config` | #34d399 | Config Laden |
 | `data` | #60a5fa | Daten Laden |
-| `security` | #ef4444 | Security Warnungen |
-| **Features** | | |
+| `security` | #ef4444 | Security |
 | `search` | #38bdf8 | Suche |
 | `grid` | #84cc16 | Grid Events |
 | `compare` | #14b8a6 | Vergleich |
-| **Morphs** | | |
 | `morphs` | #fb7185 | Morph Rendering |
 | `detection` | #e879f9 | Typ-Erkennung |
 | `render` | #fbbf24 | DOM Rendering |
-| **Observer** | | |
-| `click` | #fb923c | Klick Events |
-| `hover` | #fdba74 | Hover Events |
-| `scroll` | #d4d4d4 | Scroll Events |
-| `session` | #22d3ee | Session Events |
 
 ### API
-
 ```typescript
 import { debug } from './observer';
 
-// Logging
 debug.amorph('App initialized');
 debug.search('Query', { q: 'pilz', results: 42 });
 debug.error('Something failed', errorData);
 
-// Controls
 debug.enable();
 debug.disable();
-debug.setVerbose(true);     // Zeigt auch gemutete Kategorien
-debug.setFilter(['search', 'compare']);  // Nur bestimmte
-debug.mute('scroll');       // Kategorie stummschalten
-debug.unmute('scroll');
-
-// History
-debug.getStats();           // { total, byCategory, runtime }
-debug.getTimeline(20);      // Letzte 20 Einträge
-debug.getByCategory('error', 50);
-debug.clear();
+debug.setVerbose(true);
+debug.mute('scroll');
+debug.getStats();
+debug.getTimeline(20);
 ```
 
-## 📦 interaction.ts - InteractionObserver
+## 🌐 window.amorphDebug
 
-Trackt User-Interaktionen:
-
-```typescript
-const observer = new InteractionObserver(container, target);
+Global verfügbar für DevTools:
+```javascript
+amorphDebug.enable()
+amorphDebug.disable()
+amorphDebug.setVerbose(true)
+amorphDebug.getStats()
+amorphDebug.getTimeline(50)
+```
 observer.start();
 
 // Tracked Events:

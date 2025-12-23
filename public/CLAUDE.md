@@ -1,53 +1,94 @@
 # AMORPH v7 - Public Assets
 
-> Statische Dateien: CSS (Mobile-First), Icons, manifest.json für biologische Datenvisualisierung.
+> Statische CSS-Dateien für das Black Glass Morphism Design System.
 
 ## 📁 Struktur
 
 ```
 public/
 ├── styles/
-│   ├── base.css        # BLACK GLASS SYSTEM (Single Source of Truth) + Universe BG
-│   ├── components.css  # UI-Komponenten (nutzen System-Variablen)
-│   ├── morphs.css      # Morph-spezifische Styles
+│   ├── base.css        # Design Tokens, Multi-Site Colors, Typography
+│   ├── components.css  # UI-Komponenten (Header, Search, Compare, Nav)
+│   ├── morphs.css      # Morph-spezifische Styles (18 Primitives)
 │   └── morphs/
-│       ├── _card.css   # Morph Cards (nutzen System-Variablen)
-│       └── _compare.css # Compare Mode (nutzen System-Variablen)
-└── icons/
-    └── (PWA Icons)
+│       ├── _card.css   # Grid-Card Styles
+│       ├── _compare.css # Compare-Mode Styles
+│       └── _variables.css # Morph CSS Variables
+└── icons/              # PWA Icons
 ```
 
-## 🎨 Design System: BLACK GLASS MORPHISM
+## 🎨 Design System
 
-### Universe Background
-
-**Schwarzer Weltraum mit ultramarinblauen Nebelschwaden**:
+### Z-Index Hierarchie
 ```css
-background: #000000;
-background-image: 
-  radial-gradient(ellipse at 0% 10%, rgba(30, 60, 220, 0.5) 0%, transparent 55%),
-  radial-gradient(ellipse at 100% 90%, rgba(40, 70, 200, 0.4) 0%, transparent 55%);
+z-index: 10000  /* Suchleiste - immer über allem */
+z-index: 9999   /* Compare-Panel */
+z-index: 400    /* Bottom Navigation */
+z-index: 200    /* Header */
 ```
 
-### Black Glass Components
-
-**Standard Glass Panel**:
+### Multi-Site Colors (base.css)
 ```css
-background: rgba(5, 8, 15, 0.95);
-border: 1px solid transparent;
-border-radius: 20px;
+--site-funginomi-rgb: 77, 136, 255;   /* Psychedelic Blue */
+--site-phytonomi-rgb: 51, 179, 128;   /* Jade Green */
+--site-therionomi-rgb: 235, 77, 180;  /* Magenta Pink */
+--system-rgb: var(--site-funginomi-rgb); /* Active Site */
 ```
 
-**Animierte Bio-Border** (Suchleiste, Compare-Button):
+### Perspektiven (15 matte Pastell-Töne)
 ```css
-/* Pseudo-Element mit rotierender 8-Farben-Border */
-.element::before {
-  background: linear-gradient(
-    var(--bio-border-angle, 0deg),
-    var(--bio-foxfire) 0%,
-    var(--bio-myzel) 15%,
-    var(--bio-sporen) 30%,
-    var(--bio-tiefsee) 45%,
+[data-perspektive="chemistry"] { --perspektive-rgb: 160, 140, 160; }
+[data-perspektive="ecology"]   { --perspektive-rgb: 130, 150, 120; }
+/* ... */
+```
+
+### Bio-Lumineszenz (Compare, 8 Farben)
+```css
+--bio-foxfire: rgb(0, 255, 200);      /* Panellus stipticus */
+--bio-myzel: rgb(167, 139, 250);
+--bio-sporen: rgb(251, 191, 36);
+--bio-tiefsee: rgb(34, 211, 238);
+--bio-rhodotus: rgb(244, 114, 182);
+--bio-chlorophyll: rgb(163, 230, 53);
+--bio-carotin: rgb(251, 146, 60);
+--bio-lavendel: rgb(196, 181, 253);
+```
+
+### Black Glass Morphism
+```css
+background: rgba(8, 10, 16, 0.95);
+backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.04);
+```
+
+## 📦 CSS Files
+
+### base.css (~900 Zeilen)
+- CSS Reset
+- Design Tokens (Space, Radius, Transitions, Z-Index)
+- Multi-Site Color System
+- Perspektiven-Farben
+- Bio-Lumineszenz Farben
+- Typography
+- Glass Panel Basics
+
+### components.css (~3600 Zeilen)
+- **Search Bar** - Sticky unter Header, z-index: 10000
+- **Header** - Site-Switcher mit Bifröst-Portal, Nebel-Animation
+- **Compare Panel** - Copy-Button, License-Notice, Search-Highlights
+- **Bottom Navigation** - Fixed, Badge für Selection-Count
+- **Selection Bar** - Perspective-Pills
+- **Grid Cards** - Field Selection mit Farben
+- **Detail Page** - Species View Komponenten
+
+### morphs.css (~2000 Zeilen)
+- 18 Morph Primitives Styles
+- Single Mode + Compare Mode
+- Bar, Radar, Sparkline Charts
+- Progress, Rating, Range
+- Badge, Tag, Text, Number
+- Image, Link, List, Object
+- Timeline, Calendar, Steps
     var(--bio-rhodotus) 60%,
     var(--bio-chlorophyll) 75%,
     var(--bio-carotin) 90%,

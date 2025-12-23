@@ -27,12 +27,95 @@ export function initCompare(panel: HTMLElement): void {
   const closeBtn = panel.querySelector('.compare-close');
   closeBtn?.addEventListener('click', hideCompare);
   
+  // Copy button
+  const copyBtn = panel.querySelector('.compare-copy');
+  copyBtn?.addEventListener('click', handleCopyData);
+  
   // Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && isOpen) {
       hideCompare();
     }
   });
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// COPY FUNCTIONALITY
+// ═══════════════════════════════════════════════════════════════════════════════
+
+async function handleCopyData(): Promise<void> {
+  if (!comparePanel) return;
+  
+  const copyBtn = comparePanel.querySelector('.compare-copy');
+  const selectedFields = getSelectedFields();
+  
+  // Debug: Log what we have
+  console.log('[Copy] Selected fields:', selectedFields.length, selectedFields);
+  
+  // Baue strukturierten Text für Clipboard
+  const lines: string[] = [
+    '═══════════════════════════════════════════════════════════════',
+    '  AMORPH Data Export',
+    '  Free License – Bei Nutzung bitte Quelle angeben',
+    '  Quelle: https://funginomi.de',
+    '═══════════════════════════════════════════════════════════════',
+    ''
+  ];
+  
+  // Gruppiere nach Item - Map.entries() für korrektes Iterieren
+  const grouped = getSelectedFieldsGrouped();
+  
+  for (const [itemSlug, fields] of grouped.entries()) {
+    const itemName = fields[0]?.itemName || itemSlug;
+    lines.push(`── ${itemName} ──`);
+    
+    for (const field of fields) {
+      const valueStr = formatValueForExport(field.value);
+      lines.push(`  ${field.fieldName}: ${valueStr}`);
+    }
+    lines.push('');
+  }
+  
+  lines.push('───────────────────────────────────────────────────────────────');
+  lines.push('Exportiert am: ' + new Date().toLocaleString('de-DE'));
+  
+  const textContent = lines.join('\n');
+  
+  try {
+    await navigator.clipboard.writeText(textContent);
+    
+    // Visuelles Feedback
+    if (copyBtn) {
+      copyBtn.classList.add('is-copied');
+      const label = copyBtn.querySelector('.copy-label');
+      const originalText = label?.textContent;
+      if (label) label.textContent = 'Kopiert!';
+      
+      setTimeout(() => {
+        copyBtn.classList.remove('is-copied');
+        if (label && originalText) label.textContent = originalText;
+      }, 2000);
+    }
+    
+    debug.compare('Data copied to clipboard', { fields: selectedFields.length });
+  } catch (err) {
+    debug.compare('Copy failed', err);
+    console.error('Copy to clipboard failed:', err);
+  }
+}
+
+function formatValueForExport(value: unknown): string {
+  if (value === null || value === undefined) return '–';
+  if (typeof value === 'string') return value;
+  if (typeof value === 'number') return String(value);
+  if (typeof value === 'boolean') return value ? 'Ja' : 'Nein';
+  if (Array.isArray(value)) {
+    return value.map(v => formatValueForExport(v)).join(', ');
+  }
+  if (typeof value === 'object') {
+    return JSON.stringify(value, null, 2);
+  }
+  return String(value);
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -134,6 +217,146 @@ export function toggleCompare(): void {
 
 export function isCompareOpen(): boolean {
   return isOpen;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// COMPARE SEARCH
+// Durchsucht den Compare-Content und highlightet Treffer
+// ═══════════════════════════════════════════════════════════════════════════════
+
+let compareHighlightElements: HTMLElement[] = [];
+let compareHighlightIndex = 0;
+
+export function searchInCompare(query: string): { count: number; elements: HTMLElement[] } {
+  if (!comparePanel || !isOpen) {
+    return { count: 0, elements: [] };
+  }
+  
+  const content = comparePanel.querySelector('.compare-content');
+  if (!content) {
+    return { count: 0, elements: [] };
+  }
+  
+  // Clear previous highlights
+  clearCompareHighlights();
+  
+  if (!query || query.length < 2) {
+    return { count: 0, elements: [] };
+  }
+  
+  const queryLower = query.toLowerCase();
+  compareHighlightElements = [];
+  compareHighlightIndex = 0;
+  
+  // Walk through all text nodes and highlight matches
+  const walker = document.createTreeWalker(
+    content,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode: (node) => {
+        if (!node.textContent?.trim()) return NodeFilter.FILTER_REJECT;
+        if (node.parentElement?.closest('mark.compare-highlight')) return NodeFilter.FILTER_REJECT;
+        if (node.parentElement?.closest('script, style, svg')) return NodeFilter.FILTER_REJECT;
+        if (node.textContent.toLowerCase().includes(queryLower)) return NodeFilter.FILTER_ACCEPT;
+        return NodeFilter.FILTER_REJECT;
+      }
+    }
+  );
+  
+  const textNodes: Text[] = [];
+  let node: Text | null;
+  while ((node = walker.nextNode() as Text | null)) {
+    textNodes.push(node);
+  }
+  
+  // Highlight matches
+  const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const regex = new RegExp(`(${escapedQuery})`, 'gi');
+  
+  textNodes.forEach(textNode => {
+    const text = textNode.textContent || '';
+    if (!regex.test(text)) return;
+    regex.lastIndex = 0;
+    
+    const fragment = document.createDocumentFragment();
+    let lastIndex = 0;
+    let match;
+    
+    while ((match = regex.exec(text)) !== null) {
+      // Text before match
+      if (match.index > lastIndex) {
+        fragment.appendChild(document.createTextNode(text.slice(lastIndex, match.index)));
+      }
+      
+      // Highlighted match
+      const mark = document.createElement('mark');
+      mark.className = 'compare-highlight';
+      mark.textContent = match[1];
+      fragment.appendChild(mark);
+      compareHighlightElements.push(mark);
+      
+      lastIndex = regex.lastIndex;
+    }
+    
+    // Remaining text
+    if (lastIndex < text.length) {
+      fragment.appendChild(document.createTextNode(text.slice(lastIndex)));
+    }
+    
+    textNode.parentNode?.replaceChild(fragment, textNode);
+  });
+  
+  // Scroll to first highlight
+  if (compareHighlightElements.length > 0) {
+    scrollToCompareHighlight(0);
+  }
+  
+  debug.compare('Search in compare', { query, matches: compareHighlightElements.length });
+  
+  return { count: compareHighlightElements.length, elements: compareHighlightElements };
+}
+
+export function navigateCompareHighlight(direction: 1 | -1): void {
+  if (compareHighlightElements.length === 0) return;
+  
+  compareHighlightIndex = (compareHighlightIndex + direction + compareHighlightElements.length) % compareHighlightElements.length;
+  scrollToCompareHighlight(compareHighlightIndex);
+}
+
+function scrollToCompareHighlight(index: number): void {
+  compareHighlightElements.forEach((el, i) => {
+    el.classList.toggle('is-current', i === index);
+  });
+  
+  const element = compareHighlightElements[index];
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+}
+
+export function clearCompareHighlights(): void {
+  if (!comparePanel) return;
+  
+  const content = comparePanel.querySelector('.compare-content');
+  if (!content) return;
+  
+  content.querySelectorAll('mark.compare-highlight').forEach(mark => {
+    const parent = mark.parentNode;
+    if (parent) {
+      parent.replaceChild(document.createTextNode(mark.textContent || ''), mark);
+      parent.normalize();
+    }
+  });
+  
+  compareHighlightElements = [];
+  compareHighlightIndex = 0;
+}
+
+export function getCompareHighlightInfo(): { current: number; total: number } {
+  return {
+    current: compareHighlightElements.length > 0 ? compareHighlightIndex + 1 : 0,
+    total: compareHighlightElements.length
+  };
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════

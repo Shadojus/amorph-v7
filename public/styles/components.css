@@ -21,13 +21,17 @@
 
 /* ═══════════════════════════════════════════════════════════════════════════════
    SEARCH BAR - Harmonized Black Glass Morphism
-   Integriert mit Header-Design, fließt mit dem Content
+   Sticky unter dem Header, fließt mit dem Content
+   z-index: 10000 - über dem Compare-Panel
    ═══════════════════════════════════════════════════════════════════════════════ */
 .search-bar-container {
-  position: relative;
-  z-index: 100;
+  position: sticky;
+  top: 56px; /* Header height */
+  z-index: 10000; /* Über dem Compare-Panel (9999) */
   padding: 1rem 1rem 0.75rem;
-  background: transparent;
+  background: linear-gradient(180deg, rgba(8, 10, 16, 0.98) 0%, rgba(8, 10, 16, 0.9) 70%, transparent 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .search-bar-container > * {
@@ -2804,7 +2808,7 @@
     0 0 48px rgba(var(--system-rgb), 0.08);
   transform: translateX(100%);
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 250;
+  z-index: 9999; /* Höher als alles andere */
   display: flex;
   flex-direction: column;
 }
@@ -2840,6 +2844,44 @@
   font-size: 1.125rem;
 }
 
+/* Header Actions (Copy + Close) */
+.compare-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.compare-copy {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: rgba(var(--system-rgb), 0.15);
+  border: 1px solid rgba(var(--system-rgb), 0.3);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.compare-copy:hover {
+  background: rgba(var(--system-rgb), 0.25);
+  border-color: rgba(var(--system-rgb), 0.5);
+  color: #fff;
+}
+
+.compare-copy.is-copied {
+  background: rgba(100, 200, 120, 0.2);
+  border-color: rgba(100, 200, 120, 0.4);
+  color: rgba(150, 230, 150, 1);
+}
+
+.compare-copy .copy-icon {
+  font-size: 0.9rem;
+}
+
 .compare-close {
   width: 32px;
   height: 32px;
@@ -2860,6 +2902,22 @@
   color: rgba(255, 255, 255, 0.9);
   border-color: rgba(255, 255, 255, 0.15);
   background: rgba(255, 255, 255, 0.08);
+}
+
+/* License Notice */
+.compare-license-notice {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(var(--system-rgb), 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.compare-license-notice .license-icon {
+  font-size: 0.85rem;
 }
 
 /* Compare Content */
@@ -2887,6 +2945,26 @@
 
 .compare-content::-webkit-scrollbar-thumb:hover {
   background: rgba(var(--system-rgb), 0.4);
+}
+
+/* Compare Search Highlights */
+mark.compare-highlight {
+  background: rgba(var(--system-rgb), 0.35);
+  color: #fff;
+  padding: 0.1em 0.2em;
+  border-radius: 3px;
+  box-shadow: 0 0 8px rgba(var(--system-rgb), 0.3);
+}
+
+mark.compare-highlight.is-current {
+  background: rgba(var(--system-rgb), 0.7);
+  box-shadow: 0 0 12px rgba(var(--system-rgb), 0.6), 0 0 24px rgba(var(--system-rgb), 0.3);
+  animation: pulse-highlight 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-highlight {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
 }
 
 /* Compare Legend - Minimalistisch mit Bio-Dots */
@@ -3013,10 +3091,112 @@
 /* ─────────────────────────────────────────────────────────────────────────────
    AMORPH DETAIL
    ───────────────────────────────────────────────────────────────────────────── */
+
+/* Detail Header Variant */
+.amorph-header--detail {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+}
+
+.detail-back {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.detail-back:hover {
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.detail-back-icon {
+  font-size: 1rem;
+}
+
+.detail-back-label {
+  display: none;
+}
+
+@media (min-width: 520px) {
+  .detail-back-label {
+    display: inline;
+  }
+}
+
+.detail-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+  text-align: center;
+}
+
+.amorph-header--detail .page-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.page-subtitle {
+  font-size: 0.6875rem;
+  font-style: italic;
+  color: rgba(var(--site-funginomi-rgb), 0.7);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.detail-actions-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Selection Indicator im Header */
+.selection-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.375rem 0.625rem;
+  background: rgba(var(--site-funginomi-rgb), 0.15);
+  border: 1px solid rgba(var(--site-funginomi-rgb), 0.25);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--site-funginomi);
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.2s ease;
+}
+
+.selection-indicator.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.selection-indicator-icon {
+  font-size: 0.875rem;
+}
+
 .amorph-detail {
   max-width: 900px;
   margin: 0 auto;
   padding: 2rem;
+  padding-bottom: 120px; /* Space for bottom nav + selection bar */
 }
 
 .detail-hero {
@@ -3202,11 +3382,23 @@
 }
 
 /* In Detail-Ansicht: Card-Style */
-.amorph-detail .amorph-field {
+.amorph-detail .amorph-field,
+.detail-field .amorph-field {
   padding: 1rem;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.04);
   border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.15s ease;
+}
+
+.amorph-detail .amorph-field:hover,
+.detail-field .amorph-field:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
 /* In Grid-Ansicht: Compact with subtle depth */
@@ -3256,7 +3448,8 @@
 }
 
 /* Selected field - uses perspective color via CSS variable */
-.amorph-item .amorph-field.is-selected {
+.amorph-item .amorph-field.is-selected,
+.detail-field .amorph-field.is-selected {
   background: rgba(77, 136, 255, 0.08);
   background: var(--selection-bg, rgba(77, 136, 255, 0.08));
   border: 1px solid rgba(77, 136, 255, 0.25);
@@ -3264,7 +3457,8 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.amorph-item .amorph-field.is-selected::after {
+.amorph-item .amorph-field.is-selected::after,
+.detail-field .amorph-field.is-selected::after {
   content: '✓';
   position: absolute;
   top: 0.25rem;

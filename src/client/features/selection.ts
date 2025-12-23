@@ -178,11 +178,12 @@ export function getSelectedFields(): SelectedField[] {
 export function getSelectedFieldsGrouped(): Map<string, SelectedField[]> {
   const grouped = new Map<string, SelectedField[]>();
   
+  // Gruppiere nach itemSlug (nicht fieldName) für bessere Übersicht
   for (const field of state.fields.values()) {
-    if (!grouped.has(field.fieldName)) {
-      grouped.set(field.fieldName, []);
+    if (!grouped.has(field.itemSlug)) {
+      grouped.set(field.itemSlug, []);
     }
-    grouped.get(field.fieldName)!.push(field);
+    grouped.get(field.itemSlug)!.push(field);
   }
   
   return grouped;
@@ -213,11 +214,17 @@ export function canCompare(): boolean {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const STORAGE_KEY = 'amorph:selection';
+const STORAGE_KEY_FIELDS = 'amorph:selection:fields';
 
 export function saveToStorage(): void {
   try {
-    const data = getSelectedItems();
-    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    // Save items
+    const itemsData = getSelectedItems();
+    sessionStorage.setItem(STORAGE_KEY, JSON.stringify(itemsData));
+    
+    // Save fields
+    const fieldsData = getSelectedFields();
+    sessionStorage.setItem(STORAGE_KEY_FIELDS, JSON.stringify(fieldsData));
   } catch (e) {
     debug.selection('Failed to save selection', e);
   }
@@ -225,10 +232,24 @@ export function saveToStorage(): void {
 
 export function loadFromStorage(): void {
   try {
-    const data = sessionStorage.getItem(STORAGE_KEY);
-    if (data) {
-      const items: SelectedItem[] = JSON.parse(data);
+    // Load items
+    const itemsData = sessionStorage.getItem(STORAGE_KEY);
+    if (itemsData) {
+      const items: SelectedItem[] = JSON.parse(itemsData);
       items.forEach(item => state.items.set(item.slug, item));
+    }
+    
+    // Load fields
+    const fieldsData = sessionStorage.getItem(STORAGE_KEY_FIELDS);
+    if (fieldsData) {
+      const fields: SelectedField[] = JSON.parse(fieldsData);
+      fields.forEach(field => {
+        const key = getFieldKey(field.itemSlug, field.fieldName);
+        state.fields.set(key, field);
+      });
+    }
+    
+    if (itemsData || fieldsData) {
       notifyListeners();
     }
   } catch (e) {

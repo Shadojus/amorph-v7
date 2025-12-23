@@ -1,6 +1,6 @@
 # AMORPH v7 - Source Directory
 
-> TypeScript-Module für biologische Datenvisualisierung (Pilze, Pflanzen, Tiere, etc.).
+> TypeScript-Module für biologische Datenvisualisierung.
 
 ## 📁 Struktur
 
@@ -10,7 +10,7 @@ src/
 ├── morphs/         # Unified Morph System (18 Primitives)
 ├── observer/       # Debug & Analytics
 ├── server/         # SSR: Config + Data Loader
-├── client/         # Browser: Features
+├── client/         # Browser: Features (7 Module)
 ├── layouts/        # Astro Base Layout
 ├── pages/          # Routes + API
 └── env.d.ts        # Astro TypeScript Referenzen
@@ -26,28 +26,34 @@ pages/ → layouts/ → server/ → core/
                          observer/
 ```
 
-## 📦 Module im Detail
+## 📦 Module
 
 ### core/
-Fundamentale Typen und Utilities:
 - `types.ts` - RenderContext, MorphType, ItemData, CompareValue
-- `detection.ts` - **Struktur-basierte** Typ-Erkennung (keine Feldnamen!)
-- `security.ts` - Input Validation, XSS Schutz, Path Traversal Prevention
+- `detection.ts` - Struktur-basierte Typ-Erkennung
+- `security.ts` - Input Validation, XSS Schutz
 - `index.ts` - Re-Exports
 
 ### morphs/
-Unified Morph Architecture:
-- `base.ts` - createUnifiedMorph() Factory + wrapInField() mit Base64
-- `primitives/` - 18 Morph-Typen (text, badge, progress, etc.)
+- `base.ts` - createUnifiedMorph() Factory + wrapInField()
+- `primitives/` - 18 Morph-Typen
 - `index.ts` - Registry, renderValue(), renderCompare()
 
 ### observer/
-Debug und Analytics System:
-- `debug.ts` - Kategorisiertes Logging mit History
+- `debug.ts` - Kategorisiertes Logging
 - `interaction.ts` - Click, Hover, Input Tracking
 - `rendering.ts` - Mount/Unmount Events
 - `session.ts` - Page Views, Session Tracking
 - `target.ts` - Console/HTTP/WebSocket Backends
+
+### client/features/
+- `app.ts` - Haupt-Initialisierung
+- `search.ts` - Suchmaschinen-UX mit Perspektiven
+- `grid.ts` - Grid-Layout und Feld-Selection
+- `compare.ts` - Compare-Panel + Search-in-Compare
+- `selection.ts` - Feld/Item State Management
+- `debug.ts` - Client-Debug-Logging
+- `index.ts` - Re-Exports
 - `index.ts` - setupObservers(), getObserverStats()
 
 ### server/

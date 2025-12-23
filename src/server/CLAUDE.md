@@ -1,6 +1,6 @@
 # AMORPH v7 - Server Module
 
-> SSR-Module für Config und Data Loading biologischer Daten (Kingdoms: Fungi, Plantae, Animalia, etc.).
+> SSR-Module für Config und Data Loading.
 
 ## 📁 Struktur
 
@@ -13,69 +13,65 @@ server/
 
 ## 📦 config.ts - Config Loader
 
-Lädt YAML-Konfiguration aus dem `config/` Symlink:
-
-### Dateien
-
-| Datei | Inhalt |
-|-------|--------|
-| `features.yaml` | Feature-Flags und Einstellungen |
-| `perspektiven.yaml` | Die 15 Perspektiven (id, name, symbol) |
-| `morphs.yaml` | Morph-Typ-Mappings |
-| `daten.yaml` | Daten-Pfade und Kingdoms |
+Lädt YAML-Konfiguration aus `config/` Symlink.
 
 ### API
-
 ```typescript
-import { 
-  loadConfig, 
-  getConfig, 
-  getAllPerspectives,
-  getPerspective 
-} from './server/config';
+import { loadConfig, getConfig, getAllPerspectives } from './server';
 
-// Beim Server-Start einmal laden
-await loadConfig();
-
-// Config abrufen
+await loadConfig();  // Einmal beim Start
 const config = getConfig();
 const perspectives = getAllPerspectives();
-const safety = getPerspective('safety');
 ```
 
-### Perspektiven-Struktur
-
+### Perspektiven (15 Stück)
 ```typescript
 interface Perspective {
   id: string;           // 'culinary'
   name: string;         // 'Kulinarik'
   symbol: string;       // '🍳'
   color?: string;       // '#f59e0b'
-  description?: string;
 }
 ```
 
 ## 📦 data.ts - Data Loader
 
-Lädt JSON-Daten aus dem `data/` Symlink:
+Lädt JSON-Daten aus `data/` Symlink.
 
-### Unterstützte Formate
+### Formate
 
-**Flat Format** (Einzelne JSON pro Item):
+**Flat** (pro Item):
 ```
 data/fungi/steinpilz.json
-data/fungi/fliegenpilz.json
 ```
 
-**Hierarchical Format** (Kingdom-Index):
+**Hierarchical** (Index):
 ```json
-// data/fungi/index.json
 {
   "kingdom": "fungi",
-  "items": [
-    { "id": "steinpilz", "name": "Steinpilz", ... },
-    { "id": "fliegenpilz", "name": "Fliegenpilz", ... }
-  ]
+  "items": [...]
+}
+```
+
+### Search API
+```typescript
+import { searchItems, getItem } from './server';
+
+const results = await searchItems({
+  query: 'pilz',
+  perspectives: ['culinary', 'safety'],
+  limit: 20
+});
+
+const item = await getItem('steinpilz');
+```
+
+### Response
+```typescript
+interface SearchResult {
+  items: ItemData[];
+  total: number;
+  perspectivesWithData: string[];
 }
 ```
 

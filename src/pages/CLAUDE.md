@@ -6,48 +6,82 @@
 
 ```
 pages/
-├── index.astro     # Grid-Übersicht (Hauptseite)
-├── [slug].astro    # Detail-Seite (dynamisch)
+├── index.astro     # Grid-Übersicht mit Feld-Selektion
+├── [slug].astro    # Detail-Seite mit Search + Compare
 └── api/
     ├── search.ts   # GET /api/search
     └── compare.ts  # POST /api/compare
 ```
 
-## 📦 index.astro - Grid-Übersicht
+## 📄 index.astro - Hauptseite
 
-Hauptseite mit Such- und Filter-Funktionalität.
+### Features
+- **Grid-Ansicht** aller Spezies
+- **Sticky Suchleiste** unter Header (z-index: 10000)
+- **Feld-Selektion** mit Perspektiven-Farben
+- **Site-Switcher Header** mit Bifröst-Portal
+- **Bottom Navigation** mit Selection-Badge
+- **Compare Panel** mit Copy-Button
 
-### URL-Parameter
+### Layout
+```
+┌─────────────────────────────────┐
+│ 🍄 Funginomi | Phytonomi | Bifröst │  Header (z:200)
+├─────────────────────────────────┤
+│        🔍 Suchen...              │  Search (z:10000, sticky)
+├─────────────────────────────────┤
+│  ┌─────┐ ┌─────┐ ┌─────┐       │
+│  │Card │ │Card │ │Card │       │  Grid
+│  └─────┘ └─────┘ └─────┘       │
+├─────────────────────────────────┤
+│   🏠 Home  ⚖️ Compare  🌈 Bifröst │  BottomNav (z:400)
+└─────────────────────────────────┘
+```
 
-| Param | Beschreibung | Beispiel |
-|-------|--------------|----------|
-| `q` | Suchbegriff | `?q=pilz` |
-| `p` | Perspektiven (komma-separiert) | `?p=culinary,safety` |
+## 📄 [slug].astro - Detail-Seite
 
-### Aufbau
+### Features
+- **Alle Felder** der Spezies anzeigen
+- **Perspektiven-Filter** für Felder
+- **Feld-Selektion** mit Farben
+- **Search durchsucht Compare** wenn aktiv
+- **sessionStorage Persistenz** der Selection
 
-```astro
----
-// Server-seitiges Laden
-await loadConfig();
-const { items, total, perspectivesWithData } = await searchItems({
-  query: url.searchParams.get('q') || '',
-  perspectives: url.searchParams.get('p')?.split(',') || [],
-  limit: 50
-});
----
+## 📡 API Endpoints
 
-<Base title="AMORPH – Übersicht">
-  <header class="amorph-header">
-    <!-- Logo, Search, Perspectives, Compare Button -->
-  </header>
-  
-  <main class="amorph-main">
-    <div class="amorph-grid">
-      {items.map(item => <article>...</article>)}
-    </div>
-  </main>
-  
+### GET /api/search
+```
+/api/search?q=pilz&p=culinary,safety&limit=20
+```
+
+Response:
+```json
+{
+  "items": [...],
+  "total": 42,
+  "perspectivesWithData": ["culinary", "safety"],
+  "html": "<article>..."
+}
+```
+
+### POST /api/compare
+```json
+{
+  "fields": [
+    {"itemSlug": "steinpilz", "fieldName": "toxicity", "value": {...}},
+    ...
+  ]
+}
+```
+
+Response:
+```json
+{
+  "html": "<div class='compare-view'>...",
+  "itemCount": 2,
+  "fieldCount": 15
+}
+```
   <div class="selection-bar">...</div>
   <aside class="amorph-compare">...</aside>
 </Base>

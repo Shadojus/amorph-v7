@@ -8,7 +8,17 @@ export { debug } from './debug';
 export { initApp } from './app';
 export { initSearch, performSearch, getActivePerspectives, restoreFromURL } from './search';
 export { initGrid, updateSelectionUI } from './grid';
-export { initCompare, showCompare, hideCompare, toggleCompare, isCompareOpen } from './compare';
+export { 
+  initCompare, 
+  showCompare, 
+  hideCompare, 
+  toggleCompare, 
+  isCompareOpen,
+  searchInCompare,
+  navigateCompareHighlight,
+  clearCompareHighlights,
+  getCompareHighlightInfo
+} from './compare';
 export {
   selectItem,
   deselectItem,
@@ -24,6 +34,7 @@ export {
   selectField,
   deselectField,
   isFieldSelected,
+  getFieldColor,
   getSelectedFields,
   getSelectedFieldsGrouped,
   getSelectedFieldCount,

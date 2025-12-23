@@ -6,47 +6,85 @@
 
 ```
 client/
-├── features/           # Alle Client-Features
-│   ├── index.ts        # Re-Exports
-│   ├── app.ts          # Haupt-Initialisierung
-│   ├── debug.ts        # Client Debug Logging (standardmäßig AN)
-│   ├── search.ts       # Suche + Perspektiven (Max 4 FIFO, Auto-Match ab 4 Zeichen)
-│   ├── grid.ts         # Grid-Interaktionen + Feld-Selektion
-│   ├── compare.ts      # Compare-Panel (Item + Feld Modi)
-│   └── selection.ts    # Item + Field Auswahl State
-└── styles/             # (leer - CSS in public/)
+└── features/           # Alle Client-Features
+    ├── index.ts        # Re-Exports
+    ├── app.ts          # Haupt-Initialisierung
+    ├── debug.ts        # Client Debug Logging
+    ├── search.ts       # Suche + Auto-Perspektiven
+    ├── grid.ts         # Grid-Interaktionen + Feld-Selektion
+    ├── compare.ts      # Compare-Panel + Search-in-Compare + Copy
+    └── selection.ts    # Item + Field State (sessionStorage)
 ```
 
-## 🔍 Perspektiven-System
+## 🔧 Features
 
-- Aktive Perspektiven erscheinen als **Text-Pills** im Suchfeld
+### app.ts
+- Initialisiert alle Module beim DOM Ready
+- Reihenfolge: Search → Grid → Compare → BottomNav → SelectionBar → LoadFromStorage
+- Guard gegen doppelte Initialisierung
 
-### Perspektiven-Suche (ab 4 Zeichen)
+### search.ts
+- Suchmaschinen-UX mit Auto-Perspektiven (ab 3 Zeichen)
+- Perspektiven-Pills unter Suchleiste
+- Highlight-Navigation (Prev/Next)
 
-Wenn der Suchbegriff **mindestens 4 Zeichen** hat:
-- Suche nach **"chem"** → Perspektive "Chemistry" matcht
-- Gematchte (aber nicht aktive) Perspektiven bekommen **Glow + Counter**
-- Auto-Aktivierung respektiert das 4er-Limit
+### grid.ts
+- Grid-Layout Management
+- Feld-Selektion mit Perspektiven-Farben
+- Base64-encoded Raw Values für Compare
 
-## 🐛 Debug-Logging (Standardmäßig AN)
+### compare.ts
+- Compare-Panel Visibility (show/hide/toggle)
+- **Search-in-Compare**: Durchsucht Compare-Content
+- **Copy-Button**: Exportiert Daten mit License-Hinweis
+- Species-Highlight System (Hover/Click)
 
-Debug und Observer sind **standardmäßig aktiviert**. Deaktivieren:
+### selection.ts
+- Item + Field Selection State
+- sessionStorage Persistenz
+- Feld-Gruppierung nach Item
+- Perspektiven-Farben für Selection
+
+## 🐛 Debug-Logging
 
 ```javascript
-// In Browser Console:
-localStorage.setItem('amorph:debug', 'false')      // Logs aus
-localStorage.setItem('amorph:observers', 'false')  // Observer aus
+// Deaktivieren:
+localStorage.setItem('amorph:debug', 'false')
+localStorage.setItem('amorph:observers', 'false')
 
-// Oder via window.amorphDebug:
+// Console:
 window.amorphDebug.disable()
+window.morphDebug.enable()  // Morph-Debug
 ```
 
-## 📦 app.ts - Haupt-Init
-
-Initialisiert alle Client-Features beim DOM Ready:
+## 📤 Exports (index.ts)
 
 ```typescript
-import { initApp } from './client/features';
+// App
+export { initApp } from './app';
+
+// Search
+export { initSearch, performSearch, getActivePerspectives } from './search';
+
+// Grid
+export { initGrid, updateSelectionUI } from './grid';
+
+// Compare
+export { 
+  initCompare, showCompare, hideCompare, toggleCompare,
+  isCompareOpen, searchInCompare, navigateCompareHighlight,
+  clearCompareHighlights, getCompareHighlightInfo
+} from './compare';
+
+// Selection
+export {
+  selectItem, deselectItem, toggleItem, clearSelection,
+  isSelected, getSelectedItems, getSelectedCount, canCompare,
+  subscribe, loadFromStorage,
+  selectField, deselectField, isFieldSelected, getFieldColor,
+  getSelectedFields, getSelectedFieldsGrouped, getSelectedFieldCount
+} from './selection';
+```
 
 // Automatisch bei DOMContentLoaded
 // Oder manuell:

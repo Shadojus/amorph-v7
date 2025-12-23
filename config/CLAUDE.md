@@ -1,83 +1,63 @@
-# Config
+# AMORPH v7 - Config
 
-YAML als Single Source of Truth. JavaScript-Dateien sind Morphs/Re-Exports.
+> YAML als Single Source of Truth.
 
-> **Laden**: `core/config.js` liest alle YAML-Dateien und parsed sie mit eigenem Parser.
-> **Schema**: Siehe `config/schema/CLAUDE.md` für Details zum modularen Schema-System.
+## 📁 Struktur
 
-## Dateien
-
-| Datei | Zeilen | Zweck |
-|-------|--------|-------|
-| `manifest.yaml` | 24 | App-Name, Version, Branding, Partner |
-| `daten.yaml` | 53 | Datenquelle (Typ, URLs) |
-| `morphs.yaml` | 8 | Verweis auf morphs/index.yaml |
-| `features.yaml` | 44 | Aktive Features + Feature-Config |
-| `observer.yaml` | 33 | Debug-Config, Console/Redis/HTTP-Targets |
-| `index.js` | 207 | Morph-Registry (Re-Export aller Morphs) |
-| `header.js` | 276 | Header-Morph (Branding, Suche, Perspektiven) |
-| `perspektiven.js` | 63 | Perspektiven-Morph (Button-Leiste) |
-| `suche.js` | 34 | Suche-Morph (Suchleiste) |
-
----
-
-## JavaScript-Dateien
-
-### index.js (207 Zeilen) - Morph-Registry
-
-**Alle verfügbaren Morphs in einer Datei exportiert:**
-
-#### Primitives
-```javascript
-text, string, number, boolean, tag, range, list, object, image, link,
-pie, bar, radar, rating, progress, stats, timeline, badge, lifecycle
+```
+config/
+├── manifest.yaml       # App-Name, Version, Branding
+├── daten.yaml          # Datenquelle, Kingdoms
+├── morphs.yaml         # Morph-Registry Verweis
+├── features.yaml       # Feature-Flags
+├── observer.yaml       # Debug-Config
+└── schema/             # Schema-System
+    └── CLAUDE.md       # Schema-Doku
 ```
 
-#### Features
-```javascript
-suche, perspektiven, header
+## 📦 YAML-Dateien
+
+### manifest.yaml
+```yaml
+app:
+  name: AMORPH
+  version: "7.0"
+  port: 4323
 ```
 
-#### Compare-Morphs
-```javascript
-compareMorph, compareBar, compareRating, compareTag, compareList,
-compareImage, compareRadar, comparePie, compareText, compareTimeline,
-compareRange, compareProgress, compareBoolean, compareStats, compareObject
+### daten.yaml
+```yaml
+kingdoms:
+  - fungi
+  - plantae
+  - animalia
+dataPath: ./data
 ```
 
-#### Compare-Composites
-```javascript
-smartCompare, diffCompare
+### features.yaml
+```yaml
+search: true
+compare: true
+selection: true
+debug: true
 ```
 
-#### Compare-Utilities
-```javascript
-erstelleFarben, setAktivePerspektivenFarben, detectType, createSection, createHeader, compareByType, compareByData
+### observer.yaml
+```yaml
+enabled: true
+targets:
+  - console
+verbose: false
 ```
 
-### header.js (276 Zeilen)
+## 🔧 Server-Laden
 
-Erzeugt Header-DOM mit 4 Zeilen:
+```typescript
+import { loadConfig, getConfig } from './server';
 
-| Zeile | Inhalt | CSS-Klasse |
-|-------|--------|------------|
-| 0 | Branding: Titel + Partner | `.amorph-header-branding` |
-| 1 | Suche + aktive Filter + Ansicht-Switch | `.amorph-header-main` |
-| 2 | Perspektiven-Grid | `.amorph-header-perspektiven` |
-| 3 | Ausgewählte Items (initial hidden) | `.amorph-header-auswahl` |
-
-**Exports:**
-```javascript
-export function header(config, morphConfig)
-// Methode: container.updateAuswahlListe(fungi)
+await loadConfig();  // Einmal beim Start
+const config = getConfig();
 ```
-
-**Ansicht-Switch:**
-- `karten` - Immer verfügbar (minAuswahl: 0)
-- `vergleich` - Nur wenn Auswahl (minAuswahl: 1)
-- Counter-Badge zeigt Auswahl-Anzahl
-
-### perspektiven.js (63 Zeilen)
 
 ```javascript
 export function perspektiven(config, morphConfig) → nav.amorph-perspektiven

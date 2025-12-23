@@ -367,7 +367,17 @@ const gridContext: RenderContext = {
   <aside class="amorph-compare">
     <div class="compare-header">
       <h2>Vergleich</h2>
-      <button class="compare-close">×</button>
+      <div class="compare-header-actions">
+        <button class="compare-copy" title="Daten kopieren">
+          <span class="copy-icon">📋</span>
+          <span class="copy-label">Kopieren</span>
+        </button>
+        <button class="compare-close">×</button>
+      </div>
+    </div>
+    <div class="compare-license-notice">
+      <span class="license-icon">📖</span>
+      <span>Free License – Bei Nutzung bitte Quelle angeben</span>
     </div>
     <div class="compare-content">
       <!-- Filled via JS -->

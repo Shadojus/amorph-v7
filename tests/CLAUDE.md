@@ -1,70 +1,55 @@
 # AMORPH v7 - Test Suite
 
-> **421 Tests** mit Vitest für vollständige Code-Abdeckung.
+> Vitest Tests für vollständige Code-Abdeckung.
 
 ## 📁 Struktur
 
 ```
 tests/
-├── detection.test.ts      # 80 Tests  - Struktur-basierte Typ-Erkennung
-├── security.test.ts       # 49 Tests  - Security Functions (vollständig)
-├── morphs.test.ts         # 81 Tests  - Haupt-Morph-Tests
-├── observer.test.ts       # 8 Tests   - Debug Observer
-├── integration.test.ts    # 11 Tests  - Module Integration + Data Module
-├── real-data.test.ts      # 34 Tests  - Echte Daten aus psilocybe-cyanescens
-├── error-handling.test.ts # 14 Tests  - Error Handling, Security, Edge Cases
-├── api-integration.test.ts # 27 Tests - API, Search, Compare, Lazy-Loading
-└── morphs/                # 117 Tests - Feature-basiert aufgeteilt
-    ├── _setup.ts          # Shared contexts (single, compare, grid)
-    ├── text.test.ts       # 5 Tests
-    ├── number.test.ts     # 7 Tests
-    ├── boolean.test.ts    # 6 Tests
-    ├── badge.test.ts      # 6 Tests
-    ├── tag.test.ts        # 5 Tests
-    ├── progress.test.ts   # 9 Tests
-    ├── rating.test.ts     # 6 Tests
-    ├── range.test.ts      # 4 Tests
-    ├── stats.test.ts      # 6 Tests
-    ├── image.test.ts      # 7 Tests
-    ├── link.test.ts       # 3 Tests
-    ├── list.test.ts       # 5 Tests
-    ├── object.test.ts     # 9 Tests (inkl. compare mode)
-    ├── date.test.ts       # 5 Tests
-    ├── timeline.test.ts   # 3 Tests
-    ├── bar.test.ts        # 4 Tests
-    ├── sparkline.test.ts  # 7 Tests
-    ├── radar.test.ts      # 7 Tests (inkl. compare mode)
-    ├── base.test.ts       # 7 Tests (wrapInField, Base64, Circular Reference)
-    └── renderValue.test.ts # 6 Tests
+├── detection.test.ts       # Struktur-basierte Erkennung
+├── security.test.ts        # Security Functions
+├── morphs.test.ts          # Haupt-Morph-Tests
+├── observer.test.ts        # Debug Observer
+├── integration.test.ts     # Module Integration
+├── real-data.test.ts       # Echte Daten Tests
+├── error-handling.test.ts  # Error & Edge Cases
+├── api-integration.test.ts # API, Search, Compare
+└── morphs/                 # Feature-basiert
+    ├── _setup.ts           # Shared contexts
+    ├── text.test.ts
+    ├── number.test.ts
+    ├── boolean.test.ts
+    ├── badge.test.ts
+    ├── tag.test.ts
+    ├── progress.test.ts
+    ├── rating.test.ts
+    ├── range.test.ts
+    ├── stats.test.ts
+    ├── image.test.ts
+    ├── link.test.ts
+    ├── list.test.ts
+    ├── object.test.ts
+    ├── date.test.ts
+    ├── timeline.test.ts
+    ├── bar.test.ts
+    ├── sparkline.test.ts
+    ├── radar.test.ts
+    ├── base.test.ts
+    └── renderValue.test.ts
 ```
 
 ## 🚀 Ausführen
 
 ```bash
-# Watch Mode (Development)
-npm test
-
-# Einmalig
-npm run test:run
-
-# Mit Coverage
+npm test           # Watch Mode
+npm run test:run   # Einmalig
 npm run test:coverage
 ```
 
-## 📦 detection.test.ts (80 Tests)
+## 📦 Test-Kategorien
 
-Testet `core/detection.ts` - **Struktur-basierte Erkennung** (keine Feldnamen!):
-
-### Kategorien
-
-- **Primitives** (8): null, undefined, boolean, numbers
-- **Strings** (16): tag (≤20 chars), text, image URLs, links, dates (ISO, German)
-- **Arrays** (10): sparkline (numbers), tag (short strings), list, bar, radar, timeline
-- **Objects** (14): badge, rating, progress, range, stats, radar, generic object
-- **getBadgeVariant** (12): success, danger, warning, muted, default variants
-- **Real Blueprints** (20): Tests mit echten Blueprint-Strukturen (chemistry, ecology, culinary, etc.)
-
-### Struktur → Morph Mapping
+### detection.test.ts
+Testet `core/detection.ts` - Struktur-basierte Erkennung:
 
 | Struktur | → Morph |
 |----------|--------|
@@ -80,23 +65,21 @@ Testet `core/detection.ts` - **Struktur-basierte Erkennung** (keine Feldnamen!):
 | String ≤20 chars | tag |
 | String >20 chars | text |
 
-### Beispiel
+### morphs/*.test.ts
+Ein Test-File pro Morph Primitive mit Contexts:
+- **single** - Einzelnes Item
+- **grid** - Kompakte Darstellung
+- **compare** - Mehrere Items mit Farben
 
+### _setup.ts
 ```typescript
-describe('Object Detection', () => {
-  it('should detect badge structure', () => {
-    expect(detectType({ status: 'LC', variant: 'success' })).toBe('badge');
-  });
-  
-  it('should detect range structure', () => {
-    expect(detectType({ min: 800, max: 3200 })).toBe('range');
-  });
+import { singleContext, compareContext, gridContext } from './_setup';
+
+it('renders in compare mode', () => {
+  const html = renderValue(value, compareContext);
+  expect(html).toContain('morph-compare-item');
 });
 ```
-
-## 📦 security.test.ts (49 Tests)
-
-Testet `core/security.ts` - **Vollständige Abdeckung**:
 
 ### Kategorien
 

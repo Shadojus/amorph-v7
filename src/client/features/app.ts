@@ -43,9 +43,6 @@ export function initApp(): void {
   debug.amorph('AMORPH v7 initializing...');
   debug.amorph('💡 Tipp: morphDebug.enable() für Morph-Debugging, morphDebug.help() für Befehle');
   
-  // Load persisted selection
-  loadFromStorage();
-  
   // Search - neue prominente Suchleiste
   const searchInput = document.querySelector<HTMLInputElement>('.search-input-main') ||
                       document.querySelector<HTMLInputElement>('.amorph-search input');
@@ -76,11 +73,14 @@ export function initApp(): void {
   const compareBtn = document.querySelector('.compare-trigger');
   compareBtn?.addEventListener('click', () => toggleCompare());
   
-  // Bottom Navigation
+  // Bottom Navigation - MUSS vor loadFromStorage kommen, damit Subscribe aktiv ist
   initBottomNav();
   
   // Selection bar
   initSelectionBar();
+  
+  // JETZT erst Selection laden - damit alle Subscriber bereits registriert sind
+  loadFromStorage();
   
   // Restore from URL
   restoreFromURL();
@@ -108,8 +108,8 @@ function initBottomNav(): void {
     updateBottomNavState();
   });
   
-  // Subscribe to selection changes for badge
-  subscribe(() => {
+  // Badge update function
+  const updateBadge = () => {
     const itemCount = getSelectedCount();
     const fieldCount = getSelectedFieldCount();
     const totalCount = itemCount + fieldCount;
@@ -118,7 +118,14 @@ function initBottomNav(): void {
       badge.textContent = String(totalCount);
       badge.classList.toggle('has-items', totalCount > 0);
     }
-  });
+  };
+  
+  // Subscribe to selection changes for badge
+  subscribe(updateBadge);
+  
+  // WICHTIG: Initial badge update NACH loadFromStorage
+  // Timeout um sicherzustellen dass Storage geladen ist
+  setTimeout(updateBadge, 0);
   
   // Update nav state when compare panel changes
   const observer = new MutationObserver(() => {

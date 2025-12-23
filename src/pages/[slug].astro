@@ -83,15 +83,47 @@ const fieldsWithPerspectives = Object.entries(item)
     window.AMORPH_FIELD_PERSPECTIVE_MAP = fieldPerspectiveMap;
   </script>
 
-  <!-- Header -->
-  <header class="amorph-header">
-    <a href="/" class="amorph-logo">🍄</a>
-    <h1 class="page-title">{item.name}</h1>
-    <a href="/" class="back-link">← Zurück</a>
+  <!-- Header mit Zurück-Navigation -->
+  <header class="amorph-header amorph-header--detail">
+    <a href="/" class="detail-back" title="Zurück zur Übersicht">
+      <span class="detail-back-icon">←</span>
+      <span class="detail-back-label">Übersicht</span>
+    </a>
+    <div class="detail-title">
+      <h1 class="page-title">{item.name}</h1>
+      {(item.wissenschaftlich || item.scientific_name) && (
+        <span class="page-subtitle">{String(item.wissenschaftlich || item.scientific_name)}</span>
+      )}
+    </div>
+    <div class="detail-actions-header">
+      <span class="selection-indicator">
+        <span class="selection-indicator-count">0</span>
+        <span class="selection-indicator-icon">✓</span>
+      </span>
+    </div>
   </header>
   
-  <!-- Aktive Perspektiven unter Header -->
-  <div class="active-perspectives-bar">
+  <!-- ═══════════════════════════════════════════════════════════════════════════
+       SEARCH BAR - Wie auf Startseite mit Perspektiven-Switch
+       ═══════════════════════════════════════════════════════════════════════════ -->
+  <div class="search-bar-container">
+    <div class="search-bar-inner">
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="search" 
+          class="search-input-main"
+          placeholder="In dieser Spezies suchen..." 
+          autocomplete="off"
+        />
+        <div class="search-nav" style="display: none;">
+          <span class="search-nav-count">0/0</span>
+          <button type="button" class="search-nav-prev" aria-label="Vorheriger Treffer">↑</button>
+          <button type="button" class="search-nav-next" aria-label="Nächster Treffer">↓</button>
+        </div>
+      </div>
+    </div>
+    <!-- Aktive Perspektiven unter Suche -->
     <div class="active-perspectives"></div>
   </div>
   
@@ -113,66 +145,99 @@ const fieldsWithPerspectives = Object.entries(item)
       </div>
     </section>
     
-    <!-- Fields Container (filterable) -->
-    <section class="detail-fields" data-field-perspectives={JSON.stringify(fieldPerspectiveMap)}>
+    <!-- Fields Container (filterable) - mit Slug für Selection -->
+    <section 
+      class="detail-fields" 
+      data-field-perspectives={JSON.stringify(fieldPerspectiveMap)}
+      data-item-slug={item.slug}
+      data-item-name={item.name}
+    >
       {fieldsWithPerspectives.map(({ key, value, perspective }) => (
         <div class="detail-field" data-field-key={key} data-perspective={perspective || ''}>
           <Fragment set:html={renderValue(value, key, detailContext)} />
         </div>
       ))}
     </section>
-    
-    <!-- Actions -->
-    <section class="detail-actions">
-      <button 
-        class="action-btn select-for-compare"
-        data-slug={item.slug}
-        data-name={item.name}
-      >
-        Zum Vergleich hinzufügen
-      </button>
-    </section>
   </main>
   
-  <!-- Search Footer (gleich wie index.astro) -->
-  <footer class="amorph-search-footer">
-    <div class="search-footer-inner">
-      <div class="amorph-search">
-        <div class="search-wrapper">
-          <span class="search-icon">🔍</span>
-          <input 
-            type="search" 
-            placeholder="In dieser Spezies suchen..." 
-            autocomplete="off"
-          />
-          <div class="search-nav" style="display: none;">
-            <span class="search-nav-count">0/0</span>
-            <button type="button" class="search-nav-prev" aria-label="Vorheriger Treffer">↑</button>
-            <button type="button" class="search-nav-next" aria-label="Nächster Treffer">↓</button>
-          </div>
-        </div>
+  <!-- Selection Bar (wie index.astro) -->
+  <div class="selection-bar">
+    <div class="selection-pills"></div>
+    <span class="selection-count">0 ausgewählt</span>
+    <button class="selection-clear">Alle entfernen</button>
+  </div>
+  
+  <!-- Compare Panel (Overlay) -->
+  <aside class="amorph-compare">
+    <div class="compare-header">
+      <h2>Vergleich</h2>
+      <div class="compare-header-actions">
+        <button class="compare-copy" title="Daten kopieren">
+          <span class="copy-icon">📋</span>
+          <span class="copy-label">Kopieren</span>
+        </button>
+        <button class="compare-close">×</button>
       </div>
     </div>
+    <div class="compare-license-notice">
+      <span class="license-icon">📖</span>
+      <span>Free License – Bei Nutzung bitte Quelle angeben</span>
+    </div>
+    <div class="compare-content">
+      <!-- Filled via JS -->
+    </div>
+  </aside>
+  
+  <!-- Footer -->
+  <footer class="amorph-footer">
+    <div class="footer-content">
+      <nav class="footer-links">
+        <a href="/impressum" class="footer-link">Impressum</a>
+        <a href="/datenschutz" class="footer-link">Datenschutz</a>
+        <a href="/about" class="footer-link">Über AMORPH</a>
+      </nav>
+      <p class="footer-copyright">© 2025 AMORPH</p>
+    </div>
   </footer>
+  
+  <!-- Bottom Navigation (wie index.astro) -->
+  <nav class="bottom-nav">
+    <a href="/" class="bottom-nav-item" data-nav="home">
+      <span class="bottom-nav-icon">🏠</span>
+      <span class="bottom-nav-label">Home</span>
+    </a>
+    <button type="button" class="bottom-nav-item" data-nav="compare">
+      <span class="bottom-nav-icon">⚖️</span>
+      <span class="bottom-nav-label">Compare</span>
+      <span class="bottom-nav-badge">0</span>
+    </button>
+    <a href="/bifroest" class="bottom-nav-item" data-nav="bifroest">
+      <span class="bottom-nav-icon">🌈</span>
+      <span class="bottom-nav-label">Bifröst</span>
+    </a>
+  </nav>
 </Base>
 
 <script>
   /**
    * Detail Page Client Script
-   * Suchfunktion und Perspektiven-Filterung für einzelne Spezies
+   * Suchfunktion mit Perspektiven-Switch und Feld-Selection
    */
   
-  // State
+  // ═══════════════════════════════════════════════════════════════════════════════
+  // STATE
+  // ═══════════════════════════════════════════════════════════════════════════════
+  
   let activePerspectives: Set<string> = new Set();
   let searchTimeout: number | null = null;
   let currentHighlightIndex = 0;
   let highlightElements: HTMLElement[] = [];
-  let lastSearchQuery = ''; // Track last query to detect changes
+  let lastSearchQuery = '';
   
   const DEBOUNCE_MS = 200;
   
   // DOM Elements
-  const searchInput = document.querySelector<HTMLInputElement>('.amorph-search input');
+  const searchInput = document.querySelector<HTMLInputElement>('.search-input-main');
   const fieldsContainer = document.querySelector<HTMLElement>('.detail-fields');
   const activePerspectivesContainer = document.querySelector<HTMLElement>('.active-perspectives');
   const searchNavContainer = document.querySelector<HTMLElement>('.search-nav');
@@ -181,12 +246,12 @@ const fieldsWithPerspectives = Object.entries(item)
   const perspectives = (window as any).AMORPH_PERSPECTIVES || [];
   const availablePerspectives = (window as any).AMORPH_AVAILABLE_PERSPECTIVES || [];
   const fieldPerspectiveMap = (window as any).AMORPH_FIELD_PERSPECTIVE_MAP || {};
+  const perspectiveColors = (window as any).AMORPH_PERSPECTIVE_COLORS || {};
   
   // ═══════════════════════════════════════════════════════════════════════════════
   // SEARCH
   // ═══════════════════════════════════════════════════════════════════════════════
   
-  // Helper: Normalisiere String für Suche (Unterstriche = Leerzeichen)
   function normalizeForSearch(str: string): string {
     return str.toLowerCase().replace(/_/g, ' ');
   }
@@ -203,25 +268,17 @@ const fieldsWithPerspectives = Object.entries(item)
       const perspective = field.dataset.perspective || '';
       const textContent = field.textContent?.toLowerCase() || '';
       
-      // Normalisierte Versionen für Matching
       const keyNormalized = normalizeForSearch(fieldKey);
       const textNormalized = normalizeForSearch(textContent);
       
-      // Prüfe Suchbegriff-Match (mit Underscore/Space Normalisierung)
       const matchesQuery = !query || query.length < 3 || 
         textContent.includes(query) || textNormalized.includes(queryNormalized) ||
         fieldKey.toLowerCase().includes(query) || keyNormalized.includes(queryNormalized);
       
-      // Prüfe Perspektiven-Filter
       const matchesPerspective = activePerspectives.size === 0 || 
         (perspective && activePerspectives.has(perspective));
       
-      // Zeige/Verstecke Feld
-      if (matchesQuery && matchesPerspective) {
-        field.style.display = '';
-      } else {
-        field.style.display = 'none';
-      }
+      field.style.display = (matchesQuery && matchesPerspective) ? '' : 'none';
     });
   }
   
@@ -230,15 +287,12 @@ const fieldsWithPerspectives = Object.entries(item)
     
     if (!fieldsContainer) return;
     
-    // Reset Perspektiven nur wenn sich der Query geändert hat (neuer Suchbegriff)
-    // Nicht wenn performSearch durch Perspektiven-Klick aufgerufen wird
     if (query !== lastSearchQuery && query.length >= 1) {
       activePerspectives.clear();
       updateActivePerspectivesUI();
     }
     lastSearchQuery = query;
     
-    // Alle Felder durchgehen und Matches sammeln
     const fields = fieldsContainer.querySelectorAll<HTMLElement>('.detail-field');
     let matchedPerspectives: Set<string> = new Set();
     
@@ -247,32 +301,55 @@ const fieldsWithPerspectives = Object.entries(item)
       const perspective = field.dataset.perspective || '';
       const textContent = field.textContent?.toLowerCase() || '';
       
-      // Sammle Perspektiven mit Treffern
       if (query.length >= 3 && (textContent.includes(query) || fieldKey.toLowerCase().includes(query)) && perspective) {
         matchedPerspectives.add(perspective);
       }
     });
     
-    // Auto-Aktiviere gefundene Perspektiven (ab 3 Zeichen, max 3)
     if (query.length >= 3 && matchedPerspectives.size > 0 && matchedPerspectives.size <= 3) {
-      matchedPerspectives.forEach(pId => {
-        if (!activePerspectives.has(pId)) {
-          activePerspectives.add(pId);
-        }
-      });
+      matchedPerspectives.forEach(pId => activePerspectives.add(pId));
       updateActivePerspectivesUI();
     }
     
-    // Felder filtern
     filterFields();
-    
-    // Highlighting
     updateHighlighting(query);
+    
+    // Auch Compare-View durchsuchen wenn aktiv
+    searchCompareView(query);
+  }
+  
+  // Compare-View Suche
+  async function searchCompareView(query: string): Promise<void> {
+    try {
+      const { isCompareOpen, searchInCompare, getCompareHighlightInfo } = await import('../client/features');
+      
+      if (isCompareOpen() && query.length >= 2) {
+        const result = searchInCompare(query);
+        const info = getCompareHighlightInfo();
+        
+        // Update search nav counter to include compare results
+        if (result.count > 0) {
+          const navCount = document.querySelector('.search-nav-count');
+          if (navCount) {
+            const detailCount = highlightElements.length;
+            navCount.textContent = `${info.current}/${result.count} (Compare)`;
+          }
+        }
+      }
+    } catch (e) {
+      // Features not loaded yet
+    }
   }
   
   // ═══════════════════════════════════════════════════════════════════════════════
   // PERSPECTIVES
   // ═══════════════════════════════════════════════════════════════════════════════
+  
+  function getPerspectiveColor(perspectiveId: string): string | null {
+    if (!perspectiveColors[perspectiveId]) return null;
+    const colors = perspectiveColors[perspectiveId];
+    return colors && colors.length > 0 ? colors[0] : null;
+  }
   
   function updateActivePerspectivesUI(): void {
     if (!activePerspectivesContainer) return;
@@ -282,15 +359,17 @@ const fieldsWithPerspectives = Object.entries(item)
     for (const id of activePerspectives) {
       const perspData = perspectives.find((p: any) => p.id === id);
       const name = perspData?.name || id;
+      const color = getPerspectiveColor(id) || 'rgba(77, 136, 255, 0.75)';
       
       const pill = document.createElement('button');
       pill.className = 'active-persp-pill';
       pill.dataset.perspektive = id;
+      pill.style.setProperty('--persp-color', color);
       pill.innerHTML = `<span>${name}</span><span class="remove">×</span>`;
       pill.addEventListener('click', () => {
         activePerspectives.delete(id);
         updateActivePerspectivesUI();
-        filterFields(); // Nur Felder neu filtern, nicht komplette Suche
+        filterFields();
       });
       
       activePerspectivesContainer.appendChild(pill);
@@ -304,7 +383,7 @@ const fieldsWithPerspectives = Object.entries(item)
   function updateHighlighting(query: string): void {
     if (!fieldsContainer) return;
     
-    // Entferne alte Highlights
+    // Remove old highlights
     fieldsContainer.querySelectorAll('mark.search-highlight').forEach(mark => {
       const parent = mark.parentNode;
       if (parent) {
@@ -319,20 +398,16 @@ const fieldsWithPerspectives = Object.entries(item)
       return;
     }
     
-    const lowerQuery = query.toLowerCase();
-    // Flexibles Regex: Leerzeichen und Unterstriche sind äquivalent
     const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     const flexiblePattern = escapedQuery.replace(/[\s_]+/g, '[\\s_]+');
     const flexibleRegex = new RegExp(`(${flexiblePattern})`, 'gi');
     
-    // Suchvarianten für Textknoten-Filter
     const searchVariants = [
-      lowerQuery,
-      lowerQuery.replace(/\s+/g, '_'),
-      lowerQuery.replace(/_/g, ' ')
+      query.toLowerCase(),
+      query.toLowerCase().replace(/\s+/g, '_'),
+      query.toLowerCase().replace(/_/g, ' ')
     ];
     
-    // Nur sichtbare Felder highlighten
     const visibleFields = fieldsContainer.querySelectorAll<HTMLElement>('.detail-field:not([style*="display: none"])');
     
     visibleFields.forEach(field => {
@@ -344,14 +419,12 @@ const fieldsWithPerspectives = Object.entries(item)
             if (!node.textContent?.trim()) return NodeFilter.FILTER_REJECT;
             if (node.parentElement?.closest('mark')) return NodeFilter.FILTER_REJECT;
             if (node.parentElement?.closest('script')) return NodeFilter.FILTER_REJECT;
-            // Prüfe alle Varianten
             const textLower = node.textContent.toLowerCase();
             const textNormalized = textLower.replace(/_/g, ' ');
             const matches = searchVariants.some(v => 
               textLower.includes(v) || textNormalized.includes(v.replace(/_/g, ' '))
             );
-            if (!matches) return NodeFilter.FILTER_REJECT;
-            return NodeFilter.FILTER_ACCEPT;
+            return matches ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
           }
         }
       );
@@ -380,7 +453,7 @@ const fieldsWithPerspectives = Object.entries(item)
           mark.className = 'search-highlight';
           mark.textContent = match[1];
           fragment.appendChild(mark);
-          lastIndex = regex.lastIndex;
+          lastIndex = flexibleRegex.lastIndex;
         }
         
         if (lastIndex < text.length) {
@@ -391,7 +464,6 @@ const fieldsWithPerspectives = Object.entries(item)
       }
     });
     
-    // Update navigation
     highlightElements = Array.from(document.querySelectorAll('.search-highlight')) as HTMLElement[];
     currentHighlightIndex = 0;
     
@@ -399,9 +471,7 @@ const fieldsWithPerspectives = Object.entries(item)
       if (highlightElements.length > 0) {
         searchNavContainer.style.display = 'flex';
         updateHighlightCounter();
-        if (highlightElements[0]) {
-          scrollToHighlight(0);
-        }
+        scrollToHighlight(0);
       } else {
         searchNavContainer.style.display = 'none';
       }
@@ -430,11 +500,7 @@ const fieldsWithPerspectives = Object.entries(item)
     
     highlightElements.forEach(el => el.classList.remove('is-current'));
     element.classList.add('is-current');
-    
-    element.scrollIntoView({
-      behavior: 'smooth',
-      block: 'center'
-    });
+    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
   }
   
   function updateHighlightCounter(): void {
@@ -445,10 +511,9 @@ const fieldsWithPerspectives = Object.entries(item)
   }
   
   // ═══════════════════════════════════════════════════════════════════════════════
-  // INIT
+  // SEARCH INIT
   // ═══════════════════════════════════════════════════════════════════════════════
   
-  // Search input handler
   searchInput?.addEventListener('input', () => {
     if (searchTimeout) clearTimeout(searchTimeout);
     searchTimeout = window.setTimeout(performSearch, DEBOUNCE_MS);
@@ -466,33 +531,163 @@ const fieldsWithPerspectives = Object.entries(item)
     }
   });
   
-  // Navigation buttons
   document.querySelector('.search-nav-prev')?.addEventListener('click', () => navigateHighlight(-1));
   document.querySelector('.search-nav-next')?.addEventListener('click', () => navigateHighlight(1));
   
-  // Compare button
-  document.querySelector('.select-for-compare')?.addEventListener('click', (e) => {
-    const btn = e.currentTarget as HTMLElement;
-    const slug = btn.dataset.slug;
-    const name = btn.dataset.name;
+  console.log('[Detail] Search initialized');
+  
+  // ═══════════════════════════════════════════════════════════════════════════════
+  // FIELD SELECTION - Mit Perspektiven-Farben
+  // ═══════════════════════════════════════════════════════════════════════════════
+  
+  // Wait for DOM to be fully ready
+  function initFieldSelection(): void {
+    import('../client/features').then((features) => {
+      const {
+        loadFromStorage,
+        selectField,
+        deselectField,
+        isFieldSelected,
+        getFieldColor,
+        getSelectedFieldCount,
+        getSelectedFields,
+        clearSelection,
+        subscribe
+      } = features;
     
-    if (slug && name) {
-      import('../client/features').then(({ selectItem }) => {
-        selectItem({
-          id: slug,
-          slug,
-          name,
-          data: {}
+    // Compare wird bereits von initApp() in Base.astro initialisiert
+    // Kein erneuter initCompare-Aufruf nötig
+    
+    loadFromStorage();
+    
+    const itemSlug = fieldsContainer?.dataset.itemSlug || '';
+    const itemName = fieldsContainer?.dataset.itemName || '';
+    
+    const selectionBar = document.querySelector<HTMLElement>('.selection-bar');
+    const selectionPills = document.querySelector<HTMLElement>('.selection-pills');
+    const selectionCount = document.querySelector<HTMLElement>('.selection-count');
+    const selectionClear = document.querySelector<HTMLElement>('.selection-clear');
+    const bottomNavBadge = document.querySelector<HTMLElement>('.bottom-nav-badge');
+    
+    function applySelectionColor(field: HTMLElement, color: string): void {
+      const rgbaMatch = color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+      if (rgbaMatch) {
+        const [, r, g, b] = rgbaMatch;
+        field.style.setProperty('--selection-color', `rgba(${r}, ${g}, ${b}, 0.9)`);
+        field.style.setProperty('--selection-bg', `rgba(${r}, ${g}, ${b}, 0.15)`);
+        field.style.setProperty('--selection-border', `rgba(${r}, ${g}, ${b}, 0.5)`);
+      }
+    }
+    
+    function getFieldValue(field: HTMLElement): unknown {
+      const amorphField = field.querySelector('.amorph-field') as HTMLElement;
+      if (amorphField?.dataset.rawValue) {
+        try {
+          return JSON.parse(atob(amorphField.dataset.rawValue.replace(/\s/g, '')));
+        } catch (e) {}
+      }
+      return field.querySelector('.amorph-field-value')?.textContent?.trim() || null;
+    }
+    
+    function handleFieldClick(e: Event): void {
+      const target = e.target as HTMLElement;
+      const amorphField = target.closest('.amorph-field') as HTMLElement;
+      if (!amorphField) return;
+      
+      const detailField = amorphField.closest('.detail-field') as HTMLElement;
+      if (!detailField) return;
+      
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const fieldName = amorphField.dataset.field || detailField.dataset.fieldKey || '';
+      const perspective = detailField.dataset.perspective || '';
+      
+      if (amorphField.classList.contains('is-selected')) {
+        amorphField.classList.remove('is-selected');
+        amorphField.style.removeProperty('--selection-color');
+        amorphField.style.removeProperty('--selection-bg');
+        amorphField.style.removeProperty('--selection-border');
+        deselectField(itemSlug, fieldName);
+      } else {
+        // Use perspective color for selection
+        const color = perspective ? (getPerspectiveColor(perspective) || 'rgba(77, 136, 255, 0.75)') : 'rgba(77, 136, 255, 0.75)';
+        selectField(itemSlug, itemName, fieldName, getFieldValue(detailField), perspective || undefined);
+        applySelectionColor(amorphField, color);
+        amorphField.classList.add('is-selected');
+      }
+      
+      updateSelectionUI();
+    }
+    
+    function updateSelectionUI(): void {
+      const count = getSelectedFieldCount();
+      const fields = getSelectedFields();
+      
+      if (selectionCount) selectionCount.textContent = `${count} ausgewählt`;
+      if (bottomNavBadge) {
+        bottomNavBadge.textContent = String(count);
+        bottomNavBadge.style.display = count > 0 ? 'flex' : 'none';
+      }
+      if (selectionBar) selectionBar.classList.toggle('is-visible', count > 0);
+      
+      const headerIndicator = document.querySelector('.selection-indicator');
+      const headerIndicatorCount = document.querySelector('.selection-indicator-count');
+      if (headerIndicator) headerIndicator.classList.toggle('is-visible', count > 0);
+      if (headerIndicatorCount) headerIndicatorCount.textContent = String(count);
+      
+      if (selectionPills) {
+        selectionPills.innerHTML = '';
+        fields.forEach(f => {
+          const pill = document.createElement('span');
+          pill.className = 'selection-pill';
+          pill.style.setProperty('--pill-color', f.color);
+          pill.innerHTML = `<span class="pill-field">${f.fieldName}</span><span class="pill-item">${f.itemName}</span>`;
+          selectionPills.appendChild(pill);
         });
+      }
+      
+      fieldsContainer?.querySelectorAll('.detail-field').forEach(detailField => {
+        const amorphField = detailField.querySelector('.amorph-field') as HTMLElement;
+        if (!amorphField) return;
+        
+        const fieldName = amorphField.dataset.field || (detailField as HTMLElement).dataset.fieldKey || '';
+        const selected = isFieldSelected(itemSlug, fieldName);
+        
+        amorphField.classList.toggle('is-selected', selected);
+        
+        if (selected) {
+          const field = fields.find(f => f.itemSlug === itemSlug && f.fieldName === fieldName);
+          if (field) applySelectionColor(amorphField, field.color);
+        } else {
+          amorphField.style.removeProperty('--selection-color');
+          amorphField.style.removeProperty('--selection-bg');
+          amorphField.style.removeProperty('--selection-border');
+        }
       });
     }
+    
+    fieldsContainer?.addEventListener('click', handleFieldClick);
+    selectionClear?.addEventListener('click', () => { clearSelection(); updateSelectionUI(); });
+    
+    // Compare-Button wird bereits von initApp() in Base.astro behandelt
+    
+    subscribe(updateSelectionUI);
+    updateSelectionUI();
+    
+    console.log('[Detail] Field selection initialized for', itemName);
   });
+  }
   
-  console.log('[Detail] Initialized with', availablePerspectives.length, 'perspectives');
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFieldSelection);
+  } else {
+    initFieldSelection();
+  }
 </script>
 
 <style>
-  /* Detail-spezifische Styles */
   .detail-field {
     transition: opacity 0.2s ease;
   }
