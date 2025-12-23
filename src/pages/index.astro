@@ -203,10 +203,26 @@ const gridContext: RenderContext = {
   </script>
   
   <!-- ═══════════════════════════════════════════════════════════════════════════
-       HEADER - Site-Switcher mit drei Bio-Spezies Bereichen
-       Funginomi (blau), Phytonomi (jade), Zoonomi (türkis)
+       HEADER - Site-Switcher mit Bifröst Portal
+       Funginomi (blau), Phytonomi (jade), Therionomi (türkis) → Bifröst
        ═══════════════════════════════════════════════════════════════════════════ -->
   <header class="amorph-header">
+    <!-- Nebel Container - wird ins Bifröst Portal gesaugt -->
+    <div class="particle-field">
+      <!-- Funginomi Nebel (blau) - linker Bereich -->
+      <div class="particle particle-funginomi" style="--delay: 0s; --duration: 12s; --start-x: 0%; --width: 35%;"></div>
+      <div class="particle particle-funginomi" style="--delay: 4s; --duration: 10s; --start-x: 5%; --width: 30%;"></div>
+      <div class="particle particle-funginomi" style="--delay: 8s; --duration: 14s; --start-x: 2%; --width: 32%;"></div>
+      <!-- Phytonomi Nebel (jade) - mittlerer Bereich -->
+      <div class="particle particle-phytonomi" style="--delay: 1s; --duration: 11s; --start-x: 33%; --width: 34%;"></div>
+      <div class="particle particle-phytonomi" style="--delay: 5s; --duration: 13s; --start-x: 30%; --width: 36%;"></div>
+      <div class="particle particle-phytonomi" style="--delay: 9s; --duration: 10s; --start-x: 35%; --width: 32%;"></div>
+      <!-- Therionomi Nebel (türkis) - rechter Bereich -->
+      <div class="particle particle-therionomi" style="--delay: 2s; --duration: 10s; --start-x: 60%; --width: 30%;"></div>
+      <div class="particle particle-therionomi" style="--delay: 6s; --duration: 12s; --start-x: 55%; --width: 35%;"></div>
+      <div class="particle particle-therionomi" style="--delay: 10s; --duration: 11s; --start-x: 58%; --width: 32%;"></div>
+    </div>
+    
     <nav class="site-switcher">
       <a href="https://funginomi.com" class="site-link is-active" data-site="funginomi" title="Funginomi – Pilze & Fungi">
         <span class="site-link-icon">🍄</span>
@@ -216,9 +232,16 @@ const gridContext: RenderContext = {
         <span class="site-link-icon">🌿</span>
         <span class="site-link-name">Phytonomi</span>
       </a>
-      <a href="https://zoonomi.com" class="site-link" data-site="zoonomi" title="Zoonomi – Tiere & Fauna">
+      <a href="https://therionomi.com" class="site-link" data-site="therionomi" title="Therionomi – Tiere & Fauna">
         <span class="site-link-icon">🦋</span>
-        <span class="site-link-name">Zoonomi</span>
+        <span class="site-link-name">Therionomi</span>
+      </a>
+      
+      <!-- Bifröst Portal -->
+      <a href="https://bifroest.io" class="bifroest-portal" title="Bifröst – The Bridge">
+        <span class="bifroest-label">part of the</span>
+        <span class="bifroest-name">Bifröst</span>
+        <span class="bifroest-vortex"></span>
       </a>
     </nav>
   </header>

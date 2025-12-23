@@ -55,7 +55,7 @@ body {
      MULTI-SITE COLOR SYSTEM - Bio Species Farben
      Funginomi: Psychedelic Blue (Pilze/Biolumineszenz)
      Phytonomi: Jade Green (Pflanzen/Chlorophyll)
-     Zoonomi:   Turquoise Cyan (Tiere/Ozean)
+     Therionomi:   Turquoise Cyan (Tiere/Ozean)
      ═══════════════════════════════════════════════════════════════════════════ */
   
   /* Site: Funginomi - Psychedelic Blue (Pilz-Biolumineszenz) */
@@ -74,13 +74,14 @@ body {
   --site-phytonomi-rgb: 51, 179, 128;
   --site-phytonomi-muted: hsl(160, 35%, 42%);
   
-  /* Site: Zoonomi - Turquoise Cyan (Tier-Ozean) */
-  --site-zoonomi-h: 175;
-  --site-zoonomi-s: 80%;
-  --site-zoonomi-l: 52%;
-  --site-zoonomi: hsl(175, 80%, 52%);
-  --site-zoonomi-rgb: 32, 201, 191;
-  --site-zoonomi-muted: hsl(175, 45%, 45%);
+  /* Site: Therionomi - Magenta Pink (Dritte Bio-Farbe) */
+  --site-therionomi-h: 320;
+  --site-therionomi-s: 80%;
+  --site-therionomi-l: 65%;
+  --site-therionomi: hsl(320, 80%, 65%);
+  --site-therionomi-rgb: 235, 77, 180;
+  --site-therionomi-muted: hsl(320, 40%, 50%);
+
   
   /* ACTIVE SITE - Funginomi (Standard) */
   --system-h: var(--site-funginomi-h);

@@ -1430,8 +1430,8 @@
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   AMORPH HEADER - Harmonized Black Glass with Site-Switcher
-   Drei Bereiche: Funginomi (aktiv/blau), Phytonomi (jade), Zoonomi (türkis)
+   AMORPH HEADER - Black Glass with Bifröst Portal
+   Sites: Funginomi (blau), Phytonomi (jade), Therionomi (türkis) → Bifröst
    ───────────────────────────────────────────────────────────────────────────── */
 .amorph-header {
   position: sticky;
@@ -1451,15 +1451,124 @@
   box-shadow: 
     inset 0 -1px 0 rgba(0, 0, 0, 0.3),
     0 4px 24px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
 
-/* Site-Switcher Container */
+/* ─────────────────────────────────────────────────────────────────────────────
+   NEBULA FIELD - Farbiger Nebel wird ins Bifröst Portal gesaugt
+   ───────────────────────────────────────────────────────────────────────────── */
+.particle-field {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Nebel-Streifen statt einzelner Partikel */
+.particle {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  opacity: 0;
+  filter: blur(20px);
+  animation: nebula-flow var(--duration, 8s) ease-in-out var(--delay, 0s) infinite;
+  left: var(--start-x, 0%);
+  /* Breiter, weicher Nebel-Streifen */
+  width: var(--width, 25%);
+  border-radius: 0;
+}
+
+/* Funginomi Nebel - Psychedelic Blue */
+.particle-funginomi {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(var(--site-funginomi-rgb), 0.15) 20%,
+    rgba(var(--site-funginomi-rgb), 0.25) 50%,
+    rgba(var(--site-funginomi-rgb), 0.15) 80%,
+    transparent 100%
+  );
+}
+
+/* Phytonomi Nebel - Jade Green */
+.particle-phytonomi {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(var(--site-phytonomi-rgb), 0.15) 20%,
+    rgba(var(--site-phytonomi-rgb), 0.25) 50%,
+    rgba(var(--site-phytonomi-rgb), 0.15) 80%,
+    transparent 100%
+  );
+}
+
+/* Therionomi Nebel - Turquoise Cyan */
+.particle-therionomi {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(var(--site-therionomi-rgb), 0.15) 20%,
+    rgba(var(--site-therionomi-rgb), 0.25) 50%,
+    rgba(var(--site-therionomi-rgb), 0.15) 80%,
+    transparent 100%
+  );
+}
+
+/* Nebel Animation - Fließt sanft zum Bifröst und wird komprimiert */
+@keyframes nebula-flow {
+  0% {
+    opacity: 0;
+    transform: translateX(0) scaleX(1) scaleY(1);
+    filter: blur(25px);
+  }
+  15% {
+    opacity: 0.6;
+    transform: translateX(5%) scaleX(0.95) scaleY(1);
+    filter: blur(22px);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(calc(70vw - var(--start-x, 0%))) scaleX(0.5) scaleY(0.8);
+    filter: blur(15px);
+  }
+  80% {
+    opacity: 0.35;
+    transform: translateX(calc(85vw - var(--start-x, 0%))) scaleX(0.2) scaleY(0.5);
+    filter: blur(8px);
+  }
+  95% {
+    opacity: 0.15;
+    transform: translateX(calc(92vw - var(--start-x, 0%))) scaleX(0.05) scaleY(0.2);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(calc(95vw - var(--start-x, 0%))) scaleX(0) scaleY(0);
+    filter: blur(2px);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .particle {
+    animation: none;
+    opacity: 0.15;
+    transform: translateX(30vw) scaleX(0.3);
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SITE SWITCHER - Navigation zwischen Bio-Sites
+   ───────────────────────────────────────────────────────────────────────────── */
 .site-switcher {
   display: flex;
   align-items: stretch;
   width: 100%;
   max-width: 1400px;
   height: 56px;
+  position: relative;
+  z-index: 2;
 }
 
 /* Site-Switch Links */
@@ -1571,30 +1680,156 @@
   filter: drop-shadow(0 0 8px rgba(51, 179, 128, 0.5));
 }
 
-/* Zoonomi - Türkis */
-.site-link[data-site="zoonomi"] {
-  --site-color: var(--site-zoonomi);
-  --site-color-rgb: var(--site-zoonomi-rgb);
+/* Therionomi - Türkis */
+.site-link[data-site="therionomi"] {
+  --site-color: var(--site-therionomi);
+  --site-color-rgb: var(--site-therionomi-rgb);
 }
 
-.site-link[data-site="zoonomi"]:hover {
-  color: var(--site-zoonomi);
+.site-link[data-site="therionomi"]:hover {
+  color: var(--site-therionomi);
 }
 
-.site-link[data-site="zoonomi"].is-active {
-  color: var(--site-zoonomi);
+.site-link[data-site="therionomi"].is-active {
+  color: var(--site-therionomi);
   background: linear-gradient(
     180deg,
     rgba(32, 201, 191, 0.12) 0%,
     rgba(32, 201, 191, 0.04) 100%
   );
   box-shadow: 
-    inset 0 -2px 0 var(--site-zoonomi),
+    inset 0 -2px 0 var(--site-therionomi),
     0 4px 16px rgba(32, 201, 191, 0.15);
 }
 
-.site-link[data-site="zoonomi"].is-active .site-link-icon {
+.site-link[data-site="therionomi"].is-active .site-link-icon {
   filter: drop-shadow(0 0 8px rgba(32, 201, 191, 0.5));
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   BIFRÖST PORTAL - Black Hole / Vortex Effekt
+   ───────────────────────────────────────────────────────────────────────────── */
+.bifroest-portal {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 0.5rem 1.25rem;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.bifroest-portal:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.bifroest-label {
+  font-size: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.bifroest-name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  background: linear-gradient(
+    135deg,
+    var(--site-funginomi) 0%,
+    var(--site-phytonomi) 50%,
+    var(--site-therionomi) 100%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+}
+
+.bifroest-portal:hover .bifroest-name {
+  filter: brightness(1.2);
+}
+
+/* Vortex / Black Hole Effekt */
+.bifroest-vortex {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: 
+    radial-gradient(
+      circle at center,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.7) 30%,
+      transparent 70%
+    );
+  box-shadow:
+    0 0 12px rgba(77, 136, 255, 0.3),
+    0 0 24px rgba(51, 179, 128, 0.2),
+    0 0 36px rgba(32, 201, 191, 0.15),
+    inset 0 0 8px rgba(0, 0, 0, 0.8);
+  animation: vortex-pulse 3s ease-in-out infinite;
+  opacity: 0.6;
+}
+
+.bifroest-portal:hover .bifroest-vortex {
+  opacity: 1;
+  animation: vortex-spin 2s linear infinite, vortex-pulse 3s ease-in-out infinite;
+}
+
+@keyframes vortex-pulse {
+  0%, 100% {
+    transform: translateY(-50%) scale(1);
+    box-shadow:
+      0 0 12px rgba(77, 136, 255, 0.3),
+      0 0 24px rgba(51, 179, 128, 0.2),
+      0 0 36px rgba(32, 201, 191, 0.15);
+  }
+  50% {
+    transform: translateY(-50%) scale(1.15);
+    box-shadow:
+      0 0 16px rgba(77, 136, 255, 0.5),
+      0 0 32px rgba(51, 179, 128, 0.35),
+      0 0 48px rgba(32, 201, 191, 0.25);
+  }
+}
+
+@keyframes vortex-spin {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
+}
+
+/* Mobile: Bifröst kompakter */
+@media (max-width: 520px) {
+  .bifroest-portal {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .bifroest-label {
+    display: none;
+  }
+  
+  .bifroest-vortex {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /* Legacy Logo Support */

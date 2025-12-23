@@ -15,7 +15,7 @@
 - **Multi-Site System** - Drei Bio-Spezies Sites mit eigenem Farbsystem:
   - **Funginomi** (Psychedelic Blue) - Pilze & Fungi
   - **Phytonomi** (Jade Green) - Pflanzen & Flora
-  - **Zoonomi** (Turquoise Cyan) - Tiere & Fauna
+  - **Therionomi** (Turquoise Cyan) - Tiere & Fauna
 - **Harmonisiertes Black Glass Morphism** - Einheitliches Design für alle Komponenten
 - **Site-Switcher Header** - Drei-Bereich Navigation zwischen den Bio-Sites
 - **Lichtkugel-Design** - Steps, Lifecycle, Calendar mit leuchtenden aktiven Elementen
