@@ -79,7 +79,7 @@
 
 .field-value-item {
   padding: 0.5rem 0.625rem;
-  background: rgba(var(--item-color-rgb, 77, 136, 255), 0.05);
+  background: transparent;
   border-left: 2px solid var(--item-color, var(--morph-accent));
   border-radius: 0 6px 6px 0;
   display: flex;
@@ -89,7 +89,7 @@
 }
 
 .field-value-item:hover {
-  background: rgba(var(--item-color-rgb, 77, 136, 255), 0.08);
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .field-value-item .item-label {
@@ -144,6 +144,14 @@
   z-index: 10;
 }
 
+/* Single item mode: centered, simplified */
+.compare-legend.is-single {
+  justify-content: center;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.75rem;
+  background: rgba(0, 0, 0, 0.25);
+}
+
 .legend-item {
   display: inline-flex;
   align-items: center;
@@ -172,6 +180,129 @@
   background: var(--item-color, var(--morph-accent));
   box-shadow: 0 0 8px var(--item-color, var(--morph-accent));
   flex-shrink: 0;
+}
+
+/* Single item legend: no cursor/hover, just display */
+.legend-item.is-single {
+  cursor: default;
+  font-size: 0.8125rem;
+}
+
+.legend-item.is-single:hover {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(var(--item-color-rgb, 255, 255, 255), 0.15);
+}
+
+/* Remove button in legend */
+.legend-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 0.25rem;
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.05);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.legend-remove:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(239, 68, 68, 0.4);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SINGLE ITEM VIEW - Simplified (no left border, no label)
+   Uses species color from --item-color for all morphs
+   ───────────────────────────────────────────────────────────────────────────── */
+.field-value-single {
+  padding: 0.5rem 0;
+  /* Set CSS custom property scope for child morphs */
+  --morph-accent: var(--item-color, #4d88ff);
+  --morph-color-rgb: var(--item-color-rgb, 77, 136, 255);
+}
+
+.field-value-single .value-content {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Radar */
+.field-value-single .morph-radar .radar-area {
+  fill: color-mix(in srgb, var(--item-color, var(--morph-accent)) 10%, transparent);
+  stroke: var(--item-color, var(--morph-accent));
+  stroke-opacity: 0.5;
+}
+
+.field-value-single .morph-radar .radar-point {
+  fill: var(--item-color, var(--morph-accent));
+  filter: drop-shadow(0 0 4px var(--item-color, var(--morph-accent)));
+}
+
+/* Bar */
+.field-value-single .morph-bar .morph-bar-fill,
+.field-value-single .bar-fill {
+  background: linear-gradient(90deg, 
+    color-mix(in srgb, var(--item-color) 50%, transparent),
+    color-mix(in srgb, var(--item-color) 15%, transparent)
+  ) !important;
+}
+
+/* Progress */
+.field-value-single .morph-progress .morph-progress-fill,
+.field-value-single .progress-fill {
+  background: linear-gradient(90deg, 
+    color-mix(in srgb, var(--item-color) 60%, transparent),
+    color-mix(in srgb, var(--item-color) 30%, transparent)
+  ) !important;
+}
+
+/* Sparkline */
+.field-value-single .morph-sparkline .sparkline-line {
+  stroke: var(--item-color, var(--morph-accent));
+}
+
+.field-value-single .morph-sparkline .sparkline-area {
+  fill: color-mix(in srgb, var(--item-color, var(--morph-accent)) 15%, transparent);
+}
+
+.field-value-single .morph-sparkline .sparkline-point {
+  fill: var(--item-color, var(--morph-accent));
+}
+
+/* Rating */
+.field-value-single .morph-rating .rating-star.is-filled {
+  color: var(--item-color, var(--morph-accent));
+}
+
+/* Badge */
+.field-value-single .morph-badge {
+  border-color: color-mix(in srgb, var(--item-color) 30%, transparent);
+}
+
+/* Tag */
+.field-value-single .morph-tag {
+  border-color: color-mix(in srgb, var(--item-color) 20%, transparent);
+}
+
+/* Range */
+.field-value-single .morph-range .range-fill {
+  background: linear-gradient(90deg, 
+    color-mix(in srgb, var(--item-color) 40%, transparent),
+    color-mix(in srgb, var(--item-color) 20%, transparent)
+  );
+}
+
+.field-value-single .morph-range .range-marker {
+  background: var(--item-color, var(--morph-accent));
+  box-shadow: 0 0 6px var(--item-color, var(--morph-accent));
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────

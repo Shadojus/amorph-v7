@@ -5,7 +5,7 @@
  */
 
 import { debug } from './debug';
-import { getSelectedItems, canCompare, getSelectedFields, getSelectedFieldsGrouped, canCompareFields } from './selection';
+import { getSelectedItems, canCompare, getSelectedFields, getSelectedFieldsGrouped, canCompareFields, deselectField } from './selection';
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // STATE
@@ -122,7 +122,7 @@ function formatValueForExport(value: unknown): string {
 // VISIBILITY
 // ═══════════════════════════════════════════════════════════════════════════════
 
-export async function showCompare(): Promise<void> {
+export async function showCompare(seamless = false): Promise<void> {
   if (!comparePanel) {
     debug.compare('No compare panel');
     return;
@@ -150,14 +150,19 @@ export async function showCompare(): Promise<void> {
   
   debug.compare('Showing compare', { 
     mode: useFieldMode ? 'fields' : 'items',
-    count: useFieldMode ? selectedFields.length : selectedItems.length 
+    count: useFieldMode ? selectedFields.length : selectedItems.length,
+    seamless
   });
   
   isOpen = true;
   isLoading = true;
   comparePanel.classList.add('active');
-  comparePanel.classList.add('is-loading');
   document.body.classList.add('compare-active');
+  
+  // Only show loading state for initial load, not seamless updates
+  if (!seamless) {
+    comparePanel.classList.add('is-loading');
+  }
   
   try {
     // Prepare request body based on mode
@@ -178,10 +183,20 @@ export async function showCompare(): Promise<void> {
     
     const data = await response.json();
     
-    // Insert HTML
+    // Insert HTML with smooth transition for seamless updates
     const content = comparePanel.querySelector('.compare-content');
     if (content && data.html) {
-      content.innerHTML = data.html;
+      if (seamless) {
+        // Smooth transition: fade out old, update, fade in new
+        content.classList.add('is-updating');
+        await new Promise(r => setTimeout(r, 150)); // Wait for fade out
+        content.innerHTML = data.html;
+        // Force reflow
+        void content.offsetHeight;
+        content.classList.remove('is-updating');
+      } else {
+        content.innerHTML = data.html;
+      }
       
       // Initialize species highlight interactions
       initSpeciesHighlight(content);
@@ -191,7 +206,9 @@ export async function showCompare(): Promise<void> {
     
   } catch (error) {
     debug.compare('Compare error', error);
-    showError('Vergleich konnte nicht geladen werden');
+    if (!seamless) {
+      showError('Vergleich konnte nicht geladen werden');
+    }
   } finally {
     isLoading = false;
     comparePanel?.classList.remove('is-loading');
@@ -385,7 +402,13 @@ function initSpeciesHighlight(container: Element): void {
     (item as HTMLElement).style.cursor = 'pointer';
   });
   
-  debug.compare('Species highlight initialized', { count: speciesElements.length });
+  // Add remove button handlers
+  const removeButtons = container.querySelectorAll('.legend-remove[data-slug]');
+  removeButtons.forEach(btn => {
+    btn.addEventListener('click', handleRemoveFromCompare);
+  });
+  
+  debug.compare('Species highlight initialized', { count: speciesElements.length, removeButtons: removeButtons.length });
 }
 
 function handleSpeciesHover(e: Event): void {
@@ -403,6 +426,39 @@ function handleSpeciesClick(e: Event): void {
   e.stopPropagation();
   const species = (e.currentTarget as HTMLElement).dataset.species;
   if (species) toggleStickyHighlight(species);
+}
+
+/**
+ * Handle click on remove button in compare legend
+ * Removes all fields of that species from selection and refreshes compare view
+ */
+function handleRemoveFromCompare(e: Event): void {
+  e.preventDefault();
+  e.stopPropagation();
+  
+  const btn = e.currentTarget as HTMLElement;
+  const slug = btn.dataset.slug;
+  
+  if (!slug) return;
+  
+  // Get all selected fields and remove those from this item
+  const selectedFields = getSelectedFields();
+  const fieldsToRemove = selectedFields.filter(f => f.itemSlug === slug);
+  
+  debug.compare('Removing from compare', { slug, fieldCount: fieldsToRemove.length });
+  
+  // Remove each field
+  fieldsToRemove.forEach(field => {
+    deselectField(field.itemSlug, field.fieldName);
+  });
+  
+  // Refresh compare view if still open and we have remaining fields
+  const remainingFields = getSelectedFields();
+  if (remainingFields.length > 0) {
+    showCompare();  // Refresh
+  } else {
+    hideCompare();  // Nothing left to compare
+  }
 }
 
 function toggleStickyHighlight(species: string): void {
@@ -499,5 +555,11 @@ document.addEventListener('amorph:selection-changed', (e: Event) => {
   // Auto-close if nothing selected
   if (isOpen && !canShow) {
     hideCompare();
+    return;
+  }
+  
+  // Live update: seamlessly refresh compare view if open and selection changed
+  if (isOpen && canShow && !isLoading) {
+    showCompare(true);  // Seamless update without loading indicator
   }
 });

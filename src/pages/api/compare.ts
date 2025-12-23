@@ -122,12 +122,23 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
   // Render each field group
   let html = '<div class="compare-fields">';
   
-  // Add item legend
-  html += '<div class="compare-legend">';
+  // Add item legend with remove buttons
+  // Single item mode: simplified legend without remove button
+  const isSingleItem = uniqueItems.length === 1;
+  html += `<div class="compare-legend${isSingleItem ? ' is-single' : ''}">`;
   for (const [slug, color] of itemColors) {
     const field = fields.find(f => f.itemSlug === slug);
     const name = field?.itemName || slug;
-    html += `<span class="legend-item" data-species="${escapeAttribute(name)}" style="--item-color: ${color}">${escapeHtml(name)}</span>`;
+    if (isSingleItem) {
+      // Single item: nur Name, kein Remove-Button
+      html += `<span class="legend-item is-single" data-slug="${escapeAttribute(slug)}" data-species="${escapeAttribute(name)}" style="--item-color: ${color}">${escapeHtml(name)}</span>`;
+    } else {
+      // Multiple items: mit Remove-Button
+      html += `<span class="legend-item" data-slug="${escapeAttribute(slug)}" data-species="${escapeAttribute(name)}" style="--item-color: ${color}">
+        ${escapeHtml(name)}
+        <button class="legend-remove" data-slug="${escapeAttribute(slug)}" title="Aus Vergleich entfernen">×</button>
+      </span>`;
+    }
   }
   html += '</div>';
   
@@ -165,15 +176,21 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
       
       html += `<div class="field-compare-overlay">${renderedValue || '<span class="no-value">–</span>'}</div>`;
     } else {
-      // Single item - render normally
+      // Single item - render without species label (cleaner design)
       const field = fieldValues[0];
       const color = itemColors.get(field.itemSlug) || '#fff';
       
-      const renderedValue = renderValue(field.value, field.fieldName, { mode: 'single', itemCount: 1 });
+      // Use single mode context but pass the item color for consistent coloring
+      const singleContext: RenderContext = {
+        mode: 'single',
+        itemCount: 1,
+        colors: [color]  // Pass color for morphs that need it
+      };
+      const renderedValue = renderValue(field.value, field.fieldName, singleContext);
       const displayValue = renderedValue || `<span class="no-value">–</span>`;
       
-      html += `<div class="field-value-item" data-species="${escapeAttribute(field.itemName)}" style="--item-color: ${color}">
-        <span class="item-label">${escapeHtml(field.itemName)}</span>
+      // Simplified: no left border line, no species label (already shown in legend)
+      html += `<div class="field-value-single" data-species="${escapeAttribute(field.itemName)}" style="--item-color: ${color}">
         <div class="value-content">${displayValue}</div>
       </div>`;
     }

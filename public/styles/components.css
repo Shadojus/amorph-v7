@@ -28,10 +28,10 @@
   position: sticky;
   top: 56px; /* Header height */
   z-index: 10000; /* Über dem Compare-Panel (9999) */
-  padding: 1rem 1rem 0.75rem;
-  background: linear-gradient(180deg, rgba(8, 10, 16, 0.98) 0%, rgba(8, 10, 16, 0.9) 70%, transparent 100%);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  padding: 1.25rem 1rem 1rem;
+  background: linear-gradient(180deg, rgba(8, 10, 16, 0.98) 0%, rgba(8, 10, 16, 0.92) 80%, transparent 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
 }
 
 .search-bar-container > * {
@@ -39,7 +39,7 @@
 }
 
 .search-bar-inner {
-  max-width: 560px;
+  max-width: 640px;
   margin: 0 auto;
 }
 
@@ -47,69 +47,72 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
-  /* Black Glass Morphism - harmonisiert mit Header */
-  background: rgba(12, 14, 22, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 14px;
+  gap: 0.875rem;
+  padding: 0.875rem 1.125rem;
+  /* PROMINENT: Larger, more visible search bar */
+  background: rgba(16, 18, 28, 0.9);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(var(--system-rgb), 0.15);
+  border-radius: 16px;
   box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.04),
-    0 4px 20px rgba(0, 0, 0, 0.35);
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 0 0 1px rgba(0, 0, 0, 0.3),
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 24px rgba(var(--system-rgb), 0.08);
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: visible;
 }
 
-/* System-Color Accent Border bei Focus */
+/* System-Color Accent Border - always slightly visible */
 .search-input-wrapper::before {
   content: '';
   position: absolute;
   inset: -1px;
-  border-radius: 15px;
+  border-radius: 17px;
   padding: 1px;
   background: linear-gradient(
     135deg,
-    rgba(var(--system-rgb), 0.3) 0%,
-    rgba(var(--system-rgb), 0.1) 50%,
-    rgba(var(--system-rgb), 0.2) 100%
+    rgba(var(--system-rgb), 0.4) 0%,
+    rgba(var(--system-rgb), 0.15) 50%,
+    rgba(var(--system-rgb), 0.3) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  opacity: 0;
+  opacity: 0.5;
   transition: opacity 0.25s ease;
   pointer-events: none;
   z-index: -1;
 }
 
 .search-input-wrapper:hover::before {
-  opacity: 0.4;
+  opacity: 0.7;
 }
 
 .search-input-wrapper:focus-within::before {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .search-input-wrapper:focus-within {
-  background: rgba(14, 16, 26, 0.95);
-  border-color: rgba(var(--system-rgb), 0.15);
+  background: rgba(18, 20, 32, 0.95);
+  border-color: rgba(var(--system-rgb), 0.3);
   box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 8px 32px rgba(0, 0, 0, 0.45),
-    0 0 24px rgba(var(--system-rgb), 0.08);
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 8px 40px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(var(--system-rgb), 0.12);
 }
 
 .search-input-wrapper .search-icon {
-  font-size: 1rem;
-  opacity: 0.35;
+  font-size: 1.125rem;
+  opacity: 0.5;
+  color: rgba(var(--system-rgb), 0.7);
   transition: all 0.2s ease;
 }
 
 .search-input-wrapper:focus-within .search-icon {
-  opacity: 0.7;
+  opacity: 1;
   color: rgba(var(--system-rgb), 1);
 }
 
@@ -117,17 +120,17 @@
   flex: 1;
   min-width: 0;
   padding: 0;
-  font-size: 0.9375rem;
+  font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.01em;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   background: transparent;
   border: none;
   outline: none;
 }
 
 .search-input-main::placeholder {
-  color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.4);
   font-weight: 400;
 }
 
@@ -2928,6 +2931,13 @@
   /* Custom Scrollbar */
   scrollbar-width: thin;
   scrollbar-color: rgba(var(--system-rgb), 0.3) transparent;
+  /* Smooth transitions for seamless updates */
+  transition: opacity 0.15s ease;
+}
+
+.compare-content.is-updating {
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 .compare-content::-webkit-scrollbar {
@@ -3484,7 +3494,7 @@ mark.compare-highlight.is-current {
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 400;
+  z-index: 10001; /* Über allem: Compare (9999), Search (10000) */
   display: flex;
   align-items: stretch;
   justify-content: center;
