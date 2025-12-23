@@ -6,31 +6,50 @@
 
 ```
 core/
-├── types.ts      # TypeScript Interfaces
-├── detection.ts  # Struktur-basierte Typ-Erkennung
-├── security.ts   # XSS-Schutz & Validierung
+├── types.ts      # TypeScript Interfaces (273 Zeilen)
+├── detection.ts  # Struktur-basierte Typ-Erkennung (472 Zeilen)
+├── security.ts   # XSS-Schutz & Validierung (309 Zeilen)
 └── index.ts      # Re-Exports
 ```
 
 ## 📦 types.ts - Zentrale Typen
 
+### RenderMode
+```typescript
+type RenderMode = 'single' | 'grid' | 'compare';
+```
+
 ### RenderContext
 ```typescript
 interface RenderContext {
-  mode: 'single' | 'grid' | 'compare';
+  mode: RenderMode;
   itemCount: number;
-  compact?: boolean;      // Grid = kompakt
-  colors?: string[];      // Compare-Farben
+  items?: ItemData[];
+  itemIndex?: number;
+  colors?: string[];
+  perspectives?: string[];
+  fieldName?: string;
+  fieldConfig?: SchemaField;
+  compact?: boolean;
 }
 ```
 
-### MorphType (18 Primitives)
+### MorphType (28 Primitives)
 ```typescript
 type MorphType = 
-  | 'text' | 'number' | 'boolean' | 'badge' | 'tag'
-  | 'progress' | 'rating' | 'range' | 'stats' | 'bar'
-  | 'image' | 'link' | 'list' | 'date' | 'timeline'
-  | 'sparkline' | 'radar' | 'object';
+  // Primitives
+  | 'null' | 'boolean' | 'text' | 'number' | 'progress'
+  // String-derived
+  | 'link' | 'image' | 'badge' | 'tag' | 'date'
+  // Containers
+  | 'list' | 'object' | 'hierarchy'
+  // Charts
+  | 'bar' | 'pie' | 'radar' | 'sparkline' | 'gauge' | 'heatmap'
+  // Temporal
+  | 'timeline' | 'lifecycle' | 'steps' | 'calendar'
+  // Specialized
+  | 'range' | 'stats' | 'citation' | 'dosage' | 'currency'
+  | 'rating' | 'severity';
 ```
 
 ### ItemData
@@ -39,9 +58,9 @@ interface ItemData {
   id: string;
   slug: string;
   name: string;
-  wissenschaftlich?: string;
-  bild?: string;
-  [key: string]: unknown;  // Dynamische Felder
+  _perspectives?: Record<string, unknown>;
+  _kingdom?: string;
+  [key: string]: unknown;
 }
 ```
 
@@ -49,55 +68,63 @@ interface ItemData {
 
 **WICHTIG**: Erkennung basiert **nur auf Datenstruktur**, nicht Feldnamen!
 
+### String Detection
 | Struktur | → Morph |
 |----------|---------|
-| `null`, `undefined` | `text` |
-| `true`, `false` | `boolean` |
-| Number | `number` |
+| `.jpg/.png/.webp/.svg` URL | `image` |
+| `http://` oder `https://` | `link` |
+| ISO Date (2024-12-20) | `date` |
 | String ≤20 chars | `tag` |
 | String >20 chars | `text` |
-| URL mit .jpg/.png/.webp/.svg | `image` |
-| http/https URL | `link` |
-| ISO Date (2024-12-20) | `date` |
+
+### Object Detection (Reihenfolge wichtig!)
+| Struktur | → Morph |
+|----------|---------|
 | `{status, variant}` | `badge` |
 | `{rating, max?}` | `rating` |
 | `{value, max}` | `progress` |
-| `{min, max, value?}` | `range` |
-| `{points: [...]}` | `sparkline` |
-| `{axes: [...], values: [...]}` | `radar` |
-| `{events: [...]}` | `timeline` |
-| `{segments: [...]}` | `bar` |
-| Array | `list` |
-| Object | `object` |
+| `{min, max, avg}` | `stats` |
+| `{min, max}` | `range` |
+| Object mit 3+ numeric values | `radar` |
+| Generic Object | `object` |
+
+### Array Detection
+| Struktur | → Morph |
+|----------|---------|
+| `[{axis, value}]` | `radar` |
+| `[{label, value}]` | `bar` |
+| `[{date, event}]` | `timeline` |
+| `[{step, label}]` | `steps` |
+| `[{phase, duration}]` | `lifecycle` |
+| `[{month, active}]` | `calendar` |
+| `[{level, typ}]` | `severity` |
+| `[{amount, unit, frequency}]` | `dosage` |
+| `[numbers...]` | `sparkline` |
+| `["short strings"]` (≤20 chars) | `tag` |
+| `["longer strings"]` | `list` |
 
 ## 📦 security.ts - XSS-Schutz
 
+### Input Validation
 ```typescript
-import { escapeHtml, validateInput } from './security';
-
-escapeHtml('<script>') // '&lt;script&gt;'
-validateInput(value, maxLength)  // throws on invalid
+validateSlug(slug: unknown): string | null
+validateSlugs(slugs: unknown): string[]
+validateQuery(query: unknown): string
+validatePerspectives(perspectives: unknown): string[]
+validateNumber(value: unknown, min, max, default): number
 ```
-| `{min, max}` ohne avg | `range` |
-| `{min, max, avg}` | `stats` |
-| `[{axis, value}]` | `radar` |
-| `[{label, value}]` | `bar` |
-| `[{date, event}]` oder `[{step, label}]` | `timeline` |
-| `[numbers...]` | `sparkline` |
-| `["short strings"]` (alle ≤20 chars) | `tag` |
-| `["longer strings"]` | `list` |
-| Object mit 3+ numeric values | `radar` |
-| Object (generic) | `object` |
 
-### getBadgeVariant(status)
-Erkennt Badge-Variante aus Status-Text:
+### XSS Prevention
+```typescript
+escapeHtml(text: unknown): string    // &lt;script&gt;
+escapeAttribute(text: unknown): string
+validateUrl(url: unknown): string | null  // Blockt javascript:
+```
 
-| Variante | Keywords |
-|----------|----------|
-| `success` | edible, safe, essbar, LC, least_concern |
-| `danger` | toxic, deadly, giftig, CR, extinct |
-| `warning` | caution, vulnerable, endangered |
-| `muted` | unknown, data_deficient, inactive |
+### Security Features
+- Path Traversal Schutz (`..` wird blockiert)
+- Rate Limiting (`checkRateLimit`)
+- Security Headers (`addSecurityHeaders`)
 | `default` | alles andere |
 
 **Hinweis**: Kurze Keywords (≤2 Zeichen wie "en", "lc") erfordern exakte Übereinstimmung.

@@ -6,12 +6,12 @@
 
 ```
 observer/
+├── index.ts        # setupObservers(), stopObservers() (160 Zeilen)
 ├── debug.ts        # DebugObserver mit History
 ├── interaction.ts  # Clicks, Hover, Input
 ├── rendering.ts    # Mount, Unmount, DOM
 ├── session.ts      # Page Views, Zeit
-├── target.ts       # Console, HTTP, WebSocket
-└── index.ts        # setupObservers()
+└── target.ts       # Console, HTTP, WebSocket Backends
 ```
 
 ## 🔧 Aktivierung
@@ -72,48 +72,32 @@ amorphDebug.setVerbose(true)
 amorphDebug.getStats()
 amorphDebug.getTimeline(50)
 ```
-observer.start();
 
-// Tracked Events:
-// - click: Element, Position, Morph, Feature
-// - hover: (verzögert, nur bei Morphs)
-// - input: Search Input Changes
-// - scroll: (throttled)
-```
+## 📦 interaction.ts - InteractionObserver
+
+Trackt User-Interaktionen:
+- `click`: Element, Position, Morph, Feature
+- `hover`: (verzögert, nur bei Morphs)
+- `input`: Search Input Changes
+- `scroll`: (throttled)
 
 ## 📦 rendering.ts - RenderingObserver
 
 Trackt DOM-Events:
-
-```typescript
-const observer = new RenderingObserver(container, target);
-observer.start();
-
-// Tracked Events:
-// - amorph:mounted: Morph wurde gerendert
-// - amorph:unmounted: Morph wurde entfernt
-// - amorph:rendered: Render-Zyklus abgeschlossen
-// - DOM Mutations via MutationObserver
-```
+- `amorph:mounted`: Morph wurde gerendert
+- `amorph:unmounted`: Morph wurde entfernt
+- `amorph:rendered`: Render-Zyklus abgeschlossen
+- DOM Mutations via MutationObserver
 
 ## 📦 session.ts - SessionObserver
 
 Trackt Session-Daten:
-
-```typescript
-const observer = new SessionObserver(target);
-observer.start(sessionId);
-
-// Tracked Events:
-// - Page Views
-// - Verweildauer
-// - Tab-Wechsel (visibilitychange)
-// - Page Leave (beforeunload)
-```
+- Page Views
+- Verweildauer
+- Tab-Wechsel (visibilitychange)
+- Page Leave (beforeunload)
 
 ## 📦 target.ts - Output Backends
-
-Drei Backends für Observer-Daten:
 
 ```typescript
 import { createTarget } from './target';
@@ -156,15 +140,11 @@ stopObservers(observers);
 
 ## 🌐 Window API
 
-Nach Aktivierung verfügbar:
-
 ```javascript
-// Debug Logging
 window.amorphDebug.enable()
 window.amorphDebug.getStats()
 window.amorphDebug.getTimeline(20)
 
-// Observer Stats
 window.amorphObservers           // { interaction, rendering, session }
 window.amorphObserverStats()     // Statistiken
 window.getAmorphStats()          // Alias
@@ -173,17 +153,10 @@ window.stopObservers()           // Alle stoppen
 
 ## 🧪 Tests
 
-`tests/observer.test.ts` - 8 Tests:
+`tests/observer.test.ts` - Tests für:
 - History Logging
 - Category Filtering
 - Muting
 - Stats Tracking
 - Timeline
 - Enable/Disable
-
-## 💡 Best Practices
-
-1. **Prod**: Observer deaktiviert lassen für Performance
-2. **Dev**: `?observe` zum schnellen Aktivieren
-3. **Debug**: `setVerbose(true)` für alle Details
-4. **Filter**: `setFilter(['error', 'search'])` für spezifische Diagnose

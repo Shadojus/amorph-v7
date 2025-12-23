@@ -6,12 +6,11 @@
 
 ## Status: ✅ Production Ready
 
-- **421 Tests** bestanden (Detection, Security, Morphs, Observer, Integration, Real-Data, API, Error-Handling)
-- **18 Morph Primitives** implementiert (45+ MorphTypes definiert für Erweiterbarkeit)
-- **Struktur-basierte Detection** - Typ-Erkennung rein aus Datenstruktur, nicht Feldnamen
-- **Object-Parsing in Morphs** - Badge/Rating/Progress parsen strukturierte Objekte
-- **Compare-Optimierung** - Vereinheitlichtes Design mit bar-row/bar-fill-track Pattern
-- **Bio-Lumineszenz Farbsystem** - 8 leuchtende Farben für Compare (Foxfire, Myzel, Sporen, etc.)
+- **28 Morph Primitives** implementiert (badge, bar, boolean, calendar, citation, currency, date, dosage, gauge, image, lifecycle, link, list, number, object, pie, progress, radar, range, rating, severity, sparkline, stats, steps, tag, text, timeline)
+- **Struktur-basierte Detection** - Typ-Erkennung rein aus Datenstruktur
+- **Field-basierte Selektion** - Einzelne Felder aus beliebigen Spezies auswählen
+- **Live Compare Updates** - Diff-basierte Aktualisierung ohne Reload
+- **Bio-Lumineszenz Farbsystem** - 8 leuchtende Farben (Foxfire, Myzel, Sporen, etc.)
 
 ### Multi-Site System
 Drei Bio-Spezies Sites mit eigenem Farbsystem:
@@ -20,19 +19,18 @@ Drei Bio-Spezies Sites mit eigenem Farbsystem:
 - **Therionomi** (Magenta Pink) - Tiere & Fauna
 
 ### Design Features
-- **Black Glass Morphism** - Einheitliches Design für alle Komponenten
-- **Site-Switcher Header** mit Bifröst-Portal und Nebel-Animation
-- **Lichtkugel-Design** - Steps, Lifecycle, Calendar mit leuchtenden aktiven Elementen
-- **Perspektiven: Matte Pastell-Töne** - Klar unterscheidbar von Bio-Lumineszenz
-- **Sticky Suchleiste** - Unter dem Header, durchsucht auch Compare-View
+- **Black Glass Morphism** - Transparentes Schwarz mit blauen Kanten
+- **Nachthimmel-Prinzip** - Dunkler Hintergrund, leuchtende Datenpunkte
+- **Lichtkugel-Design** - 6px Dots mit Glow-Effekt
+- **Perspektiven: Matte Pastell-Töne** - 15 Kategorien, klar von Bio-Lumineszenz unterscheidbar
+- **Sticky Suchleiste** - z-index 10000, durchsucht auch Compare-View
 - **Compare mit Copy-Button** - Daten exportieren mit License-Hinweis
 
 ### Technologie
 - **Astro 5.16** mit SSR auf Port 4323
 - **TypeScript** durchgängig
-- **Mobile-First** responsive Layout mit Touch-optimierten Interaktionen
-- **XSS-Schutz** in Image-Morph via validateUrl
-- **SVG-Schutz** - Search-Highlighting modifiziert keine SVG-Text-Elemente
+- **Vitest** für Tests
+- **sessionStorage** für Selection-Persistenz
 
 ## 🎯 Kernkonzept
 
@@ -54,7 +52,7 @@ badge(value, context);  // Single ODER Compare je nach Context
 cd amorph-v7
 npm install
 npm run dev          # Port 4323
-npm test             # 421 Tests im Watch-Modus
+npm test             # Tests im Watch-Modus
 npm run test:run     # Einmalig ohne Watch
 ```
 
@@ -62,48 +60,47 @@ npm run test:run     # Einmalig ohne Watch
 
 ```
 amorph-v7/
-├── config/              → Symlink zu ../config (YAML)
-├── data/                → Symlink zu ../data (JSON)
+├── config/              # YAML-Konfiguration
+│   ├── manifest.yaml    # App-Name, Version, Branding
+│   ├── daten.yaml       # Datenquelle (json-universe-optimized)
+│   ├── features.yaml    # Feature-Flags
+│   └── schema/          # 15 Perspektiven + Blueprints
+│
+├── data/                # JSON-Daten (Kingdom/Species/Perspective)
 │
 ├── src/
-│   ├── core/            # Types, Detection, Security
-│   ├── morphs/          # Unified Morph System (18 Primitives)
-│   ├── observer/        # Debug & Analytics System
-│   ├── server/          # SSR: Config + Data Loader
-│   ├── client/          # Browser: Features + Styles
-│   │   └── features/    # app, search, grid, compare, selection, debug
+│   ├── core/            # types.ts, detection.ts, security.ts
+│   ├── morphs/          # 28 Primitives + base.ts + debug.ts
+│   ├── observer/        # Debug & Analytics (interaction, rendering, session)
+│   ├── server/          # config.ts, data.ts (SSR)
+│   ├── client/features/ # app, search, grid, compare, selection, debug
 │   ├── layouts/         # Base.astro
-│   └── pages/           # index, [slug], api/
+│   └── pages/           # index.astro, [slug].astro, api/
 │
-├── public/
-│   └── styles/          # base.css, components.css, morphs.css
+├── public/styles/       # base.css, components.css, morphs/
 │
-└── tests/               # 28 Test-Suites
+└── tests/               # detection, security, morphs, observer, integration
 ```
 
-## 🐛 Debug Mode (Standardmäßig AN)
+## 🐛 Debug Mode
 
 ```javascript
-window.amorphDebug.disable()    // Debug-Logging deaktivieren
-window.morphDebug.enable()      // Morph-Debugging aktivieren
+// Console Commands
+window.amorphDebug.disable()    // Debug-Logging aus
+window.morphDebug.enable()      // Morph-Debugging an
 window.getAmorphStats()         // Observer Statistiken
 
+// localStorage
 localStorage.setItem('amorph:debug', 'false')      // Debug-Logs aus
 localStorage.setItem('amorph:observers', 'false')  // Observer aus
 ```
 
-### Debug-Kategorien
-- 🍄 `amorph` - Allgemeine System-Logs
-- ✓ `selection` - Feld/Item Selektion  
-- 🔬 `compare` - Compare-Panel
-- 📐 `layout` - Grid/Layout Events
-
 ## 🎨 Design System
 
 ### Z-Index Hierarchie
-1. **z-index: 10000** - Suchleiste (immer über allem)
-2. **z-index: 9999** - Compare-Panel
-3. **z-index: 400** - Bottom Navigation
+1. **z-index: 10001** - Bottom Navigation
+2. **z-index: 10000** - Suchleiste
+3. **z-index: 9999** - Compare-Panel
 4. **z-index: 200** - Header
 
 ### Farb-System
@@ -111,34 +108,27 @@ localStorage.setItem('amorph:observers', 'false')  // Observer aus
 |--------|------------|--------|
 | **Site Colors** | Multi-Site Branding | Funginomi Blue, Phytonomi Jade, Therionomi Magenta |
 | **Perspektiven** | Datenkategorien | 15 matte Pastell-Töne |
-| **Bio-Lumineszenz** | Compare-Ansicht | 8 leuchtende Farben (Foxfire, Myzel, Sporen, etc.) |
+| **Bio-Lumineszenz** | Compare-Ansicht | 8 leuchtende Farben |
 
 ### CSS Variables
 ```css
 --system-rgb: 77, 136, 255;           /* Active Site Color */
---site-funginomi-rgb: 77, 136, 255;   /* Psychedelic Blue */
---site-phytonomi-rgb: 51, 179, 128;   /* Jade Green */
---site-therionomi-rgb: 235, 77, 180;  /* Magenta Pink */
+--pilz-0-rgb bis --pilz-7-rgb         /* Bio-Lumineszenz Palette */
 ```
 
 ## 📱 Features
 
 ### Feld-basierte Selektion
-Einzelne Datenfelder aus beliebigen Spezies auswählen und vergleichen:
-- Klick auf Feld zum Auswählen
+- Klick auf Feld-Header zum Auswählen (+ Symbol)
 - Farbe basierend auf Perspektive
-- sessionStorage Persistenz
-- Compare-View mit allen ausgewählten Feldern
+- sessionStorage Persistenz (`amorph:selection:fields`)
+- Compare-View mit Diff-basierter Aktualisierung
 
-### Sticky Suchleiste
-- Bleibt unter dem Header beim Scrollen
-- Durchsucht auch den Compare-View wenn aktiv
-- Perspektiven-Pills unter der Suchleiste
-
-### Compare mit Data Export
-- Copy-Button im Compare-Header
-- Formatierter Text-Export
-- License-Hinweis: "Free License – Bei Nutzung bitte Quelle angeben"
+### Compare-Panel
+- **Species-Highlight**: Hover/Click hebt alle Werte einer Spezies hervor
+- **Remove from Selection**: X-Button in Legend
+- **Search in Compare**: Durchsucht Compare-Content
+- **Copy-Button**: Export mit License-Hinweis
 
 ## 🔧 API Endpoints
 
@@ -148,6 +138,13 @@ Einzelne Datenfelder aus beliebigen Spezies auswählen und vergleichen:
 ```
 
 ### POST /api/compare
+```json
+{
+  "fields": [
+    {"itemSlug": "steinpilz", "itemName": "Steinpilz", "fieldName": "toxicity", "value": {...}}
+  ]
+}
+```
 ```json
 { "fields": [...selectedFields] }
 ```

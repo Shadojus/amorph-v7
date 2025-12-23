@@ -6,36 +6,36 @@
 
 ```
 tests/
-├── detection.test.ts       # Struktur-basierte Erkennung
-├── security.test.ts        # Security Functions
+├── detection.test.ts       # Struktur-basierte Erkennung (28 Typen)
+├── security.test.ts        # Security Functions (50+ Tests)
 ├── morphs.test.ts          # Haupt-Morph-Tests
 ├── observer.test.ts        # Debug Observer
 ├── integration.test.ts     # Module Integration
 ├── real-data.test.ts       # Echte Daten Tests
 ├── error-handling.test.ts  # Error & Edge Cases
 ├── api-integration.test.ts # API, Search, Compare
-└── morphs/                 # Feature-basiert
+└── morphs/                 # Feature-basiert (20 Dateien)
     ├── _setup.ts           # Shared contexts
-    ├── text.test.ts
-    ├── number.test.ts
-    ├── boolean.test.ts
+    ├── base.test.ts        # createUnifiedMorph Tests
+    ├── renderValue.test.ts # renderValue() Tests
     ├── badge.test.ts
-    ├── tag.test.ts
-    ├── progress.test.ts
-    ├── rating.test.ts
-    ├── range.test.ts
-    ├── stats.test.ts
+    ├── bar.test.ts
+    ├── boolean.test.ts
+    ├── date.test.ts
     ├── image.test.ts
     ├── link.test.ts
     ├── list.test.ts
+    ├── number.test.ts
     ├── object.test.ts
-    ├── date.test.ts
-    ├── timeline.test.ts
-    ├── bar.test.ts
-    ├── sparkline.test.ts
+    ├── progress.test.ts
     ├── radar.test.ts
-    ├── base.test.ts
-    └── renderValue.test.ts
+    ├── range.test.ts
+    ├── rating.test.ts
+    ├── sparkline.test.ts
+    ├── stats.test.ts
+    ├── tag.test.ts
+    ├── text.test.ts
+    └── timeline.test.ts
 ```
 
 ## 🚀 Ausführen
@@ -61,6 +61,9 @@ Testet `core/detection.ts` - Struktur-basierte Erkennung:
 | `[{axis, value}]` | radar |
 | `[{label, value}]` | bar |
 | `[{date, event}]` | timeline |
+| `[{step, label}]` | steps |
+| `[{phase, duration}]` | lifecycle |
+| `[{month, active}]` | calendar |
 | `[numbers...]` | sparkline |
 | String ≤20 chars | tag |
 | String >20 chars | text |
@@ -71,7 +74,7 @@ Ein Test-File pro Morph Primitive mit Contexts:
 - **grid** - Kompakte Darstellung
 - **compare** - Mehrere Items mit Farben
 
-### _setup.ts
+### _setup.ts - Shared Contexts
 ```typescript
 import { singleContext, compareContext, gridContext } from './_setup';
 
@@ -81,22 +84,14 @@ it('renders in compare mode', () => {
 });
 ```
 
-### Kategorien
-
-- **validateSlug** (5): valid slugs, path traversal, invalid chars, empty, length
-- **validateSlugs** (2): array validation, item limits
-- **validateQuery** (3): normal queries, dangerous chars, length
-- **escapeHtml** (3): HTML entities, null handling, number conversion
-- **escapeAttribute** (3): attribute escaping, edge cases
-- **validateUrl** (6): safe URLs, javascript:, data:, vbscript:, bare domains
-- **sanitizeFilename** (3): safe names, path separators, dangerous chars
-- **isPathWithin** (3): within base, outside base, Windows paths
-- **validateNumber** (2): clamping, defaults
-- **validatePerspectives** (4): valid perspectives, invalid filtering, empty
-- **checkRateLimit** (3): under limit, over limit, cleanup
-- **addSecurityHeaders** (4): header injection, all required headers
-- **securityHeaders** (3): CSP, X-Frame-Options, all headers present
-- **logSecurityEvent** (3): event logging, levels
+### security.test.ts - 50+ Tests
+- **validateSlug**: valid slugs, path traversal, invalid chars
+- **validateSlugs**: array validation, item limits
+- **validateQuery**: normal queries, dangerous chars
+- **escapeHtml**: HTML entities, null handling
+- **validateUrl**: safe URLs, javascript:, data:, vbscript:
+- **checkRateLimit**: under/over limit, cleanup
+- **addSecurityHeaders**: CSP, X-Frame-Options
 
 ### Beispiel
 

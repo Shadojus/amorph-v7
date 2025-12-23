@@ -6,7 +6,7 @@
 
 ```
 layouts/
-└── Base.astro    # Haupt-Layout
+└── Base.astro    # Haupt-Layout (~180 Zeilen)
 ```
 
 ## 📦 Base.astro
@@ -50,6 +50,7 @@ interface Props {
 - **Slot-basiert** - Inhalt von Pages
 - **Cache Busting** - `?v=3` bei CSS
 - **Client Init** - Automatische App-Initialisierung
+- **SEO Meta Tags** - Open Graph Support
 
 ## 💡 Usage
 
@@ -61,12 +62,6 @@ import Base from '../layouts/Base.astro';
 <Base title="AMORPH – Übersicht">
   <header class="amorph-header">...</header>
   <main class="amorph-main">...</main>
-</Base>
-```
-  title="Steinpilz – AMORPH" 
-  description="Boletus edulis - Der König der Speisepilze"
->
-  ...
 </Base>
 ```
 
@@ -81,5 +76,3 @@ Bei CSS-Änderungen den Version-Parameter erhöhen:
 <!-- Zu -->
 <link rel="stylesheet" href="/styles/base.css?v=4">
 ```
-
-Dies zwingt Browser zum Neuladen der Styles.

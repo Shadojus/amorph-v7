@@ -7,23 +7,50 @@
 ```
 public/
 ├── styles/
-│   ├── base.css        # Design Tokens, Multi-Site Colors, Typography
-│   ├── components.css  # UI-Komponenten (Header, Search, Compare, Nav)
-│   ├── morphs.css      # Morph-spezifische Styles (18 Primitives)
+│   ├── base.css        # Design Tokens, Colors, Typography (~900 Zeilen)
+│   ├── components.css  # UI-Komponenten (~3600 Zeilen)
 │   └── morphs/
+│       ├── index.css   # Import aller Morphs
 │       ├── _card.css   # Grid-Card Styles
 │       ├── _compare.css # Compare-Mode Styles
-│       └── _variables.css # Morph CSS Variables
-└── icons/              # PWA Icons
+│       ├── _variables.css # Morph CSS Variables
+│       ├── badge.css    # Badge Morph
+│       ├── bar.css      # Bar Chart
+│       ├── boolean.css  # Boolean Display
+│       ├── calendar.css # Calendar Lichtkugeln
+│       ├── citation.css # Citation Cards
+│       ├── currency.css # Currency Display
+│       ├── date.css     # Date Formatting
+│       ├── dosage.css   # Dosage Display
+│       ├── gauge.css    # Gauge Dial
+│       ├── image.css    # Image Thumbnails
+│       ├── lifecycle.css # Lifecycle Phasen
+│       ├── link.css     # Link Styling
+│       ├── list.css     # List Rendering
+│       ├── number.css   # Number Display
+│       ├── object.css   # Object Tables
+│       ├── pie.css      # Pie Charts
+│       ├── progress.css # Progress Bars
+│       ├── radar.css    # Spider Charts
+│       ├── range.css    # Range Display
+│       ├── rating.css   # Star Rating
+│       ├── severity.css # Severity Display
+│       ├── sparkline.css # Mini Line Charts
+│       ├── stats.css    # Stats Display
+│       ├── steps.css    # Step Lichtkugeln
+│       ├── tag.css      # Tag Pills
+│       ├── text.css     # Text Rendering
+│       └── timeline.css # Timeline Events
+└── test-bar.html        # Test Page
 ```
 
 ## 🎨 Design System
 
 ### Z-Index Hierarchie
 ```css
-z-index: 10000  /* Suchleiste - immer über allem */
+z-index: 10001  /* Bottom Navigation - höchste */
+z-index: 10000  /* Suchleiste - sehr hoch */
 z-index: 9999   /* Compare-Panel */
-z-index: 400    /* Bottom Navigation */
 z-index: 200    /* Header */
 ```
 
@@ -35,23 +62,16 @@ z-index: 200    /* Header */
 --system-rgb: var(--site-funginomi-rgb); /* Active Site */
 ```
 
-### Perspektiven (15 matte Pastell-Töne)
+### Bio-Lumineszenz (8 Farben)
 ```css
-[data-perspektive="chemistry"] { --perspektive-rgb: 160, 140, 160; }
-[data-perspektive="ecology"]   { --perspektive-rgb: 130, 150, 120; }
-/* ... */
-```
-
-### Bio-Lumineszenz (Compare, 8 Farben)
-```css
---bio-foxfire: rgb(0, 255, 200);      /* Panellus stipticus */
---bio-myzel: rgb(167, 139, 250);
---bio-sporen: rgb(251, 191, 36);
---bio-tiefsee: rgb(34, 211, 238);
---bio-rhodotus: rgb(244, 114, 182);
---bio-chlorophyll: rgb(163, 230, 53);
---bio-carotin: rgb(251, 146, 60);
---bio-lavendel: rgb(196, 181, 253);
+--bio-foxfire: #00ffc8;     /* Panellus stipticus */
+--bio-myzel: #a78bfa;
+--bio-sporen: #fbbf24;
+--bio-tiefsee: #22d3ee;
+--bio-rhodotus: #f472b6;
+--bio-chlorophyll: #a3e635;
+--bio-carotin: #fb923c;
+--bio-lavendel: #c4b5fd;
 ```
 
 ### Black Glass Morphism
@@ -64,38 +84,24 @@ border: 1px solid rgba(255, 255, 255, 0.04);
 ## 📦 CSS Files
 
 ### base.css (~900 Zeilen)
-- CSS Reset
-- Design Tokens (Space, Radius, Transitions, Z-Index)
+- CSS Reset + Design Tokens
 - Multi-Site Color System
-- Perspektiven-Farben
-- Bio-Lumineszenz Farben
-- Typography
-- Glass Panel Basics
+- 15 Perspektiven-Farben (matte Pastell-Töne)
+- 8 Bio-Lumineszenz Farben
+- Typography + Glass Panel Basics
 
 ### components.css (~3600 Zeilen)
-- **Search Bar** - Sticky unter Header, z-index: 10000
-- **Header** - Site-Switcher mit Bifröst-Portal, Nebel-Animation
-- **Compare Panel** - Copy-Button, License-Notice, Search-Highlights
-- **Bottom Navigation** - Fixed, Badge für Selection-Count
+- **Header** - Site-Switcher, Bifröst-Portal
+- **Search Bar** - Sticky, z-index: 10000
+- **Compare Panel** - Copy-Button, License-Notice
+- **Bottom Navigation** - Fixed, z-index: 10001
 - **Selection Bar** - Perspective-Pills
-- **Grid Cards** - Field Selection mit Farben
-- **Detail Page** - Species View Komponenten
+- **Grid Cards** - Field Selection
 
-### morphs.css (~2000 Zeilen)
-- 18 Morph Primitives Styles
-- Single Mode + Compare Mode
-- Bar, Radar, Sparkline Charts
-- Progress, Rating, Range
-- Badge, Tag, Text, Number
-- Image, Link, List, Object
-- Timeline, Calendar, Steps
-    var(--bio-rhodotus) 60%,
-    var(--bio-chlorophyll) 75%,
-    var(--bio-carotin) 90%,
-    var(--bio-foxfire) 100%
-  );
-  animation: rotateBioBorder 10s linear infinite;
-}
+### morphs/ (28 CSS-Dateien)
+- Ein CSS-File pro Morph Primitive
+- Single Mode + Compare Mode Styles
+- Lichtkugel-Design für Steps/Lifecycle/Calendar
 ```
 
 **KEIN BLUR** - Klares, scharfes Glas mit Lichtreflexionen

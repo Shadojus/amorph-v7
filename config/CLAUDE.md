@@ -8,11 +8,15 @@
 config/
 ├── manifest.yaml       # App-Name, Version, Branding
 ├── daten.yaml          # Datenquelle, Kingdoms
-├── morphs.yaml         # Morph-Registry Verweis
 ├── features.yaml       # Feature-Flags
 ├── observer.yaml       # Debug-Config
+├── morphs.yaml         # Morph-Registry Verweis
+├── rendering.js        # (JavaScript Helper)
+├── helpers.js          # (JavaScript Helper)
 └── schema/             # Schema-System
-    └── CLAUDE.md       # Schema-Doku
+    ├── perspektiven.yaml    # 15 Perspektiven-Definitionen
+    ├── felder.yaml          # Feld-Definitionen
+    └── perspektiven/        # Blueprints pro Perspektive
 ```
 
 ## 📦 YAML-Dateien
@@ -20,109 +24,28 @@ config/
 ### manifest.yaml
 ```yaml
 app:
-  name: AMORPH
-  version: "7.0"
+  name: Funginomi
+  version: "1.0.0"
   port: 4323
-```
-
-### daten.yaml
-```yaml
-kingdoms:
-  - fungi
-  - plantae
-  - animalia
-dataPath: ./data
-```
-
-### features.yaml
-```yaml
-search: true
-compare: true
-selection: true
-debug: true
-```
-
-### observer.yaml
-```yaml
-enabled: true
-targets:
-  - console
-verbose: false
-```
-
-## 🔧 Server-Laden
-
-```typescript
-import { loadConfig, getConfig } from './server';
-
-await loadConfig();  // Einmal beim Start
-const config = getConfig();
-```
-
-```javascript
-export function perspektiven(config, morphConfig) → nav.amorph-perspektiven
-```
-
-- Liest Liste aus `getPerspektivenListe()` (Schema)
-- Erzeugt Buttons mit Symbol + Name
-- CSS Custom Properties: `--p-farbe`, `--p-farbe-2`, `--p-farbe-3`, `--p-farbe-4`
-- `data-perspektive`, `data-felder` Attribute
-
-### suche.js (34 Zeilen)
-
-```javascript
-export function suche(config, morphConfig) → div.amorph-suche
-```
-
-- Input + Button
-- Dataset-Attribute: `live`, `debounce`, `limit`, `erlaubeLeer`
-
----
-
-## YAML-Dateien
-
-### manifest.yaml
-
-```yaml
-name: Funginomi
-beschreibung: Pilz-Wissenssammlung
-version: 1.0.0
-sprache: de
-
 branding:
   titel: FUNGINOMI
-  titelUrl: /
   partner:
     text: Part of the
     name: Bifroest
     url: https://bifroest.io
-
-farben:
-  palette: standard
 ```
 
 ### daten.yaml
-
-**Aktiv:**
 ```yaml
 quelle:
-  typ: json-perspektiven
+  typ: json-perspektiven   # kingdom/species/perspectives Struktur
   indexUrl: ./data/fungi/index.json
   baseUrl: ./data/fungi/
+kingdoms:
+  - fungi
 ```
 
-**Verfügbare Typen:**
-
-| Typ | Beschreibung |
-|-----|--------------|
-| `json` | Einzelne JSON-Datei |
-| `json-multi` | index.json + einzelne Dateien pro Item |
-| `json-perspektiven` | index.json + Ordner pro Item + Perspektiven-Dateien |
-| `rest` | REST-API mit Headers |
-| `pocketbase` | PocketBase Backend |
-
 ### features.yaml
-
 ```yaml
 aktiv:
   - header
@@ -136,18 +59,48 @@ suche:
   live: true
   debounce: 300
   limit: 50
-  placeholder: Suchen...
 
 perspektiven:
   maxAktiv: 4
+```
 
-ansicht:
-  default: karten
-  ansichten:
-    - id: karten
-      icon: ⊞
-      minAuswahl: 0
-    - id: vergleich
+### observer.yaml
+```yaml
+enabled: true
+targets:
+  - console
+verbose: false
+```
+
+## 📦 schema/perspektiven.yaml - 15 Perspektiven
+
+| ID | Symbol | Name | Farbe |
+|----|--------|------|-------|
+| taxonomy | 🧬 | Taxonomie | #a78bfa |
+| chemistry | ⚗️ | Chemie | #22d3ee |
+| ecology | 🌱 | Ökologie | #a3e635 |
+| cultivation | 🌾 | Kultivierung | #fbbf24 |
+| culinary | 🍳 | Kulinarik | #fb923c |
+| safety | ⚠️ | Sicherheit | #ef4444 |
+| mythology | 🔮 | Mythologie | #c4b5fd |
+| history | 📜 | Geschichte | #f472b6 |
+| phenotype | 👁️ | Erscheinung | #00ffc8 |
+| medicinal | 💊 | Medizin | #34d399 |
+| psychoactive | 🧠 | Psychoaktiv | #818cf8 |
+| conservation | 🛡️ | Naturschutz | #14b8a6 |
+| identification | 🔍 | Bestimmung | #60a5fa |
+| comparison | ⚖️ | Vergleich | #f59e0b |
+| climate | 🌡️ | Klima | #06b6d4 |
+
+## 🔧 Server-Laden
+
+```typescript
+import { loadConfig, getConfig, getAllPerspectives } from './server';
+
+await loadConfig();  // Einmal beim Start
+const config = getConfig();
+const perspectives = getAllPerspectives();  // 15 Perspektiven
+```
       icon: ▥
       minAuswahl: 1
 ```

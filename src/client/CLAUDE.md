@@ -7,43 +7,48 @@
 ```
 client/
 └── features/           # Alle Client-Features
-    ├── index.ts        # Re-Exports
-    ├── app.ts          # Haupt-Initialisierung
+    ├── index.ts        # Re-Exports (80+ Exports)
+    ├── app.ts          # Haupt-Initialisierung (264 Zeilen)
     ├── debug.ts        # Client Debug Logging
-    ├── search.ts       # Suche + Auto-Perspektiven
+    ├── search.ts       # Suche + Auto-Perspektiven (508 Zeilen)
     ├── grid.ts         # Grid-Interaktionen + Feld-Selektion
-    ├── compare.ts      # Compare-Panel + Search-in-Compare + Copy
-    └── selection.ts    # Item + Field State (sessionStorage)
+    ├── compare.ts      # Compare-Panel + Diff-Updates (670 Zeilen)
+    └── selection.ts    # Item + Field State (317 Zeilen)
 ```
 
 ## 🔧 Features
 
-### app.ts
+### app.ts (264 Zeilen)
 - Initialisiert alle Module beim DOM Ready
 - Reihenfolge: Search → Grid → Compare → BottomNav → SelectionBar → LoadFromStorage
-- Guard gegen doppelte Initialisierung
+- Guard gegen doppelte Initialisierung (`isInitialized`)
+- Restores from URL/sessionStorage
 
-### search.ts
+### search.ts (508 Zeilen)
 - Suchmaschinen-UX mit Auto-Perspektiven (ab 3 Zeichen)
 - Perspektiven-Pills unter Suchleiste
 - Highlight-Navigation (Prev/Next)
+- URL-State: `?q=pilz&p=culinary,safety`
 
 ### grid.ts
 - Grid-Layout Management
 - Feld-Selektion mit Perspektiven-Farben
 - Base64-encoded Raw Values für Compare
+- **KEIN Click-Navigation** - Cards leiten nicht zur Spezies-URL
 
-### compare.ts
+### compare.ts (670 Zeilen)
 - Compare-Panel Visibility (show/hide/toggle)
+- **Diff-Based Updates**: `updateFieldsDiff()` für Animation
 - **Search-in-Compare**: Durchsucht Compare-Content
 - **Copy-Button**: Exportiert Daten mit License-Hinweis
-- Species-Highlight System (Hover/Click)
+- **Species-Highlight System** (Hover/Click)
+- CSS-Klassen: `.is-adding`, `.is-removing`
 
-### selection.ts
+### selection.ts (317 Zeilen)
 - Item + Field Selection State
-- sessionStorage Persistenz
-- Feld-Gruppierung nach Item
-- Perspektiven-Farben für Selection
+- **sessionStorage Persistenz**
+- **Perspektiven-Farben** für Felder
+- Max 8 Items für Compare
 
 ## 🐛 Debug-Logging
 
@@ -73,7 +78,8 @@ export { initGrid, updateSelectionUI } from './grid';
 export { 
   initCompare, showCompare, hideCompare, toggleCompare,
   isCompareOpen, searchInCompare, navigateCompareHighlight,
-  clearCompareHighlights, getCompareHighlightInfo
+  clearCompareHighlights, getCompareHighlightInfo,
+  updateFieldsDiff  // Diff-based field updates
 } from './compare';
 
 // Selection
@@ -82,18 +88,14 @@ export {
   isSelected, getSelectedItems, getSelectedCount, canCompare,
   subscribe, loadFromStorage,
   selectField, deselectField, isFieldSelected, getFieldColor,
-  getSelectedFields, getSelectedFieldsGrouped, getSelectedFieldCount
+  getSelectedFields, getSelectedFieldsGrouped, getSelectedFieldCount,
+  canCompareFields
 } from './selection';
 ```
 
-// Automatisch bei DOMContentLoaded
-// Oder manuell:
-initApp();
-```
+## 🚀 Init-Reihenfolge
 
-### Init-Reihenfolge
-
-**Double-Init Guard**: Alle Initialisierungen haben Guards (`isInitialized`, `isSearchInitialized`), um mehrfache Event-Registrierung bei HMR/Navigation zu verhindern.
+**Double-Init Guard**: Alle Initialisierungen haben Guards (`isInitialized`, `isSearchInitialized`).
 
 1. `loadFromStorage()` - Persistierte Selection laden
 2. `initSearch()` - Such-Input + Perspektiven-Buttons + Active Pills
@@ -135,17 +137,20 @@ debug.isEnabled();
 | `layout` | 📐 | #fa0 | Grid/Layout |
 | `morph` | 🔮 | #af0 | Morphs |
 
-## 📦 search.ts - Suche
+## 📦 search.ts - Suche (508 Zeilen)
 
-### initSearch(options)
+### Features
+- Auto-Perspektiven ab 3 Zeichen (z.B. "chemie" → "chemistry")
+- Perspektiven-Pills unter Suchleiste
+- Highlight-Navigation (Prev/Next)
+- URL-State: `?q=pilz&p=culinary,safety`
 
+### API
 ```typescript
-initSearch({
-  input: document.querySelector('.amorph-search input'),
-  grid: document.querySelector('.amorph-grid'),
-  perspectiveButtons: document.querySelectorAll('.persp-btn'),
-  activePerspectivesContainer: document.querySelector('.active-perspectives')
-});
+performSearch('steinpilz');           // Suche ausführen
+togglePerspective('culinary');        // Perspektive togglen
+getActivePerspectives();              // ['culinary', 'safety']
+restoreFromURL();                     // URL-State wiederherstellen
 ```
 
 ### Perspektiven-Auto-Match (NEU)
@@ -190,255 +195,98 @@ restoreFromURL();  // Liest ?q= und ?p=
 
 ## 📦 grid.ts - Grid
 
-### initGrid(container)
-
-```typescript
-initGrid(document.querySelector('.amorph-grid'));
-```
-
 ### Features
-
-- **Kein Klick-Navigation mehr** - Card-Klicks leiten NICHT zur Spezies-URL
+- **Kein Klick-Navigation** - Card-Klicks leiten NICHT zur Spezies-URL
 - Click auf `.item-select-all` → Alle Felder des Items auswählen
 - Click auf `.field-select` (+/✓) → Einzelnes Feld auswählen
 - Keyboard: Enter/Space zum Auswählen
 - Visual Feedback für selected State
 
-### Feld-Selektion (NEU)
-
-Jedes Daten-Feld kann einzeln für den Compare-View ausgewählt werden:
-
+### API
 ```typescript
-// Click auf + Button bei einem Feld
-handleFieldSelect(button);  // Wählt einzelnes Feld aus
-
-// Click auf "Alle" Button auf Item
-handleItemSelectAll(button);  // Wählt alle Felder des Items
+initGrid(container);      // Grid initialisieren
+updateSelectionUI();      // .is-selected Klassen aktualisieren
 ```
 
-### updateSelectionUI()
+## 📦 compare.ts - Compare Panel (670 Zeilen)
 
-Aktualisiert `.is-selected` Klasse auf allen Grid-Items und Feldern.
-
-## 📦 compare.ts - Compare Panel
-
-### initCompare(panel)
-
-```typescript
-initCompare(document.querySelector('.amorph-compare'));
-```
+### Features
+- **Diff-Based Updates**: Animierte Feld-Änderungen
+- **Search-in-Compare**: Durchsucht Compare-Content
+- **Copy-Button**: Exportiert mit License-Hinweis
+- **Species-Highlight**: Hover/Click auf Spezies-Namen
 
 ### API
-
 ```typescript
-import { 
-  showCompare,
-  hideCompare,
-  toggleCompare,
-  isCompareOpen 
-} from './compare';
-
-// Zeigt Compare-Panel
-showCompare();  // Fügt auch .compare-active zu body hinzu
-
-// Versteckt Compare-Panel  
-hideCompare();  // Entfernt .compare-active von body
-
-// Toggle
-toggleCompare();
-
-// Status prüfen
-if (isCompareOpen()) { ... }
+showCompare();            // Panel öffnen + API Call
+hideCompare();            // Panel schließen
+toggleCompare();          // Toggle
+isCompareOpen();          // Status prüfen
+updateFieldsDiff(items, perspectives, container);  // Diff-Update
+searchInCompare(query);   // Content durchsuchen
+navigateCompareHighlight(direction);  // Prev/Next
 ```
 
-### Body-Klasse für Responsive
-
-```css
-/* Wenn Compare aktiv: Suchleiste nicht sticky auf kleinen Screens */
-.compare-active .search-bar-container {
-  position: relative;
-}
-```
-} from './compare';
-
-// Panel öffnen (lädt Daten via API)
-await showCompare();
-
-// Panel schließen
-hideCompare();
-
-// Toggle
-toggleCompare();
-
-// Status prüfen
-if (isCompareOpen()) { ... }
-```
-
-### Compare API Call
-
-Zwei Modi:
-
+### Compare API Call (Zwei Modi)
 ```typescript
-// Item-Modus (alle Felder zweier Items vergleichen)
-POST /api/compare
-{
-  "items": ["steinpilz", "fliegenpilz"],
-  "perspectives": ["culinary"]
-}
+// Item-Modus
+POST /api/compare { items: ["steinpilz", "fliegenpilz"], perspectives: ["culinary"] }
 
-// Feld-Modus (spezifische Felder vergleichen)
-POST /api/compare
-{
-  "fields": [
-    { "itemSlug": "steinpilz", "fieldName": "Essbarkeit", "value": "Essbar" },
-    { "itemSlug": "fliegenpilz", "fieldName": "Essbarkeit", "value": "Giftig" }
-  ],
-  "perspectives": ["culinary"]
-}
+// Feld-Modus  
+POST /api/compare { fields: [{itemSlug, fieldName, value}], perspectives: ["culinary"] }
 ```
 
-## 📦 selection.ts - Selection State
+## 📦 selection.ts - Selection State (317 Zeilen)
 
-Client-seitiger State für ausgewählte **Items UND Felder**.
+Client-seitiger State für **Items UND Felder** mit sessionStorage Persistenz.
 
 ### Item-Auswahl API
-
 ```typescript
-import { 
-  selectItem,
-  deselectItem,
-  toggleItem,
-  clearSelection,
-  isSelected,
-  getSelectedItems,
-  getSelectedCount,
-  canCompare,
-  subscribe,
-  loadFromStorage 
-} from './selection';
-
-// Item auswählen
-selectItem({ slug: 'steinpilz', name: 'Steinpilz', id: '1' });
-
-// Abwählen
-deselectItem('steinpilz');
-
-// Toggle
-toggleItem(itemData);
-
-// Alle entfernen
-clearSelection();
-
-// Prüfen
-if (isSelected('steinpilz')) { ... }
-
-// Alle ausgewählten
-const items = getSelectedItems();
-const count = getSelectedCount();
-
-// Vergleich möglich? (2-8 Items)
-if (canCompare()) { showCompare(); }
+selectItem({ slug, name, id });      // Item auswählen
+deselectItem('steinpilz');            // Abwählen
+toggleItem(itemData);                 // Toggle
+clearSelection();                     // Alle entfernen
+isSelected('steinpilz');              // Prüfen
+getSelectedItems();                   // Alle ausgewählten
+getSelectedCount();                   // Anzahl
+canCompare();                         // 2-8 Items?
 ```
 
-### Feld-Auswahl API (NEU)
-
+### Feld-Auswahl API
 ```typescript
-import {
-  selectField,
-  deselectField,
-  isFieldSelected,
-  getSelectedFields,
-  getSelectedFieldsGrouped,
-  getSelectedFieldCount,
-  canCompareFields
-} from './selection';
-
-// Feld auswählen
-selectField({
-  itemSlug: 'steinpilz',
-  itemName: 'Steinpilz',
-  fieldName: 'Essbarkeit',
-  value: 'Essbar'
-});
-
-// Feld abwählen
+selectField({ itemSlug, itemName, fieldName, value });
 deselectField('steinpilz', 'Essbarkeit');
-
-// Prüfen
-if (isFieldSelected('steinpilz', 'Essbarkeit')) { ... }
-
-// Alle ausgewählten Felder
-const fields = getSelectedFields();  // SelectedField[]
-
-// Gruppiert nach Feldname
-const grouped = getSelectedFieldsGrouped();
-// { "Essbarkeit": [field1, field2], "Toxine": [field3] }
-
-// Vergleich möglich? (mind. 2 Felder)
-if (canCompareFields()) { showCompare(); }
+isFieldSelected('steinpilz', 'Essbarkeit');
+getFieldColor('steinpilz', 'Essbarkeit');  // Perspektiven-Farbe
+getSelectedFields();                  // SelectedField[]
+getSelectedFieldsGrouped();           // { "Essbarkeit": [field1, field2] }
+getSelectedFieldCount();              // Anzahl
+canCompareFields();                   // mind. 2 Felder?
 ```
 
 ### State-Subscription
-
 ```typescript
-// State-Änderungen abonnieren (Item + Feld Änderungen)
 const unsubscribe = subscribe((event) => {
-  console.log(event.items);      // SelectedItem[]
-  console.log(event.count);      // Item count
-  console.log(event.canCompare); // Item compare?
-  
-  console.log(event.fields);     // SelectedField[]
-  console.log(event.fieldCount); // Field count
-  console.log(event.canCompareFields); // Field compare?
+  event.items;          // SelectedItem[]
+  event.count;          // Item count
+  event.canCompare;     // Item compare?
+  event.fields;         // SelectedField[]
+  event.fieldCount;     // Field count
+  event.canCompareFields;  // Field compare?
 });
 ```
 
 ### Persistence
-
-Selection wird in `sessionStorage` gespeichert:
-
 ```typescript
-loadFromStorage();  // Beim App-Start
-// Automatisch gespeichert bei jeder Änderung
-```
-
-## 🔗 Index Re-Exports
-
-```typescript
-// Alles auf einmal importieren
-import { 
-  debug,
-  initApp,
-  initSearch, performSearch, togglePerspective, getActivePerspectives,
-  initGrid, updateSelectionUI,
-  initCompare, showCompare, hideCompare, toggleCompare,
-  // Item Selection
-  selectItem, deselectItem, toggleItem, clearSelection,
-  isSelected, getSelectedItems, getSelectedCount, canCompare,
-  // Field Selection (NEU)
-  selectField, deselectField, isFieldSelected,
-  getSelectedFields, getSelectedFieldsGrouped,
-  getSelectedFieldCount, canCompareFields,
-  // Subscription
-  subscribe, loadFromStorage
-} from './client/features';
+loadFromStorage();  // Beim App-Start automatisch
+// Automatisch gespeichert bei jeder Änderung in sessionStorage
 ```
 
 ## 🌐 Window API
 
-Nach Init verfügbar:
-
 ```javascript
 window.amorphDebug          // Debug Logging (standardmäßig AN)
-window.amorphDebug.disable()  // Ausschalten
-window.amorphDebug.enable()   // Einschalten
+window.amorphDebug.disable()
+window.amorphDebug.enable()
 window.amorphDebug.isEnabled()
 ```
-
-## 💡 Best Practices
-
-1. **Immer initApp() aufrufen** - oder automatisch via DOMContentLoaded
-2. **Selection-State ist session-basiert** - verschwindet bei Tab-Schließen
-3. **Debug standardmäßig AN** - deaktivieren via `localStorage.setItem('amorph:debug', 'false')`
-4. **Observer standardmäßig AN** - deaktivieren via `localStorage.setItem('amorph:observers', 'false')`
-5. **Feld-Selektion für Compare** - Einzelne Datenfelder können verglichen werden

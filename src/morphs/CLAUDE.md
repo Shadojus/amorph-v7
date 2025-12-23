@@ -1,6 +1,6 @@
 # AMORPH v7 - Morphs Module
 
-> Unified Morph Architecture mit **18 Primitives**.
+> Unified Morph Architecture mit **28 Primitives**.
 > Struktur-basierte Detection - Typ wird aus Datenstruktur erkannt.
 > Object-Parsing - Badge/Rating/Progress parsen Objekte automatisch.
 
@@ -8,29 +8,38 @@
 
 ```
 morphs/
-├── base.ts           # createUnifiedMorph() Factory + wrapInField()
+├── base.ts           # createUnifiedMorph() Factory + wrapInField() (261 Zeilen)
 ├── debug.ts          # Morph Debug System (morphDebug.enable())
-├── index.ts          # Registry, renderValue(), renderCompare()
-└── primitives/       # 18 Morph-Implementierungen
+├── index.ts          # Registry, renderValue(), renderCompare() (256 Zeilen)
+└── primitives/       # 28 Morph-Implementierungen
     ├── index.ts      # Re-Exports + Registry
-    ├── text.ts       # String >20 chars
-    ├── number.ts     # Numbers mit Formatierung
-    ├── boolean.ts    # true/false
     ├── badge.ts      # {status, variant}
-    ├── tag.ts        # String ≤20 chars / ["short"]
-    ├── progress.ts   # {value, max, unit}
-    ├── rating.ts     # {rating, max}
-    ├── range.ts      # {min, max, unit}
-    ├── stats.ts      # {min, avg, max}
+    ├── bar.ts        # [{label, value}]
+    ├── boolean.ts    # true/false
+    ├── calendar.ts   # [{month, active}] - Lichtkugeln
+    ├── citation.ts   # {author, year, title, doi?}
+    ├── currency.ts   # {amount, currency} oder [currencies]
+    ├── date.ts       # ISO-Datum
+    ├── dosage.ts     # [{amount, unit, frequency}]
+    ├── gauge.ts      # {value, min, max, unit}
     ├── image.ts      # URL mit .jpg/.png/.webp/.svg
+    ├── lifecycle.ts  # [{phase, duration}] - Phasen-Dots
     ├── link.ts       # http(s)://
     ├── list.ts       # ["strings"]
+    ├── number.ts     # Numbers mit Formatierung
     ├── object.ts     # Generic Object
-    ├── date.ts       # ISO-Datum
-    ├── timeline.ts   # [{date, event}]
-    ├── bar.ts        # [{label, value}]
-    ├── sparkline.ts  # [numbers]
-    └── radar.ts      # [{axis, value}]
+    ├── pie.ts        # [{label, value}] - Kreisdiagramm
+    ├── progress.ts   # {value, max, unit}
+    ├── radar.ts      # [{axis, value}] - Spider Chart
+    ├── range.ts      # {min, max, unit}
+    ├── rating.ts     # {rating, max}
+    ├── severity.ts   # [{level, typ}] - Schweregrad
+    ├── sparkline.ts  # [numbers] - Mini-Line Chart
+    ├── stats.ts      # {min, avg, max}
+    ├── steps.ts      # [{step, label}] - Lichtkugeln
+    ├── tag.ts        # String ≤20 chars / ["short"]
+    ├── text.ts       # String >20 chars
+    └── timeline.ts   # [{date, event}]
 ```
 
 ## 🎯 Unified Morph API
@@ -56,7 +65,9 @@ interface RenderContext {
   items?: ItemData[];
   itemIndex?: number;
   colors?: string[];
-  fieldName?: string;
+  perspectives?: string[];  // Aktive Perspektiven
+  fieldName?: string;       // Aktuelles Feld
+  fieldConfig?: SchemaField;
   compact?: boolean;
 }
 ```
@@ -68,10 +79,8 @@ interface RenderContext {
 3. **URLs**: Image vs. Link
 4. **Strings**: Tag (≤20) vs. Text (>20)
 5. **Fallback**: `object` oder `text`
-└── index.ts          # Main API
-```
 
-## 🔍 Morph Debug System (NEU)
+## 🔍 Morph Debug System
 
 Debug-Tool um zu testen ob Felder die richtigen Morphs verwenden.
 
@@ -92,14 +101,6 @@ morphDebug.showHistory(20)   // Letzte 20 Erkennungen
 morphDebug.findByType('bar') // Alle Felder mit Typ 'bar'
 morphDebug.showIssues()      // Potenzielle Probleme finden
 morphDebug.help()            // Alle Befehle anzeigen
-```
-
-### Beispiel-Output
-
-```
-🔮 MORPH alkaloid_content_by_part → bar :: [{label, value}...] (3)
-✓ RENDER alkaloid_content_by_part [bar] → 523 chars
-```
 ```
 
 ## 🔧 Unified Morph API
@@ -185,7 +186,7 @@ image('/images/photo.jpg') // ✓
 image('https://example.com/img.png') // ✓
 ```
 
-## 📋 Morph-Übersicht (18 Primitives)
+## 📋 Morph-Übersicht (28 Primitives)
 
 | Morph | Single | Compare | CSS Klasse |
 |-------|--------|---------|------------|
@@ -198,6 +199,25 @@ image('https://example.com/img.png') // ✓
 | **rating** | ★★★★☆ | Horizontal | `.rating-compare-wrapper` |
 | **range** | min–max | Overlap visual | `.range-compare-wrapper` |
 | **stats** | min/avg/max | Side-by-side | `.stats-compare-wrapper` |
+| **image** | Thumbnail | Gallery | `.morph-image` |
+| **link** | Clickable | List | `.morph-link` |
+| **list** | Bullet list | Common/Unique Sections | `.list-compare-wrapper` |
+| **date** | Formatted | Side-by-side | `.morph-date` |
+| **bar** | Chart bars | Grouped + Ø | `.bar-compare-wrapper` |
+| **sparkline** | Mini chart | Overlay | `.sparkline-compare-wrapper` |
+| **radar** | Spider chart | Overlay + Insights | `.morph-radar` |
+| **timeline** | Event list | Side-by-side | `.morph-timeline` |
+| **object** | Key-value | Tabelle + Max/Min/Δ | `.morph-object` |
+| **pie** | Kreisdiagramm | Side-by-side | `.morph-pie` |
+| **gauge** | Zeiger-Dial | Side-by-side | `.morph-gauge` |
+| **steps** | Lichtkugel-Steps | Side-by-side | `.morph-steps` |
+| **lifecycle** | Phasen-Dots | Side-by-side | `.morph-lifecycle` |
+| **calendar** | Monats-Dots | Side-by-side | `.morph-calendar` |
+| **severity** | Schweregrad | Side-by-side | `.morph-severity` |
+| **dosage** | Dosierung | Side-by-side | `.morph-dosage` |
+| **citation** | Zitat-Card | List | `.morph-citation` |
+| **currency** | Währung | Side-by-side | `.morph-currency` |
+| **heatmap** | Heat Grid | Side-by-side | `.morph-heatmap` |
 | **image** | Thumbnail | Gallery | `.morph-image` |
 | **link** | Clickable | List | `.morph-link` |
 | **list** | Bullet list | Common/Unique Sections | `.list-compare-wrapper` |
@@ -317,16 +337,17 @@ Der `radar` Morph unterstützt zwei Formate:
 werden dynamisch angepasst um alle Labels vollständig darzustellen.
 
 | **timeline** | Event list | Side-by-side | `.morph-timeline` |
-| **object** | Key-value | Side-by-side | `.morph-object` |
-
-## 🎨 Badge Variants
-
-Automatische Variant-Erkennung:
-- `danger`: giftig, tödlich, gefährlich
-- `warning`: ungenießbar, vorsicht
-- `success`: essbar, gut, sicher
-- `info`: selten, häufig
-- `neutral`: default
+| **object** | Key-value | Tabelle + Max/Min/Δ | `.morph-object` |
+| **pie** | Kreisdiagramm | Side-by-side | `.morph-pie` |
+| **gauge** | Zeiger-Dial | Side-by-side | `.morph-gauge` |
+| **steps** | Lichtkugel-Steps | Side-by-side | `.morph-steps` |
+| **lifecycle** | Phasen-Dots | Side-by-side | `.morph-lifecycle` |
+| **calendar** | Monats-Dots | Side-by-side | `.morph-calendar` |
+| **severity** | Schweregrad | Side-by-side | `.morph-severity` |
+| **dosage** | Dosierung | Side-by-side | `.morph-dosage` |
+| **citation** | Zitat-Card | List | `.morph-citation` |
+| **currency** | Währung | Side-by-side | `.morph-currency` |
+| **heatmap** | Heat Grid | Side-by-side | `.morph-heatmap` |
 
 ## 🎨 CSS in public/styles/morphs/
 
@@ -337,47 +358,60 @@ Morph-Styles sind aufgeteilt in `public/styles/morphs/`:
 | `_card.css` | Morph Cards |
 | `_compare.css` | Compare Mode Layouts |
 | `_variables.css` | Design Tokens |
+| `badge.css` | Badge Variants |
 | `bar.css` | Bar-Charts |
-| `radar.css` | Radar/Spider-Charts |
-| `steps.css` | Steps mit Lichtkugeln |
-| `lifecycle.css` | Lifecycle-Phasen |
+| `boolean.css` | Boolean Rendering |
 | `calendar.css` | Kalender-Lichtkugeln |
-| etc. | ... |
-
-### Lichtkugel-Design
-
-Steps, Lifecycle und Calendar verwenden leuchtende Dots:
-
-```css
-/* Inaktiv - gedimmt */
-.morph-step-dot {
-  background: rgba(var(--morph-color-rgb), 0.25);
-  box-shadow: none;
-}
-
-/* Aktiv - leuchtend */
-.morph-step--active .morph-step-dot {
-  background: var(--dot-bg);
-  box-shadow: var(--dot-glow), 0 0 12px rgba(var(--morph-color-rgb), 0.5);
-}
-```
+| `citation.css` | Zitat-Cards |
+| `currency.css` | Währungs-Anzeige |
+| `date.css` | Datums-Formatierung |
+| `dosage.css` | Dosierungs-Anzeige |
+| `gauge.css` | Gauge-Dial |
+| `image.css` | Image Thumbnails |
+| `lifecycle.css` | Lifecycle-Phasen |
+| `link.css` | Link-Styling |
+| `list.css` | Listen-Rendering |
+| `number.css` | Number Formatting |
+| `object.css` | Object-Tabellen |
+| `pie.css` | Kreisdiagramme |
+| `progress.css` | Progress-Bars |
+| `radar.css` | Radar/Spider-Charts |
+| `range.css` | Range-Anzeige |
+| `rating.css` | Star-Rating |
+| `severity.css` | Schweregrad-Anzeige |
+| `sparkline.css` | Mini-Line Charts |
+| `stats.css` | Statistik-Anzeige |
+| `steps.css` | Steps mit Lichtkugeln |
+| `tag.css` | Tag-Pills |
+| `text.css` | Text-Rendering |
+| `timeline.css` | Timeline-Events |
 
 ### Bio-Lumineszenz Farben (8)
 
-| Var | Farbe |
-|-----|-------|
-| `--bio-foxfire` | #00ffc8 |
-| `--bio-myzel` | #a78bfa |
-| `--bio-sporen` | #fbbf24 |
-| `--bio-tiefsee` | #22d3ee |
-| `--bio-rhodotus` | #f472b6 |
-| `--bio-chlorophyll` | #a3e635 |
-| `--bio-carotin` | #fb923c |
-| `--bio-lavendel` | #c4b5fd |
+| Var | Farbe | Verwendung |
+|-----|-------|------------|
+| `--bio-foxfire` | #00ffc8 | Primary, Links |
+| `--bio-myzel` | #a78bfa | Charts, Graphs |
+| `--bio-sporen` | #fbbf24 | Warnings, Active |
+| `--bio-tiefsee` | #22d3ee | Info, Secondary |
+| `--bio-rhodotus` | #f472b6 | Pink Accents |
+| `--bio-chlorophyll` | #a3e635 | Success, Nature |
+| `--bio-carotin` | #fb923c | Orange Accents |
+| `--bio-lavendel` | #c4b5fd | Muted, Inactive |
+
+## 🔧 wrapInField(fieldName, morphType, content, rawValue?)
+
+Wraps morph output in field container:
+
+```typescript
+// Raw values bis 10KB werden Base64-encoded für Compare-Modus
+wrapInField('alkaloid_profile', 'radar', '<svg>...</svg>', radarData);
+// → <div class="morph-field" data-field="alkaloid_profile" data-morph="radar" data-raw-value="eyJheGlzIjoi...">...</div>
+```
 
 ## 🧪 Tests
 
-`tests/morphs/` - 116 Tests aufgeteilt nach Morph:
+`tests/morphs/` - Tests aufgeteilt nach Morph:
 - text: HTML Escaping
 - number: German locale, compare with bar-row
 - boolean: true/false/ja/nein, compare all-same/different
@@ -392,22 +426,8 @@ Steps, Lifecycle und Calendar verwenden leuchtende Dots:
 
 ## 💡 Neuen Morph hinzufügen
 
-1. Erstelle `src/morphs/primitives/mymorph.ts`:
-```typescript
-import { createUnifiedMorph } from '../base';
-
-export const mymorph = createUnifiedMorph(
-  'mymorph',
-  (value, ctx) => `<div class="morph-mymorph">${value}</div>`
-);
-```
-
-2. Registriere in `primitives/index.ts`:
-```typescript
-export * from './mymorph';
-export const primitives = { ...existing, mymorph };
-```
-
-3. Füge Detection hinzu in `core/detection.ts` (falls nötig)
-
-4. Füge CSS hinzu in `public/styles/morphs.css`
+1. Erstelle `src/morphs/primitives/mymorph.ts`
+2. Registriere in `primitives/index.ts`
+3. Füge Detection hinzu in `core/detection.ts`
+4. Füge CSS hinzu in `public/styles/morphs/mymorph.css`
+5. Importiere CSS in `public/styles/morphs/index.css`

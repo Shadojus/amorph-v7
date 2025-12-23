@@ -6,98 +6,57 @@
 
 ```
 schema/
-├── index.yaml          # Schema-Index, Version
-├── basis.yaml          # Kern-Felder (id, name, slug)
-├── semantik.yaml       # Suche-Mappings
-└── perspektiven/
-    ├── index.yaml      # Aktive Perspektiven
-    ├── *.yaml          # 15 Perspektiven-Definitionen
-    └── blueprints/     # Morph-Blueprints
-        └── *.blueprint.yaml
+├── perspektiven.yaml   # 15 Perspektiven-Definitionen
+├── felder.yaml         # Feld-Definitionen
+└── perspektiven/       # Blueprints pro Perspektive
+    ├── blueprints/     # Morph-Blueprints (YAML)
+    │   └── *.blueprint.yaml
+    └── CLAUDE.md       # Blueprint-Doku
 ```
 
-## 📦 15 Perspektiven
+## 📦 15 Perspektiven (perspektiven.yaml)
 
-| ID | Symbol | Name |
-|----|--------|------|
-| chemistry | 🧪 | Chemie |
-| conservation | 🛡️ | Schutzstatus |
-| culinary | 🍳 | Kulinarik |
-| cultivation | 🌱 | Anbau |
-| culture | 📜 | Kultur |
-| ecology | 🌿 | Ökologie |
-| economy | 💰 | Wirtschaft |
-| geography | 🗺️ | Geografie |
-| identification | 🔍 | Bestimmung |
-| interactions | 🔗 | Interaktionen |
-| medicine | 💊 | Medizin |
-| research | 📚 | Forschung |
-| safety | ⚠️ | Sicherheit |
-| statistics | 📊 | Statistik |
-| temporal | ⏰ | Zeitlich |
+| ID | Symbol | Name | Farbe |
+|----|--------|------|-------|
+| taxonomy | 🧬 | Taxonomie | #a78bfa |
+| chemistry | ⚗️ | Chemie | #22d3ee |
+| ecology | 🌱 | Ökologie | #a3e635 |
+| cultivation | 🌾 | Kultivierung | #fbbf24 |
+| culinary | 🍳 | Kulinarik | #fb923c |
+| safety | ⚠️ | Sicherheit | #ef4444 |
+| mythology | 🔮 | Mythologie | #c4b5fd |
+| history | 📜 | Geschichte | #f472b6 |
+| phenotype | 👁️ | Erscheinung | #00ffc8 |
+| medicinal | 💊 | Medizin | #34d399 |
+| psychoactive | 🧠 | Psychoaktiv | #818cf8 |
+| conservation | 🛡️ | Naturschutz | #14b8a6 |
+| identification | 🔍 | Bestimmung | #60a5fa |
+| comparison | ⚖️ | Vergleich | #f59e0b |
+| climate | 🌡️ | Klima | #06b6d4 |
 
 ## 📐 Blueprints
 
-Siehe [blueprints/CLAUDE.md](perspektiven/blueprints/CLAUDE.md)
+Blueprints definieren die erwartete Datenstruktur pro Perspektive:
 
-Jedes Blueprint definiert:
+```yaml
+# chemistry.blueprint.yaml
+# morph: radar
+alkaloid_profile:
+  _enums: ["Psilocybin", "Psilocin", "Baeocystin"]
+  # Expected: {Psilocybin: 95, Psilocin: 35, Baeocystin: 15}
+```
+
+Jedes Blueprint enthält:
 - Morph-Typ als Kommentar (`# morph: badge`)
 - Leere Datenstruktur im Morph-Format
 - `_enums` mit erlaubten Werten
-| interactions | interactions.blueprint.yaml | ~550 |
-| medicine | medicine.blueprint.yaml | ~700 |
-| research | research.blueprint.yaml | ~600 |
-| safety | safety.blueprint.yaml | ~1400 |
-| statistics | statistics.blueprint.yaml | ~500 |
-| temporal | temporal.blueprint.yaml | ~1600 |
 
-**Gesamt**: ~12.000 Zeilen Schema-Definitionen
+## 🔧 Data-Driven Architecture
 
----
-
-## index.yaml
-
-```yaml
-version: "3.0"
-
-module:
-  basis: ./basis.yaml
-  semantik: ./semantik.yaml
-  perspektiven: ./perspektiven/
-```
-
-**Data-Driven Approach:**
-- Keine separate `felder.yaml` nötig
-- Felder werden aus Perspektiven definiert
-- Typen automatisch aus Datenstruktur erkannt
+- **Keine statische Feld-Definition nötig**
+- Felder werden aus Perspektiven-JSONs erkannt
+- Morph-Typen automatisch aus Datenstruktur detektiert
 - System adaptiert sich an neue Felder
-
----
-
-## basis.yaml
-
-### Meta-Konfiguration
-
-```yaml
-meta:
-  nameField: name      # Feld für Anzeigename
-  idField: id          # Feld für eindeutige ID
-  bildField: bild      # Feld für Hauptbild
-```
-
-### Kern-Felder (unveränderlich)
-
-| Feld | Typ | Beschreibung |
-|------|-----|--------------|
-| `id` | number | Versteckt, eindeutige ID |
-| `slug` | string | Versteckt, URL-freundlich |
-| `name` | string | Pflichtfeld, Suche gewicht=100 |
-| `bild` | image | Hauptbild |
-
-### Schema-Attribute (optional für alle Einträge)
-
-```yaml
-citation:
   quelle: "Name der Quelle (Pflicht)"
   url: "Link zur Quelle"
   datum: "YYYY-MM"

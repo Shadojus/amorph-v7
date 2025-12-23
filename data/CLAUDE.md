@@ -6,18 +6,16 @@
 
 ```
 data/
-├── universe-index.json     # Haupt-Index
-├── fungi/
-│   ├── index.json          # Kingdom-Index
-│   └── psilocybe-cyanescens/
-│       ├── index.json      # Core-Daten
-│       └── *.json          # Perspektiven
-├── plantae/
-│   ├── index.json
-│   └── deadly-nightshade/
-└── animalia/
-    ├── index.json
-    └── alpine-marmot/
+├── universe-index.json     # Haupt-Index aller Kingdoms
+└── fungi/
+    ├── index.json          # Kingdom-Index mit allen Species
+    └── {species-slug}/     # Ein Ordner pro Spezies
+        ├── species.json    # Core-Daten (Name, Bild, etc.)
+        └── perspectives/   # Perspektiven-Ordner
+            ├── chemistry.json
+            ├── ecology.json
+            ├── culinary.json
+            └── ...
 ```
 
 ## 📦 Daten-Hierarchie
@@ -25,8 +23,16 @@ data/
 ### universe-index.json
 ```json
 {
-  "kingdoms": ["fungi", "plantae", "animalia"],
-  "version": "7.0"
+  "version": "1.0",
+  "total": 42,
+  "kingdoms": {
+    "fungi": { "name": "Fungi", "icon": "🍄", "count": 30 },
+    "plantae": { "name": "Plantae", "icon": "🌿", "count": 8 },
+    "animalia": { "name": "Animalia", "icon": "🦋", "count": 4 }
+  },
+  "species": [
+    { "id": "fungi-001", "slug": "steinpilz", "name": "Steinpilz", "kingdom": "fungi" }
+  ]
 }
 ```
 
@@ -35,68 +41,60 @@ data/
 {
   "kingdom": "fungi",
   "items": [
-    {"id": "psilocybe-cyanescens", "name": "Blauender Kahlkopf"}
+    { "id": "steinpilz", "name": "Steinpilz", "wissenschaftlich": "Boletus edulis" }
   ]
 }
 ```
 
-### {species}/index.json (Core)
+### {species}/species.json (Core)
 ```json
 {
-  "id": "psilocybe-cyanescens",
-  "name": "Blauender Kahlkopf",
-  "wissenschaftlich": "Psilocybe cyanescens",
+  "id": "steinpilz",
+  "slug": "steinpilz",
+  "name": "Steinpilz",
+  "wissenschaftlich": "Boletus edulis",
   "bild": "https://..."
 }
 ```
 
-### {species}/{perspective}.json
+### {species}/perspectives/{perspective}.json
 ```json
 {
-  "conservation_status": {"status": "LC", "variant": "success"},
-  "habitat": ["Totholz", "Parks", "Waldränder"],
-  "fruiting_season": {...}
+  "conservation_status": { "status": "LC", "variant": "success" },
+  "habitat": ["Nadelwald", "Mischwald", "Parks"],
+  "fruiting_season": { "start": "Juli", "end": "Oktober" }
 }
 ```
 
 ## 🔄 SSR-Integration
 
 ```typescript
-import { getItem, searchItems } from './server';
+import { getItem, searchItems, loadPerspective } from './server/data';
 
-const item = await getItem('psilocybe-cyanescens');
-const results = await searchItems({ query: 'pilz' });
+// Einzelnes Item
+const item = await getItem('steinpilz');
+
+// Suche
+const results = await searchItems({ query: 'pilz', limit: 20 });
+
+// Lazy Perspektive laden
+const chemistry = await loadPerspective('steinpilz', 'chemistry');
 ```
 
-## universe-index.json Format
+## 📊 Daten-Typen für Morphs
 
-```json
-{
-  "version": "1.0",
-  "generated": "2025-12-18T...",
-  "total": 2,
-  "kingdoms": {
-    "fungi": { "name": "Fungi", "icon": "🍄", "count": 0 },
-    "plantae": { "name": "Plantae", "icon": "🌿", "count": 1 },
-    "animalia": { "name": "Animalia", "icon": "🦋", "count": 1 },
-    "bacteria": { "name": "Bacteria", "icon": "🦠", "count": 0 }
-  },
-  "species": [
-    {
-      "id": "animalia-001",
-      "slug": "alpine-marmot",
-      "name": "Alpenmurmeltier",
-      "scientific_name": "Marmota marmota",
-      "kingdom": "animalia",
-      "perspectives": ["conservation", "ecology", ...]
-    }
-  ]
-}
-```
+Die Datenstruktur bestimmt automatisch welcher Morph verwendet wird:
 
----
-
-## Spezies index.json Format
+| Struktur | → Morph |
+|----------|---------|
+| `{status, variant}` | badge |
+| `{rating, max}` | rating |
+| `{value, max}` | progress |
+| `{min, max}` | range |
+| `[{axis, value}]` | radar |
+| `[{label, value}]` | bar |
+| `[{date, event}]` | timeline |
+| `[numbers...]` | sparkline |
 
 ```json
 {
