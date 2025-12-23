@@ -187,13 +187,57 @@ export async function showCompare(seamless = false): Promise<void> {
     const content = comparePanel.querySelector('.compare-content');
     if (content && data.html) {
       if (seamless) {
-        // Smooth transition: fade out old, update, fade in new
-        content.classList.add('is-updating');
-        await new Promise(r => setTimeout(r, 150)); // Wait for fade out
-        content.innerHTML = data.html;
-        // Force reflow
-        void content.offsetHeight;
-        content.classList.remove('is-updating');
+        // Diff-based update: only add/remove changed fields
+        const existingLegend = content.querySelector('.compare-legend');
+        const existingItemCount = existingLegend?.getAttribute('data-item-count');
+        const newItemCount = String(data.itemCount);
+        
+        // Create temp container to parse new HTML
+        const temp = document.createElement('div');
+        temp.innerHTML = data.html;
+        const newLegend = temp.querySelector('.compare-legend');
+        const newFieldsContainer = temp.querySelector('.compare-fields');
+        
+        if (existingItemCount === newItemCount && existingLegend && newFieldsContainer) {
+          // Same items - do diff-based field update
+          const existingFields = content.querySelector('.compare-fields');
+          if (existingFields) {
+            await updateFieldsDiff(existingFields, newFieldsContainer);
+          } else {
+            // No existing fields yet - add the container
+            content.appendChild(newFieldsContainer);
+          }
+        } else {
+          // Items changed - update legend, then diff fields
+          if (existingLegend && newLegend) {
+            existingLegend.outerHTML = newLegend.outerHTML;
+          } else if (!existingLegend && newLegend) {
+            // First legend - insert it
+            content.insertBefore(newLegend, content.firstChild);
+          }
+          
+          const existingFields = content.querySelector('.compare-fields');
+          if (existingFields && newFieldsContainer) {
+            await updateFieldsDiff(existingFields, newFieldsContainer);
+          } else if (newFieldsContainer) {
+            // Create fields container if needed
+            let fieldsContainer = content.querySelector('.compare-fields');
+            if (!fieldsContainer) {
+              fieldsContainer = document.createElement('div');
+              fieldsContainer.className = 'compare-fields';
+              content.appendChild(fieldsContainer);
+            }
+            // Copy new rows
+            newFieldsContainer.querySelectorAll('.compare-field-row').forEach(row => {
+              row.classList.add('is-adding');
+              fieldsContainer!.appendChild(row);
+            });
+            void content.offsetHeight;
+            requestAnimationFrame(() => {
+              fieldsContainer!.querySelectorAll('.is-adding').forEach(el => el.classList.remove('is-adding'));
+            });
+          }
+        }
       } else {
         content.innerHTML = data.html;
       }
@@ -471,6 +515,66 @@ function toggleStickyHighlight(species: string): void {
     activeSpecies = species;
     highlightSpecies(species);
   }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// DIFF-BASED FIELD UPDATES
+// Only add/remove changed fields for smooth transitions
+// ═══════════════════════════════════════════════════════════════════════════════
+
+async function updateFieldsDiff(existing: Element, incoming: Element): Promise<void> {
+  const existingRows = existing.querySelectorAll('.compare-field-row[data-field-key]');
+  const incomingRows = incoming.querySelectorAll('.compare-field-row[data-field-key]');
+  
+  // Build maps of field keys
+  const existingKeys = new Map<string, Element>();
+  existingRows.forEach(row => {
+    const key = row.getAttribute('data-field-key');
+    if (key) existingKeys.set(key, row);
+  });
+  
+  const incomingKeys = new Map<string, Element>();
+  incomingRows.forEach(row => {
+    const key = row.getAttribute('data-field-key');
+    if (key) incomingKeys.set(key, row);
+  });
+  
+  // Find fields to remove (in existing but not in incoming)
+  const toRemove: Element[] = [];
+  existingKeys.forEach((row, key) => {
+    if (!incomingKeys.has(key)) {
+      toRemove.push(row);
+    }
+  });
+  
+  // Find fields to add (in incoming but not in existing)
+  const toAdd: Element[] = [];
+  incomingKeys.forEach((row, key) => {
+    if (!existingKeys.has(key)) {
+      toAdd.push(row);
+    }
+  });
+  
+  // Instant removal - no animation delay
+  toRemove.forEach(row => row.remove());
+  
+  // Add new fields instantly with brief fade
+  for (const row of toAdd) {
+    row.classList.add('is-adding');
+    existing.appendChild(row);
+  }
+  
+  // Quick reflow and remove class
+  if (toAdd.length > 0) {
+    void existing.offsetHeight;
+    requestAnimationFrame(() => {
+      existing.querySelectorAll('.is-adding').forEach(el => {
+        el.classList.remove('is-adding');
+      });
+    });
+  }
+  
+  debug.compare('Fields diff update', { removed: toRemove.length, added: toAdd.length });
 }
 
 function highlightSpecies(species: string): void {

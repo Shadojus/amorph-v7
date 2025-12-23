@@ -2932,12 +2932,21 @@
   scrollbar-width: thin;
   scrollbar-color: rgba(var(--system-rgb), 0.3) transparent;
   /* Smooth transitions for seamless updates */
-  transition: opacity 0.15s ease;
+  transition: opacity 0.1s ease;
 }
 
 .compare-content.is-updating {
-  opacity: 0.3;
+  opacity: 0.5;
   pointer-events: none;
+}
+
+/* Fields container - partial update animation */
+.compare-fields {
+  transition: opacity 0.1s ease;
+}
+
+.compare-fields.is-updating {
+  opacity: 0.3;
 }
 
 .compare-content::-webkit-scrollbar {

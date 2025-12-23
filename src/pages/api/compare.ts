@@ -119,13 +119,13 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
     };
   });
   
-  // Render each field group
-  let html = '<div class="compare-fields">';
+  // Render structure: Legend separate from Fields for partial updates
+  let html = '';
   
-  // Add item legend with remove buttons
+  // Add item legend with remove buttons (separate container)
   // Single item mode: simplified legend without remove button
   const isSingleItem = uniqueItems.length === 1;
-  html += `<div class="compare-legend${isSingleItem ? ' is-single' : ''}">`;
+  html += `<div class="compare-legend${isSingleItem ? ' is-single' : ''}" data-item-count="${uniqueItems.length}">`;
   for (const [slug, color] of itemColors) {
     const field = fields.find(f => f.itemSlug === slug);
     const name = field?.itemName || slug;
@@ -142,9 +142,14 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
   }
   html += '</div>';
   
+  // Add fields container (separate for partial updates)
+  html += '<div class="compare-fields">';
+  
   // Add each field row with proper Compare rendering
+  // Include unique key for diff-based updates
   for (const [fieldName, fieldValues] of grouped) {
-    html += `<div class="compare-field-row">`;
+    const fieldKey = fieldValues.map(f => `${f.itemSlug}:${f.fieldName}`).sort().join('|');
+    html += `<div class="compare-field-row" data-field-key="${escapeAttribute(fieldKey)}">`;
     html += `<div class="field-name">${escapeHtml(fieldName)}</div>`;
     html += `<div class="field-values">`;
     
