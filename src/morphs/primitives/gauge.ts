@@ -82,13 +82,13 @@ export const gauge = createUnifiedMorph(
     }).join('') : '';
     
     return `
-      <div class="morph-gauge morph-gauge--${zoneClass}">
-        <div class="morph-gauge-track">
+      <div class="morph-gauge morph-gauge--${zoneClass}" role="meter" aria-valuenow="${val}" aria-valuemin="${min}" aria-valuemax="${max}" aria-label="Gauge: ${formatNumber(val)}${unit}">
+        <div class="morph-gauge-track" aria-hidden="true">
           ${zoneSegments}
           <div class="morph-gauge-fill" style="width: ${pct}%"></div>
           <div class="morph-gauge-marker" style="left: ${pct}%"></div>
         </div>
-        <div class="morph-gauge-labels">
+        <div class="morph-gauge-labels" aria-hidden="true">
           <span class="morph-gauge-min">${formatNumber(min)}${unit}</span>
           <span class="morph-gauge-value">${formatNumber(val)}${unit}</span>
           <span class="morph-gauge-max">${formatNumber(max)}${unit}</span>

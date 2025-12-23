@@ -46,8 +46,8 @@ export const rating = createUnifiedMorph(
     const normalized = dataMax > 0 ? (rawRating / dataMax) * 5 : 0;
     
     return `
-      <div class="morph-rating" title="${rawRating} von ${dataMax}">
-        <span class="rating-stars">${renderStars(normalized)}</span>
+      <div class="morph-rating" role="img" aria-label="Rating: ${rawRating} von ${dataMax}" title="${rawRating} von ${dataMax}">
+        <span class="rating-stars" aria-hidden="true">${renderStars(normalized)}</span>
         <span class="morph-rating-value">${rawRating}/${dataMax}</span>
       </div>
     `;

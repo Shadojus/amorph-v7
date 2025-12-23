@@ -60,8 +60,8 @@ function applySelectionColor(field: HTMLElement, color: string): void {
   if (rgbaMatch) {
     const [, r, g, b] = rgbaMatch;
     field.style.setProperty('--selection-color', `rgba(${r}, ${g}, ${b}, 0.9)`);
-    field.style.setProperty('--selection-bg', `rgba(${r}, ${g}, ${b}, 0.15)`);
-    field.style.setProperty('--selection-border', `rgba(${r}, ${g}, ${b}, 0.5)`);
+    field.style.setProperty('--selection-bg', `rgba(${r}, ${g}, ${b}, 0.04)`);
+    field.style.setProperty('--selection-border', `rgba(${r}, ${g}, ${b}, 0.64)`);
   } else {
     // Fallback for other color formats
     field.style.setProperty('--selection-color', color);

@@ -13,8 +13,8 @@ export const boolean = createUnifiedMorph(
   (value) => {
     const bool = parseBoolean(value);
     return `
-      <span class="morph-boolean morph-boolean-${bool ? 'true' : 'false'}">
-        <span class="bool-icon">${bool ? '✓' : '✗'}</span>
+      <span class="morph-boolean morph-boolean-${bool ? 'true' : 'false'}" role="img" aria-label="${bool ? 'Yes' : 'No'}">
+        <span class="bool-icon" aria-hidden="true">${bool ? '✓' : '✗'}</span>
       </span>
     `;
   },

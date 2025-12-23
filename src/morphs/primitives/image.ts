@@ -31,8 +31,8 @@ export const image = createUnifiedMorph(
   'image',
   (value) => {
     const src = sanitizeImageSrc(extractSrc(value));
-    if (!src) return '<span class="morph-image-blocked">[Blocked URL]</span>';
-    return `<img class="morph-image" src="${escapeHtml(src)}" alt="" loading="lazy" />`;
+    if (!src) return '<span class="morph-image-blocked" role="img" aria-label="Image blocked">[Blocked URL]</span>';
+    return `<img class="morph-image" src="${escapeHtml(src)}" alt="Image" loading="lazy" />`;
   },
   // Compare: Grid of images
   (values) => `

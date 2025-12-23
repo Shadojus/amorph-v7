@@ -180,7 +180,56 @@
 
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   6. ITEM COLOR SYSTEM (für Compare-Mode)
+   6. FLEX UTILITY CLASSES - Reduziert CSS-Redundanz
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Flex Container */
+.flex { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1; }
+.flex-shrink-0 { flex-shrink: 0; }
+
+/* Alignment */
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.items-baseline { align-items: baseline; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+
+/* Gap Utilities (8px base) */
+.gap-1 { gap: 0.25rem; }   /* 4px */
+.gap-2 { gap: 0.5rem; }    /* 8px */
+.gap-3 { gap: 0.75rem; }   /* 12px */
+.gap-4 { gap: 1rem; }      /* 16px */
+.gap-5 { gap: 1.25rem; }   /* 20px */
+.gap-6 { gap: 1.5rem; }    /* 24px */
+
+/* Common Flex Patterns */
+.flex-row-center {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.flex-col-gap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   7. ITEM COLOR SYSTEM (für Compare-Mode)
    Erlaubt individuelle Farben per Item via --item-color Variable
    ═══════════════════════════════════════════════════════════════════════════════ */
 

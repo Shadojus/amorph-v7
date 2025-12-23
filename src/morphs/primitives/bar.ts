@@ -33,13 +33,13 @@ export const bar = createUnifiedMorph(
     const max = Math.max(...parsed.map(d => d.value), 1);
     
     return `
-      <div class="morph-bar">
+      <div class="morph-bar" role="img" aria-label="Bar chart with ${parsed.length} items">
         ${parsed.map(({ label, value: val }) => {
           const pct = (val / max) * 100;
           return `
-            <div class="morph-bar-item">
+            <div class="morph-bar-item" role="listitem" aria-label="${escapeHtml(label || 'Value')}: ${formatNumber(val)}">
               ${label ? `<span class="morph-bar-label">${escapeHtml(label)}</span>` : ''}
-              <div class="morph-bar-track">
+              <div class="morph-bar-track" role="progressbar" aria-valuenow="${val}" aria-valuemin="0" aria-valuemax="${max}">
                 <div class="morph-bar-fill" style="width: ${pct}%"></div>
               </div>
               <span class="morph-bar-value">${formatNumber(val)}</span>

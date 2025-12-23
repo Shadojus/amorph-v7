@@ -99,8 +99,20 @@ function initBottomNav(): void {
   const bottomNav = document.querySelector<HTMLElement>('.bottom-nav');
   if (!bottomNav) return;
   
+  const searchNavItem = bottomNav.querySelector<HTMLElement>('[data-nav="search"]');
   const compareNavItem = bottomNav.querySelector<HTMLElement>('[data-nav="compare"]');
   const badge = compareNavItem?.querySelector('.bottom-nav-badge');
+  
+  // Search button - focuses search input
+  searchNavItem?.addEventListener('click', () => {
+    const searchInput = document.querySelector<HTMLInputElement>('.search-input-main');
+    if (searchInput) {
+      searchInput.focus();
+      searchInput.select();
+      // Smooth scroll to top where search is
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
   
   // Compare button in bottom nav
   compareNavItem?.addEventListener('click', () => {
@@ -144,12 +156,14 @@ function updateBottomNavState(): void {
   const bottomNav = document.querySelector<HTMLElement>('.bottom-nav');
   if (!bottomNav) return;
   
+  const searchItem = bottomNav.querySelector('[data-nav="search"]');
   const homeItem = bottomNav.querySelector('[data-nav="home"]');
   const compareItem = bottomNav.querySelector('[data-nav="compare"]');
   
   const compareOpen = isCompareOpen();
   
   // Toggle active states
+  searchItem?.classList.toggle('is-active', !compareOpen);
   homeItem?.classList.toggle('is-active', !compareOpen);
   compareItem?.classList.toggle('is-active', compareOpen);
 }
@@ -161,12 +175,19 @@ function updateBottomNavState(): void {
 let activeObservers: ReturnType<typeof setupObservers> = [];
 
 function initObservers(): void {
-  // Standardmäßig AKTIVIERT für Entwicklung
-  // Deaktivieren mit: localStorage.setItem('amorph:observers', 'false')
-  const isDisabled = localStorage.getItem('amorph:observers') === 'false';
+  // Production: Standardmäßig DEAKTIVIERT
+  // Aktivieren mit: localStorage.setItem('amorph:observers', 'true')
+  // Oder: ?observe=true in URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const urlOverride = urlParams.get('observe');
+  const localSetting = localStorage.getItem('amorph:observers');
   
-  if (isDisabled) {
-    debug.amorph('Observers disabled (localStorage "amorph:observers" = false)');
+  // URL-Parameter hat Priorität, dann localStorage, dann false als Default
+  const isEnabled = urlOverride === 'true' || 
+    (urlOverride !== 'false' && localSetting === 'true');
+  
+  if (!isEnabled) {
+    debug.amorph('Observers disabled (enable with localStorage "amorph:observers" = true or ?observe=true)');
     return;
   }
   

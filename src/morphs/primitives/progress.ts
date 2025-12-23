@@ -29,11 +29,11 @@ export const progress = createUnifiedMorph(
     const pct = max > 0 ? Math.min(100, Math.max(0, (rawValue / max) * 100)) : 0;
     
     return `
-      <div class="morph-progress">
+      <div class="morph-progress" role="progressbar" aria-valuenow="${rawValue}" aria-valuemin="0" aria-valuemax="${max}" aria-label="Progress: ${rawValue}${unit}">
         <div class="morph-progress-bar">
           <div class="morph-progress-fill" style="width: ${pct}%"></div>
         </div>
-        <span class="morph-progress-value">${rawValue}${unit}</span>
+        <span class="morph-progress-value" aria-hidden="true">${rawValue}${unit}</span>
       </div>
     `;
   },
