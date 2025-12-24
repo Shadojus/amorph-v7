@@ -576,73 +576,7 @@
   color: var(--text-muted);
 }
 
-/* ─────────────────────────────────────────────────────────────────────────────
-   SELECTION BAR - Black Glass (System Variables)
-   ───────────────────────────────────────────────────────────────────────────── */
-.selection-bar {
-  position: fixed;
-  bottom: var(--space-lg);
-  left: 50%;
-  transform: translateX(-50%) translateY(100px);
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  padding: var(--space-md) var(--space-lg);
-  background: var(--glass-bg-solid);
-  border: 1px solid var(--glass-border-hover);
-  border-top-color: var(--glass-border-light);
-  border-radius: var(--radius-xl);
-  box-shadow: 
-    var(--glass-reflection-strong),
-    var(--glass-shadow-glow);
-  z-index: var(--z-fixed);
-  opacity: 0;
-  visibility: hidden;
-  transition: all var(--transition-bounce);
-}
-
-.selection-bar.active,
-.selection-bar.is-visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-}
-
-.selection-bar-count {
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--system);
-}
-
-.selection-bar-items {
-  display: flex;
-  gap: var(--space-xs);
-}
-
-.selection-bar-item {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  border: 2px solid transparent;
-  transition: border-color var(--transition-fast);
-}
-
-.selection-bar-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.selection-bar-item[class*="pilz-"] {
-  border-color: rgb(var(--pilz-rgb));
-  box-shadow: 0 0 10px rgba(var(--pilz-rgb), 0.3);
-}
-
-.selection-bar-actions {
-  display: flex;
-  gap: var(--space-sm);
-}
+/* Legacy Selection Bar styles removed - see new styles below AMORPH PAGE COMPONENTS */
 
 /* ─────────────────────────────────────────────────────────────────────────────
    COMPARE PANEL
