@@ -8,7 +8,8 @@ export default defineConfig({
   }),
   
   server: {
-    port: 4323
+    port: 4321,
+    host: true
   },
   
   vite: {

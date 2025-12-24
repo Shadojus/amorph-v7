@@ -42,17 +42,17 @@ COPY --from=builder --chown=astro:nodejs /app/public ./public
 # Set environment
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
-ENV PORT=4323
+ENV PORT=4321
 
 # Switch to non-root user
 USER astro
 
 # Expose port
-EXPOSE 4323
+EXPOSE 4321
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:4323/ || exit 1
+  CMD wget --no-verbose --tries=1 --spider http://localhost:4321/ || exit 1
 
 # Start the server
 CMD ["node", "dist/server/entry.mjs"]
