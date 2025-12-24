@@ -1,4 +1,4 @@
-name: Therionomi
+name: Drakonomi
 beschreibung: Tier-Wissenssammlung
 version: 1.0.0
 sprache: de
@@ -16,4 +16,4 @@ branding:
     
 # === FARBEN ===
 farben:
-  palette: therionomi  # Magenta Pink
+  palette: drakonomi  # Magenta Pink

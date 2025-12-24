@@ -55,7 +55,7 @@ body {
      MULTI-SITE COLOR SYSTEM - Bio Species Farben
      Funginomi: Psychedelic Blue (Pilze/Biolumineszenz)
      Phytonomi: Jade Green (Pflanzen/Chlorophyll)
-     Therionomi:   Turquoise Cyan (Tiere/Ozean)
+     Drakonomi:   Turquoise Cyan (Tiere/Ozean)
      ═══════════════════════════════════════════════════════════════════════════ */
   
   /* Site: Funginomi - Psychedelic Blue (Pilz-Biolumineszenz) */
@@ -74,13 +74,13 @@ body {
   --site-phytonomi-rgb: 51, 179, 128;
   --site-phytonomi-muted: hsl(160, 35%, 42%);
   
-  /* Site: Therionomi - Magenta Pink (Dritte Bio-Farbe) */
-  --site-therionomi-h: 320;
-  --site-therionomi-s: 80%;
-  --site-therionomi-l: 65%;
-  --site-therionomi: hsl(320, 80%, 65%);
-  --site-therionomi-rgb: 235, 77, 180;
-  --site-therionomi-muted: hsl(320, 40%, 50%);
+  /* Site: Drakonomi - Magenta Pink (Dritte Bio-Farbe) */
+  --site-drakonomi-h: 320;
+  --site-drakonomi-s: 80%;
+  --site-drakonomi-l: 65%;
+  --site-drakonomi: hsl(320, 80%, 65%);
+  --site-drakonomi-rgb: 235, 77, 180;
+  --site-drakonomi-muted: hsl(320, 40%, 50%);
 
   
   /* ACTIVE SITE - Funginomi (Standard) */
@@ -116,14 +116,14 @@ body {
   --system-dark-rgb: 40, 140, 100;
 }
 
-/* Site: Therionomi - Magenta Pink (Tiere) */
+/* Site: Drakonomi - Magenta Pink (Tiere) */
 [data-site="therion"],
-[data-site="therionomi"] {
-  --system-h: var(--site-therionomi-h);
-  --system-s: var(--site-therionomi-s);
-  --system-l: var(--site-therionomi-l);
-  --system: var(--site-therionomi);
-  --system-rgb: var(--site-therionomi-rgb);
+[data-site="drakonomi"] {
+  --system-h: var(--site-drakonomi-h);
+  --system-s: var(--site-drakonomi-s);
+  --system-l: var(--site-drakonomi-l);
+  --system: var(--site-drakonomi);
+  --system-rgb: var(--site-drakonomi-rgb);
   --system-light-rgb: 245, 130, 200;
   --system-dark-rgb: 180, 60, 140;
 }
@@ -142,7 +142,7 @@ body {
 }
 
 [data-site="therion"] body,
-[data-site="therionomi"] body {
+[data-site="drakonomi"] body {
   background-image: 
     linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
     radial-gradient(ellipse 120% 100% at -15% 30%, rgba(150, 25, 100, 0.5) 0%, rgba(120, 18, 80, 0.25) 30%, transparent 55%),

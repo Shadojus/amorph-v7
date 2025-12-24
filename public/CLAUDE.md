@@ -58,7 +58,7 @@ z-index: 200    /* Header */
 ```css
 --site-funginomi-rgb: 77, 136, 255;   /* Psychedelic Blue */
 --site-phytonomi-rgb: 51, 179, 128;   /* Jade Green */
---site-therionomi-rgb: 235, 77, 180;  /* Magenta Pink */
+--site-drakonomi-rgb: 235, 77, 180;  /* Magenta Pink */
 --system-rgb: var(--site-funginomi-rgb); /* Active Site */
 ```
 

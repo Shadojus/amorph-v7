@@ -16,7 +16,7 @@
 Drei Bio-Spezies Sites mit eigenem Farbsystem:
 - **Funginomi** (Psychedelic Blue) - Pilze & Fungi
 - **Phytonomi** (Jade Green) - Pflanzen & Flora  
-- **Therionomi** (Magenta Pink) - Tiere & Fauna
+- **Drakonomi** (Magenta Pink) - Tiere & Fauna
 
 ### Design Features
 - **Black Glass Morphism** - Transparentes Schwarz mit blauen Kanten
@@ -106,7 +106,7 @@ localStorage.setItem('amorph:observers', 'false')  // Observer aus
 ### Farb-System
 | System | Verwendung | Farben |
 |--------|------------|--------|
-| **Site Colors** | Multi-Site Branding | Funginomi Blue, Phytonomi Jade, Therionomi Magenta |
+| **Site Colors** | Multi-Site Branding | Funginomi Blue, Phytonomi Jade, Drakonomi Magenta |
 | **Perspektiven** | Datenkategorien | 15 matte Pastell-Töne |
 | **Bio-Lumineszenz** | Compare-Ansicht | 8 leuchtende Farben |
 
