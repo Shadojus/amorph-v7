@@ -7,6 +7,9 @@ export default defineConfig({
     mode: 'standalone'
   }),
   
+  // Verhindert Redirect-Loop
+  trailingSlash: 'ignore',
+  
   server: {
     port: 4321,
     host: true
