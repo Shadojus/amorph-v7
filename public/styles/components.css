@@ -1146,18 +1146,18 @@
   pointer-events: none;
   overflow: hidden;
   z-index: 1;
-  /* Maske: Nebel endet beim Bifröst Portal (~rechte 100px sind maskiert) */
+  /* Maske: Nebel endet genau am schwarzen Loch (rechte ~80px) */
   -webkit-mask-image: linear-gradient(
     to right,
     black 0%,
-    black calc(100% - 120px),
-    transparent calc(100% - 40px)
+    black calc(100% - 100px),
+    transparent calc(100% - 20px)
   );
   mask-image: linear-gradient(
     to right,
     black 0%,
-    black calc(100% - 120px),
-    transparent calc(100% - 40px)
+    black calc(100% - 100px),
+    transparent calc(100% - 20px)
   );
 }
 
@@ -1211,7 +1211,7 @@
   );
 }
 
-/* Nebel Animation - Fließt zum Bifröst Portal und wird vom schwarzen Loch verschluckt */
+/* Nebel Animation - Fließt zum schwarzen Loch und wird verschluckt */
 @keyframes nebula-flow {
   0% {
     opacity: 0;
@@ -1225,22 +1225,22 @@
   }
   50% {
     opacity: 0.5;
-    transform: translateX(calc(50vw - var(--start-x, 0%))) scaleX(0.5) scaleY(0.8);
+    transform: translateX(calc(55vw - var(--start-x, 0%))) scaleX(0.5) scaleY(0.8);
     filter: blur(15px);
   }
   75% {
-    opacity: 0.35;
-    transform: translateX(calc(65vw - var(--start-x, 0%))) scaleX(0.25) scaleY(0.5);
+    opacity: 0.4;
+    transform: translateX(calc(70vw - var(--start-x, 0%))) scaleX(0.3) scaleY(0.5);
     filter: blur(10px);
   }
   90% {
-    opacity: 0.2;
-    transform: translateX(calc(72vw - var(--start-x, 0%))) scaleX(0.1) scaleY(0.3);
+    opacity: 0.25;
+    transform: translateX(calc(80vw - var(--start-x, 0%))) scaleX(0.15) scaleY(0.3);
     filter: blur(6px);
   }
   100% {
     opacity: 0;
-    transform: translateX(calc(78vw - var(--start-x, 0%))) scaleX(0) scaleY(0);
+    transform: translateX(calc(88vw - var(--start-x, 0%))) scaleX(0) scaleY(0);
     filter: blur(2px);
   }
 }
@@ -1463,7 +1463,7 @@
   filter: brightness(1.2);
 }
 
-/* Vortex / Black Hole Effekt - Verschluckt den Nebel */
+/* Vortex / Black Hole Effekt - Minimalistisch, nur rotierender Ring */
 .bifroest-vortex {
   position: absolute;
   right: 12px;
@@ -1472,114 +1472,53 @@
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  /* Echtes tiefes Schwarz im Zentrum - Event Horizon */
+  /* Tiefes Schwarz im Zentrum */
   background: 
     radial-gradient(
       circle at center,
       #000000 0%,
-      #000000 30%,
-      #0a0a10 45%,
-      rgba(20, 20, 35, 0.8) 60%,
-      transparent 75%
+      #000000 40%,
+      #050508 55%,
+      transparent 70%
     );
-  box-shadow:
-    /* Inner darkness */
-    inset 0 0 10px rgba(0, 0, 0, 1),
-    inset 0 0 20px rgba(0, 0, 0, 0.8),
-    /* Accretion disk glow - Farben der drei Sites */
-    0 0 8px rgba(77, 136, 255, 0.4),
-    0 0 16px rgba(51, 179, 128, 0.3),
-    0 0 24px rgba(32, 201, 191, 0.2),
-    0 0 40px rgba(100, 150, 200, 0.15);
-  animation: vortex-pulse 3s ease-in-out infinite;
-  /* Über allem */
+  /* Kein pulsierendes Leuchten, nur statischer Schatten */
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 1);
   z-index: 20;
 }
 
-/* Accretion Disk Ring um das schwarze Loch */
+/* Accretion Disk Ring - Rotiert langsam */
 .bifroest-vortex::before {
   content: '';
   position: absolute;
-  inset: -4px;
+  inset: -3px;
   border-radius: 50%;
   background: conic-gradient(
     from 0deg,
     transparent,
-    rgba(77, 136, 255, 0.3),
+    rgba(77, 136, 255, 0.35),
     transparent,
-    rgba(51, 179, 128, 0.3),
+    rgba(51, 179, 128, 0.35),
     transparent,
-    rgba(32, 201, 191, 0.3),
+    rgba(32, 201, 191, 0.35),
     transparent
   );
-  animation: accretion-spin 4s linear infinite;
-  opacity: 0.6;
+  animation: accretion-spin 6s linear infinite;
+  opacity: 0.7;
 }
 
-/* Gravitational Lensing Effekt */
+/* Kein Lensing-Effekt mehr */
 .bifroest-vortex::after {
-  content: '';
-  position: absolute;
-  inset: -8px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at center,
-    transparent 40%,
-    rgba(100, 150, 200, 0.08) 60%,
-    transparent 80%
-  );
-  animation: lens-pulse 2s ease-in-out infinite alternate;
-}
-
-.bifroest-portal:hover .bifroest-vortex {
-  animation: vortex-spin 2s linear infinite, vortex-pulse 3s ease-in-out infinite;
+  display: none;
 }
 
 .bifroest-portal:hover .bifroest-vortex::before {
   opacity: 1;
-  animation: accretion-spin 2s linear infinite;
+  animation: accretion-spin 3s linear infinite;
 }
 
 @keyframes accretion-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
-
-@keyframes lens-pulse {
-  from { transform: scale(1); opacity: 0.5; }
-  to { transform: scale(1.1); opacity: 0.8; }
-}
-
-@keyframes vortex-pulse {
-  0%, 100% {
-    transform: translateY(-50%) scale(1);
-    box-shadow:
-      inset 0 0 10px rgba(0, 0, 0, 1),
-      inset 0 0 20px rgba(0, 0, 0, 0.8),
-      0 0 8px rgba(77, 136, 255, 0.4),
-      0 0 16px rgba(51, 179, 128, 0.3),
-      0 0 24px rgba(32, 201, 191, 0.2),
-      0 0 40px rgba(100, 150, 200, 0.15);
-  }
-  50% {
-    transform: translateY(-50%) scale(1.1);
-    box-shadow:
-      inset 0 0 15px rgba(0, 0, 0, 1),
-      inset 0 0 25px rgba(0, 0, 0, 0.9),
-      0 0 12px rgba(77, 136, 255, 0.5),
-      0 0 24px rgba(51, 179, 128, 0.4),
-      0 0 36px rgba(32, 201, 191, 0.3),
-      0 0 50px rgba(100, 150, 200, 0.2);
-  }
-}
-
-@keyframes vortex-spin {
-  from {
-    filter: hue-rotate(0deg);
-  }
-  to {
-    filter: hue-rotate(360deg);
-  }
 }
 
 /* Mobile: Bifröst kompakter */
@@ -2470,42 +2409,32 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   SELECTION BAR - Zeigt ausgewählte Spezies über der Bottom-Nav
-   Auf gleicher Z-Ebene wie Bottom-Nav, immer sichtbar wenn Items ausgewählt
+   SELECTION BAR - Minimalistisch schwebende Spezies-Buttons
+   Über der Bottom-Nav, nur Buttons mit Bio-Farben
    ───────────────────────────────────────────────────────────────────────────── */
 .selection-bar {
   position: fixed;
-  bottom: 72px; /* Direkt über Bottom-Nav (60px) + kleiner Abstand */
+  bottom: 72px;
   left: 50%;
   transform: translateX(-50%) translateY(20px);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.5rem 0.875rem;
-  max-width: calc(100vw - 1.5rem);
-  /* Black Glass Morphism - passend zur Bottom-Nav */
-  background: rgba(12, 14, 22, 0.98);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.05),
-    0 -4px 20px rgba(0, 0, 0, 0.4),
-    0 4px 16px rgba(0, 0, 0, 0.3);
+  /* Kein Hintergrund - nur schwebende Pills */
+  background: transparent;
+  border: none;
+  padding: 0;
   opacity: 0;
   visibility: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 10002; /* Über Bottom-Nav (10001) */
+  z-index: 10002;
 }
 
 /* Desktop: Anpassung für größere Bottom-Nav */
 @media (min-width: 768px) {
   .selection-bar {
-    bottom: 82px; /* Über größerer Desktop Bottom-Nav (68px) + Abstand */
-    max-width: 500px;
-    padding: 0.5rem 1rem;
+    bottom: 82px;
   }
 }
 
@@ -2519,30 +2448,39 @@
 .selection-pills {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.5rem;
-  flex: 1;
 }
 
-/* Selection Pill - Spezies mit Neon-Farbe */
+/* Selection Pill - Schwebender Button mit Bio-Farbe */
 .selection-pill {
-  --pill-color: rgba(77, 136, 255, 0.75);
-  display: flex;
+  --pill-color: rgba(77, 136, 255, 0.9);
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.375rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   font-size: 0.8125rem;
   font-weight: 500;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid color-mix(in srgb, var(--pill-color) 40%, transparent);
-  border-radius: 6px;
-  color: rgba(255, 255, 255, 0.95);
+  /* Dark Glass mit farbigem Rand */
+  background: rgba(8, 10, 16, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--pill-color);
+  border-radius: 20px;
+  color: var(--pill-color);
   cursor: pointer;
-  transition: all 0.15s ease;
+  transition: all 0.2s ease;
+  box-shadow: 
+    0 0 12px color-mix(in srgb, var(--pill-color) 30%, transparent),
+    0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 .selection-pill:hover {
-  background: rgba(0, 0, 0, 0.6);
-  border-color: color-mix(in srgb, var(--pill-color) 60%, transparent);
+  background: rgba(12, 14, 22, 0.95);
+  box-shadow: 
+    0 0 16px color-mix(in srgb, var(--pill-color) 50%, transparent),
+    0 4px 16px rgba(0, 0, 0, 0.5);
+  transform: translateY(-2px);
 }
 
 /* Farbiger Punkt vor dem Namen */
@@ -2551,7 +2489,7 @@
   height: 8px;
   border-radius: 50%;
   background: var(--pill-color);
-  box-shadow: 0 0 6px var(--pill-color);
+  box-shadow: 0 0 8px var(--pill-color);
   flex-shrink: 0;
 }
 
@@ -2568,15 +2506,21 @@
   justify-content: center;
   font-size: 0.875rem;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
   margin-left: 0.125rem;
   border-radius: 50%;
   transition: all 0.15s ease;
 }
 
 .pill-remove:hover {
-  background: rgba(255, 80, 80, 0.25);
+  background: rgba(255, 80, 80, 0.3);
   color: #ff6b6b;
+}
+
+/* Selection count and clear - versteckt für minimalistisches Design */
+.selection-count,
+.selection-clear {
+  display: none;
 }
 
 .selection-count {
