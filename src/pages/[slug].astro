@@ -19,9 +19,10 @@ import { validateSlug } from '../core/security';
 // Get and validate slug from URL
 const rawSlug = Astro.params.slug;
 
-// Wenn kein slug vorhanden ist (z.B. bei "/"), zur index.astro weiterleiten
-if (!rawSlug || rawSlug === '' || rawSlug === 'index') {
-  return Astro.rewrite('/index');
+// Wenn kein slug vorhanden ist, 404 zurückgeben
+// (Astro sollte "/" automatisch zu index.astro routen)
+if (!rawSlug || rawSlug === '') {
+  return new Response(null, { status: 404 });
 }
 
 const slug = validateSlug(rawSlug);
