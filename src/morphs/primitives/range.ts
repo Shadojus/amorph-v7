@@ -112,7 +112,7 @@ export const range = createUnifiedMorph(
             // Show avg if available
             const avgStr = r.avg !== undefined ? ` (Ø ${smartFormat(r.avg)})` : '';
             return `
-              <div class="range-row" style="--item-color: ${escapeHtml(color)}">
+              <div class="range-row" data-species="${escapeHtml(item.name)}" style="--item-color: ${escapeHtml(color)}">
                 <div class="range-track">
                   <div class="range-fill" style="left: ${left}%; width: ${width}%"></div>
                 </div>

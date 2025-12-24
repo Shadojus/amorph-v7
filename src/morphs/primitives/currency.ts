@@ -81,14 +81,15 @@ export const currency = createUnifiedMorph(
     
     return `
       <div class="morph-currency-compare">
-        ${values.map(({ value, color }) => {
+        ${values.map(({ value, color, item }) => {
           const data = parseCurrency(value);
           const formatted = formatCurrency(data.amount, data.currency);
           const pct = Math.abs(data.amount) / max * 100;
           const isNegative = data.amount < 0;
+          const name = item.name || item.id;
           
           return `
-            <div class="currency-row ${isNegative ? 'currency-row--negative' : ''}" style="--item-color: ${escapeHtml(color)}">
+            <div class="currency-row ${isNegative ? 'currency-row--negative' : ''}" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(color)}">
               <div class="currency-bar" style="width: ${pct}%"></div>
               <span class="currency-val">${escapeHtml(formatted)}</span>
             </div>

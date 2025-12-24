@@ -72,11 +72,12 @@ export const lifecycle = createUnifiedMorph(
             <div class="lifecycle-phase-row">
               <span class="lifecycle-phase-label">${escapeHtml(phaseName)}</span>
               <div class="lifecycle-phase-values">
-                ${values.map(({ value, color }) => {
+                ${values.map(({ item, value, color }) => {
                   const phases = Array.isArray(value) ? value : [value];
                   const phase = phases.map(parsePhase).find(p => p.phase === phaseName);
+                  const name = item.name || item.id;
                   return `
-                    <div class="lifecycle-cell" style="--item-color: ${escapeHtml(color)}">
+                    <div class="lifecycle-cell" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(color)}">
                       ${phase ? `
                         <span class="cmp-dot ${phase.active ? 'cmp-dot--active' : 'cmp-dot--muted'}"></span>
                         ${phase.duration ? `<span class="lifecycle-duration">${escapeHtml(phase.duration)}</span>` : '-'}

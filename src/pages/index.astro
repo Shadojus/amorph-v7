@@ -199,6 +199,11 @@ const gridContext: RenderContext = {
         const fieldPerspectiveMap = item._fieldPerspective || {};
         const fieldPerspectiveJson = JSON.stringify(fieldPerspectiveMap);
         
+        // Bild-URL: wissenschaftlicher Name (lateinisch) als Dateiname
+        // Format: /images/species/[wissenschaftlich].webp
+        const scientificName = item.wissenschaftlich ? String(item.wissenschaftlich).toLowerCase().replace(/\s+/g, '-') : null;
+        const imageUrl = scientificName ? `/images/species/${scientificName}.webp` : (item.bild ? String(item.bild) : null);
+        
         return (
           <article 
             class="amorph-item"
@@ -208,9 +213,9 @@ const gridContext: RenderContext = {
             data-field-perspectives={fieldPerspectiveJson}
           >
             <div class="item-header">
-              {item.bild && (
+              {imageUrl && (
                 <div class="item-image">
-                  <img src={String(item.bild)} alt={item.name} loading="lazy" />
+                  <img src={imageUrl} alt={item.name} loading="lazy" />
                 </div>
               )}
               <div class="item-title-row">

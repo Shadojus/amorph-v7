@@ -366,19 +366,65 @@ body {
 /* ─────────────────────────────────────────────────────────────────────────────
    SPEZIES-HIGHLIGHT SYSTEM
    Interaktive Verknüpfung zwischen Morphs - gleiche Spezies leuchtet auf
+   Dimmt ALLE Elemente (Labels, Werte, Morphs) außer der ausgewählten Spezies
    ───────────────────────────────────────────────────────────────────────────── */
 [data-species] {
   transition: opacity 0.3s ease, filter 0.3s ease, transform 0.2s ease;
 }
 
-/* Wenn eine Spezies aktiv ist, andere dimmen */
+/* Wenn eine Spezies aktiv ist, ALLES dimmen was nicht markiert ist */
 .species-highlight-active [data-species]:not(.species-highlighted) {
-  opacity: 0.25;
-  filter: grayscale(0.5);
+  opacity: 0.2;
+  filter: grayscale(0.6);
+}
+
+/* Auch die Field-Values dimmen die nicht zur Spezies gehören */
+.species-highlight-active .field-value-item:not(.species-highlighted) {
+  opacity: 0.2;
+  filter: grayscale(0.6);
+}
+
+/* Radar Legend Items dimmen */
+.species-highlight-active .radar-legend-item:not(.species-highlighted) {
+  opacity: 0.2;
+  filter: grayscale(0.6);
+}
+
+/* Sparkline Legend Items dimmen */
+.species-highlight-active .sparkline-legend-item:not(.species-highlighted) {
+  opacity: 0.2;
+  filter: grayscale(0.6);
+}
+
+/* Timeline Legend Items dimmen */
+.species-highlight-active .timeline-legend-item:not(.species-highlighted) {
+  opacity: 0.2;
+  filter: grayscale(0.6);
+}
+
+/* Compare Field Rows - Werte ohne data-species dimmen basierend auf Item-Label */
+.species-highlight-active .compare-field-row .item-label {
+  transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Labels in den Morphs (Radar, etc.) die zur Spezies gehören hervorheben */
+.species-highlight-active .item-label {
+  opacity: 0.3;
+}
+
+.species-highlight-active .field-value-item.species-highlighted .item-label,
+.species-highlight-active [data-species].species-highlighted .item-label {
+  opacity: 1 !important;
+  color: var(--item-color) !important;
+  text-shadow: 0 0 8px var(--item-color);
 }
 
 /* Hervorgehobene Spezies leuchtet auf */
-[data-species].species-highlighted {
+[data-species].species-highlighted,
+.field-value-item.species-highlighted,
+.radar-legend-item.species-highlighted,
+.sparkline-legend-item.species-highlighted,
+.timeline-legend-item.species-highlighted {
   opacity: 1 !important;
   filter: none !important;
   z-index: 5;
@@ -388,18 +434,25 @@ body {
 [data-species].species-highlighted .bar-fill,
 [data-species].species-highlighted .progress-fill,
 [data-species].species-highlighted .radar-area-compare,
-[data-species].species-highlighted .cmp-fill {
-  filter: drop-shadow(0 0 6px var(--item-color));
+[data-species].species-highlighted .cmp-fill,
+.field-value-item.species-highlighted .morph-bar-fill {
+  filter: drop-shadow(0 0 8px var(--item-color));
 }
 
 [data-species].species-highlighted .tag,
-[data-species].species-highlighted .morph-badge {
-  box-shadow: 0 0 8px var(--item-color);
+[data-species].species-highlighted .morph-badge,
+.field-value-item.species-highlighted .tag,
+.field-value-item.species-highlighted .morph-badge {
+  box-shadow: 0 0 10px var(--item-color);
   transform: scale(1.05);
 }
 
 /* Cursor für interaktive Elemente */
-[data-species] {
+[data-species],
+.field-value-item,
+.radar-legend-item,
+.sparkline-legend-item,
+.timeline-legend-item {
   cursor: pointer;
 }
 

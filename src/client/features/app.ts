@@ -8,7 +8,7 @@
 import { debug } from './debug';
 import { initSearch, restoreFromURL } from './search';
 import { initGrid } from './grid';
-import { initCompare, toggleCompare, showCompare, hideCompare, isCompareOpen } from './compare';
+import { initCompare, toggleCompare, showCompare, hideCompare, isCompareOpen, toggleStickyHighlight } from './compare';
 import { 
   loadFromStorage, 
   subscribe, 
@@ -291,22 +291,31 @@ function initSelectionBar(): void {
       
       pillsContainer.innerHTML = pills.join('');
       
-      // Add remove handlers - removes all fields for that species
+      // Add click handlers for pills
       pillsContainer.querySelectorAll('.selection-pill').forEach(pill => {
         pill.addEventListener('click', (e) => {
           const target = e.target as HTMLElement;
           const slug = (pill as HTMLElement).dataset.slug;
+          const species = (pill as HTMLElement).dataset.species;
           
-          if (slug && target.classList.contains('pill-remove')) {
+          if (target.classList.contains('pill-remove')) {
             // Remove all fields for this species
-            const fields = getSelectedFields().filter(f => f.itemSlug === slug);
-            fields.forEach(f => {
-              import('./selection').then(mod => mod.deselectField(f.itemSlug, f.fieldName));
-            });
+            if (slug) {
+              const fields = getSelectedFields().filter(f => f.itemSlug === slug);
+              fields.forEach(f => {
+                import('./selection').then(mod => mod.deselectField(f.itemSlug, f.fieldName));
+              });
+            }
+          } else if (species) {
+            // Toggle species highlight in compare view
+            toggleStickyHighlight(species);
           }
         });
       });
     }
+    
+    // Update detail link colors for items with selected fields
+    updateDetailLinkColors(grouped);
     
     // Update count text
     const countEl = selectionBar.querySelector('.selection-count');
@@ -317,6 +326,31 @@ function initSelectionBar(): void {
         : `${speciesCount} Spezies`;
     }
   });
+}
+
+// Update detail link arrow colors based on selection
+function updateDetailLinkColors(grouped: Map<string, Array<{itemSlug: string}>>): void {
+  // Reset all detail links first
+  document.querySelectorAll('.amorph-item').forEach(item => {
+    const link = item.querySelector('.item-detail-link') as HTMLElement;
+    if (link) {
+      link.style.removeProperty('--link-color');
+      link.classList.remove('has-selection');
+    }
+  });
+  
+  // Color the links for items with selected fields
+  for (const [itemSlug] of grouped.entries()) {
+    const item = document.querySelector(`.amorph-item[data-slug="${itemSlug}"]`);
+    if (item) {
+      const link = item.querySelector('.item-detail-link') as HTMLElement;
+      if (link) {
+        const color = getSpeciesColor(itemSlug);
+        link.style.setProperty('--link-color', color);
+        link.classList.add('has-selection');
+      }
+    }
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════

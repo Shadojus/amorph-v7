@@ -85,19 +85,20 @@ export const calendar = createUnifiedMorph(
   (values) => {
     return `
       <div class="morph-calendar-compare">
-        ${values.map(({ value, color }) => {
+        ${values.map(({ item, value, color }) => {
           const items = Array.isArray(value) ? value : [];
           const months = Array.from({ length: 12 }, (_, idx) => {
             const monthNum = idx + 1;
-            const found = items.find(item => {
-              const parsed = parseMonth(item, idx);
+            const found = items.find(fItem => {
+              const parsed = parseMonth(fItem, idx);
               return parsed.month === monthNum;
             });
             return found ? parseMonth(found, idx) : { month: monthNum, active: false, value: 0 };
           });
+          const name = item.name || item.id;
           
           return `
-            <div class="calendar-row" style="--item-color: ${escapeHtml(color)}">
+            <div class="calendar-row" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(color)}">
               ${months.map(m => `
                 <div class="calendar-cell ${m.active ? 'calendar-cell--active' : ''}"></div>
               `).join('')}

@@ -10,7 +10,8 @@ export { initSearch, performSearch, getActivePerspectives, restoreFromURL } from
 export { initGrid, updateSelectionUI } from './grid';
 export { 
   initCompare, 
-  showCompare, 
+  showCompare,
+  toggleStickyHighlight, 
   hideCompare, 
   toggleCompare, 
   isCompareOpen,

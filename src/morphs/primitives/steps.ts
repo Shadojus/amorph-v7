@@ -84,18 +84,19 @@ export const steps = createUnifiedMorph(
         ${Array.from({ length: maxSteps }, (_, stepIdx) => `
           <div class="steps-row">
             <span class="steps-num">${stepIdx + 1}</span>
-            ${values.map(({ value, color }) => {
+            ${values.map(({ item, value, color }) => {
               const items = Array.isArray(value) ? value : [value];
               const step = items[stepIdx] ? parseStep(items[stepIdx], stepIdx) : null;
+              const name = item.name || item.id;
               
               if (!step) {
-                return `<div class="steps-cell" style="--item-color: ${escapeHtml(color)}">-</div>`;
+                return `<div class="steps-cell" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(color)}">-</div>`;
               }
               
               const statusClass = getStatusClass(step.status);
               
               return `
-                <div class="steps-cell steps-cell--${statusClass}" style="--item-color: ${escapeHtml(color)}"></div>
+                <div class="steps-cell steps-cell--${statusClass}" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(color)}"></div>
               `;
             }).join('')}
           </div>

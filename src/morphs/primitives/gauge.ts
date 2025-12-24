@@ -100,7 +100,7 @@ export const gauge = createUnifiedMorph(
   (values) => {
     return `
       <div class="morph-gauge-compare">
-        ${values.map(({ value, color: itemColor }) => {
+        ${values.map(({ value, color: itemColor, item }) => {
           const data = extractGaugeData(value);
           const { value: val, min, max, unit, zones } = data;
           const range = max - min || 1;
@@ -108,7 +108,7 @@ export const gauge = createUnifiedMorph(
           const zoneClass = getZoneClass(val, zones);
           
           return `
-            <div class="gauge-row gauge-row--${zoneClass}" style="--item-color: ${escapeHtml(itemColor)}">
+            <div class="gauge-row gauge-row--${zoneClass}" data-species="${escapeHtml(item.name)}" style="--item-color: ${escapeHtml(itemColor)}">
               <div class="gauge-track">
                 <div class="gauge-fill" style="width: ${pct}%"></div>
               </div>

@@ -66,11 +66,12 @@ export const citation = createUnifiedMorph(
   (values) => {
     return `
       <div class="morph-citation-compare">
-        ${values.map(({ value, color }) => {
+        ${values.map(({ item, value, color }) => {
           const data = parseCitation(value);
+          const name = item.name || item.id;
           
           return `
-            <div class="citation-cell" style="--item-color: ${escapeHtml(color)}">
+            <div class="citation-cell" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(color)}">
               <span class="citation-authors">${escapeHtml(data.authors || '-')}</span>
               ${data.year ? `<span class="citation-year">(${data.year})</span>` : ''}
             </div>

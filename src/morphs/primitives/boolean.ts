@@ -39,12 +39,15 @@ export const boolean = createUnifiedMorph(
     
     return `
       <div class="boolean-compare-wrapper">
-        ${bools.map(({ bool, color }) => `
-          <div class="bool-row" style="--item-color: ${escapeHtml(color)}">
-            <span class="cmp-dot"></span>
-            <span class="bool-icon ${bool ? 'bool-true' : 'bool-false'}">${bool ? '✓' : '✗'}</span>
-          </div>
-        `).join('')}
+        ${values.map(({ value, color, item }) => {
+          const bool = parseBoolean(value);
+          return `
+            <div class="bool-row" data-species="${escapeHtml(item.name)}" style="--item-color: ${escapeHtml(color)}">
+              <span class="cmp-dot"></span>
+              <span class="bool-icon ${bool ? 'bool-true' : 'bool-false'}">${bool ? '✓' : '✗'}</span>
+            </div>
+          `;
+        }).join('')}
       </div>
     `;
   }

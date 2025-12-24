@@ -68,11 +68,12 @@ export const stats = createUnifiedMorph(
                 const color = values[idx]?.color || '#888';
                 if (v === null) return `<span class="stats-val stats-empty">–</span>`;
                 
+                const itemName = values[idx]?.item?.name || '';
                 if (isNumeric) {
                   const num = parseFloat(String(v));
                   const pct = range > 0 ? ((num - min) / range) * 100 : 50;
                   return `
-                    <div class="stats-bar-item" style="--item-color: ${escapeHtml(color)}">
+                    <div class="stats-bar-item" data-species="${escapeHtml(itemName)}" style="--item-color: ${escapeHtml(color)}">
                       <div class="stats-bar-track">
                         <div class="stats-bar-fill" style="width: ${Math.max(pct, 3)}%"></div>
                       </div>
@@ -81,7 +82,7 @@ export const stats = createUnifiedMorph(
                   `;
                 }
                 return `
-                  <div class="stats-text-item" style="--item-color: ${escapeHtml(color)}">
+                  <div class="stats-text-item" data-species="${escapeHtml(itemName)}" style="--item-color: ${escapeHtml(color)}">
                     <span class="cmp-dot"></span>
                     <span class="stats-text-val">${escapeHtml(v)}</span>
                   </div>

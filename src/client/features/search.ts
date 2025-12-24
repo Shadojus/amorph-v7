@@ -90,9 +90,14 @@ export function initSearch(config: SearchConfig): void {
 export async function performSearch(): Promise<void> {
   const query = searchInput?.value.trim() || '';
   
+  // Wenn Suchfeld komplett leer ist, Perspektiven zurücksetzen
+  if (query === '') {
+    activePerspectives.clear();
+    updateActivePerspectivesUI();
+  }
   // Reset Perspektiven nur wenn sich der Query geändert hat (neuer Suchbegriff)
   // Nicht wenn performSearch durch Perspektiven-Klick aufgerufen wird
-  if (query !== lastSearchQuery && query.length >= 1) {
+  else if (query !== lastSearchQuery && query.length >= 1) {
     activePerspectives.clear();
     updateActivePerspectivesUI();
   }

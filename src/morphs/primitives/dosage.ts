@@ -59,15 +59,16 @@ export const dosage = createUnifiedMorph(
           <span>Frequenz</span>
           <span>Route</span>
         </div>
-        ${values.map(({ value, color }) => {
+        ${values.map(({ item, value, color }) => {
           const items = Array.isArray(value) ? value : [value];
           const parsed = items.map(parseDosage);
+          const name = item.name || item.id;
           
-          return parsed.map(item => `
-            <div class="dosage-row" style="--item-color: ${escapeHtml(color)}">
-              <span class="dosage-amount">${formatNumber(item.amount)} ${escapeHtml(item.unit)}</span>
-              <span class="dosage-freq">${escapeHtml(item.frequency) || '-'}</span>
-              <span class="dosage-route">${escapeHtml(item.route) || '-'}</span>
+          return parsed.map(pItem => `
+            <div class="dosage-row" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(color)}">
+              <span class="dosage-amount">${formatNumber(pItem.amount)} ${escapeHtml(pItem.unit)}</span>
+              <span class="dosage-freq">${escapeHtml(pItem.frequency) || '-'}</span>
+              <span class="dosage-route">${escapeHtml(pItem.route) || '-'}</span>
             </div>
           `).join('');
         }).join('')}

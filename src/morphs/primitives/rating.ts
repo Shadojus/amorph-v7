@@ -69,14 +69,16 @@ export const rating = createUnifiedMorph(
     return `
       <div class="rating-compare-wrapper">
         <div class="rating-bars">
-          ${ratings.map(({ color, value, raw, max }) => {
-            const pct = (value / maxStars) * 100;
+          ${values.map(({ value, color, item }) => {
+            const { rating: rawRating, max: dataMax } = extractRatingData(value);
+            const normalized = dataMax > 0 ? (rawRating / dataMax) * 5 : 0;
+            const pct = (normalized / maxStars) * 100;
             return `
-              <div class="bar-row" style="--item-color: ${escapeHtml(color)}">
+              <div class="bar-row" data-species="${escapeHtml(item.name)}" style="--item-color: ${escapeHtml(color)}">
                 <div class="bar-fill-track">
                   <div class="bar-fill" style="width: ${pct}%"></div>
                 </div>
-                <span class="bar-val">${raw}/${max} ★</span>
+                <span class="bar-val">${rawRating}/${dataMax} ★</span>
               </div>
             `;
           }).join('')}

@@ -93,15 +93,16 @@ export const pie = createUnifiedMorph(
           const data = Array.isArray(value) ? value : [value];
           const parsed = data.map(parsePieItem).filter(d => d.value > 0);
           const total = parsed.reduce((sum, d) => sum + d.value, 0);
+          const name = item.name || item.id;
           
           if (total === 0) {
-            return `<div class="pie-cell" style="--item-color: ${escapeHtml(itemColor)}">-</div>`;
+            return `<div class="pie-cell" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(itemColor)}">-</div>`;
           }
           
           const gradient = buildPieGradient(parsed, total);
           
           return `
-            <div class="pie-cell" style="--item-color: ${escapeHtml(itemColor)}">
+            <div class="pie-cell" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(itemColor)}">
               <div class="pie-mini" style="--pie-gradient: ${gradient}"></div>
             </div>
           `;

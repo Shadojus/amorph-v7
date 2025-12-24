@@ -90,12 +90,13 @@ export const severity = createUnifiedMorph(
   (values) => {
     return `
       <div class="morph-severity-compare">
-        ${values.map(({ value, color }) => {
+        ${values.map(({ item, value, color }) => {
           const items = Array.isArray(value) ? value : [value];
           const parsed = items.map(parseSeverity);
+          const name = item.name || item.id;
           
           return `
-            <div class="severity-cell" style="--item-color: ${escapeHtml(color)}">
+            <div class="severity-cell" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(color)}">
               ${parsed.map(item => `<span class="severity-label">${escapeHtml(item.level)}</span>`).join('')}
             </div>
           `;

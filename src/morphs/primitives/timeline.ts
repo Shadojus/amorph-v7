@@ -90,7 +90,7 @@ export const timeline = createUnifiedMorph(
               <div class="timeline-date">${escapeHtml(date)}</div>
               <div class="timeline-events">
                 ${events.map(({ label, source, color }) => `
-                  <div class="timeline-event-item" style="--item-color: ${escapeHtml(color)}">
+                  <div class="timeline-event-item" data-species="${escapeHtml(source)}" style="--item-color: ${escapeHtml(color)}">
                     <span class="timeline-event-label">${escapeHtml(label)}</span>
                     <span class="timeline-event-source">${escapeHtml(source)}</span>
                   </div>
@@ -101,7 +101,7 @@ export const timeline = createUnifiedMorph(
         </div>
         <div class="timeline-legend">
           ${values.map(({ item, color }) => `
-            <span class="timeline-legend-item" style="--item-color: ${escapeHtml(color)}">${escapeHtml(item.name)}</span>
+            <span class="timeline-legend-item" data-species="${escapeHtml(item.name)}" style="--item-color: ${escapeHtml(color)}">${escapeHtml(item.name)}</span>
           `).join('')}
         </div>
       </div>

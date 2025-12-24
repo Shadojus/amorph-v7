@@ -432,10 +432,84 @@ function initSpeciesHighlight(container: Element): void {
     el.addEventListener('click', handleSpeciesClick);
   });
   
-  // Legend items already have data-species from server, but add cursor styling
-  const legendItems = container.querySelectorAll('.legend-item[data-species], .radar-legend-item[data-species], .compare-item-header[data-species]');
-  legendItems.forEach(item => {
-    (item as HTMLElement).style.cursor = 'pointer';
+  // Field value items - klickbar machen für Highlight
+  const fieldValueItems = container.querySelectorAll('.field-value-item');
+  fieldValueItems.forEach(item => {
+    const label = item.querySelector('.item-label');
+    if (label) {
+      const species = label.textContent?.trim();
+      if (species) {
+        (item as HTMLElement).style.cursor = 'pointer';
+        item.addEventListener('mouseenter', () => {
+          if (!activeSpecies) highlightSpecies(species);
+        });
+        item.addEventListener('mouseleave', () => {
+          if (!activeSpecies) clearHighlight();
+        });
+        item.addEventListener('click', (e) => {
+          e.stopPropagation();
+          toggleStickyHighlight(species);
+        });
+      }
+    }
+  });
+  
+  // Radar legend items - klickbar machen
+  const radarLegendItems = container.querySelectorAll('.radar-legend-item');
+  radarLegendItems.forEach(item => {
+    const species = (item as HTMLElement).dataset.species || 
+                    item.querySelector('.radar-legend-label')?.textContent?.trim();
+    if (species) {
+      (item as HTMLElement).style.cursor = 'pointer';
+      item.addEventListener('mouseenter', () => {
+        if (!activeSpecies) highlightSpecies(species);
+      });
+      item.addEventListener('mouseleave', () => {
+        if (!activeSpecies) clearHighlight();
+      });
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleStickyHighlight(species);
+      });
+    }
+  });
+  
+  // Sparkline legend items - klickbar machen
+  const sparklineLegendItems = container.querySelectorAll('.sparkline-legend-item');
+  sparklineLegendItems.forEach(item => {
+    const species = (item as HTMLElement).dataset.species || item.textContent?.trim();
+    if (species) {
+      (item as HTMLElement).style.cursor = 'pointer';
+      item.addEventListener('mouseenter', () => {
+        if (!activeSpecies) highlightSpecies(species);
+      });
+      item.addEventListener('mouseleave', () => {
+        if (!activeSpecies) clearHighlight();
+      });
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleStickyHighlight(species);
+      });
+    }
+  });
+  
+  // Timeline legend items - klickbar machen
+  const timelineLegendItems = container.querySelectorAll('.timeline-legend-item');
+  timelineLegendItems.forEach(item => {
+    const species = item.textContent?.trim();
+    if (species) {
+      (item as HTMLElement).style.cursor = 'pointer';
+      item.addEventListener('mouseenter', () => {
+        if (!activeSpecies) highlightSpecies(species);
+      });
+      item.addEventListener('mouseleave', () => {
+        if (!activeSpecies) clearHighlight();
+      });
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleStickyHighlight(species);
+      });
+    }
   });
   
   // Add remove button handlers for legend items (species-level removal)
@@ -450,7 +524,12 @@ function initSpeciesHighlight(container: Element): void {
     btn.addEventListener('click', handleRemoveField);
   });
   
-  debug.compare('Species highlight initialized', { count: speciesElements.length, removeButtons: removeButtons.length, fieldRemoveButtons: fieldRemoveButtons.length });
+  debug.compare('Species highlight initialized', { 
+    speciesElements: speciesElements.length, 
+    fieldValueItems: fieldValueItems.length,
+    radarLegendItems: radarLegendItems.length,
+    removeButtons: removeButtons.length 
+  });
 }
 
 function handleSpeciesHover(e: Event): void {
@@ -538,7 +617,7 @@ function handleRemoveField(e: Event): void {
   }
 }
 
-function toggleStickyHighlight(species: string): void {
+export function toggleStickyHighlight(species: string): void {
   if (activeSpecies === species) {
     // Clear sticky
     activeSpecies = null;
@@ -622,9 +701,44 @@ function highlightSpecies(species: string): void {
     el.classList.remove('species-highlighted');
   });
   
-  // Highlight all elements of this species (data-species already includes legend items)
+  // Highlight all elements of this species
+  // 1. Elements with data-species attribute
   container.querySelectorAll(`[data-species="${species}"]`).forEach(el => {
     el.classList.add('species-highlighted');
+  });
+  
+  // 2. Field value items - match by item-label text content
+  container.querySelectorAll('.field-value-item').forEach(el => {
+    const label = el.querySelector('.item-label');
+    if (label && label.textContent?.trim() === species) {
+      el.classList.add('species-highlighted');
+    }
+  });
+  
+  // 3. Radar legend items
+  container.querySelectorAll('.radar-legend-item').forEach(el => {
+    const labelEl = el.querySelector('.radar-legend-label');
+    if (labelEl && labelEl.textContent?.trim() === species) {
+      el.classList.add('species-highlighted');
+    }
+    // Auch data-species prüfen
+    if (el.getAttribute('data-species') === species) {
+      el.classList.add('species-highlighted');
+    }
+  });
+  
+  // 4. Sparkline legend items
+  container.querySelectorAll('.sparkline-legend-item').forEach(el => {
+    if (el.getAttribute('data-species') === species || el.textContent?.trim() === species) {
+      el.classList.add('species-highlighted');
+    }
+  });
+  
+  // 5. Timeline legend items
+  container.querySelectorAll('.timeline-legend-item').forEach(el => {
+    if (el.textContent?.trim() === species) {
+      el.classList.add('species-highlighted');
+    }
   });
   
   // Auch die Selection Pills dimmen

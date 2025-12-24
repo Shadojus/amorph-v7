@@ -58,8 +58,9 @@ export const date = createUnifiedMorph(
         <div class="date-timeline">
           ${validDates.map(({ item, color, date, formatted }) => {
             const pct = ((date!.getTime() - minTime) / range) * 100;
+            const name = item.name || item.id;
             return `
-              <div class="date-marker" style="left: ${pct}%; --item-color: ${escapeHtml(color)}" 
+              <div class="date-marker" data-species="${escapeHtml(name)}" style="left: ${pct}%; --item-color: ${escapeHtml(color)}" 
                    title="${escapeHtml(item.name)}: ${formatted}">
                 <span class="date-label">${escapeHtml(formatted)}</span>
               </div>

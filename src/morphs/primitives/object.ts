@@ -221,7 +221,7 @@ export const object = createUnifiedMorph(
             <tr>
               <th class="object-compare-header-key"></th>
               ${objectValues.map(({ color, name }) => `
-                <th class="object-compare-header-item" style="--item-color: ${escapeHtml(color)}">
+                <th class="object-compare-header-item" data-species="${escapeHtml(name)}" style="--item-color: ${escapeHtml(color)}">
                   <span class="cmp-dot"></span>
                   ${escapeHtml(name)}
                 </th>
