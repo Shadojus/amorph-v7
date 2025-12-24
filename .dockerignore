@@ -1,0 +1,47 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# AMORPH v7 - Docker Ignore
+# Files to exclude from Docker build context
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Dependencies (will be installed fresh in container)
+node_modules/
+
+# Build output (will be built in container)
+dist/
+
+# Development & IDE
+.astro/
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+
+# Documentation (not needed in production)
+*.md
+!README.md
+CLAUDE.md
+.claude/
+
+# Tests
+tests/
+*.test.ts
+*.test.js
+vitest.config.ts
+coverage/
+
+# Local development
+.env.local
+.env.development
+.env*.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
