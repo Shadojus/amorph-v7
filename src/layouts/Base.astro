@@ -3,21 +3,28 @@
  * AMORPH v7 - Base Layout
  * 
  * Modulares Layout - kein Monolith mehr!
+ * Unterstützt Multi-Site mit SITE_TYPE
  */
+
+import { getSiteType, SITE_META } from '../server/config';
 
 export interface Props {
   title?: string;
   description?: string;
 }
 
+// Get site type for styling
+const siteType = getSiteType();
+const siteMeta = SITE_META[siteType];
+
 const { 
-  title = 'AMORPH', 
+  title = siteMeta.name, 
   description = 'Biologische Daten visualisieren, vergleichen, verstehen.' 
 } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-site={siteType}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

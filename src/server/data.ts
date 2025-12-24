@@ -20,9 +20,20 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 // In production (built), __dirname is /app/dist/server/chunks/
 // In dev, __dirname is /app/src/server/
 // Data is always at /app/data/ - use process.cwd() for reliability
-const DATA_PATH = process.env.NODE_ENV === 'production' 
+const BASE_DATA_PATH = process.env.NODE_ENV === 'production' 
   ? join(process.cwd(), 'data')
   : join(__dirname, '../../data');
+
+// Get site-specific data path based on SITE_TYPE
+import { getSiteType, SITE_META } from './config';
+
+function getDataPath(): string {
+  const siteType = getSiteType();
+  const siteMeta = SITE_META[siteType];
+  return join(BASE_DATA_PATH, siteMeta.dataFolder);
+}
+
+const DATA_PATH = getDataPath();
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // CACHE

@@ -11,6 +11,28 @@ import { parse as parseYAML } from 'yaml';
 import type { AppConfig, Perspective, SchemaField } from '../core/types';
 
 // ═══════════════════════════════════════════════════════════════════════════════
+// SITE TYPE - Multi-Site Support
+// ═══════════════════════════════════════════════════════════════════════════════
+
+export type SiteType = 'fungi' | 'phyto' | 'therion';
+
+// Get site type from environment (default: fungi)
+export function getSiteType(): SiteType {
+  const siteType = process.env.SITE_TYPE?.toLowerCase();
+  if (siteType === 'phyto' || siteType === 'therion') {
+    return siteType;
+  }
+  return 'fungi';
+}
+
+// Site metadata for each type
+export const SITE_META: Record<SiteType, { name: string; color: string; dataFolder: string }> = {
+  fungi: { name: 'FUNGINOMI', color: 'funginomi', dataFolder: 'fungi' },
+  phyto: { name: 'PHYTONOMI', color: 'phytonomi', dataFolder: 'plantae' },
+  therion: { name: 'THERIONOMI', color: 'therionomi', dataFolder: 'animalia' }
+};
+
+// ═══════════════════════════════════════════════════════════════════════════════
 // PATHS
 // ═══════════════════════════════════════════════════════════════════════════════
 
@@ -19,9 +41,24 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 // In production (built), __dirname is /app/dist/server/chunks/
 // In dev, __dirname is /app/src/server/
 // Config is always at /app/config/ - use process.cwd() for reliability
-const CONFIG_PATH = process.env.NODE_ENV === 'production' 
+const BASE_CONFIG_PATH = process.env.NODE_ENV === 'production' 
   ? join(process.cwd(), 'config')
   : join(__dirname, '../../config');
+
+// Site-specific config path (falls back to base if not exists)
+function getConfigPath(): string {
+  const siteType = getSiteType();
+  const siteConfigPath = join(BASE_CONFIG_PATH, siteType);
+  
+  // Check if site-specific config exists
+  if (existsSync(join(siteConfigPath, 'manifest.yaml'))) {
+    return siteConfigPath;
+  }
+  
+  return BASE_CONFIG_PATH;
+}
+
+const CONFIG_PATH = getConfigPath();
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // CACHE
@@ -33,8 +70,17 @@ let cachedConfig: AppConfig | null = null;
 // YAML LOADER
 // ═══════════════════════════════════════════════════════════════════════════════
 
+/**
+ * Load YAML file - first tries site-specific path, then falls back to base config
+ */
 function loadYAML<T>(filename: string, required = false): T | null {
-  const filepath = join(CONFIG_PATH, filename);
+  // Try site-specific path first
+  let filepath = join(CONFIG_PATH, filename);
+  
+  // Fall back to base config path if file doesn't exist in site folder
+  if (!existsSync(filepath) && CONFIG_PATH !== BASE_CONFIG_PATH) {
+    filepath = join(BASE_CONFIG_PATH, filename);
+  }
   
   if (!existsSync(filepath)) {
     if (required) {

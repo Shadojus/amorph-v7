@@ -97,6 +97,63 @@ body {
   --system-darker: hsl(var(--system-h), 85%, 40%);
   --system-light-rgb: 120, 165, 255;
   --system-dark-rgb: 50, 100, 200;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MULTI-SITE COLOR OVERRIDES
+   Aktiviert durch data-site Attribut auf <html> oder <body>
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Site: Phytonomi - Jade Green (Pflanzen) */
+[data-site="phyto"],
+[data-site="phytonomi"] {
+  --system-h: var(--site-phytonomi-h);
+  --system-s: var(--site-phytonomi-s);
+  --system-l: var(--site-phytonomi-l);
+  --system: var(--site-phytonomi);
+  --system-rgb: var(--site-phytonomi-rgb);
+  --system-light-rgb: 100, 210, 160;
+  --system-dark-rgb: 40, 140, 100;
+}
+
+/* Site: Therionomi - Magenta Pink (Tiere) */
+[data-site="therion"],
+[data-site="therionomi"] {
+  --system-h: var(--site-therionomi-h);
+  --system-s: var(--site-therionomi-s);
+  --system-l: var(--site-therionomi-l);
+  --system: var(--site-therionomi);
+  --system-rgb: var(--site-therionomi-rgb);
+  --system-light-rgb: 245, 130, 200;
+  --system-dark-rgb: 180, 60, 140;
+}
+
+/* Nebel-Hintergrund pro Site anpassen */
+[data-site="phyto"] body,
+[data-site="phytonomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(25, 150, 100, 0.5) 0%, rgba(18, 120, 80, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(30, 140, 90, 0.4) 0%, rgba(20, 110, 70, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(45, 180, 120, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(20, 130, 80, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(22, 140, 90, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(15, 100, 60, 0.06) 0%, transparent 60%);
+}
+
+[data-site="therion"] body,
+[data-site="therionomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(150, 25, 100, 0.5) 0%, rgba(120, 18, 80, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(140, 30, 110, 0.4) 0%, rgba(110, 20, 85, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(180, 45, 130, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(130, 20, 90, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(140, 22, 100, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(100, 15, 70, 0.06) 0%, transparent 60%);
+}
+
+:root {
   
   /* Multi-Layer Glow System - Subtle */
   --system-glow: 
