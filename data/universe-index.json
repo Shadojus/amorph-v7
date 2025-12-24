@@ -17,11 +17,6 @@
       "name": "Animalia",
       "icon": "🦋",
       "count": 1
-    },
-    "bacteria": {
-      "name": "Bacteria",
-      "icon": "🦠",
-      "count": 0
     }
   },
   "species": [

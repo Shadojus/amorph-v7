@@ -110,126 +110,174 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
     return items;
   }
   
-  // Durchsuche Kingdoms
-  const kingdoms = ['fungi', 'plantae', 'animalia', 'bacteria'];
+  // Get current site type for kingdom info
+  const siteType = getSiteType();
+  const siteMeta = SITE_META[siteType];
+  const currentKingdom = siteMeta.dataFolder; // 'fungi', 'plantae', 'animalia'
   
-  for (const kingdom of kingdoms) {
-    const kingdomPath = join(DATA_PATH, kingdom);
-    if (!existsSync(kingdomPath)) {
-      continue;
-    }
+  // DATA_PATH is now site-specific (e.g., data/fungi/)
+  // Load items directly from this path
+  const kingdomPath = DATA_PATH;
+  
+  // Prüfe auf index.json
+  const indexPath = join(kingdomPath, 'index.json');
+  const indexResult = safeReadJson<{ species?: Array<{ slug: string; perspectives?: string[] }>; dateien?: string[]; files?: string[] }>(indexPath);
+  
+  if (indexResult.data) {
+    const indexData = indexResult.data;
     
-    // Prüfe auf index.json
-    const indexPath = join(kingdomPath, 'index.json');
-    const indexResult = safeReadJson<{ species?: Array<{ slug: string; perspectives?: string[] }>; dateien?: string[]; files?: string[] }>(indexPath);
+    // Neue Struktur: species Array
+    const speciesList = indexData.species || [];
     
-    if (indexResult.data) {
-      const indexData = indexResult.data;
+    for (const speciesEntry of speciesList) {
+      const slug = speciesEntry.slug;
+      if (!slug) continue;
       
-      // Neue Struktur: species Array
-      const speciesList = indexData.species || [];
+      // Lade Item aus Unterordner
+      const speciesPath = join(kingdomPath, slug);
+      const speciesIndexPath = join(speciesPath, 'index.json');
       
-      for (const speciesEntry of speciesList) {
-        const slug = speciesEntry.slug;
-        if (!slug) continue;
+      const itemResult = safeReadJson<Record<string, unknown>>(speciesIndexPath);
+      if (itemResult.error) {
+        loadErrors.push({ path: speciesIndexPath, error: itemResult.error });
+        continue;
+      }
+      
+      if (itemResult.data) {
+        const itemBase = itemResult.data;
         
-        // Lade Item aus Unterordner
-        const speciesPath = join(kingdomPath, slug);
-        const speciesIndexPath = join(speciesPath, 'index.json');
+        // Merge mit species entry Daten
+        const item: ItemData = {
+          ...itemBase,
+          ...speciesEntry,  // Überschreibt mit index.json Daten
+          _kingdom: currentKingdom,
+          id: (itemBase.id as string) || slug,
+          slug: slug,
+          name: (itemBase.name as string) || slug,
+          _perspectives: {},
+          _loadedPerspectives: [] as string[],
+          _fieldPerspective: {} as Record<string, string>
+        };
         
-        const itemResult = safeReadJson<Record<string, unknown>>(speciesIndexPath);
-        if (itemResult.error) {
-          loadErrors.push({ path: speciesIndexPath, error: itemResult.error });
-          continue;
-        }
-        
-        if (itemResult.data) {
-          const itemBase = itemResult.data;
+        // Lade Perspektiven und merge Felder ins Item
+        const perspectiveFiles = (speciesEntry.perspectives || []) as string[];
+        for (const perspName of perspectiveFiles) {
+          const perspPath = join(speciesPath, `${perspName}.json`);
+          const perspResult = safeReadJson<Record<string, unknown>>(perspPath);
           
-          // Merge mit species entry Daten
-          const item: ItemData = {
-            ...itemBase,
-            ...speciesEntry,  // Überschreibt mit index.json Daten
-            _kingdom: kingdom,
-            id: (itemBase.id as string) || slug,
-            slug: slug,
-            name: (itemBase.name as string) || slug,
-            _perspectives: {},
-            _loadedPerspectives: [] as string[],
-            _fieldPerspective: {} as Record<string, string>
-          };
+          if (perspResult.error) {
+            loadErrors.push({ path: perspPath, error: perspResult.error });
+            continue;
+          }
           
-          // Lade Perspektiven und merge Felder ins Item
-          const perspectiveFiles = (speciesEntry.perspectives || []) as string[];
-          for (const perspName of perspectiveFiles) {
-            const perspPath = join(speciesPath, `${perspName}.json`);
-            const perspResult = safeReadJson<Record<string, unknown>>(perspPath);
+          if (perspResult.data) {
+            const perspData = perspResult.data;
+            item._perspectives![perspName] = perspData;
+            (item._loadedPerspectives as string[]).push(perspName);
             
-            if (perspResult.error) {
-              loadErrors.push({ path: perspPath, error: perspResult.error });
-              continue;
-            }
-            
-            if (perspResult.data) {
-              const perspData = perspResult.data;
-              item._perspectives![perspName] = perspData;
-              (item._loadedPerspectives as string[]).push(perspName);
-              
-              // Merge perspective fields into main item
-              for (const [key, value] of Object.entries(perspData)) {
-                if (!key.startsWith('_') && item[key] === undefined) {
-                  item[key] = value;
-                  (item._fieldPerspective as Record<string, string>)[key] = perspName;
-                }
+            // Merge perspective fields into main item
+            for (const [key, value] of Object.entries(perspData)) {
+              if (!key.startsWith('_') && item[key] === undefined) {
+                item[key] = value;
+                (item._fieldPerspective as Record<string, string>)[key] = perspName;
               }
             }
           }
-          
-          items.push(item);
         }
+        
+        items.push(item);
       }
-      
-      // Alte Struktur: dateien/files Array
-      const files = indexData.dateien || indexData.files || [];
-      for (const file of files) {
-        const filePath = join(kingdomPath, file);
-        const fileResult = safeReadJson<Record<string, unknown>>(filePath);
-        if (fileResult.data) {
-          const item = fileResult.data;
-          items.push({
-            ...item,
-            _kingdom: kingdom,
-            id: (item.id as string) || (item.slug as string) || file.replace('.json', ''),
-            slug: (item.slug as string) || file.replace('.json', ''),
-            name: (item.name as string) || file.replace('.json', '')
-          } as ItemData);
-        } else if (fileResult.error) {
-          loadErrors.push({ path: filePath, error: fileResult.error });
-        }
-      }
-    } else if (indexResult.error && indexResult.error.includes('not found')) {
-      // Direkt JSON-Dateien laden (keine index.json vorhanden)
-      const files = readdirSync(kingdomPath).filter(f => f.endsWith('.json'));
-      
-      for (const file of files) {
-        const filePath = join(kingdomPath, file);
-        const fileResult = safeReadJson<Record<string, unknown>>(filePath);
-        if (fileResult.data) {
-          const item = fileResult.data;
-          items.push({
-            ...item,
-            _kingdom: kingdom,
-            id: (item.id as string) || (item.slug as string) || file.replace('.json', ''),
-            slug: (item.slug as string) || file.replace('.json', ''),
-            name: (item.name as string) || file.replace('.json', '')
-          } as ItemData);
-        } else if (fileResult.error) {
-          loadErrors.push({ path: filePath, error: fileResult.error });
-        }
-      }
-    } else if (indexResult.error) {
-      loadErrors.push({ path: indexPath, error: indexResult.error });
     }
+    
+    // Alte Struktur: dateien/files Array
+    const files = indexData.dateien || indexData.files || [];
+    for (const file of files) {
+      const filePath = join(kingdomPath, file);
+      const fileResult = safeReadJson<Record<string, unknown>>(filePath);
+      if (fileResult.data) {
+        const item = fileResult.data;
+        items.push({
+          ...item,
+          _kingdom: currentKingdom,
+          id: (item.id as string) || (item.slug as string) || file.replace('.json', ''),
+          slug: (item.slug as string) || file.replace('.json', ''),
+          name: (item.name as string) || file.replace('.json', '')
+        } as ItemData);
+      } else if (fileResult.error) {
+        loadErrors.push({ path: filePath, error: fileResult.error });
+      }
+    }
+  } else if (indexResult.error && indexResult.error.includes('not found')) {
+    // Direkt JSON-Dateien laden (keine index.json vorhanden)
+    // Look for species directories with index.json inside
+    const entries = readdirSync(kingdomPath, { withFileTypes: true });
+    
+    for (const entry of entries) {
+      if (entry.isDirectory()) {
+        const speciesPath = join(kingdomPath, entry.name);
+        const speciesIndexPath = join(speciesPath, 'index.json');
+        
+        if (existsSync(speciesIndexPath)) {
+          const itemResult = safeReadJson<Record<string, unknown>>(speciesIndexPath);
+          if (itemResult.data) {
+            const itemBase = itemResult.data;
+            const slug = entry.name;
+            
+            const item: ItemData = {
+              ...itemBase,
+              _kingdom: currentKingdom,
+              id: (itemBase.id as string) || slug,
+              slug: slug,
+              name: (itemBase.name as string) || slug,
+              _perspectives: {},
+              _loadedPerspectives: [] as string[],
+              _fieldPerspective: {} as Record<string, string>
+            };
+            
+            // Look for perspective JSON files
+            const perspFiles = readdirSync(speciesPath)
+              .filter(f => f.endsWith('.json') && f !== 'index.json')
+              .map(f => f.replace('.json', ''));
+            
+            for (const perspName of perspFiles) {
+              const perspPath = join(speciesPath, `${perspName}.json`);
+              const perspResult = safeReadJson<Record<string, unknown>>(perspPath);
+              
+              if (perspResult.data) {
+                const perspData = perspResult.data;
+                item._perspectives![perspName] = perspData;
+                (item._loadedPerspectives as string[]).push(perspName);
+                
+                for (const [key, value] of Object.entries(perspData)) {
+                  if (!key.startsWith('_') && item[key] === undefined) {
+                    item[key] = value;
+                    (item._fieldPerspective as Record<string, string>)[key] = perspName;
+                  }
+                }
+              }
+            }
+            
+            items.push(item);
+          }
+        }
+      } else if (entry.isFile() && entry.name.endsWith('.json')) {
+        // Fallback: direct JSON files
+        const filePath = join(kingdomPath, entry.name);
+        const fileResult = safeReadJson<Record<string, unknown>>(filePath);
+        if (fileResult.data) {
+          const item = fileResult.data;
+          items.push({
+            ...item,
+            _kingdom: currentKingdom,
+            id: (item.id as string) || (item.slug as string) || entry.name.replace('.json', ''),
+            slug: (item.slug as string) || entry.name.replace('.json', ''),
+            name: (item.name as string) || entry.name.replace('.json', '')
+          } as ItemData);
+        }
+      }
+    }
+  } else if (indexResult.error) {
+    loadErrors.push({ path: indexPath, error: indexResult.error });
   }
   
   cachedItems = items;
