@@ -15,7 +15,13 @@ import type { AppConfig, Perspective, SchemaField } from '../core/types';
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const CONFIG_PATH = join(__dirname, '../../config');
+
+// In production (built), __dirname is /app/dist/server/chunks/
+// In dev, __dirname is /app/src/server/
+// Config is always at /app/config/ - use process.cwd() for reliability
+const CONFIG_PATH = process.env.NODE_ENV === 'production' 
+  ? join(process.cwd(), 'config')
+  : join(__dirname, '../../config');
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // CACHE

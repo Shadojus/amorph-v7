@@ -16,7 +16,13 @@ import { getConfig, getAllPerspectives } from './config';
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const DATA_PATH = join(__dirname, '../../data');
+
+// In production (built), __dirname is /app/dist/server/chunks/
+// In dev, __dirname is /app/src/server/
+// Data is always at /app/data/ - use process.cwd() for reliability
+const DATA_PATH = process.env.NODE_ENV === 'production' 
+  ? join(process.cwd(), 'data')
+  : join(__dirname, '../../data');
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // CACHE
