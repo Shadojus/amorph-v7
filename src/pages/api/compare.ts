@@ -119,30 +119,13 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
     };
   });
   
-  // Render structure: Legend separate from Fields for partial updates
+  // Render structure: Fields only (Legend/Pills sind jetzt über der Bottom Bar)
   let html = '';
   
-  // Add item legend with remove buttons (separate container)
-  // Single item mode: simplified legend without remove button
-  const isSingleItem = uniqueItems.length === 1;
-  html += `<div class="compare-legend${isSingleItem ? ' is-single' : ''}" data-item-count="${uniqueItems.length}">`;
-  for (const [slug, color] of itemColors) {
-    const field = fields.find(f => f.itemSlug === slug);
-    const name = field?.itemName || slug;
-    if (isSingleItem) {
-      // Single item: nur Name, kein Remove-Button
-      html += `<span class="legend-item is-single" data-slug="${escapeAttribute(slug)}" data-species="${escapeAttribute(name)}" style="--item-color: ${color}">${escapeHtml(name)}</span>`;
-    } else {
-      // Multiple items: mit Remove-Button
-      html += `<span class="legend-item" data-slug="${escapeAttribute(slug)}" data-species="${escapeAttribute(name)}" style="--item-color: ${color}">
-        ${escapeHtml(name)}
-        <button class="legend-remove" data-slug="${escapeAttribute(slug)}" title="Aus Vergleich entfernen">×</button>
-      </span>`;
-    }
-  }
-  html += '</div>';
+  // Legend wird NICHT mehr gerendert - Pills sind in der Selection Bar über der Bottom Nav
+  // Die Farben-Zuordnung bleibt aber für die Feld-Darstellung erhalten
   
-  // Add fields container (separate for partial updates)
+  // Add fields container
   html += '<div class="compare-fields">';
   
   // Add each field row with proper Compare rendering

@@ -225,10 +225,9 @@ function getOrCreateSessionId(): string {
 // SELECTION BAR - Shows species with selected fields
 // ═══════════════════════════════════════════════════════════════════════════════
 
-// Bio-Lumineszenz Farben für Spezies (gleiche wie im Compare View)
+// Bio-Lumineszenz Farben für Spezies (EXAKT gleiche wie im Compare API!)
 const BIO_COLORS = [
-  '#34d399', // Smaragd Grün
-  '#f97316', // Bio-Lumineszenz Orange  
+  '#00ffc8', // Foxfire Grün
   '#a78bfa', // Myzel Violett
   '#fbbf24', // Sporen Amber
   '#22d3ee', // Tiefsee Cyan
@@ -282,7 +281,7 @@ function initSelectionBar(): void {
         const color = getSpeciesColor(itemSlug);
         
         pills.push(`
-          <button class="selection-pill" data-slug="${itemSlug}" style="--pill-color: ${color}">
+          <button class="selection-pill" data-slug="${itemSlug}" data-species="${itemName}" style="--pill-color: ${color}">
             <span class="pill-dot"></span>
             <span class="pill-name">${itemName}</span>
             <span class="pill-remove">×</span>

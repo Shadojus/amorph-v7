@@ -188,58 +188,50 @@ export async function showCompare(seamless = false): Promise<void> {
     if (content && data.html) {
       if (seamless) {
         // Diff-based update: only add/remove changed fields
-        const existingLegend = content.querySelector('.compare-legend');
-        const existingItemCount = existingLegend?.getAttribute('data-item-count');
+        // Legend wird nicht mehr im Compare Panel angezeigt - Pills sind jetzt über der Bottom Bar
         const newItemCount = String(data.itemCount);
         
         // Create temp container to parse new HTML
         const temp = document.createElement('div');
         temp.innerHTML = data.html;
-        const newLegend = temp.querySelector('.compare-legend');
         const newFieldsContainer = temp.querySelector('.compare-fields');
         
-        if (existingItemCount === newItemCount && existingLegend && newFieldsContainer) {
-          // Same items - do diff-based field update
-          const existingFields = content.querySelector('.compare-fields');
-          if (existingFields) {
-            await updateFieldsDiff(existingFields, newFieldsContainer);
-          } else {
-            // No existing fields yet - add the container
-            content.appendChild(newFieldsContainer);
+        // Entferne jede existierende Legend (falls alte cached Response)
+        const existingLegend = content.querySelector('.compare-legend');
+        if (existingLegend) {
+          existingLegend.remove();
+        }
+        
+        // Update fields
+        const existingFields = content.querySelector('.compare-fields');
+        if (existingFields && newFieldsContainer) {
+          await updateFieldsDiff(existingFields, newFieldsContainer);
+        } else if (newFieldsContainer) {
+          // Create fields container if needed
+          let fieldsContainer = content.querySelector('.compare-fields');
+          if (!fieldsContainer) {
+            fieldsContainer = document.createElement('div');
+            fieldsContainer.className = 'compare-fields';
+            content.appendChild(fieldsContainer);
           }
-        } else {
-          // Items changed - update legend, then diff fields
-          if (existingLegend && newLegend) {
-            existingLegend.outerHTML = newLegend.outerHTML;
-          } else if (!existingLegend && newLegend) {
-            // First legend - insert it
-            content.insertBefore(newLegend, content.firstChild);
-          }
-          
-          const existingFields = content.querySelector('.compare-fields');
-          if (existingFields && newFieldsContainer) {
-            await updateFieldsDiff(existingFields, newFieldsContainer);
-          } else if (newFieldsContainer) {
-            // Create fields container if needed
-            let fieldsContainer = content.querySelector('.compare-fields');
-            if (!fieldsContainer) {
-              fieldsContainer = document.createElement('div');
-              fieldsContainer.className = 'compare-fields';
-              content.appendChild(fieldsContainer);
-            }
-            // Copy new rows
-            newFieldsContainer.querySelectorAll('.compare-field-row').forEach(row => {
-              row.classList.add('is-adding');
-              fieldsContainer!.appendChild(row);
-            });
-            void content.offsetHeight;
-            requestAnimationFrame(() => {
-              fieldsContainer!.querySelectorAll('.is-adding').forEach(el => el.classList.remove('is-adding'));
-            });
-          }
+          // Copy new rows
+          newFieldsContainer.querySelectorAll('.compare-field-row').forEach(row => {
+            row.classList.add('is-adding');
+            fieldsContainer!.appendChild(row);
+          });
+          void content.offsetHeight;
+          requestAnimationFrame(() => {
+            fieldsContainer!.querySelectorAll('.is-adding').forEach(el => el.classList.remove('is-adding'));
+          });
         }
       } else {
         content.innerHTML = data.html;
+        
+        // Entferne jede Legend aus dem Response (falls alte cached Response)
+        const legacyLegend = content.querySelector('.compare-legend');
+        if (legacyLegend) {
+          legacyLegend.remove();
+        }
       }
       
       // Initialize species highlight interactions
@@ -635,6 +627,9 @@ function highlightSpecies(species: string): void {
     el.classList.add('species-highlighted');
   });
   
+  // Auch die Selection Pills dimmen
+  updateSelectionPillsHighlight(species);
+  
   debug.compare('Species highlighted', { species });
 }
 
@@ -645,6 +640,27 @@ function clearHighlight(): void {
   container.classList.remove('species-highlight-active');
   container.querySelectorAll('.species-highlighted').forEach(el => {
     el.classList.remove('species-highlighted');
+  });
+  
+  // Selection Pills zurücksetzen
+  updateSelectionPillsHighlight(null);
+}
+
+// Update selection pills dimming based on active species
+function updateSelectionPillsHighlight(activeSpeciesName: string | null): void {
+  const pills = document.querySelectorAll('.selection-pill');
+  pills.forEach(pill => {
+    const pillSpecies = pill.getAttribute('data-species');
+    if (activeSpeciesName === null) {
+      // Kein Highlight aktiv - alle Pills normal
+      pill.classList.remove('is-dimmed');
+    } else if (pillSpecies === activeSpeciesName) {
+      // Diese Spezies ist aktiv - nicht dimmen
+      pill.classList.remove('is-dimmed');
+    } else {
+      // Andere Spezies - dimmen
+      pill.classList.add('is-dimmed');
+    }
   });
 }
 
