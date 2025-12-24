@@ -225,6 +225,31 @@ function getOrCreateSessionId(): string {
 // SELECTION BAR - Shows species with selected fields
 // ═══════════════════════════════════════════════════════════════════════════════
 
+// Bio-Lumineszenz Farben für Spezies (gleiche wie im Compare View)
+const BIO_COLORS = [
+  '#34d399', // Smaragd Grün
+  '#f97316', // Bio-Lumineszenz Orange  
+  '#a78bfa', // Myzel Violett
+  '#fbbf24', // Sporen Amber
+  '#22d3ee', // Tiefsee Cyan
+  '#f472b6', // Rhodotus Rosa
+  '#a3e635', // Chlorophyll Grün
+  '#fb923c', // Carotin Orange
+  '#c4b5fd'  // Lavendel
+];
+
+// Track which species gets which color (persists during session)
+const speciesColorMap = new Map<string, string>();
+let colorIndex = 0;
+
+function getSpeciesColor(slug: string): string {
+  if (!speciesColorMap.has(slug)) {
+    speciesColorMap.set(slug, BIO_COLORS[colorIndex % BIO_COLORS.length]);
+    colorIndex++;
+  }
+  return speciesColorMap.get(slug)!;
+}
+
 function initSelectionBar(): void {
   const selectionBar = document.querySelector<HTMLElement>('.selection-bar');
   if (!selectionBar) return;
@@ -253,7 +278,8 @@ function initSelectionBar(): void {
         if (fields.length === 0) continue;
         
         const itemName = fields[0]?.itemName || itemSlug;
-        const color = fields[0]?.color || 'rgba(77, 136, 255, 0.75)';
+        // Use consistent bio color for this species
+        const color = getSpeciesColor(itemSlug);
         
         pills.push(`
           <button class="selection-pill" data-slug="${itemSlug}" style="--pill-color: ${color}">
