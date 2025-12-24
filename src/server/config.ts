@@ -29,7 +29,7 @@ export function getSiteType(): SiteType {
 export const SITE_META: Record<SiteType, { name: string; color: string; dataFolder: string }> = {
   fungi: { name: 'FUNGINOMI', color: 'funginomi', dataFolder: 'fungi' },
   phyto: { name: 'PHYTONOMI', color: 'phytonomi', dataFolder: 'plantae' },
-  therion: { name: 'THERIONOMI', color: 'therionomi', dataFolder: 'animalia' }
+  therion: { name: 'THERIONOMI', color: 'therionomi', dataFolder: 'therion' }
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
