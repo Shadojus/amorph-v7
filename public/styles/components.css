@@ -1119,14 +1119,19 @@
   gap: 0;
   padding: 0;
   padding-top: env(safe-area-inset-top, 0);
-  /* Black Glass Morphism - Solid */
-  background: rgba(8, 10, 16, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  /* Black Glass Morphism - Harmonisiert mit System */
+  background: linear-gradient(
+    180deg,
+    rgba(10, 12, 20, 0.98) 0%,
+    rgba(8, 10, 16, 0.95) 100%
+  );
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
   box-shadow: 
-    inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-    0 4px 24px rgba(0, 0, 0, 0.5);
+    inset 0 1px 0 rgba(255, 255, 255, 0.02),
+    0 1px 3px rgba(0, 0, 0, 0.4),
+    0 4px 16px rgba(0, 0, 0, 0.3);
   overflow: hidden;
 }
 
@@ -2780,13 +2785,20 @@ mark.compare-highlight.is-current {
    AMORPH DETAIL
    ───────────────────────────────────────────────────────────────────────────── */
 
-/* Detail Header Variant */
+/* Detail Header Variant - Harmonisiert mit Black Glass System */
 .amorph-header--detail {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 1rem;
   padding: 0.75rem 1rem;
+  /* Override für Detail: subtilerer Gradient */
+  background: linear-gradient(
+    180deg,
+    rgba(10, 12, 20, 0.97) 0%,
+    rgba(6, 8, 14, 0.94) 100%
+  );
+  border-bottom: 1px solid rgba(var(--system-rgb), 0.06);
 }
 
 .detail-back {
@@ -3300,14 +3312,39 @@ mark.compare-highlight.is-current {
 
 /* ═══════════════════════════════════════════════════════════════════════════════
    FOOTER - Harmonized Black Glass Morphism
-   Minimal, über Bottom Navigation
+   Minimal, verschmilzt mit dem Content
    ═══════════════════════════════════════════════════════════════════════════════ */
 .amorph-footer {
-  padding: 1.5rem 1rem;
+  position: relative;
+  padding: 2.5rem 1rem 1.5rem;
   padding-bottom: calc(1.5rem + 70px + env(safe-area-inset-bottom, 0));
-  background: rgba(4, 5, 10, 0.7);
-  border-top: 1px solid rgba(255, 255, 255, 0.03);
+  /* Sanfter Gradient nach oben - kein harter Übergang */
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(4, 6, 12, 0.4) 20%,
+    rgba(4, 6, 12, 0.7) 100%
+  );
+  /* Kein harter Border - nur subtile Linie wenn nötig */
+  border-top: none;
   text-align: center;
+}
+
+/* Optionale subtile Trennlinie für mehr Struktur */
+.amorph-footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(200px, 40%);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.06) 50%,
+    transparent 100%
+  );
 }
 
 .footer-content {
@@ -3319,25 +3356,44 @@ mark.compare-highlight.is-current {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.25rem;
-  margin-bottom: 0.875rem;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .footer-link {
+  position: relative;
   font-size: 0.6875rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.3);
   text-decoration: none;
   transition: color 0.2s ease;
+  padding: 0.25rem 0;
+}
+
+.footer-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 100%;
+  height: 1px;
+  background: rgba(var(--system-rgb), 0.5);
+  transition: transform 0.2s ease;
 }
 
 .footer-link:hover {
-  color: rgba(var(--system-rgb), 0.8);
+  color: rgba(var(--system-rgb), 0.75);
+}
+
+.footer-link:hover::after {
+  transform: translateX(-50%) scaleX(1);
 }
 
 .footer-copyright {
   font-size: 0.625rem;
-  color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.15);
+  letter-spacing: 0.02em;
 }
 
 .footer-copyright a {

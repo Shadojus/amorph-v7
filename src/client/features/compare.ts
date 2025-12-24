@@ -446,13 +446,19 @@ function initSpeciesHighlight(container: Element): void {
     (item as HTMLElement).style.cursor = 'pointer';
   });
   
-  // Add remove button handlers
+  // Add remove button handlers for legend items (species-level removal)
   const removeButtons = container.querySelectorAll('.legend-remove[data-slug]');
   removeButtons.forEach(btn => {
     btn.addEventListener('click', handleRemoveFromCompare);
   });
   
-  debug.compare('Species highlight initialized', { count: speciesElements.length, removeButtons: removeButtons.length });
+  // Add remove button handlers for individual field rows
+  const fieldRemoveButtons = container.querySelectorAll('.field-remove[data-field-key]');
+  fieldRemoveButtons.forEach(btn => {
+    btn.addEventListener('click', handleRemoveField);
+  });
+  
+  debug.compare('Species highlight initialized', { count: speciesElements.length, removeButtons: removeButtons.length, fieldRemoveButtons: fieldRemoveButtons.length });
 }
 
 function handleSpeciesHover(e: Event): void {
@@ -500,6 +506,41 @@ function handleRemoveFromCompare(e: Event): void {
   const remainingFields = getSelectedFields();
   if (remainingFields.length > 0) {
     showCompare();  // Refresh
+  } else {
+    hideCompare();  // Nothing left to compare
+  }
+}
+
+/**
+ * Handle click on remove button for individual field row
+ * Removes specific fields from selection and refreshes compare view
+ */
+function handleRemoveField(e: Event): void {
+  e.preventDefault();
+  e.stopPropagation();
+  
+  const btn = e.currentTarget as HTMLElement;
+  const fieldKey = btn.dataset.fieldKey;
+  
+  if (!fieldKey) return;
+  
+  // Parse field key: "itemSlug:fieldName|itemSlug:fieldName|..."
+  const fieldParts = fieldKey.split('|');
+  
+  debug.compare('Removing field row', { fieldKey, parts: fieldParts.length });
+  
+  // Remove each field in this row
+  fieldParts.forEach(part => {
+    const [itemSlug, fieldName] = part.split(':');
+    if (itemSlug && fieldName) {
+      deselectField(itemSlug, fieldName);
+    }
+  });
+  
+  // Refresh compare view if still open and we have remaining fields
+  const remainingFields = getSelectedFields();
+  if (remainingFields.length > 0) {
+    showCompare(true);  // Seamless refresh
   } else {
     hideCompare();  // Nothing left to compare
   }

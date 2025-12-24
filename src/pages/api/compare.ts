@@ -150,7 +150,10 @@ async function handleFieldCompare(fields: SelectedField[]): Promise<Response> {
   for (const [fieldName, fieldValues] of grouped) {
     const fieldKey = fieldValues.map(f => `${f.itemSlug}:${f.fieldName}`).sort().join('|');
     html += `<div class="compare-field-row" data-field-key="${escapeAttribute(fieldKey)}">`;
-    html += `<div class="field-name">${escapeHtml(fieldName)}</div>`;
+    html += `<div class="field-name">
+      <span class="field-name-text">${escapeHtml(fieldName)}</span>
+      <button class="field-remove" data-field-key="${escapeAttribute(fieldKey)}" title="Feld entfernen">×</button>
+    </div>`;
     html += `<div class="field-values">`;
     
     // Multiple items for this field - use overlay Compare mode

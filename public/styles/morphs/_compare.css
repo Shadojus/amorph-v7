@@ -59,6 +59,9 @@
 }
 
 .compare-field-row .field-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 0.625rem 0.875rem;
   font-size: 0.65rem;
   font-weight: 600;
@@ -67,6 +70,56 @@
   color: rgba(var(--system-rgb, 77, 136, 255), 0.7);
   background: rgba(0, 0, 0, 0.3);
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.compare-field-row .field-name-text {
+  flex: 1;
+}
+
+/* Remove button für einzelne Felder - nur bei Hover/Touch sichtbar */
+.compare-field-row .field-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0);
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.15s ease;
+}
+
+.compare-field-row:hover .field-remove,
+.compare-field-row:focus-within .field-remove {
+  opacity: 1;
+  transform: scale(1);
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.compare-field-row .field-remove:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(239, 68, 68, 0.5);
+}
+
+.compare-field-row .field-remove:active {
+  transform: scale(0.9);
+}
+
+/* Touch-Geräte: immer leicht sichtbar */
+@media (hover: none) {
+  .compare-field-row .field-remove {
+    opacity: 0.6;
+    transform: scale(1);
+    color: rgba(255, 255, 255, 0.3);
+  }
 }
 
 .compare-field-row .field-values {
