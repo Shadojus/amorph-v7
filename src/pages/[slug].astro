@@ -18,10 +18,17 @@ import { validateSlug } from '../core/security';
 
 // Get and validate slug from URL
 const rawSlug = Astro.params.slug;
+
+// Wenn kein slug vorhanden ist (z.B. bei "/"), nicht redirecten sondern 404
+// index.astro sollte "/" behandeln
+if (!rawSlug || rawSlug === '') {
+  return new Response(null, { status: 404 });
+}
+
 const slug = validateSlug(rawSlug);
 
 if (!slug) {
-  return Astro.redirect('/');
+  return new Response(null, { status: 404 });
 }
 
 // Load config and item
