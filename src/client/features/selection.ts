@@ -93,6 +93,12 @@ export function clearSelection(): void {
   notifyListeners();
 }
 
+export function clearFields(): void {
+  state.fields.clear();
+  debug.selection('Fields cleared');
+  notifyListeners();
+}
+
 export function isSelected(slug: string): boolean {
   return state.items.has(slug);
 }

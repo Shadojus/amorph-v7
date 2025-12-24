@@ -16,7 +16,10 @@ import {
   getSelectedCount,
   clearSelection,
   deselectItem,
-  getSelectedFieldCount
+  getSelectedFieldCount,
+  getSelectedFieldsGrouped,
+  getSelectedFields,
+  clearFields
 } from './selection';
 import { setupObservers, stopObservers, getObserverStats, debug as observerDebug } from '../../observer';
 import { morphDebug } from '../../morphs/debug';
@@ -219,7 +222,7 @@ function getOrCreateSessionId(): string {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// SELECTION BAR
+// SELECTION BAR - Shows species with selected fields
 // ═══════════════════════════════════════════════════════════════════════════════
 
 function initSelectionBar(): void {
@@ -229,43 +232,64 @@ function initSelectionBar(): void {
   const pillsContainer = selectionBar.querySelector('.selection-pills');
   const clearBtn = selectionBar.querySelector('.selection-clear');
   
-  // Clear button
+  // Clear button - clears all fields
   clearBtn?.addEventListener('click', () => {
-    clearSelection();
+    clearFields();
   });
   
   // Subscribe to selection changes
   subscribe(() => {
-    const items = getSelectedItems();
-    const count = getSelectedCount();
+    const fieldCount = getSelectedFieldCount();
+    const grouped = getSelectedFieldsGrouped();
     
-    // Show/hide bar
-    selectionBar.classList.toggle('is-visible', count > 0);
+    // Show/hide bar based on field count
+    selectionBar.classList.toggle('is-visible', fieldCount > 0);
     
-    // Update pills
+    // Update pills - one pill per species that has selected fields
     if (pillsContainer) {
-      pillsContainer.innerHTML = items.map(item => `
-        <button class="selection-pill" data-slug="${item.slug}">
-          <span class="pill-name">${item.name}</span>
-          <span class="pill-remove">×</span>
-        </button>
-      `).join('');
+      const pills: string[] = [];
       
-      // Add remove handlers
+      for (const [itemSlug, fields] of grouped.entries()) {
+        if (fields.length === 0) continue;
+        
+        const itemName = fields[0]?.itemName || itemSlug;
+        const color = fields[0]?.color || 'rgba(77, 136, 255, 0.75)';
+        
+        pills.push(`
+          <button class="selection-pill" data-slug="${itemSlug}" style="--pill-color: ${color}">
+            <span class="pill-dot"></span>
+            <span class="pill-name">${itemName}</span>
+            <span class="pill-remove">×</span>
+          </button>
+        `);
+      }
+      
+      pillsContainer.innerHTML = pills.join('');
+      
+      // Add remove handlers - removes all fields for that species
       pillsContainer.querySelectorAll('.selection-pill').forEach(pill => {
-        pill.addEventListener('click', () => {
+        pill.addEventListener('click', (e) => {
+          const target = e.target as HTMLElement;
           const slug = (pill as HTMLElement).dataset.slug;
-          if (slug) {
-            deselectItem(slug);
+          
+          if (slug && target.classList.contains('pill-remove')) {
+            // Remove all fields for this species
+            const fields = getSelectedFields().filter(f => f.itemSlug === slug);
+            fields.forEach(f => {
+              import('./selection').then(mod => mod.deselectField(f.itemSlug, f.fieldName));
+            });
           }
         });
       });
     }
     
-    // Update count
+    // Update count text
     const countEl = selectionBar.querySelector('.selection-count');
     if (countEl) {
-      countEl.textContent = `${count} ausgewählt`;
+      const speciesCount = grouped.size;
+      countEl.textContent = speciesCount === 1 
+        ? `1 Spezies` 
+        : `${speciesCount} Spezies`;
     }
   });
 }

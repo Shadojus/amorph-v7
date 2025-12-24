@@ -195,6 +195,13 @@ const fieldsWithPerspectives = Object.entries(item)
     </div>
   </aside>
   
+  <!-- Selection Bar - Zeigt Spezies mit ausgewählten Feldern -->
+  <div class="selection-bar">
+    <div class="selection-pills"></div>
+    <span class="selection-count">0 Spezies</span>
+    <button class="selection-clear">Alle entfernen</button>
+  </div>
+  
   <!-- Footer -->
   <footer class="amorph-footer">
     <div class="footer-content">
@@ -579,10 +586,6 @@ const fieldsWithPerspectives = Object.entries(item)
     const itemSlug = fieldsContainer?.dataset.itemSlug || '';
     const itemName = fieldsContainer?.dataset.itemName || '';
     
-    const selectionBar = document.querySelector<HTMLElement>('.selection-bar');
-    const selectionPills = document.querySelector<HTMLElement>('.selection-pills');
-    const selectionCount = document.querySelector<HTMLElement>('.selection-count');
-    const selectionClear = document.querySelector<HTMLElement>('.selection-clear');
     const bottomNavBadge = document.querySelector<HTMLElement>('.bottom-nav-badge');
     
     function applySelectionColor(field: HTMLElement, color: string): void {
@@ -640,28 +643,14 @@ const fieldsWithPerspectives = Object.entries(item)
       const count = getSelectedFieldCount();
       const fields = getSelectedFields();
       
-      if (selectionCount) selectionCount.textContent = `${count} ausgewählt`;
+      // Badge aktualisieren
       if (bottomNavBadge) {
         bottomNavBadge.textContent = String(count);
         bottomNavBadge.style.display = count > 0 ? 'flex' : 'none';
       }
-      if (selectionBar) selectionBar.classList.toggle('is-visible', count > 0);
       
-      const headerIndicator = document.querySelector('.selection-indicator');
-      const headerIndicatorCount = document.querySelector('.selection-indicator-count');
-      if (headerIndicator) headerIndicator.classList.toggle('is-visible', count > 0);
-      if (headerIndicatorCount) headerIndicatorCount.textContent = String(count);
-      
-      if (selectionPills) {
-        selectionPills.innerHTML = '';
-        fields.forEach(f => {
-          const pill = document.createElement('span');
-          pill.className = 'selection-pill';
-          pill.style.setProperty('--pill-color', f.color);
-          pill.innerHTML = `<span class="pill-field">${f.fieldName}</span><span class="pill-item">${f.itemName}</span>`;
-          selectionPills.appendChild(pill);
-        });
-      }
+      // Selection Bar wird jetzt zentral von initSelectionBar() in app.ts gesteuert
+      // Hier nur noch die Feld-Styles aktualisieren
       
       fieldsContainer?.querySelectorAll('.detail-field').forEach(detailField => {
         const amorphField = detailField.querySelector('.amorph-field') as HTMLElement;
@@ -684,7 +673,6 @@ const fieldsWithPerspectives = Object.entries(item)
     }
     
     fieldsContainer?.addEventListener('click', handleFieldClick);
-    selectionClear?.addEventListener('click', () => { clearSelection(); updateSelectionUI(); });
     
     // Compare-Button wird bereits von initApp() in Base.astro behandelt
     
