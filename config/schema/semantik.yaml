@@ -451,10 +451,7 @@ semantik:
     pfad_enthält:
       - risotto
       - Risotto
-    pfad: pairings.zutat
-    pfad_enthält:
       - reis
-      - Risotto
     score: 50
 
   # ═══════════════════════════════════════════════════════════════════════════

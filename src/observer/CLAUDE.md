@@ -6,7 +6,7 @@
 
 ```
 observer/
-├── index.ts        # setupObservers(), stopObservers() (160 Zeilen)
+├── index.ts        # setupObservers(), stopObservers() (~160 Zeilen)
 ├── debug.ts        # DebugObserver mit History
 ├── interaction.ts  # Clicks, Hover, Input
 ├── rendering.ts    # Mount, Unmount, DOM

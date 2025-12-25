@@ -8,9 +8,9 @@
 
 ```
 morphs/
-├── base.ts           # createUnifiedMorph() Factory + wrapInField() (261 Zeilen)
+├── base.ts           # createUnifiedMorph() Factory + wrapInField() (~261 Zeilen)
 ├── debug.ts          # Morph Debug System (morphDebug.enable())
-├── index.ts          # Registry, renderValue(), renderCompare() (256 Zeilen)
+├── index.ts          # Registry, renderValue(), renderCompare() (~256 Zeilen)
 └── primitives/       # 28 Morph-Implementierungen
     ├── index.ts      # Re-Exports + Registry
     ├── badge.ts      # {status, variant}
@@ -20,7 +20,7 @@ morphs/
     ├── citation.ts   # {author, year, title, doi?}
     ├── currency.ts   # {amount, currency} oder [currencies]
     ├── date.ts       # ISO-Datum
-    ├── dosage.ts     # [{amount, unit, frequency}]
+    ├── dosage.ts     # [{amount, unit, frequency}] oder {min, max}
     ├── gauge.ts      # {value, min, max, unit}
     ├── image.ts      # URL mit .jpg/.png/.webp/.svg
     ├── lifecycle.ts  # [{phase, duration}] - Phasen-Dots
@@ -40,6 +40,23 @@ morphs/
     ├── tag.ts        # String ≤20 chars / ["short"]
     ├── text.ts       # String >20 chars
     └── timeline.ts   # [{date, event}]
+```
+
+## 🎯 Priority im Grid
+
+Index.astro sortiert Felder nach **MORPH_PRIORITY**:
+
+```typescript
+const MORPH_PRIORITY = {
+  'badge': 1,     // Essbarkeit, Status - HÖCHSTE PRIO
+  'severity': 1,  // Giftigkeit, Warnungen
+  'bar': 2,       // Nährstoffe, Verteilung
+  'radar': 2,     // Compound Profile
+  'sparkline': 3, // Trends
+  'progress': 3,  // Prozent-Werte
+  'range': 5,     // Größen-Ranges (weniger wichtig!)
+  'text': 9,      // Text ganz unten
+};
 ```
 
 ## 🎯 Unified Morph API

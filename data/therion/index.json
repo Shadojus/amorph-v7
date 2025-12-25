@@ -2,35 +2,358 @@
   "kingdom": "animalia",
   "name": "Animalia",
   "icon": "🦋",
+  "tagline": "Das Tierreich",
+  "color": "#EB4DB4",
   "count": 28,
+  "featured": [],
   "species": [
-    "ailuropoda-melanoleuca",
-    "ambystoma-mexicanum",
-    "apis-mellifera",
-    "aptenodytes-forsteri",
-    "ara-ararauna",
-    "canis-lupus",
-    "carcharodon-carcharias",
-    "chelonia-mydas",
-    "corvus-corax",
-    "crocodylus-niloticus",
-    "delphinapterus-leucas",
-    "dendrobates-tinctorius",
-    "electrophorus-electricus",
-    "haliaeetus-leucocephalus",
-    "hapalochlaena-lunulata",
-    "hippocampus-kuda",
-    "loxodonta-africana",
-    "mantis-religiosa",
-    "mola-mola",
-    "octopus-vulgaris",
-    "orcinus-orca",
-    "panthera-tigris",
-    "papilio-machaon",
-    "phyllobates-terribilis",
-    "python-reticulatus",
-    "struthio-camelus",
-    "ursus-arctos",
-    "varanus-komodoensis"
+    {
+      "slug": "ailuropoda-melanoleuca",
+      "name": "Giant Panda",
+      "scientific_name": "Ailuropoda melanoleuca",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "ambystoma-mexicanum",
+      "name": "Axolotl",
+      "scientific_name": "Ambystoma mexicanum",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "apis-mellifera",
+      "name": "Western Honey Bee",
+      "scientific_name": "Apis mellifera",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "aptenodytes-forsteri",
+      "name": "Emperor Penguin",
+      "scientific_name": "Aptenodytes forsteri",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "ara-ararauna",
+      "name": "Blue-and-yellow Macaw",
+      "scientific_name": "Ara ararauna",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "canis-lupus",
+      "name": "Gray Wolf",
+      "scientific_name": "Canis lupus",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "carcharodon-carcharias",
+      "name": "Great White Shark",
+      "scientific_name": "Carcharodon carcharias",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "chelonia-mydas",
+      "name": "Green Sea Turtle",
+      "scientific_name": "Chelonia mydas",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "corvus-corax",
+      "name": "Common Raven",
+      "scientific_name": "Corvus corax",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "crocodylus-niloticus",
+      "name": "Nile Crocodile",
+      "scientific_name": "Crocodylus niloticus",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "delphinapterus-leucas",
+      "name": "Beluga Whale",
+      "scientific_name": "Delphinapterus leucas",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "dendrobates-tinctorius",
+      "name": "Dyeing Poison Dart Frog",
+      "scientific_name": "Dendrobates tinctorius",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "electrophorus-electricus",
+      "name": "Electric Eel",
+      "scientific_name": "Electrophorus electricus",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "haliaeetus-leucocephalus",
+      "name": "Bald Eagle",
+      "scientific_name": "Haliaeetus leucocephalus",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "hapalochlaena-lunulata",
+      "name": "Greater Blue-ringed Octopus",
+      "scientific_name": "Hapalochlaena lunulata",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "hippocampus-kuda",
+      "name": "Spotted Seahorse",
+      "scientific_name": "Hippocampus kuda",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "loxodonta-africana",
+      "name": "African Bush Elephant",
+      "scientific_name": "Loxodonta africana",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "mantis-religiosa",
+      "name": "European Mantis",
+      "scientific_name": "Mantis religiosa",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "mola-mola",
+      "name": "Ocean Sunfish",
+      "scientific_name": "Mola mola",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "octopus-vulgaris",
+      "name": "Common Octopus",
+      "scientific_name": "Octopus vulgaris",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "orcinus-orca",
+      "name": "Orca",
+      "scientific_name": "Orcinus orca",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "panthera-tigris",
+      "name": "Tiger",
+      "scientific_name": "Panthera tigris",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "papilio-machaon",
+      "name": "Old World Swallowtail",
+      "scientific_name": "Papilio machaon",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "phyllobates-terribilis",
+      "name": "Golden Poison Frog",
+      "scientific_name": "Phyllobates terribilis",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "python-reticulatus",
+      "name": "Reticulated Python",
+      "scientific_name": "Malayopython reticulatus",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "struthio-camelus",
+      "name": "Common Ostrich",
+      "scientific_name": "Struthio camelus",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "ursus-arctos",
+      "name": "Brown Bear",
+      "scientific_name": "Ursus arctos",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": []
+    },
+    {
+      "slug": "varanus-komodoensis",
+      "name": "Komodo Dragon",
+      "scientific_name": "Varanus komodoensis",
+      "tagline": "",
+      "image": "",
+      "perspectives": [
+        "ecology",
+        "identification"
+      ],
+      "categories": []
+    }
   ]
 }

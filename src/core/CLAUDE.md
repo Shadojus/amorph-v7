@@ -6,9 +6,9 @@
 
 ```
 core/
-├── types.ts      # TypeScript Interfaces (273 Zeilen)
-├── detection.ts  # Struktur-basierte Typ-Erkennung (472 Zeilen)
-├── security.ts   # XSS-Schutz & Validierung (309 Zeilen)
+├── types.ts      # TypeScript Interfaces (~273 Zeilen)
+├── detection.ts  # Struktur-basierte Typ-Erkennung (~472 Zeilen)
+├── security.ts   # XSS-Schutz & Validierung (~309 Zeilen)
 └── index.ts      # Re-Exports
 ```
 

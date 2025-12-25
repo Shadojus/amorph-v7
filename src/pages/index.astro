@@ -33,11 +33,14 @@ await loadConfig();
  * - Naturliebhaber: Ökologische Besonderheiten, Faszination
  * - Überraschungs-Sucher: "Wusstest du dass..."-Fakten
  * 
+ * WICHTIG: Felder für alle 3 Kingdoms (Fungi, Plantae, Therion)!
+ * 
  * TIER 1: WOW-FAKTOR - Das Besondere, Überraschende
- * TIER 2: HEALING - Heilung, Tradition, Spiritualität
- * TIER 3: KULINARIK - Genuss, Geschmack, Lifestyle
- * TIER 4: NATUR - Ökologie, Habitat, Schutz
- * TIER 5: SICHERHEIT - Wichtig, aber nicht "sexy"
+ * TIER 2: GEFAHR & SICHERHEIT - Sofort wichtig bei Tieren!
+ * TIER 3: HEALING - Heilung, Tradition, Spiritualität
+ * TIER 4: KULINARIK - Genuss, Geschmack, Lifestyle
+ * TIER 5: NATUR & ÖKOLOGIE - Habitat, Rolle, Schutz
+ * TIER 6: IDENTIFIKATION - Für die Bestimmer
  */
 const HIGH_VALUE_FIELDS = [
   // ═══════════════════════════════════════════════════════════════════════════
@@ -48,16 +51,49 @@ const HIGH_VALUE_FIELDS = [
   'effect_profile',               // Wirkungsprofil (psychoaktiv, adaptogen, etc.)
   'historical_significance',      // Historische Bedeutung, Mythen
   'keystone_species',             // Schlüsselart im Ökosystem
+  'keystone_function',            // Was macht sie zur Schlüsselart
   'bioremediation_potential',     // Kann Umwelt reinigen (faszinierend!)
   'bioluminescence',              // Leuchtet im Dunkeln!
+  // 🦁 THERION-SPEZIFISCH: Faszinierende Tierfähigkeiten
+  'venom_source',                 // Gift! (Schlangen, Quallen, etc.)
+  'electric_discharge_max',       // Elektrisch! (Zitteraal)
+  'regeneration_capability',      // Regeneration (Axolotl)
+  'intelligence',                 // Intelligenz (Raben, Oktopus)
+  'bite_force',                   // Beißkraft (Krokodil, Hai)
+  'running_speed_max',            // Geschwindigkeit
+  'strike_speed',                 // Angriffsgeschwindigkeit
+  'migration_distance',           // Wanderung (Wale, Vögel)
+  'waggle_dance_communication',   // Bienen-Tanz!
+  'neoteny',                      // Neotenie (Axolotl bleibt Larve)
+  // 🌿 PLANTAE-SPEZIFISCH: Pflanzenkräfte
+  'allelopathic_effects',         // Chemische Kriegsführung!
+  'invasiveness_score',           // Invasiv (spannend!)
+  'carbon_storage_capacity',      // Klimaheld
   
   // ═══════════════════════════════════════════════════════════════════════════
-  // 💫 TIER 2: HEALING & TRADITION - Spiritualität, Medizin, Wellness
+  // ⚠️ TIER 2: GEFAHR & SICHERHEIT - Bei Tieren SOFORT wichtig!
+  // ═══════════════════════════════════════════════════════════════════════════
+  'safety_potentially_deadly',    // Tödlich gefährlich!
+  'safety_warning_level',         // Warnstufe (Badge!)
+  'safety_warning_text',          // Warntext
+  'safety_summary',               // Sicherheits-Zusammenfassung
+  'safety_edibility_status',      // Essbar/Giftig (mit Prefix!)
+  'safety_risk_inherent',         // Inhärentes Risiko (Progress!)
+  'encounter_protocol',           // Was tun bei Begegnung
+  'toxicity_level',               // Giftigkeit
+  'edibility_status',             // Essbar/Giftig (ohne Prefix - Fungi)
+  'confusion_risk_level',         // Verwechslungsgefahr
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 💫 TIER 3: HEALING & TRADITION - Spiritualität, Medizin, Wellness
   // ═══════════════════════════════════════════════════════════════════════════
   'primary_medicinal_uses',       // Hauptheilwirkungen
   'traditional_medicine_systems', // TCM, Ayurveda, Volksmedizin
   'traditional_medicine_use',     // Traditionelle Anwendung
   'tcm_therapeutic_actions',      // TCM Wirkungen
+  'tcm_meridian_tropism',         // TCM Meridiane
+  'ayurveda_dosha_effect',        // Ayurveda Doshas
+  'ayurveda_rasa',                // Ayurveda Geschmack
   'mechanism_of_action',          // Wie es wirkt (faszinierend!)
   'active_compounds',             // Die Wirkstoffe
   'bioactive_compounds',          // Bioaktive Verbindungen
@@ -65,7 +101,7 @@ const HIGH_VALUE_FIELDS = [
   'medicinal_status',             // Medizinischer Status
   
   // ═══════════════════════════════════════════════════════════════════════════
-  // 🍳 TIER 3: KULINARIK & LIFESTYLE - Genuss, Geschmack, Kochen
+  // 🍳 TIER 4: KULINARIK & LIFESTYLE - Genuss, Geschmack, Kochen
   // ═══════════════════════════════════════════════════════════════════════════
   'culinary_rating',              // Kulinarische Bewertung ⭐⭐⭐⭐⭐
   'flavor_profile',               // Geschmacksprofil
@@ -77,23 +113,20 @@ const HIGH_VALUE_FIELDS = [
   'texture',                      // Textur
   
   // ═══════════════════════════════════════════════════════════════════════════
-  // 🌿 TIER 4: NATUR & ÖKOLOGIE - Habitat, Rolle, Schutz
+  // 🌿 TIER 5: NATUR & ÖKOLOGIE - Habitat, Rolle, Schutz
   // ═══════════════════════════════════════════════════════════════════════════
   'ecological_role',              // Rolle im Ökosystem
+  'ecological_guild',             // Ökologische Gilde (apex predator, etc.)
+  'trophic_mode_primary',         // Ernährungsweise (carnivore, etc.)
   'ecological_importance',        // Ökologische Bedeutung
   'ecosystem_services',           // Was es für die Natur tut
+  'primary_ecosystem_function',   // Hauptfunktion im Ökosystem
   'habitat_primary',              // Wo es lebt
-  'iucn_global_status',           // Schutzstatus
+  'habitat_types',                // Lebensräume
+  'iucn_global_status',           // Schutzstatus (Badge!)
+  'population_trend',             // Populationstrend
   'conservation_status',          // Gefährdung
   'native_range',                 // Heimat
-  
-  // ═══════════════════════════════════════════════════════════════════════════
-  // ⚠️ TIER 5: SICHERHEIT - Wichtig, aber weiter unten
-  // ═══════════════════════════════════════════════════════════════════════════
-  'edibility_status',             // Essbar/Giftig
-  'toxicity_level',               // Giftigkeit
-  'safety_summary',               // Sicherheits-Zusammenfassung
-  'confusion_risk_level',         // Verwechslungsgefahr
   
   // ═══════════════════════════════════════════════════════════════════════════
   // 🔬 TIER 6: IDENTIFIKATION - Für die Bestimmer
@@ -101,6 +134,8 @@ const HIGH_VALUE_FIELDS = [
   'identification_difficulty',    // Wie schwer zu bestimmen
   'key_differentiating_features', // Erkennungsmerkmale
   'common_names',                 // Volksnamen (interessant!)
+  'size_range',                   // Größe (am Ende, nicht am Anfang!)
+  'weight_range',                 // Gewicht
 ];
 
 /**

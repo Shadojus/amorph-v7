@@ -7,9 +7,10 @@
 ```
 schema/
 ├── perspektiven.yaml   # 15 Perspektiven-Definitionen
+├── semantik.yaml       # Semantische Feld-Mappings
 ├── felder.yaml         # Feld-Definitionen
 └── perspektiven/       # Blueprints pro Perspektive
-    ├── blueprints/     # Morph-Blueprints (YAML)
+    ├── blueprints/     # Morph-Blueprints (15 YAML-Dateien)
     │   └── *.blueprint.yaml
     └── CLAUDE.md       # Blueprint-Doku
 ```

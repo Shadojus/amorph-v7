@@ -9,39 +9,42 @@ public/
 ├── styles/
 │   ├── base.css        # Design Tokens, Colors, Typography (~900 Zeilen)
 │   ├── components.css  # UI-Komponenten (~3600 Zeilen)
+│   ├── morphs.css      # Import aller Morph-Styles
 │   └── morphs/
-│       ├── index.css   # Import aller Morphs
-│       ├── _card.css   # Grid-Card Styles
-│       ├── _compare.css # Compare-Mode Styles
-│       ├── _variables.css # Morph CSS Variables
-│       ├── badge.css    # Badge Morph
-│       ├── bar.css      # Bar Chart
-│       ├── boolean.css  # Boolean Display
-│       ├── calendar.css # Calendar Lichtkugeln
-│       ├── citation.css # Citation Cards
-│       ├── currency.css # Currency Display
-│       ├── date.css     # Date Formatting
-│       ├── dosage.css   # Dosage Display
-│       ├── gauge.css    # Gauge Dial
-│       ├── image.css    # Image Thumbnails
+│       ├── index.css     # Import aller Morphs
+│       ├── _card.css     # Grid-Card Styles
+│       ├── _compare.css  # Compare-Mode Styles
+│       ├── _variables.css# Morph CSS Variables
+│       ├── badge.css     # Badge Morph (Essbarkeit, Status)
+│       ├── bar.css       # Bar Chart
+│       ├── boolean.css   # Boolean Display
+│       ├── calendar.css  # Calendar Lichtkugeln
+│       ├── citation.css  # Citation Cards
+│       ├── currency.css  # Currency Display
+│       ├── date.css      # Date Formatting
+│       ├── dosage.css    # Dosage Display
+│       ├── gauge.css     # Gauge Dial
+│       ├── image.css     # Image Thumbnails
 │       ├── lifecycle.css # Lifecycle Phasen
-│       ├── link.css     # Link Styling
-│       ├── list.css     # List Rendering
-│       ├── number.css   # Number Display
-│       ├── object.css   # Object Tables
-│       ├── pie.css      # Pie Charts
-│       ├── progress.css # Progress Bars
-│       ├── radar.css    # Spider Charts
-│       ├── range.css    # Range Display
-│       ├── rating.css   # Star Rating
-│       ├── severity.css # Severity Display
+│       ├── link.css      # Link Styling
+│       ├── list.css      # List Rendering
+│       ├── number.css    # Number Display
+│       ├── object.css    # Object Tables
+│       ├── pie.css       # Pie Charts
+│       ├── progress.css  # Progress Bars
+│       ├── radar.css     # Spider Charts
+│       ├── range.css     # Range Display
+│       ├── rating.css    # Star Rating
+│       ├── severity.css  # Severity Display
 │       ├── sparkline.css # Mini Line Charts
-│       ├── stats.css    # Stats Display
-│       ├── steps.css    # Step Lichtkugeln
-│       ├── tag.css      # Tag Pills
-│       ├── text.css     # Text Rendering
-│       └── timeline.css # Timeline Events
-└── test-bar.html        # Test Page
+│       ├── stats.css     # Stats Display
+│       ├── steps.css     # Step Lichtkugeln
+│       ├── tag.css       # Tag Pills
+│       ├── text.css      # Text Rendering
+│       └── timeline.css  # Timeline Events
+├── images/
+│   └── species/          # Species-Bilder ({scientific-name}.webp)
+└── test-bar.html         # Test Page für Bar-Morph
 ```
 
 ## 🎨 Design System
