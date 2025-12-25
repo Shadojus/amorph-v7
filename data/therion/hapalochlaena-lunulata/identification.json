@@ -1,0 +1,55 @@
+{
+  "scientific_name": "Hapalochlaena lunulata",
+  "author_citation": "(Quoy & Gaimard, 1832)",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Mollusca",
+  "taxonomy_class": "Cephalopoda",
+  "taxonomy_order": "Octopoda",
+  "taxonomy_family": "Octopodidae",
+  "taxonomy_genus": "Hapalochlaena",
+  "taxonomy_species": "lunulata",
+  "common_names": [
+    "Greater Blue-ringed Octopus",
+    "Blue-ringed Octopus",
+    "Grosser Blaugeringelter Krake",
+    "Poulpe aux Anneaux Bleus"
+  ],
+  "size_range": {
+    "min": 12,
+    "max": 20,
+    "unit": "cm"
+  },
+  "weight_range": {
+    "min": 10,
+    "max": 100,
+    "unit": "g"
+  },
+  "color_primary": "yellowish-brown",
+  "color_secondary": "iridescent blue rings",
+  "primary_structure_type": "small venomous octopus",
+  "primary_structure_shape_mature": "compact body with eight arms",
+  "primary_structure_surface": "soft skin with iridescent rings",
+  "primary_structure_color": "tan to yellow-brown with 50-60 iridescent blue rings when alarmed",
+  "key_differentiating_features": [
+    "Distinctive blue rings appear when agitated",
+    "Small body size relative to other octopuses",
+    "Relatively large blue rings (7-8mm diameter)",
+    "Rings have dark borders",
+    "One of most venomous animals"
+  ],
+  "identification_difficulty": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Hapalochlaena maculosa (Southern Blue-ringed Octopus - smaller rings)",
+    "Hapalochlaena fasciata (Blue-lined Octopus - lines instead of rings)"
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Males have hectocotylus for sperm transfer"
+}

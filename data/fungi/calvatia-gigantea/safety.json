@@ -1,0 +1,50 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Non-toxic",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 4,
+    "max": 5
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Nur jung essen wenn innen komplett weiss",
+    "Immer aufschneiden zur Kontrolle",
+    "Bei Verfaerbung nicht mehr essbar"
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "typ": "Normal consumption", "beschreibung": "Keine Symptome bei jungen weissen Exemplaren"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "collection_warnings": [
+    "IMMER aufschneiden - junge weisse Knollenblaetterpilze koennen aehnlich aussehen!",
+    "Innen muss einheitlich weiss sein, keine Lamellenstruktur erkennbar",
+    "Bei gelber oder gruener Verfaerbung nicht mehr essen"
+  ],
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "source": {
+    "authors": "Lloyd, C.G.",
+    "year": 1904,
+    "title": "The Lycoperdaceae",
+    "journal": "Cincinnati",
+    "doi": ""
+  }
+}

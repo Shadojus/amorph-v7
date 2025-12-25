@@ -1,0 +1,149 @@
+{
+  "scientific_name": "Crocus sativus",
+  "author_citation": "L. 1753",
+  "accepted_name": "Crocus sativus L.",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Liliopsida",
+  "taxonomy_order": "Asparagales",
+  "taxonomy_family": "Iridaceae",
+  "taxonomy_genus": "Crocus",
+  "taxonomy_species": "sativus",
+  "synonyms": [
+    "Crocus officinalis Honck.",
+    "Crocus orsinii Parl.",
+    "Crocus pendulus Stokes"
+  ],
+  "common_names": [
+    "Saffron Crocus",
+    "Saffron",
+    "Autumn Crocus",
+    "Spanish Saffron"
+  ],
+  "international_names": [
+    "Safran (DE)",
+    "Safran (FR)",
+    "Azafran (ES)",
+    "Zafferano (IT)",
+    "Fan Hong Hua (CN)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Purple flowers in autumn", "status": "pending"},
+    {"step": 2, "label": "3 prominent red stigmas per flower", "status": "pending"},
+    {"step": 3, "label": "Narrow, grass-like leaves with white stripe", "status": "pending"},
+    {"step": 4, "label": "Grows from corm (bulb-like structure)", "status": "pending"},
+    {"step": 5, "label": "Flowers appear before or with leaves", "status": "pending"},
+    {"step": 6, "label": "Stigmas intensely aromatic", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 5,
+  "minimum_equipment_needed": [
+    "No equipment required"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Colchicum autumnale (Meadow Saffron - TOXIC)",
+    "Crocus speciosus (Autumn Crocus)",
+    "Other autumn-flowering Crocus species"
+  ],
+  "confusion_risk_level": {
+    "status": "High",
+    "variant": "danger"
+  },
+  "confusion_consequences": [
+    {"level": "critical", "typ": "Colchicum autumnale", "beschreibung": "Meadow saffron is DEADLY POISONOUS - has 6 stamens vs. 3; wider leaves; no prominent red stigmas"}
+  ],
+  "key_differentiating_features": [
+    "3 stamens (Colchicum has 6)",
+    "3 vivid red-orange stigmas extending from flower",
+    "Leaves grass-like with central white stripe",
+    "Stigmas have distinctive saffron aroma",
+    "Only 3 stigmas per flower (the saffron)"
+  ],
+  "habit": "Perennial geophyte (from corm)",
+  "growth_form": "Low-growing, clump-forming",
+  "symmetry": "radial",
+  "size_range": {
+    "min": 10,
+    "max": 20,
+    "unit": "cm"
+  },
+  "size_typical_cm": 15,
+  "basic_shape": "Low purple flowers with grass-like leaves",
+  "height": {
+    "min": 10,
+    "max": 20,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 5,
+    "max": 10,
+    "unit": "cm"
+  },
+  "surface_type": "Smooth, hairless",
+  "color_primary": "Purple (flowers)",
+  "color_secondary": "Red-orange (stigmas)",
+  "color_variations": [
+    "Flowers lilac to purple",
+    "Stigmas vivid red-orange"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf",
+  "primary_structure_diameter": {
+    "min": 0.1,
+    "max": 0.2,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Grass-like, emerging",
+  "primary_structure_shape_mature": "Narrow linear, white midstripe",
+  "primary_structure_surface": "Smooth, keeled",
+  "primary_structure_color": "Dark green with white stripe",
+  "support_structure_present": false,
+  "support_structure_type": "None (stemless)",
+  "corm_present": true,
+  "corm_type": "Tunicated corm",
+  "corm_color": "Brown exterior, white interior",
+  "flower_present": true,
+  "flower_type": "Cup-shaped, 6 tepals",
+  "flower_color": "Lilac to purple with darker veins",
+  "flower_size": {
+    "min": 4,
+    "max": 5,
+    "unit": "cm"
+  },
+  "flowering_period": "October to November",
+  "smell_description": "Stigmas intensely aromatic, honey-like, distinctive",
+  "smell_comparable_to": "Honey, hay, distinctive saffron aroma",
+  "taste_safe_to_test": true,
+  "taste_description": "Stigmas: bitter, hay-like, distinctive saffron flavor",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "Leaves develop after flowering",
+    "summer": "Dormant",
+    "autumn": "Flowering (October-November)",
+    "winter": "Leaves persist through winter"
+  },
+  "season_peak_months": [10, 11],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis, geophyte",
+  "substrate_species": [
+    "Well-drained, calcareous soils",
+    "Mediterranean climates",
+    "Cultivated fields"
+  ],
+  "source": {
+    "authors": "Fernandez, J.A.",
+    "year": 2004,
+    "title": "Biology, Biotechnology and Biomedicine of Saffron",
+    "journal": "Recent Research Developments in Plant Science",
+    "doi": ""
+  }
+}

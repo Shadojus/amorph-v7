@@ -1,0 +1,71 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Non-toxic (caffeine content)",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 5,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Contains caffeine - limit intake",
+    "May inhibit iron absorption",
+    "High consumption may cause insomnia"
+  ],
+  "primary_toxins": [
+    {
+      "name": "Caffeine",
+      "cas": "58-08-2",
+      "mechanism": "Adenosine receptor antagonist; stimulant",
+      "lethal_dose": "Approximately 10g caffeine (150-200 cups of tea)"
+    }
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "typ": "Normal consumption", "beschreibung": "Safe and beneficial in moderate amounts"},
+    {"level": "low", "typ": "Excessive consumption", "beschreibung": "Insomnia, anxiety, heart palpitations, GI upset"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "fatality_note": "No fatalities from tea consumption; caffeine toxicity theoretically possible but requires extreme amounts.",
+  "risk_groups": [
+    "Those sensitive to caffeine",
+    "Pregnant women (limit caffeine)",
+    "Those with anxiety disorders",
+    "Those with iron deficiency"
+  ],
+  "antidote": "None required for normal use",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "allergy_potential": {
+    "status": "Very Low",
+    "variant": "success"
+  },
+  "contraindications": [
+    "Severe caffeine sensitivity",
+    "Certain heart conditions (limit caffeine)"
+  ],
+  "source": {
+    "authors": "Khan, N. & Mukhtar, H.",
+    "year": 2007,
+    "title": "Tea polyphenols for health promotion",
+    "journal": "Life Sciences",
+    "doi": "10.1016/j.lfs.2007.06.011"
+  }
+}

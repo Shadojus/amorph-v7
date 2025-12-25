@@ -1,0 +1,50 @@
+{
+  "trophic_mode_primary": "autotroph",
+  "ecological_guild": "Sukkulente Staude",
+  "primary_ecosystem_function": "Alpenpflanze",
+  "ecosystem_type": "Alpin",
+  "ecosystem_subtype": "Felsspalten, alpine Rasen",
+  "microhabitat_primary": "Felsige Standorte in grosser Hoehe",
+  "microhabitat_secondary": "Kuesten, arktische Tundra",
+  "light_requirement": "volle Sonne",
+  "moisture_regime": "mesisch",
+  "drought_tolerance": {
+    "rating": 6,
+    "max": 10
+  },
+  "soil_ph_optimal_min": 5.5,
+  "soil_ph_optimal_max": 7.5,
+  "soil_texture_preference": "steinig, gut drainiert",
+  "climate_zone": "arktisch-alpin",
+  "temperature_optimal_min_c": -40,
+  "temperature_optimal_max_c": 20,
+  "frost_tolerance": {
+    "rating": 10,
+    "max": 10
+  },
+  "elevation_optimal_min_m": 1500,
+  "elevation_optimal_max_m": 4500,
+  "native_range": "Arktis und Hochgebirge der Nordhemisphaere (Alpen, Skandinavien, Sibirien, Nordamerika)",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "regional_status": {
+    "status": "Gefaehrdet in einigen Regionen",
+    "variant": "warning"
+  },
+  "overexploitation_pressure": {
+    "status": "Hoch",
+    "variant": "danger"
+  },
+  "primary_threats": [
+    "Uebersammlung fuer Heilzwecke",
+    "Klimawandel"
+  ],
+  "climate_change_sensitivity": {
+    "status": "Hoch",
+    "variant": "danger"
+  },
+  "dispersal_vector_type": "Anemochor",
+  "dispersal_mechanism": "Windausbreitung (sehr kleine Samen)"
+}

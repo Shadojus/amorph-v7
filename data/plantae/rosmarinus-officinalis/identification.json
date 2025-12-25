@@ -1,0 +1,147 @@
+{
+  "scientific_name": "Salvia rosmarinus",
+  "author_citation": "(L.) Schleid. 1852",
+  "accepted_name": "Salvia rosmarinus (L.) Schleid.",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Magnoliopsida",
+  "taxonomy_order": "Lamiales",
+  "taxonomy_family": "Lamiaceae",
+  "taxonomy_genus": "Salvia",
+  "taxonomy_species": "rosmarinus",
+  "synonyms": [
+    "Rosmarinus officinalis L.",
+    "Rosmarinus angustifolius Mill.",
+    "Rosmarinus latifolius Mill."
+  ],
+  "common_names": [
+    "Rosemary",
+    "Old Man",
+    "Compass Weed",
+    "Polar Plant"
+  ],
+  "international_names": [
+    "Rosmarin (DE)",
+    "Romarin (FR)",
+    "Romero (ES)",
+    "Rosmarino (IT)",
+    "Mi Die Xiang (CN)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Intensely aromatic when touched", "status": "pending"},
+    {"step": 2, "label": "Needle-like, narrow leaves", "status": "pending"},
+    {"step": 3, "label": "Dark green above, white below leaves", "status": "pending"},
+    {"step": 4, "label": "Woody, evergreen shrub", "status": "pending"},
+    {"step": 5, "label": "Small blue to white flowers", "status": "pending"},
+    {"step": 6, "label": "Leaves 2-4 cm long, 2-4 mm wide", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 2,
+  "minimum_equipment_needed": [
+    "No equipment required"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Lavandula angustifolia (Lavender)",
+    "Satureja montana (Winter Savory)",
+    "Hyssopus officinalis (Hyssop)"
+  ],
+  "confusion_risk_level": {
+    "status": "Very Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "none", "typ": "Similar herbs", "beschreibung": "All similar species are also culinary herbs"}
+  ],
+  "key_differentiating_features": [
+    "Distinctive rosemary pine-camphor scent",
+    "Needle-like leaves curved under at edges",
+    "Two-tone leaves: dark green/white",
+    "Woody perennial (not herbaceous)",
+    "Flowers in axillary clusters"
+  ],
+  "habit": "Evergreen woody shrub",
+  "growth_form": "Upright to prostrate depending on variety",
+  "symmetry": "bilateral",
+  "size_range": {
+    "min": 30,
+    "max": 200,
+    "unit": "cm"
+  },
+  "size_typical_cm": 100,
+  "basic_shape": "Upright or spreading woody shrub",
+  "height": {
+    "min": 30,
+    "max": 200,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 40,
+    "max": 150,
+    "unit": "cm"
+  },
+  "surface_type": "Smooth, resinous leaves",
+  "color_primary": "Dark green (leaf upper)",
+  "color_secondary": "White (leaf lower), blue (flowers)",
+  "color_variations": [
+    "Some varieties have pale blue flowers",
+    "Some have white or pink flowers"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf (needle-like)",
+  "primary_structure_diameter": {
+    "min": 0.2,
+    "max": 0.4,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Needle-like, soft",
+  "primary_structure_shape_mature": "Needle-like, leathery, rolled margins",
+  "primary_structure_surface": "Smooth, resinous upper; white-tomentose lower",
+  "primary_structure_color": "Dark green above, silvery-white below",
+  "support_structure_present": true,
+  "support_structure_type": "Woody stems and trunk",
+  "support_structure_color": "Grey-brown bark",
+  "flower_present": true,
+  "flower_type": "Two-lipped, in axillary clusters",
+  "flower_color": "Blue to pale blue",
+  "flower_size": {
+    "min": 1,
+    "max": 1.5,
+    "unit": "cm"
+  },
+  "flowering_period": "Spring and sometimes autumn",
+  "smell_description": "Intensely aromatic: pine, camphor, eucalyptus",
+  "smell_comparable_to": "Pine needles, eucalyptus, camphor",
+  "taste_safe_to_test": true,
+  "taste_description": "Aromatic, slightly bitter, pine-like warmth",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "Peak flowering, new growth",
+    "summer": "Full foliage, aromatic",
+    "autumn": "May flower again",
+    "winter": "Evergreen, reduced growth"
+  },
+  "season_peak_months": [3, 4, 5, 6],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis, drought-adapted",
+  "substrate_species": [
+    "Well-drained, calcareous soils",
+    "Coastal cliffs",
+    "Rocky Mediterranean terrain"
+  ],
+  "source": {
+    "authors": "Drew, B.T. & Sytsma, K.J.",
+    "year": 2012,
+    "title": "Phylogenetics, biogeography, and staminal evolution in the tribe Mentheae",
+    "journal": "American Journal of Botany",
+    "doi": "10.3732/ajb.1100432"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "safety_edibility_status": {
+    "status": "conditionally_edible",
+    "variant": "warning"
+  },
+  "safety_edibility_confidence": {
+    "value": 80,
+    "max": 100,
+    "unit": "%"
+  },
+  "safety_edibility_notes": "Nur junge Exemplare essbar, auf Hartholz (Eiche, Buche) oft bitter. Immer gut durchgaren! Roh unvertraeglich wegen Oxalsaeure. Bei manchen Menschen Unvertraeglichkeit.",
+  "safety_potentially_deadly": false,
+  "safety_toxicity_score": {
+    "value": 25,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_warning_level": {
+    "status": "caution",
+    "variant": "warning"
+  },
+  "safety_warning_text": "Niemals roh essen! Bei einigen Personen kann es auch gegart zu Magen-Darm-Beschwerden kommen. Auf Hartholz oft bitter und weniger vertraeglich.",
+  "safety_summary": "Bedingt essbar. Nur junge Exemplare von Weichholz (Weide, Birke) sammeln. Immer gut durchgaren. Individuelle Unvertraeglichkeit moeglich.",
+  "safety_risk_groups": [
+    "Personen mit Magen-Darm-Empfindlichkeit",
+    "Kinder",
+    "Erstesser (kleine Portion testen)"
+  ],
+  "confusion_partner": [
+    {"name": "Hapalopilus rutilans", "type": "giftig", "intensity": 40},
+    {"name": "Laetiporus montanus", "type": "essbar", "intensity": 60}
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "confusion_safety_critical": true,
+  "confusion_key_features": [
+    "Schwefelporling ist schwefelgelb-orange",
+    "Hapalopilus rutilans ist zimtfarben (giftig!)"
+  ]
+}

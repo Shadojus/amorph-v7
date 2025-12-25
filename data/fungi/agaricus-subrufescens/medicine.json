@@ -1,0 +1,161 @@
+{
+  "scientific": "Agaricus subrufescens",
+  "synonyms": [
+    "Agaricus blazei Murrill",
+    "Agaricus brasiliensis",
+    "ABM"
+  ],
+  "pharmacopoeia_names": [
+    "Himematsutake",
+    "Cogumelo de Deus"
+  ],
+  "description": "Agaricus subrufescens ist einer der am intensivsten erforschten Medizinalpilze mit der hoechsten bekannten Konzentration an Beta-Glucanen unter den Heilpilzen. Er wird traditionell in Brasilien, Japan und den USA fuer immunstimulierende und antitumorale Anwendungen verwendet.",
+  "traditional_medicine": {
+    "systems": [
+      "Brasilianische Volksmedizin",
+      "Japanische Medizin (Kampo)",
+      "Traditionelle Chinesische Medizin"
+    ],
+    "historical_use": "In den brasilianischen Regenwäldern wurde beobachtet, dass die lokale Bevoelkerung, die diesen Pilz regelmaessig konsumierte, praktisch keine Krebserkrankungen aufwies. Dies fuehrte zur intensiven wissenschaftlichen Erforschung.",
+    "traditional_indications": [
+      "Krebs-Praevention und -begleitung",
+      "Immunschwaeche",
+      "Diabetes mellitus",
+      "Lebererkrankungen",
+      "Allergien",
+      "Infektionen"
+    ]
+  },
+  "active_substances": [
+    "Beta-Glucane (1-3, 1-6 D-Fraktionen)",
+    "Ergosterol",
+    "Natriumpyroglutamat",
+    "Polysaccharid-Protein-Komplexe",
+    "Lektine"
+  ],
+  "effect_profile": [
+    {"axis": "Immunmodulation", "value": 95},
+    {"axis": "Antitumoral", "value": 90},
+    {"axis": "Leberschutz", "value": 80},
+    {"axis": "Antidiabetisch", "value": 75},
+    {"axis": "Antiallergisch", "value": 70},
+    {"axis": "Antiinflammatorisch", "value": 75}
+  ],
+  "therapeutic_categories": [
+    "Immunmodulator",
+    "Adjuvante Krebstherapie",
+    "Hepatoprotektivum",
+    "Antidiabetikum",
+    "Antiallergikum"
+  ],
+  "clinical_indications": [
+    {
+      "condition": "Tumorerkrankungen",
+      "evidence_level": "Moderate",
+      "indication_type": "Adjuvant",
+      "description": "Unterstuetzende Behandlung bei Leukämie, Prostatakrebs, Lungenkrebs, Leberkrebs, Sarkomen"
+    },
+    {
+      "condition": "Immunschwaeche",
+      "evidence_level": "Good",
+      "indication_type": "Primary",
+      "description": "Stimulation des Immunsystems, Aktivierung von NK-Zellen"
+    },
+    {
+      "condition": "Diabetes mellitus",
+      "evidence_level": "Moderate",
+      "indication_type": "Adjuvant",
+      "description": "Regulation des Blutzuckerspiegels"
+    },
+    {
+      "condition": "Lebererkrankungen",
+      "evidence_level": "Moderate",
+      "indication_type": "Adjuvant",
+      "description": "Leberschutz, Entgiftung bei toxischen Lebererkrankungen"
+    },
+    {
+      "condition": "Allergien",
+      "evidence_level": "Low",
+      "indication_type": "Adjuvant",
+      "description": "Modulation der allergischen Immunantwort"
+    }
+  ],
+  "mechanism_of_action": [
+    "Beta-Glucane binden an Dectin-1 und CR3-Rezeptoren auf Immunzellen",
+    "Aktivierung von Makrophagen und natuerlichen Killerzellen",
+    "Selektive Zytotoxizitaet auf Tumorzellen",
+    "Induktion von Apoptose in Krebszellen",
+    "Hemmung der Angiogenese in Tumoren (Metastasenverhinderung)",
+    "Foerderung der Blutbildung im Knochenmark",
+    "Unterstuetzung der Reinigungsfunktion der Milz"
+  ],
+  "dosage_forms": [
+    "Getrocknete Fruchtkörper (Pulver)",
+    "Kapseln",
+    "Extrakte",
+    "Tee",
+    "Frische Pilze (kulinarisch)"
+  ],
+  "dosage_general": {
+    "min": 3,
+    "max": 9,
+    "unit": "g/day",
+    "description": "Typische Tagesdosis als Trockenextrakt oder Pulver"
+  },
+  "contraindications": [
+    "Bekannte Allergie gegen Agaricus-Arten",
+    "Autoimmunerkrankungen (Arzt konsultieren)",
+    "Vor Operationen absetzen (immunstimulierende Wirkung)"
+  ],
+  "side_effects": [
+    {"level": "low", "typ": "Gastrointestinal", "beschreibung": "Selten: leichte Magenbeschwerden, Blähungen"},
+    {"level": "low", "typ": "Allergisch", "beschreibung": "Sehr selten: allergische Reaktionen bei empfindlichen Personen"},
+    {"level": "medium", "typ": "Wechselwirkungen", "beschreibung": "Potentielle Interaktion mit Immunsuppressiva"}
+  ],
+  "drug_interactions": [
+    "Immunsuppressiva - moegliche Wirkungsabschwächung",
+    "Chemotherapeutika - moegliche Wirkungsverstärkung (positiv)"
+  ],
+  "safety_in_pregnancy": {
+    "status": "Not recommended",
+    "variant": "warning"
+  },
+  "safety_in_pregnancy_note": "Keine ausreichenden Daten. Verwendung in Schwangerschaft und Stillzeit nicht empfohlen.",
+  "clinical_studies": [
+    {
+      "authors": "Fujimiya, Y. et al.",
+      "year": 1998,
+      "title": "Antitumor-Aktivitaet von Agaricus blazei",
+      "journal": "International Journal of Immunopharmacology",
+      "doi": "",
+      "conclusion": "Signifikante immunstimulierende und antitumorale Wirkung nachgewiesen"
+    },
+    {
+      "authors": "Ito, H. et al.",
+      "year": 1997,
+      "title": "Anti-tumor effects of Agaricus blazei",
+      "journal": "Anticancer Research",
+      "doi": "",
+      "conclusion": "Beta-Glucane zeigen selektive Zytotoxizitaet auf Tumorzellen"
+    }
+  ],
+  "quality_markers": [
+    "Beta-Glucan-Gehalt > 10%",
+    "Polysaccharid-Gehalt",
+    "Ergosterol-Gehalt",
+    "Schwermetall-Freiheit"
+  ],
+  "standardization": "Standardisierung auf Beta-Glucan-Gehalt ueblich",
+  "regulatory_status": {
+    "status": "Food Supplement",
+    "variant": "success"
+  },
+  "regulatory_note": "In den meisten Laendern als Nahrungsergaenzungsmittel klassifiziert",
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "traditional_medicine": {
+    "systems": ["Indigenous_North_America", "European_Folk_Medicine"],
+    "historical_use": "Von indigenen Völkern Nordamerikas als Beruhigungsmittel; seit dem 19. Jh. in Europa",
+    "traditional_indications": ["Schlafstörungen", "Nervositaet", "Angstzustaende", "Kraempfe"]
+  },
+  "pharmacopoeia_names": ["Passiflorae herba"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Nervöse Unruhe", "Einschlafstörungen"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Nervöse Unruhezustaende"],
+  "active_substances": [
+    "Flavonoide (Chrysin, Vitexin)",
+    "Maltol",
+    "Harman-Alkaloide (Spuren)",
+    "GABA (in der Pflanze)"
+  ],
+  "effect_profile": [
+    {"axis": "Anxiolytisch", "value": 85},
+    {"axis": "Sedativ", "value": 75},
+    {"axis": "Spasmolytisch", "value": 65},
+    {"axis": "Schlaffoerdernd", "value": 70},
+    {"axis": "Blutdrucksenkend", "value": 55}
+  ],
+  "therapeutic_categories": [
+    "Anxiolytikum",
+    "Sedativum",
+    "Spasmolytikum"
+  ],
+  "evidence_level": {
+    "status": "2a",
+    "variant": "success"
+  },
+  "clinical_studies": [
+    "Akhondzadeh et al. 2001: Wirksamkeit vergleichbar mit Oxazepam bei Angststörung",
+    "Movafegh et al. 2008: Präoperative Angstreduktion"
+  ],
+  "safety_score": {
+    "value": 85,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Gelegentlich", "beschreibung": "Muedigkeit, Schwindel"}
+  ],
+  "interactions": [
+    {"level": "medium", "typ": "ZNS-Depressiva", "beschreibung": "Additive Wirkung mit Sedativa"}
+  ],
+  "contraindications": [
+    "Schwangerschaft",
+    "MAO-Hemmer (theoretisch)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Nicht empfohlen",
+    "variant": "warning"
+  },
+  "standard_dose_range": {
+    "min": 250,
+    "max": 500,
+    "unit": "mg"
+  },
+  "dosage_notes": "Extrakt: 250-500 mg; Tee: 4-8g Kraut; oft mit Baldrian und Hopfen kombiniert",
+  "preparation_forms": ["Tee", "Extrakt", "Tinktur", "Kapseln"],
+  "status_by_region": {
+    "eu": "Pflanzliches Arzneimittel (traditional use)",
+    "usa": "GRAS, Dietary Supplement"
+  }
+}

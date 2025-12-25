@@ -3,6 +3,10 @@
  * AMORPH v7 - Index Page
  * 
  * Hauptseite mit Grid-Ansicht.
+ * 
+ * SEO & Engagement optimiert:
+ * - Prioritäts-Felder werden zuerst gezeigt (Essbarkeit, Heilwirkung, Sicherheit)
+ * - Visuelle Morphs (Badge, Bar) vor technischen Daten (Range, Text)
  */
 
 import Base from '../layouts/Base.astro';
@@ -15,37 +19,146 @@ import type { RenderContext, MorphType } from '../core/types';
 // Load config
 await loadConfig();
 
-// Morph-Priorisierung: Visuelle Morphs zuerst
+// ═══════════════════════════════════════════════════════════════════════════════
+// ENGAGEMENT-OPTIMIERTE FELD-PRIORISIERUNG
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * HIGH-VALUE FIELDS - Die "Knaller" für maximales User-Engagement
+ * 
+ * Zielgruppen:
+ * - Psychonauten: Wirkungen, Effekte, Bewusstseinsveränderung
+ * - Wellness/Healing: Heilwirkungen, traditionelle Medizin
+ * - Foodies: Kulinarik, Geschmack, berühmte Gerichte
+ * - Naturliebhaber: Ökologische Besonderheiten, Faszination
+ * - Überraschungs-Sucher: "Wusstest du dass..."-Fakten
+ * 
+ * TIER 1: WOW-FAKTOR - Das Besondere, Überraschende
+ * TIER 2: HEALING - Heilung, Tradition, Spiritualität
+ * TIER 3: KULINARIK - Genuss, Geschmack, Lifestyle
+ * TIER 4: NATUR - Ökologie, Habitat, Schutz
+ * TIER 5: SICHERHEIT - Wichtig, aber nicht "sexy"
+ */
+const HIGH_VALUE_FIELDS = [
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🌟 TIER 1: WOW-FAKTOR - Was User fasziniert & überrascht
+  // ═══════════════════════════════════════════════════════════════════════════
+  'special_feature',              // ⭐ DAS Besondere an dieser Art
+  'special_ecological_feature',   // Ökologische Superkraft
+  'effect_profile',               // Wirkungsprofil (psychoaktiv, adaptogen, etc.)
+  'historical_significance',      // Historische Bedeutung, Mythen
+  'keystone_species',             // Schlüsselart im Ökosystem
+  'bioremediation_potential',     // Kann Umwelt reinigen (faszinierend!)
+  'bioluminescence',              // Leuchtet im Dunkeln!
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 💫 TIER 2: HEALING & TRADITION - Spiritualität, Medizin, Wellness
+  // ═══════════════════════════════════════════════════════════════════════════
+  'primary_medicinal_uses',       // Hauptheilwirkungen
+  'traditional_medicine_systems', // TCM, Ayurveda, Volksmedizin
+  'traditional_medicine_use',     // Traditionelle Anwendung
+  'tcm_therapeutic_actions',      // TCM Wirkungen
+  'mechanism_of_action',          // Wie es wirkt (faszinierend!)
+  'active_compounds',             // Die Wirkstoffe
+  'bioactive_compounds',          // Bioaktive Verbindungen
+  'clinical_evidence_level',      // Wissenschaftliche Evidenz
+  'medicinal_status',             // Medizinischer Status
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🍳 TIER 3: KULINARIK & LIFESTYLE - Genuss, Geschmack, Kochen
+  // ═══════════════════════════════════════════════════════════════════════════
+  'culinary_rating',              // Kulinarische Bewertung ⭐⭐⭐⭐⭐
+  'flavor_profile',               // Geschmacksprofil
+  'signature_dishes_famous',      // Berühmte Gerichte damit
+  'best_cooking_methods',         // Beste Zubereitungsarten
+  'cuisine_traditions',           // Küchen-Traditionen
+  'wine_pairing',                 // Weinempfehlung
+  'aroma_profile',                // Aroma
+  'texture',                      // Textur
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🌿 TIER 4: NATUR & ÖKOLOGIE - Habitat, Rolle, Schutz
+  // ═══════════════════════════════════════════════════════════════════════════
+  'ecological_role',              // Rolle im Ökosystem
+  'ecological_importance',        // Ökologische Bedeutung
+  'ecosystem_services',           // Was es für die Natur tut
+  'habitat_primary',              // Wo es lebt
+  'iucn_global_status',           // Schutzstatus
+  'conservation_status',          // Gefährdung
+  'native_range',                 // Heimat
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // ⚠️ TIER 5: SICHERHEIT - Wichtig, aber weiter unten
+  // ═══════════════════════════════════════════════════════════════════════════
+  'edibility_status',             // Essbar/Giftig
+  'toxicity_level',               // Giftigkeit
+  'safety_summary',               // Sicherheits-Zusammenfassung
+  'confusion_risk_level',         // Verwechslungsgefahr
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🔬 TIER 6: IDENTIFIKATION - Für die Bestimmer
+  // ═══════════════════════════════════════════════════════════════════════════
+  'identification_difficulty',    // Wie schwer zu bestimmen
+  'key_differentiating_features', // Erkennungsmerkmale
+  'common_names',                 // Volksnamen (interessant!)
+];
+
+/**
+ * MORPH-PRIORISIERUNG nach visuellem Impact
+ * Badge > Bar/Radar > Progress > Range > List > Text
+ */
 const MORPH_PRIORITY: Partial<Record<MorphType, number>> = {
-  'bar': 1,
-  'radar': 1,
-  'sparkline': 2,
-  'progress': 2,
-  'range': 2,
-  'stats': 2,
-  'timeline': 3,
-  'rating': 3,
-  'badge': 4,
-  'image': 4,
-  'tag': 5,
-  'list': 6,
-  'object': 7,
-  'text': 8,
-  'number': 8,
-  'boolean': 8,
-  'date': 8,
-  'link': 8
+  'badge': 1,       // Essbarkeit, Status - HÖCHSTE PRIO
+  'severity': 1,    // Giftigkeit, Warnungen
+  'bar': 2,         // Nährstoffe, Verteilung
+  'radar': 2,       // Compound Profile
+  'sparkline': 3,   // Trends
+  'progress': 3,    // Prozent-Werte
+  'stats': 3,       // Statistiken
+  'rating': 4,      // Bewertungen
+  'range': 5,       // Größen-Ranges (weniger wichtig)
+  'timeline': 5,    // Zeitlinien
+  'list': 6,        // Listen
+  'tag': 6,         // Tags
+  'image': 7,       // Bilder
+  'object': 8,      // Objekte
+  'text': 9,        // Text
+  'number': 9,      // Zahlen
+  'boolean': 9,     // Ja/Nein
+  'date': 9,        // Datum
+  'link': 9         // Links
 };
 
 /**
- * Sortiert Felder nach Morph-Interesse (visuelle Morphs zuerst)
+ * Sortiert Felder für maximales Engagement
+ * 1. High-Value Fields zuerst (wenn vorhanden)
+ * 2. Dann nach Morph-Typ (Badge vor Range)
  */
 function sortFieldsByInterest(entries: [string, unknown][]): [string, unknown][] {
   return entries.sort((a, b) => {
-    const typeA = detectType(a[1], a[0]);
-    const typeB = detectType(b[1], b[0]);
-    const prioA = MORPH_PRIORITY[typeA] ?? 8;
-    const prioB = MORPH_PRIORITY[typeB] ?? 8;
+    const keyA = a[0];
+    const keyB = b[0];
+    
+    // High-Value Fields haben absolute Priorität
+    const hvIndexA = HIGH_VALUE_FIELDS.indexOf(keyA);
+    const hvIndexB = HIGH_VALUE_FIELDS.indexOf(keyB);
+    
+    // Beide sind High-Value: nach Liste sortieren
+    if (hvIndexA !== -1 && hvIndexB !== -1) {
+      return hvIndexA - hvIndexB;
+    }
+    
+    // Nur A ist High-Value: A zuerst
+    if (hvIndexA !== -1) return -1;
+    
+    // Nur B ist High-Value: B zuerst
+    if (hvIndexB !== -1) return 1;
+    
+    // Keine High-Value: nach Morph-Typ sortieren
+    const typeA = detectType(a[1], keyA);
+    const typeB = detectType(b[1], keyB);
+    const prioA = MORPH_PRIORITY[typeA] ?? 10;
+    const prioB = MORPH_PRIORITY[typeB] ?? 10;
     return prioA - prioB;
   });
 }

@@ -1,0 +1,41 @@
+{
+  "trophic_mode_primary": "autotroph",
+  "ecological_guild": "Kletterpflanze",
+  "primary_ecosystem_function": "Rankpflanze",
+  "secondary_ecosystem_functions": [
+    "Bestaeubungsmagnet",
+    "Schmetterlingsnahrung"
+  ],
+  "ecosystem_type": "Wald",
+  "ecosystem_subtype": "Waldraender, Hecken",
+  "microhabitat_primary": "Sonnige Waldraender",
+  "microhabitat_secondary": "Zaeune, Ruderalflaechen",
+  "light_requirement": "volle Sonne bis Halbschatten",
+  "moisture_regime": "mesisch",
+  "drought_tolerance": {
+    "rating": 6,
+    "max": 10
+  },
+  "soil_ph_optimal_min": 6.0,
+  "soil_ph_optimal_max": 7.5,
+  "soil_texture_preference": "sandig-lehmig, gut drainiert",
+  "climate_zone": "subtropisch bis warm-temperat",
+  "temperature_optimal_min_c": -15,
+  "temperature_optimal_max_c": 35,
+  "frost_tolerance": {
+    "rating": 6,
+    "max": 10
+  },
+  "native_range": "Suedosten der USA (Virginia bis Florida, westlich bis Texas)",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "consumer_insects": [
+    "Agraulis vanillae (Passionsfalter)",
+    "Heliconius Arten"
+  ],
+  "keystone_function": "Nahrungspflanze fuer Heliconiidae-Raupen",
+  "dispersal_vector_type": "Zoochor",
+  "dispersal_mechanism": "Vogelausbreitung (Fruechte)"
+}

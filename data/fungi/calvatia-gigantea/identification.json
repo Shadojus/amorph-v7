@@ -1,0 +1,103 @@
+{
+  "scientific_name": "Calvatia gigantea",
+  "author_citation": "(Batsch) Lloyd 1904",
+  "accepted_name": "Calvatia gigantea (Batsch) Lloyd",
+  "taxonomy_domain": "Eukarya",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Agaricaceae",
+  "taxonomy_genus": "Calvatia",
+  "taxonomy_species": "gigantea",
+  "synonyms": [
+    "Langermannia gigantea (Batsch) Rostk.",
+    "Lycoperdon giganteum Batsch",
+    "Bovista gigantea (Batsch) Gray"
+  ],
+  "common_names": [
+    "Riesenbovist",
+    "Riesenstaubling",
+    "Giant Puffball"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Sehr gross, 10-100 cm Durchmesser", "status": "pending"},
+    {"step": 2, "label": "Kugelfoermig ohne Stiel", "status": "pending"},
+    {"step": 3, "label": "Jung weiss, aussen und innen", "status": "pending"},
+    {"step": 4, "label": "Spaeter braeunend", "status": "pending"},
+    {"step": 5, "label": "Wiesen und Parks", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Bovistella utriformis",
+    "Amanita phalloides var. alba (jung, gefaehrlich!)"
+  ],
+  "confusion_risk_level": {
+    "status": "Medium",
+    "variant": "warning"
+  },
+  "confusion_consequences": [
+    {"level": "critical", "typ": "Amanita phalloides", "beschreibung": "Junge weisse Knollenblaetterpilze koennen aehnlich aussehen - toedlich giftig! Immer aufschneiden - Bovist hat keine Lamellen innen"}
+  ],
+  "key_differentiating_features": [
+    "Enorme Groesse (bis 1 m)",
+    "Keine Lamellen im Inneren",
+    "Innen einheitlich weiss (jung)",
+    "Dicke wurzelartige Myzelstraenge an der Basis"
+  ],
+  "habit": "Terrestrisch, saprotroph",
+  "growth_form": "Einzeln oder in Gruppen",
+  "size_range": {
+    "min": 10,
+    "max": 100,
+    "unit": "cm"
+  },
+  "size_typical_cm": 30,
+  "basic_shape": "Kugelfoermig bis unregelmässig rund",
+  "diameter": {
+    "min": 10,
+    "max": 100,
+    "unit": "cm"
+  },
+  "mass": {
+    "min": 500,
+    "max": 15000,
+    "unit": "g"
+  },
+  "color_primary": "Weiss (jung)",
+  "color_secondary": "Braeunlich (alt)",
+  "primary_structure_present": true,
+  "primary_structure_type": "Kugelfoermiger Fruchtkoerper (Gasterothek)",
+  "support_structure_present": false,
+  "lamellae_present": false,
+  "spore_print_color": "Olivbraun",
+  "smell_description": "Unangenehm, urinartig",
+  "taste_safe_to_test": true,
+  "taste_description": "Mild",
+  "microscopy_key_features": [
+    "Sporen olivbraun, 3-5.5 x 3-5 um",
+    "Kugelig"
+  ],
+  "spore_measurement_diagnostic": {
+    "min": 3,
+    "max": 5.5,
+    "unit": "um"
+  },
+  "season_peak_months": [7, 8, 9],
+  "nutrition_type": "Saprotroph",
+  "source": {
+    "authors": "Lloyd, C.G.",
+    "year": 1904,
+    "title": "The Lycoperdaceae of Australia, New Zealand and Neighbouring Islands",
+    "journal": "Cincinnati",
+    "doi": ""
+  }
+}

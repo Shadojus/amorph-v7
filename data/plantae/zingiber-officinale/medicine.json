@@ -1,0 +1,84 @@
+{
+  "traditional_medicine": {
+    "systems": ["Ayurveda", "TCM", "Unani"],
+    "historical_use": "Ueber 5000 Jahre als Gewuerz und Medizin in Asien",
+    "traditional_indications": ["Uebelkeit", "Verdauungsbeschwerden", "Erkaeltungen", "Schmerzen"]
+  },
+  "ayurveda_sanskrit_name": "Shunti (trocken) / Ardraka (frisch)",
+  "ayurveda_rasa": ["katu"],
+  "ayurveda_virya": "ushna (heiss)",
+  "ayurveda_dosha_effect": ["Vata-reduzierend", "Kapha-reduzierend"],
+  "tcm_herb_name_pinyin": "Sheng Jiang (frisch) / Gan Jiang (trocken)",
+  "tcm_herb_name_chinese": "生姜 / 干姜",
+  "tcm_nature": "warm bis heiss",
+  "tcm_flavor": ["pungent"],
+  "tcm_meridian_tropism": ["Lunge", "Milz", "Magen"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Reisekrankheit", "Schwangerschaftsuebelkeit", "Postoperative Uebelkeit"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Dyspeptische Beschwerden", "Prophylaxe Kinetosen (Reisekrankheit)"],
+  "active_substances": [
+    "Gingerole (6-Gingerol)",
+    "Shogaole",
+    "Zingeron",
+    "Aetherische Oele (Zingiberen)"
+  ],
+  "effect_profile": [
+    {"axis": "Antiemetisch", "value": 90},
+    {"axis": "Antiinflammatorisch", "value": 75},
+    {"axis": "Karminativ", "value": 80},
+    {"axis": "Analgetisch", "value": 65},
+    {"axis": "Thermogenisch", "value": 70}
+  ],
+  "therapeutic_categories": [
+    "Antiemetikum",
+    "Karminativum",
+    "Antiinflammatorium"
+  ],
+  "evidence_level": {
+    "status": "1a",
+    "variant": "success"
+  },
+  "evidence_grade_overall": {
+    "status": "A",
+    "variant": "success"
+  },
+  "clinical_studies": [
+    "Vutyavanich et al. 2001: Wirksamkeit bei Schwangerschaftsuebelkeit",
+    "Ernst & Pittler 2000: Systematische Uebersicht zu Kinetosen"
+  ],
+  "safety_score": {
+    "value": 90,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Gelegentlich", "beschreibung": "Sodbrennen, Mundreizung bei hohen Dosen"}
+  ],
+  "interactions": [
+    {"level": "medium", "typ": "Antikoagulantien", "beschreibung": "Theoretisch erhoehte Blutungsneigung bei hohen Dosen"}
+  ],
+  "contraindications": [
+    "Gallensteine (relative Kontraindikation)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Sicher in empfohlenen Dosen",
+    "variant": "success"
+  },
+  "standard_dose_range": {
+    "min": 250,
+    "max": 1000,
+    "unit": "mg"
+  },
+  "dose_frequency": "drei- bis viermal taeglich",
+  "dosage_notes": "Bei Uebelkeit: 250 mg alle 4-6 Stunden; prophylaktisch: 1g vor Reise",
+  "preparation_forms": ["Frische Wurzel", "Getrocknetes Pulver", "Kapseln", "Tee", "Kandiert"],
+  "status_by_region": {
+    "eu": "Nahrungsergaenzungsmittel",
+    "usa": "GRAS, Dietary Supplement"
+  }
+}

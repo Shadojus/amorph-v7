@@ -1,0 +1,53 @@
+{
+  "trophic_mode_primary": "autotroph",
+  "ecological_guild": "Schattenkraut",
+  "primary_ecosystem_function": "Unterholzpflanze",
+  "ecosystem_type": "Wald",
+  "ecosystem_subtype": "Temperate Laub- und Mischwaelder",
+  "microhabitat_primary": "Tiefschattige Waldboeden",
+  "microhabitat_secondary": "Nordhaenge",
+  "light_requirement": "Tiefschatten (max. 20% Licht)",
+  "moisture_regime": "feucht",
+  "drought_tolerance": {
+    "rating": 2,
+    "max": 10
+  },
+  "soil_ph_optimal_min": 5.0,
+  "soil_ph_optimal_max": 6.5,
+  "soil_nutrient_preference": "humusreich, gut drainiert",
+  "organic_matter_preference": "hoch",
+  "climate_zone": "temperat-kontinental",
+  "temperature_optimal_min_c": -30,
+  "temperature_optimal_max_c": 25,
+  "frost_tolerance": {
+    "rating": 9,
+    "max": 10
+  },
+  "elevation_optimal_min_m": 500,
+  "elevation_optimal_max_m": 1100,
+  "native_range": "Nordostchina, Korea, Russisch-Fernost",
+  "iucn_global_status": {
+    "status": "EN",
+    "variant": "danger"
+  },
+  "iucn_assessment_year": 2014,
+  "primary_threats": [
+    "Uebersammlung",
+    "Lebensraumverlust",
+    "Langsames Wachstum"
+  ],
+  "overexploitation_pressure": {
+    "status": "Kritisch",
+    "variant": "danger"
+  },
+  "overexploitation_commercial": true,
+  "sustainable_harvest_possible": false,
+  "cites_listing": "Anhang II (wild)",
+  "conservation_actions_needed": [
+    "Schutz wilder Populationen",
+    "Nachhaltige Kultivierung"
+  ],
+  "rarity_type": "Natuerlich selten, uebersammelt",
+  "dispersal_vector_type": "Zoochor",
+  "dispersal_mechanism": "Vogelausbreitung (rote Beeren)"
+}

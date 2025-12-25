@@ -2,49 +2,839 @@
   "kingdom": "fungi",
   "name": "Fungi",
   "icon": "🍄",
-  "count": 3,
+  "tagline": "Das verborgene Königreich",
+  "color": "#8B4513",
+  "count": 27,
+  "featured": [
+    {
+      "slug": "hericium-erinaceus",
+      "name": "Igelstachelbart",
+      "scientific_name": "Hericium erinaceus",
+      "tagline": "Neuroregeneration · Geschützt · Aug–Nov",
+      "image": "/images/species/hericium-erinaceus.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "VU",
+          "variant": "warning"
+        }
+      ],
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "5–40 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "weiss"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        }
+      ]
+    },
+    {
+      "slug": "grifola-frondosa",
+      "name": "Klapperschwamm",
+      "scientific_name": "Grifola frondosa",
+      "tagline": "Immunstimulation · Aug–Nov",
+      "image": "/images/species/grifola-frondosa.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "10–60 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "graubraun"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        }
+      ]
+    },
+    {
+      "slug": "inonotus-obliquus",
+      "name": "Chaga",
+      "scientific_name": "Inonotus obliquus",
+      "tagline": "Antioxidativ · Geschützt · Jan–Dez",
+      "image": "/images/species/inonotus-obliquus.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "VU",
+          "variant": "warning"
+        }
+      ],
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "4–50 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "schwarz"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        }
+      ]
+    },
+    {
+      "slug": "ganoderma-lucidum",
+      "name": "Glaenzender Lackporling",
+      "scientific_name": "Ganoderma lucidum",
+      "tagline": "Immunmodulation · Jun–Okt",
+      "image": "/images/species/ganoderma-lucidum.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "5–25 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "rotbraun"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        }
+      ]
+    },
+    {
+      "slug": "lentinula-edodes",
+      "name": "Shiitake",
+      "scientific_name": "Lentinula edodes",
+      "tagline": "Immunstimulation · Apr–Nov",
+      "image": "/images/species/lentinula-edodes.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "neutral"
+        }
+      ],
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "5–25 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "dunkelbraun"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        }
+      ]
+    }
+  ],
   "species": [
     {
-      "slug": "amanita-muscaria",
-      "name": "Fliegenpilz",
-      "scientific_name": "Amanita muscaria",
+      "slug": "hericium-erinaceus",
+      "name": "Igelstachelbart",
+      "scientific_name": "Hericium erinaceus",
+      "tagline": "Neuroregeneration · Geschützt · Aug–Nov",
+      "image": "/images/species/hericium-erinaceus.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "VU",
+          "variant": "warning"
+        }
+      ],
+      "season": "Aug–Nov",
       "perspectives": [
-        "chemistry",
-        "culture",
-        "ecology",
-        "geography",
-        "identification",
-        "safety",
-        "temporal"
-      ]
-    },
-    {
-      "slug": "physarum-polycephalum",
-      "name": "Vielkoepfiger Schleimpilz",
-      "scientific_name": "Physarum polycephalum",
-      "perspectives": [
-        "chemistry",
-        "cultivation",
-        "culture",
-        "ecology",
-        "identification",
-        "research",
-        "statistics"
-      ]
-    },
-    {
-      "slug": "psilocybe-cyanescens",
-      "name": "Blauender Kahlkopf",
-      "scientific_name": "Psilocybe cyanescens",
-      "perspectives": [
-        "chemistry",
-        "culture",
+        "culinary",
         "ecology",
         "identification",
         "medicine",
-        "safety",
-        "temporal"
+        "safety"
+      ],
+      "categories": [
+        "Hericiaceae",
+        "Russulales"
+      ]
+    },
+    {
+      "slug": "grifola-frondosa",
+      "name": "Klapperschwamm",
+      "scientific_name": "Grifola frondosa",
+      "tagline": "Immunstimulation · Aug–Nov",
+      "image": "/images/species/grifola-frondosa.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Aug–Nov",
+      "perspectives": [
+        "culinary",
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "categories": [
+        "Meripilaceae",
+        "Polyporales"
+      ]
+    },
+    {
+      "slug": "inonotus-obliquus",
+      "name": "Chaga",
+      "scientific_name": "Inonotus obliquus",
+      "tagline": "Antioxidativ · Geschützt · Jan–Dez",
+      "image": "/images/species/inonotus-obliquus.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "VU",
+          "variant": "warning"
+        }
+      ],
+      "season": "Jan–Dez",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "categories": [
+        "Hymenochaetaceae",
+        "Hymenochaetales"
+      ]
+    },
+    {
+      "slug": "ganoderma-lucidum",
+      "name": "Glaenzender Lackporling",
+      "scientific_name": "Ganoderma lucidum",
+      "tagline": "Immunmodulation · Jun–Okt",
+      "image": "/images/species/ganoderma-lucidum.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jun–Okt",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "categories": [
+        "Ganodermataceae",
+        "Polyporales"
+      ]
+    },
+    {
+      "slug": "lentinula-edodes",
+      "name": "Shiitake",
+      "scientific_name": "Lentinula edodes",
+      "tagline": "Immunstimulation · Apr–Nov",
+      "image": "/images/species/lentinula-edodes.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "neutral"
+        }
+      ],
+      "season": "Apr–Nov",
+      "perspectives": [
+        "culinary",
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "categories": [
+        "Omphalotaceae",
+        "Agaricales"
+      ]
+    },
+    {
+      "slug": "fomitopsis-betulina",
+      "name": "Birkenporling",
+      "scientific_name": "Fomitopsis betulina",
+      "tagline": "Magen-Darm-Beschwerden · Jan–Dez",
+      "image": "/images/species/fomitopsis-betulina.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jan–Dez",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "categories": [
+        "Fomitopsidaceae",
+        "Polyporales"
+      ]
+    },
+    {
+      "slug": "cordyceps-militaris",
+      "name": "Puppenkernkeule",
+      "scientific_name": "Cordyceps militaris",
+      "tagline": "Immunstimulation · Jul–Okt",
+      "image": "/images/species/cordyceps-militaris.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "neutral"
+        }
+      ],
+      "season": "Jul–Okt",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "categories": [
+        "Cordycipitaceae",
+        "Hypocreales"
+      ]
+    },
+    {
+      "slug": "agaricus-subrufescens",
+      "name": "Mandel-Egerling",
+      "scientific_name": "Agaricus subrufescens",
+      "tagline": null,
+      "image": "/images/species/agaricus-subrufescens.webp",
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "perspectives": [
+        "chemistry",
+        "culinary",
+        "cultivation",
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "categories": [
+        "Agaricaceae",
+        "Agaricales"
+      ]
+    },
+    {
+      "slug": "cyclocybe-cylindracea",
+      "name": "Suedlicher Ackerling",
+      "scientific_name": "Cyclocybe cylindracea",
+      "tagline": null,
+      "image": "/images/species/cyclocybe-cylindracea.webp",
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "perspectives": [
+        "culinary",
+        "cultivation",
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Strophariaceae",
+        "Agaricales"
+      ]
+    },
+    {
+      "slug": "pholiota-nameko",
+      "name": "Nameko",
+      "scientific_name": "Pholiota nameko",
+      "tagline": "Sep–Nov",
+      "image": "/images/species/pholiota-nameko.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "neutral"
+        }
+      ],
+      "season": "Sep–Nov",
+      "perspectives": [
+        "culinary",
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Strophariaceae",
+        "Agaricales"
+      ]
+    },
+    {
+      "slug": "stropharia-rugosoannulata",
+      "name": "Riesentraeuschlinge",
+      "scientific_name": "Stropharia rugosoannulata",
+      "tagline": "Mai–Okt",
+      "image": "/images/species/stropharia-rugosoannulata.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "info"
+        }
+      ],
+      "season": "Mai–Okt",
+      "perspectives": [
+        "culinary",
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Strophariaceae",
+        "Agaricales"
+      ]
+    },
+    {
+      "slug": "flammulina-velutipes",
+      "name": "Samtfussruebling",
+      "scientific_name": "Flammulina velutipes",
+      "tagline": "Okt–Mär",
+      "image": "/images/species/flammulina-velutipes.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Okt–Mär",
+      "perspectives": [
+        "culinary",
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Physalacriaceae",
+        "Agaricales"
+      ]
+    },
+    {
+      "slug": "trametes-versicolor",
+      "name": "Schmetterlingstramete",
+      "scientific_name": "Trametes versicolor",
+      "tagline": "Jan–Dez",
+      "image": "/images/species/trametes-versicolor.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jan–Dez",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "categories": [
+        "Polyporaceae",
+        "Polyporales"
+      ]
+    },
+    {
+      "slug": "laetiporus-sulphureus",
+      "name": "Schwefelporling",
+      "scientific_name": "Laetiporus sulphureus",
+      "tagline": "Mai–Okt",
+      "image": "/images/species/laetiporus-sulphureus.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Mai–Okt",
+      "perspectives": [
+        "culinary",
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Polyporaceae",
+        "Polyporales"
+      ]
+    },
+    {
+      "slug": "morchella-esculenta",
+      "name": "Speisemorchel",
+      "scientific_name": "Morchella esculenta",
+      "tagline": "Mär–Mai",
+      "image": "/images/species/morchella-esculenta.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Mär–Mai",
+      "perspectives": [
+        "culinary",
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Morchellaceae",
+        "Pezizales"
+      ]
+    },
+    {
+      "slug": "ganoderma-applanatum",
+      "name": "Flacher Lackporling",
+      "scientific_name": "Ganoderma applanatum",
+      "tagline": "Jan–Dez",
+      "image": "/images/species/ganoderma-applanatum.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jan–Dez",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Ganodermataceae",
+        "Polyporales"
+      ]
+    },
+    {
+      "slug": "ganoderma-curtisii",
+      "name": "Goldener Lackporling",
+      "scientific_name": "Ganoderma curtisii",
+      "tagline": "Jun–Okt",
+      "image": "/images/species/ganoderma-curtisii.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jun–Okt",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Ganodermataceae",
+        "Polyporales"
+      ]
+    },
+    {
+      "slug": "panellus-stipticus",
+      "name": "Herber Zwergknaeuel",
+      "scientific_name": "Panellus stipticus",
+      "tagline": "Jan–Dez",
+      "image": "/images/species/panellus-stipticus.webp",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jan–Dez",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Mycenaceae",
+        "Agaricales"
+      ]
+    },
+    {
+      "slug": "auricularia-auricula-judae",
+      "name": "Judasohr",
+      "scientific_name": "Auricularia auricula-judae",
+      "tagline": null,
+      "image": "/images/species/auricularia-auricula-judae.webp",
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Auriculariaceae",
+        "Auriculariales"
+      ]
+    },
+    {
+      "slug": "macrolepiota-procera",
+      "name": "Parasol",
+      "scientific_name": "Macrolepiota procera",
+      "tagline": null,
+      "image": "/images/species/macrolepiota-procera.webp",
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Agaricaceae",
+        "Agaricales"
+      ]
+    },
+    {
+      "slug": "pleurotus-pulmonarius",
+      "name": "Lungenseitling",
+      "scientific_name": "Pleurotus pulmonarius",
+      "tagline": null,
+      "image": "/images/species/pleurotus-pulmonarius.webp",
+      "badges": [],
+      "season": null,
+      "perspectives": [
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Pleurotaceae",
+        "Agaricales"
+      ]
+    },
+    {
+      "slug": "cantharellus-cibarius",
+      "name": "Pfifferling",
+      "scientific_name": "Cantharellus cibarius",
+      "tagline": null,
+      "image": "/images/species/cantharellus-cibarius.webp",
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "perspectives": [
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Cantharellaceae",
+        "Cantharellales"
+      ]
+    },
+    {
+      "slug": "calvatia-gigantea",
+      "name": "Riesenbovist",
+      "scientific_name": "Calvatia gigantea",
+      "tagline": null,
+      "image": "/images/species/calvatia-gigantea.webp",
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "perspectives": [
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Agaricaceae",
+        "Agaricales"
+      ]
+    },
+    {
+      "slug": "pleurotus-djamor",
+      "name": "Rosenseitling",
+      "scientific_name": "Pleurotus djamor",
+      "tagline": null,
+      "image": "/images/species/pleurotus-djamor.webp",
+      "badges": [],
+      "season": null,
+      "perspectives": [
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Pleurotaceae",
+        "Agaricales"
+      ]
+    },
+    {
+      "slug": "coprinus-comatus",
+      "name": "Schopftintling",
+      "scientific_name": "Coprinus comatus",
+      "tagline": null,
+      "image": "/images/species/coprinus-comatus.webp",
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "perspectives": [
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Agaricaceae",
+        "Agaricales"
+      ]
+    },
+    {
+      "slug": "pleurotus-columbinus",
+      "name": "Taubenblauer Seitling",
+      "scientific_name": "Pleurotus columbinus",
+      "tagline": null,
+      "image": "/images/species/pleurotus-columbinus.webp",
+      "badges": [],
+      "season": null,
+      "perspectives": [
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Pleurotaceae",
+        "Agaricales"
+      ]
+    },
+    {
+      "slug": "pleurotus-citrinopileatus",
+      "name": "Zitronenseitling",
+      "scientific_name": "Pleurotus citrinopileatus",
+      "tagline": null,
+      "image": "/images/species/pleurotus-citrinopileatus.webp",
+      "badges": [],
+      "season": null,
+      "perspectives": [
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Pleurotaceae",
+        "Agaricales"
       ]
     }
-  ]
+  ],
+  "stats": {
+    "total_perspectives": 96,
+    "with_medicinal": 9,
+    "with_culinary": 10,
+    "with_safety": 27
+  }
 }

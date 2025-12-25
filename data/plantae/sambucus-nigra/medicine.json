@@ -1,0 +1,65 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine"],
+    "historical_use": "Hippokrates nannte ihn 'Medizinschrank'; jahrhundertelang als Hausmittel",
+    "traditional_indications": ["Erkaeltungen", "Fieber", "Schnupfen", "Husten"]
+  },
+  "pharmacopoeia_names": ["Sambuci flos", "Sambuci fructus"],
+  "who_monograph_exists": false,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Blueten: Erkaeltungskrankheiten", "Beeren: Stuetzend bei Erkaeltungen"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie (Blueten)",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Erkaeltungskrankheiten"],
+  "active_substances": [
+    "Blueten: Flavonoide, aetherisches Oel, Schleimstoffe",
+    "Beeren: Anthocyane, Vitamin C, Flavonoide"
+  ],
+  "effect_profile": [
+    {"axis": "Schweisstreibend", "value": 80},
+    {"axis": "Antiviral", "value": 70},
+    {"axis": "Immunstimulierend", "value": 75},
+    {"axis": "Antioxidativ", "value": 80},
+    {"axis": "Schleimlösend", "value": 65}
+  ],
+  "therapeutic_categories": [
+    "Diaphoretikum",
+    "Antiinfektivum",
+    "Immunstimulans"
+  ],
+  "evidence_level": {
+    "status": "2b",
+    "variant": "warning"
+  },
+  "clinical_studies": [
+    "Zakay-Rones et al. 2004: Holunderbeerenextrakt verkuerzt Grippe-Symptome"
+  ],
+  "safety_score": {
+    "value": 80,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "medium", "typ": "Rohe Beeren", "beschreibung": "Übelkeit, Erbrechen, Durchfall durch Sambunigrin"}
+  ],
+  "contraindications": [
+    "NIEMALS rohe Beeren verwenden",
+    "Autoimmunerkrankungen (theoretische Bedenken)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Gekochte Beeren wahrscheinlich sicher",
+    "variant": "success"
+  },
+  "dosage_notes": "Blüten-Tee: 2-4g, 2-3x täglich; Beerenextrakt: nach Herstellerangaben; BEEREN IMMER KOCHEN",
+  "preparation_forms": ["Tee (Blueten)", "Sirup (Beeren)", "Extrakt", "Saft (gekocht)"],
+  "patient_counseling_points": [
+    "Rohe Beeren sind GIFTIG - immer kochen!",
+    "Blüten als Tee bei Erkältungsbeginn",
+    "Ausreichend trinken"
+  ],
+  "status_by_region": {
+    "eu": "Pflanzliches Arzneimittel (traditional use)"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "trophic_mode_primary": "saprobiontisch",
+  "ecological_guild": "Holzzersetzer",
+  "decomposer_type": "Weissfaeule",
+  "ecosystem_type": "Wald",
+  "ecosystem_subtype": "Laubwald",
+  "microhabitat_primary": "verrottende Stubben",
+  "microhabitat_secondary": "Wurzeln von Laubbaumen",
+  "substrate_type_primary": "Laubholz",
+  "substrate_types_secondary": [
+    "Eiche",
+    "Buche",
+    "Birke",
+    "Erle"
+  ],
+  "substrate_specificity": {
+    "status": "breit",
+    "variant": "success"
+  },
+  "fruiting_season_start": 6,
+  "fruiting_season_end": 10,
+  "climate_zone": "temperat",
+  "native_range": "Nordamerika",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  }
+}

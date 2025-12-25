@@ -1,0 +1,70 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Non-toxic",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 5,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Nur Huete verwenden, Stiele zaeh",
+    "Ring muss verschiebbar sein",
+    "Nicht auf Kompost sammeln",
+    "Kleine Schirmlinge meiden"
+  ],
+  "toxin_classes": [],
+  "symptoms_by_severity": [
+    {"level": "none", "typ": "Normal consumption", "beschreibung": "Keine Symptome bei korrekter Bestimmung"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "fatality_note": "Keine Vergiftungsfaelle durch korrekt bestimmte Parasole bekannt",
+  "risk_groups": [
+    "Unerfahrene Sammler (Verwechslungsgefahr)"
+  ],
+  "first_aid_immediate": [
+    "Keine spezifischen Massnahmen erforderlich"
+  ],
+  "antidote": "Nicht erforderlich",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "collection_warnings": [
+    "NIEMALS auf Kompost sammeln - Gift-Riesenschirmling moeglich!",
+    "Ring MUSS verschiebbar sein",
+    "Kleine Schirmlinge ohne verschiebbaren Ring sind toedlich giftig!",
+    "Bei Unsicherheit nicht sammeln"
+  ],
+  "processing_risks": [
+    "Stiele sind zaeh und werden nicht verwendet",
+    "Huete koennen paniert gebraten werden"
+  ],
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "source": {
+    "authors": "Singer, R.",
+    "year": 1948,
+    "title": "The Agaricales in Modern Taxonomy",
+    "journal": "Lilloa",
+    "doi": ""
+  }
+}

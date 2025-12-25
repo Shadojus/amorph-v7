@@ -1,0 +1,47 @@
+{
+  "trophic_mode_primary": "autotroph",
+  "ecological_guild": "Einjahrige bis zweijahrige Distel",
+  "primary_ecosystem_function": "Pionierpflanze",
+  "secondary_ecosystem_functions": [
+    "Nektarquelle",
+    "Distelfinkennahrung"
+  ],
+  "ecosystem_type": "Ruderalflaeche",
+  "ecosystem_subtype": "Brachland, Wegränder",
+  "microhabitat_primary": "Trockene, gestorte Standorte",
+  "microhabitat_secondary": "Weiden, Strassenraender",
+  "light_requirement": "volle Sonne",
+  "moisture_regime": "xerisch-mesisch",
+  "drought_tolerance": {
+    "rating": 8,
+    "max": 10
+  },
+  "soil_ph_optimal_min": 6.0,
+  "soil_ph_optimal_max": 8.5,
+  "soil_texture_preference": "durchlaessig",
+  "climate_zone": "mediterran",
+  "temperature_optimal_min_c": -10,
+  "temperature_optimal_max_c": 35,
+  "frost_tolerance": {
+    "rating": 5,
+    "max": 10
+  },
+  "native_range": "Mittelmeerraum",
+  "invasiveness_score": {
+    "value": 60,
+    "min": 0,
+    "max": 100,
+    "unit": ""
+  },
+  "invasive_in_regions": [
+    "Australien",
+    "Kalifornien",
+    "Suedamerika"
+  ],
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "dispersal_vector_type": "Anemochor",
+  "dispersal_mechanism": "Windausbreitung (Pappus)"
+}

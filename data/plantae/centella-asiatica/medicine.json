@@ -1,0 +1,74 @@
+{
+  "traditional_medicine": {
+    "systems": ["Ayurveda", "TCM", "Indonesische Volksmedizin"],
+    "historical_use": "In Ayurveda als Brahmi bekannt; gilt als Verjuengungsmittel fuer Gehirn und Nervensystem",
+    "traditional_indications": ["Gedaechtnisschwaeche", "Angstzustaende", "Wundheilung", "Hautkrankheiten"]
+  },
+  "ayurveda_sanskrit_name": "Mandukparni / Gotu Kola",
+  "ayurveda_rasa": ["tikta", "kashaya"],
+  "ayurveda_virya": "sheeta (kuehl)",
+  "ayurveda_dosha_effect": ["Tridosha-ausgleichend", "besonders Pitta-reduzierend"],
+  "tcm_herb_name_pinyin": "Ji Xue Cao",
+  "tcm_herb_name_chinese": "积雪草",
+  "who_monograph_exists": true,
+  "german_commission_e_status": {
+    "status": "Keine Monographie",
+    "variant": "warning"
+  },
+  "active_substances": [
+    "Asiaticoside",
+    "Madecassoside",
+    "Asiatinsaeure",
+    "Madecassinsaeure"
+  ],
+  "effect_profile": [
+    {"axis": "Wundheilend", "value": 90},
+    {"axis": "Nootropisch", "value": 80},
+    {"axis": "Anxiolytisch", "value": 70},
+    {"axis": "Venenstaerkend", "value": 75},
+    {"axis": "Kollagensynthese", "value": 85}
+  ],
+  "therapeutic_categories": [
+    "Nootropikum",
+    "Vulnerarium",
+    "Venenmittel"
+  ],
+  "evidence_level": {
+    "status": "2b",
+    "variant": "warning"
+  },
+  "clinical_studies": [
+    "Wattanathorn et al. 2008: Verbesserte kognitive Funktion",
+    "Brinkhaus et al. 2000: Wirksamkeit bei chronisch venoeser Insuffizienz"
+  ],
+  "safety_score": {
+    "value": 80,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Gelegentlich", "beschreibung": "Magen-Darm-Beschwerden, Kopfschmerzen"},
+    {"level": "medium", "typ": "Langzeitanwendung", "beschreibung": "Lebertoxizitaet in Einzelfaellen berichtet"}
+  ],
+  "contraindications": [
+    "Lebererkrankungen",
+    "Schwangerschaft"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Nicht empfohlen",
+    "variant": "warning"
+  },
+  "standard_dose_range": {
+    "min": 60,
+    "max": 180,
+    "unit": "mg"
+  },
+  "standardization_marker": "Triterpene (TTFCA) 40%",
+  "treatment_duration_typical": "Maximal 6 Wochen am Stueck, dann Pause",
+  "dosage_notes": "TTFCA-Extrakt 60-180 mg taeglich; Kurweise anwenden mit Pausen",
+  "preparation_forms": ["Standardisierter Extrakt", "Kapseln", "Tee", "Frische Blaetter"],
+  "status_by_region": {
+    "eu": "Nahrungsergaenzungsmittel",
+    "usa": "Dietary Supplement"
+  }
+}

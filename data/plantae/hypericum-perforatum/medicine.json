@@ -1,0 +1,86 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine", "Antike Medizin"],
+    "historical_use": "Seit der Antike bei Wundheilung und melancholischen Stoerungen",
+    "traditional_indications": ["Melancholie", "Wundheilung", "Nervenleiden", "Angstzustaende"]
+  },
+  "pharmacopoeia_names": ["Hyperici herba"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Leichte bis mittelschwere Depression", "Angstzustaende"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Psychovegetative Stoerungen", "Depressive Verstimmungen", "Angst", "Nervöse Unruhe"],
+  "active_substances": [
+    "Hyperforin",
+    "Hypericin",
+    "Pseudohypericin",
+    "Flavonoide",
+    "Proanthocyanidine"
+  ],
+  "effect_profile": [
+    {"axis": "Antidepressiv", "value": 90},
+    {"axis": "Anxiolytisch", "value": 70},
+    {"axis": "Antiinflammatorisch", "value": 60},
+    {"axis": "Antiviral", "value": 55},
+    {"axis": "Wundheilend", "value": 65}
+  ],
+  "therapeutic_categories": [
+    "Antidepressivum",
+    "Anxiolytikum",
+    "Vulnerarium"
+  ],
+  "evidence_level": {
+    "status": "1a",
+    "variant": "success"
+  },
+  "evidence_grade_overall": {
+    "status": "A",
+    "variant": "success"
+  },
+  "meta_analyses_count": 20,
+  "rcts_count": 60,
+  "evidence_summary": "Cochrane-Reviews bestaetigen Wirksamkeit bei leichter bis mittelschwerer Depression vergleichbar mit SSRIs",
+  "safety_score": {
+    "value": 60,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Haeufig", "beschreibung": "Magen-Darm-Beschwerden, Muedigkeit, Unruhe"},
+    {"level": "medium", "typ": "Photosensibilisierung", "beschreibung": "Erhoehte Sonnenlichtempfindlichkeit"}
+  ],
+  "interactions": [
+    {"level": "critical", "typ": "CYP3A4-Induktion", "beschreibung": "Reduziert Wirkung von Ciclosporin, HIV-Medikamenten, oralen Kontrazeptiva, Warfarin"},
+    {"level": "high", "typ": "Serotonin-Syndrom", "beschreibung": "Risiko mit SSRI, SNRI, Triptanen"}
+  ],
+  "contraindications": [
+    "Gleichzeitige Einnahme von SSRI/SNRI",
+    "Ciclosporin-Therapie",
+    "HIV-Behandlung",
+    "Schwere Depression",
+    "Bipolare Stoerung"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Nicht empfohlen",
+    "variant": "warning"
+  },
+  "standard_dose_range": {
+    "min": 600,
+    "max": 900,
+    "unit": "mg"
+  },
+  "dose_frequency": "dreimal taeglich",
+  "standardization_marker": "Hyperforin 3-5%, Gesamthypericine 0.1-0.3%",
+  "onset_of_action": "2-4 Wochen",
+  "treatment_duration_typical": "Mindestens 4-6 Wochen, Langzeittherapie moeglich",
+  "dosage_notes": "Standardisierter Extrakt 300 mg dreimal taeglich; Sonnenexposition vermeiden",
+  "preparation_forms": ["Standardisierter Extrakt", "Kapseln", "Tabletten", "Rotoel (aeusserlich)"],
+  "status_by_region": {
+    "eu": "Pflanzliches Arzneimittel (well-established use)",
+    "usa": "Dietary Supplement",
+    "germany": "Verschreibungspflichtig ab bestimmter Dosis"
+  }
+}

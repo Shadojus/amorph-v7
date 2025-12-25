@@ -1,0 +1,70 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Non-toxic",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 4,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "In grossen Mengen blutverduennend",
+    "Vor Operationen Verzehr reduzieren",
+    "Gut kochen vor dem Verzehr"
+  ],
+  "toxin_classes": [],
+  "symptoms_by_severity": [
+    {"level": "low", "typ": "Szechwan Syndrom", "beschreibung": "Bei uebermaeessigem Verzehr: Hemmung der Blutplaettchenaggregation, blotchige Haemorrhagien moeglich"},
+    {"level": "none", "typ": "Normal consumption", "beschreibung": "Keine Symptome bei normalem Verzehr"}
+  ],
+  "symptoms_acute": [
+    "In seltenen Faellen: Szechwan Purpura - Haemorrhagien im Gesicht nach uebermaeessigem Verzehr"
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "fatality_note": "Keine Todesfaelle bekannt. Medizinisch genutzter Effekt der Blutgerinnung.",
+  "risk_groups": [
+    "Personen mit Blutgerinnungsstoerungen",
+    "Personen vor Operationen",
+    "Personen unter Antikoagulantien-Therapie"
+  ],
+  "first_aid_immediate": [
+    "Bei Blutungsneigung Arzt konsultieren"
+  ],
+  "antidote": "Nicht erforderlich",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "drug_interactions": [
+    "Antikoagulantien (Warfarin, Heparin) - verstaerkte Wirkung",
+    "Aspirin und andere Blutverduenner - Vorsicht"
+  ],
+  "medical_notes": "Die blutverduennende Wirkung wurde 1980 als 'Szechwan Purpura' dokumentiert und fuehrte zur Entwicklung neuer Antikoagulantien",
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "source": {
+    "authors": "Hammerschmidt, D.E.",
+    "year": 1980,
+    "title": "Szechwan Purpura",
+    "journal": "New England Journal of Medicine",
+    "doi": ""
+  }
+}

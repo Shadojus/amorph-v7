@@ -1,0 +1,84 @@
+{
+  "scientific_name": "Pholiota nameko",
+  "author_citation": "(T. Ito) S. Ito & S. Imai",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Strophariaceae",
+  "taxonomy_genus": "Pholiota",
+  "taxonomy_species": "nameko",
+  "synonyms": [
+    "Pholiota microspora",
+    "Collybia nameko",
+    "Kuehneromyces nameko"
+  ],
+  "common_names": [
+    "Nameko",
+    "Japanisches Stockschwaemmchen",
+    "Toskanapilz",
+    "Goldkaeppchen",
+    "Klebriger Schueppling"
+  ],
+  "size_range": {
+    "min": 3,
+    "max": 8,
+    "unit": "cm"
+  },
+  "color_primary": "orange",
+  "color_secondary": "bernsteinfarben",
+  "smell_description": "Mehlartig, muffig",
+  "taste_description": "Mild, mehlartig",
+  "primary_structure_present": true,
+  "primary_structure_type": "Hut",
+  "primary_structure_diameter": {
+    "min": 3,
+    "max": 8,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "halbkugelig",
+  "primary_structure_shape_mature": "konvex bis flach",
+  "primary_structure_surface": "schleimig, klebrig",
+  "primary_structure_color": "orange, bernsteinfarben",
+  "support_structure_present": true,
+  "support_structure_type": "Stiel",
+  "support_structure_length": {
+    "min": 5,
+    "max": 8,
+    "unit": "cm"
+  },
+  "veil_present": true,
+  "veil_type": "schleimig-haeutig",
+  "veil_color": "gelblich",
+  "lamellae_present": true,
+  "lamellae_color": "weiss bis gelb, dann braun",
+  "tissue_color": "weiss",
+  "propagule_color": "zimtbraun",
+  "propagule_length": {
+    "min": 4,
+    "max": 7,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 2.5,
+    "max": 3,
+    "unit": "um"
+  },
+  "propagule_shape": "ellipsoid",
+  "confusion_species_list": [
+    "Kuehneromyces mutabilis"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "beginner",
+    "variant": "success"
+  },
+  "key_differentiating_features": [
+    "Charakteristischer oranger Schleim",
+    "Bernsteinfarben, klebrig"
+  ]
+}

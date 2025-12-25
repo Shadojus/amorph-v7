@@ -1,0 +1,140 @@
+{
+  "scientific": "Stropharia rugosoannulata",
+  "trophic_mode_primary": "Saprotroph",
+  "trophic_mode_secondary": "",
+  "trophic_flexibility": {
+    "status": "Moderate",
+    "variant": "info"
+  },
+  "trophic_notes": "Primaerzersetzer auf lignocellulosehaltigem Material wie Stroh und Holzhaecksel. Kann auch in Boeden mit hohem Anteil organischen Materials wachsen.",
+  "decomposer_type": "Primaerzersetzer",
+  "lignin_degradation_capability": true,
+  "cellulose_degradation_capability": true,
+  "ecological_guild": "Streuzersetzer",
+  "guild_evidence": "Waechst auf Stroh, Holzhaecksel und organischem Mulch",
+  "primary_ecosystem_function": "Zersetzung organischer Materialien",
+  "secondary_ecosystem_functions": [
+    "Naehrstofffreisetzung",
+    "Bodenverbesserung",
+    "Mykoremediation"
+  ],
+  "ecosystem_type": "Anthropogen beeinflusst",
+  "ecosystem_subtype": "Gaerten, Kompost, landwirtschaftliche Flaechen",
+  "association_strength": {
+    "status": "Moderate",
+    "variant": "info"
+  },
+  "dominant_vegetation_type": "Keine spezifische Assoziation",
+  "microhabitat_primary": "Stroh- und Holzhaeckselbeete",
+  "microhabitat_secondary": "Kompost, Gartenbeete, Mulchflaechen",
+  "substrate_specificity": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "substrate_type_primary": "Stroh (besonders Weizenstroh)",
+  "substrate_types_secondary": [
+    "Holzhaecksel",
+    "Kompost",
+    "Gartenabfaelle",
+    "Laub",
+    "Hackschnitzel"
+  ],
+  "light_requirement": "Teilschatten",
+  "elevation_minimum_m": 0,
+  "elevation_maximum_m": 1500,
+  "elevation_optimal_min_m": 0,
+  "elevation_optimal_max_m": 800,
+  "moisture_regime": "Mesisch bis feucht",
+  "flooding_tolerance": {
+    "rating": 3,
+    "max": 10
+  },
+  "drought_tolerance": {
+    "rating": 3,
+    "max": 10
+  },
+  "soil_ph_minimum": 5.5,
+  "soil_ph_optimal_min": 6.0,
+  "soil_ph_optimal_max": 7.5,
+  "soil_ph_maximum": 8.0,
+  "soil_nutrient_preference": "Nahrstoffreich",
+  "soil_texture_preference": "Durchlaessig, humusreich",
+  "organic_matter_preference": "Very High",
+  "climate_zone": "Temperat",
+  "temperature_minimum_mean_c": 5,
+  "temperature_optimal_min_c": 15,
+  "temperature_optimal_max_c": 25,
+  "temperature_maximum_mean_c": 35,
+  "seasonality_preference": "Sommer bis Herbst",
+  "disturbance_response": "Opportunist",
+  "temp_fruiting_minimum_c": 10,
+  "temp_fruiting_optimum_c": 20,
+  "temp_fruiting_maximum_c": 28,
+  "temp_mycelial_optimum_c": 26,
+  "frost_tolerance": {
+    "rating": 2,
+    "max": 10
+  },
+  "fruiting_season_start": 5,
+  "fruiting_season_end": 10,
+  "fruiting_peak_month": 7,
+  "fruiting_duration_weeks": 20,
+  "fruiting_frequency": "Multiple flushes per season",
+  "fruiting_predictability": {
+    "rating": 8,
+    "max": 10
+  },
+  "fruiting_triggers": [
+    "Feuchte Bedingungen",
+    "Temperaturen ueber 15 Grad C",
+    "Ausreichend kolonisiertes Substrat"
+  ],
+  "mycelial_activity_season": [
+    {"month": 1, "active": false},
+    {"month": 2, "active": false},
+    {"month": 3, "active": true},
+    {"month": 4, "active": true},
+    {"month": 5, "active": true},
+    {"month": 6, "active": true},
+    {"month": 7, "active": true},
+    {"month": 8, "active": true},
+    {"month": 9, "active": true},
+    {"month": 10, "active": true},
+    {"month": 11, "active": false},
+    {"month": 12, "active": false}
+  ],
+  "rainfall_trigger_mm": 20,
+  "iucn_global_status": {
+    "status": "NE",
+    "variant": "info"
+  },
+  "native_range": "Nordamerika (urspruenglich), jetzt weltweit kultiviert",
+  "consumer_mammals": [
+    "Schnecken"
+  ],
+  "consumer_insects": [
+    "Pilzmuecken (Mycetophilidae)",
+    "Pilzkaefer"
+  ],
+  "dispersal_vector_type": "Wind",
+  "dispersal_mechanism": "Sporenfreisetzung durch Lamellen",
+  "bioremediation_potential": true,
+  "bioremediation_targets": [
+    "Schwermetalle",
+    "PAK (Polycyclische aromatische Kohlenwasserstoffe)",
+    "Pestizide"
+  ],
+  "bioremediation_notes": "Stropharia rugosoannulata hat nachgewiesene Faehigkeiten zur Mykoremediation und kann verschiedene Schadstoffe aus dem Boden aufnehmen.",
+  "citizen_science_suitability": {
+    "rating": 9,
+    "max": 10
+  },
+  "photo_identification_reliable": true,
+  "optimal_survey_method": "Visuelle Suche in Kultivierungsbeeten",
+  "survey_timing_optimal": "Juni bis Oktober nach Niederschlag",
+  "ecology_data_quality_score": {
+    "rating": 8,
+    "max": 10
+  },
+  "ecology_evidence_basis": "Cultivation studies and field observations"
+}

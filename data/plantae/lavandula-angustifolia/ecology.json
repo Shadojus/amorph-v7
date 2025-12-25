@@ -1,0 +1,41 @@
+{
+  "trophic_mode_primary": "autotroph",
+  "ecological_guild": "Halbstrauch",
+  "primary_ecosystem_function": "Bestaeubungsmagnet",
+  "secondary_ecosystem_functions": [
+    "Nektarquelle",
+    "Erosionsschutz"
+  ],
+  "ecosystem_type": "Mediterrane Macchie",
+  "ecosystem_subtype": "Felsheide",
+  "microhabitat_primary": "Trockene, sonnige Haenge",
+  "microhabitat_secondary": "Kalkfelsen",
+  "light_requirement": "volle Sonne",
+  "moisture_regime": "xerisch-mesisch",
+  "drought_tolerance": {
+    "rating": 8,
+    "max": 10
+  },
+  "soil_ph_optimal_min": 6.5,
+  "soil_ph_optimal_max": 8.0,
+  "calcium_requirement": "hoch",
+  "soil_texture_preference": "kalkhaltig-durchlaessig",
+  "climate_zone": "mediterran",
+  "temperature_optimal_min_c": -15,
+  "temperature_optimal_max_c": 35,
+  "frost_tolerance": {
+    "rating": 6,
+    "max": 10
+  },
+  "native_range": "Westliches Mittelmeergebiet (Spanien, Frankreich, Italien)",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "pollination_crops_benefited": [
+    "Honigproduktion"
+  ],
+  "ecosystem_service_category": "Bestaeuberfoerderung",
+  "dispersal_vector_type": "Anemochor",
+  "dispersal_mechanism": "Windausbreitung"
+}

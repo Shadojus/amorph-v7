@@ -1,0 +1,43 @@
+{
+  "scientific_name": "Ganoderma curtisii",
+  "author_citation": "(Berk.) Murrill",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Polyporales",
+  "taxonomy_family": "Ganodermataceae",
+  "taxonomy_genus": "Ganoderma",
+  "taxonomy_species": "curtisii",
+  "synonyms": [
+    "Polyporus curtisii",
+    "Fomes curtisii",
+    "Scindalma curtisii"
+  ],
+  "common_names": [
+    "Goldener Lackporling",
+    "Golden Reishi",
+    "Yellow Reishi"
+  ],
+  "color_primary": "goldgelb",
+  "color_secondary": "rotbraun",
+  "primary_structure_present": true,
+  "primary_structure_type": "Konsole mit Stiel",
+  "primary_structure_surface": "lackiert, glaenzend",
+  "tubes_present": true,
+  "pores_color": "weiss, bei Beruehrung braun",
+  "tissue_consistency": "schwammig in Poren, fest im Stiel",
+  "propagule_color": "braun",
+  "confusion_species_list": [
+    "Ganoderma lucidum",
+    "Ganoderma sessile"
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "intermediate",
+    "variant": "warning"
+  }
+}

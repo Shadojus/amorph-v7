@@ -1,0 +1,104 @@
+{
+  "habitat_primary": "Naehrstoffreiche Boeden, Kompostboeden",
+  "habitat_secondary": [
+    "Mischwaelder",
+    "Waldraender",
+    "Gaerten und Beete",
+    "Gewaechshaeuser"
+  ],
+  "habitat_description": "Agaricus subrufescens ist ein waermeliebender Sekundaerzersetzer, der gut kompostierte, stickstoffreiche Substrate bevorzugt. Natuerlich kommt er in tropischen und subtropischen Regionen vor, insbesondere in Brasilien und dem Mittelmeerraum. Er gedeiht auf naehrstoffreichen Boeden in Mischwäldern, an Waldrändern und in gut kompostierten Gartenbeeten.",
+  "elevation_range": {
+    "min": 0,
+    "max": 1500,
+    "unit": "m"
+  },
+  "elevation_optimal": {
+    "min": 100,
+    "max": 800,
+    "unit": "m"
+  },
+  "climate_preferences": {
+    "annual_temp_min": 10,
+    "annual_temp_max": 35,
+    "precipitation_min": 800,
+    "precipitation_max": 2500
+  },
+  "temperature_range": {
+    "min": 21,
+    "max": 27,
+    "unit": "C"
+  },
+  "microhabitat_requirements": [
+    "Naehrstoffreiche, gut kompostierte Boeden",
+    "Hohe Stickstoffverfuegbarkeit",
+    "Gute Bodenfeuchtigkeit",
+    "Waerme (21-27 Grad Celsius)"
+  ],
+  "substrate_preferences": [
+    "Gut kompostierte Erde",
+    "Angereicherte Komposte",
+    "Stickstoffreiche Substrate",
+    "Pasteurisierte Substrate mit Stickstoffzusaetzen"
+  ],
+  "vegetation_associations": [
+    "Tropische und subtropische Waelder",
+    "Mediterrane Vegetation",
+    "Kulturlandschaften"
+  ],
+  "ecological_role": "Sekundaerer Zersetzer organischen Materials",
+  "ecological_role_description": "Als saprotropher Pilz zersetzt Agaricus subrufescens bereits teilweise abgebautes organisches Material und traegt zur Humusbildung und Naehrstoffrueckfuehrung bei. Er bevorzugt bereits vorbehandeltes Material wie Kompost.",
+  "ecological_importance": [
+    {"axis": "Naehrstoffrecycling", "value": 75},
+    {"axis": "Humusbildung", "value": 70},
+    {"axis": "Medizinische Bedeutung", "value": 95},
+    {"axis": "Kulinarische Bedeutung", "value": 80}
+  ],
+  "trophic_level": 2,
+  "trophic_category": "saprotroph",
+  "symbiosis_type": "Keine (Saprotroph)",
+  "symbiosis_description": "Agaricus subrufescens geht keine symbiotischen Beziehungen ein, sondern lebt als Zersetzer von totem organischem Material.",
+  "host_specificity": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "co_occurring_species": [
+    "Agaricus bisporus (Zuchtchampignon)",
+    "Andere Agaricus-Arten",
+    "Coprinus-Arten"
+  ],
+  "dispersal_mechanism": "Windverbreitung der Sporen",
+  "dispersal_range": {
+    "min": 10,
+    "max": 500,
+    "unit": "m"
+  },
+  "spore_production": {
+    "value": 75,
+    "max": 100,
+    "unit": "%"
+  },
+  "colonization_strategy": "Schnelle Besiedlung naehrstoffreicher Substrate",
+  "life_history": "Kurzlebige Fruchtkoerper, persistentes Myzel",
+  "phenology_description": "Fruchtkoerper erscheinen vom Fruehsommer bis Spaetherbst bei ausreichend Waerme und Feuchtigkeit",
+  "fruiting_triggers": [
+    "Temperaturen zwischen 21-24 Grad Celsius",
+    "Relative Luftfeuchtigkeit 80-90%",
+    "Frischluftzufuhr",
+    "Licht 1000-2000 Lux"
+  ],
+  "activity_months": [5, 6, 7, 8, 9, 10],
+  "peak_fruiting_month": 7,
+  "ecosystem_services": [
+    "Abbau organischer Substanz",
+    "Naehrstofffreisetzung",
+    "Bodenverbesserung"
+  ],
+  "indicator_species": false,
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

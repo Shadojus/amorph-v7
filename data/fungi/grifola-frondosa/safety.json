@@ -1,0 +1,37 @@
+{
+  "safety_edibility_status": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "safety_edibility_confidence": {
+    "value": 95,
+    "max": 100,
+    "unit": "%"
+  },
+  "safety_edibility_notes": "Hervorragender Speisepilz, jung zart und aromatisch. Im Alter wird er zaeh. Auch als bedeutender Vitalpilz genutzt.",
+  "safety_potentially_deadly": false,
+  "safety_toxicity_score": {
+    "value": 0,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_warning_level": {
+    "status": "none",
+    "variant": "success"
+  },
+  "safety_summary": "Ausgezeichneter Speise- und Vitalpilz. Nur junge Exemplare sammeln, aeltere werden zaeh.",
+  "confusion_partner": [
+    {"name": "Meripilus giganteus", "type": "essbar", "intensity": 40},
+    {"name": "Polyporus umbellatus", "type": "essbar", "intensity": 30}
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "confusion_safety_critical": false
+}

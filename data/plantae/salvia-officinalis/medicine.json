@@ -1,0 +1,67 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine", "Antike Medizin"],
+    "historical_use": "'Cur moriatur homo cui Salvia crescit in horto?' - Warum stirbt ein Mensch, in dessen Garten Salbei waechst?",
+    "traditional_indications": ["Halsschmerzen", "Schweissreduktion", "Verdauung", "Gedaechtnisstaerkung"]
+  },
+  "pharmacopoeia_names": ["Salviae officinalis folium"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Entzuendungen im Mund-/Rachenraum", "Vermehrtes Schwitzen", "Dyspeptische Beschwerden"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Aeusserlich: Entzuendungen Mund/Rachen", "Innerlich: Dyspepsie, Hyperhidrose"],
+  "active_substances": [
+    "Thujon (alpha- und beta-)",
+    "Campher",
+    "1,8-Cineol",
+    "Rosmarinsaeure",
+    "Carnolsaeure"
+  ],
+  "effect_profile": [
+    {"axis": "Antimikrobiell", "value": 85},
+    {"axis": "Antihidrotisch", "value": 90},
+    {"axis": "Antiinflammatorisch", "value": 75},
+    {"axis": "Nootropisch", "value": 65},
+    {"axis": "Antioxidativ", "value": 80}
+  ],
+  "therapeutic_categories": [
+    "Antiseptikum",
+    "Antihidrotikum",
+    "Karminativum"
+  ],
+  "evidence_level": {
+    "status": "2b",
+    "variant": "warning"
+  },
+  "clinical_studies": [
+    "Akhondzadeh et al. 2003: Verbesserung kognitiver Funktionen bei Alzheimer",
+    "Bommer et al. 2011: Wirksamkeit bei Hitzewallungen"
+  ],
+  "safety_score": {
+    "value": 70,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "medium", "typ": "Thujon", "beschreibung": "Bei hohen Dosen: Kraempfe, Verwirrung (Thujon-Toxizität)"}
+  ],
+  "contraindications": [
+    "Schwangerschaft (innerlich)",
+    "Stillzeit",
+    "Epilepsie"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Kontraindiziert (innerlich)",
+    "variant": "danger"
+  },
+  "maximum_daily_dose": 15,
+  "treatment_duration_typical": "Innerlich: max. 2 Wochen",
+  "dosage_notes": "Tee: 1-3g Blaetter; Gurgeln; aeusserlich unbedenklich. Thujon-Gehalt beachten!",
+  "preparation_forms": ["Tee", "Tinktur", "Aetherisches Oel (nur aeusserlich)", "Lutschtabletten"],
+  "status_by_region": {
+    "eu": "Pflanzliches Arzneimittel (traditional use)"
+  }
+}

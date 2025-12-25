@@ -1,0 +1,59 @@
+{
+  "trophic_mode_primary": "omnivorous",
+  "trophic_mode_secondary": "opportunistic scavenger",
+  "ecological_guild": "generalist omnivore-scavenger",
+  "primary_ecosystem_function": "carrion removal",
+  "secondary_ecosystem_functions": [
+    "seed dispersal",
+    "pest control",
+    "nutrient cycling"
+  ],
+  "ecosystem_type": "multiple",
+  "ecosystem_subtype": "diverse habitats",
+  "habitat_types": [
+    "forest",
+    "tundra",
+    "desert",
+    "mountains",
+    "coastal cliffs",
+    "urban areas"
+  ],
+  "microhabitat_primary": "areas with food sources and nesting sites",
+  "elevation_range": {
+    "min": 0,
+    "max": 5000,
+    "unit": "m"
+  },
+  "diet_primary": [
+    "carrion",
+    "insects",
+    "small vertebrates",
+    "eggs",
+    "grain",
+    "garbage"
+  ],
+  "diet_specialization": "extreme generalist",
+  "foraging_strategy": "intelligent opportunistic foraging",
+  "predators": [
+    "Aquila chrysaetos",
+    "Bubo bubo"
+  ],
+  "climate_zone": "Arctic to subtropical",
+  "native_range": "Northern Hemisphere",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "population_trend": "increasing",
+  "social_structure": "monogamous pairs with winter roosts",
+  "territory_size": {
+    "min": 3,
+    "max": 40,
+    "unit": "km2"
+  },
+  "lifespan_wild": {
+    "min": 10,
+    "max": 15,
+    "unit": "years"
+  }
+}

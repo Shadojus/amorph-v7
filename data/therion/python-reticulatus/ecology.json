@@ -1,0 +1,51 @@
+{
+  "trophic_mode_primary": "carnivorous",
+  "trophic_mode_secondary": "apex constrictor",
+  "ecological_guild": "large constricting snake",
+  "primary_ecosystem_function": "mid-to-large mammal predation",
+  "secondary_ecosystem_functions": [
+    "prey population control",
+    "energy transfer to higher trophic levels"
+  ],
+  "ecosystem_type": "forest",
+  "ecosystem_subtype": "tropical rainforest",
+  "habitat_types": [
+    "tropical rainforest",
+    "woodland",
+    "grassland",
+    "agricultural areas",
+    "mangroves"
+  ],
+  "microhabitat_primary": "near water sources",
+  "elevation_range": {
+    "min": 0,
+    "max": 1200,
+    "unit": "m"
+  },
+  "diet_primary": [
+    "mammals",
+    "birds",
+    "reptiles"
+  ],
+  "diet_specialization": "medium to large mammals",
+  "foraging_strategy": "ambush constriction",
+  "predators": [
+    "Naja spp. (juveniles)",
+    "Varanus spp. (juveniles)"
+  ],
+  "climate_zone": "tropical",
+  "native_range": "South and Southeast Asia",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "population_trend": "stable",
+  "social_structure": "solitary",
+  "home_range_size": {
+    "min": 0.5,
+    "max": 5,
+    "unit": "km2"
+  },
+  "thermoregulation": "ectothermic",
+  "swimming_ability": "excellent"
+}

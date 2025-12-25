@@ -1,0 +1,156 @@
+{
+  "scientific_name": "Atropa belladonna",
+  "author_citation": "L. 1753",
+  "accepted_name": "Atropa belladonna L.",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Magnoliopsida",
+  "taxonomy_order": "Solanales",
+  "taxonomy_family": "Solanaceae",
+  "taxonomy_genus": "Atropa",
+  "taxonomy_species": "belladonna",
+  "synonyms": [
+    "Atropa lethalis Salisb.",
+    "Belladonna baccifera Lam.",
+    "Belladonna trichotoma Scop."
+  ],
+  "common_names": [
+    "Deadly Nightshade",
+    "Belladonna",
+    "Devil's Cherries",
+    "Death Cherries",
+    "Dwale"
+  ],
+  "international_names": [
+    "Tollkirsche (DE)",
+    "Belladone (FR)",
+    "Belladona (ES)",
+    "Belladonna (IT)",
+    "Dian Qie (CN)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Large, dull green, ovate leaves", "status": "pending"},
+    {"step": 2, "label": "Bell-shaped purple-brown flowers", "status": "pending"},
+    {"step": 3, "label": "Shiny black berries resembling cherries", "status": "pending"},
+    {"step": 4, "label": "Berries in persistent star-shaped calyx", "status": "pending"},
+    {"step": 5, "label": "Branching, shrubby growth habit", "status": "pending"},
+    {"step": 6, "label": "Unpleasant smell when bruised", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "time_to_identify_minutes": 10,
+  "minimum_equipment_needed": [
+    "No equipment required"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Solanum nigrum (Black Nightshade - smaller berries)",
+    "Vaccinium myrtillus (Bilberry)",
+    "Sambucus nigra (Elderberry)"
+  ],
+  "confusion_risk_level": {
+    "status": "High",
+    "variant": "danger"
+  },
+  "confusion_consequences": [
+    {"level": "critical", "typ": "Berries mistaken for edible fruit", "beschreibung": "Berries are sweet-tasting but EXTREMELY POISONOUS - can be fatal, especially to children"}
+  ],
+  "key_differentiating_features": [
+    "Single shiny black berry in star-shaped calyx",
+    "Bell-shaped purple-brown flowers",
+    "Large dull green leaves, often in unequal pairs",
+    "Berries much larger than black nightshade (15-20mm)",
+    "ALL PARTS HIGHLY TOXIC"
+  ],
+  "habit": "Herbaceous perennial",
+  "growth_form": "Bushy, branching from base",
+  "symmetry": "bilateral",
+  "size_range": {
+    "min": 50,
+    "max": 150,
+    "unit": "cm"
+  },
+  "size_typical_cm": 100,
+  "basic_shape": "Bushy herb with black cherry-like berries",
+  "height": {
+    "min": 50,
+    "max": 150,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 50,
+    "max": 100,
+    "unit": "cm"
+  },
+  "surface_type": "Soft, slightly glandular-hairy",
+  "color_primary": "Dull green (foliage)",
+  "color_secondary": "Purple-brown (flowers), black (berries)",
+  "color_variations": [
+    "Rare yellow-flowered form exists",
+    "Berries shiny jet black"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf",
+  "primary_structure_diameter": {
+    "min": 8,
+    "max": 18,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Ovate, pointed",
+  "primary_structure_shape_mature": "Ovate to lanceolate, unequal pairs",
+  "primary_structure_surface": "Soft, slightly glandular",
+  "primary_structure_color": "Dull green",
+  "support_structure_present": true,
+  "support_structure_type": "Stem (branching, herbaceous)",
+  "support_structure_color": "Green to purplish",
+  "flower_present": true,
+  "flower_type": "Solitary, bell-shaped, in leaf axils",
+  "flower_color": "Purple-brown to greenish",
+  "flower_size": {
+    "min": 2.5,
+    "max": 3,
+    "unit": "cm"
+  },
+  "flowering_period": "June to September",
+  "fruit_present": true,
+  "fruit_type": "Berry",
+  "fruit_color": "Shiny jet black",
+  "fruit_size": {
+    "min": 1.5,
+    "max": 2,
+    "unit": "cm"
+  },
+  "smell_description": "Unpleasant, fetid when bruised",
+  "smell_comparable_to": "Slightly unpleasant, nondescript",
+  "taste_safe_to_test": false,
+  "taste_description": "DEADLY POISON - NEVER TASTE. Berries reportedly sweet, which makes them dangerous to children",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "New growth emerges from rootstock",
+    "summer": "Flowering, berries develop",
+    "autumn": "Berries ripen to black",
+    "winter": "Dies back to ground"
+  },
+  "season_peak_months": [7, 8, 9],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis",
+  "substrate_species": [
+    "Calcareous woodland soils",
+    "Shaded areas, ruins",
+    "Disturbed chalky ground"
+  ],
+  "source": {
+    "authors": "Adamse, P. & van Egmond, H.P.",
+    "year": 2010,
+    "title": "Tropane alkaloids in food",
+    "journal": "EFSA Scientific Opinion",
+    "doi": "10.2903/j.efsa.2008.133r"
+  }
+}

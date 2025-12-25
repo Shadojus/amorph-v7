@@ -1,0 +1,53 @@
+{
+  "safety_edibility_status": {
+    "status": "inedible",
+    "variant": "warning"
+  },
+  "safety_edibility_confidence": {
+    "value": 95,
+    "max": 100,
+    "unit": "%"
+  },
+  "safety_edibility_notes": "Ungeniessbar aufgrund holziger, zaeher Konsistenz. Wird als Vitalpilz in Teeform verwendet.",
+  "safety_potentially_deadly": false,
+  "safety_toxicity_score": {
+    "value": 0,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_warning_level": {
+    "status": "none",
+    "variant": "success"
+  },
+  "safety_summary": "Ungeniessbar aber nicht giftig. Wird in der TCM als Heilpilz verwendet.",
+  "safety_risk_inherent": {
+    "value": 0,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_confusion": {
+    "value": 25,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "confusion_safety_critical": false
+}

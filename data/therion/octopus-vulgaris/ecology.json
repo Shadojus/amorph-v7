@@ -1,0 +1,58 @@
+{
+  "trophic_mode_primary": "carnivorous",
+  "trophic_mode_secondary": "opportunistic predator",
+  "ecological_guild": "benthic predator",
+  "primary_ecosystem_function": "crustacean and mollusk predation",
+  "secondary_ecosystem_functions": [
+    "prey for larger predators",
+    "den excavation affecting habitat"
+  ],
+  "ecosystem_type": "marine",
+  "ecosystem_subtype": "coastal and reef",
+  "habitat_types": [
+    "rocky reefs",
+    "coral reefs",
+    "seagrass beds",
+    "sandy bottom"
+  ],
+  "microhabitat_primary": "rocky crevices and dens",
+  "depth_range": {
+    "min": 0,
+    "max": 200,
+    "unit": "m"
+  },
+  "diet_primary": [
+    "crabs",
+    "clams",
+    "snails",
+    "small fish",
+    "shrimp"
+  ],
+  "diet_specialization": "crustaceans and bivalves",
+  "foraging_strategy": "visual hunting and den ambush",
+  "predators": [
+    "Moray eels",
+    "Sharks",
+    "Dolphins",
+    "Large fish"
+  ],
+  "climate_zone": "temperate to tropical",
+  "native_range": "Atlantic Ocean and Mediterranean Sea",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "population_trend": "stable",
+  "social_structure": "solitary",
+  "home_range_size": {
+    "min": 50,
+    "max": 500,
+    "unit": "m2"
+  },
+  "lifespan": {
+    "min": 1,
+    "max": 2,
+    "unit": "years"
+  },
+  "intelligence": "high - problem solving and tool use"
+}

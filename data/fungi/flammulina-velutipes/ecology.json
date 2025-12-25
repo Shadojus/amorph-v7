@@ -1,0 +1,44 @@
+{
+  "trophic_mode_primary": "saprobiontisch",
+  "trophic_mode_secondary": "parasitisch",
+  "ecological_guild": "Holzzersetzer",
+  "decomposer_type": "Weissfaeule",
+  "ecosystem_type": "Wald",
+  "ecosystem_subtype": "Laubwald",
+  "microhabitat_primary": "stehendes Totholz",
+  "microhabitat_secondary": "liegendes Holz",
+  "substrate_type_primary": "Laubholz",
+  "substrate_types_secondary": [
+    "Eiche",
+    "Buche",
+    "Weide",
+    "Pappel",
+    "Birke",
+    "Erle"
+  ],
+  "substrate_specificity": {
+    "status": "breit",
+    "variant": "success"
+  },
+  "fruiting_season_start": 10,
+  "fruiting_season_end": 3,
+  "fruiting_peak_month": 12,
+  "fruiting_frequency": "haeufig",
+  "fruiting_triggers": [
+    "Frost",
+    "Feuchtigkeit"
+  ],
+  "climate_zone": "temperat",
+  "moisture_regime": "mesisch",
+  "frost_tolerance": {
+    "rating": 10,
+    "max": 10
+  },
+  "light_requirement": "schattig bis halbschattig",
+  "spatial_distribution_pattern": "bueschelig",
+  "native_range": "Nordhemisphaere, kosmopolitisch",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  }
+}

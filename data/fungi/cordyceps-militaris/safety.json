@@ -1,0 +1,58 @@
+{
+  "safety_edibility_status": {
+    "status": "inedible",
+    "variant": "warning"
+  },
+  "safety_edibility_confidence": {
+    "value": 90,
+    "max": 100,
+    "unit": "%"
+  },
+  "safety_edibility_notes": "Ungeniessbar aufgrund geringer Groesse und seltenem Vorkommen, aber nicht giftig. Wird in Asien als Vitalpilz kultiviert und als Nahrungsergaenzungsmittel verwendet.",
+  "safety_potentially_deadly": false,
+  "safety_toxicity_score": {
+    "value": 5,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_warning_level": {
+    "status": "advisory",
+    "variant": "neutral"
+  },
+  "safety_warning_text": "Nicht zum Verzehr in der Wildnis sammeln aufgrund extremer Seltenheit und geringer Groesse.",
+  "safety_summary": "Cordyceps militaris ist ungeniessbar aber nicht giftig. Die Art ist extrem selten und sollte nicht gesammelt werden.",
+  "safety_risk_inherent": {
+    "value": 5,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_confusion": {
+    "value": 15,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "confusion_partner": [
+    {"name": "Ophiocordyceps sinensis", "type": "aehnlich", "intensity": 60},
+    {"name": "Typhula fistulosa", "type": "aehnlich", "intensity": 40}
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "confusion_safety_critical": false
+}

@@ -1,0 +1,28 @@
+{
+  "trophic_mode_primary": "saprobiontisch",
+  "ecological_guild": "Holzzersetzer",
+  "ecosystem_type": "Wald",
+  "ecosystem_subtype": "Laubwald",
+  "microhabitat_primary": "totes Laubholz",
+  "substrate_type_primary": "Laubholz",
+  "substrate_types_secondary": [
+    "Eiche",
+    "Buche",
+    "Birke"
+  ],
+  "substrate_specificity": {
+    "status": "breit",
+    "variant": "success"
+  },
+  "fruiting_season_start": 1,
+  "fruiting_season_end": 12,
+  "fruiting_peak_month": 11,
+  "fruiting_frequency": "ganzjaehrig, besonders Spaetherbst und Winter",
+  "climate_zone": "temperat",
+  "native_range": "Nordhemisphaere",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "special_ecological_feature": "Biolumineszenz - produiert Luciferin-Vorstufen PS-A und PS-B"
+}

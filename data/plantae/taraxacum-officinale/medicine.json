@@ -1,0 +1,65 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine", "TCM"],
+    "historical_use": "Seit dem Mittelalter als 'Pissenlit' (harntreibend) bekannt; Volksname 'Bettseicher'",
+    "traditional_indications": ["Gallenbeschwerden", "Wasserretention", "Appetitlosigkeit", "Verdauungsschwaeche"]
+  },
+  "pharmacopoeia_names": ["Taraxaci radix cum herba", "Taraxaci folium"],
+  "tcm_herb_name_pinyin": "Pu Gong Ying",
+  "tcm_herb_name_chinese": "蒲公英",
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Wiederherstellung der Leber-/Gallenfunktion", "Dyspepsie", "Appetitlosigkeit"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Stoerungen des Gallenflusses", "Dyspepsie", "Appetitlosigkeit", "Diurese"],
+  "active_substances": [
+    "Sesquiterpenlactone (Taraxacin)",
+    "Inulin",
+    "Kalium",
+    "Phenolsaeuren",
+    "Triterpene"
+  ],
+  "effect_profile": [
+    {"axis": "Diuretisch", "value": 80},
+    {"axis": "Cholagog", "value": 75},
+    {"axis": "Appetitanregend", "value": 70},
+    {"axis": "Stoffwechselanregend", "value": 65},
+    {"axis": "Leberprotektiv", "value": 60}
+  ],
+  "therapeutic_categories": [
+    "Diuretikum",
+    "Cholagogum",
+    "Amarum"
+  ],
+  "evidence_level": {
+    "status": "3",
+    "variant": "warning"
+  },
+  "safety_score": {
+    "value": 90,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Selten", "beschreibung": "Magenbeschwerden, Sodbrennen"},
+    {"level": "low", "typ": "Kontaktdermatitis", "beschreibung": "Bei Kontakt mit Milchsaft moeglich"}
+  ],
+  "contraindications": [
+    "Gallensteine",
+    "Gallengangsverschluss",
+    "Darmverschluss",
+    "Allergie gegen Korbblütler"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Wahrscheinlich sicher in üblichen Mengen",
+    "variant": "success"
+  },
+  "dosage_notes": "Wurzel/Kraut: 4-10g als Tee oder Frischsaft; Blaetter als Salat; Reichlich trinken bei diuretischer Anwendung",
+  "preparation_forms": ["Tee", "Frischpflanzenpresssaft", "Tinktur", "Salat (Blätter)"],
+  "status_by_region": {
+    "eu": "Pflanzliches Arzneimittel (traditional use)"
+  }
+}

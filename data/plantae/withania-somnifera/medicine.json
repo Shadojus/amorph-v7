@@ -1,0 +1,74 @@
+{
+  "traditional_medicine": {
+    "systems": ["Ayurveda", "Unani"],
+    "historical_use": "Ueber 3000 Jahre in Ayurveda als Rasayana (Verjuengungsmittel)",
+    "traditional_indications": ["Schwaeche", "Erschoepfung", "Stress", "Impotenz", "Schlafstörungen"]
+  },
+  "ayurveda_sanskrit_name": "Ashwagandha",
+  "ayurveda_rasa": ["tikta", "kashaya"],
+  "ayurveda_guna": ["leicht", "oelig"],
+  "ayurveda_virya": "ushna (warm)",
+  "ayurveda_vipaka": "madhura (suess)",
+  "ayurveda_dosha_effect": ["Vata-reduzierend", "Kapha-reduzierend"],
+  "active_substances": [
+    "Withanolide (Withaferin A, Withanolid D)",
+    "Withanosid",
+    "Alkaloide (Isopelletierin)"
+  ],
+  "effect_profile": [
+    {"axis": "Adaptogen", "value": 95},
+    {"axis": "Anxiolytisch", "value": 80},
+    {"axis": "Antiinflammatorisch", "value": 70},
+    {"axis": "Neuroprotektiv", "value": 75},
+    {"axis": "Immunmodulierend", "value": 70}
+  ],
+  "therapeutic_categories": [
+    "Adaptogen",
+    "Anxiolytikum",
+    "Tonikum"
+  ],
+  "evidence_level": {
+    "status": "2a",
+    "variant": "success"
+  },
+  "clinical_studies": [
+    "Chandrasekhar et al. 2012: Signifikante Reduktion von Stress und Cortisol",
+    "Wankhede et al. 2015: Erhöhte Muskelkraft und Regeneration"
+  ],
+  "safety_score": {
+    "value": 80,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Gelegentlich", "beschreibung": "Magen-Darm-Beschwerden, Schläfrigkeit"},
+    {"level": "medium", "typ": "Schilddruese", "beschreibung": "Kann Schilddruesenhormone beeinflussen"}
+  ],
+  "interactions": [
+    {"level": "medium", "typ": "Sedativa", "beschreibung": "Additive sedierende Wirkung"},
+    {"level": "medium", "typ": "Schilddruesenmedikamente", "beschreibung": "Kann Hormonspiegel beeinflussen"}
+  ],
+  "contraindications": [
+    "Schwangerschaft",
+    "Hyperthyreose",
+    "Autoimmunerkrankungen (Vorsicht)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Kontraindiziert",
+    "variant": "danger"
+  },
+  "standard_dose_range": {
+    "min": 300,
+    "max": 600,
+    "unit": "mg"
+  },
+  "dose_frequency": "ein- bis zweimal taeglich",
+  "standardization_marker": "Withanolide 5%",
+  "dosage_notes": "Wurzelextrakt 300-600 mg taeglich; traditionell mit warmer Milch",
+  "preparation_forms": ["Wurzelpulver", "Extrakt", "Kapseln", "Churna"],
+  "status_by_region": {
+    "eu": "Nahrungsergaenzungsmittel",
+    "usa": "Dietary Supplement",
+    "india": "Traditionelles Arzneimittel"
+  }
+}

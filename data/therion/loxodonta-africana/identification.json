@@ -1,0 +1,55 @@
+{
+  "scientific_name": "Loxodonta africana",
+  "author_citation": "(Blumenbach, 1797)",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Chordata",
+  "taxonomy_class": "Mammalia",
+  "taxonomy_order": "Proboscidea",
+  "taxonomy_family": "Elephantidae",
+  "taxonomy_genus": "Loxodonta",
+  "taxonomy_species": "africana",
+  "common_names": [
+    "African Bush Elephant",
+    "African Savanna Elephant",
+    "Afrikanischer Elefant",
+    "Elephant d'Afrique"
+  ],
+  "size_range": {
+    "min": 3.0,
+    "max": 4.0,
+    "unit": "m"
+  },
+  "weight_range": {
+    "min": 4000,
+    "max": 6000,
+    "unit": "kg"
+  },
+  "color_primary": "grey",
+  "color_secondary": "brownish-grey",
+  "primary_structure_type": "massive body with large ears and trunk",
+  "primary_structure_shape_mature": "largest terrestrial animal",
+  "primary_structure_surface": "thick wrinkled skin",
+  "primary_structure_color": "grey to brownish-grey, often covered in dust",
+  "key_differentiating_features": [
+    "Very large ears shaped like African continent",
+    "Concave back profile",
+    "Both males and females have tusks",
+    "Trunk with two finger-like projections at tip",
+    "Rounded head with no dip between forehead and trunk"
+  ],
+  "identification_difficulty": {
+    "status": "easy",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Loxodonta cyclotis (African Forest Elephant - smaller, straighter tusks)",
+    "Elephas maximus (Asian Elephant - smaller ears, domed head)"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Males significantly larger with thicker tusks; females have thinner, more curved tusks"
+}

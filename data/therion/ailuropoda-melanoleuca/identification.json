@@ -1,0 +1,55 @@
+{
+  "scientific_name": "Ailuropoda melanoleuca",
+  "author_citation": "(David, 1869)",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Chordata",
+  "taxonomy_class": "Mammalia",
+  "taxonomy_order": "Carnivora",
+  "taxonomy_family": "Ursidae",
+  "taxonomy_genus": "Ailuropoda",
+  "taxonomy_species": "melanoleuca",
+  "common_names": [
+    "Giant Panda",
+    "Panda Bear",
+    "Grosser Panda",
+    "Panda Geant",
+    "Xiongmao"
+  ],
+  "size_range": {
+    "min": 1.2,
+    "max": 1.9,
+    "unit": "m"
+  },
+  "weight_range": {
+    "min": 70,
+    "max": 125,
+    "unit": "kg"
+  },
+  "color_primary": "white",
+  "color_secondary": "black",
+  "primary_structure_type": "robust bear with distinctive black and white markings",
+  "primary_structure_shape_mature": "round body with large head",
+  "primary_structure_surface": "thick woolly fur",
+  "primary_structure_color": "white body with black ears, eye patches, shoulders, and legs",
+  "key_differentiating_features": [
+    "Distinctive black eye patches on white face",
+    "Black ears on white head",
+    "Black front legs forming shoulder band",
+    "Pseudo-thumb (enlarged wrist bone) for gripping bamboo",
+    "Short tail relative to body size"
+  ],
+  "identification_difficulty": {
+    "status": "easy",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Ailurus fulgens (Red Panda - very different appearance)"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Males approximately 10-20% larger than females"
+}

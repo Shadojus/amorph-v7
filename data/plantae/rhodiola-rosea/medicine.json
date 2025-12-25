@@ -1,0 +1,72 @@
+{
+  "traditional_medicine": {
+    "systems": ["Tibetan_Medicine", "Russische Volksmedizin", "Skandinavische Volksmedizin"],
+    "historical_use": "Wikinger nutzten es zur Steigerung der Ausdauer; in Sibirien 'Goldene Wurzel'",
+    "traditional_indications": ["Erschoepfung", "Höhenkrankheit", "Depression", "Leistungssteigerung"]
+  },
+  "pharmacopoeia_names": ["Rhodiolae roseae radix et rhizoma"],
+  "who_monograph_exists": false,
+  "escop_monograph_exists": false,
+  "german_commission_e_status": {
+    "status": "Keine Monographie",
+    "variant": "warning"
+  },
+  "active_substances": [
+    "Rosavine (Rosavin, Rosin, Rosarin)",
+    "Salidrosid (Rhodiolosid)",
+    "Tyrosol",
+    "p-Tyrosol"
+  ],
+  "effect_profile": [
+    {"axis": "Adaptogen", "value": 90},
+    {"axis": "Antidepressiv", "value": 75},
+    {"axis": "Antifatigue", "value": 85},
+    {"axis": "Neuroprotektiv", "value": 70},
+    {"axis": "Leistungssteigernd", "value": 75}
+  ],
+  "therapeutic_categories": [
+    "Adaptogen",
+    "Nootropikum",
+    "Antidepressivum"
+  ],
+  "evidence_level": {
+    "status": "2b",
+    "variant": "warning"
+  },
+  "clinical_studies": [
+    "Olsson et al. 2009: Reduktion von Muedigkeit bei Stress",
+    "Darbinyan et al. 2007: Wirksamkeit bei milder bis moderater Depression"
+  ],
+  "safety_score": {
+    "value": 80,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Gelegentlich", "beschreibung": "Reizbarkeit, Schlaflosigkeit, Unruhe"},
+    {"level": "low", "typ": "Bei hohen Dosen", "beschreibung": "Kopfschmerzen, Trockenheit im Mund"}
+  ],
+  "contraindications": [
+    "Bipolare Störung",
+    "Schwangerschaft und Stillzeit"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Nicht empfohlen",
+    "variant": "warning"
+  },
+  "standard_dose_range": {
+    "min": 200,
+    "max": 600,
+    "unit": "mg"
+  },
+  "dose_frequency": "einmal taeglich morgens",
+  "dose_timing_field": "morgens",
+  "standardization_marker": "Rosavine 3%, Salidrosid 1%",
+  "dosage_notes": "200-600 mg morgens; nicht abends (kann Schlaf stoeren); Kurweise mit Pausen",
+  "preparation_forms": ["Standardisierter Extrakt", "Kapseln", "Tinktur"],
+  "status_by_region": {
+    "eu": "Nahrungsergaenzungsmittel",
+    "usa": "Dietary Supplement",
+    "russia": "Adaptogen (traditionell)"
+  }
+}

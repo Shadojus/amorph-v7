@@ -1,300 +1,5333 @@
 {
-  "version": "1.0",
-  "generated": "2025-12-21T14:05:36.484Z",
-  "total": 6,
+  "version": "2.0",
+  "generated": "2025-12-25T13:41:46.651Z",
+  "total": 62,
   "kingdoms": {
     "fungi": {
       "name": "Fungi",
       "icon": "🍄",
-      "count": 3
+      "tagline": "Das verborgene Königreich",
+      "color": "#8B4513",
+      "count": 27,
+      "featured": [
+        "grifola-frondosa",
+        "hericium-erinaceus",
+        "ganoderma-lucidum"
+      ]
     },
     "plantae": {
       "name": "Plantae",
       "icon": "🌿",
-      "count": 2
+      "tagline": "Die grüne Apotheke der Natur",
+      "color": "#228B22",
+      "count": 35,
+      "featured": [
+        "aloe-vera",
+        "camellia-sinensis",
+        "chamaemelum-nobile"
+      ]
     },
     "animalia": {
       "name": "Animalia",
       "icon": "🦋",
-      "count": 1
+      "tagline": "Fauna in all ihrer Vielfalt",
+      "color": "#4169E1",
+      "count": 0,
+      "featured": []
+    },
+    "bacteria": {
+      "name": "Bacteria",
+      "icon": "🦠",
+      "tagline": "Mikroskopische Lebensformen",
+      "color": "#9932CC",
+      "count": 0,
+      "featured": []
     }
   },
   "species": [
     {
-      "id": "fungi-002",
-      "slug": "amanita-muscaria",
-      "name": "Fliegenpilz",
-      "scientific_name": "Amanita muscaria",
-      "image": "",
-      "description": "Der Fliegenpilz (Amanita muscaria) ist einer der bekanntesten und ikonischsten Pilze weltweit. Mit seinem leuchtend roten Hut und den charakteristischen weissen Flocken ist er das Urbild eines Pilzes in der westlichen Kultur. Obwohl er giftig ist, werden die Alkaloide Ibotensaeure und Muscimol traditionell in schamanischen Ritualen verschiedener Kulturen verwendet. Der Name 'Fliegenpilz' stammt von der historischen Verwendung als Insektizid - in Milch eingelegt lockt er Fliegen an und betaeubt sie. Der Pilz geht eine Mykorrhiza-Symbiose mit verschiedenen Baumarten ein, besonders mit Birken und Fichten. In der Popkultur ist er durch Super Mario, Schlumpfhaeuser und zahlreiche Maerchen allgegenwaertig.",
-      "kingdom": "fungi",
-      "kingdom_name": "Fungi",
-      "kingdom_icon": "🍄",
-      "perspectives": [
-        "chemistry",
-        "culture",
-        "ecology",
-        "geography",
-        "identification",
-        "safety",
-        "temporal"
-      ],
-      "tags": [
-        "boreale und temperate nadelwaelder",
-        "mischwaelder",
-        "laubwaelder mit birken",
-        "subalpine waelder",
-        "parklandschaften mit geeigneten baeumen",
-        "naehe zu mykorrhiza-wirtsbaeumen",
-        "saurer bis neutraler boden (ph 4.5-7)",
-        "gute bodenfeuchtigkeit",
-        "humusreicher waldboden",
-        "halbschattige standorte",
-        "nadelwaelder (fichte, kiefer, tanne)",
-        "birkenwaelder",
-        "plantagen mit mykorrhiza-wirtsbaeumen",
-        "spaetsommer bis herbst"
-      ],
-      "searchText": "ibotensaeure (alpha-amino-3-hydroxy-5-isoxazolessigsaeure) muscimol (5-aminomethyl-3-hydroxyisoxazol) muscazon (oxazol-derivat) muscarin (in spuren) betalaine (rote und gelbe farbstoffe) muscaflavin (gelbes pigment) muscapurpurin (rotes pigment) hplc-uv (254 nm) hplc-ms/ms gc-ms nach derivatisierung tlc mit ninhydrin-detektion nmr-spektroskopie lewis carroll: alice im wunderland (rauchender caterpillar auf pilz) c.s. lewis: die chroniken von narnia (pilzdarstellungen) diverse maerchensammlungen "
-    },
-    {
-      "id": "fungi-003",
-      "slug": "physarum-polycephalum",
-      "name": "Vielkoepfiger Schleimpilz",
-      "scientific_name": "Physarum polycephalum",
-      "image": "",
-      "description": "Physarum polycephalum, der vielkoepfige Schleimpilz, ist ein faszinierender Organismus, der weder Pilz noch Tier ist, sondern zu den Myxomyceten (Schleimpilzen) gehoert. Dieser einzellige, aber makroskopische Organismus kann Labyrinthe loesen, den kuerzesten Weg zwischen Nahrungsquellen finden und komplexe Netzwerke bilden, die menschlichen Transportnetzen aehneln. Das leuchtend gelbe Plasmodium kann mehrere Quadratmeter gross werden und bewegt sich mit bis zu 5 cm pro Stunde. In Stresssituationen bildet es Sporen bildende Fruchtkoerper. Physarum wird intensiv in der Forschung eingesetzt - von der Zellbiologie ueber Computerwissenschaften bis hin zur Stadtplanung. 2010 wurde gezeigt, dass ein Schleimpilz das Tokioter U-Bahn-Netz nachbilden kann. Der Organismus zeigt eine primitive Form von Lernen und Gedaechtnis, obwohl er kein Nervensystem besitzt.",
-      "kingdom": "fungi",
-      "kingdom_name": "Fungi",
-      "kingdom_icon": "🍄",
-      "perspectives": [
-        "chemistry",
-        "cultivation",
-        "culture",
-        "ecology",
-        "identification",
-        "research",
-        "statistics"
-      ],
-      "tags": [
-        "bio-art installationen",
-        "lebende skulpturen",
-        "interaktive ausstellungen",
-        "performance-kunst",
-        "#slimemold",
-        "#physarum",
-        "#theblob",
-        "#intelligentslime",
-        "temperierte laubwaelder",
-        "mischwaelder",
-        "parkanlagen",
-        "gaerten mit kompost",
-        "tropische regenwaelder",
-        "hohe luftfeuchtigkeit (>70%)",
-        "schattige bis dunkle bedingungen",
-        "verrottendes organisches material",
-        "feucht aber nicht wasserstaendig",
-        "nahe bakterielle oder pilzliche nahrung",
-        "heterotroph (phagotroph)",
-        "das plasmodium umfliesst und verdaut bakterien, hefen, pilzsporen und organische partikel durch phagozytose. es zeigt klare nahrungspraeferenzen."
-      ],
-      "searchText": "physarochrome a und b physarorubin polysaccharide (schleimsubstanzen) verschiedene organische saeuren schwermetall-detektion toxizitaetstests umweltmonitoring nahrungsmittelsicherheit carolina biological supply ward's science atcc (american type culture collection) universitaetslabore diy-community (tausch) nicht giftig oder pathogen sicher fuer schulen und heimlabore allergien sehr selten haende nach handhabung waschen ngss life sciences ap biology lab curriculum ib biology practical work deuts"
-    },
-    {
-      "id": "fungi-001",
-      "slug": "psilocybe-cyanescens",
-      "name": "Blauender Kahlkopf",
-      "scientific_name": "Psilocybe cyanescens",
-      "image": "",
-      "description": "Psilocybe cyanescens, bekannt als Blauender Kahlkopf oder Wavy Cap, ist ein stark psilocybinhaltiger Pilz aus der Familie Hymenogastraceae. Die Art wurde 1946 von Elsie Wakefield in England erstbeschrieben und hat sich seitdem weltweit in gemaessigten Klimazonen verbreitet, insbesondere in urbanen Gebieten auf Holzhaecksel und Rindenmulch. Charakteristisch sind der wellenfoermige Hutrand bei Reife, die intensive Blauverfaerbung bei Verletzung und das Wachstum in dichten Gruppen im Spaetherbst nach ersten Froesten. Der Pilz enthaelt signifikante Mengen der psychoaktiven Tryptamin-Alkaloide Psilocybin und Psilocin sowie Baeocystin. In den meisten Laendern unterliegt der Besitz und die Verwendung strengen rechtlichen Beschraenkungen.",
-      "kingdom": "fungi",
-      "kingdom_name": "Fungi",
-      "kingdom_icon": "🍄",
-      "perspectives": [
-        "chemistry",
-        "culture",
-        "ecology",
-        "identification",
-        "medicine",
-        "safety",
-        "temporal"
-      ],
-      "tags": [
-        "keine dokumentierte indigene nutzung von p. cyanescens",
-        "verwandte psilocybe-arten: spirituelle zeremonien (mesoamerika)",
-        "heilrituale (mazateken)",
-        "divination und orakel",
-        "neo-schamanische zeremonien",
-        "spirituelle retreats (legal in einigen jurisdiktionen)",
-        "bewusstseins-exploration",
-        "meditation und kontemplative praktiken",
-        "keine traditionelle nahrungsnutzung dokumentiert",
-        "keine historische traditionelle medizin (art erst 1946 beschrieben)",
-        "moderne verwendung: psychedelisch-assistierte therapie",
-        "microdosing fuer kognitive und emotionale benefits",
-        "moderne spirituelle retreats",
-        "therapeutische sitzungen",
-        "keine antike verwendung dokumentiert - art erst 1946 beschrieben. verwandte psilocybe-arten wurden in mesoamerika seit mindestens 3000 jahren verwendet (pilzsteine, codices).",
-        "keine mittelalterliche verwendung bekannt",
-        "keine verwendung vor der wissenschaftlichen beschreibung 1946",
-        "psilocybin therapy",
-        "magic mushrooms",
-        "microdosing",
-        "psychedelic renaissance",
-        "mental health treatment",
-        "wood chip mulch",
-        "bark mulch, decaying wood debris",
-        "cool, wet autumn/winter",
-        "urban development",
-        "change in landscaping practices",
-        "removal of mulch substrates",
-        "urban, periurban, waldraender",
-        "holzhaecksel, rindenmulch, verrottende holzreste"
-      ],
-      "searchText": "psilocybin (o-phosphoryl-4-hydroxy-n,n-dimethyltryptamin) psilocin (4-hydroxy-n,n-dimethyltryptamin) baeocystin (4-phosphoryloxy-n-methyltryptamin) norbaeocystin (4-phosphoryloxy-tryptamin) aeruginascin (n,n,n-trimethyl-4-phosphoryloxytryptamin) hplc-uv (254 nm, 280 nm) hplc-ms/ms (gold-standard) lc-esi-ms tlc (dünnschichtchromatographie) mit ehrlich-reagenz gc-ms nach derivatisierung nmr-spektroskopie immunoassays (elisa) depression (therapieresistent) angststörungen ptsd suchterkrankungen clus"
-    },
-    {
-      "id": "plantae-001",
-      "slug": "deadly-nightshade",
-      "name": "Tollkirsche",
-      "scientific_name": "Atropa belladonna",
-      "image": "",
-      "description": "Die Tollkirsche (Atropa belladonna) ist eine der giftigsten Pflanzen Europas und gehoert zur Familie der Nachtschattengewaechse (Solanaceae). Alle Pflanzenteile sind hochgiftig, besonders die verlockend aussehenden schwarzen Beeren, die aufgrund ihres suessen Geschmacks vor allem fuer Kinder gefaehrlich sind. Der Name 'belladonna' (schoene Frau) stammt von der historischen Verwendung des Pflanzenextrakts zur Pupillenerweiterung in der Kosmetik. Die Pflanze enthaelt Tropanalkaloide wie Atropin, Scopolamin und Hyoscyamin, die auf das Nervensystem wirken und in der Medizin therapeutisch eingesetzt werden.",
+      "id": "aloe-vera",
+      "slug": "aloe-vera",
+      "name": "Aloe Vera",
+      "scientific_name": "Aloe vera",
       "kingdom": "plantae",
-      "kingdom_name": "Plantae",
       "kingdom_icon": "🌿",
+      "image": "/images/species/aloe-vera.webp",
+      "tagline": null,
+      "description": "Aloe vera is a succulent plant species of the genus Aloe. It originates from the Arabian Peninsula but grows wild in tropical, semi-tropical, and arid climates around the world. The species is cultivated for agricultural and medicinal uses. The plant's gel-filled leaves have been used for thousands of years in traditional medicine to treat wounds, burns, and skin conditions. It is one of the most commercially important medicinal plants worldwide.",
+      "seo_description": "Aloe Vera (Aloe vera)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "30–100 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Green to grey-green"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Trockengebiet"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Arabische Halbinsel (wahrscheinlich Jemen, Oman)"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "info"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Low (latex contains anthraquinones)",
+          "variant": "warning"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Asphodelaceae",
+        "Asparagales"
+      ],
+      "keywords": [
+        "wasserspeicherung",
+        "trockengebiet",
+        "halbwueste",
+        "felsige, trockene standorte",
+        "sandboden",
+        "erosionsschutz",
+        "aloe vera",
+        "true aloe",
+        "medicinal aloe",
+        "burn plant",
+        "first aid plant",
+        "aloe barbadensis mill.",
+        "aloe vulgaris lam.",
+        "aloe indica royle",
+        "aloe perfoliata var. vera l.",
+        "liliopsida",
+        "asparagales",
+        "asphodelaceae",
+        "aloe",
+        "echte aloe (de)",
+        "aloe (fr)",
+        "sabila (es)",
+        "aloe vera (it)",
+        "lu hui (cn)",
+        "well-drained sandy soil",
+        "rocky terrain",
+        "coastal sand dunes",
+        "dermatikum",
+        "laxans",
+        "wundheilungsmittel"
+      ],
       "perspectives": [
-        "chemistry",
-        "culture",
         "ecology",
-        "geography",
         "identification",
         "medicine",
         "safety"
       ],
-      "tags": [
-        "orakeltraenke in der antike",
-        "rauchopfer in keltischen ritualen",
-        "bestandteil von hexensalben",
-        "keine - pflanze ist toedlich giftig",
-        "narkotikum bei operationen (antike)",
-        "schmerzmittel",
-        "augenmittel zur pupillenerweiterung",
-        "asthma-zigaretten (19. jahrhundert)",
-        "parkinson-behandlung (historisch)",
-        "bestandteil von 'hexensalben' und 'flugsalben'",
-        "rauschmittel bei initiationsriten",
-        "orakeltraenke",
-        "liebestraenke",
-        "bereits in der antike als narkotikum und gift bekannt. dioskurides beschrieb die pflanze ausfuehrlich. verwendet fuer narkose bei operationen, aber auch als mordgift.",
-        "zentraler bestandteil der 'hexensalben' und 'flugsalben'. in der volksmedizin als schmerzmittel. beruechtigtes mordgift. verbindung mit hexerei fuehrte zu zahlreichen hinrichtungen.",
-        "wissenschaftliche erforschung der wirkstoffe. kosmetische verwendung durch frauen der oberschicht (pupillenerweiterung galt als attraktiv). beginn der pharmazeutischen nutzung.",
-        "forest_clearing",
-        "forest_edge",
-        "warm_summers",
-        "laubmischwaelder",
-        "waldlichtungen und schlagfluren",
-        "waldraender und gebusch",
-        "kalkreiche hangwaelder",
-        "ruderalstandorte",
-        "alte gaerten und friedhoefe",
-        "burgruinen",
-        "wegboeschungen",
-        "buchenwaelder auf kalk",
-        "eichen-hainbuchenwaelder",
-        "schlucht- und hangmischwaelder"
-      ],
-      "searchText": "hyoscyamin (l-atropin) atropin (dl-hyoscyamin) scopolamin (l-hyoscin) apoatropin belladonnin rutin quercetin kaempferol chlorogensaeure kaffeesaeure scopoletin aesculetin beta-sitosterol stigmasterol campesterol linalool caryophyllen oleanolsaeure hplc-uv (usp/ph. eur. methoden) gc-ms fuer alkaloidprofile immunoassays (elisa) duennschichtchromatographie (dc) karl-fischer-titration (wassergehalt) europaeisches arzneibuch (ph. eur.) - belladonnae folium usp-nf - belladonna leaf dab (deutsches arzn"
+      "perspective_count": 4,
+      "engagement_score": 40
     },
     {
-      "id": "plantae-002",
-      "slug": "sequoia-sempervirens",
-      "name": "Kuestenmammutbaum",
-      "scientific_name": "Sequoia sempervirens",
-      "image": "",
-      "description": "Der Kuestenmammutbaum (Sequoia sempervirens) ist das hoechste lebende Wesen auf der Erde. Diese majesteatischen Baeume koennen Hoehen von ueber 115 Metern erreichen und leben mehrere tausend Jahre. Sie sind endemisch in einem schmalen Kuestenstreifen von Suedoregon bis Zentralkalifornien, wo sie vom Kuestennebel profitieren, der bis zu 40 Prozent ihres Wasserbedarfs deckt. Die rotbraune, faserige Rinde kann bis zu 30 cm dick werden und schuetzt den Baum vor Feuer. Diese Giganten sind oekologisch einzigartig und beherbergen in ihren Kronen ganze Oekosysteme mit Farnen, Blaubeerbueschen und sogar kleinen Baeumen. Der Kuestenmammutbaum ist ein lebendes Fossil, dessen Vorfahren bereits vor 200 Millionen Jahren existierten. Die Art ist durch Abholzung auf etwa 4 Prozent ihrer urspruenglichen Verbreitung geschrumpft und steht heute unter Schutz.",
+      "id": "coffea-arabica",
+      "slug": "coffea-arabica",
+      "name": "Arabica Coffee",
+      "scientific_name": "Coffea arabica",
       "kingdom": "plantae",
-      "kingdom_name": "Plantae",
       "kingdom_icon": "🌿",
+      "image": "/images/species/coffea-arabica.webp",
+      "tagline": null,
+      "description": "Coffea arabica, known as Arabica coffee, is a species of flowering plant in the family Rubiaceae. Native to the highlands of Ethiopia and South Sudan, it is believed to be the first species of coffee to be cultivated. Arabica accounts for approximately 60-70% of global coffee production and is considered to produce superior quality coffee compared to Coffea canephora (Robusta). The plant requires specific growing conditions including high altitude, consistent rainfall, and temperatures between 15-24 degrees Celsius.",
+      "seo_description": "Arabica Coffee (Coffea arabica)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "2–8 m"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Dark green (leaves)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Hochland von Aethiopien und Suedsudan"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "EN",
+          "variant": "danger"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic (caffeine content)",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Rubiaceae",
+        "Gentianales"
+      ],
+      "keywords": [
+        "unterholzbildner",
+        "wald",
+        "tropischer bergwald",
+        "waldunterwuchs",
+        "schattige berghaenge",
+        "arabica coffee",
+        "coffee",
+        "arabian coffee",
+        "mountain coffee",
+        "coffea arabica var. typica cramer",
+        "coffea laurifolia salisb.",
+        "coffea vulgaris moench",
+        "magnoliopsida",
+        "gentianales",
+        "rubiaceae",
+        "coffea",
+        "arabica-kaffee (de)",
+        "cafeier d'arabie (fr)",
+        "cafe arabica (es)",
+        "pianta di caffe (it)",
+        "ka fei (cn)",
+        "volcanic soils",
+        "well-drained mountain slopes",
+        "rich organic matter"
+      ],
       "perspectives": [
-        "conservation",
         "ecology",
-        "geography",
         "identification",
-        "statistics"
+        "safety"
       ],
-      "tags": [
-        "kuesten-nebelwald",
-        "flussebenen und alluvialboeden",
-        "steile hanglagen mit nebeleinfluss",
-        "gemischte nadelwaelder",
-        "ganzjaehrig maritime nebellage",
-        "tiefgruendige, naehrstoffreiche boeden",
-        "gute wasserspeicherkapazitaet",
-        "minimale frostexposition",
-        "milde winter (keine extremtemperaturen)",
-        "flussebenen und alluvialboeden (hoechste baeume)",
-        "nebelexponierte westhaenge",
-        "tiefe kuestentaeler",
-        "sturmgeschuetzte kuestenstreifen"
-      ],
-      "searchText": "dramatischer rueckgang 1850 1970 durch holzeinschlag, seitdem stabilisierung schutz abhaengigkeit von maritimem nebelklima enge klimatische nische langsame reproduktion und migration fragmentierte populationen botanic gardens (87 institutions) seed banks (usda, rancho santa ana, uc berkeley) usda national genetic resources program rancho santa ana botanic garden uc berkeley botanical garden nationalpark- und staatsparksystem land trust erwerbungen oekologische restaurierung abgeholzter gebiete g"
+      "perspective_count": 3,
+      "engagement_score": 30
     },
     {
-      "id": "animalia-001",
-      "slug": "alpine-marmot",
-      "name": "Alpenmurmeltier",
-      "scientific_name": "Marmota marmota",
-      "image": "",
-      "description": "Das Alpenmurmeltier (Marmota marmota) ist ein Nagetier aus der Familie der Hoernchen (Sciuridae). Es ist das groesste einheimische Nagetier der Alpen und bewohnt alpine Matten und Gebirgsweiden oberhalb der Baumgrenze in Hoehen von 800 bis 3200 Metern. Die Tiere leben in komplexen Familiengruppen und halten einen ausgedehnten Winterschlaf von Oktober bis April. Mit ihrem charakteristischen Warnpfiff warnen sie Artgenossen vor Fressfeinden wie dem Steinadler.",
-      "kingdom": "animalia",
-      "kingdom_name": "Animalia",
-      "kingdom_icon": "🦋",
+      "id": "withania-somnifera",
+      "slug": "withania-somnifera",
+      "name": "Ashwagandha",
+      "scientific_name": "Withania somnifera",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/withania-somnifera.webp",
+      "tagline": null,
+      "description": "Withania somnifera, commonly known as ashwagandha, Indian ginseng, or winter cherry, is a plant in the Solanaceae family native to India and Southeast Asia. It has been a cornerstone of Ayurvedic medicine for over 3000 years, used as a rasayana (rejuvenating tonic). The name ashwagandha is Sanskrit for 'smell of the horse', referring to both the root's odor and its traditional use to impart strength. The root contains withanolides, which have adaptogenic properties, helping the body cope with stress. Modern clinical trials have shown benefits for anxiety, stress, and cognitive function.",
+      "seo_description": "Ashwagandha (Withania somnifera)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "35–75 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Dull green (foliage)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Trockengebiet"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Indien, Nordafrika, Mittlerer Osten"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Solanaceae",
+        "Solanales"
+      ],
+      "keywords": [
+        "trockensavannenpflanze",
+        "trockengebiet",
+        "trockensavanne, halbwueste",
+        "trockene, offene standorte",
+        "wegraender, gestorte flaechen",
+        "ashwagandha",
+        "indian ginseng",
+        "winter cherry",
+        "poison gooseberry",
+        "physalis somnifera l.",
+        "withania kansuensis kuang & a.m.lu",
+        "physalis flexuosa l.",
+        "magnoliopsida",
+        "solanales",
+        "solanaceae",
+        "withania",
+        "schlafbeere (de)",
+        "withania (fr)",
+        "bufera (es)",
+        "ashwagandha (it)",
+        "shui qie (cn)",
+        "dry, stony soils",
+        "waste ground",
+        "semi-arid regions",
+        "adaptogen",
+        "anxiolytikum",
+        "tonikum"
+      ],
       "perspectives": [
-        "conservation",
-        "culture",
         "ecology",
-        "geography",
         "identification",
-        "interactions",
-        "research",
-        "safety",
-        "statistics",
-        "temporal"
+        "medicine"
       ],
-      "tags": [
-        "offene alpine matten oberhalb der baumgrenze",
-        "tiefgruendiger boden fuer baue",
-        "ausreichend nahrungspflanzen",
-        "suedexponierte haenge",
-        "schneebedeckung im winter",
-        "alpine graslaender zwischen 1500-2500m hoehe",
-        "nahrungsquelle (fleisch)",
-        "murmeltierroel (fett als heilmittel)",
-        "fell fuer kleidung",
-        "zaehne als schmuck",
-        "murmeltierbraten",
-        "murmeltierragout",
-        "geselchtes murmeltierfleisch",
-        "murmeltierroel gegen rheuma",
-        "murmeltierroel gegen gelenkschmerzen",
-        "murmeltierroel als einreibung gegen kaelte",
-        "murmeltierroel gegen hauterkrankungen",
-        "bereits in der steinzeit wurden murmeltiere gejagt. knochenfunde belegen ihre bedeutung als nahrungsquelle fuer fruehere alpenbewohner.",
-        "im mittelalter war das murmeltierroel ein geschaetztes heilmittel. die jagd war ein wichtiger teil der alpinen wirtschaft.",
-        "alpine matten und gebirgsweiden",
-        "felsige haenge",
-        "gebirgstaeler",
-        "schutthalden",
-        "suedexposition fuer waerme",
-        "krautreiche vegetation als nahrung",
-        "felsen oder steine als aussichtspunkte",
-        "schneebedeckung im winter fuer isolation",
-        "herbivor",
-        "diurnal",
-        "april bis mai"
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "panax-ginseng",
+      "slug": "panax-ginseng",
+      "name": "Asian Ginseng",
+      "scientific_name": "Panax ginseng",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/panax-ginseng.webp",
+      "tagline": null,
+      "description": "Panax ginseng, commonly known as Asian ginseng, Korean ginseng, or Chinese ginseng, is a species of plant whose root has been used in traditional Chinese medicine for over 2000 years. The genus name Panax is derived from the Greek word 'panacea', meaning 'all-healing', reflecting its historical reputation. The root contains ginsenosides, which are believed to be responsible for its adaptogenic properties, helping the body resist stress. Wild ginseng is extremely rare and valuable, with roots selling for thousands of dollars. Cultivation takes 4-6 years before harvest.",
+      "seo_description": "Asian Ginseng (Panax ginseng)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "30–60 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Green (foliage)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Nordostchina, Korea, Russisch-Fernost"
+        }
       ],
-      "searchText": "bern convention appendix iii eu habitats directive annex v nationale jagdgesetze naturschutzgesetze der alpenlaender oesterreich: jagdbare art mit schonzeiten schweiz: geschuetzt, lokale jagd erlaubt deutschland: streng geschuetzt (bnatschg) italien: jagdbar mit regulierung frankreich: jagdbar mit saisons bern convention (1979) eu habitats directive (1992) alpine convention (1991) offene alpine matten oberhalb der baumgrenze tiefgruendiger boden fuer baue ausreichend nahrungspflanzen suedexponie"
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "EN",
+          "variant": "danger"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Low toxicity",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Araliaceae",
+        "Apiales"
+      ],
+      "keywords": [
+        "unterholzpflanze",
+        "wald",
+        "temperate laub- und mischwaelder",
+        "tiefschattige waldboeden",
+        "nordhaenge",
+        "asian ginseng",
+        "korean ginseng",
+        "chinese ginseng",
+        "true ginseng",
+        "panax schinseng nees",
+        "aralia ginseng (c.a.mey.) baill.",
+        "panax chin-seng nees",
+        "magnoliopsida",
+        "apiales",
+        "araliaceae",
+        "panax",
+        "ginseng (de)",
+        "ginseng asiatique (fr)",
+        "ginseng asiatico (es)",
+        "ren shen (cn)",
+        "insam (kr)",
+        "rich, humus forest soils",
+        "mountain forests",
+        "shaded woodland understory",
+        "adaptogen",
+        "tonikum",
+        "immunstimulans"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "fomitopsis-betulina",
+      "slug": "fomitopsis-betulina",
+      "name": "Birkenporling",
+      "scientific_name": "Fomitopsis betulina",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/fomitopsis-betulina.webp",
+      "tagline": "Magen-Darm-Beschwerden · Jan–Dez",
+      "description": "Der Birkenporling (Fomitopsis betulina) ist ein bekannter Vitalpilz, der ausschliesslich auf Birken waechst. Historisch bedeutsam ist der Fund beim Mann aus dem Eis (Oetzi), der zwei Stuecke dieses Pilzes bei sich trug. In der Volksmedizin wird er seit Jahrtausenden gegen Magen-Darm-Beschwerden, zur Wundheilung und als Entzuendungshemmer verwendet. Moderne Studien bestaetigen antibakterielle, antivirale und antitumorale Eigenschaften.",
+      "seo_description": "Birkenporling (Fomitopsis betulina). Heilwirkung: Magen-Darm-Beschwerden, Wundheilung",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "3–30 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "weisslich-cremefarben"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Birkenholz"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Nordhemisphaere, Europa, Asien, Nordamerika"
+        }
+      ],
+      "highlights": [
+        "Magen-Darm-Beschwerden",
+        "Wundheilung",
+        "Entzuendungshemmung"
+      ],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jan–Dez",
+      "categories": [
+        "Fomitopsidaceae",
+        "Polyporales"
+      ],
+      "keywords": [
+        "wald",
+        "birkenwald",
+        "lebende birken",
+        "tote birken",
+        "birkenholz",
+        "birkenporling",
+        "birkenzungenporling",
+        "birkenschwamm",
+        "oetzipilz",
+        "birch polypore",
+        "razor strop fungus",
+        "piptoporus betulinus",
+        "boletus betulinus",
+        "agaricomycetes",
+        "polyporales",
+        "fomitopsidaceae",
+        "fomitopsis",
+        "antivirale wirkung (influenza)",
+        "antibakterielle wirkung",
+        "antitumorale wirkung",
+        "wundheilung"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 135
+    },
+    {
+      "id": "cinnamomum-verum",
+      "slug": "cinnamomum-verum",
+      "name": "Ceylon Cinnamon",
+      "scientific_name": "Cinnamomum verum",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/cinnamomum-verum.webp",
+      "tagline": null,
+      "description": "Cinnamomum verum, also called true cinnamon or Ceylon cinnamon, is a small evergreen tree native to Sri Lanka. The inner bark is used to make cinnamon, one of the oldest known spices. It was so highly prized among ancient nations that it was regarded as a gift fit for monarchs. Ceylon cinnamon is distinguished from cassia cinnamon by its lighter color, more delicate flavor, and lower coumarin content, making it safer for regular consumption. The spice contains cinnamaldehyde, which has antimicrobial and blood sugar-regulating properties.",
+      "seo_description": "Ceylon Cinnamon (Cinnamomum verum)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "6–15 m"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Dark green (mature leaves)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Sri Lanka (endemisch)"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic (low coumarin)",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Lauraceae",
+        "Laurales"
+      ],
+      "keywords": [
+        "waldbaumart",
+        "wald",
+        "tropischer immergruener regenwald",
+        "unterholz tropischer waelder",
+        "ceylon cinnamon",
+        "true cinnamon",
+        "sri lankan cinnamon",
+        "mexican cinnamon",
+        "cinnamomum zeylanicum blume",
+        "laurus cinnamomum l.",
+        "cinnamomum ceylanicum nees",
+        "magnoliopsida",
+        "laurales",
+        "lauraceae",
+        "cinnamomum",
+        "ceylon-zimt (de)",
+        "cannelle de ceylan (fr)",
+        "canela de ceilan (es)",
+        "cannella di ceylon (it)",
+        "xi lan rou gui (cn)",
+        "well-drained, sandy soils",
+        "tropical lowlands",
+        "sri lankan forests"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "inonotus-obliquus",
+      "slug": "inonotus-obliquus",
+      "name": "Chaga",
+      "scientific_name": "Inonotus obliquus",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/inonotus-obliquus.webp",
+      "tagline": "Antioxidativ · Geschützt · Jan–Dez",
+      "description": "Der Schiefer Schillerporling (Inonotus obliquus), bekannt als Chaga, ist ein bedeutender Vitalpilz, der besonders in Russland und Nordeuropa traditionell verwendet wird. Der Pilz bildet schwarze, kohleehnliche Auswuechse (Sklerotien) an lebenden Birken. Seine antioxidativen, immunstimulierenden und antitumoralen Eigenschaften werden seit Jahrhunderten geschaetzt. Er gilt als einer der staerksten Antioxidantien unter den Pilzen.",
+      "seo_description": "Chaga (Inonotus obliquus). Heilwirkung: Antioxidativ, Immunstimulation",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "4–50 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "schwarz"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Birke (Betula)"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Nordhemisphaere, besonders Russland, Skandinavi..."
+        }
+      ],
+      "highlights": [
+        "Antioxidativ",
+        "Immunstimulation",
+        "Krebs-Begleittherapie"
+      ],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "VU",
+          "variant": "warning"
+        }
+      ],
+      "season": "Jan–Dez",
+      "categories": [
+        "Hymenochaetaceae",
+        "Hymenochaetales"
+      ],
+      "keywords": [
+        "wald",
+        "birkenwald",
+        "lebende birken",
+        "walnuss, erle",
+        "birke (betula)",
+        "walnuss",
+        "erle",
+        "chaga",
+        "tschaga",
+        "schiefer schillerporling",
+        "sibirischer chagapilz",
+        "xanthochrous obliquus",
+        "agaricomycetes",
+        "hymenochaetales",
+        "hymenochaetaceae",
+        "inonotus",
+        "onkologie",
+        "immunologie",
+        "dermatologie",
+        "gastroenterologie"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 155
+    },
+    {
+      "id": "taraxacum-officinale",
+      "slug": "taraxacum-officinale",
+      "name": "Common Dandelion",
+      "scientific_name": "Taraxacum officinale",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/taraxacum-officinale.webp",
+      "tagline": null,
+      "description": "Taraxacum officinale, commonly known as the common dandelion, is a flowering herbaceous perennial plant in the family Asteraceae. Native to Eurasia, it has naturalized worldwide. Though often considered a weed, dandelion is a valuable medicinal and culinary plant. Every part of the plant is edible and nutritious. The leaves are used in salads, the roots can be roasted as a coffee substitute, and the flowers are used to make wine. Medicinally, dandelion is a powerful diuretic (hence the French name pissenlit) and liver tonic. It contains taraxacin, inulin, and high levels of vitamins A, C, and K.",
+      "seo_description": "Common Dandelion (Taraxacum officinale)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "5–50 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Yellow (flowers)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Grasland"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Eurasien (wahrscheinlich Zentralasien)"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Asteraceae",
+        "Asterales"
+      ],
+      "keywords": [
+        "pionierpflanze",
+        "fruehlingsnahrung fuer bienen",
+        "bodenlockerer",
+        "grasland",
+        "fettwiesen, ruderalflaechen",
+        "offene, gestorte flaechen",
+        "rasen, wegraender",
+        "common dandelion",
+        "dandelion",
+        "lion's tooth",
+        "piss-a-bed",
+        "blowball",
+        "taraxacum vulgare lam.",
+        "leontodon taraxacum l.",
+        "taraxacum dens-leonis desf.",
+        "magnoliopsida",
+        "asterales",
+        "asteraceae",
+        "taraxacum",
+        "loewenzahn (de)",
+        "pissenlit (fr)",
+        "diente de leon (es)",
+        "tarassaco (it)",
+        "pu gong ying (cn)",
+        "lawns and grasslands",
+        "roadsides and waste ground",
+        "gardens and cultivated areas",
+        "taraxaci radix cum herba",
+        "taraxaci folium",
+        "diuretikum"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "salvia-officinalis",
+      "slug": "salvia-officinalis",
+      "name": "Common Sage",
+      "scientific_name": "Salvia officinalis",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/salvia-officinalis.webp",
+      "tagline": null,
+      "description": "Salvia officinalis, commonly known as sage, common sage, or garden sage, is a perennial evergreen subshrub native to the Mediterranean region. It has been cultivated for culinary and medicinal purposes for thousands of years. The name Salvia derives from the Latin 'salvare', meaning 'to save' or 'to heal', reflecting its historical importance in traditional medicine. Sage contains rosmarinic acid, carnosic acid, and thujone, and is used to improve memory, reduce inflammation, and treat digestive disorders.",
+      "seo_description": "Common Sage (Salvia officinalis)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "30–80 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Grey-green (foliage)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Mediterrane Garrigue"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Mittelmeerraum (Balkanhalbinsel, Italien, Spanien)"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Low (thujone in excess)",
+          "variant": "warning"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Lamiaceae",
+        "Lamiales"
+      ],
+      "keywords": [
+        "bestaeubungsmagnet",
+        "nektarquelle fuer bienen",
+        "erosionsschutz",
+        "mediterrane garrigue",
+        "felsheide",
+        "trockene, steinige haenge",
+        "kalkmagerrasen",
+        "common sage",
+        "garden sage",
+        "culinary sage",
+        "kitchen sage",
+        "dalmatian sage",
+        "salvia chromatica hoffmanns.",
+        "salvia crispa ten.",
+        "salvia grandiflora ten.",
+        "magnoliopsida",
+        "lamiales",
+        "lamiaceae",
+        "salvia",
+        "echter salbei (de)",
+        "sauge officinale (fr)",
+        "salvia (es/it)",
+        "shu wei cao (cn)",
+        "well-drained, calcareous soils",
+        "rocky hillsides",
+        "sandy or gravelly soils",
+        "salviae officinalis folium",
+        "antiseptikum",
+        "antihidrotikum",
+        "karminativum"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "thymus-vulgaris",
+      "slug": "thymus-vulgaris",
+      "name": "Common Thyme",
+      "scientific_name": "Thymus vulgaris",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/thymus-vulgaris.webp",
+      "tagline": null,
+      "description": "Thymus vulgaris, commonly known as common thyme or garden thyme, is a species of flowering plant in the mint family Lamiaceae, native to southern Europe. It is a low-growing aromatic perennial shrub that has been cultivated for over 5000 years. Thyme contains thymol, a natural antiseptic compound used in mouthwashes and disinfectants. The ancient Egyptians used thyme for embalming, while Greeks burned it as incense in temples. Today it remains one of the most important culinary herbs in Mediterranean cuisine.",
+      "seo_description": "Common Thyme (Thymus vulgaris)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "10–40 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Grey-green (foliage)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Mediterrane Garrigue"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Westliches Mittelmeergebiet (Suedfrankreich, Sp..."
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Lamiaceae",
+        "Lamiales"
+      ],
+      "keywords": [
+        "bestaeubungsmagnet",
+        "erosionsschutz",
+        "bodenbedeckung",
+        "mediterrane garrigue",
+        "kalkmagerrasen",
+        "trockene, felsige standorte",
+        "sandduenen",
+        "bestaeuberfoerderung",
+        "common thyme",
+        "garden thyme",
+        "french thyme",
+        "german thyme",
+        "thymus aestivus reut.",
+        "thymus ilerdensis f.gonzalez",
+        "origanum thymus kuntze",
+        "magnoliopsida",
+        "lamiales",
+        "lamiaceae",
+        "thymus",
+        "echter thymian (de)",
+        "thym commun (fr)",
+        "tomillo (es)",
+        "timo (it)",
+        "bai li xiang (cn)",
+        "well-drained, sandy soils",
+        "rocky limestone",
+        "mediterranean garrigue"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "atropa-belladonna",
+      "slug": "atropa-belladonna",
+      "name": "Deadly Nightshade",
+      "scientific_name": "Atropa belladonna",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/atropa-belladonna.webp",
+      "tagline": null,
+      "description": "Atropa belladonna, commonly known as deadly nightshade or belladonna, is a poisonous perennial herbaceous plant in the nightshade family Solanaceae. Native to Europe, North Africa, and Western Asia, it is one of the most toxic plants found in the Eastern Hemisphere. The name 'belladonna' (beautiful lady) comes from the historical practice of women using eye drops made from the plant to dilate pupils, which was considered attractive. The plant contains tropane alkaloids including atropine, scopolamine, and hyoscyamine. While extremely dangerous, atropine derived from this plant is used in modern medicine as an antidote for nerve agent poisoning and in ophthalmology.",
+      "seo_description": "Deadly Nightshade (Atropa belladonna)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "50–150 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Dull green (foliage)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Mittel- und Suedeuropa, Westasien, Nordafrika"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "EXTREMELY TOXIC - ONE OF MOST POISONOUS PLANTS",
+          "variant": "danger"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Solanaceae",
+        "Solanales"
+      ],
+      "keywords": [
+        "unterholzpflanze",
+        "wald",
+        "kalkbuchenwaelder",
+        "waldlichtungen auf kalk",
+        "waldraender, schutthalden",
+        "deadly nightshade",
+        "belladonna",
+        "devil's cherries",
+        "death cherries",
+        "dwale",
+        "atropa lethalis salisb.",
+        "belladonna baccifera lam.",
+        "belladonna trichotoma scop.",
+        "magnoliopsida",
+        "solanales",
+        "solanaceae",
+        "atropa",
+        "tollkirsche (de)",
+        "belladone (fr)",
+        "belladona (es)",
+        "belladonna (it)",
+        "dian qie (cn)",
+        "calcareous woodland soils",
+        "shaded areas, ruins",
+        "disturbed chalky ground",
+        "tropane alkaloids"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "lavandula-angustifolia",
+      "slug": "lavandula-angustifolia",
+      "name": "English Lavender",
+      "scientific_name": "Lavandula angustifolia",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/lavandula-angustifolia.webp",
+      "tagline": null,
+      "description": "Lavandula angustifolia, commonly known as English lavender or true lavender, is a flowering plant in the family Lamiaceae, native to the Mediterranean region. It is a strongly aromatic shrub with narrow, grey-green leaves and violet-blue flowers on long spikes. Lavender has been cultivated for over 2500 years for its essential oil, which is used in perfumery, aromatherapy, and traditional medicine. The plant is valued for its calming and relaxing properties.",
+      "seo_description": "English Lavender (Lavandula angustifolia)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "30–100 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Grey-green (foliage)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Mediterrane Macchie"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Westliches Mittelmeergebiet (Spanien, Frankreic..."
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Lamiaceae",
+        "Lamiales"
+      ],
+      "keywords": [
+        "bestaeubungsmagnet",
+        "nektarquelle",
+        "erosionsschutz",
+        "mediterrane macchie",
+        "felsheide",
+        "trockene, sonnige haenge",
+        "kalkfelsen",
+        "bestaeuberfoerderung",
+        "english lavender",
+        "true lavender",
+        "common lavender",
+        "garden lavender",
+        "lavandula officinalis chaix",
+        "lavandula vera dc.",
+        "lavandula spica l. var. angustifolia",
+        "magnoliopsida",
+        "lamiales",
+        "lamiaceae",
+        "lavandula",
+        "echter lavendel (de)",
+        "lavande vraie (fr)",
+        "lavanda (es/it)",
+        "xun yi cao (cn)",
+        "well-drained, calcareous soils",
+        "sandy or gravelly soils",
+        "rocky hillsides",
+        "lavandulae flos",
+        "anxiolytikum",
+        "sedativum",
+        "spasmolytikum"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "sambucus-nigra",
+      "slug": "sambucus-nigra",
+      "name": "European Elder",
+      "scientific_name": "Sambucus nigra",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/sambucus-nigra.webp",
+      "tagline": null,
+      "description": "Sambucus nigra, commonly known as elderberry, black elder, or European elder, is a species of flowering plant in the family Adoxaceae, native to most of Europe. The dark purple berries have been used for centuries in traditional European medicine to treat influenza, colds, and respiratory infections. The flowers are used to make elderflower cordial and wine. The plant contains anthocyanins and flavonoids with antiviral and anti-inflammatory properties. However, raw berries, bark, and leaves contain cyanogenic glycosides and must be cooked before consumption. Elderberry supplements have become popular immune-boosting products.",
+      "seo_description": "European Elder (Sambucus nigra)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "2–10 m"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Green (foliage)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Europa, Westasien, Nordafrika"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Toxic raw; safe when cooked",
+          "variant": "warning"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Adoxaceae",
+        "Dipsacales"
+      ],
+      "keywords": [
+        "vogelnahrung",
+        "erosionsschutz",
+        "unterholzbildner",
+        "wald",
+        "auwaelder, waldraender",
+        "naehrstoffreiche, feuchte standorte",
+        "hecken, ruderalflaechen",
+        "vogelnahrung im herbst",
+        "european elder",
+        "elderberry",
+        "black elder",
+        "common elder",
+        "sambucus vulgaris lam.",
+        "sambucus medullosa gilib.",
+        "sambucus arborescens gilib.",
+        "magnoliopsida",
+        "dipsacales",
+        "adoxaceae",
+        "sambucus",
+        "schwarzer holunder (de)",
+        "sureau noir (fr)",
+        "sauco (es)",
+        "sambuco nero (it)",
+        "jie gu mu (cn)",
+        "woodland edges",
+        "hedgerows",
+        "disturbed, nitrogen-rich soils",
+        "sambuci flos",
+        "sambuci fructus",
+        "diaphoretikum"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "ganoderma-applanatum",
+      "slug": "ganoderma-applanatum",
+      "name": "Flacher Lackporling",
+      "scientific_name": "Ganoderma applanatum",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/ganoderma-applanatum.webp",
+      "tagline": "Jan–Dez",
+      "description": "Der Flache Lackporling (Ganoderma applanatum), auch Malerpilz genannt, ist ein mehrjaehriger Baumpilz mit charakteristisch flacher, konsolenfoermiger Gestalt. Sein Name Malerpilz ruehrt von der Eigenschaft der weissen Porenschicht, bei Beruehrung dauerhaft braun zu verfaerben - darauf lassen sich Bilder zeichnen. Der Pilz verursacht Weissfaeule an Laubhoelzern. In der Traditionellen Chinesischen Medizin wird er als Heilpilz verwendet.",
+      "seo_description": "Flacher Lackporling (Ganoderma applanatum)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "6–30 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "braun"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Laubholz"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Kosmopolitisch"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jan–Dez",
+      "categories": [
+        "Ganodermataceae",
+        "Polyporales"
+      ],
+      "keywords": [
+        "wald",
+        "laubwald",
+        "staemme lebender baeume",
+        "totes laubholz",
+        "laubholz",
+        "buche",
+        "pappel",
+        "erle",
+        "eiche",
+        "ahorn",
+        "weide",
+        "flacher lackporling",
+        "malerpilz",
+        "artist's bracket",
+        "artist's conk",
+        "ganoderma lipsiense",
+        "fomes applanatus",
+        "polyporus applanatus",
+        "elfvingia applanata",
+        "agaricomycetes",
+        "polyporales",
+        "ganodermataceae",
+        "ganoderma"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "digitalis-purpurea",
+      "slug": "digitalis-purpurea",
+      "name": "Foxglove",
+      "scientific_name": "Digitalis purpurea",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/digitalis-purpurea.webp",
+      "tagline": null,
+      "description": "Digitalis purpurea, commonly known as foxglove, is a biennial or short-lived perennial flowering plant native to Western Europe. It produces tall spikes of tubular, purple-pink flowers with spotted throats. Despite its beauty, foxglove is highly toxic and can be fatal if ingested. However, the plant is the source of digoxin and digitoxin, cardiac glycosides used to treat heart conditions such as atrial fibrillation and heart failure. William Withering introduced digitalis to medicine in 1785. The plant exemplifies the principle that poisons and medicines are often distinguished only by dose.",
+      "seo_description": "Foxglove (Digitalis purpurea)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "50–200 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Purple-pink (flowers)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Westeuropa (atlantisch gepraegt)"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "EXTREMELY TOXIC - ALL PARTS LETHAL",
+          "variant": "danger"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Plantaginaceae",
+        "Lamiales"
+      ],
+      "keywords": [
+        "pionierpflanze",
+        "hummelnahrung",
+        "kahlschlagbesiedler",
+        "wald",
+        "waldlichtungen, kahlschlaege",
+        "lichte waldstandorte",
+        "wegraender, felshaenge",
+        "foxglove",
+        "purple foxglove",
+        "common foxglove",
+        "lady's glove",
+        "dead men's bells",
+        "digitalis tomentosa link",
+        "digitalis purpurea var. alba hort.",
+        "magnoliopsida",
+        "lamiales",
+        "plantaginaceae",
+        "digitalis",
+        "roter fingerhut (de)",
+        "digitale pourpree (fr)",
+        "digital (es)",
+        "digitale (it)",
+        "acidic woodland soils",
+        "clearings and forest edges",
+        "disturbed ground, hedgerows",
+        "digitalis purpureae folium",
+        "herzglykosid",
+        "kardiotonikum",
+        "cardiac glycosides"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "matricaria-chamomilla",
+      "slug": "matricaria-chamomilla",
+      "name": "German Chamomile",
+      "scientific_name": "Matricaria chamomilla",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/matricaria-chamomilla.webp",
+      "tagline": null,
+      "description": "Matricaria chamomilla (syn. Matricaria recutita), commonly known as German chamomile or wild chamomile, is an annual plant in the family Asteraceae. Native to Europe and Western Asia, it is one of the most ancient medicinal herbs known to mankind. Unlike Roman chamomile which is a perennial, German chamomile is an annual with smaller, more cone-shaped flower heads. The essential oil is blue due to the presence of chamazulene, which forms during steam distillation. German chamomile is the most commercially important chamomile species and is widely used in teas, cosmetics, and herbal preparations.",
+      "seo_description": "German Chamomile (Matricaria chamomilla)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "15–60 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "White (ray flowers)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Kulturlandschaft"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Suedeuropa, Westasien"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Asteraceae",
+        "Asterales"
+      ],
+      "keywords": [
+        "pionierpflanze",
+        "bestaeubungsmagnet",
+        "ackerbegleitflora",
+        "kulturlandschaft",
+        "aecker, brachen",
+        "gestorte, offene boeden",
+        "wegraender, schuttplaetze",
+        "german chamomile",
+        "wild chamomile",
+        "scented mayweed",
+        "hungarian chamomile",
+        "matricaria recutita l.",
+        "chamomilla recutita (l.) rauschert",
+        "matricaria suaveolens l.",
+        "magnoliopsida",
+        "asterales",
+        "asteraceae",
+        "matricaria",
+        "echte kamille (de)",
+        "camomille allemande (fr)",
+        "manzanilla (es)",
+        "camomilla (it)",
+        "mu ju (cn)",
+        "cultivated and fallow fields",
+        "roadsides and waste ground",
+        "sandy or loamy soils",
+        "matricariae flos",
+        "antiinflammatorium",
+        "spasmolytikum",
+        "vulnerarium"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "zingiber-officinale",
+      "slug": "zingiber-officinale",
+      "name": "Ginger",
+      "scientific_name": "Zingiber officinale",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/zingiber-officinale.webp",
+      "tagline": null,
+      "description": "Zingiber officinale, commonly known as ginger, is a flowering plant whose rhizome, ginger root, is widely used as a spice and in folk medicine. Native to Southeast Asia, ginger was one of the first spices exported from Asia during the spice trade. The rhizome contains gingerols and shogaols, which provide its characteristic pungent flavor and medicinal properties. Ginger has been used for over 5000 years to treat nausea, digestive issues, and inflammation. It is a key ingredient in many Asian cuisines and is consumed fresh, dried, powdered, or as an oil or juice.",
+      "seo_description": "Ginger (Zingiber officinale)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "60–120 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Green (leaves/stems)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Suedostasien (wahrscheinlich Malaysia/Indonesie..."
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "info"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Zingiberaceae",
+        "Zingiberales"
+      ],
+      "keywords": [
+        "unterholzpflanze",
+        "wald",
+        "tropischer regenwald",
+        "feuchte, schattige waldboeden",
+        "waldraender",
+        "ginger",
+        "common ginger",
+        "culinary ginger",
+        "garden ginger",
+        "amomum zingiber l.",
+        "zingiber aromaticum noronha",
+        "zingiber sichuanense z.y.zhu",
+        "liliopsida",
+        "zingiberales",
+        "zingiberaceae",
+        "zingiber",
+        "ingwer (de)",
+        "gingembre (fr)",
+        "jengibre (es)",
+        "zenzero (it)",
+        "jiang (cn)",
+        "shoga (jp)",
+        "rich, moist, well-drained soil",
+        "forest understory",
+        "tropical and subtropical regions",
+        "antiemetikum",
+        "karminativum",
+        "antiinflammatorium"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "ginkgo-biloba",
+      "slug": "ginkgo-biloba",
+      "name": "Ginkgo",
+      "scientific_name": "Ginkgo biloba",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/ginkgo-biloba.webp",
+      "tagline": null,
+      "description": "Ginkgo biloba, commonly known as ginkgo or maidenhair tree, is a species of gymnosperm tree native to China. It is the only living species in the order Ginkgoales, making it a living fossil unchanged for more than 200 million years. The tree is widely cultivated for its medicinal properties, particularly its leaf extract which is used to improve memory and cognitive function. Ginkgo trees can live for over 1000 years and are highly resistant to pollution, disease, and insect pests.",
+      "seo_description": "Ginkgo (Ginkgo biloba)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "20–35 m"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Bright green (summer)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "China (Zhejiang, Anhui, Guizhou)"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "EN",
+          "variant": "danger"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Seeds toxic raw; leaves low toxicity",
+          "variant": "warning"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Ginkgoaceae",
+        "Ginkgoales"
+      ],
+      "keywords": [
+        "kohlenstoffspeicherung",
+        "schattenspender",
+        "lebensraum fuer voegel",
+        "wald",
+        "mischwald",
+        "tiefgruendige boeden",
+        "ginkgo",
+        "maidenhair tree",
+        "gingko",
+        "fossil tree",
+        "japanese silver apricot",
+        "salisburia adiantifolia sm.",
+        "salisburia biloba (l.) hoffmanns.",
+        "pterophyllus salisburiensis j.nelson",
+        "ginkgoopsida",
+        "ginkgoales",
+        "ginkgoaceae",
+        "ginkgobaum (de)",
+        "arbre aux quarante ecus (fr)",
+        "ginkgo (es)",
+        "yin xing (cn)",
+        "icho (jp)",
+        "nootropikum",
+        "vasodilatator",
+        "antidementivum",
+        "ginkgolic acids (fruit)",
+        "ginkgotoxin (seeds)"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "ganoderma-lucidum",
+      "slug": "ganoderma-lucidum",
+      "name": "Glaenzender Lackporling",
+      "scientific_name": "Ganoderma lucidum",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/ganoderma-lucidum.webp",
+      "tagline": "Immunmodulation · Jun–Okt",
+      "description": "Der Glaenzende Lackporling (Ganoderma lucidum), bekannt als Reishi oder Lingzhi, ist einer der bedeutendsten Vitalpilze weltweit. In der Traditionellen Chinesischen Medizin wird er seit ueber 2000 Jahren als 'Pilz der Unsterblichkeit' verehrt. Er produziert Polysaccharide und Triterpenoide mit immunmodulierenden, antitumoralen und hepatoprotektiven Eigenschaften. Der charakteristisch rot-lackierte Fruchtkoerper waechst auf Laubhoelzern.",
+      "seo_description": "Glaenzender Lackporling (Ganoderma lucidum). Heilwirkung: Immunmodulation, Antitumoral",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "5–25 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "rotbraun"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Laubholz"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Europa, Asien, Nordamerika"
+        }
+      ],
+      "highlights": [
+        "Immunmodulation",
+        "Antitumoral",
+        "Hepatoprotektiv (Leberschutz)"
+      ],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jun–Okt",
+      "categories": [
+        "Ganodermataceae",
+        "Polyporales"
+      ],
+      "keywords": [
+        "wald",
+        "laubwald",
+        "basis lebender baeume",
+        "tote stubben",
+        "laubholz",
+        "eiche",
+        "buche",
+        "birke",
+        "ahorn",
+        "pflaumenbaum",
+        "glaenzender lackporling",
+        "reishi",
+        "lingzhi",
+        "ling zhi",
+        "mannentake",
+        "pilz der unsterblichkeit",
+        "agaricomycetes",
+        "polyporales",
+        "ganodermataceae",
+        "ganoderma",
+        "onkologie",
+        "immunologie",
+        "hepatologie",
+        "kardiologie",
+        "neurologie"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 155
+    },
+    {
+      "id": "ganoderma-curtisii",
+      "slug": "ganoderma-curtisii",
+      "name": "Goldener Lackporling",
+      "scientific_name": "Ganoderma curtisii",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/ganoderma-curtisii.webp",
+      "tagline": "Jun–Okt",
+      "description": "Der Goldene Lackporling (Ganoderma curtisii), auch Golden Reishi genannt, ist ein Vitalpilz aus Nordamerika, der dem bekannten Ganoderma lucidum (Reishi) sehr aehnlich ist und dieselben medizinischen Eigenschaften besitzt. Er waechst auf verrottenden Stubben und Wurzeln von Laubhoelzern. Die Art produziert Polysaccharide und Triterpenoide mit breitem Spektrum biologischer Aktivitaeten.",
+      "seo_description": "Goldener Lackporling (Ganoderma curtisii)",
+      "quick_facts": [
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "goldgelb"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Laubholz"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Nordamerika"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jun–Okt",
+      "categories": [
+        "Ganodermataceae",
+        "Polyporales"
+      ],
+      "keywords": [
+        "wald",
+        "laubwald",
+        "verrottende stubben",
+        "wurzeln von laubbaumen",
+        "laubholz",
+        "eiche",
+        "buche",
+        "birke",
+        "erle",
+        "goldener lackporling",
+        "golden reishi",
+        "yellow reishi",
+        "polyporus curtisii",
+        "fomes curtisii",
+        "scindalma curtisii",
+        "agaricomycetes",
+        "polyporales",
+        "ganodermataceae",
+        "ganoderma"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "centella-asiatica",
+      "slug": "centella-asiatica",
+      "name": "Gotu Kola",
+      "scientific_name": "Centella asiatica",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/centella-asiatica.webp",
+      "tagline": null,
+      "description": "Centella asiatica, commonly known as gotu kola, Indian pennywort, or Asiatic pennywort, is a herbaceous perennial plant in the flowering plant family Apiaceae. Native to tropical and subtropical Asia, it has been used in Ayurvedic and traditional Chinese medicine for thousands of years. It is often called 'the herb of longevity' in traditional medicine. The plant contains triterpenoids including asiaticoside and madecassoside, which promote wound healing and collagen synthesis. Modern research has focused on its cognitive-enhancing and wound-healing properties. In Sri Lanka, it is believed elephants eat gotu kola for long life.",
+      "seo_description": "Gotu Kola (Centella asiatica)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "5–15 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Green (foliage)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Feuchtgebiet"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Tropisches und subtropisches Asien, Afrika, Aus..."
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Apiaceae",
+        "Apiales"
+      ],
+      "keywords": [
+        "bodendecker",
+        "uferbefestigung",
+        "feuchtgebiet",
+        "feuchte wiesen, sumpfraender",
+        "feuchte, schattige standorte",
+        "grabenraender, reisfelder",
+        "gotu kola",
+        "indian pennywort",
+        "asiatic pennywort",
+        "spadeleaf",
+        "brahmi",
+        "hydrocotyle asiatica l.",
+        "hydrocotyle lunata lam.",
+        "trisanthus cochinchinensis lour.",
+        "magnoliopsida",
+        "apiales",
+        "apiaceae",
+        "centella",
+        "asiatischer wassernabel (de)",
+        "hydrocotyle (fr)",
+        "centella asiatica (es)",
+        "ji xue cao (cn)",
+        "pegagan (id)",
+        "moist, shady areas",
+        "stream banks",
+        "wet lawns and ditches",
+        "nootropikum",
+        "vulnerarium",
+        "venenmittel"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "cannabis-sativa",
+      "slug": "cannabis-sativa",
+      "name": "Hemp",
+      "scientific_name": "Cannabis sativa",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/cannabis-sativa.webp",
+      "tagline": null,
+      "description": "Cannabis sativa is an annual herbaceous flowering plant indigenous to Central Asia and the Indian subcontinent. It has been cultivated throughout recorded history for its fiber (hemp), seeds, and medicinal and psychoactive properties. The plant contains over 100 cannabinoids, including THC and CBD, which interact with the human endocannabinoid system. Industrial hemp varieties contain less than 0.3% THC and are cultivated for fiber and seed production, while medicinal and recreational varieties are bred for higher cannabinoid content.",
+      "seo_description": "Hemp (Cannabis sativa)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "50–500 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Green"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Ruderalflaeche"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Zentralasien (wahrscheinlich Afghanistan, Himal..."
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "info"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Low physical toxicity; psychoactive effects",
+          "variant": "warning"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Cannabaceae",
+        "Rosales"
+      ],
+      "keywords": [
+        "pionierpflanze",
+        "ruderalflaeche",
+        "gestorte standorte",
+        "naehrstoffreiche, gestorte boeden",
+        "flussufer, schuttplaetze",
+        "hemp",
+        "cannabis",
+        "marijuana",
+        "industrial hemp",
+        "cannabis americana houghton & hamilton",
+        "cannabis chinensis delile",
+        "cannabis indica lam.",
+        "cannabis ruderalis janisch.",
+        "magnoliopsida",
+        "rosales",
+        "cannabaceae",
+        "hanf (de)",
+        "chanvre (fr)",
+        "canamo (es)",
+        "da ma (cn)",
+        "taima (jp)",
+        "well-drained, nitrogen-rich soils",
+        "loamy soils",
+        "disturbed habitats",
+        "cannabinoids"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "panellus-stipticus",
+      "slug": "panellus-stipticus",
+      "name": "Herber Zwergknaeuel",
+      "scientific_name": "Panellus stipticus",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/panellus-stipticus.webp",
+      "tagline": "Jan–Dez",
+      "description": "Der Herbe Zwergknaeuel (Panellus stipticus) ist ein kleiner, muschelfoermiger Pilz, der auf Laubholz waechst. Er ist besonders bemerkenswert wegen seiner Biolumineszenz - das Myzel und junge Fruchtkoerper leuchten im Dunkeln gruenlich. Der Pilz ist ungeniessbar aufgrund seines bitter-scharfen Geschmacks. Die Biolumineszenz basiert auf den Substanzen PS-A und PS-B (Luciferin-Vorstufen).",
+      "seo_description": "Herber Zwergknaeuel (Panellus stipticus)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "1–6 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "ockergelb"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Laubholz"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Nordhemisphaere"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jan–Dez",
+      "categories": [
+        "Mycenaceae",
+        "Agaricales"
+      ],
+      "keywords": [
+        "wald",
+        "laubwald",
+        "totes laubholz",
+        "laubholz",
+        "eiche",
+        "buche",
+        "birke",
+        "herber zwergknaeuel",
+        "eichen-zwergknaeuel",
+        "bitterer muschelseitling",
+        "bitter oyster",
+        "luminescent panellus",
+        "panus stipticus",
+        "pleurotus stipticus",
+        "agaricus stypticus",
+        "agaricomycetes",
+        "agaricales",
+        "mycenaceae",
+        "panellus"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "hericium-erinaceus",
+      "slug": "hericium-erinaceus",
+      "name": "Igelstachelbart",
+      "scientific_name": "Hericium erinaceus",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/hericium-erinaceus.webp",
+      "tagline": "Neuroregeneration · Geschützt · Aug–Nov",
+      "description": "Der Igelstachelbart (Hericium erinaceus), auch als Loewenmaehne oder Pom-Pom bekannt, ist ein spektakulaerer Speise- und Vitalpilz mit langen, herabhangenden weissen Stacheln. Er waechst auf Laubholz und gilt als gefaehrdet (RL2 Deutschland). Besonders bemerkenswert sind seine neuroregenrativen Eigenschaften durch Erinacine, die das Nervenwachstum stimulieren - vielversprechend bei Alzheimer und neurologischen Erkrankungen.",
+      "seo_description": "Igelstachelbart (Hericium erinaceus). Heilwirkung: Neuroregeneration, Alzheimer-Unterstuetzung",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "5–40 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "weiss"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Laubholz"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Nordhemisphaere, Europa, Asien, Nordamerika"
+        }
+      ],
+      "highlights": [
+        "Neuroregeneration",
+        "Alzheimer-Unterstuetzung",
+        "Magen-Darm-Erkrankungen"
+      ],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "VU",
+          "variant": "warning"
+        }
+      ],
+      "season": "Aug–Nov",
+      "categories": [
+        "Hericiaceae",
+        "Russulales"
+      ],
+      "keywords": [
+        "wald",
+        "laubwald",
+        "wunden an lebenden baeumen",
+        "totes laubholz",
+        "laubholz",
+        "eiche",
+        "buche",
+        "walnuss",
+        "ahorn",
+        "platane",
+        "igelstachelbart",
+        "loewenmaehne",
+        "affenkopfpilz",
+        "pom-pom blanc",
+        "lions mane",
+        "yamabushitake",
+        "hericium erinaceum",
+        "hydnum erinaceus",
+        "agaricomycetes",
+        "russulales",
+        "hericiaceae",
+        "hericium",
+        "neurologie (alzheimer, demenz)",
+        "gastroenterologie",
+        "onkologie",
+        "psychiatrie"
+      ],
+      "perspectives": [
+        "culinary",
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 5,
+      "engagement_score": 165
+    },
+    {
+      "id": "auricularia-auricula-judae",
+      "slug": "auricularia-auricula-judae",
+      "name": "Judasohr",
+      "scientific_name": "Auricularia auricula-judae",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/auricularia-auricula-judae.webp",
+      "tagline": null,
+      "description": "Das Judasohr (Auricularia auricula-judae), auch Holunderschwamm oder Mu-Err genannt, ist ein gallertartiger Speise- und Medizinalpilz mit ohrfoermiger Gestalt. In der asiatischen Kueche weit verbreitet, ist er fuer seine blutverdünnenden Eigenschaften bekannt (Szechwan-Syndrom). Der Pilz waechst ganzjaehrig an Laubholz, besonders an Holunder, und ist frostbestaendig. Seine medizinischen Anwendungen umfassen Arteriosklerose, Bluthochdruck und Entzuendungen.",
+      "seo_description": "Judasohr (Auricularia auricula-judae)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "2–15 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Purpurgraubraun bis dunkelbraun"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Auriculariaceae",
+        "Auriculariales"
+      ],
+      "keywords": [
+        "laubholz, besonders holunder",
+        "birkenholz",
+        "weidenholz",
+        "eichenholz",
+        "akazienholz",
+        "totes oder geschwächtes laubholz",
+        "hohe luftfeuchtigkeit",
+        "kühle temperaturen bevorzugt",
+        "sambucus nigra (schwarzer holunder)",
+        "betula (birken)",
+        "salix (weiden)",
+        "quercus (eichen)",
+        "judasohr",
+        "holunderschwamm",
+        "ohrlappenpilz",
+        "wolkenohrenpilz",
+        "tremella auricula-judae bull. 1789",
+        "peziza auricula l. 1753",
+        "hirneola auricula-judae (bull.) berk.",
+        "auricularia auricula (hook.) underw.",
+        "agaricomycetes",
+        "auriculariales",
+        "auriculariaceae",
+        "auricularia",
+        "wood ear (en)",
+        "jew's ear (en)",
+        "mu-er (cn)",
+        "kikurage (jp)",
+        "oreille de judas (fr)",
+        "sambucus (holunder)"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "grifola-frondosa",
+      "slug": "grifola-frondosa",
+      "name": "Klapperschwamm",
+      "scientific_name": "Grifola frondosa",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/grifola-frondosa.webp",
+      "tagline": "Immunstimulation · Aug–Nov",
+      "description": "Der Klapperschwamm (Grifola frondosa), auch Maitake ('Tanzender Pilz') genannt, ist ein grosser, geschaetzter Speise- und Vitalpilz. Er kann ueber 20 kg schwer werden und besteht aus vielen ueberlappenden, graubraunen Hueten an einem gemeinsamen Strunk. Er waechst am Wurzelbereich von Eichen und Kastanien. In Japan gilt er als wichtiger Heilpilz mit immunstimulierenden und antitumoralen Eigenschaften durch den Inhaltsstoff Grifolan (Beta-Glucan D-Fraktion).",
+      "seo_description": "Klapperschwamm (Grifola frondosa). Heilwirkung: Immunstimulation, Antitumoral",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "10–60 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "graubraun"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Laubholz"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Nordhemisphaere, Europa, Nordamerika, Ostasien"
+        }
+      ],
+      "highlights": [
+        "Immunstimulation",
+        "Antitumoral",
+        "Blutdrucksenkung"
+      ],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Aug–Nov",
+      "categories": [
+        "Meripilaceae",
+        "Polyporales"
+      ],
+      "keywords": [
+        "wald",
+        "laubwald",
+        "wurzelbereich lebender eichen",
+        "stubben von laubbaumen",
+        "laubholz",
+        "eiche (quercus)",
+        "kastanie (castanea)",
+        "linde (tilia)",
+        "buche (fagus)",
+        "klapperschwamm",
+        "maitake",
+        "spatelhuetige porling",
+        "laubporling",
+        "graue gans",
+        "hen-of-the-woods",
+        "dancing mushroom",
+        "polyporus frondosus",
+        "polyporus albicans",
+        "grifola albicans",
+        "agaricomycetes",
+        "polyporales",
+        "meripilaceae",
+        "grifola",
+        "onkologie",
+        "hiv/aids-forschung",
+        "immunologie",
+        "diabetes",
+        "kardiologie"
+      ],
+      "perspectives": [
+        "culinary",
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 5,
+      "engagement_score": 165
+    },
+    {
+      "id": "melissa-officinalis",
+      "slug": "melissa-officinalis",
+      "name": "Lemon Balm",
+      "scientific_name": "Melissa officinalis",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/melissa-officinalis.webp",
+      "tagline": null,
+      "description": "Melissa officinalis, commonly known as lemon balm, is a perennial herbaceous plant in the mint family Lamiaceae, native to south-central Europe and the Mediterranean. The genus name Melissa is Greek for 'honey bee', as the plant is highly attractive to bees. It has been cultivated for over 2000 years for its lemon-scented leaves, which are used in teas, culinary applications, and herbal medicine. Lemon balm contains rosmarinic acid and flavonoids, and is traditionally used for its calming effects, to improve sleep, and to treat cold sores (herpes simplex). It was a key ingredient in Carmelite water, a tonic made by Carmelite nuns since 1611.",
+      "seo_description": "Lemon Balm (Melissa officinalis)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "30–100 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Green (foliage)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Suedeuropa, Westasien"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Lamiaceae",
+        "Lamiales"
+      ],
+      "keywords": [
+        "bienenweide",
+        "nektarquelle",
+        "bodendecker",
+        "wald",
+        "lichte waelder, waldraender",
+        "halbschattige, naehrstoffreiche standorte",
+        "gaerten, wegboeschungen",
+        "lemon balm",
+        "balm",
+        "common balm",
+        "bee balm",
+        "sweet balm",
+        "melissa altissima sm.",
+        "melissa cordifolia pers.",
+        "melissa graveolens host",
+        "magnoliopsida",
+        "lamiales",
+        "lamiaceae",
+        "melissa",
+        "zitronenmelisse (de)",
+        "melisse (fr)",
+        "melisa (es)",
+        "melissa (it)",
+        "xiang feng cao (cn)",
+        "rich, moist soils",
+        "garden settings",
+        "woodland edges",
+        "melissae folium",
+        "sedativum",
+        "spasmolytikum"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "glycyrrhiza-glabra",
+      "slug": "glycyrrhiza-glabra",
+      "name": "Licorice",
+      "scientific_name": "Glycyrrhiza glabra",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/glycyrrhiza-glabra.webp",
+      "tagline": null,
+      "description": "Glycyrrhiza glabra, commonly known as licorice or liquorice, is a herbaceous perennial legume native to Western Asia and Southern Europe. The root has been used as a flavoring agent and medicine for over 4000 years. The name Glycyrrhiza comes from Greek, meaning 'sweet root', as the root is 30-50 times sweeter than sugar due to glycyrrhizin. In traditional Chinese medicine, licorice is used in more formulations than any other herb. However, excessive consumption can cause hypertension and hypokalemia due to glycyrrhizin's effect on cortisol metabolism.",
+      "seo_description": "Licorice (Glycyrrhiza glabra)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "50–150 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Green (foliage)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Steppe"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Mittelmeerraum bis Westasien, Zentralasien"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Fabaceae",
+        "Fabales"
+      ],
+      "keywords": [
+        "stickstofffixierung",
+        "pionierpflanze",
+        "bodenverbesserung",
+        "steppe",
+        "halbwueste, flusstaeler",
+        "tiefgruendige talboeden",
+        "flussufer, trockene grabenraender",
+        "licorice",
+        "liquorice",
+        "sweet root",
+        "sweetwood",
+        "glycyrrhiza glandulifera waldst. & kit.",
+        "glycyrrhiza hirsuta pall.",
+        "liquiritia officinalis moench",
+        "magnoliopsida",
+        "fabales",
+        "fabaceae",
+        "glycyrrhiza",
+        "suessholz (de)",
+        "reglisse (fr)",
+        "regaliz (es)",
+        "liquirizia (it)",
+        "gan cao (cn)",
+        "deep, fertile, sandy soils",
+        "river valleys",
+        "southern europe and asia",
+        "liquiritiae radix",
+        "expektorans",
+        "antiulkerosum",
+        "antiinflammatorium"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "pleurotus-pulmonarius",
+      "slug": "pleurotus-pulmonarius",
+      "name": "Lungenseitling",
+      "scientific_name": "Pleurotus pulmonarius",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/pleurotus-pulmonarius.webp",
+      "tagline": null,
+      "description": "Der Lungenseitling (Pleurotus pulmonarius), auch Sommer-Austernseitling genannt, ist ein weit verbreiteter Speise- und Zuchtpilz. Im Gegensatz zum Austernseitling benoetigt er keinen Kaeltereiz zur Fruchtkoerperbildung. Er enthaelt Haemolysine (wie alle Pleurotus-Arten), die beim Garen zerstoert werden. Seine Polysaccharide zeigen antimikrobielle und entzuendungshemmende Eigenschaften.",
+      "seo_description": "Lungenseitling (Pleurotus pulmonarius)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "5–20 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "grauweiß"
+        }
+      ],
+      "highlights": [],
+      "badges": [],
+      "season": null,
+      "categories": [
+        "Pleurotaceae",
+        "Agaricales"
+      ],
+      "keywords": [
+        "lungenseitling",
+        "sommer-austernseitling",
+        "phoenix mushroom",
+        "indian oyster",
+        "agaricus pulmonarius",
+        "pleurotus ostreatus var. pulmonarius",
+        "agaricomycetes",
+        "agaricales",
+        "pleurotaceae",
+        "pleurotus"
+      ],
+      "perspectives": [
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 2,
+      "engagement_score": 20
+    },
+    {
+      "id": "agaricus-subrufescens",
+      "slug": "agaricus-subrufescens",
+      "name": "Mandel-Egerling",
+      "scientific_name": "Agaricus subrufescens",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/agaricus-subrufescens.webp",
+      "tagline": null,
+      "description": "Der Mandel-Egerling (Agaricus subrufescens), auch bekannt als Agaricus blazei, Himematsutake oder Cogumelo de Deus, ist ein essbarer Speisepilz mit intensivem Mandelaroma. Urspruenglich in den Regenwäldern Brasiliens entdeckt, ist er heute einer der bedeutendsten Medizinalpilze weltweit. Er besitzt die hoechste Konzentration an Beta-Glucanen aller Heilpilze und wird intensiv auf seine immunmodulatorischen und antitumoralen Eigenschaften untersucht. In Japan und den USA wurden bemerkenswert erfolgreiche Studien zu seinen Heilwirkungen durchgefuehrt.",
+      "seo_description": "Mandel-Egerling (Agaricus subrufescens)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "7–25 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Hellbraun bis rotbraun"
+        },
+        {
+          "icon": "👅",
+          "label": "Geschmack",
+          "value": "[object Object], [object Object], [object Object]"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Agaricaceae",
+        "Agaricales"
+      ],
+      "keywords": [
+        "agaricus blazei murrill",
+        "agaricus brasiliensis",
+        "abm",
+        "naehrstoffreiche, gut kompostierte boeden",
+        "angereicherte komposte",
+        "pasteurisierte substrate mit stickstoffzusaetzen (kleie, harnstoff, huehnermist, ammoniumnitrat)",
+        "holz mit deckerde",
+        "pilzzucht-kompost mit deckerde",
+        "naehrstoffreiche boeden, kompostboeden",
+        "mischwaelder",
+        "waldraender",
+        "gaerten und beete",
+        "gewaechshaeuser",
+        "hohe stickstoffverfuegbarkeit",
+        "gute bodenfeuchtigkeit",
+        "waerme (21-27 grad celsius)",
+        "gut kompostierte erde",
+        "stickstoffreiche substrate",
+        "pasteurisierte substrate mit stickstoffzusaetzen",
+        "abbau organischer substanz",
+        "naehrstofffreisetzung",
+        "bodenverbesserung",
+        "mandel-egerling",
+        "sonnenpilz",
+        "lebenspilz",
+        "brasilianischer mandel-egerling",
+        "almond portobello",
+        "king agaricus",
+        "agaricus blazei murrill 1945",
+        "agaricus brasiliensis wasser 2002"
+      ],
+      "perspectives": [
+        "chemistry",
+        "culinary",
+        "cultivation",
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 7,
+      "engagement_score": 70
+    },
+    {
+      "id": "silybum-marianum",
+      "slug": "silybum-marianum",
+      "name": "Milk Thistle",
+      "scientific_name": "Silybum marianum",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/silybum-marianum.webp",
+      "tagline": null,
+      "description": "Silybum marianum, commonly known as milk thistle, is a flowering plant in the daisy family Asteraceae, native to the Mediterranean region. The name derives from the milky-white veins on the leaves. The plant has been used for over 2000 years to treat liver and gallbladder disorders. The seeds contain silymarin, a complex of flavonolignans with hepatoprotective properties. Silymarin is the most commonly used herbal supplement for liver disease worldwide and is included in pharmacopeias in several countries. Clinical studies have shown benefits in cirrhosis, hepatitis, and liver damage from toxins.",
+      "seo_description": "Milk Thistle (Silybum marianum)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "30–200 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Green with white marbling"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Ruderalflaeche"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Mittelmeerraum"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Asteraceae",
+        "Asterales"
+      ],
+      "keywords": [
+        "pionierpflanze",
+        "nektarquelle",
+        "distelfinkennahrung",
+        "ruderalflaeche",
+        "brachland, wegränder",
+        "trockene, gestorte standorte",
+        "weiden, strassenraender",
+        "milk thistle",
+        "blessed milk thistle",
+        "marian thistle",
+        "holy thistle",
+        "variegated thistle",
+        "carduus marianus l.",
+        "mariana mariana (l.) hill",
+        "silybum maculatum moench",
+        "magnoliopsida",
+        "asterales",
+        "asteraceae",
+        "silybum",
+        "mariendistel (de)",
+        "chardon-marie (fr)",
+        "cardo mariano (es)",
+        "cardo mariano (it)",
+        "shui fei ji (cn)",
+        "dry, rocky soils",
+        "roadsides and waste ground",
+        "mediterranean climates",
+        "silybi mariani fructus",
+        "hepatoprotektivum",
+        "antioxidans"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "pholiota-nameko",
+      "slug": "pholiota-nameko",
+      "name": "Nameko",
+      "scientific_name": "Pholiota nameko",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/pholiota-nameko.webp",
+      "tagline": "Sep–Nov",
+      "description": "Der Nameko (Pholiota nameko), japanisch fuer 'schleimiger Pilz', ist ein beliebter asiatischer Speisepilz mit charakteristischer orangefarbener, schleimiger Hutoberflaeche. Er waechst natuerlich auf Laubholz in ostasiatischen Waeldern und wird intensiv kultiviert. Der schleimige Film gibt Suppen eine besondere Textur. Nameko besitzt auch antitumorale Eigenschaften.",
+      "seo_description": "Nameko (Pholiota nameko)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "3–8 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "orange"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Laubholz"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Ostasien (Japan, China)"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "neutral"
+        }
+      ],
+      "season": "Sep–Nov",
+      "categories": [
+        "Strophariaceae",
+        "Agaricales"
+      ],
+      "keywords": [
+        "wald",
+        "laubwald",
+        "laubholzstaemme",
+        "stubben",
+        "laubholz",
+        "eiche",
+        "buche",
+        "nameko",
+        "japanisches stockschwaemmchen",
+        "toskanapilz",
+        "goldkaeppchen",
+        "klebriger schueppling",
+        "pholiota microspora",
+        "collybia nameko",
+        "kuehneromyces nameko",
+        "agaricomycetes",
+        "agaricales",
+        "strophariaceae",
+        "pholiota"
+      ],
+      "perspectives": [
+        "culinary",
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "papaver-somniferum",
+      "slug": "papaver-somniferum",
+      "name": "Opium Poppy",
+      "scientific_name": "Papaver somniferum",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/papaver-somniferum.webp",
+      "tagline": null,
+      "description": "Papaver somniferum, commonly known as the opium poppy, is a species of flowering plant in the family Papaveraceae. Native to the eastern Mediterranean, it has been cultivated for at least 5000 years for its medicinal properties. The milky latex (opium) extracted from unripe seed pods contains morphine, codeine, thebaine, and other alkaloids. Morphine remains one of the most effective pain relievers known to medicine and is on the WHO List of Essential Medicines. The seeds (which contain negligible alkaloids) are used in baking. The plant has had profound impacts on history, including the Opium Wars.",
+      "seo_description": "Opium Poppy (Papaver somniferum)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "30–150 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Blue-grey (foliage)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Kulturlandschaft"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Oestliches Mittelmeergebiet (Kleinasien, wahrsc..."
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "info"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "HIGHLY TOXIC - Contains controlled substances",
+          "variant": "danger"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Papaveraceae",
+        "Ranunculales"
+      ],
+      "keywords": [
+        "kulturpflanze",
+        "kulturlandschaft",
+        "aecker, gaerten",
+        "bearbeitete boeden",
+        "schuttplaetze (verwildert)",
+        "opium poppy",
+        "breadseed poppy",
+        "common poppy",
+        "florist's poppy",
+        "papaver officinale c.c.gmel.",
+        "papaver album mill.",
+        "papaver opiiferum forssk.",
+        "magnoliopsida",
+        "ranunculales",
+        "papaveraceae",
+        "papaver",
+        "schlafmohn (de)",
+        "pavot somnifere (fr)",
+        "adormidera (es)",
+        "papavero da oppio (it)",
+        "ying su (cn)",
+        "well-drained, fertile soils",
+        "gardens and cultivated areas",
+        "mediterranean region",
+        "opioid alkaloids",
+        "benzylisoquinoline alkaloids"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "macrolepiota-procera",
+      "slug": "macrolepiota-procera",
+      "name": "Parasol",
+      "scientific_name": "Macrolepiota procera",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/macrolepiota-procera.webp",
+      "tagline": null,
+      "description": "Der Parasol oder Riesenschirmling (Macrolepiota procera) ist einer der beliebtesten und groessten Speisepilze Europas. Mit Hutdurchmessern bis zu 30 cm und Stielen bis 40 cm ist er ein imposanter Anblick auf Waldlichtungen und Heiden. Sein nussartiger Geschmack und die charakteristische genatterte Stieloberflaeche machen ihn unverwechselbar. Wichtig: Der Ring muss verschiebbar sein, um eine Verwechslung mit giftigen Schirmlingen auszuschliessen.",
+      "seo_description": "Parasol (Macrolepiota procera)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "10–40 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Hellbraun mit dunkleren Schuppen"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Agaricaceae",
+        "Agaricales"
+      ],
+      "keywords": [
+        "waldraender, lichtungen, heiden",
+        "mischwaelder",
+        "waldwege",
+        "wiesen",
+        "parks",
+        "naehrstoffreiche boeden",
+        "offene bis halbschattige standorte",
+        "gute drainage",
+        "humusreiche waldboeden",
+        "heideboeden",
+        "parasol",
+        "riesenschirmling",
+        "riesenschirmpilz",
+        "paukenschlaeger",
+        "gemeiner riesenschirmling",
+        "agaricus procerus scop. 1772",
+        "lepiota procera (scop.) gray 1821",
+        "mastocephalus procerus (scop.) pat. 1900",
+        "leucocoprinus procerus (scop.) pat. 1900",
+        "agaricomycetes",
+        "agaricales",
+        "agaricaceae",
+        "macrolepiota",
+        "parasol mushroom (en)",
+        "coulemelle (fr)",
+        "mazza di tamburo (it)",
+        "apagador (es)",
+        "waldboeden",
+        "heiden",
+        "waldraender"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "mentha-piperita",
+      "slug": "mentha-piperita",
+      "name": "Peppermint",
+      "scientific_name": "Mentha x piperita",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/mentha-piperita.webp",
+      "tagline": null,
+      "description": "Mentha x piperita, commonly known as peppermint, is a hybrid species of mint, a cross between watermint (Mentha aquatica) and spearmint (Mentha spicata). Native to Europe and the Middle East, peppermint is now cultivated worldwide. It is one of the most economically important aromatic herbs, widely used in food, beverages, cosmetics, and medicine. The essential oil contains menthol, which provides the characteristic cooling sensation and is used to treat digestive disorders, headaches, and respiratory conditions.",
+      "seo_description": "Peppermint (Mentha x piperita)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "30–90 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Dark green"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Feuchtgebiet"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Hybride (Mentha aquatica x Mentha spicata), Urs..."
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "info"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Lamiaceae",
+        "Lamiales"
+      ],
+      "keywords": [
+        "uferbefestigung",
+        "nektarquelle",
+        "bodendecker",
+        "feuchtgebiet",
+        "uferzone",
+        "feuchte, naehrstoffreiche standorte",
+        "bachraender",
+        "peppermint",
+        "brandy mint",
+        "lamb mint",
+        "balm mint",
+        "mentha balsamea willd.",
+        "mentha piperita var. officinalis sole",
+        "mentha piperita var. vulgaris sole",
+        "magnoliopsida",
+        "lamiales",
+        "lamiaceae",
+        "mentha",
+        "pfefferminze (de)",
+        "menthe poivree (fr)",
+        "menta piperita (es/it)",
+        "bo he (cn)",
+        "moist, fertile soils",
+        "stream banks",
+        "garden settings",
+        "menthae piperitae folium",
+        "menthae piperitae aetheroleum",
+        "spasmolytikum",
+        "karminativum",
+        "lokalanaesthetikum"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "cantharellus-cibarius",
+      "slug": "cantharellus-cibarius",
+      "name": "Pfifferling",
+      "scientific_name": "Cantharellus cibarius",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/cantharellus-cibarius.webp",
+      "tagline": null,
+      "description": "Der Pfifferling (Cantharellus cibarius), auch Eierschwamm genannt, ist einer der beliebtesten und bekanntesten Speisepilze Europas. Mit seiner dottergelben Farbe, dem fruchtigen Aroma und dem leicht pfeffrigen Geschmack ist er kulinarisch hochgeschaetzt. Als Mykorrhiza-Pilz waechst er in Symbiose mit Baeumen in Mischwaeldern. Pfifferlinge enthalten antivirale, antioxidative und antibiotische Wirkstoffe.",
+      "seo_description": "Pfifferling (Cantharellus cibarius)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "2–10 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Dottergelb bis citrusgelb"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Cantharellaceae",
+        "Cantharellales"
+      ],
+      "keywords": [
+        "pfifferling",
+        "eierschwamm",
+        "echter pfifferling",
+        "rehling",
+        "agaricus cantharellus l.",
+        "merulius cantharellus (l.) scop.",
+        "cantharellus vulgaris gray",
+        "agaricomycetes",
+        "cantharellales",
+        "cantharellaceae",
+        "cantharellus",
+        "chanterelle (en)",
+        "girolle (fr)",
+        "finferlo (it)",
+        "rebozuelo (es)",
+        "fagus (buchen)",
+        "quercus (eichen)",
+        "picea (fichten)",
+        "betula (birken)"
+      ],
+      "perspectives": [
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 2,
+      "engagement_score": 20
+    },
+    {
+      "id": "cordyceps-militaris",
+      "slug": "cordyceps-militaris",
+      "name": "Puppenkernkeule",
+      "scientific_name": "Cordyceps militaris",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/cordyceps-militaris.webp",
+      "tagline": "Immunstimulation · Jul–Okt",
+      "description": "Die Puppenkernkeule (Cordyceps militaris) ist ein parasitischer Schlauchpilz, der auf toten Insektenlarven und -puppen waechst. Der Fruchtkoerper ist orangerot bis ziegelrot gefaerbt und wird bis zu 50 mm hoch. In der Traditionellen Chinesischen Medizin gilt er als bedeutender Vitalpilz mit immunstimulierenden und leistungssteigernden Eigenschaften, was dem Inhaltsstoff Cordycepin zugeschrieben wird. In Europa ist der Pilz extrem selten anzutreffen.",
+      "seo_description": "Puppenkernkeule (Cordyceps militaris). Heilwirkung: Immunstimulation, Leistungssteigerung",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "2–5 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "orangerot"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Insektenlarven"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Nordhemisphaere, vor allem Ostasien"
+        }
+      ],
+      "highlights": [
+        "Immunstimulation",
+        "Leistungssteigerung",
+        "Anti-Tumor"
+      ],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "neutral"
+        }
+      ],
+      "season": "Jul–Okt",
+      "categories": [
+        "Cordycipitaceae",
+        "Hypocreales"
+      ],
+      "keywords": [
+        "wald",
+        "mischwald",
+        "auf toten insektenlarven",
+        "auf insektenpuppen",
+        "insektenlarven",
+        "insektenpuppen",
+        "vergrabene insekten",
+        "puppenkernkeule",
+        "orangerote puppenkernkeule",
+        "scarlet caterpillar club",
+        "orange caterpillar fungus",
+        "lavaria gemmata",
+        "xylaria militaris",
+        "torrubia militaris",
+        "corynesphaera militaris",
+        "hypoxylon militare",
+        "sphaeria militaris",
+        "sordariomycetes",
+        "hypocreales",
+        "cordycipitaceae",
+        "cordyceps",
+        "onkologie",
+        "immunologie",
+        "sportmedizin",
+        "antivirale forschung"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 135
+    },
+    {
+      "id": "echinacea-purpurea",
+      "slug": "echinacea-purpurea",
+      "name": "Purple Coneflower",
+      "scientific_name": "Echinacea purpurea",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/echinacea-purpurea.webp",
+      "tagline": null,
+      "description": "Echinacea purpurea, commonly known as purple coneflower or eastern purple coneflower, is a North American species of flowering plant in the daisy family Asteraceae. Native to eastern and central North America, it was widely used by Native American tribes for various ailments. Today, echinacea is one of the best-selling herbal supplements worldwide, primarily used to prevent or shorten the duration of common colds. The plant contains alkamides, caffeic acid derivatives, and polysaccharides that stimulate the immune system.",
+      "seo_description": "Purple Coneflower (Echinacea purpurea)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "60–150 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Purple-pink (flowers)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Praerie"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Oestliches Nordamerika (Central USA)"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Asteraceae",
+        "Asterales"
+      ],
+      "keywords": [
+        "bestaeubungsmagnet",
+        "nektarquelle fuer schmetterlinge",
+        "samenquelle fuer voegel",
+        "praerie",
+        "tallgrass prairie",
+        "offene praerieflaechen",
+        "trockene waldraender",
+        "purple coneflower",
+        "eastern purple coneflower",
+        "echinacea",
+        "hedgehog coneflower",
+        "rudbeckia purpurea l.",
+        "brauneria purpurea (l.) britton",
+        "echinacea speciosa paxton",
+        "magnoliopsida",
+        "asterales",
+        "asteraceae",
+        "purpur-sonnenhut (de)",
+        "echinacee pourpre (fr)",
+        "equinacea purpurea (es)",
+        "echinacea (it)",
+        "well-drained, rich soils",
+        "prairie and woodland edges",
+        "open woods",
+        "echinaceae purpureae herba",
+        "echinaceae purpureae radix",
+        "immunstimulans",
+        "vulnerarium",
+        "antiinfektivum"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "passiflora-incarnata",
+      "slug": "passiflora-incarnata",
+      "name": "Purple Passionflower",
+      "scientific_name": "Passiflora incarnata",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/passiflora-incarnata.webp",
+      "tagline": null,
+      "description": "Passiflora incarnata, commonly known as purple passionflower or maypop, is a fast-growing perennial vine native to the southeastern United States. Spanish missionaries in the 16th century named it 'passion flower' because they saw the complex flower as a symbol of the Passion of Christ. Native American tribes used it as a sedative and to treat wounds. The plant contains flavonoids including chrysin and apigenin, which have anxiolytic and sedative properties. It is approved in Germany as a treatment for nervous restlessness and is commonly combined with valerian and hops in sleep formulations.",
+      "seo_description": "Purple Passionflower (Passiflora incarnata)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "300–900 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Green (foliage)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Suedosten der USA (Virginia bis Florida, westli..."
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Passifloraceae",
+        "Malpighiales"
+      ],
+      "keywords": [
+        "rankpflanze",
+        "bestaeubungsmagnet",
+        "schmetterlingsnahrung",
+        "wald",
+        "waldraender, hecken",
+        "sonnige waldraender",
+        "zaeune, ruderalflaechen",
+        "purple passionflower",
+        "maypop",
+        "wild passionflower",
+        "true passionflower",
+        "wild apricot",
+        "passiflora edulis var. incarnata (l.) mast.",
+        "granadilla incarnata (l.) medik.",
+        "passiflora kerii spreng.",
+        "magnoliopsida",
+        "malpighiales",
+        "passifloraceae",
+        "passiflora",
+        "passionsblume (de)",
+        "passiflore officinale (fr)",
+        "pasiflora (es)",
+        "passiflora (it)",
+        "well-drained soils",
+        "woodland edges",
+        "fencerows and thickets",
+        "passiflorae herba",
+        "anxiolytikum",
+        "sedativum",
+        "spasmolytikum"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "rhodiola-rosea",
+      "slug": "rhodiola-rosea",
+      "name": "Rhodiola",
+      "scientific_name": "Rhodiola rosea",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/rhodiola-rosea.webp",
+      "tagline": null,
+      "description": "Rhodiola rosea, commonly known as rhodiola, golden root, or Arctic root, is a perennial flowering plant in the family Crassulaceae. It grows in cold regions of Europe, Asia, and North America, particularly in mountainous areas and the Arctic. The plant has been used for centuries in traditional medicine in Russia and Scandinavia to increase physical endurance and work productivity. Vikings reportedly used it to enhance physical strength. The root contains rosavins and salidroside, which are believed to be responsible for its adaptogenic properties. Clinical studies suggest benefits for fatigue, depression, and cognitive function under stress.",
+      "seo_description": "Rhodiola (Rhodiola rosea)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "10–35 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Blue-green (foliage)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Alpin"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Arktis und Hochgebirge der Nordhemisphaere (Alp..."
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Crassulaceae",
+        "Saxifragales"
+      ],
+      "keywords": [
+        "alpenpflanze",
+        "alpin",
+        "felsspalten, alpine rasen",
+        "felsige standorte in grosser hoehe",
+        "kuesten, arktische tundra",
+        "rhodiola",
+        "golden root",
+        "arctic root",
+        "roseroot",
+        "king's crown",
+        "sedum rosea (l.) scop.",
+        "sedum rhodiola dc.",
+        "rhodiola arctica boriss.",
+        "magnoliopsida",
+        "saxifragales",
+        "crassulaceae",
+        "rosenwurz (de)",
+        "rhodiole (fr)",
+        "rodiola (es)",
+        "rodiola rosea (it)",
+        "hong jing tian (cn)",
+        "rocky mountain slopes",
+        "arctic tundra",
+        "sea cliffs",
+        "rhodiolae roseae radix et rhizoma",
+        "adaptogen",
+        "nootropikum",
+        "antidepressivum"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "calvatia-gigantea",
+      "slug": "calvatia-gigantea",
+      "name": "Riesenbovist",
+      "scientific_name": "Calvatia gigantea",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/calvatia-gigantea.webp",
+      "tagline": null,
+      "description": "Der Riesenbovist (Calvatia gigantea) ist einer der groessten Pilze der Welt und kann Durchmesser von bis zu einem Meter und Gewichte von 15 kg erreichen. Der kugelfoermige, weisse Fruchtkoerper waechst auf Wiesen, in Parks und an Waldraendern. Jung und innen weiss ist er ein ausgezeichneter Speisepilz. Historisch wurde er als Wundverband genutzt und enthalt das Antitumor-Protein Calvacin.",
+      "seo_description": "Riesenbovist (Calvatia gigantea)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "10–100 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Weiss (jung)"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Agaricaceae",
+        "Agaricales"
+      ],
+      "keywords": [
+        "riesenbovist",
+        "riesenstaubling",
+        "giant puffball",
+        "langermannia gigantea (batsch) rostk.",
+        "lycoperdon giganteum batsch",
+        "bovista gigantea (batsch) gray",
+        "agaricomycetes",
+        "agaricales",
+        "agaricaceae",
+        "calvatia"
+      ],
+      "perspectives": [
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 2,
+      "engagement_score": 20
+    },
+    {
+      "id": "stropharia-rugosoannulata",
+      "slug": "stropharia-rugosoannulata",
+      "name": "Riesentraeuschlinge",
+      "scientific_name": "Stropharia rugosoannulata",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/stropharia-rugosoannulata.webp",
+      "tagline": "Mai–Okt",
+      "description": "Der Rotbraune Riesentraeuschlinge (Stropharia rugosoannulata), auch Braunkappe oder Kulturtraeuschlinge genannt, ist ein ausgezeichneter Speisepilz aus der Familie Strophariaceae. Mit Hueten von 4-13 cm Durchmesser und rotbrauner Faerbung zaehlt er zu den groessten Traeuschlingsarten. Er wird erfolgreich auf Stroh und Holzhaecksel kultiviert und eignet sich hervorragend fuer den Gartenanbau. Oekologisch interessant ist seine Faehigkeit zur Bodensanierung - er kann Schadstoffe wie Schwermetalle und organische Verbindungen aus dem Boden aufnehmen.",
+      "seo_description": "Riesentraeuschlinge (Stropharia rugosoannulata)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "10–30 cm"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Anthropogen beeinflusst"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Stroh (besonders Weizenstroh)"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Nordamerika (urspruenglich), jetzt weltweit kul..."
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "info"
+        }
+      ],
+      "season": "Mai–Okt",
+      "categories": [
+        "Strophariaceae",
+        "Agaricales"
+      ],
+      "keywords": [
+        "zersetzung organischer materialien",
+        "naehrstofffreisetzung",
+        "bodenverbesserung",
+        "mykoremediation",
+        "anthropogen beeinflusst",
+        "gaerten, kompost, landwirtschaftliche flaechen",
+        "stroh- und holzhaeckselbeete",
+        "kompost, gartenbeete, mulchflaechen",
+        "stroh (besonders weizenstroh)",
+        "holzhaecksel",
+        "kompost",
+        "gartenabfaelle",
+        "laub",
+        "hackschnitzel",
+        "riesentraeuschling",
+        "rotbrauner riesentraeuschling",
+        "braunkappe",
+        "kulturtraeuschling",
+        "wine cap",
+        "king stropharia",
+        "garden giant",
+        "naematoloma rugosoannulatum (farl. ex murrill) kreisel",
+        "psilocybe rugosoannulata (farl. ex murrill) noordel.",
+        "agaricomycetes",
+        "agaricales",
+        "strophariaceae",
+        "stropharia",
+        "wine cap (en)",
+        "king stropharia (en)",
+        "garden giant (en)"
+      ],
+      "perspectives": [
+        "culinary",
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "chamaemelum-nobile",
+      "slug": "chamaemelum-nobile",
+      "name": "Roman Chamomile",
+      "scientific_name": "Chamaemelum nobile",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/chamaemelum-nobile.webp",
+      "tagline": null,
+      "description": "Chamaemelum nobile, commonly known as Roman chamomile or English chamomile, is a low-growing perennial plant in the family Asteraceae. Native to Western Europe and North Africa, it has been used medicinally for over 2000 years. The ancient Egyptians dedicated it to their sun god Ra. Chamomile contains chamazulene, bisabolol, and apigenin, which provide anti-inflammatory, antispasmodic, and mild sedative effects. The dried flowers are commonly used to make herbal tea, one of the most popular herbal beverages worldwide, valued for its calming properties.",
+      "seo_description": "Roman Chamomile (Chamaemelum nobile)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "10–30 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "White (ray flowers)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Grasland"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Westeuropa (Atlantikkueste), Nordafrika"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Asteraceae",
+        "Asterales"
+      ],
+      "keywords": [
+        "bodendecker",
+        "bestaeubungsmagnet",
+        "erosionsschutz",
+        "grasland",
+        "kurzrasen, weiden",
+        "kurzgrasige, sandige standorte",
+        "wegraender, trittrasen",
+        "roman chamomile",
+        "english chamomile",
+        "garden chamomile",
+        "true chamomile",
+        "anthemis nobilis l.",
+        "chamomilla nobilis (l.) godr.",
+        "ormenis nobilis (l.) coss. & germ.",
+        "magnoliopsida",
+        "asterales",
+        "asteraceae",
+        "chamaemelum",
+        "roemische kamille (de)",
+        "camomille romaine (fr)",
+        "manzanilla romana (es)",
+        "camomilla romana (it)",
+        "sandy, well-drained soils",
+        "coastal grasslands",
+        "lawns and paths",
+        "chamomillae romanae flos",
+        "antiinflammatorium",
+        "spasmolytikum",
+        "sedativum"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "rosmarinus-officinalis",
+      "slug": "rosmarinus-officinalis",
+      "name": "Rosemary",
+      "scientific_name": "Salvia rosmarinus",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/rosmarinus-officinalis.webp",
+      "tagline": null,
+      "description": "Salvia rosmarinus (formerly Rosmarinus officinalis), commonly known as rosemary, is a woody, perennial herb native to the Mediterranean region. It belongs to the mint family Lamiaceae and has been used since ancient times as a culinary herb, medicinal plant, and in perfumery. The plant is rich in antioxidants and anti-inflammatory compounds, including rosmarinic acid and carnosic acid. Rosemary has been associated with memory enhancement, and historically symbolized remembrance and fidelity.",
+      "seo_description": "Rosemary (Salvia rosmarinus)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "30–200 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Dark green (leaf upper)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Mediterrane Macchie"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Mittelmeerraum (gesamte Kuestenregion)"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Lamiaceae",
+        "Lamiales"
+      ],
+      "keywords": [
+        "bestaeubungsmagnet",
+        "nektarquelle (ganzjaehrig in milden klimaten)",
+        "windschutz",
+        "mediterrane macchie",
+        "kuestenvegetation",
+        "trockene, sonnige felshaenge",
+        "kuestenduenen",
+        "rosemary",
+        "old man",
+        "compass weed",
+        "polar plant",
+        "rosmarinus officinalis l.",
+        "rosmarinus angustifolius mill.",
+        "rosmarinus latifolius mill.",
+        "magnoliopsida",
+        "lamiales",
+        "lamiaceae",
+        "salvia",
+        "rosmarin (de)",
+        "romarin (fr)",
+        "romero (es)",
+        "rosmarino (it)",
+        "mi die xiang (cn)",
+        "well-drained, calcareous soils",
+        "coastal cliffs",
+        "rocky mediterranean terrain"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "pleurotus-djamor",
+      "slug": "pleurotus-djamor",
+      "name": "Rosenseitling",
+      "scientific_name": "Pleurotus djamor",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/pleurotus-djamor.webp",
+      "tagline": null,
+      "description": "Der Rosenseitling (Pleurotus djamor) ist ein spektakulaerer tropischer Speisepilz mit rosaroten bis lachsfarbenen Hueten. Er stammt aus den Tropen und Subtropen, wo er auf Palmen, Bambus und anderen Hoelzern waechst. Fuer die Kultivierung benoetigt er hohe Temperaturen (20-30 Grad Celsius) und hohe Luftfeuchtigkeit. Sein beissender, leicht mandelartiger Geruch ist charakteristisch.",
+      "seo_description": "Rosenseitling (Pleurotus djamor)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "2–10 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "rosarot"
+        }
+      ],
+      "highlights": [],
+      "badges": [],
+      "season": null,
+      "categories": [
+        "Pleurotaceae",
+        "Agaricales"
+      ],
+      "keywords": [
+        "rosenseitling",
+        "rosafarbener seitling",
+        "rosenroter seitling",
+        "pink oyster",
+        "pleurotus salmoneostramineus",
+        "agaricomycetes",
+        "agaricales",
+        "pleurotaceae",
+        "pleurotus"
+      ],
+      "perspectives": [
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 2,
+      "engagement_score": 20
+    },
+    {
+      "id": "crocus-sativus",
+      "slug": "crocus-sativus",
+      "name": "Saffron Crocus",
+      "scientific_name": "Crocus sativus",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/crocus-sativus.webp",
+      "tagline": null,
+      "description": "Crocus sativus, commonly known as saffron crocus, is a species of flowering plant in the iris family Iridaceae. It is cultivated for saffron spice, derived from the dried stigmas of its flowers. Saffron is the world's most expensive spice by weight, requiring approximately 150,000 flowers to produce one kilogram. The plant originated in Greece or Southwest Asia and has been cultivated for over 3500 years. Each flower produces only three stigmas, which must be hand-picked during a narrow harvest window. Saffron contains crocin, picrocrocin, and safranal, which provide its characteristic color, flavor, and aroma.",
+      "seo_description": "Saffron Crocus (Crocus sativus)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "10–20 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Purple (flowers)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Kulturlandschaft"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Unbekannt (nur in Kultur, wahrscheinlich Griech..."
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "info"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Low (toxic in very large amounts)",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Iridaceae",
+        "Asparagales"
+      ],
+      "keywords": [
+        "herbstblueher",
+        "kulturlandschaft",
+        "kultivierte felder",
+        "gut drainierte kulturboeden",
+        "saffron crocus",
+        "saffron",
+        "autumn crocus",
+        "spanish saffron",
+        "crocus officinalis honck.",
+        "crocus orsinii parl.",
+        "crocus pendulus stokes",
+        "liliopsida",
+        "asparagales",
+        "iridaceae",
+        "crocus",
+        "safran (de)",
+        "safran (fr)",
+        "azafran (es)",
+        "zafferano (it)",
+        "fan hong hua (cn)",
+        "well-drained, calcareous soils",
+        "mediterranean climates",
+        "cultivated fields"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "flammulina-velutipes",
+      "slug": "flammulina-velutipes",
+      "name": "Samtfussruebling",
+      "scientific_name": "Flammulina velutipes",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/flammulina-velutipes.webp",
+      "tagline": "Okt–Mär",
+      "description": "Der Samtfussruebling (Flammulina velutipes), auch bekannt als Enoki oder Winterpilz, ist ein beliebter Speisepilz mit charakteristisch samtig-braunem Stiel. Er waechst vorzugsweise auf Laubholz und ist einer der wenigen Pilze, die auch bei Frost fruktifizieren koennen. Der kultivierte Enoki mit seinen langen weissen Stielen unterscheidet sich stark vom wild wachsenden Pilz. Er gilt als Vitalpilz mit immunstaerkenden Eigenschaften.",
+      "seo_description": "Samtfussruebling (Flammulina velutipes)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "1–5 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "gelborange"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Laubholz"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Nordhemisphaere, kosmopolitisch"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Okt–Mär",
+      "categories": [
+        "Physalacriaceae",
+        "Agaricales"
+      ],
+      "keywords": [
+        "enoki",
+        "enokitake",
+        "golden needle mushroom",
+        "wald",
+        "laubwald",
+        "stehendes totholz",
+        "liegendes holz",
+        "laubholz",
+        "eiche",
+        "buche",
+        "weide",
+        "pappel",
+        "birke",
+        "erle",
+        "samtfussruebling",
+        "gemeiner samtfussruebling",
+        "winterruebling",
+        "winter mushroom",
+        "velvet foot",
+        "collybia velutipes",
+        "agaricus velutipes",
+        "agaricomycetes",
+        "agaricales",
+        "physalacriaceae",
+        "flammulina"
+      ],
+      "perspectives": [
+        "culinary",
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "trametes-versicolor",
+      "slug": "trametes-versicolor",
+      "name": "Schmetterlingstramete",
+      "scientific_name": "Trametes versicolor",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/trametes-versicolor.webp",
+      "tagline": "Jan–Dez",
+      "description": "Die Schmetterlingstramete (Trametes versicolor), auch Bunte Tramete oder Turkey Tail genannt, ist einer der haeufigsten und medizinisch bedeutsamsten Porlinge weltweit. Der faecher- bis rosettenfoermige Fruchtkörper zeigt charakteristische konzentrische Farbzonen in Grau-, Braun-, Blau- und Gruentoenen. Als Weissfaeulerreger zersetzt sie Totholz von Laubbaeumen. Sie ist Quelle von PSK (Krestin) und PSP, die in Asien als zugelassene Krebsmedikamente eingesetzt werden und das Immunsystem stimulieren.",
+      "seo_description": "Schmetterlingstramete (Trametes versicolor)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "2–10 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Mehrfarbig zoniert"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Totholz von Laubbaeumen"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Weltweit in temperaten Regionen"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jan–Dez",
+      "categories": [
+        "Polyporaceae",
+        "Polyporales"
+      ],
+      "keywords": [
+        "holzabbau und naehrstoffrecycling",
+        "kohlenstoffkreislauf",
+        "habitatbildung fuer insekten",
+        "wald",
+        "laub- und mischwald",
+        "totes laubholz",
+        "stuempfe, gefallene staemme, aeste",
+        "totholz von laubbaeumen",
+        "stuempfe",
+        "gefallene staemme",
+        "grosse aeste",
+        "selten nadelholz",
+        "schmetterlingstramete",
+        "bunte tramete",
+        "zonentramete",
+        "turkey tail",
+        "yunzhi",
+        "coriolus versicolor (l.) quel.",
+        "polyporus versicolor (l.) fr.",
+        "polystictus versicolor (l.) fr.",
+        "agaricomycetes",
+        "polyporales",
+        "polyporaceae",
+        "trametes",
+        "turkey tail (en)",
+        "tramete versicolore (fr)",
+        "kawaratake (jp)",
+        "yunzhi (cn)",
+        "cola de pavo (es)",
+        "besonders buche, eiche, birke"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "coprinus-comatus",
+      "slug": "coprinus-comatus",
+      "name": "Schopftintling",
+      "scientific_name": "Coprinus comatus",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/coprinus-comatus.webp",
+      "tagline": null,
+      "description": "Der Schopftintling (Coprinus comatus), auch Spargelpilz genannt, ist ein ausgezeichneter Speisepilz mit charakteristischer zylindrischer Form und schuppiger weisser Oberflaeche. Er waechst oft in unerwarteten Orten wie Rasenfaechen, Wegrändern und auf gedüngten Boeden. Einzigartig ist seine Deliqueszenz - die reifen Lamellen zerfliessen zu einer schwarzen, sporenhaltigen Fluessigkeit. Er wird auf antidiabetische und antitumorale Eigenschaften untersucht.",
+      "seo_description": "Schopftintling (Coprinus comatus)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "5–20 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Weiss mit braunen Schuppen am Scheitel"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Agaricaceae",
+        "Agaricales"
+      ],
+      "keywords": [
+        "schopftintling",
+        "spargelpilz",
+        "tintenpilz",
+        "porzellantintling",
+        "agaricus comatus o.f. müll.",
+        "agaricus cylindricus sowerby",
+        "coprinus ovatus (schaeff.) fr.",
+        "agaricomycetes",
+        "agaricales",
+        "agaricaceae",
+        "coprinus",
+        "shaggy mane (en)",
+        "lawyers wig (en)",
+        "coprin chevelu (fr)",
+        "maotou-guisan (cn)",
+        "rasen",
+        "wiesen",
+        "wegränder",
+        "holzhackschnitzel",
+        "gedüngte böden"
+      ],
+      "perspectives": [
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 2,
+      "engagement_score": 20
+    },
+    {
+      "id": "laetiporus-sulphureus",
+      "slug": "laetiporus-sulphureus",
+      "name": "Schwefelporling",
+      "scientific_name": "Laetiporus sulphureus",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/laetiporus-sulphureus.webp",
+      "tagline": "Mai–Okt",
+      "description": "Der Schwefelporling (Laetiporus sulphureus), auch 'Chicken of the Woods' genannt, ist ein auffaelliger, schwefelgelb-orange gefaerbter Baumsporling. Er waechst hauptsaechlich auf Laubhoelzern und ist ein aggressiver Holzzersetzer, der Braunfaeule verursacht. Jung ist er ein guter Speisepilz mit huehnchenartigem Geschmack, wird aber mit dem Alter zaeh. Roh ist er unvertraeglich aufgrund von Oxalsaeure.",
+      "seo_description": "Schwefelporling (Laetiporus sulphureus)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "5–50 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "schwefelgelb"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Laubholz"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Nordhemisphaere, kosmopolitisch"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Mai–Okt",
+      "categories": [
+        "Polyporaceae",
+        "Polyporales"
+      ],
+      "keywords": [
+        "chicken of the woods",
+        "wald",
+        "laubwald",
+        "lebende laubbaeume",
+        "tote staemme und stubben",
+        "laubholz",
+        "eiche",
+        "weide",
+        "kirsche",
+        "buche",
+        "nussbaum",
+        "schwefelporling",
+        "gemeiner schwefelporling",
+        "eierporling",
+        "sulphur shelf",
+        "polyporus sulphureus",
+        "sulphurina sulphurea",
+        "agaricomycetes",
+        "polyporales",
+        "polyporaceae",
+        "laetiporus"
+      ],
+      "perspectives": [
+        "culinary",
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "lentinula-edodes",
+      "slug": "lentinula-edodes",
+      "name": "Shiitake",
+      "scientific_name": "Lentinula edodes",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/lentinula-edodes.webp",
+      "tagline": "Immunstimulation · Apr–Nov",
+      "description": "Der Shiitake (Lentinula edodes) ist nach dem Champignon der meistangebaute Speisepilz weltweit und ein bedeutender Vitalpilz. Er stammt aus Ostasien und waechst dort natuerlich auf Shii-Baeumen und anderen Harthoelzern. Der Inhaltsstoff Lentinan ist in Japan als Krebsmedikament zugelassen. Shiitake ist reich an Vitamin D und hat immunstimulierende, antivirale und cholesterinsenkende Eigenschaften.",
+      "seo_description": "Shiitake (Lentinula edodes). Heilwirkung: Immunstimulation, Krebs-Begleittherapie",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "5–25 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "dunkelbraun"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Laubholz"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Ostasien (China, Japan, Korea)"
+        }
+      ],
+      "highlights": [
+        "Immunstimulation",
+        "Krebs-Begleittherapie",
+        "Cholesterinsenkung"
+      ],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "neutral"
+        }
+      ],
+      "season": "Apr–Nov",
+      "categories": [
+        "Omphalotaceae",
+        "Agaricales"
+      ],
+      "keywords": [
+        "wald",
+        "laubwald",
+        "tote laubholzstaemme",
+        "stubben",
+        "laubholz",
+        "shii-baum (castanopsis cuspidata)",
+        "eiche",
+        "buche",
+        "erle",
+        "shiitake",
+        "shii-take",
+        "chinesischer champignon",
+        "black forest mushroom",
+        "golden oak mushroom",
+        "lentinus edodes",
+        "agaricomycetes",
+        "agaricales",
+        "omphalotaceae",
+        "lentinula",
+        "onkologie",
+        "hiv/aids",
+        "kardiologie",
+        "immunologie"
+      ],
+      "perspectives": [
+        "culinary",
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 5,
+      "engagement_score": 145
+    },
+    {
+      "id": "morchella-esculenta",
+      "slug": "morchella-esculenta",
+      "name": "Speisemorchel",
+      "scientific_name": "Morchella esculenta",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/morchella-esculenta.webp",
+      "tagline": "Mär–Mai",
+      "description": "Die Speisemorchel (Morchella esculenta) ist ein begehrter Fruehlingspilz aus der Familie Morchellaceae. Der charakteristische wabenartige Hut mit tiefen Hohlkammern und der hohle Stiel machen sie unverwechselbar. Sie waechst von Maerz bis Mai in Auwaeldern, Parks und auf kalkreichen Boeden, oft in Begleitung von Eschen. Morcheln duerfen niemals roh verzehrt werden, da sie den hitzeempfindlichen Giftstoff Gyromitrin enthalten. Richtig zubereitet gehoeren sie zu den kulinarisch wertvollsten Pilzen mit intensivem, nussig-wuerzigem Aroma.",
+      "seo_description": "Speisemorchel (Morchella esculenta)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "4–17 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Gelbbraun bis hellbraun"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Temperater Laubwald"
+        },
+        {
+          "icon": "🌳",
+          "label": "Substrat",
+          "value": "Humusreicher Boden"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Europa, Nordamerika, Asien"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Mär–Mai",
+      "categories": [
+        "Morchellaceae",
+        "Pezizales"
+      ],
+      "keywords": [
+        "naehrstoffkreislauf",
+        "moeglicherweise naehrstofftransfer zu baeumen",
+        "zersetzung organischer stoffe im fruehling",
+        "temperater laubwald",
+        "auwald, hartholzwald",
+        "boden unter laubbaeumen",
+        "waldraender, parks, alte obstgaerten",
+        "humusreicher boden",
+        "laubstreu",
+        "brandflaechen",
+        "mulchbeete",
+        "speisemorchel",
+        "gelbe morchel",
+        "rundmorchel",
+        "common morel",
+        "yellow morel",
+        "true morel",
+        "sponge morel",
+        "phallus esculentus l. 1753",
+        "morchella rotunda (pers.) boud. 1897",
+        "morchella crassipes (vent.) pers. 1801",
+        "pezizomycetes",
+        "pezizales",
+        "morchellaceae",
+        "morchella",
+        "common morel (en)",
+        "yellow morel (en)",
+        "morille commune (fr)",
+        "morchella comune (it)",
+        "colmenilla (es)"
+      ],
+      "perspectives": [
+        "culinary",
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "hypericum-perforatum",
+      "slug": "hypericum-perforatum",
+      "name": "St. John's Wort",
+      "scientific_name": "Hypericum perforatum",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/hypericum-perforatum.webp",
+      "tagline": null,
+      "description": "Hypericum perforatum, commonly known as St. John's wort, is a flowering plant in the family Hypericaceae native to Europe. It has been used in traditional medicine for centuries to treat depression, anxiety, and sleep disorders. The plant derives its common name from its traditional flowering and harvesting on St. John's Day (June 24). It contains hypericin and hyperforin, which are believed to be responsible for its antidepressant effects. Clinical studies have shown it to be effective for mild to moderate depression, though it has significant drug interactions.",
+      "seo_description": "St. John's Wort (Hypericum perforatum)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "30–90 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Yellow (flowers)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Grasland"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Europa, Westasien, Nordafrika"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Low toxicity but significant drug interactions",
+          "variant": "warning"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Hypericaceae",
+        "Malpighiales"
+      ],
+      "keywords": [
+        "pionierpflanze",
+        "bestaeubungsmagnet",
+        "erosionsschutz",
+        "grasland",
+        "magerrasen, ruderalflaechen",
+        "trockene, sonnige standorte",
+        "waldraender, wegboeschungen",
+        "st. john's wort",
+        "perforate st. john's wort",
+        "common st. john's wort",
+        "klamath weed",
+        "hypericum officinarum crantz",
+        "hypericum vulgare lam.",
+        "hypericum noeanum boiss.",
+        "magnoliopsida",
+        "malpighiales",
+        "hypericaceae",
+        "hypericum",
+        "echtes johanniskraut (de)",
+        "millepertuis perfore (fr)",
+        "hierba de san juan (es)",
+        "iperico (it)",
+        "guan ye lian qiao (cn)",
+        "dry grasslands",
+        "roadsides and disturbed areas",
+        "woodland edges",
+        "hyperici herba",
+        "antidepressivum",
+        "anxiolytikum",
+        "vulnerarium"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "urtica-dioica",
+      "slug": "urtica-dioica",
+      "name": "Stinging Nettle",
+      "scientific_name": "Urtica dioica",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/urtica-dioica.webp",
+      "tagline": null,
+      "description": "Urtica dioica, commonly known as stinging nettle, is a herbaceous perennial flowering plant native to Europe, Asia, northern Africa, and western North America. The leaves and stems are covered with stinging hairs (trichomes) that inject histamine and formic acid upon contact. Despite its sting, nettle has been used as a food source and medicine for thousands of years. The plant is exceptionally nutritious, containing high levels of iron, calcium, vitamins A and C, and protein. Medicinally, it is used to treat allergies, arthritis, and urinary disorders. The fibers have been used to make cloth since the Bronze Age.",
+      "seo_description": "Stinging Nettle (Urtica dioica)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "30–200 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Green"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Ruderalflaeche"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Eurasien, Nordamerika (circumboreal)"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic when cooked (stinging hairs)",
+          "variant": "warning"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Urticaceae",
+        "Rosales"
+      ],
+      "keywords": [
+        "stickstoffzeiger",
+        "nahrungspflanze fuer schmetterlingsraupen",
+        "uferbefestigung",
+        "ruderalflaeche",
+        "stickstoffreiche standorte",
+        "naehrstoffreiche, gestorte boeden",
+        "waldraender, bachraender",
+        "stinging nettle",
+        "common nettle",
+        "nettle",
+        "burn nettle",
+        "urtica major kanitz",
+        "urtica urens var. dioica (l.) wedd.",
+        "urtica gracilis aiton",
+        "magnoliopsida",
+        "rosales",
+        "urticaceae",
+        "urtica",
+        "brennnessel (de)",
+        "grande ortie (fr)",
+        "ortiga (es)",
+        "ortica (it)",
+        "xun ma (cn)",
+        "nitrogen-rich soils",
+        "disturbed ground",
+        "woodland edges, riversides",
+        "urticae folium",
+        "urticae radix",
+        "diuretikum",
+        "antirheumatikum"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "cyclocybe-cylindracea",
+      "slug": "cyclocybe-cylindracea",
+      "name": "Suedlicher Ackerling",
+      "scientific_name": "Cyclocybe cylindracea",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/cyclocybe-cylindracea.webp",
+      "tagline": null,
+      "description": "Der Suedliche Ackerling (Cyclocybe cylindracea), auch bekannt als Pioppino, Samthaube oder Suedlicher Schueppling, ist ein ausgezeichneter Speisepilz der waermeren Regionen. Er waechst bevorzugt an Pappeln, Weiden und anderen Laubhoelzern, sowohl saprotroph als auch parasitaer. Der Pilz ist in Suedeuropa und den suedoestlichen USA heimisch und wird kommerziell kultiviert. Mit seinem milden Geschmack und der festen Textur ist er in der mediterranen und asiatischen Kueche sehr geschaetzt.",
+      "seo_description": "Suedlicher Ackerling (Cyclocybe cylindracea)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "3–30 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Creme-weiss bis ocker-braeunlich"
+        },
+        {
+          "icon": "👅",
+          "label": "Geschmack",
+          "value": "[object Object], [object Object], [object Object]"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Strophariaceae",
+        "Agaricales"
+      ],
+      "keywords": [
+        "agrocybe cylindracea",
+        "agrocybe aegerita",
+        "pioppino",
+        "laubholz, besonders pappeln, weiden, ahorne",
+        "eichen-saegemehl mit zusaetzen",
+        "erlen-saegemehl mit zusaetzen",
+        "weidenholz",
+        "pappelholz",
+        "baumwollpappelholz",
+        "ahornholz",
+        "waechst am besten auf horizontalen als auf vertikalen oberflaechen",
+        "laubholz, besonders pappel-stuempfe und -staemme",
+        "erlenholz",
+        "ulmenholz",
+        "teeoel-baeume (in china)",
+        "laubholz-substrate",
+        "besonders pappeln und weiden",
+        "waermeliebend",
+        "gute feuchtigkeit",
+        "abbau von totholz",
+        "naehrstofffreisetzung",
+        "nahrungsquelle fuer insekten",
+        "suedlicher ackerling",
+        "suedlicher schueppling",
+        "samthaube",
+        "agrocybe cylindracea (dc.) maire 1933",
+        "agrocybe aegerita (v. brig.) singer 1951",
+        "agaricus cylindraceus dc. 1815",
+        "togaria cylindracea (dc.) romagn. 1937",
+        "agaricomycetes"
+      ],
+      "perspectives": [
+        "culinary",
+        "cultivation",
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 5,
+      "engagement_score": 50
+    },
+    {
+      "id": "ocimum-basilicum",
+      "slug": "ocimum-basilicum",
+      "name": "Sweet Basil",
+      "scientific_name": "Ocimum basilicum",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/ocimum-basilicum.webp",
+      "tagline": null,
+      "description": "Ocimum basilicum, commonly known as sweet basil or simply basil, is a culinary herb of the family Lamiaceae, native to tropical regions from Central Africa to Southeast Asia. It is a tender annual plant, best known for its use in Italian cuisine, particularly in pesto and tomato-based dishes. Basil contains eugenol, linalool, and estragole, giving it its characteristic aroma. The plant has been used in traditional medicine for digestive disorders, stress relief, and as an anti-inflammatory agent. Over 60 varieties of basil exist, varying in size, color, and flavor.",
+      "seo_description": "Sweet Basil (Ocimum basilicum)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "20–100 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Bright green"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Kulturlandschaft"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Tropisches Asien (Indien bis Suedostasien)"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "info"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Lamiaceae",
+        "Lamiales"
+      ],
+      "keywords": [
+        "bestaeubungsmagnet",
+        "nektarquelle",
+        "begleitpflanze",
+        "kulturlandschaft",
+        "garten, tropische walder",
+        "naehrstoffreiche, warme standorte",
+        "sweet basil",
+        "basil",
+        "genovese basil",
+        "common basil",
+        "ocimum album l.",
+        "ocimum bullatum lam.",
+        "ocimum citriodorum vis.",
+        "magnoliopsida",
+        "lamiales",
+        "lamiaceae",
+        "ocimum",
+        "basilikum (de)",
+        "basilic (fr)",
+        "albahaca (es)",
+        "basilico (it)",
+        "luo le (cn)",
+        "rich, moist, well-drained soil",
+        "garden beds",
+        "containers"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "pleurotus-columbinus",
+      "slug": "pleurotus-columbinus",
+      "name": "Taubenblauer Seitling",
+      "scientific_name": "Pleurotus columbinus",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/pleurotus-columbinus.webp",
+      "tagline": null,
+      "description": "Der Taubenblaue Seitling (Pleurotus columbinus) ist eine Variante des Austernseitlings mit charakteristisch blau-grauer Hutfarbe. Er waechst bevorzugt auf Nadelholz und wird ganzjaehrig kultiviert. Wie andere Pleurotus-Arten enthaelt er Pleurotolysin, das durch Erhitzen zerstoert wird - daher immer gut garen. Er hat immunstimulierende und cholesterinsenkende Eigenschaften.",
+      "seo_description": "Taubenblauer Seitling (Pleurotus columbinus)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "1–40 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "taubenblau"
+        }
+      ],
+      "highlights": [],
+      "badges": [],
+      "season": null,
+      "categories": [
+        "Pleurotaceae",
+        "Agaricales"
+      ],
+      "keywords": [
+        "taubenblauer seitling",
+        "taubenblauer austernseitling",
+        "gray dove oyster",
+        "pleurotus ostreatus var. columbinus",
+        "agaricomycetes",
+        "agaricales",
+        "pleurotaceae",
+        "pleurotus"
+      ],
+      "perspectives": [
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 2,
+      "engagement_score": 20
+    },
+    {
+      "id": "camellia-sinensis",
+      "slug": "camellia-sinensis",
+      "name": "Tea Plant",
+      "scientific_name": "Camellia sinensis",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/camellia-sinensis.webp",
+      "tagline": "Geschützt",
+      "description": "Camellia sinensis is an evergreen shrub or small tree whose leaves and leaf buds are used to produce tea. Native to East Asia, the plant is primarily cultivated in tropical and subtropical climates. All types of true tea (white, green, oolong, black, and pu-erh) come from this single species, with differences arising from processing methods. Tea is the second most consumed beverage in the world after water, and has been cultivated for over 5000 years. The plant contains caffeine, L-theanine, and catechins, which provide stimulant and antioxidant properties.",
+      "seo_description": "Tea Plant (Camellia sinensis)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "1–15 m"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Dark green"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Suedchina, Nordostindien, Myanmar, Nordthailand"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "DD",
+          "variant": "warning"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic (caffeine content)",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Theaceae",
+        "Ericales"
+      ],
+      "keywords": [
+        "unterholzbildner",
+        "wald",
+        "subtropischer regenwald",
+        "waldraender",
+        "bergwaelder",
+        "tea plant",
+        "tea shrub",
+        "tea tree",
+        "chinese tea",
+        "thea sinensis l.",
+        "camellia thea link",
+        "camellia theifera griff.",
+        "magnoliopsida",
+        "ericales",
+        "theaceae",
+        "camellia",
+        "teestrauch (de)",
+        "theier (fr)",
+        "planta de te (es)",
+        "cha (cn/jp)",
+        "acidic, well-drained soils",
+        "mountain slopes",
+        "humid subtropical regions",
+        "antioxidans",
+        "stimulans",
+        "neuroprotektivum"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "curcuma-longa",
+      "slug": "curcuma-longa",
+      "name": "Turmeric",
+      "scientific_name": "Curcuma longa",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/curcuma-longa.webp",
+      "tagline": null,
+      "description": "Curcuma longa, commonly known as turmeric, is a flowering plant of the ginger family Zingiberaceae, native to the Indian subcontinent and Southeast Asia. The rhizomes are used fresh or boiled, dried, and ground into a deep orange-yellow powder used as a spice and dye. Turmeric has been used in Ayurvedic medicine for nearly 4000 years. It contains curcumin, a polyphenol with powerful anti-inflammatory and antioxidant properties. India produces nearly all of the world's turmeric and consumes 80% of it.",
+      "seo_description": "Turmeric (Curcuma longa)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "60–100 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Green (leaves)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Suedostasien (Indien, Myanmar - genaue Herkunft..."
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "info"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Zingiberaceae",
+        "Zingiberales"
+      ],
+      "keywords": [
+        "unterholzpflanze",
+        "wald",
+        "tropischer monsunwald",
+        "feuchte, schattige standorte",
+        "waldlichtungen",
+        "turmeric",
+        "indian saffron",
+        "curcuma",
+        "yellow ginger",
+        "curcuma domestica valeton",
+        "amomum curcuma jacq.",
+        "curcuma tinctoria guibourt",
+        "liliopsida",
+        "zingiberales",
+        "zingiberaceae",
+        "kurkuma (de)",
+        "curcuma (fr)",
+        "curcuma (es)",
+        "curcuma (it)",
+        "jiang huang (cn)",
+        "ukon (jp)",
+        "rich, moist, well-drained soil",
+        "forest floors",
+        "tropical regions",
+        "antiinflammatorium",
+        "antioxidans",
+        "choleretikum",
+        "hepatoprotektivum"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "valeriana-officinalis",
+      "slug": "valeriana-officinalis",
+      "name": "Valerian",
+      "scientific_name": "Valeriana officinalis",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/valeriana-officinalis.webp",
+      "tagline": null,
+      "description": "Valeriana officinalis, commonly known as valerian, is a perennial flowering plant native to Europe and Asia. Its root has been used as a sedative and sleep aid since ancient Greek and Roman times. Hippocrates described its properties, and Galen prescribed it for insomnia. The root contains valerenic acid and isovaleric acid, which have sedative and anxiolytic properties. Valerian is one of the most commonly used herbal supplements for sleep disorders, often combined with hops or lemon balm. Interestingly, while sedating to humans, valerian has a stimulating effect on cats similar to catnip.",
+      "seo_description": "Valerian (Valeriana officinalis)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "80–150 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "White to pink (flowers)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Feuchtgebiet"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Europa, Nord- und Westasien"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Caprifoliaceae",
+        "Dipsacales"
+      ],
+      "keywords": [
+        "feuchtgebietsflora",
+        "bestaeubungsmagnet",
+        "uferbefestigung",
+        "feuchtgebiet",
+        "feuchte wiesen, bachraender",
+        "feuchte, halbschattige standorte",
+        "waldraender, graeben",
+        "valerian",
+        "garden valerian",
+        "common valerian",
+        "all-heal",
+        "garden heliotrope",
+        "valeriana exaltata mikan",
+        "valeriana sylvestris moench",
+        "valeriana palustris kreyer",
+        "magnoliopsida",
+        "dipsacales",
+        "caprifoliaceae",
+        "valeriana",
+        "echter baldrian (de)",
+        "valeriane officinale (fr)",
+        "valeriana (es/it)",
+        "xie cao (cn)",
+        "moist grasslands",
+        "woodland edges",
+        "stream banks",
+        "valerianae radix",
+        "sedativum",
+        "hypnotikum",
+        "anxiolytikum"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "perspective_count": 4,
+      "engagement_score": 40
+    },
+    {
+      "id": "artemisia-absinthium",
+      "slug": "artemisia-absinthium",
+      "name": "Wormwood",
+      "scientific_name": "Artemisia absinthium",
+      "kingdom": "plantae",
+      "kingdom_icon": "🌿",
+      "image": "/images/species/artemisia-absinthium.webp",
+      "tagline": null,
+      "description": "Artemisia absinthium, commonly known as wormwood, grand wormwood, or absinthe wormwood, is a perennial plant native to temperate regions of Eurasia and Northern Africa. It is best known as the key ingredient in absinthe, the notorious green spirit that was banned in many countries in the early 20th century. The plant contains thujone, a compound once blamed for absinthe's alleged hallucinogenic effects, though modern research shows thujone levels in properly distilled absinthe are too low to cause such effects. Wormwood has been used medicinally since ancient times to treat digestive disorders and as an antiparasitic.",
+      "seo_description": "Wormwood (Artemisia absinthium)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "40–120 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "Silvery-grey (foliage)"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Trockenrasen"
+        },
+        {
+          "icon": "🌍",
+          "label": "Verbreitung",
+          "value": "Eurasien (Mittelmeerraum bis Sibirien)"
+        }
+      ],
+      "highlights": [],
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        },
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Moderate (thujone content)",
+          "variant": "warning"
+        }
+      ],
+      "season": null,
+      "categories": [
+        "Asteraceae",
+        "Asterales"
+      ],
+      "keywords": [
+        "steppenflora",
+        "trockenrasen",
+        "steppen, ruderalflaechen",
+        "trockene, sonnige standorte",
+        "wegraender, bahndaemme",
+        "wormwood",
+        "grand wormwood",
+        "absinthe wormwood",
+        "absinthium",
+        "common wormwood",
+        "absinthium vulgare lam.",
+        "artemisia pendula salisb.",
+        "artemisia rehan chiov.",
+        "magnoliopsida",
+        "asterales",
+        "asteraceae",
+        "artemisia",
+        "wermut (de)",
+        "absinthe (fr)",
+        "ajenjo (es)",
+        "assenzio (it)",
+        "ku ai (cn)",
+        "dry, rocky soils",
+        "roadsides and waste ground",
+        "calcareous soils",
+        "monoterpenes (thujone)"
+      ],
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 3,
+      "engagement_score": 30
+    },
+    {
+      "id": "pleurotus-citrinopileatus",
+      "slug": "pleurotus-citrinopileatus",
+      "name": "Zitronenseitling",
+      "scientific_name": "Pleurotus citrinopileatus",
+      "kingdom": "fungi",
+      "kingdom_icon": "🍄",
+      "image": "/images/species/pleurotus-citrinopileatus.webp",
+      "tagline": null,
+      "description": "Der Zitronenseitling (Pleurotus citrinopileatus), auch Golden Oyster genannt, ist ein spektakulaerer Speisepilz mit leuchtend zitronengelben Hueten. Er waechst in grossen Buescheln und stammt urspruenglich aus Asien. Der Pilz ist reich an Vitaminen (A, B, C, D) und hat einen milden, nussigen Geschmack mit cashew-artigen Nuancen. Er soll bei Lungenemphysemen wirksam sein.",
+      "seo_description": "Zitronenseitling (Pleurotus citrinopileatus)",
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "2–5 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "zitronengelb"
+        }
+      ],
+      "highlights": [],
+      "badges": [],
+      "season": null,
+      "categories": [
+        "Pleurotaceae",
+        "Agaricales"
+      ],
+      "keywords": [
+        "zitronenseitling",
+        "limonenseitling",
+        "golden oyster",
+        "yellow oyster",
+        "tamogitake",
+        "agaricomycetes",
+        "agaricales",
+        "pleurotaceae",
+        "pleurotus"
+      ],
+      "perspectives": [
+        "identification",
+        "safety"
+      ],
+      "perspective_count": 2,
+      "engagement_score": 20
     }
+  ],
+  "featured": [
+    "grifola-frondosa",
+    "hericium-erinaceus",
+    "ganoderma-lucidum",
+    "inonotus-obliquus",
+    "lentinula-edodes",
+    "cordyceps-militaris",
+    "fomitopsis-betulina",
+    "agaricus-subrufescens",
+    "cyclocybe-cylindracea",
+    "flammulina-velutipes"
   ]
 }

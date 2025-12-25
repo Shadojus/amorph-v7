@@ -1,0 +1,147 @@
+{
+  "scientific_name": "Melissa officinalis",
+  "author_citation": "L. 1753",
+  "accepted_name": "Melissa officinalis L.",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Magnoliopsida",
+  "taxonomy_order": "Lamiales",
+  "taxonomy_family": "Lamiaceae",
+  "taxonomy_genus": "Melissa",
+  "taxonomy_species": "officinalis",
+  "synonyms": [
+    "Melissa altissima Sm.",
+    "Melissa cordifolia Pers.",
+    "Melissa graveolens Host"
+  ],
+  "common_names": [
+    "Lemon Balm",
+    "Balm",
+    "Common Balm",
+    "Bee Balm",
+    "Sweet Balm"
+  ],
+  "international_names": [
+    "Zitronenmelisse (DE)",
+    "Melisse (FR)",
+    "Melisa (ES)",
+    "Melissa (IT)",
+    "Xiang Feng Cao (CN)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Strong lemon scent when crushed", "status": "pending"},
+    {"step": 2, "label": "Heart-shaped, toothed leaves", "status": "pending"},
+    {"step": 3, "label": "Square stems (Lamiaceae)", "status": "pending"},
+    {"step": 4, "label": "Opposite leaves", "status": "pending"},
+    {"step": 5, "label": "Small white to pale yellow flowers", "status": "pending"},
+    {"step": 6, "label": "Bushy perennial 30-100 cm", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 3,
+  "minimum_equipment_needed": [
+    "No equipment required"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Mentha species (Mints)",
+    "Nepeta cataria (Catnip)",
+    "Lamium album (White Dead-nettle)"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "none", "typ": "Other Lamiaceae", "beschreibung": "Similar species are also edible herbs"}
+  ],
+  "key_differentiating_features": [
+    "Distinctive strong lemon scent",
+    "Heart-shaped (cordate) leaves",
+    "Wrinkled, nettle-like appearance",
+    "Crenate (round-toothed) margins",
+    "Flowers in whorls in leaf axils"
+  ],
+  "habit": "Herbaceous perennial",
+  "growth_form": "Bushy, clump-forming",
+  "symmetry": "bilateral",
+  "size_range": {
+    "min": 30,
+    "max": 100,
+    "unit": "cm"
+  },
+  "size_typical_cm": 60,
+  "basic_shape": "Bushy herb with lemon-scented leaves",
+  "height": {
+    "min": 30,
+    "max": 100,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 40,
+    "max": 80,
+    "unit": "cm"
+  },
+  "surface_type": "Soft, slightly hairy",
+  "color_primary": "Green (foliage)",
+  "color_secondary": "White to pale yellow (flowers)",
+  "color_variations": [
+    "Some cultivars have variegated leaves"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf",
+  "primary_structure_diameter": {
+    "min": 3,
+    "max": 7,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Heart-shaped, wrinkled",
+  "primary_structure_shape_mature": "Ovate-cordate, crenate margins",
+  "primary_structure_surface": "Soft, wrinkled, slightly hairy",
+  "primary_structure_color": "Bright green",
+  "support_structure_present": true,
+  "support_structure_type": "Stem (square, herbaceous)",
+  "support_structure_color": "Green",
+  "flower_present": true,
+  "flower_type": "Small, tubular, in whorls",
+  "flower_color": "White to pale yellow",
+  "flower_size": {
+    "min": 0.8,
+    "max": 1.2,
+    "unit": "cm"
+  },
+  "flowering_period": "June to September",
+  "smell_description": "Strong, fresh lemon scent",
+  "smell_comparable_to": "Lemon peel, citral, fresh and clean",
+  "taste_safe_to_test": true,
+  "taste_description": "Mild, lemony, slightly minty",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "New growth emerges",
+    "summer": "Full growth, flowering",
+    "autumn": "Reduced growth",
+    "winter": "Dies back to ground"
+  },
+  "season_peak_months": [6, 7, 8],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis",
+  "substrate_species": [
+    "Rich, moist soils",
+    "Garden settings",
+    "Woodland edges"
+  ],
+  "source": {
+    "authors": "Kennedy, D.O. et al.",
+    "year": 2002,
+    "title": "Modulation of mood and cognitive performance following acute administration of single doses of Melissa officinalis",
+    "journal": "Pharmacology, Biochemistry and Behavior",
+    "doi": "10.1016/S0091-3057(02)00866-X"
+  }
+}

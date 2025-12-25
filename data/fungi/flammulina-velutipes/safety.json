@@ -1,0 +1,63 @@
+{
+  "safety_edibility_status": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "safety_edibility_confidence": {
+    "value": 95,
+    "max": 100,
+    "unit": "%"
+  },
+  "safety_edibility_notes": "Guter Speisepilz, weltweit kultiviert. Rohe Pilze sollten vermieden werden. Schleimiger Hut ist geschmacksache.",
+  "safety_potentially_deadly": false,
+  "safety_toxicity_score": {
+    "value": 5,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_warning_level": {
+    "status": "caution",
+    "variant": "warning"
+  },
+  "safety_warning_text": "WICHTIG: Verwechslungsgefahr mit dem toedlich giftigen Gifthaeuptling (Galerina marginata)! Nur sammeln bei sicherer Artkenntnis.",
+  "safety_summary": "Guter Speisepilz aber kritische Verwechslungsgefahr mit Galerina marginata. Samtig behaarter Stiel als Schluesselmerkal beachten.",
+  "safety_risk_inherent": {
+    "value": 5,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_confusion": {
+    "value": 75,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "confusion_partner": [
+    {"name": "Galerina marginata", "type": "toedlich giftig", "intensity": 85},
+    {"name": "Gymnopilus penetrans", "type": "unessbar", "intensity": 50}
+  ],
+  "confusion_risk_level": {
+    "status": "high",
+    "variant": "danger"
+  },
+  "confusion_safety_critical": true,
+  "confusion_key_features": [
+    "Samtfussruebling hat samtig behaarten Stiel",
+    "Galerina hat Ring oder Ringzone",
+    "Sporenfarbe unterschiedlich (weiss vs rostbraun)"
+  ]
+}

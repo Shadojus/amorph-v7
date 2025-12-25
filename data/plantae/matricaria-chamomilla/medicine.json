@@ -1,0 +1,64 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine", "Aegyptische Medizin"],
+    "historical_use": "Eines der aeltesten dokumentierten Heilkraeuter",
+    "traditional_indications": ["Magen-Darm-Beschwerden", "Entzuendungen", "Wunden", "Schlafstörungen"]
+  },
+  "pharmacopoeia_names": ["Matricariae flos"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Gastrointestinale Beschwerden", "Entzuendungen von Haut und Schleimhaeuten"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Entzuendungen und Spasmen im Magen-Darm-Trakt", "Entzuendungen der Haut und Schleimhaeute"],
+  "active_substances": [
+    "Chamazulen (entsteht aus Matricin)",
+    "alpha-Bisabolol",
+    "Bisabololoxide",
+    "Apigenin",
+    "En-yn-Dicycloether"
+  ],
+  "effect_profile": [
+    {"axis": "Antiinflammatorisch", "value": 90},
+    {"axis": "Spasmolytisch", "value": 85},
+    {"axis": "Wundheilend", "value": 80},
+    {"axis": "Antimikrobiell", "value": 70},
+    {"axis": "Beruhigend", "value": 65}
+  ],
+  "therapeutic_categories": [
+    "Antiinflammatorium",
+    "Spasmolytikum",
+    "Vulnerarium"
+  ],
+  "evidence_level": {
+    "status": "1b",
+    "variant": "success"
+  },
+  "safety_score": {
+    "value": 95,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Allergie", "beschreibung": "Selten bei Asteraceae-Allergie"}
+  ],
+  "contraindications": [
+    "Allergie gegen Korbblütler"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Sicher",
+    "variant": "success"
+  },
+  "special_populations_children": {
+    "status": "Geeignet",
+    "variant": "success"
+  },
+  "dosage_notes": "Tee: 3g Blueten auf 150ml, 3-4x taeglich; Aeusserlich: 3-10% Aufguss; Inhalation: 6g auf 1L heisses Wasser",
+  "preparation_forms": ["Tee", "Tinktur", "Extrakt", "Salbe", "Badezusatz", "Inhalation"],
+  "status_by_region": {
+    "eu": "Pflanzliches Arzneimittel (well-established use)",
+    "usa": "GRAS"
+  }
+}

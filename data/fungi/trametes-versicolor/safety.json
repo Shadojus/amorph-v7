@@ -1,0 +1,157 @@
+{
+  "safety_edibility_status": {
+    "status": "Inedible (Medicinal)",
+    "variant": "info"
+  },
+  "safety_edibility_confidence": {
+    "value": 95,
+    "max": 100,
+    "unit": "%"
+  },
+  "safety_edibility_notes": "Nicht giftig, aber aufgrund der zaeh-ledrigen Konsistenz nicht als Speisepilz geeignet. Wird ausschliesslich medizinisch als Tee oder Extrakt verwendet.",
+  "safety_potentially_deadly": false,
+  "safety_toxicity_score": {
+    "value": 5,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_toxicity_components": [],
+  "safety_warning_level": {
+    "status": "Advisory",
+    "variant": "info"
+  },
+  "safety_warning_text": "Nicht giftig, aber nicht als Speisepilz verwendbar. Bei medizinischer Anwendung: Qualitaetskontrollierte Produkte verwenden. Bei immunsupprimierten Personen oder vor Operationen aerztliche Ruecksprache.",
+  "safety_warning_text_short": "Medizinalpilz - nicht zum Essen",
+  "safety_summary": "Ungiftiger Medizinalpilz. Zaeh-ledrige Konsistenz macht ihn als Speisepilz ungeeignet. Weit verbreitet und medizinisch bedeutsam.",
+  "safety_risk_inherent": {
+    "value": 5,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_confusion": {
+    "value": 35,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_preparation": {
+    "value": 10,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_groups": [
+    "Personen vor Operationen (moegliche Blutungsverstaerkung)",
+    "Personen unter Immunsuppression",
+    "Schwangere und Stillende (unzureichende Daten)"
+  ],
+  "safety_contraindications": [
+    "Bekannte Pilzallergie",
+    "Vor chirurgischen Eingriffen (1-2 Wochen vorher absetzen)",
+    "Schwere Autoimmunerkrankungen ohne aerztliche Begleitung"
+  ],
+  "safety_regions": [
+    "Weltweit verbreitet",
+    "Europa",
+    "Nordamerika",
+    "Asien",
+    "Australien"
+  ],
+  "safety_season_risk": [
+    {"month": 1, "active": true},
+    {"month": 2, "active": true},
+    {"month": 3, "active": true},
+    {"month": 4, "active": true},
+    {"month": 5, "active": true},
+    {"month": 6, "active": true},
+    {"month": 7, "active": true},
+    {"month": 8, "active": true},
+    {"month": 9, "active": true},
+    {"month": 10, "active": true},
+    {"month": 11, "active": true},
+    {"month": 12, "active": true}
+  ],
+  "safety_id_difficulty": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "safety_id_requirements": [
+    "Konzentrische Farbzonen auf Oberseite",
+    "Samtige (nicht struppige) Oberflaeche",
+    "Weisse Poren auf Unterseite (3-5 per mm)",
+    "Duenne, zaeh-ledrige Konsistenz"
+  ],
+  "safety_microscopy_needed": false,
+  "safety_chemtests_needed": false,
+  "safety_sporeprint_needed": false,
+  "toxin_organ_damage_reversible": true,
+  "confusion_partner": [
+    {"name": "Stereum hirsutum", "type": "Keine Gefahr", "intensity": 50},
+    {"name": "Trametes hirsuta", "type": "Keine Gefahr", "intensity": 40},
+    {"name": "Trichaptum biforme", "type": "Keine Gefahr", "intensity": 30}
+  ],
+  "confusion_risk_level": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "confusion_safety_critical": false,
+  "confusion_visual_similarity": {
+    "value": 50,
+    "max": 100,
+    "unit": "%"
+  },
+  "confusion_similarity_details": "Aehnliche Porlinge haben entweder keine Poren (Stereum) oder sind anders gefaerbt/strukturiert. Keine giftigen Verwechslungspartner.",
+  "confusion_key_features": [
+    "T. versicolor: Samtige Oberflaeche, bunte Zonen",
+    "T. versicolor: Weisse Poren 3-5 pro mm",
+    "Stereum: Glatte Unterseite ohne Poren",
+    "T. hirsuta: Struppig behaart, weniger farbig"
+  ],
+  "confusion_best_feature": "Poren pruefen - T. versicolor hat feine weisse Poren",
+  "confusion_if_in_doubt": "Alle aehnlichen Arten sind ungiftig. Bei Unsicherheit fuer medizinische Verwendung auf kommerzielle Produkte zurueckgreifen.",
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "recovery_prognosis": "Keine Vergiftungsgefahr. Seltene allergische Reaktionen klingen schnell ab.",
+  "permanent_damage_risk": {
+    "value": 0,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "drug_interactions_moderate": [
+    "Immunsuppressiva (moegliche Wechselwirkung)",
+    "Antikoagulantien (theoretisch moeglich)"
+  ],
+  "pets_toxicity": false,
+  "source": {
+    "authors": "Hobbs, C.",
+    "year": 2004,
+    "title": "Medicinal Mushrooms: An Exploration of Tradition, Healing, and Culture",
+    "journal": "Botanica Press",
+    "doi": ""
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "traditional_medicine": {
+    "systems": ["TCM"],
+    "historical_use": "Ueber 1000 Jahre in der chinesischen Medizin; Samen und Blaetter",
+    "traditional_indications": ["Atemwegserkrankungen", "Blasenprobleme", "Kognitiver Abbau"]
+  },
+  "tcm_herb_name_pinyin": "Yin Xing Ye",
+  "tcm_herb_name_chinese": "银杏叶",
+  "tcm_nature": "neutral",
+  "tcm_flavor": ["bitter", "sweet", "astringent"],
+  "tcm_meridian_tropism": ["Herz", "Lunge"],
+  "who_monograph_exists": true,
+  "who_monograph_volume": "Band 1",
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Periphere arterielle Verschlusskrankheit", "Schwindel", "Tinnitus", "Kognitive Stoerungen"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Hirnleistungsstoerungen", "Durchblutungsstoerungen"],
+  "active_substances": [
+    "Ginkgolide A, B, C",
+    "Bilobalid",
+    "Flavonglykoside (Quercetin, Kaempferol)",
+    "Proanthocyanidine"
+  ],
+  "effect_profile": [
+    {"axis": "Neuroprotektiv", "value": 85},
+    {"axis": "Durchblutungsfoerdernd", "value": 90},
+    {"axis": "Antioxidativ", "value": 80},
+    {"axis": "PAF-Antagonismus", "value": 75},
+    {"axis": "Gedaechtnisfoerdernd", "value": 70}
+  ],
+  "therapeutic_categories": [
+    "Nootropikum",
+    "Vasodilatator",
+    "Antidementivum"
+  ],
+  "evidence_level": {
+    "status": "1a",
+    "variant": "success"
+  },
+  "evidence_grade_overall": {
+    "status": "B",
+    "variant": "success"
+  },
+  "meta_analyses_count": 15,
+  "rcts_count": 50,
+  "safety_score": {
+    "value": 70,
+    "min": 0,
+    "max": 100
+  },
+  "interactions": [
+    {"level": "high", "typ": "Antikoagulantien", "beschreibung": "Erhoehtes Blutungsrisiko mit Warfarin, ASS"},
+    {"level": "medium", "typ": "Antikonvulsiva", "beschreibung": "Moegliche Wirkungsminderung"}
+  ],
+  "contraindications": [
+    "Blutungsneigung",
+    "Geplante Operationen (absetzen 2 Wochen vorher)",
+    "Schwangerschaft"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Kontraindiziert",
+    "variant": "danger"
+  },
+  "standard_dose_range": {
+    "min": 120,
+    "max": 240,
+    "unit": "mg"
+  },
+  "dose_frequency": "zweimal taeglich",
+  "standardization_marker": "Ginkgoflavonglykoside 24%, Terpenlactone 6%",
+  "dosage_notes": "Standardisierter Extrakt EGb 761: 120-240 mg/Tag verteilt auf 2-3 Gaben",
+  "preparation_forms": ["Standardisierter Extrakt", "Kapseln", "Tabletten", "Tinktur"],
+  "status_by_region": {
+    "eu": "Pflanzliches Arzneimittel (well-established use)",
+    "usa": "Dietary Supplement",
+    "germany": "Zugelassenes Arzneimittel"
+  }
+}

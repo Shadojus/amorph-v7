@@ -1,0 +1,74 @@
+{
+  "traditional_medicine_use": true,
+  "traditional_medicine_systems": [
+    "Traditionelle Chinesische Medizin",
+    "Japanische Kampo-Medizin",
+    "Koreanische Medizin"
+  ],
+  "medicinal_status": {
+    "status": "Vitalpilz",
+    "variant": "info"
+  },
+  "historical_significance": "In China als Lingzhi ('Pilz der Unsterblichkeit') seit ueber 2000 Jahren dokumentiert. Gehoert zu den bedeutendsten Heilpilzen weltweit.",
+  "primary_medicinal_uses": [
+    "Immunmodulation",
+    "Antitumoral",
+    "Hepatoprotektiv (Leberschutz)",
+    "Adaptogen",
+    "Blutdruckregulation",
+    "Cholesterinsenkung"
+  ],
+  "active_compounds": [
+    {
+      "name": "Polysaccharide (Beta-Glucane)",
+      "class": "Polysaccharide",
+      "effects": ["immunstimulierend", "antitumoral"]
+    },
+    {
+      "name": "Ganodersaeuren",
+      "class": "Triterpenoide",
+      "effects": ["antihistaminisch", "hepatoprotektiv", "blutdrucksenkend"]
+    },
+    {
+      "name": "Ganodermanontriol",
+      "class": "Triterpenoid",
+      "effects": ["antitumoral"]
+    },
+    {
+      "name": "Adenosin",
+      "class": "Nukleosid",
+      "effects": ["muskelentspannend", "schlaffoerdernd"]
+    }
+  ],
+  "research_areas": [
+    "Onkologie",
+    "Immunologie",
+    "Hepatologie",
+    "Kardiologie",
+    "Neurologie"
+  ],
+  "clinical_evidence_level": {
+    "status": "klinische Studien",
+    "variant": "success"
+  },
+  "clinical_evidence_notes": "Zahlreiche klinische Studien, besonders in Asien. Als Adjuvans in der Krebstherapie zunehmend erforscht.",
+  "contraindications": [
+    "Blutgerinnungsstoerungen",
+    "Antikoagulantien-Einnahme",
+    "Schwangerschaft (unzureichende Daten)",
+    "Vor Operationen"
+  ],
+  "traditional_preparations": [
+    "Heisswasserextrakt (Tee)",
+    "Alkoholextrakt (Tinktur)",
+    "Doppelextrakt",
+    "Pulver (Kapseln)",
+    "Sporenoel"
+  ],
+  "dosage_traditional": "1-3 g getrockneter Fruchtkoerper oder 3-9 g Extrakt pro Tag",
+  "safety_profile": {
+    "status": "gut vertraeglich",
+    "variant": "success"
+  },
+  "regulatory_status_eu": "Nahrungsergaenzungsmittel"
+}

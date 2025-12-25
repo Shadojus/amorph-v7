@@ -1,0 +1,69 @@
+{
+  "edibility": {
+    "status": "medicinal",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Low toxicity",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 4,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": true,
+  "handling_precautions": [
+    "Wild ginseng is endangered - use cultivated",
+    "May increase blood pressure",
+    "Can cause insomnia if taken at night"
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "typ": "Normal use", "beschreibung": "Safe and beneficial as adaptogen"},
+    {"level": "low", "typ": "Excessive use", "beschreibung": "Insomnia, nervousness, raised blood pressure"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "risk_groups": [
+    "Those with hypertension",
+    "Those with bleeding disorders",
+    "Diabetics (affects blood sugar)"
+  ],
+  "antidote": "None required",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "contraindications": [
+    "Hypertension",
+    "Bleeding disorders",
+    "Before surgery",
+    "Hormone-sensitive conditions"
+  ],
+  "drug_interactions": [
+    "Warfarin",
+    "Diabetes medications",
+    "Stimulants",
+    "MAOIs"
+  ],
+  "source": {
+    "authors": "Vogler, B.K. et al.",
+    "year": 1999,
+    "title": "The efficacy of ginseng: a systematic review",
+    "journal": "European Journal of Clinical Pharmacology",
+    "doi": "10.1007/s002280050649"
+  }
+}

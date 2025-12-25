@@ -1,0 +1,60 @@
+{
+  "scientific_name": "Ara ararauna",
+  "author_citation": "(Linnaeus, 1758)",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Chordata",
+  "taxonomy_class": "Aves",
+  "taxonomy_order": "Psittaciformes",
+  "taxonomy_family": "Psittacidae",
+  "taxonomy_genus": "Ara",
+  "taxonomy_species": "ararauna",
+  "common_names": [
+    "Blue-and-yellow Macaw",
+    "Blue-and-gold Macaw",
+    "Gelbbrustara",
+    "Ara Bleu"
+  ],
+  "size_range": {
+    "min": 76,
+    "max": 86,
+    "unit": "cm"
+  },
+  "weight_range": {
+    "min": 900,
+    "max": 1300,
+    "unit": "g"
+  },
+  "wingspan_range": {
+    "min": 104,
+    "max": 114,
+    "unit": "cm"
+  },
+  "color_primary": "blue",
+  "color_secondary": "yellow",
+  "primary_structure_type": "large parrot with long tail",
+  "primary_structure_shape_mature": "robust body with curved beak",
+  "primary_structure_surface": "smooth overlapping feathers",
+  "primary_structure_color": "blue upperparts, yellow underparts, green forehead",
+  "key_differentiating_features": [
+    "Bright blue wings, back, and tail",
+    "Golden yellow underparts and underwing",
+    "Green forehead and crown",
+    "White facial skin with fine black feather lines",
+    "Black chin and throat patch"
+  ],
+  "identification_difficulty": {
+    "status": "easy",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Ara glaucogularis (Blue-throated Macaw - blue throat)",
+    "Ara ararauna x caninde hybrids"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "sexual_dimorphism": false,
+  "sexual_dimorphism_notes": "Sexes identical in appearance; males may be slightly larger"
+}

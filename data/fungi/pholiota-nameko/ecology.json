@@ -1,0 +1,25 @@
+{
+  "trophic_mode_primary": "saprobiontisch",
+  "ecological_guild": "Holzzersetzer",
+  "ecosystem_type": "Wald",
+  "ecosystem_subtype": "Laubwald",
+  "microhabitat_primary": "Laubholzstaemme",
+  "microhabitat_secondary": "Stubben",
+  "substrate_type_primary": "Laubholz",
+  "substrate_types_secondary": [
+    "Eiche",
+    "Buche"
+  ],
+  "substrate_specificity": {
+    "status": "breit",
+    "variant": "success"
+  },
+  "fruiting_season_start": 9,
+  "fruiting_season_end": 11,
+  "climate_zone": "temperat",
+  "native_range": "Ostasien (Japan, China)",
+  "iucn_global_status": {
+    "status": "NE",
+    "variant": "neutral"
+  }
+}

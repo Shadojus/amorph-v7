@@ -1,0 +1,61 @@
+{
+  "edibility_category": "edible",
+  "culinary_value": {
+    "rating": 7,
+    "max": 10
+  },
+  "taste_profile": "mild, leicht suesslich, pilzartig",
+  "texture": "fest, leicht knusprig bei schnellem Garen",
+  "aroma": "dezent pilzartig",
+  "recommended_preparations": [
+    "Suppen",
+    "Wok-Gerichte",
+    "Salate",
+    "Hot Pot"
+  ],
+  "cooking_methods": [
+    "Kurz anbraten",
+    "Blanchieren",
+    "In Suppen kochen",
+    "Roh in Salaten (kultivierte Form)"
+  ],
+  "cooking_time_minutes": {
+    "min": 2,
+    "max": 5,
+    "unit": "min"
+  },
+  "storage_fresh_days": {
+    "min": 5,
+    "max": 10,
+    "unit": "Tage"
+  },
+  "storage_methods": [
+    "Gekuehlt bei 2-4 Grad Celsius",
+    "Trocknen",
+    "Einfrieren nach Blanchieren"
+  ],
+  "parts_used": [
+    "Ganzer Fruchtkoerper",
+    "Bei Wild-Exemplaren Stiel oft zaeh"
+  ],
+  "cuisine_traditions": [
+    "Japanische Kueche",
+    "Chinesische Kueche",
+    "Koreanische Kueche"
+  ],
+  "commercial_availability": {
+    "status": "hoch",
+    "variant": "success"
+  },
+  "cultivation_scale": "industriell",
+  "market_names": [
+    "Enoki",
+    "Enokitake",
+    "Golden Needle Mushroom"
+  ],
+  "nutritional_highlights": [
+    "Reich an Vitaminen B1, B2, B3",
+    "Hoher Proteingehalt (17-31%)",
+    "Niedriger Fettgehalt"
+  ]
+}

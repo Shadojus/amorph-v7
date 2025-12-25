@@ -1,0 +1,120 @@
+{
+  "scientific": "Cyclocybe cylindracea",
+  "culinary_status": {
+    "status": "Choice Edible",
+    "variant": "success"
+  },
+  "culinary_rating": {
+    "rating": 5,
+    "max": 5
+  },
+  "culinary_description": "Der Suedliche Ackerling ist ein sehr guter Speisepilz mit mildem Geschmack und fester Textur. Er ist in der italienischen Kueche als Pioppino sehr beliebt und wird auch kommerziell angebaut. In der Schweiz ist er marktfaehig und steht auf der DGfM Positivliste.",
+  "flavor_profile": [
+    {"axis": "Mild", "value": 80},
+    {"axis": "Umami", "value": 70},
+    {"axis": "Erdig", "value": 50},
+    {"axis": "Nussig", "value": 40},
+    {"axis": "Suesse", "value": 30}
+  ],
+  "taste_description": "Mild, angenehm",
+  "aroma_description": "Neutral bis leicht mehlartig",
+  "texture_raw": "Fest, fleischig",
+  "texture_cooked": "Fest, behaelt gute Textur, leicht knackig",
+  "edible_parts": [
+    "Hut",
+    "Stiel",
+    "Lamellen"
+  ],
+  "inedible_parts": [],
+  "preparation_requirements": [
+    "Gruendlich reinigen",
+    "Immer kochen",
+    "Stielende abschneiden"
+  ],
+  "cooking_methods": [
+    "Braten",
+    "Grillen",
+    "In Pasta-Gerichten",
+    "In Risotto",
+    "In Saucen"
+  ],
+  "cooking_time": {
+    "min": 8,
+    "max": 15,
+    "unit": "minutes"
+  },
+  "best_cooking_method": "Braten in Olivenoel mit Knoblauch - typisch italienisch",
+  "flavor_pairings": [
+    "Knoblauch",
+    "Olivenoel",
+    "Petersilie",
+    "Weisswein",
+    "Pasta",
+    "Risotto",
+    "Polenta"
+  ],
+  "cuisine_associations": [
+    "Italienische Kueche",
+    "Mediterrane Kueche",
+    "Japanische Kueche",
+    "Chinesische Kueche"
+  ],
+  "traditional_dishes": [
+    "Pasta con Pioppini (IT)",
+    "Risotto ai Pioppini (IT)",
+    "Pioppini trifolati (IT)"
+  ],
+  "preservation_methods": [
+    {"label": "Trocknen", "value": 85},
+    {"label": "Einfrieren", "value": 75},
+    {"label": "Kuehlen", "value": 60},
+    {"label": "Einlegen", "value": 70}
+  ],
+  "shelf_life_fresh": {
+    "min": 3,
+    "max": 7,
+    "unit": "days"
+  },
+  "shelf_life_dried": {
+    "min": 12,
+    "max": 18,
+    "unit": "months"
+  },
+  "nutritional_highlights": [
+    "Gute Proteinquelle",
+    "Reich an Ballaststoffen",
+    "Niedriger Fettgehalt"
+  ],
+  "dietary_considerations": [
+    "Vegetarisch",
+    "Vegan",
+    "Glutenfrei",
+    "Kalorienarm"
+  ],
+  "allergen_info": "Kann bei Pilzallergikern Reaktionen ausloesen",
+  "commercial_availability": {
+    "status": "Available",
+    "variant": "success"
+  },
+  "commercial_forms": [
+    "Frische Fruchtkoerper",
+    "Getrocknete Pilze",
+    "Zuchtsets"
+  ],
+  "price_range": {
+    "status": "Moderate",
+    "variant": "success"
+  },
+  "market_demand": {
+    "status": "High",
+    "variant": "success"
+  },
+  "market_note": "Marktfaehig in der Schweiz, DGfM Positivliste Speisepilz",
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

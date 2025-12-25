@@ -1,0 +1,48 @@
+{
+  "edibility_category": "conditionally_edible",
+  "culinary_value": {
+    "rating": 7,
+    "max": 10
+  },
+  "taste_profile": "huehnchenartig, mild saeuerlich",
+  "texture": "fest, fleischig (jung)",
+  "aroma": "pilzig, obstartig",
+  "recommended_preparations": [
+    "Paniert und gebraten",
+    "Als Huehnchenersatz",
+    "Geschmort",
+    "In Suppen"
+  ],
+  "cooking_methods": [
+    "Braten (mindestens 20 Minuten)",
+    "Schmoren",
+    "Panieren"
+  ],
+  "cooking_time_minutes": {
+    "min": 20,
+    "max": 30,
+    "unit": "min"
+  },
+  "storage_fresh_days": {
+    "min": 3,
+    "max": 5,
+    "unit": "Tage"
+  },
+  "storage_methods": [
+    "Gekuehlt",
+    "Einfrieren (blanchiert)",
+    "Trocknen"
+  ],
+  "parts_used": [
+    "Nur junge, weiche Randteile",
+    "Aeltere Teile entsorgen"
+  ],
+  "preparation_notes": "Von Weide oder Birke geschmacklich besser als von Eiche oder Buche. Immer gut durchgaren!",
+  "commercial_availability": {
+    "status": "gering",
+    "variant": "warning"
+  },
+  "market_names": [
+    "Chicken of the Woods"
+  ]
+}

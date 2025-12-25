@@ -1,0 +1,38 @@
+{
+  "safety_edibility_status": {
+    "status": "medicinal",
+    "variant": "info"
+  },
+  "safety_edibility_confidence": {
+    "value": 95,
+    "max": 100,
+    "unit": "%"
+  },
+  "safety_edibility_notes": "Nicht als Speisepilz geeignet aufgrund bitterer Geschmack und holziger Konsistenz. Weltweit bedeutendster Vitalpilz mit langer Anwendungsgeschichte.",
+  "safety_potentially_deadly": false,
+  "safety_toxicity_score": {
+    "value": 5,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_warning_level": {
+    "status": "none",
+    "variant": "success"
+  },
+  "safety_summary": "Ungeniessbar aber nicht giftig. Bedeutender Vitalpilz der TCM mit ueber 2000-jaehriger Anwendungstradition.",
+  "safety_contraindications": [
+    "Blutgerinnungsstoerungen",
+    "Vor Operationen (1-2 Wochen vorher absetzen)",
+    "Bei Einnahme von Immunsuppressiva"
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "confusion_safety_critical": false
+}

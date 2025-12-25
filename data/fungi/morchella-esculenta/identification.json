@@ -1,0 +1,187 @@
+{
+  "scientific_name": "Morchella esculenta",
+  "author_citation": "(L.) Pers. 1801",
+  "accepted_name": "Morchella esculenta (L.) Pers.",
+  "basionym": "Phallus esculentus L. 1753",
+  "taxonomy_domain": "Eukarya",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Ascomycota",
+  "taxonomy_class": "Pezizomycetes",
+  "taxonomy_order": "Pezizales",
+  "taxonomy_family": "Morchellaceae",
+  "taxonomy_genus": "Morchella",
+  "taxonomy_species": "esculenta",
+  "synonyms": [
+    "Phallus esculentus L. 1753",
+    "Morchella rotunda (Pers.) Boud. 1897",
+    "Morchella crassipes (Vent.) Pers. 1801"
+  ],
+  "common_names": [
+    "Speisemorchel",
+    "Gelbe Morchel",
+    "Rundmorchel",
+    "Common Morel",
+    "Yellow Morel",
+    "True Morel",
+    "Sponge Morel"
+  ],
+  "international_names": [
+    "Common Morel (EN)",
+    "Yellow Morel (EN)",
+    "Morille commune (FR)",
+    "Morchella comune (IT)",
+    "Colmenilla (ES)",
+    "Smardz jadalny (PL)"
+  ],
+  "mycobank_id": "247978",
+  "index_fungorum_id": "247978",
+  "gbif_key": "2594602",
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Wabenartiger Hut mit tiefen unregelmaessigen Gruben", "status": "pending"},
+    {"step": 2, "label": "Hut gelbbraun bis hellbraun", "status": "pending"},
+    {"step": 3, "label": "Hut vollstaendig am Stiel angewachsen", "status": "pending"},
+    {"step": 4, "label": "Stiel und Hut innen vollstaendig hohl", "status": "pending"},
+    {"step": 5, "label": "Stiel weisslich bis gelblich, glatt bis leicht gefurcht", "status": "pending"},
+    {"step": 6, "label": "Erscheinung im Fruehling (Maerz-Mai)", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy to Moderate",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 5,
+  "minimum_equipment_needed": [
+    "Keine Ausruestung erforderlich",
+    "Laengsschnitt zur Bestaetigung der Hohlheit"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Gyromitra esculenta (Fruehjahrslorchel - GIFTIG)",
+    "Verpa bohemica (Boehmische Verpel)",
+    "Verpa conica (Fingerhutverpel)",
+    "Morchella elata (Spitzmorchel)"
+  ],
+  "confusion_risk_level": {
+    "status": "High",
+    "variant": "danger"
+  },
+  "confusion_consequences": [
+    {"level": "critical", "typ": "Gyromitra esculenta", "beschreibung": "LEBENSGEFAHR - Fruehjahrslorchel enthaelt Gyromitrin, kann toedlich sein. Hirnartig gewundener (nicht wabenartiger) Hut"},
+    {"level": "low", "typ": "Verpa bohemica", "beschreibung": "Essbar aber weniger wertvoll. Hut nur an der Spitze am Stiel befestigt"},
+    {"level": "none", "typ": "Morchella elata", "beschreibung": "Ebenfalls essbar. Laenglichere, spitzere Form mit dunklerem Hut"}
+  ],
+  "key_differentiating_features": [
+    "Hut vollstaendig am Stiel angewachsen (nicht nur an der Spitze)",
+    "Wabenartige Struktur mit Gruben und Rippen (nicht hirnartig gewunden)",
+    "Fruchtkoerper von Spitze bis Basis komplett hohl",
+    "Gelbbraune bis hellbraune Faerbung"
+  ],
+  "habit": "Terrestrisch",
+  "growth_form": "Einzeln oder in kleinen Gruppen",
+  "symmetry": "radial",
+  "size_range": {
+    "min": 4,
+    "max": 17,
+    "unit": "cm"
+  },
+  "size_typical_cm": 10,
+  "basic_shape": "Hutpilz mit wabenartigem Kopf auf hohlem Stiel",
+  "height": {
+    "min": 4,
+    "max": 17,
+    "unit": "cm"
+  },
+  "primary_structure_present": true,
+  "primary_structure_type": "Ascoma (Fruchtkörper)",
+  "primary_structure_diameter": {
+    "min": 2,
+    "max": 7,
+    "unit": "cm"
+  },
+  "primary_structure_length": {
+    "min": 2,
+    "max": 10,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Oval bis rundlich",
+  "primary_structure_shape_mature": "Breit oval bis unregelmaessig",
+  "primary_structure_surface": "Wabenartig mit tiefen unregelmaessigen Gruben und Rippen",
+  "primary_structure_color": "Gelbbraun bis hellbraun, Rippen heller als Gruben",
+  "support_structure_present": true,
+  "support_structure_type": "Stiel (Stipe)",
+  "support_structure_length": {
+    "min": 2,
+    "max": 9,
+    "unit": "cm"
+  },
+  "support_structure_thickness": {
+    "min": 2,
+    "max": 5,
+    "unit": "cm"
+  },
+  "support_structure_shape": "Zylindrisch, hohl, an der Basis oft verbreitert",
+  "support_structure_color": "Weisslich bis gelblich",
+  "support_structure_surface": "Glatt bis leicht gefurcht oder koernig",
+  "support_structure_hollowness": true,
+  "color_primary": "Gelbbraun bis hellbraun",
+  "color_secondary": "Weisslich (Stiel), Creme (Rippen)",
+  "color_fresh": "Gelbbraun",
+  "color_dry": "Dunkelbraun bis schwarzbraun",
+  "smell_description": "Angenehm pilzig, leicht wuerzig",
+  "taste_safe_to_test": false,
+  "taste_description": "NICHT ROH PROBIEREN - gekocht mild, nussig, erdig",
+  "microscopy_required": false,
+  "microscopy_key_features": [
+    "Sporen ellipsoid, glatt, duennwandig, hyalin",
+    "Sporengroesse 17.5-22 x 9-11 um",
+    "Asci achtsporig, zylindrisch",
+    "Asci 223-300 x 19-20 um"
+  ],
+  "spore_measurement_diagnostic": {
+    "min": 17.5,
+    "max": 22,
+    "unit": "um"
+  },
+  "reproductive_cell_shape": "Ellipsoid",
+  "reproductive_cell_length": {
+    "min": 17.5,
+    "max": 22,
+    "unit": "um"
+  },
+  "reproductive_cell_width": {
+    "min": 9,
+    "max": 11,
+    "unit": "um"
+  },
+  "reproductive_cell_color": "Hyalin (durchsichtig)",
+  "reproductive_cell_ornamentation": "Glatt",
+  "appearance_by_season": {
+    "spring": "Hauptfruchtzeit (Maerz-Mai)",
+    "summer": "Selten, nur in hoeheren Lagen",
+    "autumn": "Nicht vorhanden",
+    "winter": "Nicht vorhanden"
+  },
+  "age_stage_variations": [
+    {"phase": "Jung", "duration": "3-5 Tage"},
+    {"phase": "Reif", "duration": "5-10 Tage"},
+    {"phase": "Ueberreif", "duration": "3-5 Tage"}
+  ],
+  "nutrition_type": "Saprotroph/fakultativ mykorrhizal",
+  "nutrition_type_detail": "Trophische Strategie nicht vollstaendig geklaert. Wahrscheinlich fakultativ mykorrhizal mit Laubbaeumen, kann auch saprotroph auf organischem Material leben.",
+  "substrate_species": [
+    "Boden unter Laubbaeumen",
+    "Besonders unter Eschen, Ulmen, Apfelbaeumen",
+    "Auf kalkreichen, feuchten Boeden",
+    "In Auwaeldern, Parks, Gaerten"
+  ],
+  "source": {
+    "authors": "Kuo, M. & Methven, A.S.",
+    "year": 2014,
+    "title": "Mushrooms of the Midwest",
+    "journal": "University of Illinois Press",
+    "doi": ""
+  }
+}

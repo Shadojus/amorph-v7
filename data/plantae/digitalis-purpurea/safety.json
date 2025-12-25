@@ -1,0 +1,149 @@
+{
+  "edibility": {
+    "status": "deadly",
+    "variant": "danger"
+  },
+  "toxicity_level": {
+    "status": "EXTREMELY TOXIC - ALL PARTS LETHAL",
+    "variant": "danger"
+  },
+  "edibility_rating": {
+    "rating": 0,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Legal but highly toxic",
+    "variant": "warning"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "NEVER INGEST ANY PART",
+    "Wash hands after handling",
+    "Keep away from children",
+    "Do not plant near edible gardens",
+    "Even touching and then touching mouth can be dangerous"
+  ],
+  "toxin_classes": [
+    "Cardiac glycosides"
+  ],
+  "primary_toxins": [
+    {
+      "name": "Digoxin",
+      "cas": "20830-75-5",
+      "mechanism": "Inhibits sodium-potassium ATPase; increases cardiac contractility, can cause fatal arrhythmias",
+      "lethal_dose": "2-3 grams of dried leaf can be fatal to adults"
+    },
+    {
+      "name": "Digitoxin",
+      "cas": "71-63-6",
+      "mechanism": "Similar to digoxin; longer half-life",
+      "lethal_dose": "Very small amounts can be lethal"
+    }
+  ],
+  "toxin_distribution": [
+    {"label": "Digitoxin", "value": 45},
+    {"label": "Digoxin", "value": 35},
+    {"label": "Other glycosides", "value": 20}
+  ],
+  "toxin_concentration": {
+    "min": 0.1,
+    "max": 0.5,
+    "unit": "% dry weight"
+  },
+  "symptoms_by_severity": [
+    {"level": "medium", "typ": "Early symptoms", "beschreibung": "Nausea, vomiting, diarrhea, abdominal pain"},
+    {"level": "high", "typ": "Cardiac effects", "beschreibung": "Irregular heartbeat, bradycardia, heart block"},
+    {"level": "critical", "typ": "Severe poisoning", "beschreibung": "Visual disturbances (yellow-green halos), confusion, cardiac arrest"}
+  ],
+  "symptoms_acute": [
+    "Nausea and vomiting",
+    "Severe bradycardia",
+    "Cardiac arrhythmias",
+    "Yellow-green vision (xanthopsia)",
+    "Confusion and delirium",
+    "Cardiac arrest"
+  ],
+  "onset_time": {
+    "min": 1,
+    "max": 6,
+    "unit": "hours"
+  },
+  "fatality_rate": {
+    "value": 20,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": true,
+  "fatality_note": "Numerous documented fatalities. Children are at extreme risk. A single leaf can kill a child.",
+  "affected_systems": [
+    "Cardiovascular (primary)",
+    "Gastrointestinal",
+    "Central nervous system",
+    "Visual system"
+  ],
+  "risk_groups": [
+    "Children (extremely dangerous)",
+    "Elderly",
+    "People with heart conditions",
+    "Those on heart medications"
+  ],
+  "first_aid_immediate": [
+    "CALL EMERGENCY SERVICES IMMEDIATELY",
+    "Do not induce vomiting",
+    "Give activated charcoal if available and person is conscious",
+    "Keep patient calm and monitor heart rate"
+  ],
+  "first_aid_medical": [
+    "Gastric lavage if recent ingestion",
+    "Activated charcoal",
+    "Cardiac monitoring essential",
+    "Digoxin-specific antibody fragments (Digibind)"
+  ],
+  "antidote": "Digoxin-specific antibody fragments (Digibind/DigiFab)",
+  "medical_treatment": "ICU care, cardiac monitoring, antidote administration, electrolyte management",
+  "poison_control_relevant": true,
+  "prognosis": {
+    "status": "Guarded - depends on amount and speed of treatment",
+    "variant": "danger"
+  },
+  "long_term_effects": "Survivors may have persistent cardiac problems",
+  "environmental_risks": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "collection_warnings": [
+    "NEVER collect for any purpose other than ornamental",
+    "Can be confused with edible plants (comfrey)",
+    "Do not compost near food gardens"
+  ],
+  "storage_risks": "All parts remain toxic when dried",
+  "processing_risks": [
+    "No safe processing method for consumption",
+    "Pharmaceutical extraction only under strict controls"
+  ],
+  "allergy_potential": {
+    "status": "Low (but irrelevant due to extreme toxicity)",
+    "variant": "warning"
+  },
+  "contraindications": [
+    "ALL ORAL USE - THIS PLANT IS DEADLY"
+  ],
+  "safety_studies_available": true,
+  "clinical_case_reports": [
+    {
+      "authors": "Bain, R.J.",
+      "year": 1985,
+      "title": "Accidental digitalis poisoning due to drinking herbal tea",
+      "journal": "British Medical Journal",
+      "doi": "10.1136/bmj.290.6472.879"
+    }
+  ],
+  "source": {
+    "authors": "Hauptman, P.J. & Kelly, R.A.",
+    "year": 1999,
+    "title": "Digitalis",
+    "journal": "Circulation",
+    "doi": "10.1161/01.CIR.99.9.1265"
+  }
+}

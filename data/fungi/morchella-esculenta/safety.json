@@ -1,0 +1,231 @@
+{
+  "safety_edibility_status": {
+    "status": "Conditionally Edible",
+    "variant": "warning"
+  },
+  "safety_edibility_confidence": {
+    "value": 95,
+    "max": 100,
+    "unit": "%"
+  },
+  "safety_edibility_notes": "Morcheln sind ausgezeichnete Speisepilze, MUESSEN aber vor dem Verzehr gruendlich gekocht werden. Rohe oder unzureichend gegarte Morcheln koennen schwere gastrointestinale Beschwerden verursachen.",
+  "safety_potentially_deadly": false,
+  "safety_toxicity_score": {
+    "value": 25,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_toxicity_components": [
+    "Hydrazine-aehnliche Verbindungen (Spurenmengen)",
+    "Haemolytisch wirkende Substanzen (hitzelabil)"
+  ],
+  "safety_warning_level": {
+    "status": "Caution",
+    "variant": "warning"
+  },
+  "safety_warning_text": "NIEMALS ROH VERZEHREN! Morcheln enthalten hitzelabile Toxine, die gastrointestinale Beschwerden und haemolytische Reaktionen verursachen koennen. Mindestens 15-20 Minuten bei hoher Temperatur garen. VERWECHSLUNGSGEFAHR mit giftiger Fruehjahrslorchel (Gyromitra esculenta)!",
+  "safety_warning_text_short": "Niemals roh essen! Gruendlich kochen!",
+  "safety_summary": "Exzellenter Speisepilz nach gruendlichem Garen. Roher Verzehr fuehrt zu Vergiftungserscheinungen. Kritische Verwechslungsgefahr mit toedlich giftiger Fruehjahrslorchel.",
+  "safety_risk_inherent": {
+    "value": 20,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_confusion": {
+    "value": 70,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_preparation": {
+    "value": 50,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_groups": [
+    "Personen mit Pilzallergien",
+    "Personen mit Magen-Darm-Erkrankungen",
+    "Schwangere (Vorsicht bei allen Wildpilzen)"
+  ],
+  "safety_contraindications": [
+    "Bekannte Pilzallergie",
+    "Schwere Lebererkrankungen"
+  ],
+  "safety_regions": [
+    "Europa",
+    "Nordamerika",
+    "Asien"
+  ],
+  "safety_season_risk": [
+    {"month": 1, "active": false},
+    {"month": 2, "active": false},
+    {"month": 3, "active": true},
+    {"month": 4, "active": true},
+    {"month": 5, "active": true},
+    {"month": 6, "active": false},
+    {"month": 7, "active": false},
+    {"month": 8, "active": false},
+    {"month": 9, "active": false},
+    {"month": 10, "active": false},
+    {"month": 11, "active": false},
+    {"month": 12, "active": false}
+  ],
+  "safety_main_risk_months": [3, 4, 5],
+  "safety_id_difficulty": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "safety_id_requirements": [
+    "Wabenartigen Hut erkennen",
+    "Vollstaendige Hohlheit durch Laengsschnitt pruefen",
+    "Von Lorcheln unterscheiden koennen"
+  ],
+  "safety_microscopy_needed": false,
+  "safety_chemtests_needed": false,
+  "safety_sporeprint_needed": false,
+  "toxin_class_primary": "Hydrazine (Spurenmengen)",
+  "toxin_names": [
+    "Unbekannte haemolytische Substanzen",
+    "Hydrazin-aehnliche Verbindungen"
+  ],
+  "toxin_target_organs_primary": [
+    "Magen-Darm-Trakt"
+  ],
+  "toxin_organ_damage_reversible": true,
+  "toxin_mechanism": "Hitzelabile Toxine verursachen bei Rohverzehr gastrointestinale Reizung und moeglicherweise Haemolyse",
+  "toxin_onset_min_hours": 0.5,
+  "toxin_onset_max_hours": 6,
+  "toxin_onset_typical_hours": 2,
+  "toxin_onset_classification": "Fast",
+  "toxin_heat_stable": false,
+  "toxin_degradation_temp_c": 70,
+  "toxin_degradation_time_min": 15,
+  "toxin_drying_stable": false,
+  "toxin_safe_methods": [
+    "Kochen (mindestens 15-20 Minuten)",
+    "Braten bei hoher Hitze",
+    "Trocknen und anschliessendes Kochen"
+  ],
+  "toxin_unsafe_methods": [
+    "Rohverzehr",
+    "Kurzes Blanchieren",
+    "Marinieren ohne Erhitzen"
+  ],
+  "first_aid_immediate_steps": [
+    {"step": 1, "label": "Keine weiteren Pilze essen", "status": "pending"},
+    {"step": 2, "label": "Pilzreste fuer Identifikation aufbewahren", "status": "pending"},
+    {"step": 3, "label": "Giftnotruf kontaktieren", "status": "pending"},
+    {"step": 4, "label": "Symptome dokumentieren", "status": "pending"}
+  ],
+  "first_aid_what_not_to_do": [
+    "KEIN Erbrechen ausloesen ohne aerztliche Anweisung",
+    "KEINE Milch geben"
+  ],
+  "activated_charcoal_useful": {
+    "status": "Possibly",
+    "variant": "info"
+  },
+  "when_to_call_emergency": "Bei starkem Erbrechen, Durchfall, Bauchschmerzen nach Pilzverzehr sofort aerztliche Hilfe suchen",
+  "hospital_transport_urgency": {
+    "status": "Soon within 6h",
+    "variant": "warning"
+  },
+  "symptom_onset_minutes": {
+    "min": 30,
+    "max": 360,
+    "unit": "min"
+  },
+  "symptom_phases": [
+    {"phase": "Gastrointestinal", "duration": "2-6 Stunden"},
+    {"phase": "Erholung", "duration": "24-48 Stunden"}
+  ],
+  "symptom_gi_nausea": true,
+  "symptom_gi_vomiting": true,
+  "symptom_gi_diarrhea": true,
+  "symptom_gi_abdominal_pain": true,
+  "symptom_description": "Bei Rohverzehr: Uebelkeit, Erbrechen, Durchfall, Bauchkraempfe. Beginnt typischerweise 30 Minuten bis 6 Stunden nach Verzehr.",
+  "symptom_recovery_timeline": "Vollstaendige Erholung innerhalb von 24-48 Stunden bei symptomatischer Behandlung",
+  "confusion_partner": [
+    {"name": "Gyromitra esculenta", "type": "Lebensgefahr", "intensity": 95},
+    {"name": "Verpa bohemica", "type": "Gering", "intensity": 20},
+    {"name": "Verpa conica", "type": "Gering", "intensity": 15}
+  ],
+  "confusion_risk_level": {
+    "status": "High",
+    "variant": "danger"
+  },
+  "confusion_safety_critical": true,
+  "confusion_visual_similarity": {
+    "value": 40,
+    "max": 100,
+    "unit": "%"
+  },
+  "confusion_similarity_details": "Fruehjahrslorchel (Gyromitra) hat hirnartig gewundenen Hut statt wabenartiger Struktur. Erscheint zur gleichen Jahreszeit.",
+  "confusion_key_features": [
+    "Morchel: Wabenartiger Hut mit Gruben und Rippen",
+    "Lorchel: Hirnartig gewundener, lappiger Hut",
+    "Morchel: Hut am Stiel komplett angewachsen",
+    "Morchel: Innen vollstaendig hohl"
+  ],
+  "confusion_best_feature": "Wabenartige Struktur vs. hirnartige Windungen",
+  "confusion_habitat_overlap": true,
+  "confusion_time_overlap": true,
+  "confusion_geo_overlap": true,
+  "confusion_id_instructions": "1. Hutstruktur pruefen: Waben = Morchel, Windungen = Lorchel. 2. Laengsschnitt: Morchel ist komplett hohl. 3. Hutansatz: Bei Morchel am Stiel komplett angewachsen.",
+  "confusion_if_in_doubt": "Im Zweifelsfall NICHT sammeln! Nur eindeutig identifizierte Morcheln ernten.",
+  "treatment_summary": "Symptomatische Behandlung. Fluessigkeitsersatz bei starkem Erbrechen/Durchfall. Vollstaendige Erholung erwartet.",
+  "treatment_urgency": {
+    "status": "Standard",
+    "variant": "info"
+  },
+  "treatment_fluids": "Orale oder intravenoese Fluessigkeitszufuhr bei Dehydration",
+  "treatment_antiemetics": "Bei anhaltendem Erbrechen",
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "recovery_prognosis": "Vollstaendige Erholung innerhalb von 24-48 Stunden. Keine Langzeitfolgen bekannt.",
+  "permanent_damage_risk": {
+    "value": 0,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "children_risk_modifier": "Erhoeht",
+  "children_specific_concerns": "Kinder reagieren empfindlicher. Strikte Zubereitungsregeln einhalten.",
+  "pets_toxicity": true,
+  "pets_species_affected": [
+    "Hunde",
+    "Katzen"
+  ],
+  "source": {
+    "authors": "Benjamin, D.R.",
+    "year": 1995,
+    "title": "Mushrooms: Poisons and Panaceas",
+    "journal": "W.H. Freeman and Company",
+    "doi": ""
+  }
+}

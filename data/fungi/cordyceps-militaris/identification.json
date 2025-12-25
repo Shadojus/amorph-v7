@@ -1,0 +1,80 @@
+{
+  "scientific_name": "Cordyceps militaris",
+  "author_citation": "(L.) Fr.",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Ascomycota",
+  "taxonomy_class": "Sordariomycetes",
+  "taxonomy_order": "Hypocreales",
+  "taxonomy_family": "Cordycipitaceae",
+  "taxonomy_genus": "Cordyceps",
+  "taxonomy_species": "militaris",
+  "synonyms": [
+    "Lavaria gemmata",
+    "Xylaria militaris",
+    "Torrubia militaris",
+    "Corynesphaera militaris",
+    "Hypoxylon militare",
+    "Sphaeria militaris"
+  ],
+  "common_names": [
+    "Puppenkernkeule",
+    "Orangerote Puppenkernkeule",
+    "Scarlet Caterpillar Club",
+    "Orange Caterpillar Fungus"
+  ],
+  "size_range": {
+    "min": 2,
+    "max": 5,
+    "unit": "cm"
+  },
+  "color_primary": "orangerot",
+  "color_secondary": "ziegelrot",
+  "smell_description": "Neutral, unbedeutend",
+  "taste_description": "Neutral, unbedeutend",
+  "primary_structure_present": true,
+  "primary_structure_type": "keulenfoermig",
+  "primary_structure_diameter": {
+    "min": 0.3,
+    "max": 1,
+    "unit": "cm"
+  },
+  "primary_structure_shape_mature": "zungenfoermig",
+  "primary_structure_surface": "warzige Oberflaeche",
+  "primary_structure_color": "orangerot bis ziegelrot",
+  "support_structure_present": true,
+  "support_structure_type": "Stiel",
+  "support_structure_length": {
+    "min": 2,
+    "max": 5,
+    "unit": "cm"
+  },
+  "support_structure_shape": "schlank, oft gekruemmt",
+  "support_structure_color": "orangerot bis ziegelrot",
+  "tissue_color": "gelblich",
+  "propagule_color": "weiss",
+  "propagule_length": {
+    "min": 4,
+    "max": 6,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 1,
+    "max": 2,
+    "unit": "um"
+  },
+  "propagule_shape": "zylindrisch-spindelig",
+  "confusion_species_list": [
+    "Ophiocordyceps sinensis",
+    "Typhula fistulosa",
+    "Ophiocordyceps sphecocephala"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "intermediate",
+    "variant": "warning"
+  }
+}

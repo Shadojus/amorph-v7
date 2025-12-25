@@ -1,0 +1,52 @@
+{
+  "trophic_mode_primary": "herbivorous",
+  "trophic_mode_secondary": "bamboo specialist",
+  "ecological_guild": "specialist herbivore",
+  "primary_ecosystem_function": "bamboo forest dynamics",
+  "secondary_ecosystem_functions": [
+    "seed dispersal",
+    "nutrient cycling through feces"
+  ],
+  "ecosystem_type": "forest",
+  "ecosystem_subtype": "montane bamboo forest",
+  "habitat_types": [
+    "bamboo forest",
+    "mixed coniferous-broadleaf forest",
+    "montane forest"
+  ],
+  "microhabitat_primary": "dense bamboo groves",
+  "elevation_range": {
+    "min": 1200,
+    "max": 3400,
+    "unit": "m"
+  },
+  "diet_primary": [
+    "bamboo shoots",
+    "bamboo leaves",
+    "bamboo stems"
+  ],
+  "diet_specialization": "99% bamboo diet",
+  "foraging_strategy": "sedentary within bamboo habitat",
+  "predators": [
+    "Cuon alpinus (cubs)",
+    "Panthera pardus (cubs)"
+  ],
+  "climate_zone": "temperate montane",
+  "native_range": "central China",
+  "iucn_global_status": {
+    "status": "VU",
+    "variant": "warning"
+  },
+  "population_trend": "increasing",
+  "social_structure": "solitary",
+  "home_range_size": {
+    "min": 3.9,
+    "max": 6.4,
+    "unit": "km2"
+  },
+  "daily_food_intake": {
+    "min": 12,
+    "max": 38,
+    "unit": "kg"
+  }
+}

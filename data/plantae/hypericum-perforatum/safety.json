@@ -1,0 +1,81 @@
+{
+  "edibility": {
+    "status": "medicinal",
+    "variant": "warning"
+  },
+  "toxicity_level": {
+    "status": "Low toxicity but significant drug interactions",
+    "variant": "warning"
+  },
+  "edibility_rating": {
+    "rating": 2,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available (prescription in some countries)",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "MAJOR drug interactions - consult pharmacist",
+    "Causes photosensitivity",
+    "Do not combine with prescription antidepressants"
+  ],
+  "primary_toxins": [
+    {
+      "name": "Hypericin",
+      "cas": "548-04-9",
+      "mechanism": "Photosensitizer; causes skin reactions in sunlight",
+      "lethal_dose": "Not directly lethal; photosensitivity is main concern"
+    }
+  ],
+  "symptoms_by_severity": [
+    {"level": "low", "typ": "Photosensitivity", "beschreibung": "Skin redness, blistering after sun exposure"},
+    {"level": "high", "typ": "Drug interactions", "beschreibung": "Serotonin syndrome with SSRIs; reduced efficacy of many drugs"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "fatality_note": "No direct fatalities, but drug interactions can be life-threatening (serotonin syndrome).",
+  "risk_groups": [
+    "Those on any prescription medications",
+    "Fair-skinned individuals",
+    "Transplant patients (reduces immunosuppressant levels)"
+  ],
+  "antidote": "None; discontinue and avoid sun",
+  "poison_control_relevant": true,
+  "prognosis": {
+    "status": "Good with proper use",
+    "variant": "success"
+  },
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "contraindications": [
+    "SSRIs and other antidepressants",
+    "Oral contraceptives",
+    "HIV medications",
+    "Immunosuppressants",
+    "Warfarin",
+    "Many other medications"
+  ],
+  "drug_interactions": [
+    "Induces CYP3A4 enzyme - reduces many drug levels",
+    "SSRIs - serotonin syndrome risk",
+    "Oral contraceptives - reduced efficacy",
+    "Cyclosporine - transplant rejection risk",
+    "Warfarin - reduced anticoagulation"
+  ],
+  "source": {
+    "authors": "Knuppel, L. & Linde, K.",
+    "year": 2004,
+    "title": "Adverse effects of St. John's Wort",
+    "journal": "CNS Drugs",
+    "doi": "10.2165/00023210-200418110-00003"
+  }
+}

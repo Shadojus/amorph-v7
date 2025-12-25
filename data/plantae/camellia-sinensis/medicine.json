@@ -1,0 +1,65 @@
+{
+  "traditional_medicine": {
+    "systems": ["TCM", "Japanische Medizin", "Ayurveda"],
+    "historical_use": "Ueber 4700 Jahre in China als Heilgetränk und Stimulans",
+    "traditional_indications": ["Muedigkeit", "Kopfschmerzen", "Verdauungsstoerungen", "Wasserretention"]
+  },
+  "tcm_herb_name_pinyin": "Cha",
+  "tcm_herb_name_chinese": "茶",
+  "tcm_nature": "kuehl (Gruentee) bis warm (Schwarztee)",
+  "tcm_flavor": ["bitter", "sweet"],
+  "who_monograph_exists": false,
+  "active_substances": [
+    "Catechine (EGCG, EGC, ECG)",
+    "Koffein",
+    "L-Theanin",
+    "Theaflavine (Schwarztee)",
+    "Polyphenole"
+  ],
+  "effect_profile": [
+    {"axis": "Antioxidativ", "value": 95},
+    {"axis": "Stimulierend", "value": 80},
+    {"axis": "Neuroprotektiv", "value": 70},
+    {"axis": "Thermogenisch", "value": 65},
+    {"axis": "Kardiovaskulaer", "value": 75}
+  ],
+  "therapeutic_categories": [
+    "Antioxidans",
+    "Stimulans",
+    "Neuroprotektivum"
+  ],
+  "evidence_level": {
+    "status": "1a",
+    "variant": "success"
+  },
+  "evidence_summary": "Umfangreiche epidemiologische Studien zeigen Zusammenhang zwischen Teekonsum und reduziertem kardiovaskulärem Risiko",
+  "safety_score": {
+    "value": 85,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Koffein", "beschreibung": "Schlaflosigkeit, Nervositaet, Herzklopfen"},
+    {"level": "medium", "typ": "Hohe Dosen Grunetee-Extrakt", "beschreibung": "Lebertoxizität in Einzelfällen beschrieben"}
+  ],
+  "interactions": [
+    {"level": "medium", "typ": "Eisenresorption", "beschreibung": "Tanine hemmen Eisenaufnahme aus pflanzlicher Nahrung"},
+    {"level": "low", "typ": "Stimulanzien", "beschreibung": "Additive Wirkung mit anderen Koffeinquellen"}
+  ],
+  "contraindications": [
+    "Koffeinempfindlichkeit",
+    "Schwere Herz-Rhythmus-Stoerungen",
+    "Angststoerungen (bei hohem Konsum)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Moderater Konsum (2-3 Tassen) sicher",
+    "variant": "success"
+  },
+  "dosage_notes": "Gruentee: 2-4 Tassen taeglich; EGCG-Extrakt: 200-400 mg; Koffeingehalt beachten",
+  "preparation_forms": ["Aufguss (Tee)", "Matcha", "Extrakt", "Kapseln"],
+  "status_by_region": {
+    "eu": "Lebensmittel/Nahrungsergänzungsmittel",
+    "usa": "GRAS",
+    "japan": "Lebensmittel"
+  }
+}

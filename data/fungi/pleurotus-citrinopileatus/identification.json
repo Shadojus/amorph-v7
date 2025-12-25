@@ -1,0 +1,74 @@
+{
+  "scientific_name": "Pleurotus citrinopileatus",
+  "author_citation": "Singer",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Pleurotaceae",
+  "taxonomy_genus": "Pleurotus",
+  "taxonomy_species": "citrinopileatus",
+  "common_names": [
+    "Zitronenseitling",
+    "Limonenseitling",
+    "Golden Oyster",
+    "Yellow Oyster",
+    "Tamogitake"
+  ],
+  "size_range": {
+    "min": 2,
+    "max": 5,
+    "unit": "cm"
+  },
+  "color_primary": "zitronengelb",
+  "color_secondary": "gold",
+  "smell_description": "Adstringent, nussig, fruchtig",
+  "taste_description": "Mild, cashew-artig",
+  "primary_structure_present": true,
+  "primary_structure_type": "Hut",
+  "primary_structure_diameter": {
+    "min": 2,
+    "max": 5,
+    "unit": "cm"
+  },
+  "primary_structure_shape_mature": "konvex bis flach, Mitte vertieft",
+  "primary_structure_surface": "glatt",
+  "primary_structure_color": "leuchtend zitronengelb bis gold",
+  "support_structure_present": true,
+  "support_structure_type": "Stiel",
+  "support_structure_color": "weiss",
+  "support_structure_position": "zentral",
+  "lamellae_present": true,
+  "lamellae_attachment": "herablaufend",
+  "lamellae_color": "weisslich",
+  "tissue_color": "weiss",
+  "propagule_color": "blassrosa",
+  "propagule_length": {
+    "min": 7.5,
+    "max": 9,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 3,
+    "max": 3.5,
+    "unit": "um"
+  },
+  "confusion_species_list": [
+    "Pleurotus cornucopiae",
+    "Pleurotus pulmonarius"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "beginner",
+    "variant": "success"
+  },
+  "key_differentiating_features": [
+    "Leuchtend zitronengelbe Farbe",
+    "Grosse Bueschel mit 50-100 Pilzen",
+    "Weisser, zentral angesetzter Stiel"
+  ]
+}

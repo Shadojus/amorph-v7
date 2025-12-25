@@ -1,0 +1,55 @@
+{
+  "scientific_name": "Dendrobates tinctorius",
+  "author_citation": "(Cuvier, 1797)",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Chordata",
+  "taxonomy_class": "Amphibia",
+  "taxonomy_order": "Anura",
+  "taxonomy_family": "Dendrobatidae",
+  "taxonomy_genus": "Dendrobates",
+  "taxonomy_species": "tinctorius",
+  "common_names": [
+    "Dyeing Poison Dart Frog",
+    "Dyeing Poison Frog",
+    "Faerberfrosch",
+    "Dendrobate a tapirer"
+  ],
+  "size_range": {
+    "min": 4.0,
+    "max": 5.0,
+    "unit": "cm"
+  },
+  "weight_range": {
+    "min": 3,
+    "max": 8,
+    "unit": "g"
+  },
+  "color_primary": "variable (blue, yellow, white)",
+  "color_secondary": "black markings",
+  "primary_structure_type": "small colorful terrestrial frog",
+  "primary_structure_shape_mature": "robust body with large toe pads",
+  "primary_structure_surface": "smooth moist skin",
+  "primary_structure_color": "highly variable; typically blue/yellow with black spots or stripes",
+  "key_differentiating_features": [
+    "Over 100 distinct color morphs",
+    "Large adhesive toe pads",
+    "Robust body shape",
+    "Bright aposematic coloration",
+    "Diurnal activity"
+  ],
+  "identification_difficulty": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Dendrobates azureus (Blue Poison Dart Frog - uniformly blue)",
+    "Dendrobates leucomelas (Yellow-banded Poison Dart Frog)"
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Males smaller with heart-shaped toe discs; females larger and plumper"
+}

@@ -4,7 +4,11 @@
       "WebSearch",
       "Bash(mkdir:*)",
       "Bash(npm run validate:*)",
-      "Bash(npm run build:index:*)"
+      "Bash(npm run build:index:*)",
+      "Bash(cat:*)",
+      "Bash(done)",
+      "WebFetch(domain:en.wikipedia.org)",
+      "Bash(wc:*)"
     ]
   }
 }

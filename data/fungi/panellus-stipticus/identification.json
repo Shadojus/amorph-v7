@@ -1,0 +1,81 @@
+{
+  "scientific_name": "Panellus stipticus",
+  "author_citation": "(Bull.) P. Karst.",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Mycenaceae",
+  "taxonomy_genus": "Panellus",
+  "taxonomy_species": "stipticus",
+  "synonyms": [
+    "Panus stipticus",
+    "Pleurotus stipticus",
+    "Agaricus stypticus"
+  ],
+  "common_names": [
+    "Herber Zwergknaeuel",
+    "Eichen-Zwergknaeuel",
+    "Bitterer Muschelseitling",
+    "Bitter Oyster",
+    "Luminescent Panellus"
+  ],
+  "size_range": {
+    "min": 1,
+    "max": 6,
+    "unit": "cm"
+  },
+  "color_primary": "ockergelb",
+  "color_secondary": "rotbraeunlich",
+  "smell_description": "Neutral bis pilzig",
+  "taste_description": "Bitter, scharf, herb, pfeffrig",
+  "primary_structure_present": true,
+  "primary_structure_type": "Hut",
+  "primary_structure_diameter": {
+    "min": 1,
+    "max": 6,
+    "unit": "cm"
+  },
+  "primary_structure_shape_mature": "muschelfoermig, nierenfoermig",
+  "primary_structure_surface": "klebrig mit gummiartiger Schicht",
+  "primary_structure_color": "ockergelb, rotbraeunlich",
+  "support_structure_present": true,
+  "support_structure_type": "Stiel",
+  "support_structure_position": "seitlich",
+  "support_structure_color": "ockergelblich wie Hut",
+  "lamellae_present": true,
+  "lamellae_spacing": "dicht",
+  "lamellae_color": "ockergelb",
+  "tissue_color": "hellbraun",
+  "propagule_color": "weiss",
+  "propagule_length": {
+    "min": 2.5,
+    "max": 3,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 1,
+    "max": 2,
+    "unit": "um"
+  },
+  "propagule_shape": "ellipsoid",
+  "confusion_species_list": [
+    "Panellus mitis",
+    "Crepidotus mollis"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "intermediate",
+    "variant": "warning"
+  },
+  "key_differentiating_features": [
+    "Biolumineszenz (leuchtet im Dunkeln)",
+    "Bitterer, scharfer Geschmack",
+    "Muschelfoermig auf Laubholz"
+  ],
+  "special_feature": "Biolumineszenz - Myzel und Fruchtkoerper leuchten gruenlich im Dunkeln"
+}

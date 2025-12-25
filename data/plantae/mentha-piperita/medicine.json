@@ -1,0 +1,77 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine", "Arabische Medizin"],
+    "historical_use": "Seit dem 18. Jahrhundert kultiviert; Kreuzung entstand in England",
+    "traditional_indications": ["Verdauungsbeschwerden", "Kopfschmerzen", "Erkaeltungen", "Übelkeit"]
+  },
+  "pharmacopoeia_names": ["Menthae piperitae folium", "Menthae piperitae aetheroleum"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Reizdarmsyndrom", "Dyspepsie", "Spannungskopfschmerz (aeusserlich)"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Krampfartige Magen-Darm-Beschwerden", "Gallenwegsbeschwerden"],
+  "active_substances": [
+    "Menthol",
+    "Menthon",
+    "Menthylacetat",
+    "Isomenthon",
+    "Menthofuran"
+  ],
+  "effect_profile": [
+    {"axis": "Spasmolytisch", "value": 90},
+    {"axis": "Karminativ", "value": 85},
+    {"axis": "Kuehlend", "value": 95},
+    {"axis": "Analgetisch", "value": 70},
+    {"axis": "Antimikrobiell", "value": 60}
+  ],
+  "therapeutic_categories": [
+    "Spasmolytikum",
+    "Karminativum",
+    "Lokalanaesthetikum"
+  ],
+  "evidence_level": {
+    "status": "1a",
+    "variant": "success"
+  },
+  "evidence_grade_overall": {
+    "status": "A",
+    "variant": "success"
+  },
+  "clinical_studies": [
+    "Khanna et al. 2014 Cochrane: Pfefferminzöl wirksam bei Reizdarmsyndrom",
+    "Göbel et al. 1996: Wirksamkeit bei Spannungskopfschmerz"
+  ],
+  "safety_score": {
+    "value": 85,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Oral", "beschreibung": "Sodbrennen, Aufstossen"},
+    {"level": "low", "typ": "Aeusserlich", "beschreibung": "Hautreizung bei empfindlicher Haut"}
+  ],
+  "contraindications": [
+    "Gallensteine",
+    "Gallenblasenentzuendung",
+    "Schwere Leberschaeden",
+    "Kinder unter 2 Jahren (Menthol)"
+  ],
+  "special_populations_children": {
+    "status": "Nicht unter 2 Jahren (Menthol)",
+    "variant": "warning"
+  },
+  "standard_dose_range": {
+    "min": 0.2,
+    "max": 0.4,
+    "unit": "ml"
+  },
+  "dosage_notes": "Tee: 1.5-3g Blaetter; Oel-Kapseln (Reizdarmsyndrom): 0.2-0.4 ml 3x taeglich; Aeusserlich: 10% Loesung",
+  "preparation_forms": ["Tee", "Aetherisches Oel", "Kapseln (magensaftresistent)", "Einreibung"],
+  "status_by_region": {
+    "eu": "Pflanzliches Arzneimittel (well-established use)",
+    "usa": "GRAS"
+  }
+}

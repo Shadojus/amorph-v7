@@ -1,0 +1,58 @@
+{
+  "edibility_category": "choice_edible",
+  "culinary_value": {
+    "rating": 9,
+    "max": 10
+  },
+  "taste_profile": "intensiv pilzig, umami, lauchartig",
+  "texture": "fest, fleischig",
+  "aroma": "charakteristisch wuerzig",
+  "recommended_preparations": [
+    "Gebraten",
+    "In Suppen",
+    "Wok-Gerichte",
+    "Getrocknet als Wuerze"
+  ],
+  "cooking_methods": [
+    "Braten",
+    "Schmoren",
+    "Daempfen",
+    "Grillen"
+  ],
+  "cooking_time_minutes": {
+    "min": 5,
+    "max": 15,
+    "unit": "min"
+  },
+  "storage_fresh_days": {
+    "min": 7,
+    "max": 14,
+    "unit": "Tage"
+  },
+  "storage_methods": [
+    "Gekuehlt",
+    "Trocknen (sehr gut geeignet)",
+    "Einfrieren"
+  ],
+  "parts_used": [
+    "Hut (bevorzugt)",
+    "Stiel (oft zaeh)"
+  ],
+  "cuisine_traditions": [
+    "Chinesische Kueche",
+    "Japanische Kueche",
+    "Koreanische Kueche",
+    "Fusion-Kueche"
+  ],
+  "commercial_availability": {
+    "status": "hoch",
+    "variant": "success"
+  },
+  "cultivation_scale": "industriell (zweitwichtigster Kulturpilz)",
+  "nutritional_highlights": [
+    "13-18% Protein",
+    "Vitamin D",
+    "Niacin (55mg/100g)",
+    "Eritadenin (cholesterinsenkend)"
+  ]
+}

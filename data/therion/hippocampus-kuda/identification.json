@@ -1,0 +1,55 @@
+{
+  "scientific_name": "Hippocampus kuda",
+  "author_citation": "Bleeker, 1852",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Chordata",
+  "taxonomy_class": "Actinopterygii",
+  "taxonomy_order": "Syngnathiformes",
+  "taxonomy_family": "Syngnathidae",
+  "taxonomy_genus": "Hippocampus",
+  "taxonomy_species": "kuda",
+  "common_names": [
+    "Spotted Seahorse",
+    "Yellow Seahorse",
+    "Common Seahorse",
+    "Seepferdchen"
+  ],
+  "size_range": {
+    "min": 17,
+    "max": 30,
+    "unit": "cm"
+  },
+  "weight_range": {
+    "min": 10,
+    "max": 50,
+    "unit": "g"
+  },
+  "color_primary": "yellow to brown",
+  "color_secondary": "variable spots",
+  "primary_structure_type": "upright swimming fish with horse-like head",
+  "primary_structure_shape_mature": "S-curved body with prehensile tail",
+  "primary_structure_surface": "bony ring-like segments",
+  "primary_structure_color": "yellow, brown, grey, or black with variable spotting",
+  "key_differentiating_features": [
+    "Horse-like head and snout",
+    "Upright swimming posture",
+    "Prehensile tail without caudal fin",
+    "Bony armor of ring segments",
+    "Small dorsal fin for propulsion"
+  ],
+  "identification_difficulty": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Hippocampus histrix (Thorny Seahorse - prominent spines)",
+    "Hippocampus kelloggi (Great Seahorse - larger)"
+  ],
+  "confusion_risk_level": {
+    "status": "high",
+    "variant": "danger"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Males have smooth brood pouch; females have pointed belly"
+}

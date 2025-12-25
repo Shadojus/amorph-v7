@@ -1,0 +1,40 @@
+{
+  "trophic_mode_primary": "autotroph",
+  "ecological_guild": "Halbstrauch",
+  "primary_ecosystem_function": "Bestaeubungsmagnet",
+  "secondary_ecosystem_functions": [
+    "Nektarquelle fuer Bienen",
+    "Erosionsschutz"
+  ],
+  "ecosystem_type": "Mediterrane Garrigue",
+  "ecosystem_subtype": "Felsheide",
+  "microhabitat_primary": "Trockene, steinige Haenge",
+  "microhabitat_secondary": "Kalkmagerrasen",
+  "light_requirement": "volle Sonne",
+  "moisture_regime": "xerisch-mesisch",
+  "drought_tolerance": {
+    "rating": 8,
+    "max": 10
+  },
+  "soil_ph_optimal_min": 6.0,
+  "soil_ph_optimal_max": 8.0,
+  "calcium_requirement": "mittel bis hoch",
+  "soil_texture_preference": "durchlaessig, steinig",
+  "climate_zone": "mediterran",
+  "temperature_optimal_min_c": -10,
+  "temperature_optimal_max_c": 35,
+  "frost_tolerance": {
+    "rating": 6,
+    "max": 10
+  },
+  "native_range": "Mittelmeerraum (Balkanhalbinsel, Italien, Spanien)",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "allelopathic_effects": [
+    "Hemmt Keimung benachbarter Pflanzen"
+  ],
+  "dispersal_vector_type": "Myrmekochor",
+  "dispersal_mechanism": "Ameisenausbreitung"
+}

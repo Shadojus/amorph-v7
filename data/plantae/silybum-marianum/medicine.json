@@ -1,0 +1,82 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine", "Griechische Medizin"],
+    "historical_use": "Seit der Antike als Leberschutz; Plinius empfahl den Saft gegen Gallebeschwerden",
+    "traditional_indications": ["Leberbeschwerden", "Gallenleiden", "Vergiftungen", "Verdauungsstoerungen"]
+  },
+  "pharmacopoeia_names": ["Silybi mariani fructus"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Toxische Leberschaeden", "Unterstuetzend bei chronischer Hepatitis und Leberzirrhose"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Toxische Leberschaeden", "Unterstuetzende Behandlung bei chronisch-entzuendlichen Lebererkrankungen und Leberzirrhose"],
+  "active_substances": [
+    "Silymarin (Flavonolignane)",
+    "Silybin A und B",
+    "Silychristin",
+    "Silydianin"
+  ],
+  "effect_profile": [
+    {"axis": "Hepatoprotektiv", "value": 95},
+    {"axis": "Antioxidativ", "value": 85},
+    {"axis": "Antiinflammatorisch", "value": 70},
+    {"axis": "Membranstabilisierend", "value": 80},
+    {"axis": "Regenerationsfoerdernd", "value": 75}
+  ],
+  "therapeutic_categories": [
+    "Hepatoprotektivum",
+    "Antioxidans",
+    "Choleretikum"
+  ],
+  "evidence_level": {
+    "status": "1b",
+    "variant": "success"
+  },
+  "evidence_grade_overall": {
+    "status": "B",
+    "variant": "success"
+  },
+  "clinical_studies": [
+    "Ferenci et al. 1989: Verbesserte Überlebensrate bei Leberzirrhose",
+    "Rambaldi et al. Cochrane 2005: Systematische Uebersicht zur Hepatitis"
+  ],
+  "safety_score": {
+    "value": 90,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Selten", "beschreibung": "Leichte Magen-Darm-Beschwerden, Laxierende Wirkung"}
+  ],
+  "interactions": [
+    {"level": "low", "typ": "CYP2C9", "beschreibung": "Theoretische Interaktion, klinisch nicht bedeutsam"}
+  ],
+  "contraindications": [
+    "Allergie gegen Korbblütler (Asteraceae)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Wahrscheinlich sicher",
+    "variant": "success"
+  },
+  "special_populations_elderly": {
+    "status": "Gut geeignet",
+    "variant": "success"
+  },
+  "standard_dose_range": {
+    "min": 200,
+    "max": 400,
+    "unit": "mg"
+  },
+  "dose_frequency": "dreimal taeglich",
+  "standardization_marker": "Silymarin 70-80%",
+  "dosage_notes": "200-400 mg Silymarin pro Tag verteilt auf 2-3 Dosen; fetthaltige Mahlzeit verbessert Resorption",
+  "preparation_forms": ["Standardisierter Extrakt", "Kapseln", "Tabletten", "Tee (weniger wirksam)"],
+  "status_by_region": {
+    "eu": "Pflanzliches Arzneimittel (well-established use)",
+    "usa": "Dietary Supplement",
+    "germany": "Zugelassenes Arzneimittel"
+  }
+}

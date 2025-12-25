@@ -1,0 +1,83 @@
+{
+  "traditional_medicine": {
+    "systems": ["TCM", "Koreanische Medizin"],
+    "historical_use": "Ueber 2000 Jahre als Tonikum in Ostasien; Kaiser-Pflanze",
+    "traditional_indications": ["Erschoepfung", "Schwaeche", "Kognitiver Abbau", "Erektile Dysfunktion", "Diabetesunterstuetzung"]
+  },
+  "tcm_herb_name_pinyin": "Ren Shen",
+  "tcm_herb_name_chinese": "人参",
+  "tcm_nature": "warm",
+  "tcm_flavor": ["sweet", "bitter"],
+  "tcm_meridian_tropism": ["Lunge", "Milz", "Herz"],
+  "tcm_five_element": "Erde",
+  "tcm_therapeutic_actions": ["Tonisiert Qi", "Staerkt Milz und Lunge", "Beruhigt Shen"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Asthenie", "Rekonvaleszenz", "Erhoehter Stressbedarf"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Tonicum bei Muedigkeit und Schwaeche", "Nachlassende Leistungs- und Konzentrationsfaehigkeit"],
+  "active_substances": [
+    "Ginsenoside (Rb1, Rg1, Rg3)",
+    "Polysaccharide (Panaxane)",
+    "Polyacetylene",
+    "Peptide"
+  ],
+  "effect_profile": [
+    {"axis": "Adaptogen", "value": 95},
+    {"axis": "Immunmodulierend", "value": 80},
+    {"axis": "Nootropisch", "value": 75},
+    {"axis": "Antidiabetisch", "value": 65},
+    {"axis": "Energiesteigernd", "value": 85}
+  ],
+  "therapeutic_categories": [
+    "Adaptogen",
+    "Tonikum",
+    "Immunstimulans"
+  ],
+  "evidence_level": {
+    "status": "2a",
+    "variant": "success"
+  },
+  "safety_score": {
+    "value": 75,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Haeufig", "beschreibung": "Schlaflosigkeit, Nervositaet, Kopfschmerzen"},
+    {"level": "medium", "typ": "Hohe Dosen", "beschreibung": "Blutdruckanstieg, Tachykardie"}
+  ],
+  "interactions": [
+    {"level": "medium", "typ": "Antikoagulantien", "beschreibung": "Moegliche Wechselwirkung mit Warfarin"},
+    {"level": "medium", "typ": "Diabetes-Medikamente", "beschreibung": "Verstaerkte blutzuckersenkende Wirkung"},
+    {"level": "low", "typ": "Stimulanzien", "beschreibung": "Additive Wirkung mit Koffein"}
+  ],
+  "contraindications": [
+    "Akute Infektionen",
+    "Schwerer Bluthochdruck",
+    "Schwangerschaft und Stillzeit"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Nicht empfohlen",
+    "variant": "warning"
+  },
+  "standard_dose_range": {
+    "min": 200,
+    "max": 400,
+    "unit": "mg"
+  },
+  "dose_frequency": "ein- bis zweimal taeglich",
+  "standardization_marker": "Ginsenoside 4-7%",
+  "treatment_duration_typical": "Kurweise fuer 2-3 Monate, dann Pause",
+  "dosage_notes": "Standardisierter Extrakt 200-400 mg/Tag; morgens einnehmen; nicht abends",
+  "preparation_forms": ["Standardisierter Extrakt", "Getrocknete Wurzel", "Tee", "Tinktur", "Kapseln"],
+  "status_by_region": {
+    "eu": "Nahrungsergaenzungsmittel",
+    "usa": "GRAS, Dietary Supplement",
+    "china": "Traditionelles Arzneimittel",
+    "korea": "Traditionelles Arzneimittel"
+  }
+}

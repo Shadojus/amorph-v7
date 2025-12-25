@@ -1,0 +1,35 @@
+{
+  "safety_edibility_status": {
+    "status": "edible",
+    "variant": "warning"
+  },
+  "safety_edibility_notes": "Historically hunted for meat. Bear meat must be thoroughly cooked due to Trichinella parasite risk. Legal hunting permitted in some jurisdictions with proper licensing.",
+  "safety_potentially_deadly": true,
+  "safety_warning_level": {
+    "status": "critical",
+    "variant": "danger"
+  },
+  "safety_warning_text": "Brown bears cause multiple human fatalities annually. Most attacks are defensive when surprised, protecting cubs, or defending food. Predatory attacks are rare but do occur.",
+  "safety_summary": "Brown bears are extremely dangerous, especially females with cubs or bears defending food. Carry bear spray in bear country. Make noise while hiking. Know how to respond to different attack types.",
+  "safety_risk_inherent": {
+    "value": 85,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_contraindications": [
+    "Never approach bears",
+    "Never run from a bear",
+    "Store food properly in bear country",
+    "Carry bear spray and know how to use it",
+    "Make noise while hiking",
+    "Never approach cubs"
+  ],
+  "encounter_protocol": "For defensive attacks: play dead, protect vital areas. For predatory attacks: fight back. Speak calmly, back away slowly, avoid direct eye contact. Do not run.",
+  "bear_spray_effectiveness": "92% effective in stopping aggressive bear behavior",
+  "legal_protection_status": "Varies by region; protected in many areas, legal hunting in others"
+}

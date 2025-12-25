@@ -1,0 +1,61 @@
+{
+  "traditional_medicine_use": true,
+  "traditional_medicine_systems": [
+    "Europaeische Volksmedizin",
+    "Traditionelle Russische Medizin"
+  ],
+  "medicinal_status": {
+    "status": "Vitalpilz",
+    "variant": "info"
+  },
+  "historical_significance": "Der Oetzi (Gletschermumie, ca. 5300 Jahre alt) trug zwei Stuecke Birkenporling bei sich, vermutlich zur Behandlung von Darmparasiten.",
+  "primary_medicinal_uses": [
+    "Magen-Darm-Beschwerden",
+    "Wundheilung",
+    "Entzuendungshemmung",
+    "Antiparasitaer"
+  ],
+  "active_compounds": [
+    {
+      "name": "Agaricinsaeure",
+      "class": "Triterpensaeure",
+      "effects": ["antiparasitaer", "abfuehrend"]
+    },
+    {
+      "name": "Polyporensaeure",
+      "class": "Triterpensaeure",
+      "effects": ["antibiotisch", "entzuendungshemmend"]
+    },
+    {
+      "name": "Betulin",
+      "class": "Triterpen",
+      "effects": ["antiviral", "antitumoral"]
+    },
+    {
+      "name": "Phenolsaeuren",
+      "class": "Phenole",
+      "effects": ["antioxidativ"]
+    }
+  ],
+  "research_areas": [
+    "Antivirale Wirkung (Influenza)",
+    "Antibakterielle Wirkung",
+    "Antitumorale Wirkung",
+    "Wundheilung"
+  ],
+  "clinical_evidence_level": {
+    "status": "praeklinisch",
+    "variant": "warning"
+  },
+  "clinical_evidence_notes": "Zahlreiche In-vitro Studien bestaetigen antibakterielle und antivirale Aktivitaet.",
+  "traditional_preparations": [
+    "Teeaufguss",
+    "Wundverband (duenne Streifen)",
+    "Pulver"
+  ],
+  "safety_profile": {
+    "status": "gut vertraeglich",
+    "variant": "success"
+  },
+  "regulatory_status_eu": "Nahrungsergaenzungsmittel"
+}

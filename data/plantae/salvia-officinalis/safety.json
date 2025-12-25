@@ -1,0 +1,70 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Low (thujone in excess)",
+    "variant": "warning"
+  },
+  "edibility_rating": {
+    "rating": 4,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Safe in culinary amounts",
+    "Essential oil contains thujone - use sparingly",
+    "Avoid therapeutic doses during pregnancy"
+  ],
+  "primary_toxins": [
+    {
+      "name": "Thujone",
+      "cas": "546-80-5",
+      "mechanism": "GABA receptor antagonist; can cause seizures in high doses",
+      "lethal_dose": "Toxic dose estimated at 30mg/kg body weight"
+    }
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "typ": "Culinary use", "beschreibung": "Safe in normal cooking amounts"},
+    {"level": "medium", "typ": "Excessive intake", "beschreibung": "Nausea, vertigo, rapid heartbeat, seizures (rare)"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "risk_groups": [
+    "Pregnant women",
+    "Those with epilepsy",
+    "Those taking sedatives"
+  ],
+  "antidote": "None; supportive care",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "contraindications": [
+    "Pregnancy (therapeutic doses)",
+    "Epilepsy",
+    "Breastfeeding"
+  ],
+  "source": {
+    "authors": "Walch, S.G. et al.",
+    "year": 2011,
+    "title": "The effect of sage on human cognitive function",
+    "journal": "British Journal of Nutrition",
+    "doi": "10.1017/S0007114510004745"
+  }
+}

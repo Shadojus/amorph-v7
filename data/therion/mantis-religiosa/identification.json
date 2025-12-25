@@ -1,0 +1,55 @@
+{
+  "scientific_name": "Mantis religiosa",
+  "author_citation": "(Linnaeus, 1758)",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Arthropoda",
+  "taxonomy_class": "Insecta",
+  "taxonomy_order": "Mantodea",
+  "taxonomy_family": "Mantidae",
+  "taxonomy_genus": "Mantis",
+  "taxonomy_species": "religiosa",
+  "common_names": [
+    "European Mantis",
+    "Praying Mantis",
+    "Europaeische Gottesanbeterin",
+    "Mante Religieuse"
+  ],
+  "size_range": {
+    "min": 50,
+    "max": 75,
+    "unit": "mm"
+  },
+  "weight_range": {
+    "min": 4,
+    "max": 7,
+    "unit": "g"
+  },
+  "color_primary": "green or brown",
+  "color_secondary": "matching morphs",
+  "primary_structure_type": "elongated predatory insect",
+  "primary_structure_shape_mature": "triangular head on elongated thorax",
+  "primary_structure_surface": "smooth exoskeleton",
+  "primary_structure_color": "green or brown morph; black spot on inner foreleg",
+  "key_differentiating_features": [
+    "Triangular head with large compound eyes",
+    "Distinctive black-ringed white spot on inner foreleg",
+    "Elongated prothorax",
+    "Raptorial forelegs held in prayer position",
+    "Can rotate head 180 degrees"
+  ],
+  "identification_difficulty": {
+    "status": "easy",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Tenodera sinensis (Chinese Mantis - larger, no foreleg spot)",
+    "Stagmomantis carolina (Carolina Mantis - smaller, North America)"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Females larger with shorter wings; males smaller with longer wings, 8 vs 6 abdominal segments"
+}

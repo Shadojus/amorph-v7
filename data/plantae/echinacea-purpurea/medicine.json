@@ -1,0 +1,83 @@
+{
+  "traditional_medicine": {
+    "systems": ["Indigenous_North_America"],
+    "historical_use": "Traditionelles Heilmittel der Plains-Indianer bei Infektionen und Schmerzen",
+    "traditional_indications": ["Erkaeltungen", "Infektionen", "Wundheilung", "Schlangenbisse"]
+  },
+  "pharmacopoeia_names": ["Echinaceae purpureae herba", "Echinaceae purpureae radix"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Unterstuetzende Behandlung von Erkaeltungen", "Oberflaechliche Wunden"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Unterstuetzend bei rezidivierenden Infekten der Atemwege und ableitenden Harnwege"],
+  "active_substances": [
+    "Alkamide",
+    "Kaffeesaeurederivate (Cichoriensaeure)",
+    "Polysaccharide",
+    "Glykoproteine"
+  ],
+  "effect_profile": [
+    {"axis": "Immunstimulierend", "value": 85},
+    {"axis": "Antiinflammatorisch", "value": 70},
+    {"axis": "Antiviral", "value": 60},
+    {"axis": "Wundheilend", "value": 65},
+    {"axis": "Antibakteriell", "value": 55}
+  ],
+  "therapeutic_categories": [
+    "Immunstimulans",
+    "Vulnerarium",
+    "Antiinfektivum"
+  ],
+  "evidence_level": {
+    "status": "1a",
+    "variant": "success"
+  },
+  "evidence_grade_overall": {
+    "status": "B",
+    "variant": "success"
+  },
+  "meta_analyses": [
+    "Shah et al. 2007: Lancet Infect Dis - 58% Reduktion Erkaeltungsrisiko",
+    "Karsch-Voelk et al. Cochrane 2014: Modest benefits for cold prevention"
+  ],
+  "safety_score": {
+    "value": 85,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Gelegentlich", "beschreibung": "Magen-Darm-Beschwerden, Hautausschlag"},
+    {"level": "low", "typ": "Allergie", "beschreibung": "Bei Asteraceae-Allergie moeglich"}
+  ],
+  "contraindications": [
+    "Allergie gegen Korbblütler",
+    "Autoimmunerkrankungen (relative Kontraindikation)",
+    "Progressive systemische Erkrankungen (MS, Tuberkulose, HIV)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Wahrscheinlich sicher",
+    "variant": "success"
+  },
+  "special_populations_children": {
+    "status": "Ab 12 Jahren",
+    "variant": "warning"
+  },
+  "standard_dose_range": {
+    "min": 900,
+    "max": 1200,
+    "unit": "mg"
+  },
+  "dose_frequency": "dreimal taeglich",
+  "treatment_duration_typical": "Nicht laenger als 8 Wochen am Stueck",
+  "onset_of_action": "Bei akutem Infekt: innerhalb von 24-48 Stunden beginnen",
+  "dosage_notes": "Bei Erkaeltungsbeginn hohe Dosis, dann reduzieren; maximal 8 Wochen Daueranwendung",
+  "preparation_forms": ["Presssaft", "Extrakt", "Tinktur", "Kapseln", "Tee"],
+  "status_by_region": {
+    "eu": "Pflanzliches Arzneimittel (traditional use)",
+    "usa": "Dietary Supplement",
+    "germany": "Zugelassenes Arzneimittel"
+  }
+}

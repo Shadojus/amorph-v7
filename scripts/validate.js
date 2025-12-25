@@ -89,6 +89,8 @@ const morphSchemas = {
   dosage: z.union([
     z.string(),
     z.object({ unit: z.string() }).passthrough(),
+    z.array(z.object({ unit: z.string() }).passthrough()),
+    z.array(z.object({ amount: z.number() }).passthrough()),
   ]),
   
   // Progress

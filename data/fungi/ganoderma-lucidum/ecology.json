@@ -1,0 +1,32 @@
+{
+  "trophic_mode_primary": "saprobiontisch",
+  "trophic_mode_secondary": "parasitisch",
+  "ecological_guild": "Holzzersetzer",
+  "decomposer_type": "Weissfaeule",
+  "ecosystem_type": "Wald",
+  "ecosystem_subtype": "Laubwald",
+  "microhabitat_primary": "Basis lebender Baeume",
+  "microhabitat_secondary": "tote Stubben",
+  "substrate_type_primary": "Laubholz",
+  "substrate_types_secondary": [
+    "Eiche",
+    "Buche",
+    "Birke",
+    "Ahorn",
+    "Pflaumenbaum"
+  ],
+  "substrate_specificity": {
+    "status": "breit",
+    "variant": "success"
+  },
+  "fruiting_season_start": 6,
+  "fruiting_season_end": 10,
+  "fruiting_peak_month": 8,
+  "climate_zone": "temperat bis subtropisch",
+  "native_range": "Europa, Asien, Nordamerika",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "perennial": true
+}

@@ -2,24 +2,35 @@
   "kingdom": "animalia",
   "name": "Animalia",
   "icon": "🦋",
-  "count": 1,
+  "count": 28,
   "species": [
-    {
-      "slug": "alpine-marmot",
-      "name": "Alpenmurmeltier",
-      "scientific_name": "Marmota marmota",
-      "perspectives": [
-        "conservation",
-        "culture",
-        "ecology",
-        "geography",
-        "identification",
-        "interactions",
-        "research",
-        "safety",
-        "statistics",
-        "temporal"
-      ]
-    }
+    "ailuropoda-melanoleuca",
+    "ambystoma-mexicanum",
+    "apis-mellifera",
+    "aptenodytes-forsteri",
+    "ara-ararauna",
+    "canis-lupus",
+    "carcharodon-carcharias",
+    "chelonia-mydas",
+    "corvus-corax",
+    "crocodylus-niloticus",
+    "delphinapterus-leucas",
+    "dendrobates-tinctorius",
+    "electrophorus-electricus",
+    "haliaeetus-leucocephalus",
+    "hapalochlaena-lunulata",
+    "hippocampus-kuda",
+    "loxodonta-africana",
+    "mantis-religiosa",
+    "mola-mola",
+    "octopus-vulgaris",
+    "orcinus-orca",
+    "panthera-tigris",
+    "papilio-machaon",
+    "phyllobates-terribilis",
+    "python-reticulatus",
+    "struthio-camelus",
+    "ursus-arctos",
+    "varanus-komodoensis"
   ]
 }

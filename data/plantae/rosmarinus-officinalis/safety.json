@@ -1,0 +1,59 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Non-toxic",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 5,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Safe in culinary amounts",
+    "Essential oil should be diluted",
+    "Avoid large medicinal doses during pregnancy"
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "typ": "Normal use", "beschreibung": "Safe as culinary herb and tea"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "risk_groups": [
+    "Pregnant women (large doses)",
+    "Those with seizure disorders (large doses)"
+  ],
+  "antidote": "None required",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "contraindications": [
+    "Pregnancy (therapeutic doses)",
+    "Seizure disorders (excessive amounts)"
+  ],
+  "source": {
+    "authors": "Begum, A. et al.",
+    "year": 2013,
+    "title": "An in-depth review on the medicinal flora Rosmarinus officinalis",
+    "journal": "Acta Scientiarum Polonorum",
+    "doi": ""
+  }
+}

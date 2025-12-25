@@ -1,0 +1,54 @@
+{
+  "traditional_medicine_use": true,
+  "traditional_medicine_systems": [
+    "Traditionelle Chinesische Medizin",
+    "Japanische Medizin"
+  ],
+  "medicinal_status": {
+    "status": "Vitalpilz",
+    "variant": "info"
+  },
+  "primary_medicinal_uses": [
+    "Immunstimulation",
+    "Antitumoral",
+    "Blutdrucksenkung",
+    "Cholesterinsenkung",
+    "Blutzuckerregulation"
+  ],
+  "active_compounds": [
+    {
+      "name": "Grifolan (D-Fraktion)",
+      "class": "Beta-1,6-Glucan",
+      "effects": ["immunstimulierend", "antitumoral"]
+    },
+    {
+      "name": "Polysaccharide",
+      "class": "Beta-Glucane",
+      "effects": ["immunmodulierend"]
+    }
+  ],
+  "research_areas": [
+    "Onkologie",
+    "HIV/AIDS-Forschung",
+    "Immunologie",
+    "Diabetes",
+    "Kardiologie"
+  ],
+  "clinical_evidence_level": {
+    "status": "klinische Studien",
+    "variant": "success"
+  },
+  "clinical_evidence_notes": "Umfangreiche Forschung, besonders in Japan und USA. HIV-Aktivitaet in vitro nachgewiesen (National Cancer Institute). Klinische Studien mit Krebspatienten zeigen vielversprechende Ergebnisse als Adjuvans.",
+  "traditional_preparations": [
+    "Gekocht/gebraten als Speisepilz",
+    "Heisswasserextrakt",
+    "Alkaliextrakt (effektiver)",
+    "D-Fraktion Extrakt"
+  ],
+  "dosage_traditional": "1-10 mg Extrakt pro kg Koerpergewicht (Tiermodell)",
+  "safety_profile": {
+    "status": "gut vertraeglich",
+    "variant": "success"
+  },
+  "regulatory_status_eu": "Lebensmittel und Nahrungsergaenzungsmittel"
+}

@@ -1,0 +1,49 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Non-toxic",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 5,
+    "max": 5
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Gruendlich reinigen von Sand und Nadeln",
+    "Gut durchkochen"
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "typ": "Normal consumption", "beschreibung": "Einer der sichersten Speisepilze"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "collection_warnings": [
+    "Verwechslung mit Oelbaumpilz (Omphalotus olearius) vermeiden",
+    "Pfifferlinge haben Leisten, keine echten Lamellen",
+    "Falscher Pfifferling ist ungefaehrlich aber minderwertig"
+  ],
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "source": {
+    "authors": "Fries, E.M.",
+    "year": 1821,
+    "title": "Systema Mycologicum",
+    "journal": "Lund",
+    "doi": ""
+  }
+}

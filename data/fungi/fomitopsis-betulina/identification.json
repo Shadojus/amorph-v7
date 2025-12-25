@@ -1,0 +1,79 @@
+{
+  "scientific_name": "Fomitopsis betulina",
+  "author_citation": "(Bull.) B.K. Cui, M.L. Han & Y.C. Dai",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Polyporales",
+  "taxonomy_family": "Fomitopsidaceae",
+  "taxonomy_genus": "Fomitopsis",
+  "taxonomy_species": "betulina",
+  "synonyms": [
+    "Piptoporus betulinus",
+    "Boletus betulinus"
+  ],
+  "common_names": [
+    "Birkenporling",
+    "Birkenzungenporling",
+    "Birkenschwamm",
+    "Oetzipilz",
+    "Birch Polypore",
+    "Razor Strop Fungus"
+  ],
+  "size_range": {
+    "min": 3,
+    "max": 30,
+    "unit": "cm"
+  },
+  "color_primary": "weisslich-cremefarben",
+  "color_secondary": "braun",
+  "smell_description": "Saeuerlich, an gruene Aepfel erinnernd",
+  "taste_description": "Sauer, bitter",
+  "primary_structure_present": true,
+  "primary_structure_type": "Konsole",
+  "primary_structure_diameter": {
+    "min": 3,
+    "max": 30,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "kugelig-knollig",
+  "primary_structure_shape_mature": "kissenfoermig",
+  "primary_structure_surface": "glatt, spaeter rissig",
+  "primary_structure_color": "weisslich bis braun",
+  "tubes_present": true,
+  "tubes_color": "weisslich bis hellgelb",
+  "pores_size": "2-4 pro mm",
+  "pores_color": "weisslich bis ockerbraun",
+  "tissue_color": "weiss",
+  "tissue_consistency": "jung weich, alt korkartig",
+  "propagule_color": "weiss",
+  "propagule_length": {
+    "min": 5,
+    "max": 7,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 1.5,
+    "max": 2,
+    "unit": "um"
+  },
+  "propagule_shape": "wuerstchenfoermig, gebogen",
+  "confusion_species_list": [
+    "Fomitiporia robusta",
+    "Ganoderma adspersum"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "beginner",
+    "variant": "success"
+  },
+  "key_differentiating_features": [
+    "Waechst NUR auf Birke",
+    "Weisse, kissenfoermige Konsole",
+    "Apfelaertiger Geruch"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "trophic_mode_primary": "parasitisch",
+  "trophic_mode_secondary": "saprobiontisch",
+  "ecological_guild": "Holzzersetzer",
+  "decomposer_type": "Braunfaeule",
+  "ecosystem_type": "Wald",
+  "ecosystem_subtype": "Birkenwald",
+  "microhabitat_primary": "lebende Birken",
+  "microhabitat_secondary": "tote Birken",
+  "substrate_type_primary": "Birkenholz",
+  "substrate_specificity": {
+    "status": "streng spezialisiert",
+    "variant": "warning"
+  },
+  "associated_plant_species": [
+    "Betula pendula",
+    "Betula pubescens"
+  ],
+  "fruiting_season_start": 1,
+  "fruiting_season_end": 12,
+  "fruiting_peak_month": 10,
+  "fruiting_frequency": "ganzjaehrig",
+  "climate_zone": "temperat bis boreal",
+  "moisture_regime": "mesisch",
+  "light_requirement": "schattig bis halbschattig",
+  "spatial_distribution_pattern": "einzeln",
+  "native_range": "Nordhemisphaere, Europa, Asien, Nordamerika",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "perennial": true,
+  "lifespan": "mehrjaehrig"
+}

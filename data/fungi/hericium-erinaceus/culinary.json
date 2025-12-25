@@ -1,0 +1,47 @@
+{
+  "edibility_category": "choice_edible",
+  "culinary_value": {
+    "rating": 9,
+    "max": 10
+  },
+  "taste_profile": "mild, meeresfruechteartig, an Hummer erinnernd",
+  "texture": "fest, faserig, fleischig",
+  "aroma": "suesslich, mehlartig",
+  "recommended_preparations": [
+    "Gebraten in Butter",
+    "Als Fleischersatz",
+    "Suppen",
+    "Schnitzel"
+  ],
+  "cooking_methods": [
+    "Braten",
+    "Schmoren",
+    "Panieren"
+  ],
+  "cooking_time_minutes": {
+    "min": 5,
+    "max": 15,
+    "unit": "min"
+  },
+  "storage_fresh_days": {
+    "min": 5,
+    "max": 7,
+    "unit": "Tage"
+  },
+  "storage_methods": [
+    "Gekuehlt",
+    "Trocknen",
+    "Einfrieren"
+  ],
+  "commercial_availability": {
+    "status": "gut",
+    "variant": "success"
+  },
+  "cultivation_scale": "kommerziell",
+  "nutritional_highlights": [
+    "31.7% Protein",
+    "30% Ballaststoffe",
+    "Vitamin D (240 IU)",
+    "Eisen (20.3 mg/100g)"
+  ]
+}

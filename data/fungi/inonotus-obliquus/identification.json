@@ -1,0 +1,69 @@
+{
+  "scientific_name": "Inonotus obliquus",
+  "author_citation": "(Ach. ex Pers.) Pil\u00e1t",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Hymenochaetales",
+  "taxonomy_family": "Hymenochaetaceae",
+  "taxonomy_genus": "Inonotus",
+  "taxonomy_species": "obliquus",
+  "synonyms": [
+    "Xanthochrous obliquus"
+  ],
+  "common_names": [
+    "Chaga",
+    "Tschaga",
+    "Schiefer Schillerporling",
+    "Sibirischer Chagapilz"
+  ],
+  "size_range": {
+    "min": 4,
+    "max": 50,
+    "unit": "cm"
+  },
+  "color_primary": "schwarz",
+  "color_secondary": "dunkelbraun",
+  "smell_description": "Neutral",
+  "taste_description": "Neutral, leicht bitter",
+  "primary_structure_present": true,
+  "primary_structure_type": "Sklerotium (sterile Masse)",
+  "primary_structure_diameter": {
+    "min": 4,
+    "max": 50,
+    "unit": "cm"
+  },
+  "primary_structure_surface": "rissig, korkig, kohlenheart",
+  "primary_structure_color": "aussen schwarz, innen dunkelbraun",
+  "tissue_color": "kastanienbraun bis dunkelbraun",
+  "tissue_consistency": "korkig, hart",
+  "propagule_color": "gelbbraun",
+  "propagule_length": {
+    "min": 7.5,
+    "max": 10,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 5,
+    "max": 7.5,
+    "unit": "um"
+  },
+  "confusion_species_list": [
+    "Kretzschmaria deusta",
+    "Daldinia concentrica"
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "intermediate",
+    "variant": "warning"
+  },
+  "key_differentiating_features": [
+    "Schwarze, kohleartige Auswuechse an Birken",
+    "Innen goldbraun bis dunkelbraun",
+    "Aus Rinde ausbrechend"
+  ]
+}

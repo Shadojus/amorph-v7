@@ -1,0 +1,205 @@
+{
+  "edibility_status": {
+    "status": "Choice Edible",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 8,
+    "max": 10
+  },
+  "edibility_requirements": [
+    {"step": 1, "label": "Junge Exemplare mit geschlossenem Hut bevorzugen", "status": "pending"},
+    {"step": 2, "label": "Gruendlich kochen oder braten", "status": "pending"}
+  ],
+  "edibility_warnings": [
+    {"level": "trivial", "typ": "Aeltere Exemplare", "beschreibung": "Ueberreife Pilze mit offenen Lamellen koennen weich und weniger schmackhaft werden"}
+  ],
+  "edibility_risk_groups": [
+    "Personen mit Pilzallergien"
+  ],
+  "sensory": [
+    {"axis": "Umami", "value": 70},
+    {"axis": "Nussigkeit", "value": 60},
+    {"axis": "Erdigkeit", "value": 50},
+    {"axis": "Suesse", "value": 25},
+    {"axis": "Bitterkeit", "value": 5}
+  ],
+  "taste_primary": "Mild-nussig",
+  "taste_secondary": [
+    "Leicht erdig",
+    "Kartoffelartig",
+    "Champignonartig"
+  ],
+  "aroma_profile": [
+    {"axis": "Pilzig", "value": 75},
+    {"axis": "Nussig", "value": 55},
+    {"axis": "Erdig", "value": 45},
+    {"axis": "Frisch", "value": 40}
+  ],
+  "texture_raw": "Fest, fleischig (nicht empfohlen)",
+  "texture_cooked": "Fest, fleischig, bissfest",
+  "appearance": {
+    "color": "Rotbraun bis weinrot",
+    "shape": "Konvex bis ausgebreitet",
+    "size": "5-30 cm Durchmesser",
+    "surface": "Glatt bis fein faserig"
+  },
+  "preparation_methods": [
+    {"label": "Braten/Sautieren", "value": 90},
+    {"label": "Grillen", "value": 85},
+    {"label": "In Suppen", "value": 80},
+    {"label": "In Eintöpfen", "value": 85},
+    {"label": "Paniert", "value": 80}
+  ],
+  "preparation_temperatures": {
+    "min": 70,
+    "max": 180,
+    "unit": "deg C"
+  },
+  "preparation_times": {
+    "sauteed": "10-15 Minuten",
+    "grilled": "8-12 Minuten",
+    "braised": "15-20 Minuten"
+  },
+  "preparation_techniques": [
+    {"step": 1, "label": "Pilze putzen (Stielenden entfernen)", "status": "pending"},
+    {"step": 2, "label": "In Scheiben oder Stuecke schneiden", "status": "pending"},
+    {"step": 3, "label": "In Butter oder Oel bei mittlerer Hitze braten", "status": "pending"},
+    {"step": 4, "label": "Mit Salz und Pfeffer wuerzen", "status": "pending"}
+  ],
+  "preparation_mistakes": [
+    {"level": "moderate", "typ": "Ueberreife Exemplare", "beschreibung": "Alte Pilze mit schwarzen Lamellen sind matschig"},
+    {"level": "minor", "typ": "Zu kurzes Garen", "beschreibung": "Pilze werden nicht optimal zart"}
+  ],
+  "flavor_profile_primary": "Mild-nussig",
+  "flavor_profile_secondary": [
+    "Erdig",
+    "Champignonartig"
+  ],
+  "pairs_well_with_proteins": [
+    "Huhn",
+    "Schwein",
+    "Rind",
+    "Eier",
+    "Tofu"
+  ],
+  "pairs_well_with_vegetables": [
+    "Zwiebeln",
+    "Knoblauch",
+    "Paprika",
+    "Kartoffeln",
+    "Erbsen"
+  ],
+  "pairs_well_with_grains": [
+    "Reis",
+    "Pasta",
+    "Brot",
+    "Polenta"
+  ],
+  "pairs_well_with_dairy": [
+    "Butter",
+    "Sahne",
+    "Parmesan",
+    "Gouda"
+  ],
+  "pairs_well_with_herbs": [
+    "Thymian",
+    "Petersilie",
+    "Schnittlauch",
+    "Rosmarin"
+  ],
+  "wine_pairing": [
+    "Leichte Rotweine",
+    "Chardonnay",
+    "Weissburgunder"
+  ],
+  "substitute_for": [
+    "Champignon",
+    "Portobello"
+  ],
+  "can_be_substituted_by": [
+    "Champignon",
+    "Steinpilz",
+    "Shiitake"
+  ],
+  "best_cooking_methods": [
+    {"label": "Sautieren", "value": 90},
+    {"label": "Grillen", "value": 85},
+    {"label": "In Eintöpfen", "value": 85}
+  ],
+  "worst_cooking_methods": [
+    "Rohverzehr",
+    "Trocknen (verliert Textur)"
+  ],
+  "cooking_time_raw": {
+    "min": 10,
+    "max": 15,
+    "unit": "min"
+  },
+  "shelf_life_fresh_room_temp": {
+    "min": 0,
+    "max": 1,
+    "unit": "days"
+  },
+  "shelf_life_fresh_refrigerated": {
+    "min": 5,
+    "max": 10,
+    "unit": "days"
+  },
+  "shelf_life_frozen": {
+    "min": 6,
+    "max": 12,
+    "unit": "months"
+  },
+  "freezing_instructions": [
+    {"step": 1, "label": "Pilze in Scheiben schneiden", "status": "pending"},
+    {"step": 2, "label": "Kurz blanchieren oder sautieren", "status": "pending"},
+    {"step": 3, "label": "Abkuehlen lassen und einfrieren", "status": "pending"}
+  ],
+  "signs_of_spoilage": [
+    {"level": "moderate", "typ": "Schleimigkeit", "beschreibung": "Schleimige Oberflaeche zeigt Verderb"},
+    {"level": "moderate", "typ": "Dunkle Flecken", "beschreibung": "Braune matschige Stellen"}
+  ],
+  "signature_dishes_famous": [
+    "Gebratene Wine Caps",
+    "Wine Cap Omelette",
+    "Pilzpfanne mit Wine Caps"
+  ],
+  "professional_prep_tips": [
+    "Junge Exemplare mit noch geschlossenem Hut sind am besten",
+    "Der feste Stiel ist essbar und schmackhaft",
+    "Hervorragend zum Grillen wegen der festen Textur"
+  ],
+  "peak_season_months": [
+    {"month": 1, "active": false},
+    {"month": 2, "active": false},
+    {"month": 3, "active": false},
+    {"month": 4, "active": false},
+    {"month": 5, "active": true},
+    {"month": 6, "active": true},
+    {"month": 7, "active": true},
+    {"month": 8, "active": true},
+    {"month": 9, "active": true},
+    {"month": 10, "active": true},
+    {"month": 11, "active": false},
+    {"month": 12, "active": false}
+  ],
+  "availability_year_round": false,
+  "best_sources_fresh": [
+    "Eigener Gartenanbau",
+    "Bauernmaerkte",
+    "Spezialisierte Pilzzuechter"
+  ],
+  "price_category": {
+    "status": "Moderate",
+    "variant": "info"
+  },
+  "culinary_notes": "Der Riesentraeuschling ist ein hervorragender Gartenkulturpilz mit festem Fleisch und mildem Geschmack. Besonders geeignet zum Braten und Grillen.",
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

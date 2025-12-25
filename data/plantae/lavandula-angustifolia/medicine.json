@@ -1,0 +1,71 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine", "Arabische Medizin"],
+    "historical_use": "Seit der Antike als Heilpflanze; Hildegard von Bingen empfahl Lavendel",
+    "traditional_indications": ["Nervosität", "Schlafstörungen", "Kopfschmerzen", "Wunden"]
+  },
+  "pharmacopoeia_names": ["Lavandulae flos"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Unruhezustaende", "Einschlafstörungen", "Funktionelle Oberbauchbeschwerden"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Unruhezustaende", "Einschlafstörungen", "Funktionelle Kreislaufbeschwerden"],
+  "active_substances": [
+    "Linalool",
+    "Linalylacetat",
+    "Campher",
+    "Cineol",
+    "Terpinen-4-ol"
+  ],
+  "effect_profile": [
+    {"axis": "Anxiolytisch", "value": 85},
+    {"axis": "Sedativ", "value": 80},
+    {"axis": "Spasmolytisch", "value": 70},
+    {"axis": "Antimikrobiell", "value": 65},
+    {"axis": "Wundheilend", "value": 60}
+  ],
+  "therapeutic_categories": [
+    "Anxiolytikum",
+    "Sedativum",
+    "Spasmolytikum"
+  ],
+  "evidence_level": {
+    "status": "2a",
+    "variant": "success"
+  },
+  "clinical_studies": [
+    "Silexan (Lavendelöl-Kapseln) RCTs zeigen Wirksamkeit bei Angststörungen",
+    "Kasper et al. 2010: Wirksamkeit vergleichbar mit Lorazepam"
+  ],
+  "safety_score": {
+    "value": 90,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Oral", "beschreibung": "Gelegentlich Aufstossen, Übelkeit"},
+    {"level": "low", "typ": "Aeusserlich", "beschreibung": "Selten Hautreizung"}
+  ],
+  "contraindications": [
+    "Schwangerschaft im 1. Trimenon (Vorsicht)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Vorsicht im ersten Trimester",
+    "variant": "warning"
+  },
+  "standard_dose_range": {
+    "min": 80,
+    "max": 160,
+    "unit": "mg"
+  },
+  "dose_frequency": "einmal taeglich",
+  "dosage_notes": "Lavendelöl-Kapseln (Silexan): 80-160 mg; Tee: 1-2 TL auf 150 ml; Aromatherapie: 3-4 Tropfen",
+  "preparation_forms": ["Aetherisches Oel", "Tee", "Kapseln", "Tinktur", "Bad"],
+  "status_by_region": {
+    "eu": "Pflanzliches Arzneimittel (traditional use)",
+    "germany": "Zugelassenes Arzneimittel (Silexan)"
+  }
+}

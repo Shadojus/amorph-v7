@@ -1,0 +1,57 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine", "Antike Medizin"],
+    "historical_use": "Bereits von Dioskurides beschrieben; Blätter und Wurzel unterschiedlich genutzt",
+    "traditional_indications": ["Rheumatische Beschwerden", "Harnwegsinfekte", "Prostatabeschwerden", "Blutreinigung"]
+  },
+  "pharmacopoeia_names": ["Urticae folium", "Urticae radix"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Wurzel: Benigne Prostatahyperplasie", "Blätter: Adjuvans bei rheumatischen Beschwerden, Durchspülung"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Wurzel: Miktionsbeschwerden bei BPH", "Blätter: Rheumatische Beschwerden, Durchspülungstherapie"],
+  "active_substances": [
+    "Blaetter: Kaffeesaeurederivate, Flavonoide, Mineralstoffe",
+    "Wurzel: Lektine, Polysaccharide, Sterole"
+  ],
+  "effect_profile": [
+    {"axis": "Antiphlogistisch", "value": 75},
+    {"axis": "Diuretisch", "value": 80},
+    {"axis": "Antiprostatisch (Wurzel)", "value": 70},
+    {"axis": "Antirheumatisch", "value": 65},
+    {"axis": "Mineralstoffreich", "value": 85}
+  ],
+  "therapeutic_categories": [
+    "Diuretikum",
+    "Antirheumatikum",
+    "Urologikum"
+  ],
+  "evidence_level": {
+    "status": "2b",
+    "variant": "warning"
+  },
+  "safety_score": {
+    "value": 90,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Gelegentlich", "beschreibung": "Magen-Darm-Beschwerden"},
+    {"level": "low", "typ": "Aeusserlich", "beschreibung": "Hautreizung bei frischen Blaettern"}
+  ],
+  "contraindications": [
+    "Oedembildung durch Herz- oder Niereninsuffizienz (Blätter)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Nicht empfohlen",
+    "variant": "warning"
+  },
+  "dosage_notes": "Blätter-Tee: 4-6g taeglich; Wurzel-Extrakt: 600-1200 mg taeglich bei BPH; reichlich trinken bei Durchspuelung",
+  "preparation_forms": ["Tee", "Frischpflanzenpresssaft", "Extrakt", "Kapseln", "Tinktur"],
+  "status_by_region": {
+    "eu": "Pflanzliches Arzneimittel (well-established use)"
+  }
+}

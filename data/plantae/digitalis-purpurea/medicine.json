@@ -1,0 +1,71 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine"],
+    "historical_use": "William Withering beschrieb 1785 die Wirkung bei 'Wassersucht'; eine der wichtigsten Entdeckungen der Pharmazie",
+    "traditional_indications": ["Herzinsuffizienz", "Oedeme"]
+  },
+  "pharmacopoeia_names": ["Digitalis purpureae folium"],
+  "description": "WARNUNG: Hochgiftig! Nur pharmazeutische Praeparate verwenden!",
+  "active_substances": [
+    "Digitoxin",
+    "Gitoxin",
+    "Gitaloxin",
+    "Digitalin"
+  ],
+  "effect_profile": [
+    {"axis": "Positiv inotrop", "value": 95},
+    {"axis": "Negativ chronotrop", "value": 85},
+    {"axis": "Negativ dromotrop", "value": 75},
+    {"axis": "Toxizitaet", "value": 100}
+  ],
+  "therapeutic_categories": [
+    "Herzglykosid",
+    "Kardiotonikum"
+  ],
+  "evidence_level": {
+    "status": "1a",
+    "variant": "success"
+  },
+  "evidence_summary": "Standardmedikament bei Herzinsuffizienz und Vorhofflimmern; gut erforscht, aber heute durch modernere Medikamente teilweise ersetzt",
+  "safety_score": {
+    "value": 10,
+    "min": 0,
+    "max": 100
+  },
+  "toxicology_therapeutic_index": 2,
+  "side_effects": [
+    {"level": "high", "typ": "Toxisch", "beschreibung": "Uebelkeit, Erbrechen, Herzrhythmusstörungen, Sehstörungen (Gelbsehen)"},
+    {"level": "critical", "typ": "Ueberdosierung", "beschreibung": "Lebensbedrohliche Arrhythmien, Tod"}
+  ],
+  "overdose": [
+    {"level": "critical", "typ": "Vergiftung", "beschreibung": "Antidot: Digitalis-Antikörper (Fab-Fragmente). Sofortige intensivmedizinische Behandlung erforderlich."}
+  ],
+  "contraindications": [
+    "Selbstmedikation ABSOLUT VERBOTEN",
+    "Hypokaliämie",
+    "Hyperkalzämie",
+    "Bestimmte Herzrhythmusstörungen"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Nur unter strenger aerztlicher Kontrolle",
+    "variant": "danger"
+  },
+  "monitoring_recommended": true,
+  "monitoring_parameters": [
+    "Serum-Digoxin-Spiegel",
+    "Kalium",
+    "Nierenfunktion",
+    "EKG"
+  ],
+  "dosage_notes": "NUR UNTER AERZTLICHER AUFSICHT! Therapeutischer Bereich extrem schmal. Pflanze NIEMALS selbst anwenden!",
+  "preparation_forms": ["Pharmazeutische Praeparate (Digoxin, Digitoxin)"],
+  "patient_counseling_points": [
+    "NIEMALS die Pflanze selbst verwenden!",
+    "Alle Teile der Pflanze sind hochgiftig!",
+    "Bei Verdacht auf Vergiftung: Notarzt rufen!"
+  ],
+  "status_by_region": {
+    "eu": "Verschreibungspflichtiges Arzneimittel",
+    "usa": "Prescription Drug"
+  }
+}

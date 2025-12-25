@@ -1,0 +1,69 @@
+{
+  "scientific_name": "Pleurotus djamor",
+  "author_citation": "(Rumph. ex Fr.) Boedijn",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Pleurotaceae",
+  "taxonomy_genus": "Pleurotus",
+  "taxonomy_species": "djamor",
+  "synonyms": [
+    "Pleurotus salmoneostramineus"
+  ],
+  "common_names": [
+    "Rosenseitling",
+    "Rosafarbener Seitling",
+    "Rosenroter Seitling",
+    "Pink Oyster"
+  ],
+  "size_range": {
+    "min": 2,
+    "max": 10,
+    "unit": "cm"
+  },
+  "color_primary": "rosarot",
+  "color_secondary": "lachsfarben",
+  "smell_description": "Beissend, nitratartig, mandelartig",
+  "taste_description": "Mild",
+  "primary_structure_present": true,
+  "primary_structure_type": "Hut",
+  "primary_structure_diameter": {
+    "min": 2,
+    "max": 10,
+    "unit": "cm"
+  },
+  "primary_structure_surface": "samtig, filzig",
+  "primary_structure_color": "rosafarben, rosenrot, hellgrau",
+  "support_structure_present": true,
+  "support_structure_type": "Stiel",
+  "support_structure_color": "weisslich bis rosa",
+  "lamellae_present": true,
+  "lamellae_attachment": "herablaufend",
+  "lamellae_color": "gelblich bis rosafarben",
+  "tissue_color": "weiss",
+  "propagule_color": "beige, hellbraun",
+  "propagule_length": {
+    "min": 6,
+    "max": 9,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 1.5,
+    "max": 3,
+    "unit": "um"
+  },
+  "confusion_species_list": [
+    "Rhodotus palmatus",
+    "Phyllotopsis nidulans"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "beginner",
+    "variant": "success"
+  }
+}

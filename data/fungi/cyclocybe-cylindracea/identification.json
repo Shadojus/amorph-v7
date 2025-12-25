@@ -1,0 +1,181 @@
+{
+  "scientific_name": "Cyclocybe cylindracea",
+  "author_citation": "(DC.) Vizzini & Angelini 2014",
+  "accepted_name": "Cyclocybe cylindracea (DC.) Vizzini & Angelini",
+  "basionym": "Agaricus cylindraceus DC. 1815",
+  "taxonomy_domain": "Eukarya",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Strophariaceae",
+  "taxonomy_genus": "Cyclocybe",
+  "taxonomy_species": "cylindracea",
+  "synonyms": [
+    "Agrocybe cylindracea (DC.) Maire 1933",
+    "Agrocybe aegerita (V. Brig.) Singer 1951",
+    "Agaricus cylindraceus DC. 1815",
+    "Togaria cylindracea (DC.) Romagn. 1937"
+  ],
+  "common_names": [
+    "Suedlicher Ackerling",
+    "Suedlicher Schueppling",
+    "Samthaube",
+    "Pioppino"
+  ],
+  "international_names": [
+    "Black Poplar Mushroom (EN)",
+    "Swordbelt Agrocybe (EN)",
+    "Pioppino (IT)",
+    "Yanagi-matsutake (JP)",
+    "South Poplar Mushroom (CN)",
+    "Zhuzhuang-Tiantougu (CN)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Hut creme-weiss bis ocker-braeunlich, 3-11 cm", "status": "pending"},
+    {"step": 2, "label": "Oberflaeche grubig-runzelig", "status": "pending"},
+    {"step": 3, "label": "Haengender weisser bis brauner Ring am Stiel", "status": "pending"},
+    {"step": 4, "label": "Lamellen weisslich, spaeter zimtbraun", "status": "pending"},
+    {"step": 5, "label": "Waechst bueschelig an Laubholz", "status": "pending"},
+    {"step": 6, "label": "Mehlartiger Geruch", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "time_to_identify_minutes": 10,
+  "minimum_equipment_needed": [
+    "Keine Ausruestung erforderlich",
+    "Optional: Lupe fuer Oberflaeche"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Agrocybe praecox (Voreilender Ackerling)",
+    "Pleurotus dryinus (Berindeter Seitling)",
+    "Pleurotus pulmonarius (Cremeweisser Seitling)"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "low", "typ": "Agrocybe praecox", "beschreibung": "Essbar, aehnliche Erscheinung, waechst am Boden statt an Holz"},
+    {"level": "low", "typ": "Pleurotus-Arten", "beschreibung": "Essbar, anders geformte Fruchtkoerper ohne zentralen Stiel"}
+  ],
+  "key_differentiating_features": [
+    "Waechst bueschelig an Laubholz, besonders Pappeln",
+    "Haengender, oft durch Sporen braun gefaerbter Ring",
+    "Grubig-runzelige Hutoberflaeche",
+    "Mehlartiger Geruch"
+  ],
+  "habit": "Holzbewohnend, saprotroph bis parasitaer",
+  "growth_form": "Bueschelig wachsend",
+  "symmetry": "radial",
+  "size_range": {
+    "min": 3,
+    "max": 30,
+    "unit": "cm"
+  },
+  "size_typical_cm": 10,
+  "basic_shape": "Hutpilz mit zentralem Stiel und Ring",
+  "height": {
+    "min": 5,
+    "max": 15,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 3,
+    "max": 11,
+    "unit": "cm"
+  },
+  "surface_type": "Grubig-runzelig, bei Trockenheit aufreissend",
+  "color_primary": "Creme-weiss bis ocker-braeunlich",
+  "color_secondary": "Mitte dunkler braun, Rand heller",
+  "color_variations": [
+    "Gelblichgrau",
+    "Graubraun",
+    "Hellbraun"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Hut (Pileus)",
+  "primary_structure_diameter": {
+    "min": 3,
+    "max": 11,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Konvex bis halbkugelig",
+  "primary_structure_shape_mature": "Flach ausgebreitet",
+  "primary_structure_surface": "Glatt bis grubig-runzelig",
+  "primary_structure_color": "Gelblichgrau bis braeunlich, Mitte dunkler",
+  "support_structure_present": true,
+  "support_structure_type": "Stiel (Stipe)",
+  "support_structure_length": {
+    "min": 5,
+    "max": 15,
+    "unit": "cm"
+  },
+  "support_structure_thickness": {
+    "min": 1,
+    "max": 2.5,
+    "unit": "cm"
+  },
+  "support_structure_shape": "Zylindrisch",
+  "support_structure_color": "Weisslich",
+  "ring_present": true,
+  "ring_type": "Haengend, haeutig, weisslich bis orangebraun",
+  "ring_position": "Oberes Stieldrittel",
+  "lamellae_present": true,
+  "lamellae_attachment": "Breit angewachsen bis schwach herablaufend",
+  "lamellae_density": "Sehr gedraengt",
+  "lamellae_color": "Weisslich, dann grau, reif schokoladenbraun bis tabakbraun",
+  "spore_print_color": "Tabakbraun bis ockerbraun",
+  "smell_description": "Mehlartig, ranzig",
+  "smell_comparable_to": "Ranziges Mehl",
+  "taste_safe_to_test": true,
+  "taste_description": "Mild",
+  "microscopy_required": false,
+  "microscopy_key_features": [
+    "Sporen glatt, eifoermig bis leicht ellipsoid",
+    "Braun, 9-11 x 5-6.5 um",
+    "Kein deutlicher Keimporus",
+    "Schnallen vorhanden"
+  ],
+  "spore_measurement_diagnostic": {
+    "min": 9,
+    "max": 11,
+    "unit": "um"
+  },
+  "appearance_by_season": {
+    "spring": "Fruehsaison, haeufig",
+    "summer": "Moeglich bei Feuchtigkeit",
+    "autumn": "Hauptsaison bis Spaetherbst",
+    "winter": "Selten"
+  },
+  "season_peak_months": [4, 5, 9, 10, 11],
+  "age_stage_variations": [
+    {"phase": "Primordia", "duration": "7-14 Tage"},
+    {"phase": "Junge Fruchtkörper", "duration": "4-6 Tage"},
+    {"phase": "Reif", "duration": "5-7 Tage"},
+    {"phase": "Ueberreif", "duration": "3-5 Tage"}
+  ],
+  "nutrition_type": "Saprotroph bis parasitaer",
+  "nutrition_type_detail": "Folgezersetzer an Laubholz, kann auch lebende Baeume angreifen",
+  "substrate_species": [
+    "Populus (Pappeln)",
+    "Salix (Weiden)",
+    "Acer (Ahorne)",
+    "Alnus (Erlen)",
+    "Quercus (Eichen)"
+  ],
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "traditional_medicine": {
+    "systems": ["Ayurveda", "Arabische Volksmedizin", "Aegyptische Medizin"],
+    "historical_use": "Seit ueber 3500 Jahren dokumentiert; Cleopatra nutzte es fuer Hautpflege",
+    "traditional_indications": ["Wundheilung", "Hauterkrankungen", "Verdauung", "Verbrennungen"]
+  },
+  "ayurveda_sanskrit_name": "Ghritkumari",
+  "ayurveda_dosha_effect": ["Pitta-reduzierend", "Vata-ausgleichend"],
+  "who_monograph_exists": true,
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Obstipation"],
+  "active_substances": [
+    "Acemannan (Polysaccharid)",
+    "Aloin (Anthrachinon)",
+    "Aloe-Emodin",
+    "Barbaloin"
+  ],
+  "effect_profile": [
+    {"axis": "Wundheilung", "value": 85},
+    {"axis": "Antiinflammatorisch", "value": 80},
+    {"axis": "Abfuehrend", "value": 70},
+    {"axis": "Feuchtigkeitsspendend", "value": 90},
+    {"axis": "Antimikrobiell", "value": 65}
+  ],
+  "therapeutic_categories": [
+    "Dermatikum",
+    "Laxans",
+    "Wundheilungsmittel"
+  ],
+  "evidence_level": {
+    "status": "2b",
+    "variant": "warning"
+  },
+  "safety_score": {
+    "value": 75,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Laxans-Anwendung", "beschreibung": "Bauchkraempfe, Durchfall bei oraler Einnahme"},
+    {"level": "medium", "typ": "Langzeitanwendung", "beschreibung": "Elektrolytverlust bei Anthrachinon-Laxantien"}
+  ],
+  "contraindications": [
+    "Schwangerschaft (oral)",
+    "Darmverschluss",
+    "Entzuendliche Darmerkrankungen",
+    "Kinder unter 12 Jahren (oral)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Kontraindiziert oral",
+    "variant": "danger"
+  },
+  "dosage_notes": "Gel aeusserlich: mehrmals taeglich; Oral (Laxans): nicht empfohlen",
+  "preparation_forms": ["Gel", "Saft", "Kapseln", "Pulver"],
+  "status_by_region": {
+    "eu": "Nahrungsergaenzungsmittel/Kosmetikum",
+    "usa": "Dietary Supplement"
+  }
+}

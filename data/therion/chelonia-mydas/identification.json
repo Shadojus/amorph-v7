@@ -1,0 +1,55 @@
+{
+  "scientific_name": "Chelonia mydas",
+  "author_citation": "(Linnaeus, 1758)",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Chordata",
+  "taxonomy_class": "Reptilia",
+  "taxonomy_order": "Testudines",
+  "taxonomy_family": "Cheloniidae",
+  "taxonomy_genus": "Chelonia",
+  "taxonomy_species": "mydas",
+  "common_names": [
+    "Green Sea Turtle",
+    "Green Turtle",
+    "Gruene Meeresschildkroete",
+    "Tortue Verte"
+  ],
+  "size_range": {
+    "min": 80,
+    "max": 150,
+    "unit": "cm"
+  },
+  "weight_range": {
+    "min": 110,
+    "max": 315,
+    "unit": "kg"
+  },
+  "color_primary": "olive-brown",
+  "color_secondary": "yellowish-white",
+  "primary_structure_type": "large marine turtle with paddle-like flippers",
+  "primary_structure_shape_mature": "oval carapace, streamlined body",
+  "primary_structure_surface": "smooth scute-covered shell",
+  "primary_structure_color": "olive to brown carapace with radiating patterns; greenish body fat",
+  "key_differentiating_features": [
+    "Single pair of prefrontal scales between eyes",
+    "Four lateral scutes on each side of carapace",
+    "Serrated lower jaw for grazing",
+    "Non-overlapping carapace scutes",
+    "Paddle-shaped flippers with one visible claw"
+  ],
+  "identification_difficulty": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Caretta caretta (Loggerhead - larger head, two prefrontal scales)",
+    "Eretmochelys imbricata (Hawksbill - overlapping scutes, pointed beak)"
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Males have longer tails extending beyond carapace and curved foreclaw claws"
+}

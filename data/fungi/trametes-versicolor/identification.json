@@ -1,0 +1,165 @@
+{
+  "scientific_name": "Trametes versicolor",
+  "author_citation": "(L.) Lloyd 1921",
+  "accepted_name": "Trametes versicolor (L.) Lloyd",
+  "basionym": "Boletus versicolor L. 1753",
+  "taxonomy_domain": "Eukarya",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Polyporales",
+  "taxonomy_family": "Polyporaceae",
+  "taxonomy_genus": "Trametes",
+  "taxonomy_species": "versicolor",
+  "synonyms": [
+    "Coriolus versicolor (L.) Quel.",
+    "Polyporus versicolor (L.) Fr.",
+    "Polystictus versicolor (L.) Fr."
+  ],
+  "common_names": [
+    "Schmetterlingstramete",
+    "Bunte Tramete",
+    "Zonentramete",
+    "Turkey Tail",
+    "Yunzhi"
+  ],
+  "international_names": [
+    "Turkey Tail (EN)",
+    "Tramete versicolore (FR)",
+    "Kawaratake (JP)",
+    "Yunzhi (CN)",
+    "Cola de pavo (ES)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Faecher- bis rosettenfoermige Fruchtkörper", "status": "pending"},
+    {"step": 2, "label": "Konzentrische, mehrfarbige Zonen auf der Oberseite", "status": "pending"},
+    {"step": 3, "label": "Samtige bis filzige Oberflaeche", "status": "pending"},
+    {"step": 4, "label": "Weisse bis cremefarbene Poren auf der Unterseite", "status": "pending"},
+    {"step": 5, "label": "Duenn, lederig-zaeh", "status": "pending"},
+    {"step": 6, "label": "Auf Totholz von Laubbaeumen wachsend", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "time_to_identify_minutes": 10,
+  "minimum_equipment_needed": [
+    "Lupe fuer Porengroesse",
+    "Gute Beleuchtung"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Stereum hirsutum (Striegeliger Schichtpilz)",
+    "Stereum ostrea (Wellenfoermiger Schichtpilz)",
+    "Trichaptum biforme (Violetter Knorpelporling)",
+    "Trametes hirsuta (Striegelige Tramete)"
+  ],
+  "confusion_risk_level": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "confusion_consequences": [
+    {"level": "low", "typ": "Stereum-Arten", "beschreibung": "Haben glatte Unterseite statt Poren - nicht giftig, aber ohne medizinischen Wert"},
+    {"level": "low", "typ": "Trametes hirsuta", "beschreibung": "Aehnlich aber weniger farbig - ebenfalls nicht giftig"},
+    {"level": "low", "typ": "Trichaptum biforme", "beschreibung": "Hat violette Poren - nicht giftig"}
+  ],
+  "key_differentiating_features": [
+    "Konzentrische, mehrfarbige Zonen (grau, braun, blau, gruen)",
+    "Samtige Oberflaeche (nicht struppig behaart)",
+    "Weisse bis cremefarbene Poren (3-5 pro mm)",
+    "Duenn (1-3 mm dick)"
+  ],
+  "habit": "Lignicol (holzbewohnend)",
+  "growth_form": "Faecherartig bis rosettenfoermig, oft dachziegelartig",
+  "symmetry": "Halbkreisfoermig",
+  "size_range": {
+    "min": 2,
+    "max": 10,
+    "unit": "cm"
+  },
+  "size_typical_cm": 5,
+  "basic_shape": "Konsolen- oder faecherfoermig",
+  "primary_structure_present": true,
+  "primary_structure_type": "Konsole (Fruchtkörper)",
+  "primary_structure_diameter": {
+    "min": 2,
+    "max": 10,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Rundlich, halbkreisfoermig",
+  "primary_structure_shape_mature": "Faecherfoermig mit gewelltem Rand",
+  "primary_structure_surface": "Samtig bis fein filzig, mit konzentrischen Zonen",
+  "primary_structure_color": "Mehrfarbig: grau, braun, blau, gruen, weiss in Zonen",
+  "primary_structure_thickness": {
+    "min": 1,
+    "max": 3,
+    "unit": "mm"
+  },
+  "support_structure_present": false,
+  "hymenophore_type": "Poren",
+  "pore_surface_color": "Weiss bis creme",
+  "pore_density": "3-5 Poren pro mm",
+  "color_primary": "Mehrfarbig zoniert",
+  "color_secondary": "Weiss (Unterseite)",
+  "color_variations": [
+    "Braun-grau zoniert",
+    "Mit blauen und gruenen Toenen",
+    "Weiss bis cremefarben am Rand"
+  ],
+  "smell_description": "Schwach pilzig, holzig",
+  "taste_safe_to_test": true,
+  "taste_description": "Mild, ledrig, zaeh (nicht zum Essen geeignet)",
+  "microscopy_required": false,
+  "microscopy_key_features": [
+    "Sporen zylindrisch, leicht gebogen",
+    "Sporengroesse 5-6 x 1.5-2 um",
+    "Trameten-Typ Hyphenstruktur"
+  ],
+  "spore_measurement_diagnostic": {
+    "min": 5,
+    "max": 6,
+    "unit": "um"
+  },
+  "reproductive_cell_shape": "Zylindrisch, leicht gebogen",
+  "reproductive_cell_length": {
+    "min": 5,
+    "max": 6,
+    "unit": "um"
+  },
+  "reproductive_cell_width": {
+    "min": 1.5,
+    "max": 2,
+    "unit": "um"
+  },
+  "reproductive_cell_color": "Hyalin",
+  "appearance_by_season": {
+    "spring": "Fruchtend",
+    "summer": "Fruchtend",
+    "autumn": "Fruchtend",
+    "winter": "Fruchtkoerper persistent"
+  },
+  "age_stage_variations": [
+    {"phase": "Jung", "duration": "1-2 Wochen"},
+    {"phase": "Reif", "duration": "Monate bis Jahre"},
+    {"phase": "Alt", "duration": "Persistent"}
+  ],
+  "nutrition_type": "Saprotroph",
+  "nutrition_type_detail": "Weissfaeule-Erreger, baut Lignin ab",
+  "substrate_species": [
+    "Totholz von Laubbaeumen",
+    "Besonders Buche, Eiche, Birke",
+    "Selten auf Nadelholz",
+    "Stuempfe und gefallene Staemme"
+  ],
+  "source": {
+    "authors": "Ryvarden, L. & Gilbertson, R.L.",
+    "year": 1994,
+    "title": "European Polypores",
+    "journal": "Synopsis Fungorum",
+    "doi": ""
+  }
+}

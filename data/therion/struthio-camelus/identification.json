@@ -1,0 +1,55 @@
+{
+  "scientific_name": "Struthio camelus",
+  "author_citation": "Linnaeus, 1758",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Chordata",
+  "taxonomy_class": "Aves",
+  "taxonomy_order": "Struthioniformes",
+  "taxonomy_family": "Struthionidae",
+  "taxonomy_genus": "Struthio",
+  "taxonomy_species": "camelus",
+  "common_names": [
+    "Common Ostrich",
+    "North African Ostrich",
+    "Strauss",
+    "Autruche d'Afrique"
+  ],
+  "size_range": {
+    "min": 2.1,
+    "max": 2.8,
+    "unit": "m"
+  },
+  "weight_range": {
+    "min": 90,
+    "max": 156,
+    "unit": "kg"
+  },
+  "color_primary": "black (males)",
+  "color_secondary": "brown (females)",
+  "primary_structure_type": "very large flightless bird with long neck and legs",
+  "primary_structure_shape_mature": "massive body on long powerful legs",
+  "primary_structure_surface": "loose soft feathers, bare head and neck",
+  "primary_structure_color": "males black with white wing and tail plumes; females grey-brown",
+  "key_differentiating_features": [
+    "Largest living bird species",
+    "Long bare neck and small head",
+    "Two-toed feet (unique among birds)",
+    "Large eyes nearly 5 cm diameter",
+    "Small vestigial wings"
+  ],
+  "identification_difficulty": {
+    "status": "easy",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Struthio molybdophanes (Somali Ostrich - blue neck)",
+    "Rhea americana (Greater Rhea - smaller, South American)"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Males black with white plumes, larger; females grey-brown"
+}

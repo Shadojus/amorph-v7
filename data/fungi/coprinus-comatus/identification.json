@@ -1,0 +1,136 @@
+{
+  "scientific_name": "Coprinus comatus",
+  "author_citation": "(O.F. Müll.) Pers. 1797",
+  "accepted_name": "Coprinus comatus (O.F. Müll.) Pers.",
+  "taxonomy_domain": "Eukarya",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Agaricaceae",
+  "taxonomy_genus": "Coprinus",
+  "taxonomy_species": "comatus",
+  "synonyms": [
+    "Agaricus comatus O.F. Müll.",
+    "Agaricus cylindricus Sowerby",
+    "Coprinus ovatus (Schaeff.) Fr."
+  ],
+  "common_names": [
+    "Schopftintling",
+    "Spargelpilz",
+    "Tintenpilz",
+    "Porzellantintling"
+  ],
+  "international_names": [
+    "Shaggy Mane (EN)",
+    "Lawyers Wig (EN)",
+    "Coprin chevelu (FR)",
+    "Maotou-Guisan (CN)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Zylindrischer weisser Hut", "status": "pending"},
+    {"step": 2, "label": "Aufstehende weisse Schuppen", "status": "pending"},
+    {"step": 3, "label": "Loser verschiebbarer Ring", "status": "pending"},
+    {"step": 4, "label": "Lamellen werden schwarz und zerfliessen", "status": "pending"},
+    {"step": 5, "label": "Stiel hohl, Basis knollig", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Coprinopsis atramentaria (Grauer Faltentintling)",
+    "Coprinopsis picacea (Spechttintling)"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "medium", "typ": "Coprinopsis atramentaria", "beschreibung": "Enthält Coprin - mit Alkohol unvertraeglich (Antabus-Syndrom)"}
+  ],
+  "key_differentiating_features": [
+    "Zylindrischer Hut mit aufstehenden Schuppen",
+    "Hut bedeckt anfangs den groessten Teil des Stiels",
+    "Schuppen am Scheitel braeunlich",
+    "Deliqueszenz - zerfließen zu schwarzer Tinte"
+  ],
+  "habit": "Terrestrisch, saprotroph",
+  "growth_form": "In Gruppen",
+  "size_range": {
+    "min": 5,
+    "max": 20,
+    "unit": "cm"
+  },
+  "size_typical_cm": 12,
+  "basic_shape": "Zylindrisch mit langem Stiel",
+  "height": {
+    "min": 10,
+    "max": 40,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 3,
+    "max": 5,
+    "unit": "cm"
+  },
+  "color_primary": "Weiss mit braunen Schuppen am Scheitel",
+  "primary_structure_present": true,
+  "primary_structure_type": "Hut (Pileus)",
+  "primary_structure_shape_young": "Laenglich zylindrisch",
+  "primary_structure_shape_mature": "Glockenfoermig, dann zerfliessend",
+  "primary_structure_surface": "Mit aufstehenden schuppigen Fasern",
+  "support_structure_present": true,
+  "support_structure_type": "Stiel (Stipe)",
+  "support_structure_length": {
+    "min": 10,
+    "max": 40,
+    "unit": "cm"
+  },
+  "support_structure_thickness": {
+    "min": 1,
+    "max": 2.5,
+    "unit": "cm"
+  },
+  "support_structure_shape": "Hohl, an der Basis knollig",
+  "ring_present": true,
+  "ring_type": "Lose, verschiebbar, haeutig",
+  "lamellae_present": true,
+  "lamellae_attachment": "Frei bis leicht angeheftet",
+  "lamellae_color": "Weiss, dann rosa, dann schwarz (zerfliessend)",
+  "spore_print_color": "Schwarz-braun",
+  "smell_description": "Lecker pilzig, mehlig, leicht suesslich",
+  "taste_safe_to_test": true,
+  "taste_description": "Pilzig, mild, suess",
+  "microscopy_key_features": [
+    "Sporen 10-13 x 6.5-8 um",
+    "Oval",
+    "Keine Pleurozystiden"
+  ],
+  "spore_measurement_diagnostic": {
+    "min": 10,
+    "max": 13,
+    "unit": "um"
+  },
+  "season_peak_months": [6, 7, 8, 9, 10, 11],
+  "nutrition_type": "Saprotroph",
+  "substrate_species": [
+    "Rasen",
+    "Wiesen",
+    "Wegränder",
+    "Holzhackschnitzel",
+    "Gedüngte Böden"
+  ],
+  "source": {
+    "authors": "Persoon, C.H.",
+    "year": 1797,
+    "title": "Tentamen dispositionis methodicae Fungorum",
+    "journal": "Leipzig",
+    "doi": ""
+  }
+}

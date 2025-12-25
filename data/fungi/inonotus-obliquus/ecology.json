@@ -1,0 +1,29 @@
+{
+  "trophic_mode_primary": "parasitisch",
+  "trophic_mode_secondary": "saprobiontisch",
+  "ecological_guild": "Holzzersetzer",
+  "decomposer_type": "Weissfaeule",
+  "ecosystem_type": "Wald",
+  "ecosystem_subtype": "Birkenwald",
+  "microhabitat_primary": "lebende Birken",
+  "microhabitat_secondary": "Walnuss, Erle",
+  "substrate_type_primary": "Birke (Betula)",
+  "substrate_types_secondary": [
+    "Walnuss",
+    "Erle"
+  ],
+  "substrate_specificity": {
+    "status": "mittel",
+    "variant": "warning"
+  },
+  "fruiting_season_start": 1,
+  "fruiting_season_end": 12,
+  "fruiting_frequency": "ganzjaehrig (Sklerotium)",
+  "climate_zone": "boreal bis temperat",
+  "native_range": "Nordhemisphaere, besonders Russland, Skandinavien, Nordamerika",
+  "iucn_global_status": {
+    "status": "VU",
+    "variant": "warning"
+  },
+  "conservation_notes": "RL Schweiz VU (verletzlich), selten"
+}

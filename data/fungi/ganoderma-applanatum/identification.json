@@ -1,0 +1,78 @@
+{
+  "scientific_name": "Ganoderma applanatum",
+  "author_citation": "(Pers.) Pat.",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Polyporales",
+  "taxonomy_family": "Ganodermataceae",
+  "taxonomy_genus": "Ganoderma",
+  "taxonomy_species": "applanatum",
+  "synonyms": [
+    "Ganoderma lipsiense",
+    "Fomes applanatus",
+    "Polyporus applanatus",
+    "Elfvingia applanata"
+  ],
+  "common_names": [
+    "Flacher Lackporling",
+    "Malerpilz",
+    "Artist's Bracket",
+    "Artist's Conk"
+  ],
+  "size_range": {
+    "min": 6,
+    "max": 30,
+    "unit": "cm"
+  },
+  "color_primary": "braun",
+  "color_secondary": "graubraun",
+  "smell_description": "Neutral",
+  "taste_description": "Neutral bis bitter",
+  "primary_structure_present": true,
+  "primary_structure_type": "Konsole",
+  "primary_structure_diameter": {
+    "min": 6,
+    "max": 30,
+    "unit": "cm"
+  },
+  "primary_structure_shape_mature": "nierenfoermig, flach",
+  "primary_structure_surface": "konzentrisch gefurcht",
+  "primary_structure_color": "braun, graubraun, Rand weisslich",
+  "primary_structure_margin": "weiss bei jungen Exemplaren",
+  "tubes_present": true,
+  "tubes_color": "weisslich bis cremefarben",
+  "pores_color": "weiss, bei Beruehrung braun verfaerbend",
+  "tissue_color": "rotbraun bis dunkelbraun",
+  "tissue_consistency": "zaeh, korkartig",
+  "propagule_color": "rostbraun",
+  "propagule_length": {
+    "min": 5.5,
+    "max": 8,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 4.5,
+    "max": 6,
+    "unit": "um"
+  },
+  "confusion_species_list": [
+    "Fomes fomentarius",
+    "Ganoderma adspersum",
+    "Ganoderma carnosum"
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "intermediate",
+    "variant": "warning"
+  },
+  "key_differentiating_features": [
+    "Poren verfaerben sich bei Beruehrung braun (Malerpilz)",
+    "Duenne, leicht eindrueckbare Kruste",
+    "Trama mit weissen Einschluessen (Rebhuhntrama)"
+  ]
+}

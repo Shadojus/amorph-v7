@@ -1,0 +1,32 @@
+{
+  "safety_edibility_status": {
+    "status": "inedible",
+    "variant": "info"
+  },
+  "safety_edibility_notes": "Highly endangered protected species. Killing a panda in China is punishable by death or life imprisonment.",
+  "safety_potentially_deadly": false,
+  "safety_warning_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "safety_warning_text": "Despite their cuddly appearance, giant pandas are bears with powerful jaws and claws. Attacks on humans are rare but have occurred, mostly on keepers or intruders into enclosures.",
+  "safety_summary": "Giant pandas are generally non-aggressive but are still wild bears capable of causing serious injury. Most dangerous when cornered, protecting cubs, or habituated to humans.",
+  "safety_risk_inherent": {
+    "value": 35,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_contraindications": [
+    "Do not approach wild or captive pandas",
+    "Never feed wild pandas",
+    "Maintain safe observation distances",
+    "Do not attempt to touch or pet"
+  ],
+  "encounter_protocol": "Observe from distance. Do not approach. If encountered in wild, back away slowly. Allow panda to retreat.",
+  "legal_protection_status": "CITES Appendix I, National Treasure of China, maximum penalties for poaching"
+}

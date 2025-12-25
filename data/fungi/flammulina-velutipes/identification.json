@@ -1,0 +1,89 @@
+{
+  "scientific_name": "Flammulina velutipes",
+  "author_citation": "(Curtis) Singer",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Physalacriaceae",
+  "taxonomy_genus": "Flammulina",
+  "taxonomy_species": "velutipes",
+  "synonyms": [
+    "Collybia velutipes",
+    "Agaricus velutipes"
+  ],
+  "common_names": [
+    "Samtfussruebling",
+    "Gemeiner Samtfussruebling",
+    "Winterruebling",
+    "Enoki",
+    "Enokitake",
+    "Winter Mushroom",
+    "Velvet Foot"
+  ],
+  "size_range": {
+    "min": 1,
+    "max": 5,
+    "unit": "cm"
+  },
+  "color_primary": "gelborange",
+  "color_secondary": "gelbbraun",
+  "smell_description": "Pilzartig, angenehm",
+  "taste_description": "Pilzartig, mild suesslich",
+  "primary_structure_present": true,
+  "primary_structure_type": "Hut",
+  "primary_structure_diameter": {
+    "min": 1,
+    "max": 5,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "konvex",
+  "primary_structure_shape_mature": "flach",
+  "primary_structure_surface": "glatt, schleimig bei Feuchtigkeit",
+  "primary_structure_color": "gelbbraun bis orangebraun",
+  "support_structure_present": true,
+  "support_structure_type": "Stiel",
+  "support_structure_length": {
+    "min": 2,
+    "max": 8,
+    "unit": "cm"
+  },
+  "support_structure_shape": "zylindrisch, oft gebogen",
+  "support_structure_color": "gelbbraun, zur Basis dunkelbraun",
+  "support_structure_surface": "samtig behaart",
+  "tissue_color": "weiss bis hellgelb",
+  "lamellae_present": true,
+  "lamellae_attachment": "angewachsen",
+  "lamellae_color": "weiss bis gelb",
+  "propagule_color": "weiss",
+  "propagule_length": {
+    "min": 6,
+    "max": 8,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 3,
+    "max": 4,
+    "unit": "um"
+  },
+  "propagule_shape": "ellipsoid",
+  "confusion_species_list": [
+    "Galerina marginata",
+    "Gymnopilus penetrans",
+    "Flammulina fennae"
+  ],
+  "confusion_risk_level": {
+    "status": "high",
+    "variant": "danger"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "intermediate",
+    "variant": "warning"
+  },
+  "key_differentiating_features": [
+    "Samtig behaarter Stiel",
+    "Wachstum im Winter",
+    "Schleimiger Hut bei Feuchtigkeit"
+  ]
+}

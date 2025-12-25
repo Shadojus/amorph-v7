@@ -1,0 +1,80 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine", "Griechisch-roemische Medizin"],
+    "historical_use": "Bereits von Hippokrates und Dioskurides beschrieben",
+    "traditional_indications": ["Schlaflosigkeit", "Nervositaet", "Herzklopfen", "Kraempfe"]
+  },
+  "pharmacopoeia_names": ["Valerianae radix"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Einschlafprobleme", "Nervöse Unruhe", "Innere Anspannung"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Unruhezustaende", "Nervös bedingte Einschlafstorungen"],
+  "active_substances": [
+    "Valerensaeure",
+    "Valerenol",
+    "Valtrat (Iridoide)",
+    "Sesquiterpene",
+    "Lignane"
+  ],
+  "effect_profile": [
+    {"axis": "Sedativ", "value": 80},
+    {"axis": "Anxiolytisch", "value": 70},
+    {"axis": "Spasmolytisch", "value": 60},
+    {"axis": "Schlaffoerdernd", "value": 85},
+    {"axis": "Muskelrelaxierend", "value": 55}
+  ],
+  "therapeutic_categories": [
+    "Sedativum",
+    "Hypnotikum",
+    "Anxiolytikum"
+  ],
+  "evidence_level": {
+    "status": "2a",
+    "variant": "success"
+  },
+  "evidence_grade_overall": {
+    "status": "B",
+    "variant": "success"
+  },
+  "safety_score": {
+    "value": 85,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Gelegentlich", "beschreibung": "Magen-Darm-Beschwerden, Kopfschmerzen"},
+    {"level": "low", "typ": "Paradoxe Reaktion", "beschreibung": "Unruhe bei einzelnen Personen"}
+  ],
+  "interactions": [
+    {"level": "medium", "typ": "ZNS-Depressiva", "beschreibung": "Verstaerkte Wirkung mit Alkohol, Benzodiazepinen"}
+  ],
+  "contraindications": [
+    "Kinder unter 12 Jahren",
+    "Schwangerschaft (Vorsicht)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Nicht empfohlen",
+    "variant": "warning"
+  },
+  "special_populations_elderly": {
+    "status": "Geeignet",
+    "variant": "success"
+  },
+  "standard_dose_range": {
+    "min": 300,
+    "max": 600,
+    "unit": "mg"
+  },
+  "dose_timing_field": "30-60 min vor dem Schlafengehen",
+  "onset_of_action": "Volle Wirkung nach 2-4 Wochen regelmaessiger Einnahme",
+  "dosage_notes": "Extrakt 300-600 mg abends; bei Nervosität auch tagesüber",
+  "preparation_forms": ["Extrakt", "Tinktur", "Tee", "Kapseln", "Tabletten", "Bad"],
+  "status_by_region": {
+    "eu": "Pflanzliches Arzneimittel (traditional use)",
+    "usa": "GRAS, Dietary Supplement"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine"],
+    "historical_use": "Seit der Antike; Aegypter widmeten sie dem Sonnengott Ra",
+    "traditional_indications": ["Verdauungsbeschwerden", "Entzuendungen", "Wunden", "Nervosität"]
+  },
+  "pharmacopoeia_names": ["Chamomillae romanae flos"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Entzuendungen der Haut und Schleimhaeute", "Gastrointestinale Spasmen"],
+  "active_substances": [
+    "Aetherisches Oel (1-Isobutylangelelicaester)",
+    "Nobilin",
+    "Flavonoide (Apigenin)",
+    "Sesquiterpenlactone"
+  ],
+  "effect_profile": [
+    {"axis": "Antiinflammatorisch", "value": 80},
+    {"axis": "Spasmolytisch", "value": 75},
+    {"axis": "Beruhigend", "value": 70},
+    {"axis": "Wundheilend", "value": 65},
+    {"axis": "Karminativ", "value": 70}
+  ],
+  "therapeutic_categories": [
+    "Antiinflammatorium",
+    "Spasmolytikum",
+    "Sedativum"
+  ],
+  "evidence_level": {
+    "status": "3",
+    "variant": "warning"
+  },
+  "safety_score": {
+    "value": 90,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Allergie", "beschreibung": "Moegliche Kreuzreaktion bei Asteraceae-Allergie"}
+  ],
+  "contraindications": [
+    "Allergie gegen Korbblütler"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Wahrscheinlich sicher",
+    "variant": "success"
+  },
+  "dosage_notes": "Tee: 2-3g Blueten; Aeusserlich: 3-10% Aufguss; Badezusatz: 50g auf Vollbad",
+  "preparation_forms": ["Tee", "Tinktur", "Salbe", "Badezusatz", "Aetherisches Oel"],
+  "status_by_region": {
+    "eu": "Pflanzliches Arzneimittel (traditional use)"
+  }
+}

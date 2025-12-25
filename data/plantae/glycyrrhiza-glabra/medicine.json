@@ -1,0 +1,82 @@
+{
+  "traditional_medicine": {
+    "systems": ["TCM", "Ayurveda", "European_Folk_Medicine"],
+    "historical_use": "Eine der aeltesten und am weitesten verbreiteten Heilpflanzen weltweit",
+    "traditional_indications": ["Husten", "Magengeschwuere", "Entzuendungen", "Harmonisierung (TCM)"]
+  },
+  "tcm_herb_name_pinyin": "Gan Cao",
+  "tcm_herb_name_chinese": "甘草",
+  "tcm_nature": "neutral",
+  "tcm_flavor": ["sweet"],
+  "tcm_meridian_tropism": ["Alle 12 Meridiane"],
+  "tcm_therapeutic_actions": ["Tonisiert Qi", "Harmonisiert andere Kraeuter", "Befeuchtet Lunge"],
+  "ayurveda_sanskrit_name": "Yashtimadhu",
+  "pharmacopoeia_names": ["Liquiritiae radix"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Magengeschwuere", "Katarrh der oberen Atemwege"],
+  "german_commission_e_status": {
+    "status": "Positiv-Monographie",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Magengeschwuere", "Katarrhe der oberen Atemwege"],
+  "active_substances": [
+    "Glycyrrhizin (Glycyrrhizinsaeure)",
+    "Glabridin",
+    "Flavonoide",
+    "Isoflavone"
+  ],
+  "effect_profile": [
+    {"axis": "Antiulzerogen", "value": 85},
+    {"axis": "Antiinflammatorisch", "value": 80},
+    {"axis": "Expektorierend", "value": 75},
+    {"axis": "Kortisonaehnlich", "value": 70},
+    {"axis": "Antimikrobiell", "value": 65}
+  ],
+  "therapeutic_categories": [
+    "Expektorans",
+    "Antiulkerosum",
+    "Antiinflammatorium"
+  ],
+  "evidence_level": {
+    "status": "1b",
+    "variant": "success"
+  },
+  "safety_score": {
+    "value": 60,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "medium", "typ": "Mineralokortikoid-Effekt", "beschreibung": "Natriumretention, Kaliumverlust, Bluthochdruck, Ödeme"},
+    {"level": "high", "typ": "Hohe Dosen/Langzeit", "beschreibung": "Pseudoaldosteronismus mit schwerer Hypokaliämie"}
+  ],
+  "interactions": [
+    {"level": "high", "typ": "Diuretika", "beschreibung": "Verstärkter Kaliumverlust"},
+    {"level": "medium", "typ": "Digitalis", "beschreibung": "Erhöhte Digitalis-Empfindlichkeit bei Hypokaliämie"},
+    {"level": "medium", "typ": "Kortikosteroide", "beschreibung": "Additive Wirkung"}
+  ],
+  "contraindications": [
+    "Bluthochdruck",
+    "Schwangerschaft",
+    "Herzinsuffizienz",
+    "Niereninsuffizienz",
+    "Hypokaliämie"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Kontraindiziert",
+    "variant": "danger"
+  },
+  "standard_dose_range": {
+    "min": 5,
+    "max": 15,
+    "unit": "g"
+  },
+  "maximum_daily_dose": 100,
+  "treatment_duration_typical": "Maximal 4-6 Wochen",
+  "dosage_notes": "Wurzel: 5-15g als Dekokt; Extrakt: max. 100mg Glycyrrhizin/Tag; DGL (deglycyrrhiziniert) fuer Langzeitanwendung",
+  "preparation_forms": ["Wurzel", "Extrakt", "DGL-Praeparate", "Tee", "Sirup"],
+  "status_by_region": {
+    "eu": "Pflanzliches Arzneimittel (well-established use)"
+  }
+}

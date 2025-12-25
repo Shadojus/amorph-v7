@@ -1,0 +1,60 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Non-toxic",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 5,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Avoid plants from areas sprayed with herbicides",
+    "May cause allergic reactions in those allergic to daisies",
+    "Potent diuretic effect"
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "typ": "Normal use", "beschreibung": "Safe and nutritious"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "risk_groups": [
+    "Those with Asteraceae allergies",
+    "Those on diuretics",
+    "Those with gallbladder issues"
+  ],
+  "antidote": "None required",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "allergy_potential": {
+    "status": "Moderate (Asteraceae family)",
+    "variant": "warning"
+  },
+  "contraindications": [
+    "Gallbladder disease",
+    "Bile duct obstruction"
+  ],
+  "source": {
+    "authors": "Schutz, K. et al.",
+    "year": 2006,
+    "title": "Taraxacum - a review on its phytochemical and pharmacological profile",
+    "journal": "Journal of Ethnopharmacology",
+    "doi": "10.1016/j.jep.2006.07.011"
+  }
+}

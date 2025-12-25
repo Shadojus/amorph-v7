@@ -1,0 +1,38 @@
+{
+  "trophic_mode_primary": "parasitisch",
+  "trophic_mode_secondary": "saprobiontisch",
+  "ecological_guild": "Entomopathogen",
+  "ecosystem_type": "Wald",
+  "ecosystem_subtype": "Mischwald",
+  "microhabitat_primary": "auf toten Insektenlarven",
+  "microhabitat_secondary": "auf Insektenpuppen",
+  "substrate_type_primary": "Insektenlarven",
+  "substrate_types_secondary": [
+    "Insektenpuppen",
+    "vergrabene Insekten"
+  ],
+  "substrate_specificity": {
+    "status": "hoch",
+    "variant": "warning"
+  },
+  "associated_plant_families": [
+    "Poaceae",
+    "Fagaceae"
+  ],
+  "fruiting_season_start": 7,
+  "fruiting_season_end": 10,
+  "fruiting_peak_month": 9,
+  "fruiting_frequency": "selten",
+  "climate_zone": "temperat",
+  "moisture_regime": "mesisch",
+  "light_requirement": "schattig bis halbschattig",
+  "spatial_distribution_pattern": "einzeln oder in kleinen Gruppen",
+  "rarity_type": "extrem selten",
+  "native_range": "Nordhemisphaere, vor allem Ostasien",
+  "symbiosis_type": "Parasitismus",
+  "parasitism_type": "Entomoparasit",
+  "iucn_global_status": {
+    "status": "NE",
+    "variant": "neutral"
+  }
+}

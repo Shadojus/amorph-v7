@@ -1,0 +1,142 @@
+{
+  "scientific": "Agaricus subrufescens",
+  "culinary_status": {
+    "status": "Choice Edible",
+    "variant": "success"
+  },
+  "culinary_rating": {
+    "rating": 5,
+    "max": 5
+  },
+  "culinary_description": "Der Mandel-Egerling ist ein erstklassiger Speisepilz mit einem unverwechselbaren, intensiven Mandelaroma. Der Geschmack ist suess, mild und erinnert an gruene Nuesse. Er eignet sich hervorragend fuer Gourmet-Gerichte und ist gleichzeitig ein wertvoller Medizinalpilz.",
+  "flavor_profile": [
+    {"axis": "Suesse", "value": 70},
+    {"axis": "Umami", "value": 60},
+    {"axis": "Nussig", "value": 85},
+    {"axis": "Erdig", "value": 40},
+    {"axis": "Mild", "value": 75}
+  ],
+  "taste_description": "Suess, mild, leicht muffig, Geschmack nach gruenen Nuessen und Marzipan",
+  "aroma_description": "Intensives Mandelaroma, pilzig, suesslich",
+  "texture_raw": "Fest, fleischig",
+  "texture_cooked": "Zart, saftig, behaelt gute Textur",
+  "edible_parts": [
+    "Hut",
+    "Stiel",
+    "Lamellen"
+  ],
+  "inedible_parts": [],
+  "preparation_requirements": [
+    "Gruendlich reinigen",
+    "Immer kochen - nicht roh verzehren",
+    "Stielende abschneiden"
+  ],
+  "cooking_methods": [
+    "Braten",
+    "Grillen",
+    "Schmoren",
+    "In Suppen und Saucen",
+    "Trocknen"
+  ],
+  "cooking_time": {
+    "min": 10,
+    "max": 20,
+    "unit": "minutes"
+  },
+  "best_cooking_method": "Braten bei mittlerer Hitze in Butter oder Olivenoel",
+  "flavor_pairings": [
+    "Knoblauch",
+    "Petersilie",
+    "Thymian",
+    "Sahne",
+    "Weisswein",
+    "Parmesan",
+    "Risotto"
+  ],
+  "cuisine_associations": [
+    "Brasilianische Kueche",
+    "Japanische Kueche",
+    "Europaeische Gourmet-Kueche"
+  ],
+  "traditional_dishes": [
+    "Himematsutake-Reis (Japan)",
+    "Pilzrisotto",
+    "Champignon-Gerichte",
+    "Pilzsuppen"
+  ],
+  "preservation_methods": [
+    {"label": "Trocknen", "value": 95},
+    {"label": "Pulverisieren", "value": 90},
+    {"label": "Kuehlen", "value": 60},
+    {"label": "Einfrieren", "value": 70}
+  ],
+  "shelf_life_fresh": {
+    "min": 3,
+    "max": 7,
+    "unit": "days"
+  },
+  "shelf_life_dried": {
+    "min": 12,
+    "max": 24,
+    "unit": "months"
+  },
+  "nutritional_highlights": [
+    "Sehr hoher Proteingehalt (39.3%)",
+    "Hoher Ballaststoffgehalt (25.6%)",
+    "Reich an Phosphor und Eisen",
+    "Bedeutende Vitamin B-Quelle",
+    "Hoechster Beta-Glucan-Gehalt aller Pilze"
+  ],
+  "nutritional_per_100g": {
+    "calories": 27,
+    "protein_g": 39.3,
+    "carbohydrates_g": 38.9,
+    "fiber_g": 25.6,
+    "fat_g": 1.8,
+    "moisture_percent": 9.88
+  },
+  "minerals_per_100g": [
+    {"label": "Phosphor (mg)", "value": 939},
+    {"label": "Eisen (mg)", "value": 18.2},
+    {"label": "Calcium (mg)", "value": 41.6}
+  ],
+  "vitamins_per_100g": [
+    {"label": "Vitamin B1 (mg)", "value": 0.48},
+    {"label": "Vitamin B2 (mg)", "value": 2.84},
+    {"label": "Niacin (mg)", "value": 40.9},
+    {"label": "Ergosterol (mg)", "value": 345}
+  ],
+  "dietary_considerations": [
+    "Vegetarisch",
+    "Vegan",
+    "Glutenfrei",
+    "Low-Carb geeignet"
+  ],
+  "allergen_info": "Kann bei Pilzallergikern Reaktionen ausloesen",
+  "commercial_availability": {
+    "status": "Specialty Markets",
+    "variant": "warning"
+  },
+  "commercial_forms": [
+    "Frische Fruchtkoerper (selten)",
+    "Getrocknete Pilze",
+    "Pulver",
+    "Extrakte",
+    "Kapseln"
+  ],
+  "price_range": {
+    "status": "Premium",
+    "variant": "warning"
+  },
+  "market_demand": {
+    "status": "High",
+    "variant": "success"
+  },
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

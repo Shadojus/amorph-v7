@@ -1,0 +1,117 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Non-toxic",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 5,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Vor dem Verzehr gruendlich kochen",
+    "Wie alle Pilze nicht roh verzehren",
+    "Bei empfindlichen Personen kann Agaritine allergische Reaktionen ausloesen"
+  ],
+  "toxin_classes": [
+    "Agaritine (hydrazin-basiert, hitzelabil)"
+  ],
+  "primary_toxins": [
+    {
+      "name": "Agaritine",
+      "cas": "2757-90-6",
+      "mechanism": "Potentiell karzinogen bei Langzeitexposition hoher Dosen, wird durch Kochen abgebaut",
+      "lethal_dose": "Nicht relevant bei normaler kulinarischer Verwendung"
+    }
+  ],
+  "toxin_distribution": [
+    {"label": "Agaritine", "value": 85},
+    {"label": "Andere Phenylhydrazine", "value": 15}
+  ],
+  "toxin_concentration": {
+    "min": 0.1,
+    "max": 0.32,
+    "unit": "% dry weight"
+  },
+  "symptoms_by_severity": [
+    {"level": "none", "typ": "Normal consumption", "beschreibung": "Keine Symptome bei normaler Zubereitung und Verzehr"},
+    {"level": "low", "typ": "Allergische Reaktion", "beschreibung": "Selten: leichte allergische Reaktionen bei empfindlichen Personen"}
+  ],
+  "symptoms_acute": [
+    "Keine bei ordnungsgemaesser Zubereitung"
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "fatality_note": "Keine Todesfaelle bekannt. Gilt als sicherer Speise- und Medizinalpilz.",
+  "affected_systems": [],
+  "risk_groups": [
+    "Personen mit Pilzallergien",
+    "Immunsupprimierte (wegen immunstimulierender Wirkung vorher Arzt konsultieren)"
+  ],
+  "first_aid_immediate": [
+    "Keine spezifischen Massnahmen erforderlich"
+  ],
+  "first_aid_medical": [
+    "Bei allergischen Reaktionen: symptomatische Behandlung"
+  ],
+  "antidote": "Nicht erforderlich",
+  "medical_treatment": "Symptomatisch bei seltenen allergischen Reaktionen",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "long_term_effects": "Keine negativen Langzeiteffekte bei normaler Verwendung bekannt. Wird traditionell als Gesundheitspilz verwendet.",
+  "environmental_risks": {
+    "status": "None",
+    "variant": "success"
+  },
+  "environmental_risk_description": "Keine Umweltrisiken bekannt",
+  "collection_warnings": [
+    "Verwechslungsgefahr mit Karbol-Egerling (Agaricus moelleri) beachten",
+    "Geruchstest: Mandel- statt Karbolgeruch"
+  ],
+  "storage_risks": "Frische Pilze schnell verarbeiten oder trocknen",
+  "processing_risks": [
+    "Roh nicht verzehren",
+    "Gruendliches Kochen reduziert Agaritine erheblich"
+  ],
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "contraindications": [
+    "Bekannte Pilzallergie",
+    "Bei Autoimmunerkrankungen vor Einnahme als Supplement Arzt konsultieren"
+  ],
+  "safety_studies_available": true,
+  "clinical_case_reports": [
+    {
+      "authors": "Stijve, T. et al.",
+      "year": 2000,
+      "title": "Agaritine content of Agaricus blazei from Brazil",
+      "journal": "Mycologist",
+      "doi": ""
+    }
+  ],
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

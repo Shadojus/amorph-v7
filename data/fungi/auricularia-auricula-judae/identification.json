@@ -1,0 +1,148 @@
+{
+  "scientific_name": "Auricularia auricula-judae",
+  "author_citation": "(Bull.) Quél. 1886",
+  "accepted_name": "Auricularia auricula-judae (Bull.) Quél.",
+  "basionym": "Tremella auricula-judae Bull. 1789",
+  "taxonomy_domain": "Eukarya",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Auriculariales",
+  "taxonomy_family": "Auriculariaceae",
+  "taxonomy_genus": "Auricularia",
+  "taxonomy_species": "auricula-judae",
+  "synonyms": [
+    "Tremella auricula-judae Bull. 1789",
+    "Peziza auricula L. 1753",
+    "Hirneola auricula-judae (Bull.) Berk.",
+    "Auricularia auricula (Hook.) Underw."
+  ],
+  "common_names": [
+    "Judasohr",
+    "Holunderschwamm",
+    "Ohrlappenpilz",
+    "Wolkenohrenpilz"
+  ],
+  "international_names": [
+    "Wood Ear (EN)",
+    "Jew's Ear (EN)",
+    "Mu-er (CN)",
+    "Kikurage (JP)",
+    "Oreille de Judas (FR)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Ohrfoermige, gallertartige Fruchtkoerper", "status": "pending"},
+    {"step": 2, "label": "Purpurgrau bis dunkelbraun", "status": "pending"},
+    {"step": 3, "label": "Oberseite mit feinen Haaren", "status": "pending"},
+    {"step": 4, "label": "An Laubholz, besonders Holunder", "status": "pending"},
+    {"step": 5, "label": "Ganzjaehrig, auch im Winter", "status": "pending"},
+    {"step": 6, "label": "Rehydriert in Wasser", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 3,
+  "minimum_equipment_needed": [
+    "Keine Ausruestung erforderlich"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Auricularia mesenterica (Geadertes Ohrlappenpilz)",
+    "Exidia recisa (Weidendruesling)",
+    "Phaeotremella foliacea (Blaettriger Zitterling)"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "low", "typ": "Auricularia mesenterica", "beschreibung": "Essbar, staerker geadert"},
+    {"level": "low", "typ": "Exidia-Arten", "beschreibung": "Essbar aber geschmacklos"}
+  ],
+  "key_differentiating_features": [
+    "Ohrfoermige gallertartige Gestalt",
+    "Feine Haare auf der Oberseite",
+    "Waechst an Holunder und anderem Laubholz",
+    "Rehydriert nach Trocknung"
+  ],
+  "habit": "Holzbewohnend, saprotroph/parasitaer",
+  "growth_form": "Einzeln oder in Gruppen",
+  "symmetry": "asymmetrisch (ohrfoermig)",
+  "size_range": {
+    "min": 2,
+    "max": 15,
+    "unit": "cm"
+  },
+  "size_typical_cm": 6,
+  "basic_shape": "Ohrfoermig, muschelartig",
+  "height": {
+    "min": 1,
+    "max": 8,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 2,
+    "max": 15,
+    "unit": "cm"
+  },
+  "surface_type": "Oberseite samtig behaart, Unterseite glatt",
+  "color_primary": "Purpurgraubraun bis dunkelbraun",
+  "color_secondary": "Innen heller",
+  "primary_structure_present": true,
+  "primary_structure_type": "Gallertartiger Fruchtkoerper",
+  "primary_structure_diameter": {
+    "min": 2,
+    "max": 15,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Klein, ohrfoermig",
+  "primary_structure_shape_mature": "Gross, ohrfoermig, gewellt",
+  "primary_structure_surface": "Oberseite mit feinen Haaren (Medulla)",
+  "primary_structure_color": "Purpurgraubraun",
+  "support_structure_present": false,
+  "support_structure_type": "Sessil (stiellos)",
+  "lamellae_present": false,
+  "spore_print_color": "Weiss",
+  "smell_description": "Unangenehm, muffig, nach rohem Kompost",
+  "taste_safe_to_test": true,
+  "taste_description": "Gallertartige Textur, mild, geschmacklos",
+  "microscopy_required": false,
+  "microscopy_key_features": [
+    "Sporen hyalin, zylindrisch bis wurstfoermig",
+    "11-14 x 4-6 um",
+    "Basidien 4-sporig",
+    "Schnallen vorhanden"
+  ],
+  "spore_measurement_diagnostic": {
+    "min": 11,
+    "max": 14,
+    "unit": "um"
+  },
+  "appearance_by_season": {
+    "spring": "Haeufig",
+    "summer": "Bei Feuchtigkeit",
+    "autumn": "Haeufig",
+    "winter": "Hauptsaison - frostbestaendig"
+  },
+  "season_peak_months": [11, 12, 1, 2, 3],
+  "nutrition_type": "Saprotroph bis parasitaer",
+  "nutrition_type_detail": "Weissfaeuleausloeser an Laubholz",
+  "substrate_species": [
+    "Sambucus (Holunder)",
+    "Betula (Birken)",
+    "Salix (Weiden)",
+    "Quercus (Eichen)"
+  ],
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

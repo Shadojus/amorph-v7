@@ -1,0 +1,62 @@
+{
+  "traditional_medicine_use": true,
+  "traditional_medicine_systems": [
+    "Traditionelle Chinesische Medizin",
+    "Japanische Medizin"
+  ],
+  "medicinal_status": {
+    "status": "Vitalpilz und zugelassenes Arzneimittel (Japan)",
+    "variant": "success"
+  },
+  "primary_medicinal_uses": [
+    "Immunstimulation",
+    "Krebs-Begleittherapie",
+    "Cholesterinsenkung",
+    "Antiviral"
+  ],
+  "active_compounds": [
+    {
+      "name": "Lentinan",
+      "class": "Beta-1,3-1,6-Glucan",
+      "effects": ["immunstimulierend", "antitumoral"]
+    },
+    {
+      "name": "KS-2",
+      "class": "Polysaccharid",
+      "effects": ["antitumoral"]
+    },
+    {
+      "name": "Eritadenin",
+      "class": "Adenin-Derivat",
+      "effects": ["cholesterinsenkend"]
+    }
+  ],
+  "research_areas": [
+    "Onkologie",
+    "HIV/AIDS",
+    "Kardiologie",
+    "Immunologie"
+  ],
+  "clinical_evidence_level": {
+    "status": "zugelassenes Medikament",
+    "variant": "success"
+  },
+  "clinical_evidence_notes": "Lentinan ist in Japan als Krebsmedikament (Adjuvans) zugelassen. Umfangreiche klinische Forschung seit den 1960er Jahren.",
+  "traditional_preparations": [
+    "Gekocht als Speisepilz",
+    "Heisswasserextrakt",
+    "Lentinan-Injektionen (medizinisch)"
+  ],
+  "safety_profile": {
+    "status": "gut vertraeglich",
+    "variant": "success"
+  },
+  "side_effects": [
+    {
+      "level": "low",
+      "typ": "Dermatologisch",
+      "beschreibung": "Shiitake-Dermatitis (selten, durch Lentinan bei Rohverzehr oder unzureichendem Garen)"
+    }
+  ],
+  "regulatory_status_eu": "Lebensmittel und Nahrungsergaenzungsmittel"
+}

@@ -1,0 +1,48 @@
+{
+  "edibility_category": "edible",
+  "culinary_value": {
+    "rating": 8,
+    "max": 10
+  },
+  "taste_profile": "mild, mehlartig",
+  "texture": "schleimig, gallertartig",
+  "aroma": "dezent pilzig",
+  "recommended_preparations": [
+    "Miso-Suppe",
+    "Nudelgerichte",
+    "Saucen",
+    "Eintöpfe"
+  ],
+  "cooking_methods": [
+    "In Suppen kochen",
+    "Kurz anbraten"
+  ],
+  "cooking_time_minutes": {
+    "min": 3,
+    "max": 10,
+    "unit": "min"
+  },
+  "storage_fresh_days": {
+    "min": 5,
+    "max": 7,
+    "unit": "Tage"
+  },
+  "storage_methods": [
+    "Gekuehlt",
+    "In Salzlake"
+  ],
+  "cuisine_traditions": [
+    "Japanische Kueche",
+    "Chinesische Kueche"
+  ],
+  "commercial_availability": {
+    "status": "mittel",
+    "variant": "warning"
+  },
+  "cultivation_scale": "kommerziell",
+  "nutritional_highlights": [
+    "20.8% Protein",
+    "Niacin (72.9mg/100g)",
+    "Kalium (2083mg/100g)"
+  ]
+}

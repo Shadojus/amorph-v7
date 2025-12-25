@@ -1,0 +1,150 @@
+{
+  "safety_edibility_status": {
+    "status": "Edible",
+    "variant": "success"
+  },
+  "safety_edibility_confidence": {
+    "value": 95,
+    "max": 100,
+    "unit": "%"
+  },
+  "safety_edibility_notes": "Ausgezeichneter Speisepilz mit mildem, angenehmem Geschmack. Sollte wie alle Pilze vor dem Verzehr gekocht werden.",
+  "safety_potentially_deadly": false,
+  "safety_toxicity_score": {
+    "value": 5,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_toxicity_components": [],
+  "safety_warning_level": {
+    "status": "None",
+    "variant": "success"
+  },
+  "safety_warning_text": "Keine besonderen Warnungen. Wie alle Wildpilze vor dem Verzehr gruendlich kochen. Bei selbst angebautem Pilz keine Schadstoffe akkumuliert.",
+  "safety_warning_text_short": "Keine besonderen Warnungen",
+  "safety_summary": "Hervorragender Speisepilz ohne bekannte Giftigkeit. Leicht zu identifizieren und zu kultivieren.",
+  "safety_risk_inherent": {
+    "value": 5,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_confusion": {
+    "value": 15,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_preparation": {
+    "value": 10,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_groups": [
+    "Personen mit Pilzallergien"
+  ],
+  "safety_contraindications": [
+    "Bekannte Pilzallergie"
+  ],
+  "safety_regions": [
+    "Europa",
+    "Nordamerika",
+    "Asien",
+    "Australien",
+    "Neuseeland"
+  ],
+  "safety_season_risk": [
+    {"month": 1, "active": false},
+    {"month": 2, "active": false},
+    {"month": 3, "active": false},
+    {"month": 4, "active": false},
+    {"month": 5, "active": true},
+    {"month": 6, "active": true},
+    {"month": 7, "active": true},
+    {"month": 8, "active": true},
+    {"month": 9, "active": true},
+    {"month": 10, "active": true},
+    {"month": 11, "active": false},
+    {"month": 12, "active": false}
+  ],
+  "safety_id_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "safety_id_requirements": [
+    "Rotbrauner bis weinroter Hut",
+    "Gerillter, haeutiger Ring",
+    "Purpurschwarzer Sporenabdruck",
+    "Wachstum auf Stroh oder Holzhaecksel"
+  ],
+  "safety_microscopy_needed": false,
+  "safety_chemtests_needed": false,
+  "safety_sporeprint_needed": false,
+  "toxin_organ_damage_reversible": true,
+  "confusion_partner": [
+    {"name": "Agaricus-Arten", "type": "Unbedenklich", "intensity": 20},
+    {"name": "Hypholoma sublateritium", "type": "Gering", "intensity": 15}
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_safety_critical": false,
+  "confusion_visual_similarity": {
+    "value": 25,
+    "max": 100,
+    "unit": "%"
+  },
+  "confusion_similarity_details": "Aehnlichkeit mit anderen Stropharia-Arten und Champignons, aber keine giftigen Doppelgaenger bekannt.",
+  "confusion_key_features": [
+    "Charakteristisch gerillter Ring",
+    "Rotbraune bis weinrote Hutfarbe",
+    "Purpurschwarzer Sporenabdruck",
+    "Typisches Substrat (Stroh, Haecksel)"
+  ],
+  "confusion_best_feature": "Gerillter Ring und purpurschwarzer Sporenabdruck",
+  "confusion_habitat_overlap": false,
+  "confusion_if_in_doubt": "Sporenabdruck machen - muss purpurschwarz sein. Im Kulturbeet gesammelte Exemplare sind sicher zu identifizieren.",
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "recovery_prognosis": "Keine Vergiftungen bekannt bei korrekter Identifikation",
+  "permanent_damage_risk": {
+    "value": 0,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "children_risk_modifier": "Normal",
+  "pets_toxicity": false,
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

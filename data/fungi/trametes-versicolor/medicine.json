@@ -1,0 +1,176 @@
+{
+  "scientific": "Trametes versicolor",
+  "synonyms": [
+    "Coriolus versicolor",
+    "Polyporus versicolor"
+  ],
+  "pharmacopoeia_names": [
+    "Yunzhi (TCM)",
+    "Kawaratake (Kampo)"
+  ],
+  "description": "Die Schmetterlingstramete ist einer der am besten erforschten Medizinalpilze. Die daraus gewonnenen Polysaccharide PSK (Krestin) und PSP sind in Asien als zugelassene Krebsmedikamente im Einsatz.",
+  "traditional_medicine": {
+    "systems": [
+      "Traditionelle Chinesische Medizin (TCM)",
+      "Japanische Kampo-Medizin"
+    ],
+    "historical_use": "In der TCM seit Jahrhunderten als Tonikum und zur Staerkung des Immunsystems verwendet. In Japan wurde PSK 1977 als erstes Pilz-basiertes Krebsmedikament zugelassen.",
+    "traditional_indications": [
+      "Staerkung des Immunsystems",
+      "Unterstuetzung bei Krebstherapie",
+      "Chronische Muedigkeit",
+      "Infektionskrankheiten"
+    ]
+  },
+  "tcm_herb_name_pinyin": "Yunzhi",
+  "tcm_herb_name_chinese": "云芝",
+  "tcm_nature": "Leicht warm",
+  "tcm_flavor": [
+    "Suess",
+    "Leicht bitter"
+  ],
+  "tcm_meridian_tropism": [
+    "Leber",
+    "Milz",
+    "Lunge"
+  ],
+  "tcm_therapeutic_actions": [
+    "Staerkt das Qi",
+    "Eliminiert Feuchtigkeit",
+    "Klaert Hitze",
+    "Staerkt die Milz"
+  ],
+  "who_monograph_exists": false,
+  "escop_monograph_exists": false,
+  "active_substances": [
+    "PSK (Polysaccharid-K, Krestin)",
+    "PSP (Polysaccharid-Peptid)",
+    "Beta-Glucane",
+    "Ergosterol",
+    "Triterpenoide"
+  ],
+  "effect_profile": [
+    {"axis": "Immunmodulation", "value": 95},
+    {"axis": "Antitumoral", "value": 85},
+    {"axis": "Antioxidativ", "value": 70},
+    {"axis": "Hepatoprotektiv", "value": 60},
+    {"axis": "Antibakteriell", "value": 50}
+  ],
+  "therapeutic_categories": [
+    "Immunmodulator",
+    "Biologische Krebstherapie-Adjuvans",
+    "Adaptogen"
+  ],
+  "evidence_level": {
+    "status": "Strong (Asia), Moderate (West)",
+    "variant": "success"
+  },
+  "clinical_studies": [
+    "Zahlreiche RCTs in Japan und China zu PSK/PSP bei Krebs",
+    "Phase-I-Studien zur Immunstimulation bei Brustkrebs",
+    "Studien zur Verbesserung der Ueberlebensraten bei Magen- und Darmkrebs"
+  ],
+  "meta_analyses": [
+    "Cochrane Reviews zu PSK bei Magenkrebs zeigen signifikante Vorteile"
+  ],
+  "safety_score": {
+    "value": 85,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "red"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "green"}
+    ]
+  },
+  "side_effects": [
+    {"level": "trivial", "typ": "Gastrointestinale Beschwerden", "beschreibung": "Selten leichte Verdauungsbeschwerden"},
+    {"level": "trivial", "typ": "Dunkelfaerbung der Naegel", "beschreibung": "Gelegentlich bei PSK beobachtet, reversibel"}
+  ],
+  "interactions": [
+    {"level": "moderate", "typ": "Immunsuppressiva", "beschreibung": "Moegliche Abschwächung immunsuppressiver Therapien"},
+    {"level": "trivial", "typ": "Chemotherapie", "beschreibung": "Wird gezielt als Adjuvans eingesetzt"}
+  ],
+  "contraindications": [
+    "Bekannte Pilzallergie",
+    "Schwere Autoimmunerkrankungen (aerztliche Begleitung erforderlich)",
+    "Vor Operationen (1-2 Wochen vorher absetzen)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Insufficient data",
+    "variant": "warning"
+  },
+  "special_populations_lactation": {
+    "status": "Insufficient data",
+    "variant": "warning"
+  },
+  "special_populations_children": {
+    "status": "Caution advised",
+    "variant": "warning"
+  },
+  "dosage_notes": "PSK wird typischerweise mit 3 g/Tag oral verabreicht. Extrakte und Pulver variieren je nach Hersteller.",
+  "dosage_schemes": [
+    {"amount": 3, "unit": "g", "frequency": "taeglich", "route": "oral", "notes": "PSK Standard-Dosis in klinischen Studien"},
+    {"amount": 1, "unit": "g", "frequency": "2-3x taeglich", "route": "oral", "notes": "Typische Supplement-Dosierung"}
+  ],
+  "preparation_forms": [
+    "PSK (Krestin) - zugelassenes Medikament in Japan",
+    "PSP - zugelassenes Medikament in China",
+    "Heisswasser-Extrakt",
+    "Pulver",
+    "Kapseln",
+    "Tee"
+  ],
+  "status_by_region": {
+    "eu": "Nahrungsergaenzungsmittel",
+    "usa": "Dietary Supplement",
+    "japan": "Zugelassenes Medikament (PSK)",
+    "china": "Zugelassenes Medikament (PSP)",
+    "canada": "Natural Health Product",
+    "australia": "Complementary Medicine"
+  },
+  "novel_food": false,
+  "drug_approvals": [
+    "PSK (Krestin) - Japan 1977",
+    "PSP - China 1987"
+  ],
+  "origin_wild_collection": {
+    "available": true,
+    "regions": [
+      "Weltweit",
+      "Europa",
+      "Nordamerika",
+      "Asien"
+    ],
+    "sustainability_concerns": "Haeuufiger Pilz, keine Bedenken bei maessiger Sammlung"
+  },
+  "origin_cultivation": {
+    "available": true,
+    "regions": [
+      "China",
+      "Japan",
+      "USA",
+      "Europa"
+    ],
+    "methods": "Substratkultivierung auf Saegemehl oder Holz"
+  },
+  "quality_differences": "Extrakte variieren stark in Polysaccharidgehalt. Beta-Glucan-Gehalt sollte standardisiert sein.",
+  "patient_information": "Trametes versicolor ist ein gut vertraeglicher Medizinalpilz mit starker Forschungsbasis zur Immunstimulation. In Asien als Adjuvans bei Krebstherapie zugelassen.",
+  "for_physicians": "PSK und PSP sind die klinisch am besten untersuchten Pilz-Polysaccharide. Randomisierte Studien zeigen verbesserte Ueberlebensraten bei Magen- und Darmkrebs in Kombination mit Chemotherapie.",
+  "further_literature": {
+    "authors": "Standish, L.J. et al.",
+    "year": 2008,
+    "title": "Trametes versicolor Mushroom Immune Therapy in Breast Cancer",
+    "journal": "Journal of the Society for Integrative Oncology",
+    "doi": "10.2310/7200.2008.0003"
+  },
+  "medical_score": {
+    "rating": 9,
+    "max": 10
+  },
+  "profile": "Immunmodulator mit starker klinischer Evidenz als Adjuvans bei Krebstherapie",
+  "evidence_grade_overall": {
+    "status": "A (Asia), B (Western)",
+    "variant": "success"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "habitat_primary": "Waldraender, Lichtungen, Heiden",
+  "habitat_secondary": [
+    "Mischwaelder",
+    "Waldwege",
+    "Wiesen",
+    "Parks"
+  ],
+  "habitat_description": "Der Parasol ist ein typischer Bewohner offener und halboffener Standorte. Er bevorzugt naehrstoffreiche Boeden an Waldraendern, auf Lichtungen und Heiden. Man findet ihn vom Fruehsommer bis Spaetherbst, oft in grossen Gruppen.",
+  "elevation_range": {
+    "min": 0,
+    "max": 1500,
+    "unit": "m"
+  },
+  "elevation_optimal": {
+    "min": 100,
+    "max": 800,
+    "unit": "m"
+  },
+  "temperature_range": {
+    "min": 10,
+    "max": 25,
+    "unit": "C"
+  },
+  "microhabitat_requirements": [
+    "Naehrstoffreiche Boeden",
+    "Offene bis halbschattige Standorte",
+    "Gute Drainage"
+  ],
+  "substrate_preferences": [
+    "Humusreiche Waldboeden",
+    "Wiesen",
+    "Heideboeden"
+  ],
+  "ecological_role": "Saprotroph (Folgezersetzer)",
+  "ecological_role_description": "Macrolepiota procera zersetzt organisches Material im Boden und traegt zur Humusbildung bei.",
+  "ecological_importance": [
+    {"axis": "Naehrstoffrecycling", "value": 70},
+    {"axis": "Kulinarische Bedeutung", "value": 95},
+    {"axis": "Kulturelle Bedeutung", "value": 80}
+  ],
+  "trophic_level": 2,
+  "trophic_category": "saprotroph",
+  "host_specificity": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "co_occurring_species": [
+    "Andere Macrolepiota-Arten",
+    "Agaricus-Arten",
+    "Lycoperdon-Arten"
+  ],
+  "dispersal_mechanism": "Windverbreitung der Sporen",
+  "dispersal_range": {
+    "min": 10,
+    "max": 1000,
+    "unit": "m"
+  },
+  "activity_months": [6, 7, 8, 9, 10, 11],
+  "peak_fruiting_month": 9,
+  "source": {
+    "authors": "Singer, R.",
+    "year": 1948,
+    "title": "The Agaricales in Modern Taxonomy",
+    "journal": "Lilloa",
+    "doi": ""
+  }
+}

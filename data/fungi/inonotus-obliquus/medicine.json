@@ -1,0 +1,64 @@
+{
+  "traditional_medicine_use": true,
+  "traditional_medicine_systems": [
+    "Russische Volksmedizin",
+    "Skandinavische Volksmedizin"
+  ],
+  "medicinal_status": {
+    "status": "Vitalpilz",
+    "variant": "info"
+  },
+  "primary_medicinal_uses": [
+    "Antioxidativ",
+    "Immunstimulation",
+    "Krebs-Begleittherapie",
+    "Entzuendungshemmung",
+    "Magen-Darm-Beschwerden"
+  ],
+  "active_compounds": [
+    {
+      "name": "Betulin/Betulinsaeure",
+      "class": "Triterpen (aus Birkenrinde)",
+      "effects": ["antitumoral", "entzuendungshemmend"]
+    },
+    {
+      "name": "Polysaccharide",
+      "class": "Beta-Glucane",
+      "effects": ["immunstimulierend"]
+    },
+    {
+      "name": "Melanin",
+      "class": "Pigment",
+      "effects": ["antioxidativ", "UV-Schutz"]
+    }
+  ],
+  "research_areas": [
+    "Onkologie",
+    "Immunologie",
+    "Dermatologie",
+    "Gastroenterologie"
+  ],
+  "clinical_evidence_level": {
+    "status": "praeklinisch",
+    "variant": "warning"
+  },
+  "clinical_evidence_notes": "Umfangreiche Nutzung in Russland seit Jahrhunderten. Moderne Studien bestaetigen antioxidative und antitumorale Eigenschaften in vitro.",
+  "contraindications": [
+    "Nierensteine (hoher Oxalsaeuregehalt)",
+    "Antikoagulantien-Einnahme",
+    "Autoimmunerkrankungen",
+    "Hypoglykamie-Risiko (senkt Blutzucker)"
+  ],
+  "traditional_preparations": [
+    "Tee (Dekokt)",
+    "Wasserextrakt",
+    "Alkoholextrakt",
+    "Pulver"
+  ],
+  "dosage_traditional": "1-3 g Pulver pro Tag als Tee",
+  "safety_profile": {
+    "status": "gut vertraeglich mit Einschraenkungen",
+    "variant": "warning"
+  },
+  "regulatory_status_eu": "Nahrungsergaenzungsmittel"
+}

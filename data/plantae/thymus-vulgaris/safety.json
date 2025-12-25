@@ -1,0 +1,59 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Non-toxic",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 5,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Safe in culinary amounts",
+    "Essential oil is potent - dilute before use",
+    "Thymol in oil can irritate skin"
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "typ": "Normal use", "beschreibung": "Safe and beneficial as culinary herb"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "risk_groups": [
+    "Those with sensitive skin (oil)",
+    "Pregnant women (medicinal doses)"
+  ],
+  "antidote": "None required",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "contraindications": [
+    "Pregnancy (concentrated oil)",
+    "Sensitive skin (undiluted oil)"
+  ],
+  "source": {
+    "authors": "Fachini-Queiroz, F.C. et al.",
+    "year": 2012,
+    "title": "Effects of thymol and carvacrol on the inflammatory response",
+    "journal": "Evidence-Based Complementary and Alternative Medicine",
+    "doi": "10.1155/2012/657026"
+  }
+}

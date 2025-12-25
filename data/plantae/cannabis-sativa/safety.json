@@ -1,0 +1,133 @@
+{
+  "edibility": {
+    "status": "psychoactive",
+    "variant": "warning"
+  },
+  "toxicity_level": {
+    "status": "Low physical toxicity; psychoactive effects",
+    "variant": "warning"
+  },
+  "edibility_rating": {
+    "rating": 2,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Controlled substance in many jurisdictions",
+    "variant": "danger"
+  },
+  "is_controlled_substance": true,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Legal status varies by jurisdiction",
+    "Industrial hemp (<0.3% THC) legal in many areas",
+    "Psychoactive varieties controlled substances",
+    "Seeds and fiber legal in most places"
+  ],
+  "toxin_classes": [
+    "Cannabinoids"
+  ],
+  "primary_toxins": [
+    {
+      "name": "Delta-9-THC",
+      "cas": "1972-08-3",
+      "mechanism": "CB1 receptor agonist; psychoactive effects, altered perception",
+      "lethal_dose": "No confirmed lethal dose from cannabis alone; LD50 estimated at 1270mg/kg (rats)"
+    },
+    {
+      "name": "Cannabidiol (CBD)",
+      "cas": "13956-29-1",
+      "mechanism": "Non-psychoactive; various receptor interactions",
+      "lethal_dose": "No lethal dose established; considered safe"
+    }
+  ],
+  "toxin_distribution": [
+    {"label": "THC (psychoactive varieties)", "value": 60},
+    {"label": "CBD", "value": 25},
+    {"label": "Other cannabinoids", "value": 15}
+  ],
+  "symptoms_by_severity": [
+    {"level": "low", "typ": "Mild effects", "beschreibung": "Euphoria, relaxation, altered time perception, increased appetite"},
+    {"level": "medium", "typ": "Higher doses", "beschreibung": "Anxiety, paranoia, impaired coordination, tachycardia"},
+    {"level": "high", "typ": "Acute intoxication", "beschreibung": "Severe anxiety/panic, psychotic symptoms (rare), vomiting (cannabinoid hyperemesis)"}
+  ],
+  "symptoms_acute": [
+    "Tachycardia",
+    "Dry mouth",
+    "Red eyes",
+    "Impaired coordination",
+    "Anxiety or paranoia (some users)",
+    "Increased appetite"
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "fatality_note": "No confirmed deaths from cannabis toxicity alone. Accidents while impaired can be fatal.",
+  "affected_systems": [
+    "Central nervous system",
+    "Cardiovascular (tachycardia)",
+    "Respiratory (if smoked)"
+  ],
+  "risk_groups": [
+    "Adolescents (brain development)",
+    "Those with psychotic disorders",
+    "Pregnant women",
+    "Those with heart conditions"
+  ],
+  "first_aid_immediate": [
+    "Reassurance and calm environment",
+    "No specific antidote needed",
+    "Supportive care for anxiety"
+  ],
+  "first_aid_medical": [
+    "Benzodiazepines for severe anxiety",
+    "IV fluids if vomiting",
+    "Monitor cardiac function"
+  ],
+  "antidote": "None required; effects self-limiting",
+  "medical_treatment": "Supportive care; symptoms resolve in hours",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "long_term_effects": "Dependency possible with heavy use; possible cognitive effects with adolescent use",
+  "environmental_risks": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "collection_warnings": [
+    "Check legal status in your jurisdiction",
+    "Industrial hemp is legal in many areas",
+    "Distinguish from psychoactive varieties"
+  ],
+  "storage_risks": "Proper storage prevents mold",
+  "processing_risks": [
+    "Edibles can cause delayed, intense effects",
+    "Proper dosing important for edibles"
+  ],
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "contraindications": [
+    "History of psychosis",
+    "Pregnancy and breastfeeding",
+    "Operating machinery",
+    "Adolescents"
+  ],
+  "drug_interactions": [
+    "CNS depressants",
+    "Some psychiatric medications"
+  ],
+  "safety_studies_available": true,
+  "source": {
+    "authors": "Grotenhermen, F.",
+    "year": 2003,
+    "title": "Pharmacokinetics and pharmacodynamics of cannabinoids",
+    "journal": "Clinical Pharmacokinetics",
+    "doi": "10.2165/00003088-200342040-00003"
+  }
+}

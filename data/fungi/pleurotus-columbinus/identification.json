@@ -1,0 +1,70 @@
+{
+  "scientific_name": "Pleurotus columbinus",
+  "author_citation": "Quél.",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Pleurotaceae",
+  "taxonomy_genus": "Pleurotus",
+  "taxonomy_species": "columbinus",
+  "synonyms": [
+    "Pleurotus ostreatus var. columbinus"
+  ],
+  "common_names": [
+    "Taubenblauer Seitling",
+    "Taubenblauer Austernseitling",
+    "Gray Dove Oyster"
+  ],
+  "size_range": {
+    "min": 1,
+    "max": 40,
+    "unit": "cm"
+  },
+  "color_primary": "taubenblau",
+  "color_secondary": "gruenlichgrau",
+  "smell_description": "Pilzartig oder porlingsartig",
+  "taste_description": "Mild",
+  "primary_structure_present": true,
+  "primary_structure_type": "Hut",
+  "primary_structure_diameter": {
+    "min": 1,
+    "max": 40,
+    "unit": "cm"
+  },
+  "primary_structure_shape_mature": "muschelfoermig, unregelmaessig",
+  "primary_structure_color": "blau bis gruenlichgrau, Mitte roetlichbraun",
+  "support_structure_present": true,
+  "support_structure_type": "Stiel",
+  "support_structure_position": "exzentrisch bis seitlich",
+  "support_structure_color": "weisslich",
+  "lamellae_present": true,
+  "lamellae_attachment": "herablaufend",
+  "lamellae_color": "weisslich, graublau",
+  "tissue_color": "weisslich",
+  "tissue_consistency": "fest, etwas zaeh",
+  "propagule_color": "helllila",
+  "propagule_length": {
+    "min": 8,
+    "max": 11,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 3,
+    "max": 4.5,
+    "unit": "um"
+  },
+  "confusion_species_list": [
+    "Pleurotus ostreatus",
+    "Pleurotus pulmonarius"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "beginner",
+    "variant": "success"
+  }
+}

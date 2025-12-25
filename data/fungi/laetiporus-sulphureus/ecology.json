@@ -1,0 +1,32 @@
+{
+  "trophic_mode_primary": "parasitisch",
+  "trophic_mode_secondary": "saprobiontisch",
+  "ecological_guild": "Holzzersetzer",
+  "decomposer_type": "Braunfaeule",
+  "ecosystem_type": "Wald",
+  "ecosystem_subtype": "Laubwald",
+  "microhabitat_primary": "lebende Laubbaeume",
+  "microhabitat_secondary": "tote Staemme und Stubben",
+  "substrate_type_primary": "Laubholz",
+  "substrate_types_secondary": [
+    "Eiche",
+    "Weide",
+    "Kirsche",
+    "Buche",
+    "Nussbaum"
+  ],
+  "substrate_specificity": {
+    "status": "breit",
+    "variant": "success"
+  },
+  "fruiting_season_start": 5,
+  "fruiting_season_end": 10,
+  "fruiting_peak_month": 7,
+  "climate_zone": "temperat",
+  "moisture_regime": "mesisch",
+  "native_range": "Nordhemisphaere, kosmopolitisch",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  }
+}

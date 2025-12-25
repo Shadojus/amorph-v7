@@ -1,0 +1,61 @@
+{
+  "traditional_medicine_use": true,
+  "traditional_medicine_systems": [
+    "Traditionelle Chinesische Medizin",
+    "Koreanische Medizin"
+  ],
+  "medicinal_status": {
+    "status": "Vitalpilz",
+    "variant": "info"
+  },
+  "primary_medicinal_uses": [
+    "Immunstimulation",
+    "Leistungssteigerung",
+    "Anti-Tumor",
+    "Antibiotisch"
+  ],
+  "active_compounds": [
+    {
+      "name": "Cordycepin",
+      "class": "Nukleosid-Analogon",
+      "effects": ["antitumoral", "antibiotisch", "immunmodulierend"]
+    },
+    {
+      "name": "Polysaccharide",
+      "class": "Beta-Glucane",
+      "effects": ["immunstimulierend"]
+    },
+    {
+      "name": "Adenosin",
+      "class": "Nukleosid",
+      "effects": ["kardiovaskulaer"]
+    }
+  ],
+  "research_areas": [
+    "Onkologie",
+    "Immunologie",
+    "Sportmedizin",
+    "Antivirale Forschung"
+  ],
+  "clinical_evidence_level": {
+    "status": "praeklinisch",
+    "variant": "warning"
+  },
+  "clinical_evidence_notes": "Zahlreiche In-vitro und Tierstudien, begrenzte klinische Humanstudien. In der EU nicht als Arzneimittel zugelassen.",
+  "contraindications": [
+    "Autoimmunerkrankungen (immunmodulierende Wirkung)",
+    "Vor Operationen (potenzielle Blutgerinnungshemmung)"
+  ],
+  "traditional_preparations": [
+    "Heisswasserextrakt",
+    "Alkoholextrakt",
+    "Pulver",
+    "Kapseln"
+  ],
+  "dosage_traditional": "1-3 g getrockneter Fruchtkoerper pro Tag",
+  "safety_profile": {
+    "status": "gut vertraeglich",
+    "variant": "success"
+  },
+  "regulatory_status_eu": "Nahrungsergaenzungsmittel (keine Heilmittelzulassung)"
+}

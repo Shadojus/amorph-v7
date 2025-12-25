@@ -1,0 +1,180 @@
+{
+  "scientific_name": "Agaricus subrufescens",
+  "author_citation": "Peck 1893",
+  "accepted_name": "Agaricus subrufescens Peck",
+  "taxonomy_domain": "Eukarya",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Agaricaceae",
+  "taxonomy_genus": "Agaricus",
+  "taxonomy_species": "subrufescens",
+  "synonyms": [
+    "Agaricus blazei Murrill 1945",
+    "Agaricus brasiliensis Wasser 2002",
+    "Agaricus rufotegulis Nauta 1999"
+  ],
+  "common_names": [
+    "Mandel-Egerling",
+    "Sonnenpilz",
+    "Lebenspilz",
+    "Brasilianischer Mandel-Egerling",
+    "Almond Portobello",
+    "King Agaricus"
+  ],
+  "international_names": [
+    "Royal Sun Agaricus (EN)",
+    "Himematsutake (JP)",
+    "Kawariharatake (JP)",
+    "Cogumelo de Deus (PT-BR)",
+    "Jisongrong (CN)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Intensiver Mandelgeruch", "status": "pending"},
+    {"step": 2, "label": "Hut 7-25 cm, hellbraun bis rotbraun", "status": "pending"},
+    {"step": 3, "label": "Oberflaeche mit braunen faserigen Schuppen", "status": "pending"},
+    {"step": 4, "label": "Lamellen erst blass, dann grau, zuletzt schokoladenbraun", "status": "pending"},
+    {"step": 5, "label": "Fleisch verfaerbt sich gelblich bei Verletzung", "status": "pending"},
+    {"step": 6, "label": "Duenner, vergaenglicher Ring", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "time_to_identify_minutes": 10,
+  "minimum_equipment_needed": [
+    "Keine Ausruestung erforderlich",
+    "Optional: Lupe fuer Oberflaeche"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Agaricus silvaticus (Wald-Egerling)",
+    "Agaricus cappellianus",
+    "Agaricus langei",
+    "Agaricus moelleri (Karbol-Egerling - unvertraeglich)"
+  ],
+  "confusion_risk_level": {
+    "status": "Medium",
+    "variant": "warning"
+  },
+  "confusion_consequences": [
+    {"level": "low", "typ": "Agaricus silvaticus", "beschreibung": "Essbar, aehnliche Erscheinung, weniger intensives Mandelaroma"},
+    {"level": "medium", "typ": "Agaricus moelleri", "beschreibung": "Karbolgeruch statt Mandelgeruch, verursacht Magen-Darm-Beschwerden"}
+  ],
+  "key_differentiating_features": [
+    "Charakteristischer intensiver Mandelgeruch",
+    "Fleisch verfaerbt sich gelblich (ockerfarben) bei Verletzung",
+    "Braune faserige Schuppen auf dem Hut",
+    "Duenner, schnell vergaenglicher Ring"
+  ],
+  "habit": "Terrestrisch, saprotroph",
+  "growth_form": "Einzeln oder in Buescheln",
+  "symmetry": "radial",
+  "size_range": {
+    "min": 7,
+    "max": 25,
+    "unit": "cm"
+  },
+  "size_typical_cm": 15,
+  "basic_shape": "Hutpilz mit zentralem Stiel und Ring",
+  "height": {
+    "min": 8,
+    "max": 20,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 7,
+    "max": 25,
+    "unit": "cm"
+  },
+  "surface_type": "Mit braunen faserigen Schuppen bedeckt",
+  "color_primary": "Hellbraun bis rotbraun",
+  "color_secondary": "Weiss (Stiel), Schokoladenbraun (Lamellen reif)",
+  "color_variations": [
+    "Jung: Blass mit braunen Schuppen",
+    "Reif: Dunkler, rotbraun"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Hut (Pileus)",
+  "primary_structure_diameter": {
+    "min": 7,
+    "max": 25,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Konvex, bald halbkugelig",
+  "primary_structure_shape_mature": "Breit konvex bis flach",
+  "primary_structure_surface": "Mit braunen faserigen Schuppen bedeckt",
+  "primary_structure_color": "Hellbraun bis dunkelrotbraun",
+  "support_structure_present": true,
+  "support_structure_type": "Stiel (Stipe)",
+  "support_structure_length": {
+    "min": 6,
+    "max": 15,
+    "unit": "cm"
+  },
+  "support_structure_thickness": {
+    "min": 1,
+    "max": 3,
+    "unit": "cm"
+  },
+  "support_structure_shape": "Zylindrisch, voll, hoch",
+  "support_structure_color": "Weisslich, glatt",
+  "ring_present": true,
+  "ring_type": "Duenn, haengend, schnell vergaenglich",
+  "ring_position": "Mittleres bis oberes Stieldrittel",
+  "lamellae_present": true,
+  "lamellae_attachment": "Frei",
+  "lamellae_density": "Eng stehend",
+  "lamellae_color": "Erst blass, dann grau, zuletzt schokoladenbraun",
+  "spore_print_color": "Dunkelviolett-schokoladenbraun",
+  "smell_description": "Intensiv nach Mandeln, pilzig",
+  "smell_comparable_to": "Marzipan, Mandeln, leicht muffig, gruene Nuesse",
+  "taste_safe_to_test": true,
+  "taste_description": "Suess, mild, leicht muffig, nach gruenen Nuessen",
+  "microscopy_required": false,
+  "microscopy_key_features": [
+    "Sporen 5.5-7.5 x 4-5 um",
+    "Dunkelviolett-schokoladenbraun",
+    "Basidien viersporig",
+    "Heterothallisches Paarungssystem"
+  ],
+  "spore_measurement_diagnostic": {
+    "min": 5.5,
+    "max": 7.5,
+    "unit": "um"
+  },
+  "appearance_by_season": {
+    "spring": "Moeglich in waermeren Regionen",
+    "summer": "Hauptsaison",
+    "autumn": "Bis Spaetherbst",
+    "winter": "Nur im Gewaechshaus"
+  },
+  "season_peak_months": [6, 7, 8, 9, 10],
+  "age_stage_variations": [
+    {"phase": "Primordia", "duration": "18-24 Tage"},
+    {"phase": "Junge Fruchtkörper", "duration": "3-4 Tage"},
+    {"phase": "Reif", "duration": "4-8 Tage"},
+    {"phase": "Ueberreif", "duration": "2-3 Tage"}
+  ],
+  "nutrition_type": "Saprotroph",
+  "nutrition_type_detail": "Sekundaerer Zersetzer, liebt gut kompostierte, stickstoffreiche Substrate",
+  "substrate_species": [
+    "Gut kompostierte Erde",
+    "Naehrstoffreicher Boden",
+    "Kompost",
+    "Mischwaldboeden",
+    "Waldraender"
+  ],
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

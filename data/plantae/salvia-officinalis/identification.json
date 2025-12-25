@@ -1,0 +1,148 @@
+{
+  "scientific_name": "Salvia officinalis",
+  "author_citation": "L. 1753",
+  "accepted_name": "Salvia officinalis L.",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Magnoliopsida",
+  "taxonomy_order": "Lamiales",
+  "taxonomy_family": "Lamiaceae",
+  "taxonomy_genus": "Salvia",
+  "taxonomy_species": "officinalis",
+  "synonyms": [
+    "Salvia chromatica Hoffmanns.",
+    "Salvia crispa Ten.",
+    "Salvia grandiflora Ten."
+  ],
+  "common_names": [
+    "Common Sage",
+    "Garden Sage",
+    "Culinary Sage",
+    "Kitchen Sage",
+    "Dalmatian Sage"
+  ],
+  "international_names": [
+    "Echter Salbei (DE)",
+    "Sauge officinale (FR)",
+    "Salvia (ES/IT)",
+    "Shu Wei Cao (CN)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Strong aromatic sage scent", "status": "pending"},
+    {"step": 2, "label": "Grey-green felted leaves", "status": "pending"},
+    {"step": 3, "label": "Wrinkled leaf texture", "status": "pending"},
+    {"step": 4, "label": "Square stems (Lamiaceae)", "status": "pending"},
+    {"step": 5, "label": "Blue-violet flowers in whorls", "status": "pending"},
+    {"step": 6, "label": "Woody base, herbaceous upper growth", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 3,
+  "minimum_equipment_needed": [
+    "No equipment required"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Salvia sclarea (Clary Sage)",
+    "Salvia pratensis (Meadow Sage)",
+    "Salvia nemorosa (Woodland Sage)",
+    "Phlomis fruticosa (Jerusalem Sage)"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "low", "typ": "Other Salvia species", "beschreibung": "Most are edible or ornamental, similar uses"}
+  ],
+  "key_differentiating_features": [
+    "Distinctive grey-green velvety leaves",
+    "Strong savory sage aroma",
+    "Wrinkled, pebbly leaf surface",
+    "Oblong leaves 2-8 cm long",
+    "Evergreen subshrub habit"
+  ],
+  "habit": "Evergreen perennial subshrub",
+  "growth_form": "Bushy, mounding",
+  "symmetry": "bilateral",
+  "size_range": {
+    "min": 30,
+    "max": 80,
+    "unit": "cm"
+  },
+  "size_typical_cm": 60,
+  "basic_shape": "Rounded shrubby mound",
+  "height": {
+    "min": 30,
+    "max": 80,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 40,
+    "max": 100,
+    "unit": "cm"
+  },
+  "surface_type": "Soft, velvety pubescence on leaves and stems",
+  "color_primary": "Grey-green (foliage)",
+  "color_secondary": "Blue-violet (flowers)",
+  "color_variations": [
+    "Purple-leaved cultivars exist",
+    "Variegated cultivars (gold, tricolor)"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf",
+  "primary_structure_diameter": {
+    "min": 1,
+    "max": 3,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Oblong, grey-green",
+  "primary_structure_shape_mature": "Oblong, wrinkled surface",
+  "primary_structure_surface": "Densely pubescent, pebbly texture",
+  "primary_structure_color": "Grey-green",
+  "support_structure_present": true,
+  "support_structure_type": "Stem (woody at base)",
+  "support_structure_color": "Grey-green, becoming woody brown",
+  "flower_present": true,
+  "flower_type": "Tubular, two-lipped, in whorls",
+  "flower_color": "Blue-violet to purple",
+  "flower_size": {
+    "min": 1,
+    "max": 2,
+    "unit": "cm"
+  },
+  "flowering_period": "May to July",
+  "smell_description": "Strong, warm, camphoraceous, savory",
+  "smell_comparable_to": "Classic sage stuffing aroma, eucalyptus notes",
+  "taste_safe_to_test": true,
+  "taste_description": "Warm, peppery, slightly bitter, astringent",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "New growth, fresh grey-green leaves",
+    "summer": "Flowering, full foliage",
+    "autumn": "Woody stems visible, reduced flowering",
+    "winter": "Evergreen, some leaf drop in cold"
+  },
+  "season_peak_months": [5, 6, 7],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis, drought-tolerant",
+  "substrate_species": [
+    "Well-drained, calcareous soils",
+    "Rocky hillsides",
+    "Sandy or gravelly soils"
+  ],
+  "source": {
+    "authors": "Kintzios, S.E.",
+    "year": 2000,
+    "title": "Sage: The Genus Salvia",
+    "journal": "Harwood Academic Publishers",
+    "doi": ""
+  }
+}

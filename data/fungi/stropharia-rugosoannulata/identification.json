@@ -1,0 +1,177 @@
+{
+  "scientific_name": "Stropharia rugosoannulata",
+  "author_citation": "Farl. ex Murrill 1922",
+  "accepted_name": "Stropharia rugosoannulata Farl. ex Murrill",
+  "taxonomy_domain": "Eukarya",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Strophariaceae",
+  "taxonomy_genus": "Stropharia",
+  "taxonomy_species": "rugosoannulata",
+  "synonyms": [
+    "Naematoloma rugosoannulatum (Farl. ex Murrill) Kreisel",
+    "Psilocybe rugosoannulata (Farl. ex Murrill) Noordel."
+  ],
+  "common_names": [
+    "Riesentraeuschling",
+    "Rotbrauner Riesentraeuschling",
+    "Braunkappe",
+    "Kulturtraeuschling",
+    "Wine Cap",
+    "King Stropharia",
+    "Garden Giant"
+  ],
+  "international_names": [
+    "Wine Cap (EN)",
+    "King Stropharia (EN)",
+    "Garden Giant (EN)",
+    "Strophaire a anneau rugueux (FR)",
+    "Rotbrauner Riesentraeuschling (DE)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Grosser Hut (5-30 cm), rotbraun bis weinrot", "status": "pending"},
+    {"step": 2, "label": "Auffaelliger Ring mit gerillter Oberseite", "status": "pending"},
+    {"step": 3, "label": "Lamellen jung grau, spaeter violettbraun bis purpurschwarz", "status": "pending"},
+    {"step": 4, "label": "Stiel weisslich, an der Basis verdickt", "status": "pending"},
+    {"step": 5, "label": "Sporenabdruck purpurschwarz", "status": "pending"},
+    {"step": 6, "label": "Auf Stroh, Holzhaecksel, Kompost wachsend", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 5,
+  "minimum_equipment_needed": [
+    "Keine Ausruestung erforderlich",
+    "Sporenabdruck zur Bestaetigung hilfreich"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Agaricus-Arten (Champignons)",
+    "Andere Stropharia-Arten",
+    "Hypholoma sublateritium (Ziegelroter Schwefelkopf)"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "low", "typ": "Agaricus-Arten", "beschreibung": "Essbare Champignons - keine Gefahr"},
+    {"level": "low", "typ": "Hypholoma sublateritium", "beschreibung": "Umstrittene Essbarkeit, bitterer Geschmack unterscheidet"}
+  ],
+  "key_differentiating_features": [
+    "Charakteristischer gerillter Ring",
+    "Rotbraune bis weinrote Hutfarbe",
+    "Purpurschwarzer Sporenabdruck",
+    "Waechst auf Stroh oder Holzhaecksel"
+  ],
+  "habit": "Terrestrisch, saprotroph",
+  "growth_form": "Einzeln oder in Gruppen",
+  "symmetry": "radial",
+  "size_range": {
+    "min": 10,
+    "max": 30,
+    "unit": "cm"
+  },
+  "size_typical_cm": 20,
+  "basic_shape": "Hutpilz mit zentralem Stiel und Ring",
+  "height": {
+    "min": 10,
+    "max": 20,
+    "unit": "cm"
+  },
+  "primary_structure_present": true,
+  "primary_structure_type": "Hut (Pileus)",
+  "primary_structure_diameter": {
+    "min": 5,
+    "max": 30,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Halbkugelig bis konvex",
+  "primary_structure_shape_mature": "Ausgebreitet, oft mit eingerolltem Rand",
+  "primary_structure_surface": "Glatt bis fein faserig-schuppig",
+  "primary_structure_color": "Rotbraun, weinrot, kastanienbraun",
+  "support_structure_present": true,
+  "support_structure_type": "Stiel (Stipe)",
+  "support_structure_length": {
+    "min": 5,
+    "max": 15,
+    "unit": "cm"
+  },
+  "support_structure_thickness": {
+    "min": 1.5,
+    "max": 4,
+    "unit": "cm"
+  },
+  "support_structure_shape": "Zylindrisch, zur Basis hin verdickt",
+  "support_structure_color": "Weisslich bis cremfarben",
+  "ring_present": true,
+  "ring_type": "Haeutig, haengend, mit gerillter (runzeliger) Oberseite",
+  "ring_position": "Oberes Stieldrittel",
+  "lamellae_present": true,
+  "lamellae_attachment": "Angewachsen bis leicht herablaufend",
+  "lamellae_density": "Gedraengt",
+  "lamellae_color": "Jung weisslich-grau, dann grau-violett, zuletzt purpurschwarz",
+  "spore_print_color": "Purpurschwarz bis schwarzviolett",
+  "smell_description": "Angenehm pilzig, leicht rettichartig",
+  "smell_comparable_to": "Champignon, leicht nach Rettich",
+  "taste_safe_to_test": true,
+  "taste_description": "Mild, angenehm nussig",
+  "microscopy_required": false,
+  "microscopy_key_features": [
+    "Sporen ellipsoid mit Keimporus",
+    "Sporengroesse 11-15 x 7-9 um",
+    "Keimporus 1-2 um",
+    "Basidien viersporig"
+  ],
+  "spore_measurement_diagnostic": {
+    "min": 11,
+    "max": 15,
+    "unit": "um"
+  },
+  "reproductive_cell_shape": "Ellipsoid mit Keimporus",
+  "reproductive_cell_length": {
+    "min": 11,
+    "max": 15,
+    "unit": "um"
+  },
+  "reproductive_cell_width": {
+    "min": 7,
+    "max": 9,
+    "unit": "um"
+  },
+  "reproductive_cell_color": "Purpurschwarz",
+  "appearance_by_season": {
+    "spring": "Moeglich nach feuchtem Wetter",
+    "summer": "Hauptfruchtzeit",
+    "autumn": "Gute Fruchtung",
+    "winter": "Keine Fruchtung"
+  },
+  "age_stage_variations": [
+    {"phase": "Jung", "duration": "3-5 Tage"},
+    {"phase": "Reif", "duration": "5-7 Tage"},
+    {"phase": "Ueberreif", "duration": "3-5 Tage"}
+  ],
+  "nutrition_type": "Saprotroph",
+  "nutrition_type_detail": "Primaer-/Sekundaerzersetzer auf Stroh, Holzhaecksel und Kompost",
+  "substrate_species": [
+    "Stroh",
+    "Holzhaecksel",
+    "Kompost",
+    "Gartenabfaelle",
+    "Mulch"
+  ],
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

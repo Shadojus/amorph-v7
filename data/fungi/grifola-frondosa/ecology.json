@@ -1,0 +1,35 @@
+{
+  "trophic_mode_primary": "parasitisch",
+  "trophic_mode_secondary": "saprobiontisch",
+  "ecological_guild": "Holzzersetzer",
+  "decomposer_type": "Weissfaeule",
+  "ecosystem_type": "Wald",
+  "ecosystem_subtype": "Laubwald",
+  "microhabitat_primary": "Wurzelbereich lebender Eichen",
+  "microhabitat_secondary": "Stubben von Laubbaumen",
+  "substrate_type_primary": "Laubholz",
+  "substrate_types_secondary": [
+    "Eiche (Quercus)",
+    "Kastanie (Castanea)",
+    "Linde (Tilia)",
+    "Buche (Fagus)"
+  ],
+  "substrate_specificity": {
+    "status": "mittel",
+    "variant": "warning"
+  },
+  "associated_plant_genera": [
+    "Quercus",
+    "Castanea"
+  ],
+  "fruiting_season_start": 8,
+  "fruiting_season_end": 11,
+  "fruiting_peak_month": 10,
+  "climate_zone": "temperat",
+  "moisture_regime": "mesisch",
+  "native_range": "Nordhemisphaere, Europa, Nordamerika, Ostasien",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  }
+}

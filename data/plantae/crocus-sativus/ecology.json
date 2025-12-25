@@ -1,0 +1,33 @@
+{
+  "trophic_mode_primary": "autotroph",
+  "ecological_guild": "Geophyt (Knolle)",
+  "primary_ecosystem_function": "Herbstblueher",
+  "ecosystem_type": "Kulturlandschaft",
+  "ecosystem_subtype": "Kultivierte Felder",
+  "microhabitat_primary": "Gut drainierte Kulturboeden",
+  "light_requirement": "volle Sonne",
+  "moisture_regime": "mesisch (sommertrockene Winter)",
+  "drought_tolerance": {
+    "rating": 6,
+    "max": 10
+  },
+  "soil_ph_optimal_min": 6.0,
+  "soil_ph_optimal_max": 8.0,
+  "soil_texture_preference": "sandig-lehmig, gut drainiert",
+  "climate_zone": "mediterran bis semiarid",
+  "temperature_optimal_min_c": -15,
+  "temperature_optimal_max_c": 30,
+  "frost_tolerance": {
+    "rating": 6,
+    "max": 10
+  },
+  "native_range": "Unbekannt (nur in Kultur, wahrscheinlich Griechenland/Kreta)",
+  "endemism_status": "Kulturpflanze ohne wilde Vorfahren",
+  "iucn_global_status": {
+    "status": "NE",
+    "variant": "info"
+  },
+  "dispersal_vector_type": "Vegetativ",
+  "dispersal_mechanism": "Knollenteilung (keine Samenbildung)",
+  "dormancy_type": "Sommerdormanz"
+}

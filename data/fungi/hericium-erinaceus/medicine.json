@@ -1,0 +1,58 @@
+{
+  "traditional_medicine_use": true,
+  "traditional_medicine_systems": [
+    "Traditionelle Chinesische Medizin",
+    "Japanische Medizin"
+  ],
+  "medicinal_status": {
+    "status": "Vitalpilz",
+    "variant": "info"
+  },
+  "primary_medicinal_uses": [
+    "Neuroregeneration",
+    "Alzheimer-Unterstuetzung",
+    "Magen-Darm-Erkrankungen",
+    "Kognitive Funktion",
+    "Angst und Unruhe"
+  ],
+  "active_compounds": [
+    {
+      "name": "Erinacine",
+      "class": "Diterpenoid",
+      "effects": ["Nervenwachstumsfaktor-Stimulation", "neuroprotektiv"]
+    },
+    {
+      "name": "Hericenone",
+      "class": "Phenolverbindung",
+      "effects": ["Nervenwachstumsfaktor-Stimulation"]
+    },
+    {
+      "name": "Beta-Glucane",
+      "class": "Polysaccharid",
+      "effects": ["immunstimulierend"]
+    }
+  ],
+  "research_areas": [
+    "Neurologie (Alzheimer, Demenz)",
+    "Gastroenterologie",
+    "Onkologie",
+    "Psychiatrie"
+  ],
+  "clinical_evidence_level": {
+    "status": "klinische Studien",
+    "variant": "success"
+  },
+  "clinical_evidence_notes": "Studien am Third People's Hospital of Shanghai zeigten Wirksamkeit bei Magen-Darm-Erkrankungen und Tumoren. Patentierte Nervenwachstumsfaktor-Stimulation (JP #05391544).",
+  "traditional_preparations": [
+    "Gekocht als Speisepilz",
+    "Heisswasserextrakt",
+    "Alkoholextrakt (fuer Erinacine)",
+    "Doppelextrakt"
+  ],
+  "dosage_traditional": "1-3 g Extrakt pro Tag",
+  "safety_profile": {
+    "status": "sehr gut vertraeglich",
+    "variant": "success"
+  },
+  "regulatory_status_eu": "Lebensmittel und Nahrungsergaenzungsmittel"
+}

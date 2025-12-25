@@ -1,0 +1,55 @@
+{
+  "scientific_name": "Mola mola",
+  "author_citation": "(Linnaeus, 1758)",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Chordata",
+  "taxonomy_class": "Actinopterygii",
+  "taxonomy_order": "Tetraodontiformes",
+  "taxonomy_family": "Molidae",
+  "taxonomy_genus": "Mola",
+  "taxonomy_species": "mola",
+  "common_names": [
+    "Ocean Sunfish",
+    "Common Mola",
+    "Mondfisch",
+    "Poisson-lune"
+  ],
+  "size_range": {
+    "min": 1.8,
+    "max": 3.3,
+    "unit": "m"
+  },
+  "weight_range": {
+    "min": 247,
+    "max": 2300,
+    "unit": "kg"
+  },
+  "color_primary": "grey-brown",
+  "color_secondary": "silver-white",
+  "primary_structure_type": "flattened disc-shaped fish",
+  "primary_structure_shape_mature": "laterally compressed oval body",
+  "primary_structure_surface": "rough sandpaper-like skin",
+  "primary_structure_color": "grey to brown, often mottled; silver-white ventrally",
+  "key_differentiating_features": [
+    "Truncated body appearing to lack tail",
+    "Tall dorsal and anal fins",
+    "Rudder-like clavus instead of caudal fin",
+    "Very thick leathery skin",
+    "Small terminal mouth"
+  ],
+  "identification_difficulty": {
+    "status": "easy",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Mola alexandrini (Bump-head Sunfish - bump on head)",
+    "Masturus lanceolatus (Sharptail Mola - pointed clavus)"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "sexual_dimorphism": false,
+  "sexual_dimorphism_notes": "No external dimorphism; sexes indistinguishable"
+}
