@@ -169,8 +169,8 @@ const MORPH_PRIORITY: Partial<Record<MorphType, number>> = {
  * 1. High-Value Fields zuerst (wenn vorhanden)
  * 2. Dann nach Morph-Typ (Badge vor Range)
  */
-function sortFieldsByInterest(entries: [string, unknown][]): [string, unknown][] {
-  return entries.sort((a, b) => {
+function sortFieldsByInterest(entries: [string, unknown][], itemName?: string): [string, unknown][] {
+  const sorted = entries.sort((a, b) => {
     const keyA = a[0];
     const keyB = b[0];
     
@@ -196,6 +196,15 @@ function sortFieldsByInterest(entries: [string, unknown][]): [string, unknown][]
     const prioB = MORPH_PRIORITY[typeB] ?? 10;
     return prioA - prioB;
   });
+  
+  // Debug: Log für erstes Item
+  if (itemName) {
+    const top6Keys = sorted.slice(0, 6).map(([k]) => k);
+    const hvMatches = top6Keys.filter(k => HIGH_VALUE_FIELDS.includes(k));
+    console.log(`[GRID] ${itemName} - Top 6: [${top6Keys.join(', ')}] (${hvMatches.length} HIGH_VALUE)`);
+  }
+  
+  return sorted;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
