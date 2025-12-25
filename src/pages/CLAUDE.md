@@ -1,44 +1,71 @@
 # AMORPH v7 - Pages
 
-> Astro-Routen und API-Endpoints.
+> Astro-Routen und API-Endpoints mit Engagement-optimierter Feld-Priorisierung.
 
 ## 📁 Struktur
 
 ```
 pages/
-├── index.astro     # Grid-Übersicht + Morph Showcase (421 Zeilen)
-├── [slug].astro    # Detail-Seite mit Perspektiven (699 Zeilen)
+├── index.astro     # Grid-Übersicht + HIGH_VALUE_FIELDS (~438 Zeilen)
+├── [slug].astro    # Detail-Seite mit Perspektiven (~699 Zeilen)
 └── api/
     ├── search.ts   # GET /api/search
     └── compare.ts  # POST /api/compare (Feld-Modus)
 ```
 
-## 📄 index.astro - Hauptseite (421 Zeilen)
+## 📄 index.astro - Hauptseite (~438 Zeilen)
 
 ### Features
-- **Grid-Ansicht** aller Spezies
+- **Grid-Ansicht** aller Spezies (27 Pilze)
+- **HIGH_VALUE_FIELDS Priorisierung** - "Knaller"-Daten zuerst anzeigen
+- **MORPH_PRIORITY** - Badge vor Range, visuell wichtiges zuerst
 - **Sticky Suchleiste** unter Header (z-index: 10000)
 - **Feld-Selektion** mit Perspektiven-Farben
 - **Site-Switcher Header** mit Bifröst-Portal
 - **Bottom Navigation** mit Selection-Badge (z-index: 10001)
 - **Compare Panel** mit Copy-Button (z-index: 9999)
-- **Morph Showcase Section** mit allen 28 Primitives
 
-### Layout
+### HIGH_VALUE_FIELDS Tiers (neu!)
 ```
-┌─────────────────────────────────┐
-│ 🍄 Funginomi | Phytonomi | Bifröst │  Header (z:200)
-├─────────────────────────────────┤
-│        🔍 Suchen...              │  Search (z:10000, sticky)
-├─────────────────────────────────┤
-│  ┌─────┐ ┌─────┐ ┌─────┐       │
-│  │Card │ │Card │ │Card │       │  Grid
-│  └─────┘ └─────┘ └─────┘       │
-├─────────────────────────────────┤
-│ 📊 Morph Showcase               │  28 Morphs Demo
-├─────────────────────────────────┤
-│   🏠 Home  ⚖️ Compare  🌈 Bifröst │  BottomNav (z:10001)
-└─────────────────────────────────┘
+TIER 1: 🌟 WOW-FAKTOR
+  - special_feature, bioluminescence, bioremediation_potential
+  - effect_profile, historical_significance
+
+TIER 2: 💫 HEALING & TRADITION
+  - primary_medicinal_uses, traditional_medicine_systems
+  - mechanism_of_action, active_compounds
+
+TIER 3: 🍳 KULINARIK & LIFESTYLE
+  - culinary_rating, flavor_profile, signature_dishes_famous
+  - wine_pairing, best_cooking_methods
+
+TIER 4: 🌿 NATUR & ÖKOLOGIE
+  - ecological_role, ecosystem_services, iucn_global_status
+
+TIER 5: ⚠️ SICHERHEIT
+  - edibility_status, toxicity_level, confusion_risk_level
+
+TIER 6: 🔬 IDENTIFIKATION
+  - identification_difficulty, key_differentiating_features
+```
+
+### MORPH_PRIORITY (visueller Impact)
+```typescript
+const MORPH_PRIORITY = {
+  'badge': 1,     // Essbarkeit, Status - HÖCHSTE PRIO
+  'severity': 1,  // Giftigkeit, Warnungen
+  'bar': 2,       // Nährstoffe, Verteilung
+  'radar': 2,     // Compound Profile
+  'range': 5,     // Größen-Ranges (weniger wichtig!)
+  'text': 9,      // Text ganz unten
+};
+```
+
+### sortFieldsByInterest()
+```typescript
+// 1. High-Value Fields haben absolute Priorität
+// 2. Innerhalb: nach Tier-Reihenfolge
+// 3. Keine High-Value: nach Morph-Typ sortieren
 ```
 
 ## 📄 [slug].astro - Detail-Seite (699 Zeilen)

@@ -1,12 +1,12 @@
 # AMORPH v7 - Config
 
-> YAML als Single Source of Truth.
+> YAML als Single Source of Truth für App-Konfiguration.
 
 ## 📁 Struktur
 
 ```
 config/
-├── manifest.yaml       # App-Name, Version, Branding
+├── manifest.yaml       # App-Name, Version, Branding, Port
 ├── daten.yaml          # Datenquelle, Kingdoms
 ├── features.yaml       # Feature-Flags
 ├── observer.yaml       # Debug-Config
@@ -15,8 +15,10 @@ config/
 ├── helpers.js          # (JavaScript Helper)
 └── schema/             # Schema-System
     ├── perspektiven.yaml    # 15 Perspektiven-Definitionen
+    ├── semantik.yaml        # Semantische Feld-Mappings
     ├── felder.yaml          # Feld-Definitionen
     └── perspektiven/        # Blueprints pro Perspektive
+        └── blueprints/      # 15 Blueprint YAML-Dateien
 ```
 
 ## 📦 YAML-Dateien

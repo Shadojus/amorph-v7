@@ -1,6 +1,6 @@
 # AMORPH v7 - Test Suite
 
-> Vitest Tests für vollständige Code-Abdeckung.
+> Vitest Tests für vollständige Code-Abdeckung. **421 Tests, 0 Failures**.
 
 ## 📁 Struktur
 
@@ -42,8 +42,26 @@ tests/
 
 ```bash
 npm test           # Watch Mode
-npm run test:run   # Einmalig
+npm run test:run   # Einmalig (421 Tests in ~2s)
 npm run test:coverage
+```
+
+## 📊 Aktueller Status (Dezember 2025)
+
+```
+✓ tests/detection.test.ts (120 tests)
+✓ tests/security.test.ts (50+ tests)
+✓ tests/morphs.test.ts
+✓ tests/morphs/*.test.ts (20 files)
+✓ tests/integration.test.ts
+✓ tests/real-data.test.ts
+✓ tests/api-integration.test.ts
+✓ tests/error-handling.test.ts
+✓ tests/observer.test.ts
+
+ Test Files  29 passed
+      Tests  421 passed
+   Duration  ~2s
 ```
 
 ## 📦 Test-Kategorien

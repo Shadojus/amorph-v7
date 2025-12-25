@@ -1,83 +1,117 @@
 # AMORPH v7 - Data
 
-> JSON-Daten für biologische Spezies.
+> JSON-Daten für biologische Spezies mit Perspektiven-System.
 
-## 📁 Struktur
+## 📁 Struktur (aktuell)
 
 ```
 data/
-├── universe-index.json     # Haupt-Index aller Kingdoms
+├── universe-index.json     # Haupt-Index aller Kingdoms (SEO-optimiert)
 └── fungi/
-    ├── index.json          # Kingdom-Index mit allen Species
-    └── {species-slug}/     # Ein Ordner pro Spezies
-        ├── species.json    # Core-Daten (Name, Bild, etc.)
-        └── perspectives/   # Perspektiven-Ordner
-            ├── chemistry.json
-            ├── ecology.json
-            ├── culinary.json
-            └── ...
+    ├── index.json          # Kingdom-Index mit allen Species + Perspektiven
+    └── {species-slug}/     # Ein Ordner pro Spezies (27 Pilze)
+        ├── index.json      # Core-Daten (Name, Slug, Description)
+        ├── identification.json
+        ├── ecology.json
+        ├── safety.json
+        ├── medicine.json
+        ├── culinary.json
+        ├── cultivation.json
+        ├── culture.json
+        └── ... (weitere Perspektiven)
 ```
+
+## 📊 Aktuelle Daten
+
+- **27 Pilz-Spezies** (z.B. hericium-erinaceus, trametes-versicolor, psilocybe-*)
+- **196 JSON-Dateien** validiert (0 Errors)
+- **~12 Perspektiven** pro Spezies im Durchschnitt
 
 ## 📦 Daten-Hierarchie
 
-### universe-index.json
+### universe-index.json (v2.0 SEO-optimiert)
 ```json
 {
-  "version": "1.0",
-  "total": 42,
+  "version": "2.0",
+  "generated": "2025-12-25T...",
+  "total": 27,
   "kingdoms": {
-    "fungi": { "name": "Fungi", "icon": "🍄", "count": 30 },
-    "plantae": { "name": "Plantae", "icon": "🌿", "count": 8 },
-    "animalia": { "name": "Animalia", "icon": "🦋", "count": 4 }
+    "fungi": { 
+      "name": "Fungi", 
+      "icon": "🍄", 
+      "count": 27,
+      "featured": ["hericium-erinaceus", "ganoderma-lucidum"]
+    }
   },
   "species": [
-    { "id": "fungi-001", "slug": "steinpilz", "name": "Steinpilz", "kingdom": "fungi" }
+    { 
+      "slug": "hericium-erinaceus",
+      "name": "Igelstachelbart",
+      "kingdom": "fungi",
+      "tagline": "Neuroregeneration, Alzheimer-Unterstützung",
+      "badges": ["Vitalpilz", "essbar"],
+      "quick_facts": { "edibility": "essbar", "medicinal": true },
+      "engagement_score": 95
+    }
   ]
 }
 ```
 
-### {kingdom}/index.json
+### {species}/index.json (Core)
 ```json
 {
-  "kingdom": "fungi",
-  "items": [
-    { "id": "steinpilz", "name": "Steinpilz", "wissenschaftlich": "Boletus edulis" }
+  "id": "hericium-erinaceus",
+  "slug": "hericium-erinaceus",
+  "name": "Igelstachelbart",
+  "scientific_name": "Hericium erinaceus",
+  "description": "Der Igelstachelbart..."
+}
+```
+
+### {species}/{perspective}.json
+```json
+{
+  "primary_medicinal_uses": ["Neuroregeneration", "Alzheimer-Unterstuetzung"],
+  "traditional_medicine_systems": ["TCM", "Japanische Medizin"],
+  "active_compounds": [
+    {"name": "Erinacine", "effects": ["Nervenwachstumsfaktor-Stimulation"]}
   ]
 }
 ```
 
-### {species}/species.json (Core)
-```json
-{
-  "id": "steinpilz",
-  "slug": "steinpilz",
-  "name": "Steinpilz",
-  "wissenschaftlich": "Boletus edulis",
-  "bild": "https://..."
-}
-```
+## 🔄 Build-Pipeline
 
-### {species}/perspectives/{perspective}.json
-```json
-{
-  "conservation_status": { "status": "LC", "variant": "success" },
-  "habitat": ["Nadelwald", "Mischwald", "Parks"],
-  "fruiting_season": { "start": "Juli", "end": "Oktober" }
-}
+```bash
+npm run validate      # Zod-Schema-Validierung aller JSONs
+npm run build:index   # SEO-Index regenerieren (build-index.js v2.0)
 ```
 
 ## 🔄 SSR-Integration
 
 ```typescript
-import { getItem, searchItems, loadPerspective } from './server/data';
+import { getItem, searchItems, loadAllItems } from './server/data';
 
-// Einzelnes Item
-const item = await getItem('steinpilz');
+// Alle Items laden (mit gemergten Perspektiven-Feldern)
+const items = await loadAllItems();
+
+// Einzelnes Item  
+const item = await getItem('hericium-erinaceus');
 
 // Suche
-const results = await searchItems({ query: 'pilz', limit: 20 });
+const results = await searchItems({ query: 'vitalpilz', limit: 20 });
+```
 
-// Lazy Perspektive laden
+## 📐 Perspektiven-Schema
+
+Jede Perspektive hat ein Blueprint in `config/schema/perspektiven/blueprints/`:
+
+| Perspektive | Typische Felder |
+|-------------|-----------------|
+| medicine | primary_medicinal_uses, active_compounds, clinical_evidence_level |
+| safety | edibility_status, toxicity_level, confusion_risk_level |
+| culinary | culinary_rating, flavor_profile, best_cooking_methods |
+| ecology | ecological_role, habitat_primary, fruiting_season |
+| identification | cap_shape, spore_print_color, key_differentiating_features |
 const chemistry = await loadPerspective('steinpilz', 'chemistry');
 ```
 

@@ -8,12 +8,12 @@
 client/
 └── features/           # Alle Client-Features
     ├── index.ts        # Re-Exports (80+ Exports)
-    ├── app.ts          # Haupt-Initialisierung (264 Zeilen)
+    ├── app.ts          # Haupt-Initialisierung (~264 Zeilen)
     ├── debug.ts        # Client Debug Logging
-    ├── search.ts       # Suche + Auto-Perspektiven (508 Zeilen)
+    ├── search.ts       # Suche + Auto-Perspektiven (~508 Zeilen)
     ├── grid.ts         # Grid-Interaktionen + Feld-Selektion
-    ├── compare.ts      # Compare-Panel + Diff-Updates (670 Zeilen)
-    └── selection.ts    # Item + Field State (317 Zeilen)
+    ├── compare.ts      # Compare-Panel + Diff-Updates (~670 Zeilen)
+    └── selection.ts    # Item + Field State (~317 Zeilen)
 ```
 
 ## 🔧 Features

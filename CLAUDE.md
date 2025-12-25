@@ -4,13 +4,15 @@
 
 > Unified Morph Architecture für **biologische Daten** (Pilze, Pflanzen, Tiere, Mikroorganismen) mit automatischer Single/Compare-Erkennung.
 
-## Status: ✅ Production Ready
+## Status: ✅ Production Ready (Dezember 2025)
 
 - **28 Morph Primitives** implementiert (badge, bar, boolean, calendar, citation, currency, date, dosage, gauge, image, lifecycle, link, list, number, object, pie, progress, radar, range, rating, severity, sparkline, stats, steps, tag, text, timeline)
 - **Struktur-basierte Detection** - Typ-Erkennung rein aus Datenstruktur
 - **Field-basierte Selektion** - Einzelne Felder aus beliebigen Spezies auswählen
 - **Live Compare Updates** - Diff-basierte Aktualisierung ohne Reload
 - **Bio-Lumineszenz Farbsystem** - 8 leuchtende Farben (Foxfire, Myzel, Sporen, etc.)
+- **HIGH_VALUE_FIELDS Priorisierung** - "Knaller"-Daten zuerst (Healing, WOW-Faktor, Kulinarik)
+- **SEO-optimierte Index-Generierung** - Taglines, Badges, Quick Facts pro Species
 
 ### Multi-Site System
 Drei Bio-Spezies Sites mit eigenem Farbsystem:
@@ -25,12 +27,14 @@ Drei Bio-Spezies Sites mit eigenem Farbsystem:
 - **Perspektiven: Matte Pastell-Töne** - 15 Kategorien, klar von Bio-Lumineszenz unterscheidbar
 - **Sticky Suchleiste** - z-index 10000, durchsucht auch Compare-View
 - **Compare mit Copy-Button** - Daten exportieren mit License-Hinweis
+- **Engagement-optimierte Feld-Anzeige** - WOW-Felder vor technischen Daten
 
 ### Technologie
-- **Astro 5.16** mit SSR auf Port 4323
+- **Astro 5.16** mit SSR auf Port 4321-4323
 - **TypeScript** durchgängig
-- **Vitest** für Tests
+- **Vitest** für Tests (421 Tests)
 - **sessionStorage** für Selection-Persistenz
+- **Zod** für Schema-Validierung
 
 ## 🎯 Kernkonzept
 
@@ -67,6 +71,12 @@ amorph-v7/
 │   └── schema/          # 15 Perspektiven + Blueprints
 │
 ├── data/                # JSON-Daten (Kingdom/Species/Perspective)
+│   └── fungi/           # 27 Pilz-Spezies mit 196 JSON-Dateien
+│
+├── scripts/             # Build & Validierung
+│   ├── build-index.js   # v2.0 - SEO-optimierte Index-Generierung
+│   ├── build-pages.js   # Static Page Generation (optional)
+│   └── validate.js      # Zod-Schema-Validierung
 │
 ├── src/
 │   ├── core/            # types.ts, detection.ts, security.ts
@@ -75,29 +85,24 @@ amorph-v7/
 │   ├── server/          # config.ts, data.ts (SSR)
 │   ├── client/features/ # app, search, grid, compare, selection, debug
 │   ├── layouts/         # Base.astro
-│   └── pages/           # index.astro, [slug].astro, api/
+│   └── pages/           # index.astro (mit HIGH_VALUE_FIELDS), [slug].astro, api/
 │
 ├── public/styles/       # base.css, components.css, morphs/
 │
-└── tests/               # detection, security, morphs, observer, integration
+└── tests/               # 421 Tests - detection, security, morphs, observer, integration
 ```
 
-## 🐛 Debug Mode
+## 🚀 Quick Start
 
-```javascript
-// Console Commands
-window.amorphDebug.disable()    // Debug-Logging aus
-window.morphDebug.enable()      // Morph-Debugging an
-window.getAmorphStats()         // Observer Statistiken
-
-// localStorage
-localStorage.setItem('amorph:debug', 'false')      // Debug-Logs aus
-localStorage.setItem('amorph:observers', 'false')  // Observer aus
+```bash
+cd amorph-v7
+npm install
+npm run dev          # Port 4321 (oder 4322/4323 wenn belegt)
+npm test             # Tests im Watch-Modus
+npm run test:run     # Einmalig ohne Watch (421 Tests)
+npm run build:index  # SEO-Index regenerieren
+npm run validate     # Schema-Validierung (0 Errors expected)
 ```
-
-## 🎨 Design System
-
-### Z-Index Hierarchie
 1. **z-index: 10001** - Bottom Navigation
 2. **z-index: 10000** - Suchleiste
 3. **z-index: 9999** - Compare-Panel

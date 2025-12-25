@@ -1,14 +1,14 @@
 # AMORPH v7 - Server Module
 
-> SSR-Module für Config und Data Loading.
+> SSR-Module für Config und Data Loading mit Perspektiven-Merging.
 
 ## 📁 Struktur
 
 ```
 server/
 ├── index.ts     # Re-Exports
-├── config.ts    # YAML Config Loader (200 Zeilen)
-└── data.ts      # JSON Data Loader + Search (692 Zeilen)
+├── config.ts    # YAML Config Loader (~200 Zeilen)
+└── data.ts      # JSON Data Loader + Perspective Merging (~757 Zeilen)
 ```
 
 ## 📦 config.ts - Config Loader (200 Zeilen)
@@ -39,20 +39,32 @@ Verfügbare Perspektiven:
 - safety, mythology, history, phenotype, medicinal
 - psychoactive, conservation, identification, comparison, climate
 
-## 📦 data.ts - Data Loader (692 Zeilen)
+## 📦 data.ts - Data Loader (~757 Zeilen)
 
 Lädt JSON-Daten aus `data/` Ordner mit Kingdom/Species/Perspective Struktur.
+**Perspektiven-Felder werden automatisch ins Item gemergt** für Grid-Anzeige.
 
 ### Daten-Hierarchie
 ```
 data/
-├── fungi/                    # Kingdom
-│   └── steinpilz/           # Species (Slug)
-│       ├── species.json     # Basisdaten
-│       └── perspectives/    # Perspektiven-Ordner
-│           ├── culinary.json
-│           └── safety.json
-└── other_kingdom/
+├── fungi/                    # Kingdom (27 Spezies)
+│   └── {species-slug}/      # Species Ordner
+│       ├── index.json       # Core-Daten
+│       ├── medicine.json    # Perspektive (wird gemergt)
+│       ├── safety.json      # Perspektive (wird gemergt)
+│       └── ...              # Weitere Perspektiven
+└── plantae/                  # Weiteres Kingdom
+```
+
+### Perspektiven-Merging
+```typescript
+// Beim Laden werden Perspektiven-Felder ins Item gemergt:
+for (const [key, value] of Object.entries(perspData)) {
+  if (!key.startsWith('_') && item[key] === undefined) {
+    item[key] = value;
+    item._fieldPerspective[key] = perspName; // Track origin
+  }
+}
 ```
 
 ### API
