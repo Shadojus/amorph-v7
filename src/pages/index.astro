@@ -387,7 +387,8 @@ const gridContext: RenderContext = {
             <div class="item-body">
               {sortFieldsByInterest(
                 Object.entries(item)
-                  .filter(([k]) => !['id', 'slug', 'name', 'bild', 'wissenschaftlich'].includes(k) && !k.startsWith('_'))
+                  .filter(([k]) => !['id', 'slug', 'name', 'bild', 'wissenschaftlich'].includes(k) && !k.startsWith('_')),
+                item.name || item.slug
               )
                 .slice(0, 6)
                 .map(([key, value]) => (
