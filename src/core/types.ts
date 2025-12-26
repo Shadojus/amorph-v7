@@ -49,10 +49,10 @@ export interface RenderContext {
   /** Ist kompakte Darstellung gewünscht? */
   compact?: boolean;
   
-  /** Quellen für das aktuelle Feld (Bifröst System) */
+  /** Quellen für das aktuelle Feld (Bifroest System) */
   sources?: FieldSource[];
   
-  /** Bifröst Mode aktiv? (zeigt alle © leuchtend) */
+  /** Bifroest Mode aktiv? (zeigt alle © leuchtend) */
   bifrostMode?: boolean;
   
   /** © komplett ausblenden (z.B. in Compare View) */
@@ -129,6 +129,8 @@ export interface ItemData {
   _perspectives?: Record<string, unknown>;
   /** Kingdom */
   _kingdom?: string;
+  /** Quellenangaben pro Feld (Bifroest System) */
+  _sources?: FieldSourceMap;
   [key: string]: unknown;
 }
 
@@ -220,7 +222,7 @@ export interface DetectionConfig {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// SOURCE / COPYRIGHT TYPES (Bifröst System)
+// SOURCE / COPYRIGHT TYPES (Bifroest System)
 // ═══════════════════════════════════════════════════════════════════════════════
 
 /**

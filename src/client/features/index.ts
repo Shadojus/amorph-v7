@@ -41,3 +41,6 @@ export {
   getSelectedFieldCount,
   canCompareFields
 } from './selection';
+
+// Bifroest Copyright System
+export { initBifrost, toggleBifrost } from './bifrost';

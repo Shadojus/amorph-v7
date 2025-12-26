@@ -117,14 +117,16 @@ export function renderValue(
   // Get morph
   const morph = getMorph(morphType);
   
-  // Render
-  const content = morph(value, { ...context, fieldName });
+  // Render with sources in context
+  const renderContext = { ...context, fieldName };
+  const content = morph(value, renderContext);
   
   // Debug: Log render result
   morphDebug.logRender(fieldName, morphType, content.length);
   
   // Wrap in field container with raw value for client-side extraction
-  return wrapInField(content, morphType, fieldName, undefined, value);
+  // Pass context for Bifroest copyright rendering
+  return wrapInField(content, morphType, fieldName, undefined, value, renderContext);
 }
 
 /**

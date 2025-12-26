@@ -268,11 +268,11 @@ const gridContext: RenderContext = {
   </script>
   
   <!-- ═══════════════════════════════════════════════════════════════════════════
-       HEADER - Site-Switcher mit Bifröst Portal
-       Funginomi (blau), Phytonomi (jade), Drakonomi (türkis) → Bifröst
+       HEADER - Site-Switcher mit Bifroest Portal
+       Funginomi (blau), Phytonomi (jade), Drakonomi (türkis) → Bifroest
        ═══════════════════════════════════════════════════════════════════════════ -->
   <header class="amorph-header">
-    <!-- Nebel Container - wird ins Bifröst Portal gesaugt -->
+    <!-- Nebel Container - wird ins Bifroest Portal gesaugt -->
     <div class="particle-field">
       <!-- Funginomi Nebel (blau) - linker Bereich -->
       <div class="particle particle-funginomi" style="--delay: 0s; --duration: 12s; --start-x: 0%; --width: 35%;"></div>
@@ -311,10 +311,10 @@ const gridContext: RenderContext = {
         <span class="site-link-name">Drakonomi</span>
       </a>
       
-      <!-- Bifröst Portal -->
-      <a href="https://bifroest.io" class="bifroest-portal" title="Bifröst – The Bridge">
+      <!-- Bifroest Portal -->
+      <a href="https://bifroest.io" class="bifroest-portal" title="Bifroest – The Bridge">
         <span class="bifroest-label">part of the</span>
-        <span class="bifroest-name">Bifröst</span>
+        <span class="bifroest-name">Bifroest</span>
         <span class="bifroest-vortex"></span>
       </a>
     </nav>
@@ -363,6 +363,12 @@ const gridContext: RenderContext = {
         const imageFile = item.image ? String(item.image) : null;
         const imageUrl = imageFile ? `/api/image/${kingdom}/${item.slug}/${encodeURIComponent(imageFile)}` : null;
         
+        // Bifröst: Image Copyright aus _sources.json
+        const itemSources = item._sources || {};
+        const imageSources = (itemSources['image'] || []) as Array<{name?: string; copyright?: string; license?: string; url?: string; contact?: string; author?: string}>;
+        const imageSource = imageSources[0] || null;
+        const imageSourceJson = imageSource ? Buffer.from(JSON.stringify(imageSources), 'utf-8').toString('base64') : '';
+        
         return (
           <article 
             class="amorph-item"
@@ -375,6 +381,18 @@ const gridContext: RenderContext = {
               {imageUrl && (
                 <div class="item-image">
                   <img src={imageUrl} alt={item.name} loading="lazy" />
+                  {imageSource && (
+                    <button 
+                      class="bifrost-copyright"
+                      type="button"
+                      data-sources={imageSourceJson}
+                      aria-label={`Quelle: ${imageSource.name || imageSource.author || 'Unbekannt'}`}
+                      title={imageSource.name || imageSource.author || 'Quelle'}
+                    >
+                      <span class="bifrost-symbol">©</span>
+                      <span class="bifrost-name">{imageSource.name || imageSource.author || ''}</span>
+                    </button>
+                  )}
                 </div>
               )}
               <div class="item-title-row">
@@ -393,9 +411,12 @@ const gridContext: RenderContext = {
                 item.name || item.slug
               )
                 .slice(0, 6)
-                .map(([key, value]) => (
-                  <Fragment set:html={renderValue(value, key, gridContext)} />
-                ))
+                .map(([key, value]) => {
+                  // Context für Morphs (ohne Bifröst Sources für Felder)
+                  return (
+                    <Fragment set:html={renderValue(value, key, gridContext)} />
+                  );
+                })
               }
             </div>
           </article>
@@ -472,13 +493,13 @@ const gridContext: RenderContext = {
       <span class="bottom-nav-label">Vergleich</span>
       <span class="bottom-nav-badge">0</span>
     </button>
-    <a href="/bifroest" class="bottom-nav-item" data-nav="bifroest" aria-label="Bifröst Portal">
+    <a href="/bifroest" class="bottom-nav-item" data-nav="bifroest" aria-label="Bifroest Portal">
       <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 2L2 7l10 5 10-5-10-5z"/>
         <path d="m2 17 10 5 10-5"/>
         <path d="m2 12 10 5 10-5"/>
       </svg>
-      <span class="bottom-nav-label">Bifröst</span>
+      <span class="bottom-nav-label">Bifroest</span>
     </a>
   </nav>
 </Base>

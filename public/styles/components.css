@@ -1041,8 +1041,8 @@
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   AMORPH HEADER - Black Glass with Bifröst Portal
-   Sites: Funginomi (blau), Phytonomi (jade), Drakonomi (türkis) → Bifröst
+   AMORPH HEADER - Black Glass with Bifroest Portal
+   Sites: Funginomi (blau), Phytonomi (jade), Drakonomi (türkis) → Bifroest
    ───────────────────────────────────────────────────────────────────────────── */
 .amorph-header {
   position: sticky;
@@ -1071,7 +1071,7 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   NEBULA FIELD - Farbiger Nebel wird ins Bifröst Portal gesaugt
+   NEBULA FIELD - Farbiger Nebel wird ins Bifroest Portal gesaugt
    Der Nebel stoppt VOR dem schwarzen Loch und verschwindet darin
    ───────────────────────────────────────────────────────────────────────────── */
 .particle-field {
@@ -1336,7 +1336,7 @@
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   BIFRÖST PORTAL - Black Hole / Vortex Effekt
+   BIFROEST PORTAL - Black Hole / Vortex Effekt
    Immer am rechten Rand, Schwarzes Loch NIE vom Nebel überdeckt
    ───────────────────────────────────────────────────────────────────────────── */
 .bifroest-portal {
@@ -1429,7 +1429,7 @@
   display: none;
 }
 
-/* Mobile: Bifröst kompakter */
+/* Mobile: Bifroest kompakter */
 @media (max-width: 520px) {
   .bifroest-portal {
     padding: 0.5rem 0.75rem;

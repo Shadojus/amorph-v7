@@ -1,0 +1,77 @@
+{
+  "_meta": {
+    "description": "Quellenangaben für alle Datenfelder dieser Species",
+    "version": "1.0"
+  },
+  "sources": {
+    "safety_edibility_status": [
+      {
+        "name": "MycoBank",
+        "copyright": "© 2024 MycoBank Database",
+        "license": "CC BY-NC 4.0",
+        "url": "https://www.mycobank.org",
+        "author": "International Mycological Association",
+        "date": "2024-01"
+      }
+    ],
+    "safety_toxicity_score": [
+      {
+        "name": "PoisonIndex",
+        "copyright": "© 2024 North American Mycological Association",
+        "license": "CC BY-SA 4.0",
+        "url": "https://namyco.org",
+        "contact": "info@namyco.org"
+      }
+    ],
+    "image": [
+      {
+        "name": "Dan Molter",
+        "copyright": "© 2008 Dan Molter (shroomydan)",
+        "license": "CC BY-SA 3.0",
+        "url": "https://mushroomobserver.org",
+        "author": "Dan Molter",
+        "notes": "Observation #12345"
+      }
+    ],
+    "scientific_name": [
+      {
+        "name": "Index Fungorum",
+        "copyright": "© 2024 Index Fungorum Partnership",
+        "license": "Public Domain",
+        "url": "http://www.indexfungorum.org"
+      }
+    ],
+    "description": [
+      {
+        "name": "Wikipedia",
+        "copyright": "© Wikipedia Contributors",
+        "license": "CC BY-SA 4.0",
+        "url": "https://en.wikipedia.org/wiki/Hericium_erinaceus"
+      },
+      {
+        "name": "Mushroom Expert",
+        "copyright": "© 2024 Michael Kuo",
+        "license": "All Rights Reserved",
+        "url": "https://www.mushroomexpert.com",
+        "contact": "kuo@mushroomexpert.com"
+      }
+    ],
+    "ecology_habitat_primary": [
+      {
+        "name": "iNaturalist",
+        "copyright": "© iNaturalist",
+        "license": "CC BY-NC 4.0",
+        "url": "https://www.inaturalist.org"
+      }
+    ],
+    "medicine_primary_medicinal_uses": [
+      {
+        "name": "PubMed",
+        "copyright": "© National Library of Medicine",
+        "license": "Public Domain",
+        "url": "https://pubmed.ncbi.nlm.nih.gov",
+        "notes": "Multiple peer-reviewed studies"
+      }
+    ]
+  }
+}

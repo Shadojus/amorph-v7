@@ -94,7 +94,7 @@ border: 1px solid rgba(255, 255, 255, 0.04);
 - Typography + Glass Panel Basics
 
 ### components.css (~3600 Zeilen)
-- **Header** - Site-Switcher, Bifröst-Portal
+- **Header** - Site-Switcher, Bifroest-Portal
 - **Search Bar** - Sticky, z-index: 10000
 - **Compare Panel** - Copy-Button, License-Notice
 - **Bottom Navigation** - Fixed, z-index: 10001

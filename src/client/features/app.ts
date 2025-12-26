@@ -21,6 +21,7 @@ import {
   getSelectedFields,
   clearFields
 } from './selection';
+import { initBifrost } from './bifrost';
 import { setupObservers, stopObservers, getObserverStats, debug as observerDebug } from '../../observer';
 import { morphDebug } from '../../morphs/debug';
 
@@ -90,6 +91,9 @@ export function initApp(): void {
   
   // === OBSERVER SYSTEM ===
   initObservers();
+  
+  // === BIFROEST COPYRIGHT SYSTEM ===
+  initBifrost();
   
   debug.amorph('AMORPH v7 ready');
 }

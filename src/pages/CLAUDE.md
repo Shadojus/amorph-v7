@@ -21,7 +21,7 @@ pages/
 - **MORPH_PRIORITY** - Badge vor Range, visuell wichtiges zuerst
 - **Sticky Suchleiste** unter Header (z-index: 10000)
 - **Feld-Selektion** mit Perspektiven-Farben
-- **Site-Switcher Header** mit Bifröst-Portal
+- **Site-Switcher Header** mit Bifroest-Portal
 - **Bottom Navigation** mit Selection-Badge (z-index: 10001)
 - **Compare Panel** mit Copy-Button (z-index: 9999)
 

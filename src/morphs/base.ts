@@ -5,7 +5,7 @@
  * Jeder Morph rendert automatisch Single oder Compare basierend auf Context.
  */
 
-import type { RenderContext, MorphFunction, ItemData } from '../core/types';
+import type { RenderContext, MorphFunction, ItemData, FieldSource } from '../core/types';
 import { isCompareMode, isSingleMode } from '../core/types';
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -209,19 +209,66 @@ export function createUnifiedMorph(
 // ═══════════════════════════════════════════════════════════════════════════════
 
 /**
+ * Generiert Copyright-HTML für Bifroest-System.
+ * Zeigt © Symbol mit optionalem Namen, expandiert zu vollem Copyright bei Klick.
+ */
+export function renderCopyrightBadge(sources?: FieldSource[], hideCopyright?: boolean): string {
+  // Debug
+  if (sources && sources.length > 0) {
+    console.log(`[Bifroest Badge] Rendering © for ${sources.length} source(s): ${sources[0]?.name || 'unknown'}, hideCopyright: ${hideCopyright}`);
+  }
+  
+  // Im Compare-View: kein Copyright anzeigen
+  if (hideCopyright) {
+    console.log(`[Bifroest Badge] Hidden due to hideCopyright`);
+    return '';
+  }
+  
+  if (!sources || sources.length === 0) {
+    return '';
+  }
+  
+  const primarySource = sources[0];
+  const hasMultiple = sources.length > 1;
+  
+  // Daten für das Popup als JSON (Base64 encoded)
+  const sourcesJson = Buffer.from(JSON.stringify(sources), 'utf-8').toString('base64');
+  
+  return `
+    <button 
+      class="bifrost-copyright" 
+      type="button"
+      data-sources="${sourcesJson}"
+      aria-label="Quelle: ${escapeHtml(primarySource.name)}"
+      title="${escapeHtml(primarySource.name)}"
+    >
+      <span class="bifrost-symbol">©</span>
+      <span class="bifrost-name">${escapeHtml(primarySource.name)}${hasMultiple ? ` +${sources.length - 1}` : ''}</span>
+    </button>
+  `;
+}
+
+/**
  * Wraps Morph-Output in ein Feld-Container.
  * Speichert auch die originalen Daten für clientseitige Extraktion.
+ * NEU: Enthält © Symbol für Bifroest-System.
  */
 export function wrapInField(
   content: string,
   morphType: string,
   fieldName?: string,
   className?: string,
-  rawValue?: unknown
+  rawValue?: unknown,
+  context?: RenderContext
 ): string {
   const label = fieldName ? formatFieldLabel(fieldName) : '';
   const fieldAttr = fieldName ? `data-field="${escapeHtml(fieldName)}"` : '';
   const extraClass = className ? ` ${className}` : '';
+  
+  // Copyright Badge (Bifroest System)
+  const copyrightHtml = context 
+    ? renderCopyrightBadge(context.sources, context.hideCopyright || context.mode === 'compare')
+    : '';
   
   // Store raw value for client-side extraction (used by Compare feature)
   // Use Base64 encoding to avoid HTML escaping issues with JSON
@@ -253,7 +300,7 @@ export function wrapInField(
   
   return `
     <div class="amorph-field${extraClass}" data-morph="${morphType}" ${fieldAttr}${valueAttr}>
-      ${label ? `<span class="amorph-field-label">${escapeHtml(label)}</span>` : ''}
+      ${label ? `<span class="amorph-field-label">${escapeHtml(label)}${copyrightHtml}</span>` : copyrightHtml}
       <div class="amorph-field-value">${content}</div>
     </div>
   `;

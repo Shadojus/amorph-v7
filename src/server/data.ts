@@ -156,8 +156,16 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
           name: (itemBase.name as string) || slug,
           _perspectives: {},
           _loadedPerspectives: [] as string[],
-          _fieldPerspective: {} as Record<string, string>
+          _fieldPerspective: {} as Record<string, string>,
+          _sources: {}  // Bifroest: Quellenangaben pro Feld
         };
+        
+        // Lade Quellenangaben (_sources.json) für Bifroest-System
+        const sourcesPath = join(speciesPath, '_sources.json');
+        const sourcesResult = safeReadJson<{ sources?: Record<string, unknown[]> }>(sourcesPath);
+        if (sourcesResult.data?.sources) {
+          item._sources = sourcesResult.data.sources as Record<string, unknown[]>;
+        }
         
         // Lade Perspektiven und merge Felder ins Item
         const perspectiveFiles = (speciesEntry.perspectives || []) as string[];
