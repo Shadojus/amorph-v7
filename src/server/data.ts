@@ -146,10 +146,10 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
       if (itemResult.data) {
         const itemBase = itemResult.data;
         
-        // Merge mit species entry Daten
+        // Merge: speciesEntry als Basis, itemBase überschreibt (enthält Details wie image)
         const item: ItemData = {
-          ...itemBase,
-          ...speciesEntry,  // Überschreibt mit index.json Daten
+          ...speciesEntry,  // Kingdom index.json als Basis
+          ...itemBase,      // Species index.json überschreibt (hat image, description, etc.)
           _kingdom: currentKingdom,
           id: (itemBase.id as string) || slug,
           slug: slug,

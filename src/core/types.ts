@@ -48,6 +48,15 @@ export interface RenderContext {
   
   /** Ist kompakte Darstellung gewünscht? */
   compact?: boolean;
+  
+  /** Quellen für das aktuelle Feld (Bifröst System) */
+  sources?: FieldSource[];
+  
+  /** Bifröst Mode aktiv? (zeigt alle © leuchtend) */
+  bifrostMode?: boolean;
+  
+  /** © komplett ausblenden (z.B. in Compare View) */
+  hideCopyright?: boolean;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -209,6 +218,46 @@ export interface DetectionConfig {
     decimalsRequired: boolean;
   };
 }
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// SOURCE / COPYRIGHT TYPES (Bifröst System)
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * Quelle/Copyright für ein Datenfeld.
+ * Jedes Feld kann mehrere Quellen haben.
+ */
+export interface FieldSource {
+  /** Kurzname (z.B. "Mushr.Observer", "iNaturalist") */
+  name: string;
+  
+  /** Vollständiger Copyright-Text */
+  copyright?: string;
+  
+  /** Lizenz (z.B. "CC BY-SA 4.0", "CC0") */
+  license?: string;
+  
+  /** URL zur Quelle */
+  url?: string;
+  
+  /** Kontakt-Email */
+  contact?: string;
+  
+  /** Autor/Fotograf */
+  author?: string;
+  
+  /** Datum der Datenerhebung */
+  date?: string;
+  
+  /** Zusätzliche Notizen */
+  notes?: string;
+}
+
+/**
+ * Source-Metadaten für ein Item.
+ * Map: fieldName -> Array von Sources
+ */
+export type FieldSourceMap = Record<string, FieldSource[]>;
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // HELPER TYPES

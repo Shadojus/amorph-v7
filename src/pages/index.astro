@@ -356,10 +356,12 @@ const gridContext: RenderContext = {
         const fieldPerspectiveMap = item._fieldPerspective || {};
         const fieldPerspectiveJson = JSON.stringify(fieldPerspectiveMap);
         
-        // Bild-URL: wissenschaftlicher Name (lateinisch) als Dateiname
-        // Format: /images/species/[wissenschaftlich].webp
-        const scientificName = item.wissenschaftlich ? String(item.wissenschaftlich).toLowerCase().replace(/\s+/g, '-') : null;
-        const imageUrl = scientificName ? `/images/species/${scientificName}.webp` : (item.bild ? String(item.bild) : null);
+        // Bild-URL: Aus dem image-Feld in index.json
+        // Die Bilder liegen in data/{kingdom}/{slug}/{image}
+        // Werden über /api/image/{kingdom}/{slug}/{image} serviert
+        const kingdom = siteMeta.dataFolder; // 'fungi', 'plantae', 'therion'
+        const imageFile = item.image ? String(item.image) : null;
+        const imageUrl = imageFile ? `/api/image/${kingdom}/${item.slug}/${encodeURIComponent(imageFile)}` : null;
         
         return (
           <article 
