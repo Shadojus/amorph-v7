@@ -162,9 +162,9 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
         
         // Lade Quellenangaben (_sources.json) für Bifroest-System
         const sourcesPath = join(speciesPath, '_sources.json');
-        const sourcesResult = safeReadJson<{ sources?: Record<string, unknown[]> }>(sourcesPath);
-        if (sourcesResult.data?.sources) {
-          item._sources = sourcesResult.data.sources as Record<string, unknown[]>;
+        const sourcesResult = safeReadJson<Record<string, unknown[]>>(sourcesPath);
+        if (sourcesResult.data) {
+          item._sources = sourcesResult.data;
         }
         
         // Lade Perspektiven und merge Felder ins Item

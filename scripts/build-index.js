@@ -648,8 +648,8 @@ function buildIndex() {
           kingdom: kingdom.slug,
           kingdom_icon: kingdom.icon,
           
-          // Visual
-          image: baseData.image || `/images/species/${speciesSlug}.webp`,
+          // Visual - nur echte Bilder, kein Fallback zu nicht-existierenden Pfaden
+          image: baseData.image || null,
           
           // SEO & Engagement
           tagline: tagline,

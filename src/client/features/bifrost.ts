@@ -37,26 +37,17 @@ export function initBifrost(): void {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 /**
- * Erstellt den Bifroest-Toggle Button.
+ * Initialisiert den Bifroest-Toggle Button.
+ * Verwendet den existierenden Button aus dem HTML.
  */
 function createToggleButton(): void {
-  // Check if already exists
-  if (document.querySelector('.bifrost-toggle')) {
+  const button = document.querySelector('.bifrost-toggle');
+  if (!button) {
+    console.warn('[Bifrost] Toggle button not found in DOM');
     return;
   }
   
-  const button = document.createElement('button');
-  button.className = 'bifrost-toggle';
-  button.type = 'button';
-  button.setAttribute('aria-label', 'Quellen-Modus aktivieren');
-  button.innerHTML = `
-    <span class="bifrost-toggle-icon">🌈</span>
-    <span class="bifrost-toggle-text">Bifroest</span>
-  `;
-  
   button.addEventListener('click', () => toggleBifrost());
-  
-  document.body.appendChild(button);
 }
 
 /**
@@ -127,8 +118,17 @@ function createPopupContainer(): void {
 /**
  * Zeigt das Copyright-Popup.
  */
-function showPopup(sources: FieldSource[]): void {
+function showPopup(sources: FieldSource[], type: 'copyright' | 'expert' = 'copyright'): void {
   if (!popupContainer) return;
+  
+  // Update popup title
+  const titleElement = popupContainer.querySelector('.bifrost-popup-title');
+  if (titleElement) {
+    titleElement.innerHTML = `
+      <span class="bifrost-symbol">©</span>
+      <span>Quellenangabe</span>
+    `;
+  }
   
   const sourcesContainer = popupContainer.querySelector('.bifrost-sources');
   if (!sourcesContainer) return;
@@ -206,30 +206,111 @@ function closePopup(): void {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 /**
- * Fügt Event-Listener zu allen © Buttons hinzu.
+ * Fügt Event-Listener zu allen © Buttons und Experten hinzu.
  */
 function attachCopyrightListeners(): void {
   // Event delegation for dynamically loaded content
   document.addEventListener('click', (e) => {
     const target = e.target as HTMLElement;
-    const copyrightBtn = target.closest('.bifrost-copyright') as HTMLElement | null;
     
+    // Copyright Button (© auf Bildern)
+    const copyrightBtn = target.closest('.bifrost-copyright') as HTMLElement | null;
     if (copyrightBtn) {
       e.preventDefault();
       e.stopPropagation();
       
-      const sourcesB64 = copyrightBtn.dataset.sources;
-      if (sourcesB64) {
+      const sourcesData = copyrightBtn.dataset.sources;
+      if (sourcesData) {
         try {
-          const sourcesJson = atob(sourcesB64);
-          const sources: FieldSource[] = JSON.parse(sourcesJson);
-          showPopup(sources);
+          const sources: FieldSource[] = JSON.parse(sourcesData);
+          showPopup(sources, 'copyright');
         } catch (err) {
           console.error('[Bifrost] Failed to parse sources:', err);
         }
       }
+      return;
+    }
+    
+    // Experten Button (schwebende Namen bei Feldern)
+    const expertBtn = target.closest('.bifrost-expert') as HTMLElement | null;
+    if (expertBtn) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const expertData = expertBtn.dataset.expert;
+      if (expertData) {
+        try {
+          const expert: Expert = JSON.parse(expertData);
+          showExpertPopup(expert);
+        } catch (err) {
+          console.error('[Bifrost] Failed to parse expert:', err);
+        }
+      }
     }
   });
+}
+
+/**
+ * Zeigt das Experten-Popup.
+ */
+function showExpertPopup(expert: Expert): void {
+  if (!popupContainer) return;
+  
+  // Update popup title for experts
+  const titleElement = popupContainer.querySelector('.bifrost-popup-title');
+  if (titleElement) {
+    titleElement.innerHTML = `
+      <span class="bifrost-symbol">🎓</span>
+      <span>Bifröst Experte</span>
+    `;
+  }
+  
+  const sourcesContainer = popupContainer.querySelector('.bifrost-sources');
+  if (!sourcesContainer) return;
+  
+  sourcesContainer.innerHTML = `
+    <div class="bifrost-source bifrost-expert-card">
+      <div class="bifrost-source-name">${escapeHtml(expert.name)}</div>
+      <div class="bifrost-source-details">
+        ${expert.title ? `
+          <div class="bifrost-source-row">
+            <span class="bifrost-source-label">Position:</span>
+            <span class="bifrost-source-value">${escapeHtml(expert.title)}</span>
+          </div>
+        ` : ''}
+        ${expert.url ? `
+          <div class="bifrost-source-row">
+            <span class="bifrost-source-label">Website:</span>
+            <span class="bifrost-source-value">
+              <a href="${escapeHtml(expert.url)}" target="_blank" rel="noopener">${escapeHtml(expert.url)}</a>
+            </span>
+          </div>
+        ` : ''}
+        ${expert.contact ? `
+          <div class="bifrost-source-row">
+            <span class="bifrost-source-label">Kontakt:</span>
+            <span class="bifrost-source-value">
+              ${expert.contact.includes('@') 
+                ? `<a href="mailto:${escapeHtml(expert.contact)}">${escapeHtml(expert.contact)}</a>`
+                : escapeHtml(expert.contact)
+              }
+            </span>
+          </div>
+        ` : ''}
+      </div>
+      <div class="bifrost-expert-link">
+        <a href="https://bifroest.io/expert/${encodeURIComponent(expert.name)}" target="_blank" rel="noopener">
+          Auf Bifröst ansehen →
+        </a>
+      </div>
+    </div>
+  `;
+  
+  popupContainer.classList.add('visible');
+  
+  // Focus trap
+  const closeBtn = popupContainer.querySelector<HTMLElement>('.bifrost-popup-close');
+  closeBtn?.focus();
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -247,19 +328,15 @@ interface FieldSource {
   notes?: string;
 }
 
+interface Expert {
+  name: string;
+  title?: string;
+  url?: string;
+  contact?: string;
+}
+
 function escapeHtml(text: string): string {
   const div = document.createElement('div');
   div.textContent = text;
   return div.innerHTML;
-}
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// AUTO-INIT
-// ═══════════════════════════════════════════════════════════════════════════════
-
-// Initialize when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initBifrost);
-} else {
-  initBifrost();
 }

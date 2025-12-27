@@ -1,6 +1,6 @@
 {
   "version": "2.0",
-  "generated": "2025-12-25T14:28:35.004Z",
+  "generated": "2025-12-27T08:45:47.723Z",
   "total": 62,
   "kingdoms": {
     "fungi": {
@@ -52,7 +52,7 @@
       "scientific_name": "Aloe vera",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/aloe-vera.webp",
+      "image": null,
       "tagline": null,
       "description": "Aloe vera is a succulent plant species of the genus Aloe. It originates from the Arabian Peninsula but grows wild in tropical, semi-tropical, and arid climates around the world. The species is cultivated for agricultural and medicinal uses. The plant's gel-filled leaves have been used for thousands of years in traditional medicine to treat wounds, burns, and skin conditions. It is one of the most commercially important medicinal plants worldwide.",
       "seo_description": "Aloe Vera (Aloe vera)",
@@ -146,7 +146,7 @@
       "scientific_name": "Coffea arabica",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/coffea-arabica.webp",
+      "image": null,
       "tagline": null,
       "description": "Coffea arabica, known as Arabica coffee, is a species of flowering plant in the family Rubiaceae. Native to the highlands of Ethiopia and South Sudan, it is believed to be the first species of coffee to be cultivated. Arabica accounts for approximately 60-70% of global coffee production and is considered to produce superior quality coffee compared to Coffea canephora (Robusta). The plant requires specific growing conditions including high altitude, consistent rainfall, and temperatures between 15-24 degrees Celsius.",
       "seo_description": "Arabica Coffee (Coffea arabica)",
@@ -233,7 +233,7 @@
       "scientific_name": "Withania somnifera",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/withania-somnifera.webp",
+      "image": null,
       "tagline": null,
       "description": "Withania somnifera, commonly known as ashwagandha, Indian ginseng, or winter cherry, is a plant in the Solanaceae family native to India and Southeast Asia. It has been a cornerstone of Ayurvedic medicine for over 3000 years, used as a rasayana (rejuvenating tonic). The name ashwagandha is Sanskrit for 'smell of the horse', referring to both the root's odor and its traditional use to impart strength. The root contains withanolides, which have adaptogenic properties, helping the body cope with stress. Modern clinical trials have shown benefits for anxiety, stress, and cognitive function.",
       "seo_description": "Ashwagandha (Withania somnifera)",
@@ -317,7 +317,7 @@
       "scientific_name": "Panax ginseng",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/panax-ginseng.webp",
+      "image": null,
       "tagline": null,
       "description": "Panax ginseng, commonly known as Asian ginseng, Korean ginseng, or Chinese ginseng, is a species of plant whose root has been used in traditional Chinese medicine for over 2000 years. The genus name Panax is derived from the Greek word 'panacea', meaning 'all-healing', reflecting its historical reputation. The root contains ginsenosides, which are believed to be responsible for its adaptogenic properties, helping the body resist stress. Wild ginseng is extremely rare and valuable, with roots selling for thousands of dollars. Cultivation takes 4-6 years before harvest.",
       "seo_description": "Asian Ginseng (Panax ginseng)",
@@ -408,7 +408,7 @@
       "scientific_name": "Fomitopsis betulina",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/fomitopsis-betulina.webp",
+      "image": "Fomitopsis_betulina.jpg",
       "tagline": "Magen-Darm-Beschwerden · Jan–Dez",
       "description": "Der Birkenporling (Fomitopsis betulina) ist ein bekannter Vitalpilz, der ausschliesslich auf Birken waechst. Historisch bedeutsam ist der Fund beim Mann aus dem Eis (Oetzi), der zwei Stuecke dieses Pilzes bei sich trug. In der Volksmedizin wird er seit Jahrtausenden gegen Magen-Darm-Beschwerden, zur Wundheilung und als Entzuendungshemmer verwendet. Moderne Studien bestaetigen antibakterielle, antivirale und antitumorale Eigenschaften.",
       "seo_description": "Birkenporling (Fomitopsis betulina). Heilwirkung: Magen-Darm-Beschwerden, Wundheilung",
@@ -484,10 +484,11 @@
         "ecology",
         "identification",
         "medicine",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 4,
-      "engagement_score": 135
+      "perspective_count": 5,
+      "engagement_score": 145
     },
     {
       "id": "cinnamomum-verum",
@@ -496,7 +497,7 @@
       "scientific_name": "Cinnamomum verum",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/cinnamomum-verum.webp",
+      "image": null,
       "tagline": null,
       "description": "Cinnamomum verum, also called true cinnamon or Ceylon cinnamon, is a small evergreen tree native to Sri Lanka. The inner bark is used to make cinnamon, one of the oldest known spices. It was so highly prized among ancient nations that it was regarded as a gift fit for monarchs. Ceylon cinnamon is distinguished from cassia cinnamon by its lighter color, more delicate flavor, and lower coumarin content, making it safer for regular consumption. The spice contains cinnamaldehyde, which has antimicrobial and blood sugar-regulating properties.",
       "seo_description": "Ceylon Cinnamon (Cinnamomum verum)",
@@ -582,7 +583,7 @@
       "scientific_name": "Inonotus obliquus",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/inonotus-obliquus.webp",
+      "image": "Inonotus_obliquus.jpg",
       "tagline": "Antioxidativ · Geschützt · Jan–Dez",
       "description": "Der Schiefer Schillerporling (Inonotus obliquus), bekannt als Chaga, ist ein bedeutender Vitalpilz, der besonders in Russland und Nordeuropa traditionell verwendet wird. Der Pilz bildet schwarze, kohleehnliche Auswuechse (Sklerotien) an lebenden Birken. Seine antioxidativen, immunstimulierenden und antitumoralen Eigenschaften werden seit Jahrhunderten geschaetzt. Er gilt als einer der staerksten Antioxidantien unter den Pilzen.",
       "seo_description": "Chaga (Inonotus obliquus). Heilwirkung: Antioxidativ, Immunstimulation",
@@ -669,7 +670,7 @@
       "scientific_name": "Taraxacum officinale",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/taraxacum-officinale.webp",
+      "image": null,
       "tagline": null,
       "description": "Taraxacum officinale, commonly known as the common dandelion, is a flowering herbaceous perennial plant in the family Asteraceae. Native to Eurasia, it has naturalized worldwide. Though often considered a weed, dandelion is a valuable medicinal and culinary plant. Every part of the plant is edible and nutritious. The leaves are used in salads, the roots can be roasted as a coffee substitute, and the flowers are used to make wine. Medicinally, dandelion is a powerful diuretic (hence the French name pissenlit) and liver tonic. It contains taraxacin, inulin, and high levels of vitamins A, C, and K.",
       "seo_description": "Common Dandelion (Taraxacum officinale)",
@@ -763,7 +764,7 @@
       "scientific_name": "Salvia officinalis",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/salvia-officinalis.webp",
+      "image": null,
       "tagline": null,
       "description": "Salvia officinalis, commonly known as sage, common sage, or garden sage, is a perennial evergreen subshrub native to the Mediterranean region. It has been cultivated for culinary and medicinal purposes for thousands of years. The name Salvia derives from the Latin 'salvare', meaning 'to save' or 'to heal', reflecting its historical importance in traditional medicine. Sage contains rosmarinic acid, carnosic acid, and thujone, and is used to improve memory, reduce inflammation, and treat digestive disorders.",
       "seo_description": "Common Sage (Salvia officinalis)",
@@ -857,7 +858,7 @@
       "scientific_name": "Thymus vulgaris",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/thymus-vulgaris.webp",
+      "image": null,
       "tagline": null,
       "description": "Thymus vulgaris, commonly known as common thyme or garden thyme, is a species of flowering plant in the mint family Lamiaceae, native to southern Europe. It is a low-growing aromatic perennial shrub that has been cultivated for over 5000 years. Thyme contains thymol, a natural antiseptic compound used in mouthwashes and disinfectants. The ancient Egyptians used thyme for embalming, while Greeks burned it as incense in temples. Today it remains one of the most important culinary herbs in Mediterranean cuisine.",
       "seo_description": "Common Thyme (Thymus vulgaris)",
@@ -947,7 +948,7 @@
       "scientific_name": "Atropa belladonna",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/atropa-belladonna.webp",
+      "image": null,
       "tagline": null,
       "description": "Atropa belladonna, commonly known as deadly nightshade or belladonna, is a poisonous perennial herbaceous plant in the nightshade family Solanaceae. Native to Europe, North Africa, and Western Asia, it is one of the most toxic plants found in the Eastern Hemisphere. The name 'belladonna' (beautiful lady) comes from the historical practice of women using eye drops made from the plant to dilate pupils, which was considered attractive. The plant contains tropane alkaloids including atropine, scopolamine, and hyoscyamine. While extremely dangerous, atropine derived from this plant is used in modern medicine as an antidote for nerve agent poisoning and in ophthalmology.",
       "seo_description": "Deadly Nightshade (Atropa belladonna)",
@@ -1036,7 +1037,7 @@
       "scientific_name": "Lavandula angustifolia",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/lavandula-angustifolia.webp",
+      "image": null,
       "tagline": null,
       "description": "Lavandula angustifolia, commonly known as English lavender or true lavender, is a flowering plant in the family Lamiaceae, native to the Mediterranean region. It is a strongly aromatic shrub with narrow, grey-green leaves and violet-blue flowers on long spikes. Lavender has been cultivated for over 2500 years for its essential oil, which is used in perfumery, aromatherapy, and traditional medicine. The plant is valued for its calming and relaxing properties.",
       "seo_description": "English Lavender (Lavandula angustifolia)",
@@ -1130,7 +1131,7 @@
       "scientific_name": "Sambucus nigra",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/sambucus-nigra.webp",
+      "image": null,
       "tagline": null,
       "description": "Sambucus nigra, commonly known as elderberry, black elder, or European elder, is a species of flowering plant in the family Adoxaceae, native to most of Europe. The dark purple berries have been used for centuries in traditional European medicine to treat influenza, colds, and respiratory infections. The flowers are used to make elderflower cordial and wine. The plant contains anthocyanins and flavonoids with antiviral and anti-inflammatory properties. However, raw berries, bark, and leaves contain cyanogenic glycosides and must be cooked before consumption. Elderberry supplements have become popular immune-boosting products.",
       "seo_description": "European Elder (Sambucus nigra)",
@@ -1224,7 +1225,7 @@
       "scientific_name": "Ganoderma applanatum",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/ganoderma-applanatum.webp",
+      "image": "Ganoderma_applanatum.jpg",
       "tagline": "Jan–Dez",
       "description": "Der Flache Lackporling (Ganoderma applanatum), auch Malerpilz genannt, ist ein mehrjaehriger Baumpilz mit charakteristisch flacher, konsolenfoermiger Gestalt. Sein Name Malerpilz ruehrt von der Eigenschaft der weissen Porenschicht, bei Beruehrung dauerhaft braun zu verfaerben - darauf lassen sich Bilder zeichnen. Der Pilz verursacht Weissfaeule an Laubhoelzern. In der Traditionellen Chinesischen Medizin wird er als Heilpilz verwendet.",
       "seo_description": "Flacher Lackporling (Ganoderma applanatum)",
@@ -1297,10 +1298,11 @@
       "perspectives": [
         "ecology",
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 3,
-      "engagement_score": 30
+      "perspective_count": 4,
+      "engagement_score": 40
     },
     {
       "id": "digitalis-purpurea",
@@ -1309,7 +1311,7 @@
       "scientific_name": "Digitalis purpurea",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/digitalis-purpurea.webp",
+      "image": null,
       "tagline": null,
       "description": "Digitalis purpurea, commonly known as foxglove, is a biennial or short-lived perennial flowering plant native to Western Europe. It produces tall spikes of tubular, purple-pink flowers with spotted throats. Despite its beauty, foxglove is highly toxic and can be fatal if ingested. However, the plant is the source of digoxin and digitoxin, cardiac glycosides used to treat heart conditions such as atrial fibrillation and heart failure. William Withering introduced digitalis to medicine in 1785. The plant exemplifies the principle that poisons and medicines are often distinguished only by dose.",
       "seo_description": "Foxglove (Digitalis purpurea)",
@@ -1402,7 +1404,7 @@
       "scientific_name": "Matricaria chamomilla",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/matricaria-chamomilla.webp",
+      "image": null,
       "tagline": null,
       "description": "Matricaria chamomilla (syn. Matricaria recutita), commonly known as German chamomile or wild chamomile, is an annual plant in the family Asteraceae. Native to Europe and Western Asia, it is one of the most ancient medicinal herbs known to mankind. Unlike Roman chamomile which is a perennial, German chamomile is an annual with smaller, more cone-shaped flower heads. The essential oil is blue due to the presence of chamazulene, which forms during steam distillation. German chamomile is the most commercially important chamomile species and is widely used in teas, cosmetics, and herbal preparations.",
       "seo_description": "German Chamomile (Matricaria chamomilla)",
@@ -1489,7 +1491,7 @@
       "scientific_name": "Zingiber officinale",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/zingiber-officinale.webp",
+      "image": null,
       "tagline": null,
       "description": "Zingiber officinale, commonly known as ginger, is a flowering plant whose rhizome, ginger root, is widely used as a spice and in folk medicine. Native to Southeast Asia, ginger was one of the first spices exported from Asia during the spice trade. The rhizome contains gingerols and shogaols, which provide its characteristic pungent flavor and medicinal properties. Ginger has been used for over 5000 years to treat nausea, digestive issues, and inflammation. It is a key ingredient in many Asian cuisines and is consumed fresh, dried, powdered, or as an oil or juice.",
       "seo_description": "Ginger (Zingiber officinale)",
@@ -1581,7 +1583,7 @@
       "scientific_name": "Ginkgo biloba",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/ginkgo-biloba.webp",
+      "image": null,
       "tagline": null,
       "description": "Ginkgo biloba, commonly known as ginkgo or maidenhair tree, is a species of gymnosperm tree native to China. It is the only living species in the order Ginkgoales, making it a living fossil unchanged for more than 200 million years. The tree is widely cultivated for its medicinal properties, particularly its leaf extract which is used to improve memory and cognitive function. Ginkgo trees can live for over 1000 years and are highly resistant to pollution, disease, and insect pests.",
       "seo_description": "Ginkgo (Ginkgo biloba)",
@@ -1672,7 +1674,7 @@
       "scientific_name": "Ganoderma lucidum",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/ganoderma-lucidum.webp",
+      "image": "Ganoderma_lucidum.jpg",
       "tagline": "Immunmodulation · Jun–Okt",
       "description": "Der Glaenzende Lackporling (Ganoderma lucidum), bekannt als Reishi oder Lingzhi, ist einer der bedeutendsten Vitalpilze weltweit. In der Traditionellen Chinesischen Medizin wird er seit ueber 2000 Jahren als 'Pilz der Unsterblichkeit' verehrt. Er produziert Polysaccharide und Triterpenoide mit immunmodulierenden, antitumoralen und hepatoprotektiven Eigenschaften. Der charakteristisch rot-lackierte Fruchtkoerper waechst auf Laubhoelzern.",
       "seo_description": "Glaenzender Lackporling (Ganoderma lucidum). Heilwirkung: Immunmodulation, Antitumoral",
@@ -1752,10 +1754,11 @@
         "ecology",
         "identification",
         "medicine",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 4,
-      "engagement_score": 155
+      "perspective_count": 5,
+      "engagement_score": 165
     },
     {
       "id": "ganoderma-curtisii",
@@ -1764,7 +1767,7 @@
       "scientific_name": "Ganoderma curtisii",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/ganoderma-curtisii.webp",
+      "image": "Ganoderma_curtisii.jpg",
       "tagline": "Jun–Okt",
       "description": "Der Goldene Lackporling (Ganoderma curtisii), auch Golden Reishi genannt, ist ein Vitalpilz aus Nordamerika, der dem bekannten Ganoderma lucidum (Reishi) sehr aehnlich ist und dieselben medizinischen Eigenschaften besitzt. Er waechst auf verrottenden Stubben und Wurzeln von Laubhoelzern. Die Art produziert Polysaccharide und Triterpenoide mit breitem Spektrum biologischer Aktivitaeten.",
       "seo_description": "Goldener Lackporling (Ganoderma curtisii)",
@@ -1828,10 +1831,11 @@
       "perspectives": [
         "ecology",
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 3,
-      "engagement_score": 30
+      "perspective_count": 4,
+      "engagement_score": 40
     },
     {
       "id": "centella-asiatica",
@@ -1840,7 +1844,7 @@
       "scientific_name": "Centella asiatica",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/centella-asiatica.webp",
+      "image": null,
       "tagline": null,
       "description": "Centella asiatica, commonly known as gotu kola, Indian pennywort, or Asiatic pennywort, is a herbaceous perennial plant in the flowering plant family Apiaceae. Native to tropical and subtropical Asia, it has been used in Ayurvedic and traditional Chinese medicine for thousands of years. It is often called 'the herb of longevity' in traditional medicine. The plant contains triterpenoids including asiaticoside and madecassoside, which promote wound healing and collagen synthesis. Modern research has focused on its cognitive-enhancing and wound-healing properties. In Sri Lanka, it is believed elephants eat gotu kola for long life.",
       "seo_description": "Gotu Kola (Centella asiatica)",
@@ -1926,7 +1930,7 @@
       "scientific_name": "Cannabis sativa",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/cannabis-sativa.webp",
+      "image": null,
       "tagline": null,
       "description": "Cannabis sativa is an annual herbaceous flowering plant indigenous to Central Asia and the Indian subcontinent. It has been cultivated throughout recorded history for its fiber (hemp), seeds, and medicinal and psychoactive properties. The plant contains over 100 cannabinoids, including THC and CBD, which interact with the human endocannabinoid system. Industrial hemp varieties contain less than 0.3% THC and are cultivated for fiber and seed production, while medicinal and recreational varieties are bred for higher cannabinoid content.",
       "seo_description": "Hemp (Cannabis sativa)",
@@ -2014,7 +2018,7 @@
       "scientific_name": "Panellus stipticus",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/panellus-stipticus.webp",
+      "image": "Panellus_stipticus.jpg",
       "tagline": "Jan–Dez",
       "description": "Der Herbe Zwergknaeuel (Panellus stipticus) ist ein kleiner, muschelfoermiger Pilz, der auf Laubholz waechst. Er ist besonders bemerkenswert wegen seiner Biolumineszenz - das Myzel und junge Fruchtkoerper leuchten im Dunkeln gruenlich. Der Pilz ist ungeniessbar aufgrund seines bitter-scharfen Geschmacks. Die Biolumineszenz basiert auf den Substanzen PS-A und PS-B (Luciferin-Vorstufen).",
       "seo_description": "Herber Zwergknaeuel (Panellus stipticus)",
@@ -2083,10 +2087,11 @@
       "perspectives": [
         "ecology",
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 3,
-      "engagement_score": 30
+      "perspective_count": 4,
+      "engagement_score": 40
     },
     {
       "id": "hericium-erinaceus",
@@ -2095,7 +2100,7 @@
       "scientific_name": "Hericium erinaceus",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/hericium-erinaceus.webp",
+      "image": "Hericium_erinaceus.jpg",
       "tagline": "Neuroregeneration · Geschützt · Aug–Nov",
       "description": "Der Igelstachelbart (Hericium erinaceus), auch als Loewenmaehne oder Pom-Pom bekannt, ist ein spektakulaerer Speise- und Vitalpilz mit langen, herabhangenden weissen Stacheln. Er waechst auf Laubholz und gilt als gefaehrdet (RL2 Deutschland). Besonders bemerkenswert sind seine neuroregenrativen Eigenschaften durch Erinacine, die das Nervenwachstum stimulieren - vielversprechend bei Alzheimer und neurologischen Erkrankungen.",
       "seo_description": "Igelstachelbart (Hericium erinaceus). Heilwirkung: Neuroregeneration, Alzheimer-Unterstuetzung",
@@ -2177,10 +2182,11 @@
         "ecology",
         "identification",
         "medicine",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 5,
-      "engagement_score": 165
+      "perspective_count": 6,
+      "engagement_score": 175
     },
     {
       "id": "auricularia-auricula-judae",
@@ -2189,7 +2195,7 @@
       "scientific_name": "Auricularia auricula-judae",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/auricularia-auricula-judae.webp",
+      "image": "Auricularia_auricula_judae.jpg",
       "tagline": null,
       "description": "Das Judasohr (Auricularia auricula-judae), auch Holunderschwamm oder Mu-Err genannt, ist ein gallertartiger Speise- und Medizinalpilz mit ohrfoermiger Gestalt. In der asiatischen Kueche weit verbreitet, ist er fuer seine blutverdünnenden Eigenschaften bekannt (Szechwan-Syndrom). Der Pilz waechst ganzjaehrig an Laubholz, besonders an Holunder, und ist frostbestaendig. Seine medizinischen Anwendungen umfassen Arteriosklerose, Bluthochdruck und Entzuendungen.",
       "seo_description": "Judasohr (Auricularia auricula-judae)",
@@ -2254,10 +2260,11 @@
       "perspectives": [
         "ecology",
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 3,
-      "engagement_score": 30
+      "perspective_count": 4,
+      "engagement_score": 40
     },
     {
       "id": "grifola-frondosa",
@@ -2266,7 +2273,7 @@
       "scientific_name": "Grifola frondosa",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/grifola-frondosa.webp",
+      "image": "Grifola_frondosa.jpg",
       "tagline": "Immunstimulation · Aug–Nov",
       "description": "Der Klapperschwamm (Grifola frondosa), auch Maitake ('Tanzender Pilz') genannt, ist ein grosser, geschaetzter Speise- und Vitalpilz. Er kann ueber 20 kg schwer werden und besteht aus vielen ueberlappenden, graubraunen Hueten an einem gemeinsamen Strunk. Er waechst am Wurzelbereich von Eichen und Kastanien. In Japan gilt er als wichtiger Heilpilz mit immunstimulierenden und antitumoralen Eigenschaften durch den Inhaltsstoff Grifolan (Beta-Glucan D-Fraktion).",
       "seo_description": "Klapperschwamm (Grifola frondosa). Heilwirkung: Immunstimulation, Antitumoral",
@@ -2350,10 +2357,11 @@
         "ecology",
         "identification",
         "medicine",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 5,
-      "engagement_score": 165
+      "perspective_count": 6,
+      "engagement_score": 175
     },
     {
       "id": "melissa-officinalis",
@@ -2362,7 +2370,7 @@
       "scientific_name": "Melissa officinalis",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/melissa-officinalis.webp",
+      "image": null,
       "tagline": null,
       "description": "Melissa officinalis, commonly known as lemon balm, is a perennial herbaceous plant in the mint family Lamiaceae, native to south-central Europe and the Mediterranean. The genus name Melissa is Greek for 'honey bee', as the plant is highly attractive to bees. It has been cultivated for over 2000 years for its lemon-scented leaves, which are used in teas, culinary applications, and herbal medicine. Lemon balm contains rosmarinic acid and flavonoids, and is traditionally used for its calming effects, to improve sleep, and to treat cold sores (herpes simplex). It was a key ingredient in Carmelite water, a tonic made by Carmelite nuns since 1611.",
       "seo_description": "Lemon Balm (Melissa officinalis)",
@@ -2449,7 +2457,7 @@
       "scientific_name": "Glycyrrhiza glabra",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/glycyrrhiza-glabra.webp",
+      "image": null,
       "tagline": null,
       "description": "Glycyrrhiza glabra, commonly known as licorice or liquorice, is a herbaceous perennial legume native to Western Asia and Southern Europe. The root has been used as a flavoring agent and medicine for over 4000 years. The name Glycyrrhiza comes from Greek, meaning 'sweet root', as the root is 30-50 times sweeter than sugar due to glycyrrhizin. In traditional Chinese medicine, licorice is used in more formulations than any other herb. However, excessive consumption can cause hypertension and hypokalemia due to glycyrrhizin's effect on cortisol metabolism.",
       "seo_description": "Licorice (Glycyrrhiza glabra)",
@@ -2536,7 +2544,7 @@
       "scientific_name": "Pleurotus pulmonarius",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/pleurotus-pulmonarius.webp",
+      "image": "Pleurotus_pulmonarius.jpg",
       "tagline": null,
       "description": "Der Lungenseitling (Pleurotus pulmonarius), auch Sommer-Austernseitling genannt, ist ein weit verbreiteter Speise- und Zuchtpilz. Im Gegensatz zum Austernseitling benoetigt er keinen Kaeltereiz zur Fruchtkoerperbildung. Er enthaelt Haemolysine (wie alle Pleurotus-Arten), die beim Garen zerstoert werden. Seine Polysaccharide zeigen antimikrobielle und entzuendungshemmende Eigenschaften.",
       "seo_description": "Lungenseitling (Pleurotus pulmonarius)",
@@ -2573,10 +2581,11 @@
       ],
       "perspectives": [
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 2,
-      "engagement_score": 20
+      "perspective_count": 3,
+      "engagement_score": 30
     },
     {
       "id": "agaricus-subrufescens",
@@ -2585,7 +2594,7 @@
       "scientific_name": "Agaricus subrufescens",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/agaricus-subrufescens.webp",
+      "image": "Agaricus_Subrufescens.jpg",
       "tagline": null,
       "description": "Der Mandel-Egerling (Agaricus subrufescens), auch bekannt als Agaricus blazei, Himematsutake oder Cogumelo de Deus, ist ein essbarer Speisepilz mit intensivem Mandelaroma. Urspruenglich in den Regenwäldern Brasiliens entdeckt, ist er heute einer der bedeutendsten Medizinalpilze weltweit. Er besitzt die hoechste Konzentration an Beta-Glucanen aller Heilpilze und wird intensiv auf seine immunmodulatorischen und antitumoralen Eigenschaften untersucht. In Japan und den USA wurden bemerkenswert erfolgreiche Studien zu seinen Heilwirkungen durchgefuehrt.",
       "seo_description": "Mandel-Egerling (Agaricus subrufescens)",
@@ -2671,7 +2680,7 @@
       "scientific_name": "Silybum marianum",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/silybum-marianum.webp",
+      "image": null,
       "tagline": null,
       "description": "Silybum marianum, commonly known as milk thistle, is a flowering plant in the daisy family Asteraceae, native to the Mediterranean region. The name derives from the milky-white veins on the leaves. The plant has been used for over 2000 years to treat liver and gallbladder disorders. The seeds contain silymarin, a complex of flavonolignans with hepatoprotective properties. Silymarin is the most commonly used herbal supplement for liver disease worldwide and is included in pharmacopeias in several countries. Clinical studies have shown benefits in cirrhosis, hepatitis, and liver damage from toxins.",
       "seo_description": "Milk Thistle (Silybum marianum)",
@@ -2765,7 +2774,7 @@
       "scientific_name": "Pholiota nameko",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/pholiota-nameko.webp",
+      "image": "Pholiota_nameko.jpg",
       "tagline": "Sep–Nov",
       "description": "Der Nameko (Pholiota nameko), japanisch fuer 'schleimiger Pilz', ist ein beliebter asiatischer Speisepilz mit charakteristischer orangefarbener, schleimiger Hutoberflaeche. Er waechst natuerlich auf Laubholz in ostasiatischen Waeldern und wird intensiv kultiviert. Der schleimige Film gibt Suppen eine besondere Textur. Nameko besitzt auch antitumorale Eigenschaften.",
       "seo_description": "Nameko (Pholiota nameko)",
@@ -2835,10 +2844,11 @@
         "culinary",
         "ecology",
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 4,
-      "engagement_score": 40
+      "perspective_count": 5,
+      "engagement_score": 50
     },
     {
       "id": "papaver-somniferum",
@@ -2847,7 +2857,7 @@
       "scientific_name": "Papaver somniferum",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/papaver-somniferum.webp",
+      "image": null,
       "tagline": null,
       "description": "Papaver somniferum, commonly known as the opium poppy, is a species of flowering plant in the family Papaveraceae. Native to the eastern Mediterranean, it has been cultivated for at least 5000 years for its medicinal properties. The milky latex (opium) extracted from unripe seed pods contains morphine, codeine, thebaine, and other alkaloids. Morphine remains one of the most effective pain relievers known to medicine and is on the WHO List of Essential Medicines. The seeds (which contain negligible alkaloids) are used in baking. The plant has had profound impacts on history, including the Opium Wars.",
       "seo_description": "Opium Poppy (Papaver somniferum)",
@@ -2936,7 +2946,7 @@
       "scientific_name": "Macrolepiota procera",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/macrolepiota-procera.webp",
+      "image": "Macrolepiota_procera.jpg",
       "tagline": null,
       "description": "Der Parasol oder Riesenschirmling (Macrolepiota procera) ist einer der beliebtesten und groessten Speisepilze Europas. Mit Hutdurchmessern bis zu 30 cm und Stielen bis 40 cm ist er ein imposanter Anblick auf Waldlichtungen und Heiden. Sein nussartiger Geschmack und die charakteristische genatterte Stieloberflaeche machen ihn unverwechselbar. Wichtig: Der Ring muss verschiebbar sein, um eine Verwechslung mit giftigen Schirmlingen auszuschliessen.",
       "seo_description": "Parasol (Macrolepiota procera)",
@@ -3001,10 +3011,11 @@
       "perspectives": [
         "ecology",
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 3,
-      "engagement_score": 30
+      "perspective_count": 4,
+      "engagement_score": 40
     },
     {
       "id": "mentha-piperita",
@@ -3013,7 +3024,7 @@
       "scientific_name": "Mentha x piperita",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/mentha-piperita.webp",
+      "image": null,
       "tagline": null,
       "description": "Mentha x piperita, commonly known as peppermint, is a hybrid species of mint, a cross between watermint (Mentha aquatica) and spearmint (Mentha spicata). Native to Europe and the Middle East, peppermint is now cultivated worldwide. It is one of the most economically important aromatic herbs, widely used in food, beverages, cosmetics, and medicine. The essential oil contains menthol, which provides the characteristic cooling sensation and is used to treat digestive disorders, headaches, and respiratory conditions.",
       "seo_description": "Peppermint (Mentha x piperita)",
@@ -3107,7 +3118,7 @@
       "scientific_name": "Cantharellus cibarius",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/cantharellus-cibarius.webp",
+      "image": "Cantharellus_cibarius.jpg",
       "tagline": null,
       "description": "Der Pfifferling (Cantharellus cibarius), auch Eierschwamm genannt, ist einer der beliebtesten und bekanntesten Speisepilze Europas. Mit seiner dottergelben Farbe, dem fruchtigen Aroma und dem leicht pfeffrigen Geschmack ist er kulinarisch hochgeschaetzt. Als Mykorrhiza-Pilz waechst er in Symbiose mit Baeumen in Mischwaeldern. Pfifferlinge enthalten antivirale, antioxidative und antibiotische Wirkstoffe.",
       "seo_description": "Pfifferling (Cantharellus cibarius)",
@@ -3160,10 +3171,11 @@
       ],
       "perspectives": [
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 2,
-      "engagement_score": 20
+      "perspective_count": 3,
+      "engagement_score": 30
     },
     {
       "id": "cordyceps-militaris",
@@ -3172,7 +3184,7 @@
       "scientific_name": "Cordyceps militaris",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/cordyceps-militaris.webp",
+      "image": "Cordyceps_militaris.jpg",
       "tagline": "Immunstimulation · Jul–Okt",
       "description": "Die Puppenkernkeule (Cordyceps militaris) ist ein parasitischer Schlauchpilz, der auf toten Insektenlarven und -puppen waechst. Der Fruchtkoerper ist orangerot bis ziegelrot gefaerbt und wird bis zu 50 mm hoch. In der Traditionellen Chinesischen Medizin gilt er als bedeutender Vitalpilz mit immunstimulierenden und leistungssteigernden Eigenschaften, was dem Inhaltsstoff Cordycepin zugeschrieben wird. In Europa ist der Pilz extrem selten anzutreffen.",
       "seo_description": "Puppenkernkeule (Cordyceps militaris). Heilwirkung: Immunstimulation, Leistungssteigerung",
@@ -3252,10 +3264,11 @@
         "ecology",
         "identification",
         "medicine",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 4,
-      "engagement_score": 135
+      "perspective_count": 5,
+      "engagement_score": 145
     },
     {
       "id": "echinacea-purpurea",
@@ -3264,7 +3277,7 @@
       "scientific_name": "Echinacea purpurea",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/echinacea-purpurea.webp",
+      "image": null,
       "tagline": null,
       "description": "Echinacea purpurea, commonly known as purple coneflower or eastern purple coneflower, is a North American species of flowering plant in the daisy family Asteraceae. Native to eastern and central North America, it was widely used by Native American tribes for various ailments. Today, echinacea is one of the best-selling herbal supplements worldwide, primarily used to prevent or shorten the duration of common colds. The plant contains alkamides, caffeic acid derivatives, and polysaccharides that stimulate the immune system.",
       "seo_description": "Purple Coneflower (Echinacea purpurea)",
@@ -3357,7 +3370,7 @@
       "scientific_name": "Passiflora incarnata",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/passiflora-incarnata.webp",
+      "image": null,
       "tagline": null,
       "description": "Passiflora incarnata, commonly known as purple passionflower or maypop, is a fast-growing perennial vine native to the southeastern United States. Spanish missionaries in the 16th century named it 'passion flower' because they saw the complex flower as a symbol of the Passion of Christ. Native American tribes used it as a sedative and to treat wounds. The plant contains flavonoids including chrysin and apigenin, which have anxiolytic and sedative properties. It is approved in Germany as a treatment for nervous restlessness and is commonly combined with valerian and hops in sleep formulations.",
       "seo_description": "Purple Passionflower (Passiflora incarnata)",
@@ -3444,7 +3457,7 @@
       "scientific_name": "Rhodiola rosea",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/rhodiola-rosea.webp",
+      "image": null,
       "tagline": null,
       "description": "Rhodiola rosea, commonly known as rhodiola, golden root, or Arctic root, is a perennial flowering plant in the family Crassulaceae. It grows in cold regions of Europe, Asia, and North America, particularly in mountainous areas and the Arctic. The plant has been used for centuries in traditional medicine in Russia and Scandinavia to increase physical endurance and work productivity. Vikings reportedly used it to enhance physical strength. The root contains rosavins and salidroside, which are believed to be responsible for its adaptogenic properties. Clinical studies suggest benefits for fatigue, depression, and cognitive function under stress.",
       "seo_description": "Rhodiola (Rhodiola rosea)",
@@ -3529,7 +3542,7 @@
       "scientific_name": "Calvatia gigantea",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/calvatia-gigantea.webp",
+      "image": "Calvatia_gigantea.jpg",
       "tagline": null,
       "description": "Der Riesenbovist (Calvatia gigantea) ist einer der groessten Pilze der Welt und kann Durchmesser von bis zu einem Meter und Gewichte von 15 kg erreichen. Der kugelfoermige, weisse Fruchtkoerper waechst auf Wiesen, in Parks und an Waldraendern. Jung und innen weiss ist er ein ausgezeichneter Speisepilz. Historisch wurde er als Wundverband genutzt und enthalt das Antitumor-Protein Calvacin.",
       "seo_description": "Riesenbovist (Calvatia gigantea)",
@@ -3573,10 +3586,11 @@
       ],
       "perspectives": [
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 2,
-      "engagement_score": 20
+      "perspective_count": 3,
+      "engagement_score": 30
     },
     {
       "id": "stropharia-rugosoannulata",
@@ -3585,7 +3599,7 @@
       "scientific_name": "Stropharia rugosoannulata",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/stropharia-rugosoannulata.webp",
+      "image": "Stropharius-rugosoannulata.jpg",
       "tagline": "Mai–Okt",
       "description": "Der Rotbraune Riesentraeuschlinge (Stropharia rugosoannulata), auch Braunkappe oder Kulturtraeuschlinge genannt, ist ein ausgezeichneter Speisepilz aus der Familie Strophariaceae. Mit Hueten von 4-13 cm Durchmesser und rotbrauner Faerbung zaehlt er zu den groessten Traeuschlingsarten. Er wird erfolgreich auf Stroh und Holzhaecksel kultiviert und eignet sich hervorragend fuer den Gartenanbau. Oekologisch interessant ist seine Faehigkeit zur Bodensanierung - er kann Schadstoffe wie Schwermetalle und organische Verbindungen aus dem Boden aufnehmen.",
       "seo_description": "Riesentraeuschlinge (Stropharia rugosoannulata)",
@@ -3661,10 +3675,11 @@
         "culinary",
         "ecology",
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 4,
-      "engagement_score": 40
+      "perspective_count": 5,
+      "engagement_score": 50
     },
     {
       "id": "chamaemelum-nobile",
@@ -3673,7 +3688,7 @@
       "scientific_name": "Chamaemelum nobile",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/chamaemelum-nobile.webp",
+      "image": null,
       "tagline": null,
       "description": "Chamaemelum nobile, commonly known as Roman chamomile or English chamomile, is a low-growing perennial plant in the family Asteraceae. Native to Western Europe and North Africa, it has been used medicinally for over 2000 years. The ancient Egyptians dedicated it to their sun god Ra. Chamomile contains chamazulene, bisabolol, and apigenin, which provide anti-inflammatory, antispasmodic, and mild sedative effects. The dried flowers are commonly used to make herbal tea, one of the most popular herbal beverages worldwide, valued for its calming properties.",
       "seo_description": "Roman Chamomile (Chamaemelum nobile)",
@@ -3766,7 +3781,7 @@
       "scientific_name": "Salvia rosmarinus",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/rosmarinus-officinalis.webp",
+      "image": null,
       "tagline": null,
       "description": "Salvia rosmarinus (formerly Rosmarinus officinalis), commonly known as rosemary, is a woody, perennial herb native to the Mediterranean region. It belongs to the mint family Lamiaceae and has been used since ancient times as a culinary herb, medicinal plant, and in perfumery. The plant is rich in antioxidants and anti-inflammatory compounds, including rosmarinic acid and carnosic acid. Rosemary has been associated with memory enhancement, and historically symbolized remembrance and fidelity.",
       "seo_description": "Rosemary (Salvia rosmarinus)",
@@ -3855,7 +3870,7 @@
       "scientific_name": "Pleurotus djamor",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/pleurotus-djamor.webp",
+      "image": "Pleurotus_djamor.jpg",
       "tagline": null,
       "description": "Der Rosenseitling (Pleurotus djamor) ist ein spektakulaerer tropischer Speisepilz mit rosaroten bis lachsfarbenen Hueten. Er stammt aus den Tropen und Subtropen, wo er auf Palmen, Bambus und anderen Hoelzern waechst. Fuer die Kultivierung benoetigt er hohe Temperaturen (20-30 Grad Celsius) und hohe Luftfeuchtigkeit. Sein beissender, leicht mandelartiger Geruch ist charakteristisch.",
       "seo_description": "Rosenseitling (Pleurotus djamor)",
@@ -3891,10 +3906,11 @@
       ],
       "perspectives": [
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 2,
-      "engagement_score": 20
+      "perspective_count": 3,
+      "engagement_score": 30
     },
     {
       "id": "crocus-sativus",
@@ -3903,7 +3919,7 @@
       "scientific_name": "Crocus sativus",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/crocus-sativus.webp",
+      "image": null,
       "tagline": null,
       "description": "Crocus sativus, commonly known as saffron crocus, is a species of flowering plant in the iris family Iridaceae. It is cultivated for saffron spice, derived from the dried stigmas of its flowers. Saffron is the world's most expensive spice by weight, requiring approximately 150,000 flowers to produce one kilogram. The plant originated in Greece or Southwest Asia and has been cultivated for over 3500 years. Each flower produces only three stigmas, which must be hand-picked during a narrow harvest window. Saffron contains crocin, picrocrocin, and safranal, which provide its characteristic color, flavor, and aroma.",
       "seo_description": "Saffron Crocus (Crocus sativus)",
@@ -3989,7 +4005,7 @@
       "scientific_name": "Flammulina velutipes",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/flammulina-velutipes.webp",
+      "image": "Flammulina_velutipes.jpg",
       "tagline": "Okt–Mär",
       "description": "Der Samtfussruebling (Flammulina velutipes), auch bekannt als Enoki oder Winterpilz, ist ein beliebter Speisepilz mit charakteristisch samtig-braunem Stiel. Er waechst vorzugsweise auf Laubholz und ist einer der wenigen Pilze, die auch bei Frost fruktifizieren koennen. Der kultivierte Enoki mit seinen langen weissen Stielen unterscheidet sich stark vom wild wachsenden Pilz. Er gilt als Vitalpilz mit immunstaerkenden Eigenschaften.",
       "seo_description": "Samtfussruebling (Flammulina velutipes)",
@@ -4065,10 +4081,11 @@
         "culinary",
         "ecology",
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 4,
-      "engagement_score": 40
+      "perspective_count": 5,
+      "engagement_score": 50
     },
     {
       "id": "trametes-versicolor",
@@ -4077,7 +4094,7 @@
       "scientific_name": "Trametes versicolor",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/trametes-versicolor.webp",
+      "image": "Tramets_versicolor.jpg",
       "tagline": "Jan–Dez",
       "description": "Die Schmetterlingstramete (Trametes versicolor), auch Bunte Tramete oder Turkey Tail genannt, ist einer der haeufigsten und medizinisch bedeutsamsten Porlinge weltweit. Der faecher- bis rosettenfoermige Fruchtkörper zeigt charakteristische konzentrische Farbzonen in Grau-, Braun-, Blau- und Gruentoenen. Als Weissfaeulerreger zersetzt sie Totholz von Laubbaeumen. Sie ist Quelle von PSK (Krestin) und PSP, die in Asien als zugelassene Krebsmedikamente eingesetzt werden und das Immunsystem stimulieren.",
       "seo_description": "Schmetterlingstramete (Trametes versicolor)",
@@ -4158,10 +4175,11 @@
         "ecology",
         "identification",
         "medicine",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 4,
-      "engagement_score": 40
+      "perspective_count": 5,
+      "engagement_score": 50
     },
     {
       "id": "coprinus-comatus",
@@ -4170,7 +4188,7 @@
       "scientific_name": "Coprinus comatus",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/coprinus-comatus.webp",
+      "image": "Coprinus_comatus.jpg",
       "tagline": null,
       "description": "Der Schopftintling (Coprinus comatus), auch Spargelpilz genannt, ist ein ausgezeichneter Speisepilz mit charakteristischer zylindrischer Form und schuppiger weisser Oberflaeche. Er waechst oft in unerwarteten Orten wie Rasenfaechen, Wegrändern und auf gedüngten Boeden. Einzigartig ist seine Deliqueszenz - die reifen Lamellen zerfliessen zu einer schwarzen, sporenhaltigen Fluessigkeit. Er wird auf antidiabetische und antitumorale Eigenschaften untersucht.",
       "seo_description": "Schopftintling (Coprinus comatus)",
@@ -4224,10 +4242,11 @@
       ],
       "perspectives": [
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 2,
-      "engagement_score": 20
+      "perspective_count": 3,
+      "engagement_score": 30
     },
     {
       "id": "laetiporus-sulphureus",
@@ -4236,7 +4255,7 @@
       "scientific_name": "Laetiporus sulphureus",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/laetiporus-sulphureus.webp",
+      "image": "laetiporus_sulphureus.jpg",
       "tagline": "Mai–Okt",
       "description": "Der Schwefelporling (Laetiporus sulphureus), auch 'Chicken of the Woods' genannt, ist ein auffaelliger, schwefelgelb-orange gefaerbter Baumsporling. Er waechst hauptsaechlich auf Laubhoelzern und ist ein aggressiver Holzzersetzer, der Braunfaeule verursacht. Jung ist er ein guter Speisepilz mit huehnchenartigem Geschmack, wird aber mit dem Alter zaeh. Roh ist er unvertraeglich aufgrund von Oxalsaeure.",
       "seo_description": "Schwefelporling (Laetiporus sulphureus)",
@@ -4308,10 +4327,11 @@
         "culinary",
         "ecology",
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 4,
-      "engagement_score": 40
+      "perspective_count": 5,
+      "engagement_score": 50
     },
     {
       "id": "lentinula-edodes",
@@ -4320,7 +4340,7 @@
       "scientific_name": "Lentinula edodes",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/lentinula-edodes.webp",
+      "image": "Lentinula_edodes.jpg",
       "tagline": "Immunstimulation · Apr–Nov",
       "description": "Der Shiitake (Lentinula edodes) ist nach dem Champignon der meistangebaute Speisepilz weltweit und ein bedeutender Vitalpilz. Er stammt aus Ostasien und waechst dort natuerlich auf Shii-Baeumen und anderen Harthoelzern. Der Inhaltsstoff Lentinan ist in Japan als Krebsmedikament zugelassen. Shiitake ist reich an Vitamin D und hat immunstimulierende, antivirale und cholesterinsenkende Eigenschaften.",
       "seo_description": "Shiitake (Lentinula edodes). Heilwirkung: Immunstimulation, Krebs-Begleittherapie",
@@ -4411,7 +4431,7 @@
       "scientific_name": "Morchella esculenta",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/morchella-esculenta.webp",
+      "image": null,
       "tagline": "Mär–Mai",
       "description": "Die Speisemorchel (Morchella esculenta) ist ein begehrter Fruehlingspilz aus der Familie Morchellaceae. Der charakteristische wabenartige Hut mit tiefen Hohlkammern und der hohle Stiel machen sie unverwechselbar. Sie waechst von Maerz bis Mai in Auwaeldern, Parks und auf kalkreichen Boeden, oft in Begleitung von Eschen. Morcheln duerfen niemals roh verzehrt werden, da sie den hitzeempfindlichen Giftstoff Gyromitrin enthalten. Richtig zubereitet gehoeren sie zu den kulinarisch wertvollsten Pilzen mit intensivem, nussig-wuerzigem Aroma.",
       "seo_description": "Speisemorchel (Morchella esculenta)",
@@ -4504,7 +4524,7 @@
       "scientific_name": "Hypericum perforatum",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/hypericum-perforatum.webp",
+      "image": null,
       "tagline": null,
       "description": "Hypericum perforatum, commonly known as St. John's wort, is a flowering plant in the family Hypericaceae native to Europe. It has been used in traditional medicine for centuries to treat depression, anxiety, and sleep disorders. The plant derives its common name from its traditional flowering and harvesting on St. John's Day (June 24). It contains hypericin and hyperforin, which are believed to be responsible for its antidepressant effects. Clinical studies have shown it to be effective for mild to moderate depression, though it has significant drug interactions.",
       "seo_description": "St. John's Wort (Hypericum perforatum)",
@@ -4598,7 +4618,7 @@
       "scientific_name": "Urtica dioica",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/urtica-dioica.webp",
+      "image": null,
       "tagline": null,
       "description": "Urtica dioica, commonly known as stinging nettle, is a herbaceous perennial flowering plant native to Europe, Asia, northern Africa, and western North America. The leaves and stems are covered with stinging hairs (trichomes) that inject histamine and formic acid upon contact. Despite its sting, nettle has been used as a food source and medicine for thousands of years. The plant is exceptionally nutritious, containing high levels of iron, calcium, vitamins A and C, and protein. Medicinally, it is used to treat allergies, arthritis, and urinary disorders. The fibers have been used to make cloth since the Bronze Age.",
       "seo_description": "Stinging Nettle (Urtica dioica)",
@@ -4692,7 +4712,7 @@
       "scientific_name": "Cyclocybe cylindracea",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/cyclocybe-cylindracea.webp",
+      "image": "Cyclocybe_cylindracea.jpg",
       "tagline": null,
       "description": "Der Suedliche Ackerling (Cyclocybe cylindracea), auch bekannt als Pioppino, Samthaube oder Suedlicher Schueppling, ist ein ausgezeichneter Speisepilz der waermeren Regionen. Er waechst bevorzugt an Pappeln, Weiden und anderen Laubhoelzern, sowohl saprotroph als auch parasitaer. Der Pilz ist in Suedeuropa und den suedoestlichen USA heimisch und wird kommerziell kultiviert. Mit seinem milden Geschmack und der festen Textur ist er in der mediterranen und asiatischen Kueche sehr geschaetzt.",
       "seo_description": "Suedlicher Ackerling (Cyclocybe cylindracea)",
@@ -4764,10 +4784,11 @@
         "cultivation",
         "ecology",
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 5,
-      "engagement_score": 50
+      "perspective_count": 6,
+      "engagement_score": 60
     },
     {
       "id": "ocimum-basilicum",
@@ -4776,7 +4797,7 @@
       "scientific_name": "Ocimum basilicum",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/ocimum-basilicum.webp",
+      "image": null,
       "tagline": null,
       "description": "Ocimum basilicum, commonly known as sweet basil or simply basil, is a culinary herb of the family Lamiaceae, native to tropical regions from Central Africa to Southeast Asia. It is a tender annual plant, best known for its use in Italian cuisine, particularly in pesto and tomato-based dishes. Basil contains eugenol, linalool, and estragole, giving it its characteristic aroma. The plant has been used in traditional medicine for digestive disorders, stress relief, and as an anti-inflammatory agent. Over 60 varieties of basil exist, varying in size, color, and flavor.",
       "seo_description": "Sweet Basil (Ocimum basilicum)",
@@ -4864,7 +4885,7 @@
       "scientific_name": "Pleurotus columbinus",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/pleurotus-columbinus.webp",
+      "image": "Pleurotus_columbinus.jpg",
       "tagline": null,
       "description": "Der Taubenblaue Seitling (Pleurotus columbinus) ist eine Variante des Austernseitlings mit charakteristisch blau-grauer Hutfarbe. Er waechst bevorzugt auf Nadelholz und wird ganzjaehrig kultiviert. Wie andere Pleurotus-Arten enthaelt er Pleurotolysin, das durch Erhitzen zerstoert wird - daher immer gut garen. Er hat immunstimulierende und cholesterinsenkende Eigenschaften.",
       "seo_description": "Taubenblauer Seitling (Pleurotus columbinus)",
@@ -4899,10 +4920,11 @@
       ],
       "perspectives": [
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 2,
-      "engagement_score": 20
+      "perspective_count": 3,
+      "engagement_score": 30
     },
     {
       "id": "camellia-sinensis",
@@ -4911,7 +4933,7 @@
       "scientific_name": "Camellia sinensis",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/camellia-sinensis.webp",
+      "image": null,
       "tagline": "Geschützt",
       "description": "Camellia sinensis is an evergreen shrub or small tree whose leaves and leaf buds are used to produce tea. Native to East Asia, the plant is primarily cultivated in tropical and subtropical climates. All types of true tea (white, green, oolong, black, and pu-erh) come from this single species, with differences arising from processing methods. Tea is the second most consumed beverage in the world after water, and has been cultivated for over 5000 years. The plant contains caffeine, L-theanine, and catechins, which provide stimulant and antioxidant properties.",
       "seo_description": "Tea Plant (Camellia sinensis)",
@@ -5001,7 +5023,7 @@
       "scientific_name": "Curcuma longa",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/curcuma-longa.webp",
+      "image": null,
       "tagline": null,
       "description": "Curcuma longa, commonly known as turmeric, is a flowering plant of the ginger family Zingiberaceae, native to the Indian subcontinent and Southeast Asia. The rhizomes are used fresh or boiled, dried, and ground into a deep orange-yellow powder used as a spice and dye. Turmeric has been used in Ayurvedic medicine for nearly 4000 years. It contains curcumin, a polyphenol with powerful anti-inflammatory and antioxidant properties. India produces nearly all of the world's turmeric and consumes 80% of it.",
       "seo_description": "Turmeric (Curcuma longa)",
@@ -5093,7 +5115,7 @@
       "scientific_name": "Valeriana officinalis",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/valeriana-officinalis.webp",
+      "image": null,
       "tagline": null,
       "description": "Valeriana officinalis, commonly known as valerian, is a perennial flowering plant native to Europe and Asia. Its root has been used as a sedative and sleep aid since ancient Greek and Roman times. Hippocrates described its properties, and Galen prescribed it for insomnia. The root contains valerenic acid and isovaleric acid, which have sedative and anxiolytic properties. Valerian is one of the most commonly used herbal supplements for sleep disorders, often combined with hops or lemon balm. Interestingly, while sedating to humans, valerian has a stimulating effect on cats similar to catnip.",
       "seo_description": "Valerian (Valeriana officinalis)",
@@ -5187,7 +5209,7 @@
       "scientific_name": "Artemisia absinthium",
       "kingdom": "plantae",
       "kingdom_icon": "🌿",
-      "image": "/images/species/artemisia-absinthium.webp",
+      "image": null,
       "tagline": null,
       "description": "Artemisia absinthium, commonly known as wormwood, grand wormwood, or absinthe wormwood, is a perennial plant native to temperate regions of Eurasia and Northern Africa. It is best known as the key ingredient in absinthe, the notorious green spirit that was banned in many countries in the early 20th century. The plant contains thujone, a compound once blamed for absinthe's alleged hallucinogenic effects, though modern research shows thujone levels in properly distilled absinthe are too low to cause such effects. Wormwood has been used medicinally since ancient times to treat digestive disorders and as an antiparasitic.",
       "seo_description": "Wormwood (Artemisia absinthium)",
@@ -5276,7 +5298,7 @@
       "scientific_name": "Pleurotus citrinopileatus",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
-      "image": "/images/species/pleurotus-citrinopileatus.webp",
+      "image": "Pleurotus_citrinopileatus.jpg",
       "tagline": null,
       "description": "Der Zitronenseitling (Pleurotus citrinopileatus), auch Golden Oyster genannt, ist ein spektakulaerer Speisepilz mit leuchtend zitronengelben Hueten. Er waechst in grossen Buescheln und stammt urspruenglich aus Asien. Der Pilz ist reich an Vitaminen (A, B, C, D) und hat einen milden, nussigen Geschmack mit cashew-artigen Nuancen. Er soll bei Lungenemphysemen wirksam sein.",
       "seo_description": "Zitronenseitling (Pleurotus citrinopileatus)",
@@ -5312,10 +5334,11 @@
       ],
       "perspectives": [
         "identification",
-        "safety"
+        "safety",
+        "_sources"
       ],
-      "perspective_count": 2,
-      "engagement_score": 20
+      "perspective_count": 3,
+      "engagement_score": 30
     }
   ],
   "featured": [
@@ -5323,9 +5346,9 @@
     "hericium-erinaceus",
     "ganoderma-lucidum",
     "inonotus-obliquus",
-    "lentinula-edodes",
     "cordyceps-militaris",
     "fomitopsis-betulina",
+    "lentinula-edodes",
     "agaricus-subrufescens",
     "cyclocybe-cylindracea",
     "flammulina-velutipes"

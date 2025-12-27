@@ -4,13 +4,59 @@
 
 import { createUnifiedMorph, escapeHtml } from '../base.js';
 
+/**
+ * Formatiert ein Item für die Liste.
+ * Behandelt Objekte intelligent (z.B. {icon, label, value} → "icon label: value")
+ */
+function formatListItem(item: unknown): string {
+  if (item === null || item === undefined) return '';
+  
+  // Primitiver Wert
+  if (typeof item !== 'object') {
+    return escapeHtml(String(item));
+  }
+  
+  // Objekt: Versuche sinnvolle Darstellung
+  const obj = item as Record<string, unknown>;
+  
+  // Quick Facts Format: {icon, label, value}
+  if ('label' in obj && 'value' in obj) {
+    const icon = obj.icon ? `${obj.icon} ` : '';
+    return `${escapeHtml(icon)}${escapeHtml(String(obj.label))}: ${escapeHtml(String(obj.value))}`;
+  }
+  
+  // Name/Title Format: {name} oder {title}
+  if ('name' in obj) {
+    return escapeHtml(String(obj.name));
+  }
+  if ('title' in obj) {
+    return escapeHtml(String(obj.title));
+  }
+  
+  // Text/Value Format: {text} oder {value}
+  if ('text' in obj) {
+    return escapeHtml(String(obj.text));
+  }
+  if ('value' in obj) {
+    return escapeHtml(String(obj.value));
+  }
+  
+  // Fallback: JSON (aber gekürzt)
+  try {
+    const json = JSON.stringify(obj);
+    return escapeHtml(json.length > 100 ? json.slice(0, 100) + '...' : json);
+  } catch {
+    return '[Object]';
+  }
+}
+
 export const list = createUnifiedMorph(
   'list',
   (value) => {
     const items = Array.isArray(value) ? value : [value];
     return `
       <ul class="morph-list">
-        ${items.map(item => `<li class="morph-list-item">${escapeHtml(item)}</li>`).join('')}
+        ${items.map(item => `<li class="morph-list-item">${formatListItem(item)}</li>`).join('')}
       </ul>
     `;
   },

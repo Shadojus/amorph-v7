@@ -224,6 +224,12 @@ function detectArrayStructure(arr: unknown[], fieldName?: string): MorphType {
   if (typeof first === 'object' && first !== null) {
     const obj = first as Record<string, unknown>;
     
+    // BADGE ARRAY: [{status: "", variant: ""}] oder [{label: "", status: "", variant: ""}]
+    // Aus universe-index.json: [{icon, label, status, variant}]
+    if (hasKeys(obj, ['status', 'variant']) || hasKeys(obj, ['status', 'label'])) {
+      return 'badge';
+    }
+    
     // RADAR: [{axis: "", value: 0}]
     if (hasExactKeys(obj, ['axis', 'value'])) {
       return 'radar';

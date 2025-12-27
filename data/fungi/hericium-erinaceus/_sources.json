@@ -1,76 +1,72 @@
 {
-  "_meta": {
-    "description": "Quellenangaben für alle Datenfelder dieser Species",
-    "version": "1.0"
-  },
-  "sources": {
+  "image": [
+    {
+      "name": "Martin Livezey",
+      "username": "MLivezey",
+      "year": 2010,
+      "copyright": "© 2010 Martin Livezey (MLivezey)",
+      "license": "CC BY-SA 3.0",
+      "url": "https://mushroomobserver.org"
+    }
+  ],
+  "fields": {
     "safety_edibility_status": [
       {
-        "name": "MycoBank",
-        "copyright": "© 2024 MycoBank Database",
-        "license": "CC BY-NC 4.0",
-        "url": "https://www.mycobank.org",
-        "author": "International Mycological Association",
-        "date": "2024-01"
+        "name": "Paul Stamets",
+        "title": "Mykologe & Autor",
+        "url": "https://fungi.com",
+        "contact": "info@fungi.com"
       }
     ],
-    "safety_toxicity_score": [
+    "active_compounds": [
       {
-        "name": "PoisonIndex",
-        "copyright": "© 2024 North American Mycological Association",
-        "license": "CC BY-SA 4.0",
-        "url": "https://namyco.org",
-        "contact": "info@namyco.org"
-      }
-    ],
-    "image": [
-      {
-        "name": "Dan Molter",
-        "copyright": "© 2008 Dan Molter (shroomydan)",
-        "license": "CC BY-SA 3.0",
-        "url": "https://mushroomobserver.org",
-        "author": "Dan Molter",
-        "notes": "Observation #12345"
-      }
-    ],
-    "scientific_name": [
-      {
-        "name": "Index Fungorum",
-        "copyright": "© 2024 Index Fungorum Partnership",
-        "license": "Public Domain",
-        "url": "http://www.indexfungorum.org"
-      }
-    ],
-    "description": [
-      {
-        "name": "Wikipedia",
-        "copyright": "© Wikipedia Contributors",
-        "license": "CC BY-SA 4.0",
-        "url": "https://en.wikipedia.org/wiki/Hericium_erinaceus"
+        "name": "Dr. Hirokazu Kawagishi",
+        "title": "Professor, Shizuoka University",
+        "url": "https://www.shizuoka.ac.jp",
+        "contact": "kawagishi@shizuoka.ac.jp"
       },
       {
-        "name": "Mushroom Expert",
-        "copyright": "© 2024 Michael Kuo",
-        "license": "All Rights Reserved",
-        "url": "https://www.mushroomexpert.com",
-        "contact": "kuo@mushroomexpert.com"
+        "name": "Dr. Bing-Ji Ma",
+        "title": "Professor, Anhui Agricultural University",
+        "url": "https://www.ahau.edu.cn"
       }
     ],
-    "ecology_habitat_primary": [
+    "primary_medicinal_uses": [
       {
-        "name": "iNaturalist",
-        "copyright": "© iNaturalist",
-        "license": "CC BY-NC 4.0",
-        "url": "https://www.inaturalist.org"
+        "name": "Paul Stamets",
+        "title": "Mykologe & Autor",
+        "url": "https://fungi.com"
+      },
+      {
+        "name": "Dr. Christopher Hobbs",
+        "title": "Herbalist & Autor",
+        "url": "https://christopherhobbs.com"
       }
     ],
-    "medicine_primary_medicinal_uses": [
+    "culinary_value": [
       {
-        "name": "PubMed",
-        "copyright": "© National Library of Medicine",
-        "license": "Public Domain",
-        "url": "https://pubmed.ncbi.nlm.nih.gov",
-        "notes": "Multiple peer-reviewed studies"
+        "name": "Eugenia Bone",
+        "title": "Autorin & Köchin",
+        "url": "https://eugeniabone.com"
+      }
+    ],
+    "key_differentiating_features": [
+      {
+        "name": "Michael Kuo",
+        "title": "Mykologe & Autor",
+        "url": "https://www.mushroomexpert.com"
+      },
+      {
+        "name": "Alan Rockefeller",
+        "title": "Mykologe & Fotograf",
+        "url": "https://mushroomobserver.org"
+      }
+    ],
+    "cultivation_scale": [
+      {
+        "name": "Tradd Cotter",
+        "title": "Mykologe, Mushroom Mountain",
+        "url": "https://mushroommountain.com"
       }
     ]
   }

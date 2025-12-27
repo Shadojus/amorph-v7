@@ -357,17 +357,27 @@ const gridContext: RenderContext = {
         const fieldPerspectiveJson = JSON.stringify(fieldPerspectiveMap);
         
         // Bild-URL: Aus dem image-Feld in index.json
-        // Die Bilder liegen in data/{kingdom}/{slug}/{image}
-        // Werden über /api/image/{kingdom}/{slug}/{image} serviert
+        // Kann sein:
+        // 1. Voller Pfad: "/images/species/slug.webp" → direkt verwenden
+        // 2. Dateiname: "Hericium_erinaceus.jpg" → über API: /api/image/{kingdom}/{slug}/{image}
         const kingdom = siteMeta.dataFolder; // 'fungi', 'plantae', 'therion'
-        const imageFile = item.image ? String(item.image) : null;
-        const imageUrl = imageFile ? `/api/image/${kingdom}/${item.slug}/${encodeURIComponent(imageFile)}` : null;
+        const imageField = item.image ? String(item.image) : null;
+        let imageUrl: string | null = null;
+        if (imageField) {
+          if (imageField.startsWith('/')) {
+            // Voller Pfad - direkt verwenden
+            imageUrl = imageField;
+          } else {
+            // Dateiname - über API servieren
+            imageUrl = '/api/image/' + kingdom + '/' + item.slug + '/' + encodeURIComponent(imageField);
+          }
+        }
         
-        // Bifröst: Image Copyright aus _sources.json
+        // Bifröst: Image copyright sources
         const itemSources = item._sources || {};
-        const imageSources = (itemSources['image'] || []) as Array<{name?: string; copyright?: string; license?: string; url?: string; contact?: string; author?: string}>;
-        const imageSource = imageSources[0] || null;
-        const imageSourceJson = imageSource ? Buffer.from(JSON.stringify(imageSources), 'utf-8').toString('base64') : '';
+        const imageSources = (itemSources as any).image || [];
+        const imageSource = imageSources.length > 0 ? imageSources[0] : null;
+        const imageSourcesJson = imageSources.length > 0 ? JSON.stringify(imageSources) : '';
         
         return (
           <article 
@@ -382,13 +392,7 @@ const gridContext: RenderContext = {
                 <div class="item-image">
                   <img src={imageUrl} alt={item.name} loading="lazy" />
                   {imageSource && (
-                    <button 
-                      class="bifrost-copyright"
-                      type="button"
-                      data-sources={imageSourceJson}
-                      aria-label={`Quelle: ${imageSource.name || imageSource.author || 'Unbekannt'}`}
-                      title={imageSource.name || imageSource.author || 'Quelle'}
-                    >
+                    <button type="button" class="bifrost-copyright" data-sources={imageSourcesJson}>
                       <span class="bifrost-symbol">©</span>
                       <span class="bifrost-name">{imageSource.name || imageSource.author || ''}</span>
                     </button>
@@ -397,7 +401,7 @@ const gridContext: RenderContext = {
               )}
               <div class="item-title-row">
                 <h2 class="item-name">{item.name}</h2>
-                <a href={`/${item.slug}`} class="item-detail-link" title="Details anzeigen">→</a>
+                <a href={'/' + item.slug} class="item-detail-link" title="Details anzeigen">→</a>
               </div>
               {item.wissenschaftlich && (
                 <span class="item-scientific">{String(item.wissenschaftlich)}</span>
@@ -493,13 +497,13 @@ const gridContext: RenderContext = {
       <span class="bottom-nav-label">Vergleich</span>
       <span class="bottom-nav-badge">0</span>
     </button>
-    <a href="/bifroest" class="bottom-nav-item" data-nav="bifroest" aria-label="Bifroest Portal">
+    <button type="button" class="bottom-nav-item bifrost-toggle" data-nav="bifroest" aria-label="Bifröst – Quellen anzeigen">
       <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 2L2 7l10 5 10-5-10-5z"/>
         <path d="m2 17 10 5 10-5"/>
         <path d="m2 12 10 5 10-5"/>
       </svg>
       <span class="bottom-nav-label">Bifroest</span>
-    </a>
+    </button>
   </nav>
 </Base>

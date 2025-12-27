@@ -40,6 +40,19 @@ function extractBadgeData(value: unknown): { status: string; variant: string } {
 export const badge = createUnifiedMorph(
   'badge',
   (value) => {
+    // Handle Badge Arrays: [{status, variant}, ...]
+    if (Array.isArray(value)) {
+      const badges = value.map(item => {
+        const { status, variant } = extractBadgeData(item);
+        if (!status) return '';
+        return `<span class="morph-badge morph-badge-${variant}">${escapeHtml(status)}</span>`;
+      }).filter(Boolean);
+      return badges.length > 0 
+        ? `<div class="morph-badge-list">${badges.join('')}</div>`
+        : `<span class="morph-badge morph-badge-default">–</span>`;
+    }
+    
+    // Single badge
     const { status, variant } = extractBadgeData(value);
     if (!status) return `<span class="morph-badge morph-badge-default">–</span>`;
     return `<span class="morph-badge morph-badge-${variant}">${escapeHtml(status)}</span>`;

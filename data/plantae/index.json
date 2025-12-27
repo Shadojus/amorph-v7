@@ -11,7 +11,7 @@
       "name": "Aloe Vera",
       "scientific_name": "Aloe vera",
       "tagline": null,
-      "image": "/images/species/aloe-vera.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -49,7 +49,7 @@
       "name": "Asian Ginseng",
       "scientific_name": "Panax ginseng",
       "tagline": null,
-      "image": "/images/species/panax-ginseng.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -87,7 +87,7 @@
       "name": "Common Dandelion",
       "scientific_name": "Taraxacum officinale",
       "tagline": null,
-      "image": "/images/species/taraxacum-officinale.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -125,7 +125,7 @@
       "name": "Common Sage",
       "scientific_name": "Salvia officinalis",
       "tagline": null,
-      "image": "/images/species/salvia-officinalis.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -163,7 +163,7 @@
       "name": "English Lavender",
       "scientific_name": "Lavandula angustifolia",
       "tagline": null,
-      "image": "/images/species/lavandula-angustifolia.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -203,7 +203,7 @@
       "name": "Aloe Vera",
       "scientific_name": "Aloe vera",
       "tagline": null,
-      "image": "/images/species/aloe-vera.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -235,7 +235,7 @@
       "name": "Asian Ginseng",
       "scientific_name": "Panax ginseng",
       "tagline": null,
-      "image": "/images/species/panax-ginseng.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -267,7 +267,7 @@
       "name": "Common Dandelion",
       "scientific_name": "Taraxacum officinale",
       "tagline": null,
-      "image": "/images/species/taraxacum-officinale.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -299,7 +299,7 @@
       "name": "Common Sage",
       "scientific_name": "Salvia officinalis",
       "tagline": null,
-      "image": "/images/species/salvia-officinalis.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -331,7 +331,7 @@
       "name": "English Lavender",
       "scientific_name": "Lavandula angustifolia",
       "tagline": null,
-      "image": "/images/species/lavandula-angustifolia.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -363,7 +363,7 @@
       "name": "European Elder",
       "scientific_name": "Sambucus nigra",
       "tagline": null,
-      "image": "/images/species/sambucus-nigra.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -395,7 +395,7 @@
       "name": "Foxglove",
       "scientific_name": "Digitalis purpurea",
       "tagline": null,
-      "image": "/images/species/digitalis-purpurea.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -427,7 +427,7 @@
       "name": "Ginger",
       "scientific_name": "Zingiber officinale",
       "tagline": null,
-      "image": "/images/species/zingiber-officinale.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -459,7 +459,7 @@
       "name": "Ginkgo",
       "scientific_name": "Ginkgo biloba",
       "tagline": null,
-      "image": "/images/species/ginkgo-biloba.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -491,7 +491,7 @@
       "name": "Milk Thistle",
       "scientific_name": "Silybum marianum",
       "tagline": null,
-      "image": "/images/species/silybum-marianum.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -523,7 +523,7 @@
       "name": "Peppermint",
       "scientific_name": "Mentha x piperita",
       "tagline": null,
-      "image": "/images/species/mentha-piperita.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -555,7 +555,7 @@
       "name": "Purple Coneflower",
       "scientific_name": "Echinacea purpurea",
       "tagline": null,
-      "image": "/images/species/echinacea-purpurea.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -587,7 +587,7 @@
       "name": "Roman Chamomile",
       "scientific_name": "Chamaemelum nobile",
       "tagline": null,
-      "image": "/images/species/chamaemelum-nobile.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -619,7 +619,7 @@
       "name": "St. John's Wort",
       "scientific_name": "Hypericum perforatum",
       "tagline": null,
-      "image": "/images/species/hypericum-perforatum.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -651,7 +651,7 @@
       "name": "Stinging Nettle",
       "scientific_name": "Urtica dioica",
       "tagline": null,
-      "image": "/images/species/urtica-dioica.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -683,7 +683,7 @@
       "name": "Tea Plant",
       "scientific_name": "Camellia sinensis",
       "tagline": "Geschützt",
-      "image": "/images/species/camellia-sinensis.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -715,7 +715,7 @@
       "name": "Turmeric",
       "scientific_name": "Curcuma longa",
       "tagline": null,
-      "image": "/images/species/curcuma-longa.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -747,7 +747,7 @@
       "name": "Valerian",
       "scientific_name": "Valeriana officinalis",
       "tagline": null,
-      "image": "/images/species/valeriana-officinalis.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -779,7 +779,7 @@
       "name": "Arabica Coffee",
       "scientific_name": "Coffea arabica",
       "tagline": null,
-      "image": "/images/species/coffea-arabica.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -810,7 +810,7 @@
       "name": "Ashwagandha",
       "scientific_name": "Withania somnifera",
       "tagline": null,
-      "image": "/images/species/withania-somnifera.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -835,7 +835,7 @@
       "name": "Ceylon Cinnamon",
       "scientific_name": "Cinnamomum verum",
       "tagline": null,
-      "image": "/images/species/cinnamomum-verum.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -866,7 +866,7 @@
       "name": "Common Thyme",
       "scientific_name": "Thymus vulgaris",
       "tagline": null,
-      "image": "/images/species/thymus-vulgaris.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -897,7 +897,7 @@
       "name": "Deadly Nightshade",
       "scientific_name": "Atropa belladonna",
       "tagline": null,
-      "image": "/images/species/atropa-belladonna.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -928,7 +928,7 @@
       "name": "German Chamomile",
       "scientific_name": "Matricaria chamomilla",
       "tagline": null,
-      "image": "/images/species/matricaria-chamomilla.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -953,7 +953,7 @@
       "name": "Gotu Kola",
       "scientific_name": "Centella asiatica",
       "tagline": null,
-      "image": "/images/species/centella-asiatica.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -978,7 +978,7 @@
       "name": "Hemp",
       "scientific_name": "Cannabis sativa",
       "tagline": null,
-      "image": "/images/species/cannabis-sativa.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -1009,7 +1009,7 @@
       "name": "Lemon Balm",
       "scientific_name": "Melissa officinalis",
       "tagline": null,
-      "image": "/images/species/melissa-officinalis.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -1034,7 +1034,7 @@
       "name": "Licorice",
       "scientific_name": "Glycyrrhiza glabra",
       "tagline": null,
-      "image": "/images/species/glycyrrhiza-glabra.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -1059,7 +1059,7 @@
       "name": "Opium Poppy",
       "scientific_name": "Papaver somniferum",
       "tagline": null,
-      "image": "/images/species/papaver-somniferum.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -1090,7 +1090,7 @@
       "name": "Purple Passionflower",
       "scientific_name": "Passiflora incarnata",
       "tagline": null,
-      "image": "/images/species/passiflora-incarnata.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -1115,7 +1115,7 @@
       "name": "Rhodiola",
       "scientific_name": "Rhodiola rosea",
       "tagline": null,
-      "image": "/images/species/rhodiola-rosea.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -1140,7 +1140,7 @@
       "name": "Rosemary",
       "scientific_name": "Salvia rosmarinus",
       "tagline": null,
-      "image": "/images/species/rosmarinus-officinalis.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -1171,7 +1171,7 @@
       "name": "Saffron Crocus",
       "scientific_name": "Crocus sativus",
       "tagline": null,
-      "image": "/images/species/crocus-sativus.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -1202,7 +1202,7 @@
       "name": "Sweet Basil",
       "scientific_name": "Ocimum basilicum",
       "tagline": null,
-      "image": "/images/species/ocimum-basilicum.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",
@@ -1233,7 +1233,7 @@
       "name": "Wormwood",
       "scientific_name": "Artemisia absinthium",
       "tagline": null,
-      "image": "/images/species/artemisia-absinthium.webp",
+      "image": null,
       "badges": [
         {
           "icon": "🛡️",

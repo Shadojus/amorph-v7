@@ -230,6 +230,7 @@ export function renderCopyrightBadge(sources?: FieldSource[], hideCopyright?: bo
   
   const primarySource = sources[0];
   const hasMultiple = sources.length > 1;
+  const multiLabel = hasMultiple ? ' +' + (sources.length - 1) : '';
   
   // Daten für das Popup als JSON (Base64 encoded)
   const sourcesJson = Buffer.from(JSON.stringify(sources), 'utf-8').toString('base64');
@@ -243,7 +244,7 @@ export function renderCopyrightBadge(sources?: FieldSource[], hideCopyright?: bo
       title="${escapeHtml(primarySource.name)}"
     >
       <span class="bifrost-symbol">©</span>
-      <span class="bifrost-name">${escapeHtml(primarySource.name)}${hasMultiple ? ` +${sources.length - 1}` : ''}</span>
+      <span class="bifrost-name">${escapeHtml(primarySource.name)}${multiLabel}</span>
     </button>
   `;
 }

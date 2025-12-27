@@ -147,90 +147,37 @@ body.bifrost-active .bifrost-name {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   BIFRÖST TOGGLE BUTTON
-   Unten rechts, aktiviert den Bifröst-Mode - schön glowing wenn aktiv
+   BOTTOM NAV BIFROST TOGGLE
+   Der Bifröst-Button im Footer - Aktiviert den Copyright-Modus
+   Verwendet das normale bottom-nav-item Design, nur aktiver Zustand ist speziell
    ═══════════════════════════════════════════════════════════════════════════════ */
 
-.bifrost-toggle {
-  /* Reset */
-  all: unset;
-  cursor: pointer;
-  box-sizing: border-box;
-  
-  /* Position: Fixed unten rechts */
-  position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
-  z-index: 1000;
-  
-  /* Layout */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  
-  /* Size */
-  padding: 0.75rem 1.25rem;
-  border-radius: 2rem;
-  
-  /* Styling: Dunkel, transparent, harmonisch */
-  font-size: 0.85rem;
-  font-weight: 600;
-  font-family: inherit;
-  color: rgba(255, 255, 255, 0.6);
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  
-  /* Transition */
-  transition: all 0.3s ease;
+/* Bottom Nav Bifröst Button aktiv - GLOWING! */
+body.bifrost-active .bottom-nav-item.bifrost-toggle {
+  color: #0df !important;
 }
 
-.bifrost-toggle:hover {
-  color: rgba(255, 255, 255, 0.95);
-  background: rgba(0, 0, 0, 0.85);
-  border-color: rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
+/* Active indicator line - Cyan statt System-Color */
+body.bifrost-active .bottom-nav-item.bifrost-toggle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 28px;
+  height: 2px;
+  background: #0df;
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 0 12px #0df;
 }
 
-.bifrost-toggle-icon {
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
+body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-icon {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(0, 220, 255, 0.8));
 }
 
-.bifrost-toggle-text {
-  font-weight: 500;
-}
-
-/* Toggle Button aktiv - GLOWING! */
-body.bifrost-active .bifrost-toggle {
-  color: #fff;
-  background: linear-gradient(135deg, 
-    rgba(0, 180, 255, 0.35), 
-    rgba(0, 255, 180, 0.3)
-  );
-  border-color: rgba(0, 255, 220, 0.6);
-  box-shadow: 
-    0 0 15px rgba(0, 220, 255, 0.6),
-    0 0 30px rgba(0, 255, 200, 0.35),
-    inset 0 0 20px rgba(0, 255, 220, 0.1);
-}
-
-body.bifrost-active .bifrost-toggle:hover {
-  box-shadow: 
-    0 0 20px rgba(0, 220, 255, 0.8),
-    0 0 40px rgba(0, 255, 200, 0.5),
-    inset 0 0 25px rgba(0, 255, 220, 0.15);
-}
-
-body.bifrost-active .bifrost-toggle-icon {
-  animation: bifrost-rainbow 3s linear infinite;
-}
-
-@keyframes bifrost-rainbow {
-  0% { filter: hue-rotate(0deg); }
-  100% { filter: hue-rotate(360deg); }
+body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
+  text-shadow: 0 0 10px rgba(0, 220, 255, 0.8);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
@@ -435,6 +382,44 @@ body.bifrost-active .bifrost-toggle-icon {
   transform: translateY(-1px);
 }
 
+/* Experten-Karte im Popup */
+.bifrost-expert-card {
+  border-color: rgba(0, 220, 255, 0.4);
+}
+
+.bifrost-expert-link {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bifrost-expert-link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+  background: linear-gradient(135deg, 
+    rgba(0, 180, 255, 0.3), 
+    rgba(0, 255, 180, 0.25)
+  );
+  border: 1px solid rgba(0, 255, 220, 0.4);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.bifrost-expert-link a:hover {
+  background: linear-gradient(135deg, 
+    rgba(0, 180, 255, 0.5), 
+    rgba(0, 255, 180, 0.4)
+  );
+  box-shadow: 0 0 15px rgba(0, 220, 255, 0.4);
+  transform: translateY(-1px);
+}
+
 /* ═══════════════════════════════════════════════════════════════════════════════
    COMPARE VIEW: Kein Bifroest
    ═══════════════════════════════════════════════════════════════════════════════ */
@@ -450,6 +435,127 @@ body.bifrost-active .bifrost-toggle-icon {
 /* Im Compare-Panel auch kein Copyright */
 .compare-panel .bifrost-copyright {
   display: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   BIFRÖST EXPERTEN - Schwebende Namen bei Datenfeldern
+   Nur sichtbar wenn Bifröst-Mode aktiv
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Container für Experten - versteckt bis Bifröst aktiv */
+.bifrost-experts {
+  /* Position im Feld */
+  position: absolute;
+  top: 0.25rem;
+  right: 0.25rem;
+  z-index: 5;
+  
+  /* Layout (vorbereitet für wenn sichtbar) */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  justify-content: flex-end;
+  max-width: 60%;
+  
+  /* Hidden by default - wird von body.bifrost-active überschrieben */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+/* Einzelner Experten-Button */
+.bifrost-expert {
+  /* Reset */
+  all: unset;
+  cursor: pointer;
+  box-sizing: border-box;
+  
+  /* Layout */
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  
+  /* Styling */
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.75rem;
+  font-size: 0.65rem;
+  font-weight: 500;
+  
+  /* Farben - dezent, transparent */
+  color: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  
+  /* Animation */
+  transition: all 0.3s ease;
+}
+
+.bifrost-expert:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.7);
+  border-color: rgba(0, 220, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.bifrost-expert-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   BIFRÖST ACTIVE - Experten werden sichtbar und glühen
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+body.bifrost-active .bifrost-experts {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+body.bifrost-active .bifrost-expert {
+  color: rgba(0, 220, 255, 0.9);
+  background: rgba(0, 40, 60, 0.8);
+  border-color: rgba(0, 220, 255, 0.4);
+  box-shadow: 
+    0 0 8px rgba(0, 220, 255, 0.3),
+    inset 0 0 4px rgba(0, 220, 255, 0.1);
+  animation: bifrost-expert-glow 3s ease-in-out infinite;
+}
+
+body.bifrost-active .bifrost-expert:hover {
+  color: #fff;
+  background: rgba(0, 60, 80, 0.9);
+  border-color: rgba(0, 220, 255, 0.8);
+  box-shadow: 
+    0 0 15px rgba(0, 220, 255, 0.6),
+    0 0 30px rgba(0, 220, 255, 0.3),
+    inset 0 0 8px rgba(0, 220, 255, 0.2);
+}
+
+@keyframes bifrost-expert-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 8px rgba(0, 220, 255, 0.3),
+      inset 0 0 4px rgba(0, 220, 255, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 12px rgba(0, 220, 255, 0.5),
+      0 0 20px rgba(0, 220, 255, 0.2),
+      inset 0 0 6px rgba(0, 220, 255, 0.15);
+  }
+}
+
+/* Detail-Field muss position: relative haben für absolute Positionierung */
+.detail-field {
+  position: relative;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
@@ -474,6 +580,14 @@ body.bifrost-active .bifrost-toggle-icon {
   }
   
   .bifrost-name {
+    max-width: 80px;
+  }
+  
+  .bifrost-experts {
+    max-width: 50%;
+  }
+  
+  .bifrost-expert-name {
     max-width: 80px;
   }
 }

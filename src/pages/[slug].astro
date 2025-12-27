@@ -71,13 +71,17 @@ const perspectiveColors: Record<string, string[]> = {
 // Ermittle verfügbare Perspektiven dieser Spezies
 const availablePerspectives = [...new Set(Object.values(fieldPerspectiveMap))].filter(Boolean) as string[];
 
-// Alle Felder mit ihren Perspektiven
+// Bifröst: Feld-Experten aus _sources.json
+const fieldSources = (item._sources as any)?.fields || {};
+
+// Alle Felder mit ihren Perspektiven und Experten
 const fieldsWithPerspectives = Object.entries(item)
   .filter(([k]) => !['id', 'slug', 'name', 'bild', 'wissenschaftlich', 'image', 'scientific_name'].includes(k) && !k.startsWith('_'))
   .map(([key, value]) => ({
     key,
     value,
-    perspective: fieldPerspectiveMap[key] || null
+    perspective: fieldPerspectiveMap[key] || null,
+    experts: fieldSources[key] || []
   }));
 ---
 
@@ -159,9 +163,22 @@ const fieldsWithPerspectives = Object.entries(item)
       data-item-slug={item.slug}
       data-item-name={item.name}
     >
-      {fieldsWithPerspectives.map(({ key, value, perspective }) => (
+      {fieldsWithPerspectives.map(({ key, value, perspective, experts }) => (
         <div class="detail-field" data-field-key={key} data-perspective={perspective || ''}>
           <Fragment set:html={renderValue(value, key, detailContext)} />
+          {experts.length > 0 && (
+            <div class="bifrost-experts" data-experts={JSON.stringify(experts)}>
+              {experts.map((expert: any) => (
+                <button 
+                  type="button" 
+                  class="bifrost-expert"
+                  data-expert={JSON.stringify(expert)}
+                >
+                  <span class="bifrost-expert-name">{expert.name}</span>
+                </button>
+              ))}
+            </div>
+          )}
         </div>
       ))}
     </section>

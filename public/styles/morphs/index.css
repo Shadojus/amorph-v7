@@ -49,6 +49,9 @@
 /* Compare Mode */
 @import '_compare.css';
 
+/* Bifröst - Copyright Sources System */
+@import 'bifrost.css';
+
 /* Bifroest Copyright System */
 @import 'bifrost.css';
 
