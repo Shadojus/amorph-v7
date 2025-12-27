@@ -71,38 +71,6 @@
       ]
     },
     {
-      "slug": "ganoderma-lucidum",
-      "name": "Glaenzender Lackporling",
-      "scientific_name": "Ganoderma lucidum",
-      "tagline": "Immunmodulation · Jun–Okt",
-      "image": "Ganoderma_lucidum.jpg",
-      "badges": [
-        {
-          "icon": "🛡️",
-          "label": "Schutzstatus",
-          "status": "LC",
-          "variant": "success"
-        }
-      ],
-      "quick_facts": [
-        {
-          "icon": "📏",
-          "label": "Größe",
-          "value": "5–25 cm"
-        },
-        {
-          "icon": "🎨",
-          "label": "Farbe",
-          "value": "rotbraun"
-        },
-        {
-          "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
-        }
-      ]
-    },
-    {
       "slug": "inonotus-obliquus",
       "name": "Chaga",
       "scientific_name": "Inonotus obliquus",
@@ -135,11 +103,11 @@
       ]
     },
     {
-      "slug": "fomitopsis-betulina",
-      "name": "Birkenporling",
-      "scientific_name": "Fomitopsis betulina",
-      "tagline": "Magen-Darm-Beschwerden · Jan–Dez",
-      "image": "Fomitopsis_betulina.jpg",
+      "slug": "ganoderma-lucidum",
+      "name": "Glaenzender Lackporling",
+      "scientific_name": "Ganoderma lucidum",
+      "tagline": "Immunmodulation · Jun–Okt",
+      "image": "Ganoderma_lucidum.jpg",
       "badges": [
         {
           "icon": "🛡️",
@@ -152,12 +120,44 @@
         {
           "icon": "📏",
           "label": "Größe",
-          "value": "3–30 cm"
+          "value": "5–25 cm"
         },
         {
           "icon": "🎨",
           "label": "Farbe",
-          "value": "weisslich-cremefarben"
+          "value": "rotbraun"
+        },
+        {
+          "icon": "🌲",
+          "label": "Ökosystem",
+          "value": "Wald"
+        }
+      ]
+    },
+    {
+      "slug": "lentinula-edodes",
+      "name": "Shiitake",
+      "scientific_name": "Lentinula edodes",
+      "tagline": "Immunstimulation · Apr–Nov",
+      "image": "Lentinula_edodes.jpg",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "neutral"
+        }
+      ],
+      "quick_facts": [
+        {
+          "icon": "📏",
+          "label": "Größe",
+          "value": "5–25 cm"
+        },
+        {
+          "icon": "🎨",
+          "label": "Farbe",
+          "value": "dunkelbraun"
         },
         {
           "icon": "🌲",
@@ -188,8 +188,7 @@
         "ecology",
         "identification",
         "medicine",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
         "Hericiaceae",
@@ -216,38 +215,10 @@
         "ecology",
         "identification",
         "medicine",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
         "Meripilaceae",
-        "Polyporales"
-      ]
-    },
-    {
-      "slug": "ganoderma-lucidum",
-      "name": "Glaenzender Lackporling",
-      "scientific_name": "Ganoderma lucidum",
-      "tagline": "Immunmodulation · Jun–Okt",
-      "image": "Ganoderma_lucidum.jpg",
-      "badges": [
-        {
-          "icon": "🛡️",
-          "label": "Schutzstatus",
-          "status": "LC",
-          "variant": "success"
-        }
-      ],
-      "season": "Jun–Okt",
-      "perspectives": [
-        "ecology",
-        "identification",
-        "medicine",
-        "safety",
-        "_sources"
-      ],
-      "categories": [
-        "Ganodermataceae",
         "Polyporales"
       ]
     },
@@ -278,11 +249,11 @@
       ]
     },
     {
-      "slug": "fomitopsis-betulina",
-      "name": "Birkenporling",
-      "scientific_name": "Fomitopsis betulina",
-      "tagline": "Magen-Darm-Beschwerden · Jan–Dez",
-      "image": "Fomitopsis_betulina.jpg",
+      "slug": "ganoderma-lucidum",
+      "name": "Glaenzender Lackporling",
+      "scientific_name": "Ganoderma lucidum",
+      "tagline": "Immunmodulation · Jun–Okt",
+      "image": "Ganoderma_lucidum.jpg",
       "badges": [
         {
           "icon": "🛡️",
@@ -291,44 +262,16 @@
           "variant": "success"
         }
       ],
-      "season": "Jan–Dez",
+      "season": "Jun–Okt",
       "perspectives": [
         "ecology",
         "identification",
         "medicine",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
-        "Fomitopsidaceae",
+        "Ganodermataceae",
         "Polyporales"
-      ]
-    },
-    {
-      "slug": "cordyceps-militaris",
-      "name": "Puppenkernkeule",
-      "scientific_name": "Cordyceps militaris",
-      "tagline": "Immunstimulation · Jul–Okt",
-      "image": "Cordyceps_militaris.jpg",
-      "badges": [
-        {
-          "icon": "🛡️",
-          "label": "Schutzstatus",
-          "status": "NE",
-          "variant": "neutral"
-        }
-      ],
-      "season": "Jul–Okt",
-      "perspectives": [
-        "ecology",
-        "identification",
-        "medicine",
-        "safety",
-        "_sources"
-      ],
-      "categories": [
-        "Cordycipitaceae",
-        "Hypocreales"
       ]
     },
     {
@@ -356,6 +299,58 @@
       "categories": [
         "Omphalotaceae",
         "Agaricales"
+      ]
+    },
+    {
+      "slug": "fomitopsis-betulina",
+      "name": "Birkenporling",
+      "scientific_name": "Fomitopsis betulina",
+      "tagline": "Magen-Darm-Beschwerden · Jan–Dez",
+      "image": "Fomitopsis_betulina.jpg",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jan–Dez",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "categories": [
+        "Fomitopsidaceae",
+        "Polyporales"
+      ]
+    },
+    {
+      "slug": "cordyceps-militaris",
+      "name": "Puppenkernkeule",
+      "scientific_name": "Cordyceps militaris",
+      "tagline": "Immunstimulation · Jul–Okt",
+      "image": "Cordyceps_militaris.jpg",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "NE",
+          "variant": "neutral"
+        }
+      ],
+      "season": "Jul–Okt",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "medicine",
+        "safety"
+      ],
+      "categories": [
+        "Cordycipitaceae",
+        "Hypocreales"
       ]
     },
     {
@@ -407,8 +402,7 @@
         "cultivation",
         "ecology",
         "identification",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
         "Strophariaceae",
@@ -434,8 +428,7 @@
         "culinary",
         "ecology",
         "identification",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
         "Strophariaceae",
@@ -461,8 +454,7 @@
         "culinary",
         "ecology",
         "identification",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
         "Strophariaceae",
@@ -488,8 +480,7 @@
         "culinary",
         "ecology",
         "identification",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
         "Physalacriaceae",
@@ -515,8 +506,7 @@
         "ecology",
         "identification",
         "medicine",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
         "Polyporaceae",
@@ -542,142 +532,11 @@
         "culinary",
         "ecology",
         "identification",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
         "Polyporaceae",
         "Polyporales"
-      ]
-    },
-    {
-      "slug": "ganoderma-applanatum",
-      "name": "Flacher Lackporling",
-      "scientific_name": "Ganoderma applanatum",
-      "tagline": "Jan–Dez",
-      "image": "Ganoderma_applanatum.jpg",
-      "badges": [
-        {
-          "icon": "🛡️",
-          "label": "Schutzstatus",
-          "status": "LC",
-          "variant": "success"
-        }
-      ],
-      "season": "Jan–Dez",
-      "perspectives": [
-        "ecology",
-        "identification",
-        "safety",
-        "_sources"
-      ],
-      "categories": [
-        "Ganodermataceae",
-        "Polyporales"
-      ]
-    },
-    {
-      "slug": "ganoderma-curtisii",
-      "name": "Goldener Lackporling",
-      "scientific_name": "Ganoderma curtisii",
-      "tagline": "Jun–Okt",
-      "image": "Ganoderma_curtisii.jpg",
-      "badges": [
-        {
-          "icon": "🛡️",
-          "label": "Schutzstatus",
-          "status": "LC",
-          "variant": "success"
-        }
-      ],
-      "season": "Jun–Okt",
-      "perspectives": [
-        "ecology",
-        "identification",
-        "safety",
-        "_sources"
-      ],
-      "categories": [
-        "Ganodermataceae",
-        "Polyporales"
-      ]
-    },
-    {
-      "slug": "panellus-stipticus",
-      "name": "Herber Zwergknaeuel",
-      "scientific_name": "Panellus stipticus",
-      "tagline": "Jan–Dez",
-      "image": "Panellus_stipticus.jpg",
-      "badges": [
-        {
-          "icon": "🛡️",
-          "label": "Schutzstatus",
-          "status": "LC",
-          "variant": "success"
-        }
-      ],
-      "season": "Jan–Dez",
-      "perspectives": [
-        "ecology",
-        "identification",
-        "safety",
-        "_sources"
-      ],
-      "categories": [
-        "Mycenaceae",
-        "Agaricales"
-      ]
-    },
-    {
-      "slug": "auricularia-auricula-judae",
-      "name": "Judasohr",
-      "scientific_name": "Auricularia auricula-judae",
-      "tagline": null,
-      "image": "Auricularia_auricula_judae.jpg",
-      "badges": [
-        {
-          "icon": "☠️",
-          "label": "Giftigkeit",
-          "status": "Non-toxic",
-          "variant": "success"
-        }
-      ],
-      "season": null,
-      "perspectives": [
-        "ecology",
-        "identification",
-        "safety",
-        "_sources"
-      ],
-      "categories": [
-        "Auriculariaceae",
-        "Auriculariales"
-      ]
-    },
-    {
-      "slug": "macrolepiota-procera",
-      "name": "Parasol",
-      "scientific_name": "Macrolepiota procera",
-      "tagline": null,
-      "image": "Macrolepiota_procera.jpg",
-      "badges": [
-        {
-          "icon": "☠️",
-          "label": "Giftigkeit",
-          "status": "Non-toxic",
-          "variant": "success"
-        }
-      ],
-      "season": null,
-      "perspectives": [
-        "ecology",
-        "identification",
-        "safety",
-        "_sources"
-      ],
-      "categories": [
-        "Agaricaceae",
-        "Agaricales"
       ]
     },
     {
@@ -707,6 +566,131 @@
       ]
     },
     {
+      "slug": "ganoderma-applanatum",
+      "name": "Flacher Lackporling",
+      "scientific_name": "Ganoderma applanatum",
+      "tagline": "Jan–Dez",
+      "image": "Ganoderma_applanatum.jpg",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jan–Dez",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Ganodermataceae",
+        "Polyporales"
+      ]
+    },
+    {
+      "slug": "ganoderma-curtisii",
+      "name": "Goldener Lackporling",
+      "scientific_name": "Ganoderma curtisii",
+      "tagline": "Jun–Okt",
+      "image": "Ganoderma_curtisii.jpg",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jun–Okt",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Ganodermataceae",
+        "Polyporales"
+      ]
+    },
+    {
+      "slug": "panellus-stipticus",
+      "name": "Herber Zwergknaeuel",
+      "scientific_name": "Panellus stipticus",
+      "tagline": "Jan–Dez",
+      "image": "Panellus_stipticus.jpg",
+      "badges": [
+        {
+          "icon": "🛡️",
+          "label": "Schutzstatus",
+          "status": "LC",
+          "variant": "success"
+        }
+      ],
+      "season": "Jan–Dez",
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Mycenaceae",
+        "Agaricales"
+      ]
+    },
+    {
+      "slug": "auricularia-auricula-judae",
+      "name": "Judasohr",
+      "scientific_name": "Auricularia auricula-judae",
+      "tagline": null,
+      "image": "Auricularia_auricula_judae.jpg",
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Auriculariaceae",
+        "Auriculariales"
+      ]
+    },
+    {
+      "slug": "macrolepiota-procera",
+      "name": "Parasol",
+      "scientific_name": "Macrolepiota procera",
+      "tagline": null,
+      "image": "Macrolepiota_procera.jpg",
+      "badges": [
+        {
+          "icon": "☠️",
+          "label": "Giftigkeit",
+          "status": "Non-toxic",
+          "variant": "success"
+        }
+      ],
+      "season": null,
+      "perspectives": [
+        "ecology",
+        "identification",
+        "safety"
+      ],
+      "categories": [
+        "Agaricaceae",
+        "Agaricales"
+      ]
+    },
+    {
       "slug": "pleurotus-pulmonarius",
       "name": "Lungenseitling",
       "scientific_name": "Pleurotus pulmonarius",
@@ -716,8 +700,7 @@
       "season": null,
       "perspectives": [
         "identification",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
         "Pleurotaceae",
@@ -741,8 +724,7 @@
       "season": null,
       "perspectives": [
         "identification",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
         "Cantharellaceae",
@@ -766,8 +748,7 @@
       "season": null,
       "perspectives": [
         "identification",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
         "Agaricaceae",
@@ -784,8 +765,7 @@
       "season": null,
       "perspectives": [
         "identification",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
         "Pleurotaceae",
@@ -809,8 +789,7 @@
       "season": null,
       "perspectives": [
         "identification",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
         "Agaricaceae",
@@ -827,8 +806,7 @@
       "season": null,
       "perspectives": [
         "identification",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
         "Pleurotaceae",
@@ -845,8 +823,7 @@
       "season": null,
       "perspectives": [
         "identification",
-        "safety",
-        "_sources"
+        "safety"
       ],
       "categories": [
         "Pleurotaceae",
@@ -855,7 +832,7 @@
     }
   ],
   "stats": {
-    "total_perspectives": 119,
+    "total_perspectives": 96,
     "with_medicinal": 9,
     "with_culinary": 10,
     "with_safety": 27
