@@ -38,6 +38,12 @@ function handleGridClick(e: Event): void {
   
   debug.layout('Grid click', { target: target.className, tagName: target.tagName });
   
+  // WICHTIG: Bifröst-Elemente haben eigene Handler - nicht als Field-Selection behandeln
+  if (target.closest('.bifroest-expert') || target.closest('.bifroest-copyright') || target.closest('.bifroest-experts')) {
+    debug.layout('Grid click - Bifröst element, ignoring for field selection');
+    return;
+  }
+  
   // Check if clicked on a field (or child of field) - direct selection
   const field = target.closest('.amorph-field') as HTMLElement;
   if (field) {

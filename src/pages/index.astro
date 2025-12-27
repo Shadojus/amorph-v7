@@ -379,6 +379,10 @@ const gridContext: RenderContext = {
         const imageSource = imageSources.length > 0 ? imageSources[0] : null;
         const imageSourcesJson = imageSources.length > 0 ? JSON.stringify(imageSources) : '';
         
+        // Bifröst: Field experts
+        const fieldExperts = (itemSources as any).fields || {};
+        const fieldExpertsJson = Object.keys(fieldExperts).length > 0 ? JSON.stringify(fieldExperts) : '';
+        
         return (
           <article 
             class="amorph-item"
@@ -386,15 +390,16 @@ const gridContext: RenderContext = {
             data-id={item.id}
             data-name={item.name}
             data-field-perspectives={fieldPerspectiveJson}
+            data-field-experts={fieldExpertsJson}
           >
             <div class="item-header">
               {imageUrl && (
                 <div class="item-image">
                   <img src={imageUrl} alt={item.name} loading="lazy" />
                   {imageSource && (
-                    <button type="button" class="bifrost-copyright" data-sources={imageSourcesJson}>
-                      <span class="bifrost-symbol">©</span>
-                      <span class="bifrost-name">{imageSource.name || imageSource.author || ''}</span>
+                    <button type="button" class="bifroest-copyright" data-sources={imageSourcesJson}>
+                      <span class="bifroest-symbol">©</span>
+                      <span class="bifroest-name">{imageSource.name || imageSource.author || ''}</span>
                     </button>
                   )}
                 </div>
@@ -497,7 +502,7 @@ const gridContext: RenderContext = {
       <span class="bottom-nav-label">Vergleich</span>
       <span class="bottom-nav-badge">0</span>
     </button>
-    <button type="button" class="bottom-nav-item bifrost-toggle" data-nav="bifroest" aria-label="Bifröst – Quellen anzeigen">
+    <button type="button" class="bottom-nav-item bifroest-toggle" data-nav="bifroest" aria-label="Bifröst – Quellen anzeigen">
       <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 2L2 7l10 5 10-5-10-5z"/>
         <path d="m2 17 10 5 10-5"/>

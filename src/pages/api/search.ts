@@ -10,7 +10,7 @@
  */
 
 import type { APIRoute } from 'astro';
-import { loadConfig, getPerspective } from '../../server/config';
+import { loadConfig, getPerspective, getSiteType, SITE_META } from '../../server/config';
 import { searchItems } from '../../server/data';
 import { renderValue } from '../../morphs';
 import type { RenderContext } from '../../core/types';
@@ -97,7 +97,7 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
     const html = result.items.map(item => {
       // Standard-Felder (ohne Perspektiven) - renderValue gibt bereits komplettes amorph-field zurück
       const standardFields = Object.entries(item)
-        .filter(([k]) => !['id', 'slug', 'name', 'bild', 'wissenschaftlich'].includes(k) && !k.startsWith('_'))
+        .filter(([k]) => !['id', 'slug', 'name', 'image', 'bild', 'wissenschaftlich', 'tagline', 'badges', 'season', 'perspectives', 'categories', 'description', 'scientific_name'].includes(k) && !k.startsWith('_'))
         .slice(0, 4)  // Weniger Standard-Felder wenn Perspektiven aktiv
         .map(([key, value]) => {
           const morphHtml = renderValue(value, key, gridContext);
@@ -170,10 +170,31 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
       }
       const fieldPerspectiveJson = JSON.stringify(fieldPerspectiveMap);
 
+      // Build image URL correctly (same logic as index.astro)
+      const kingdom = SITE_META[getSiteType()].dataFolder;
+      const imageField = item.image ? String(item.image) : null;
+      let imageUrl: string | null = null;
+      if (imageField) {
+        if (imageField.startsWith('/')) {
+          imageUrl = imageField;
+        } else {
+          imageUrl = `/api/image/${kingdom}/${item.slug}/${encodeURIComponent(imageField)}`;
+        }
+      }
+
+      // Bifröst: Image copyright sources
+      const itemSources = item._sources || {};
+      const imageSources = (itemSources as any).image || [];
+      const imageSource = imageSources.length > 0 ? imageSources[0] : null;
+      const imageSourcesJson = imageSources.length > 0 ? JSON.stringify(imageSources) : '';
+
+      // Bifröst: Field experts for this item
+      const fieldExperts = (itemSources as any).fields || {};
+
       return `
-        <article class="amorph-item" data-slug="${escapeAttribute(item.slug)}" data-id="${escapeAttribute(item.id)}" data-name="${escapeAttribute(item.name)}" data-field-perspectives="${escapeAttribute(fieldPerspectiveJson)}">
+        <article class="amorph-item" data-slug="${escapeAttribute(item.slug)}" data-id="${escapeAttribute(item.id)}" data-name="${escapeAttribute(item.name)}" data-field-perspectives="${escapeAttribute(fieldPerspectiveJson)}" data-field-experts="${escapeAttribute(JSON.stringify(fieldExperts))}">
           <div class="item-header">
-            ${item.bild ? `<div class="item-image"><img src="${escapeAttribute(item.bild)}" alt="${escapeAttribute(item.name)}" loading="lazy" /></div>` : ''}
+            ${imageUrl ? `<div class="item-image"><img src="${escapeAttribute(imageUrl)}" alt="${escapeAttribute(item.name)}" loading="lazy" />${imageSource ? `<button type="button" class="bifroest-copyright" data-sources="${escapeAttribute(imageSourcesJson)}"><span class="bifroest-symbol">©</span><span class="bifroest-name">${escapeHtml(imageSource.name || imageSource.author || '')}</span></button>` : ''}</div>` : ''}
             <div class="item-title-row">
               <h2 class="item-name">${escapeHtml(item.name)}</h2>
               <a href="/${escapeAttribute(item.slug)}" class="item-detail-link" title="Details anzeigen">→</a>

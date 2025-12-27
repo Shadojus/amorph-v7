@@ -23,7 +23,7 @@
    Positioniert unten rechts im Bild - dezent aber sichtbar
    ═══════════════════════════════════════════════════════════════════════════════ */
 
-.bifrost-copyright {
+.bifroest-copyright {
   /* Reset button styles */
   all: unset;
   cursor: pointer;
@@ -45,38 +45,38 @@
   border-radius: 1rem;
   
   /* Styling: Dunkel, dezent, transparent - harmonisch mit Dark Theme */
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.55);
-  background: rgba(0, 0, 0, 0.65);
+  color: rgba(180, 200, 210, 0.7);
+  background: rgba(10, 20, 30, 0.85);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(100, 150, 180, 0.2);
   
   /* Smooth Transition für Bifröst-Mode */
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.bifrost-copyright:hover {
-  color: rgba(255, 255, 255, 0.95);
-  background: rgba(0, 0, 0, 0.85);
-  border-color: rgba(255, 255, 255, 0.25);
+.bifroest-copyright:hover {
+  color: rgba(200, 220, 230, 0.95);
+  background: rgba(10, 25, 40, 0.95);
+  border-color: rgba(100, 180, 200, 0.4);
   transform: scale(1.05);
 }
 
-.bifrost-copyright:focus-visible {
-  outline: 2px solid rgba(0, 220, 255, 0.8);
+.bifroest-copyright:focus-visible {
+  outline: 2px solid rgba(0, 180, 200, 0.6);
   outline-offset: 2px;
 }
 
 /* © Symbol */
-.bifrost-symbol {
+.bifroest-symbol {
   font-weight: bold;
   font-size: 0.9em;
 }
 
 /* Quellen-Name: standardmäßig versteckt */
-.bifrost-name {
+.bifroest-name {
   display: none;
   font-size: 0.7rem;
   max-width: 100px;
@@ -87,78 +87,88 @@
 
 /* ═══════════════════════════════════════════════════════════════════════════════
    BIFRÖST MODE (aktiv)
-   © leuchten wunderschön, Namen werden sichtbar
-   Das dunkle Theme lässt den Glow perfekt zur Geltung kommen
+   © zeigen sanften Nebel-Drift wie im Header
+   Keine harten Farbwechsel, nur fließende Bewegung
    ═══════════════════════════════════════════════════════════════════════════════ */
 
-body.bifrost-active .bifrost-copyright {
-  /* Leuchtende Farben */
-  color: #fff;
+body.bifroest-active .bifroest-copyright {
+  /* Cyan-Töne statt weiß - gut lesbar */
+  color: rgba(150, 230, 240, 0.95);
   background: linear-gradient(135deg, 
-    rgba(0, 200, 255, 0.3), 
-    rgba(0, 255, 200, 0.25)
+    rgba(10, 40, 50, 0.95), 
+    rgba(15, 35, 45, 0.9)
   );
-  border-color: rgba(0, 255, 220, 0.6);
+  border-color: rgba(80, 200, 220, 0.5);
   
-  /* Intensiver Glow - das Herzstück des Bifröst */
+  /* Statischer Glow - keine Animation die blinkt */
   box-shadow: 
-    0 0 10px rgba(0, 220, 255, 0.7),
-    0 0 20px rgba(0, 255, 200, 0.5),
-    0 0 30px rgba(0, 200, 255, 0.25),
-    inset 0 0 10px rgba(0, 255, 220, 0.15);
+    0 0 8px rgba(0, 180, 200, 0.4),
+    0 0 15px rgba(0, 200, 180, 0.2),
+    inset 0 0 6px rgba(0, 200, 220, 0.1);
   
-  /* Pulsierender Glow-Effekt */
-  animation: bifrost-glow 2.5s ease-in-out infinite;
+  /* Nebel-Drift Animation statt Pulsieren */
+  animation: bifroest-drift 8s ease-in-out infinite;
 }
 
-body.bifrost-active .bifrost-copyright:hover {
-  transform: scale(1.1);
+body.bifroest-active .bifroest-copyright:hover {
+  transform: scale(1.08);
+  color: rgba(180, 240, 250, 1);
   box-shadow: 
-    0 0 15px rgba(0, 220, 255, 0.9),
-    0 0 30px rgba(0, 255, 200, 0.7),
-    0 0 45px rgba(0, 200, 255, 0.4),
-    inset 0 0 15px rgba(0, 255, 220, 0.2);
+    0 0 12px rgba(0, 200, 220, 0.6),
+    0 0 25px rgba(0, 220, 200, 0.3),
+    inset 0 0 8px rgba(0, 220, 240, 0.15);
 }
 
 /* Name sichtbar im Bifröst-Mode */
-body.bifrost-active .bifrost-name {
+body.bifroest-active .bifroest-name {
   display: inline;
 }
 
-/* Eleganter Puls-Glow Animation */
-@keyframes bifrost-glow {
+/* Nebel-Drift: Sanftes Schweben statt Blinken */
+@keyframes bifroest-drift {
   0%, 100% {
+    transform: translateX(0) translateY(0);
     box-shadow: 
-      0 0 10px rgba(0, 220, 255, 0.7),
-      0 0 20px rgba(0, 255, 200, 0.5),
-      0 0 30px rgba(0, 200, 255, 0.25),
-      inset 0 0 10px rgba(0, 255, 220, 0.15);
-    border-color: rgba(0, 255, 220, 0.6);
+      0 0 8px rgba(0, 180, 200, 0.4),
+      0 0 15px rgba(0, 200, 180, 0.2),
+      inset 0 0 6px rgba(0, 200, 220, 0.1);
+  }
+  25% {
+    transform: translateX(1px) translateY(-1px);
+    box-shadow: 
+      0 0 10px rgba(0, 200, 180, 0.45),
+      0 0 18px rgba(0, 180, 200, 0.22),
+      inset 0 0 6px rgba(0, 220, 200, 0.1);
   }
   50% {
+    transform: translateX(2px) translateY(-1px);
     box-shadow: 
-      0 0 15px rgba(0, 220, 255, 0.9),
-      0 0 30px rgba(0, 255, 200, 0.7),
-      0 0 45px rgba(0, 200, 255, 0.35),
-      0 0 60px rgba(100, 255, 220, 0.15),
-      inset 0 0 15px rgba(0, 255, 220, 0.2);
-    border-color: rgba(100, 255, 220, 0.8);
+      0 0 9px rgba(0, 190, 190, 0.42),
+      0 0 16px rgba(0, 190, 190, 0.2),
+      inset 0 0 6px rgba(0, 210, 210, 0.1);
+  }
+  75% {
+    transform: translateX(1px) translateY(0);
+    box-shadow: 
+      0 0 8px rgba(0, 180, 200, 0.4),
+      0 0 14px rgba(0, 200, 200, 0.18),
+      inset 0 0 6px rgba(0, 200, 220, 0.1);
   }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   BOTTOM NAV BIFROST TOGGLE
+   BOTTOM NAV BIFROEST TOGGLE
    Der Bifröst-Button im Footer - Aktiviert den Copyright-Modus
    Verwendet das normale bottom-nav-item Design, nur aktiver Zustand ist speziell
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 /* Bottom Nav Bifröst Button aktiv - GLOWING! */
-body.bifrost-active .bottom-nav-item.bifrost-toggle {
+body.bifroest-active .bottom-nav-item.bifroest-toggle {
   color: #0df !important;
 }
 
 /* Active indicator line - Cyan statt System-Color */
-body.bifrost-active .bottom-nav-item.bifrost-toggle::before {
+body.bifroest-active .bottom-nav-item.bifroest-toggle::before {
   content: '';
   position: absolute;
   top: 0;
@@ -171,12 +181,12 @@ body.bifrost-active .bottom-nav-item.bifrost-toggle::before {
   box-shadow: 0 0 12px #0df;
 }
 
-body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-icon {
+body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-icon {
   transform: scale(1.1);
   filter: drop-shadow(0 0 8px rgba(0, 220, 255, 0.8));
 }
 
-body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
+body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-label {
   text-shadow: 0 0 10px rgba(0, 220, 255, 0.8);
 }
 
@@ -186,7 +196,7 @@ body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
    Glowing Border, harmonisch mit dem Theme
    ═══════════════════════════════════════════════════════════════════════════════ */
 
-.bifrost-overlay {
+.bifroest-overlay {
   /* Fixed Overlay */
   position: fixed;
   inset: 0;
@@ -209,13 +219,13 @@ body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
   transition: all 0.3s ease;
 }
 
-.bifrost-overlay.visible {
+.bifroest-overlay.visible {
   opacity: 1;
   visibility: visible;
 }
 
 /* Popup Container mit Glow */
-.bifrost-popup {
+.bifroest-popup {
   /* Layout */
   position: relative;
   max-width: 450px;
@@ -243,12 +253,12 @@ body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
   transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.bifrost-overlay.visible .bifrost-popup {
+.bifroest-overlay.visible .bifroest-popup {
   transform: scale(1) translateY(0);
 }
 
 /* Popup Header */
-.bifrost-popup-header {
+.bifroest-popup-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -257,22 +267,22 @@ body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.bifrost-popup-title {
+.bifroest-popup-title {
   display: flex;
   align-items: center;
   gap: 0.5rem;
   margin: 0;
   font-size: 1.1rem;
   font-weight: 600;
-  color: #fff;
+  color: rgba(200, 230, 240, 0.95);
 }
 
-.bifrost-popup-title .bifrost-symbol {
+.bifroest-popup-title .bifroest-symbol {
   color: rgba(0, 255, 220, 0.9);
   font-size: 1.2rem;
 }
 
-.bifrost-popup-close {
+.bifroest-popup-close {
   all: unset;
   cursor: pointer;
   display: flex;
@@ -286,26 +296,26 @@ body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
   transition: all 0.2s ease;
 }
 
-.bifrost-popup-close:hover {
-  color: #fff;
-  background: rgba(255, 100, 100, 0.3);
+.bifroest-popup-close:hover {
+  color: rgba(255, 180, 180, 0.95);
+  background: rgba(200, 80, 80, 0.25);
 }
 
 /* Quellen-Liste im Popup */
-.bifrost-sources {
+.bifroest-sources {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.bifrost-source {
+.bifroest-source {
   padding: 1rem;
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 0.75rem;
 }
 
-.bifrost-source-name {
+.bifroest-source-name {
   font-weight: 600;
   font-size: 1.05rem;
   color: rgba(0, 255, 220, 0.95);
@@ -315,45 +325,45 @@ body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
   gap: 0.5rem;
 }
 
-.bifrost-source-name::before {
+.bifroest-source-name::before {
   content: '©';
   opacity: 0.7;
 }
 
-.bifrost-source-details {
+.bifroest-source-details {
   display: grid;
   gap: 0.4rem;
   font-size: 0.85rem;
 }
 
-.bifrost-source-row {
+.bifroest-source-row {
   display: flex;
   gap: 0.75rem;
 }
 
-.bifrost-source-label {
-  color: rgba(255, 255, 255, 0.4);
+.bifroest-source-label {
+  color: rgba(140, 180, 200, 0.55);
   min-width: 75px;
   flex-shrink: 0;
 }
 
-.bifrost-source-value {
-  color: rgba(255, 255, 255, 0.85);
+.bifroest-source-value {
+  color: rgba(180, 210, 220, 0.9);
 }
 
-.bifrost-source-value a {
+.bifroest-source-value a {
   color: rgba(0, 200, 255, 0.9);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.bifrost-source-value a:hover {
+.bifroest-source-value a:hover {
   color: #0ff;
   text-decoration: underline;
 }
 
 /* Contact Button */
-.bifrost-contact-btn {
+.bifroest-contact-btn {
   all: unset;
   cursor: pointer;
   display: inline-flex;
@@ -364,36 +374,31 @@ body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
   border-radius: 0.5rem;
   font-size: 0.85rem;
   font-weight: 500;
-  color: #fff;
-  background: linear-gradient(135deg, 
-    rgba(0, 180, 255, 0.3), 
-    rgba(0, 255, 180, 0.25)
-  );
-  border: 1px solid rgba(0, 255, 220, 0.4);
+  color: rgba(150, 230, 245, 0.95);
+  background: rgba(15, 45, 60, 0.8);
+  border: 1px solid rgba(80, 190, 210, 0.45);
   transition: all 0.2s ease;
 }
 
-.bifrost-contact-btn:hover {
-  background: linear-gradient(135deg, 
-    rgba(0, 180, 255, 0.5), 
-    rgba(0, 255, 180, 0.4)
-  );
-  box-shadow: 0 0 15px rgba(0, 220, 255, 0.4);
+.bifroest-contact-btn:hover {
+  background: rgba(20, 55, 75, 0.9);
+  border-color: rgba(100, 210, 230, 0.6);
+  box-shadow: 0 0 12px rgba(0, 200, 220, 0.35);
   transform: translateY(-1px);
 }
 
 /* Experten-Karte im Popup */
-.bifrost-expert-card {
+.bifroest-expert-card {
   border-color: rgba(0, 220, 255, 0.4);
 }
 
-.bifrost-expert-link {
+.bifroest-expert-link {
   margin-top: 1rem;
   padding-top: 0.75rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.bifrost-expert-link a {
+.bifroest-expert-link a {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -401,22 +406,17 @@ body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
   border-radius: 0.5rem;
   font-size: 0.85rem;
   font-weight: 500;
-  color: #fff;
-  background: linear-gradient(135deg, 
-    rgba(0, 180, 255, 0.3), 
-    rgba(0, 255, 180, 0.25)
-  );
-  border: 1px solid rgba(0, 255, 220, 0.4);
+  color: rgba(150, 230, 245, 0.95);
+  background: rgba(15, 45, 60, 0.8);
+  border: 1px solid rgba(80, 190, 210, 0.45);
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
-.bifrost-expert-link a:hover {
-  background: linear-gradient(135deg, 
-    rgba(0, 180, 255, 0.5), 
-    rgba(0, 255, 180, 0.4)
-  );
-  box-shadow: 0 0 15px rgba(0, 220, 255, 0.4);
+.bifroest-expert-link a:hover {
+  background: rgba(20, 55, 75, 0.9);
+  border-color: rgba(100, 210, 230, 0.6);
+  box-shadow: 0 0 12px rgba(0, 200, 220, 0.35);
   transform: translateY(-1px);
 }
 
@@ -424,16 +424,16 @@ body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
    COMPARE VIEW: Kein Bifroest
    ═══════════════════════════════════════════════════════════════════════════════ */
 
-.compare-view .bifrost-copyright,
-.compare-view .bifrost-toggle,
-.compare-active .bifrost-toggle,
-[data-mode="compare"] .bifrost-copyright,
-[data-mode="compare"] .bifrost-toggle {
+.compare-view .bifroest-copyright,
+.compare-view .bifroest-toggle,
+.compare-active .bifroest-toggle,
+[data-mode="compare"] .bifroest-copyright,
+[data-mode="compare"] .bifroest-toggle {
   display: none !important;
 }
 
 /* Im Compare-Panel auch kein Copyright */
-.compare-panel .bifrost-copyright {
+.compare-panel .bifroest-copyright {
   display: none !important;
 }
 
@@ -443,12 +443,12 @@ body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 /* Container für Experten - versteckt bis Bifröst aktiv */
-.bifrost-experts {
+.bifroest-experts {
   /* Position im Feld */
   position: absolute;
   top: 0.25rem;
   right: 0.25rem;
-  z-index: 5;
+  z-index: 15; /* Above field selection (z-index: 10) */
   
   /* Layout (vorbereitet für wenn sichtbar) */
   display: flex;
@@ -457,7 +457,7 @@ body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
   justify-content: flex-end;
   max-width: 60%;
   
-  /* Hidden by default - wird von body.bifrost-active überschrieben */
+  /* Hidden by default - wird von body.bifroest-active überschrieben */
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -466,7 +466,7 @@ body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
 }
 
 /* Einzelner Experten-Button */
-.bifrost-expert {
+.bifroest-expert {
   /* Reset */
   all: unset;
   cursor: pointer;
@@ -483,25 +483,25 @@ body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
   font-size: 0.65rem;
   font-weight: 500;
   
-  /* Farben - dezent, transparent */
-  color: rgba(255, 255, 255, 0.5);
-  background: rgba(0, 0, 0, 0.5);
+  /* Farben - dezent, transparent, kein Weiß */
+  color: rgba(160, 200, 210, 0.6);
+  background: rgba(10, 25, 35, 0.7);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(80, 140, 160, 0.15);
   
   /* Animation */
   transition: all 0.3s ease;
 }
 
-.bifrost-expert:hover {
-  color: rgba(255, 255, 255, 0.95);
-  background: rgba(0, 0, 0, 0.7);
-  border-color: rgba(0, 220, 255, 0.5);
+.bifroest-expert:hover {
+  color: rgba(180, 220, 230, 0.95);
+  background: rgba(15, 35, 50, 0.85);
+  border-color: rgba(80, 180, 200, 0.5);
   transform: scale(1.05);
 }
 
-.bifrost-expert-name {
+.bifroest-expert-name {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -509,47 +509,72 @@ body.bifrost-active .bottom-nav-item.bifrost-toggle .bottom-nav-label {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   BIFRÖST ACTIVE - Experten werden sichtbar und glühen
+   BIFRÖST ACTIVE - Experten werden sichtbar mit sanftem Nebel-Effekt
    ═══════════════════════════════════════════════════════════════════════════════ */
 
-body.bifrost-active .bifrost-experts {
+body.bifroest-active .bifroest-experts {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
   transform: translateY(0);
 }
 
-body.bifrost-active .bifrost-expert {
-  color: rgba(0, 220, 255, 0.9);
-  background: rgba(0, 40, 60, 0.8);
-  border-color: rgba(0, 220, 255, 0.4);
+body.bifroest-active .bifroest-expert {
+  /* Cyan-Töne statt Weiß - bessere Lesbarkeit */
+  color: rgba(140, 220, 235, 0.95);
+  background: rgba(12, 35, 50, 0.95);
+  border-color: rgba(80, 190, 210, 0.45);
+  
+  /* Statischer sanfter Glow */
   box-shadow: 
-    0 0 8px rgba(0, 220, 255, 0.3),
-    inset 0 0 4px rgba(0, 220, 255, 0.1);
-  animation: bifrost-expert-glow 3s ease-in-out infinite;
+    0 0 6px rgba(0, 180, 200, 0.3),
+    0 0 12px rgba(0, 180, 200, 0.15),
+    inset 0 0 4px rgba(0, 200, 220, 0.08);
+  
+  /* Nebel-Drift wie beim Copyright-Badge */
+  animation: bifroest-expert-drift 10s ease-in-out infinite;
 }
 
-body.bifrost-active .bifrost-expert:hover {
-  color: #fff;
-  background: rgba(0, 60, 80, 0.9);
-  border-color: rgba(0, 220, 255, 0.8);
+body.bifroest-active .bifroest-expert:hover {
+  color: rgba(170, 240, 250, 1);
+  background: rgba(15, 45, 65, 0.98);
+  border-color: rgba(100, 210, 230, 0.7);
   box-shadow: 
-    0 0 15px rgba(0, 220, 255, 0.6),
-    0 0 30px rgba(0, 220, 255, 0.3),
-    inset 0 0 8px rgba(0, 220, 255, 0.2);
+    0 0 10px rgba(0, 200, 220, 0.5),
+    0 0 20px rgba(0, 200, 220, 0.25),
+    inset 0 0 6px rgba(0, 220, 240, 0.12);
+  animation: none;
 }
 
-@keyframes bifrost-expert-glow {
+/* Expert-Drift: Ähnlich wie bifroest-drift, aber leicht versetzt */
+@keyframes bifroest-expert-drift {
   0%, 100% {
+    transform: translateX(0) translateY(0);
     box-shadow: 
-      0 0 8px rgba(0, 220, 255, 0.3),
-      inset 0 0 4px rgba(0, 220, 255, 0.1);
+      0 0 6px rgba(0, 180, 200, 0.3),
+      0 0 12px rgba(0, 180, 200, 0.15),
+      inset 0 0 4px rgba(0, 200, 220, 0.08);
   }
-  50% {
+  30% {
+    transform: translateX(0.5px) translateY(-0.5px);
     box-shadow: 
-      0 0 12px rgba(0, 220, 255, 0.5),
-      0 0 20px rgba(0, 220, 255, 0.2),
-      inset 0 0 6px rgba(0, 220, 255, 0.15);
+      0 0 7px rgba(0, 190, 200, 0.32),
+      0 0 14px rgba(0, 190, 190, 0.16),
+      inset 0 0 4px rgba(0, 210, 210, 0.08);
+  }
+  60% {
+    transform: translateX(1px) translateY(-0.5px);
+    box-shadow: 
+      0 0 6px rgba(0, 185, 195, 0.3),
+      0 0 13px rgba(0, 185, 195, 0.14),
+      inset 0 0 4px rgba(0, 205, 215, 0.08);
+  }
+  80% {
+    transform: translateX(0.5px) translateY(0);
+    box-shadow: 
+      0 0 6px rgba(0, 180, 200, 0.28),
+      0 0 11px rgba(0, 180, 200, 0.14),
+      inset 0 0 4px rgba(0, 200, 220, 0.08);
   }
 }
 
@@ -563,31 +588,31 @@ body.bifrost-active .bifrost-expert:hover {
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 @media (max-width: 640px) {
-  .bifrost-toggle {
+  .bifroest-toggle {
     bottom: 1rem;
     right: 1rem;
     padding: 0.6rem 0.8rem;
     font-size: 0.8rem;
   }
   
-  .bifrost-toggle-text {
+  .bifroest-toggle-text {
     display: none;
   }
   
-  .bifrost-popup {
+  .bifroest-popup {
     padding: 1rem;
     margin: 1rem;
   }
   
-  .bifrost-name {
+  .bifroest-name {
     max-width: 80px;
   }
   
-  .bifrost-experts {
+  .bifroest-experts {
     max-width: 50%;
   }
   
-  .bifrost-expert-name {
+  .bifroest-expert-name {
     max-width: 80px;
   }
 }

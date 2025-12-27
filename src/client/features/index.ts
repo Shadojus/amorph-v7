@@ -43,4 +43,4 @@ export {
 } from './selection';
 
 // Bifroest Copyright System
-export { initBifrost, toggleBifrost } from './bifrost';
+export { initBifroest, toggleBifroest } from './bifroest';

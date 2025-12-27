@@ -237,14 +237,14 @@ export function renderCopyrightBadge(sources?: FieldSource[], hideCopyright?: bo
   
   return `
     <button 
-      class="bifrost-copyright" 
+      class="bifroest-copyright" 
       type="button"
       data-sources="${sourcesJson}"
       aria-label="Quelle: ${escapeHtml(primarySource.name)}"
       title="${escapeHtml(primarySource.name)}"
     >
-      <span class="bifrost-symbol">©</span>
-      <span class="bifrost-name">${escapeHtml(primarySource.name)}${multiLabel}</span>
+      <span class="bifroest-symbol">©</span>
+      <span class="bifroest-name">${escapeHtml(primarySource.name)}${multiLabel}</span>
     </button>
   `;
 }

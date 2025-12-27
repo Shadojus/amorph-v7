@@ -21,7 +21,7 @@ import {
   getSelectedFields,
   clearFields
 } from './selection';
-import { initBifrost } from './bifrost';
+import { initBifroest } from './bifroest';
 import { setupObservers, stopObservers, getObserverStats, debug as observerDebug } from '../../observer';
 import { morphDebug } from '../../morphs/debug';
 
@@ -93,7 +93,7 @@ export function initApp(): void {
   initObservers();
   
   // === BIFROEST COPYRIGHT SYSTEM ===
-  initBifrost();
+  initBifroest();
   
   debug.amorph('AMORPH v7 ready');
 }
@@ -110,6 +110,9 @@ function initBottomNav(): void {
   const compareNavItem = bottomNav.querySelector<HTMLElement>('[data-nav="compare"]');
   const badge = compareNavItem?.querySelector('.bottom-nav-badge');
   
+  // Initial disabled state for Compare button
+  compareNavItem?.classList.add('is-disabled');
+  
   // Search button - focuses search input
   searchNavItem?.addEventListener('click', () => {
     const searchInput = document.querySelector<HTMLInputElement>('.search-input-main');
@@ -123,6 +126,10 @@ function initBottomNav(): void {
   
   // Compare button in bottom nav
   compareNavItem?.addEventListener('click', () => {
+    // Don't open compare if no items selected
+    if (compareNavItem.classList.contains('is-disabled')) {
+      return;
+    }
     toggleCompare();
     updateBottomNavState();
   });
@@ -273,6 +280,12 @@ function initSelectionBar(): void {
     // Show/hide bar based on field count
     selectionBar.classList.toggle('is-visible', fieldCount > 0);
     
+    // Update Compare button disabled state (fallback for browsers without :has())
+    const compareBtn = document.querySelector('.bottom-nav-item[data-nav="compare"]');
+    if (compareBtn) {
+      compareBtn.classList.toggle('is-disabled', fieldCount === 0);
+    }
+    
     // Update pills - one pill per species that has selected fields
     if (pillsContainer) {
       const pills: string[] = [];
@@ -284,9 +297,19 @@ function initSelectionBar(): void {
         // Use consistent bio color for this species
         const color = getSpeciesColor(itemSlug);
         
+        // Get image URL from the item element
+        const itemElement = document.querySelector(`.amorph-item[data-slug="${itemSlug}"]`);
+        const imgElement = itemElement?.querySelector('.item-image img') as HTMLImageElement | null;
+        const imageUrl = imgElement?.src || '';
+        
+        // Use image if available, otherwise use colored dot
+        const thumbnailHtml = imageUrl 
+          ? `<img class="pill-image" src="${imageUrl}" alt="${itemName}" />`
+          : `<span class="pill-dot"></span>`;
+        
         pills.push(`
           <button class="selection-pill" data-slug="${itemSlug}" data-species="${itemName}" style="--pill-color: ${color}">
-            <span class="pill-dot"></span>
+            ${thumbnailHtml}
             <span class="pill-name">${itemName}</span>
             <span class="pill-remove">×</span>
           </button>

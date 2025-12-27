@@ -167,14 +167,14 @@ const fieldsWithPerspectives = Object.entries(item)
         <div class="detail-field" data-field-key={key} data-perspective={perspective || ''}>
           <Fragment set:html={renderValue(value, key, detailContext)} />
           {experts.length > 0 && (
-            <div class="bifrost-experts" data-experts={JSON.stringify(experts)}>
+            <div class="bifroest-experts" data-experts={JSON.stringify(experts)}>
               {experts.map((expert: any) => (
                 <button 
                   type="button" 
-                  class="bifrost-expert"
+                  class="bifroest-expert"
                   data-expert={JSON.stringify(expert)}
                 >
-                  <span class="bifrost-expert-name">{expert.name}</span>
+                  <span class="bifroest-expert-name">{expert.name}</span>
                 </button>
               ))}
             </div>
@@ -247,14 +247,14 @@ const fieldsWithPerspectives = Object.entries(item)
       <span class="bottom-nav-label">Vergleich</span>
       <span class="bottom-nav-badge">0</span>
     </button>
-    <a href="/bifroest" class="bottom-nav-item" data-nav="bifroest" aria-label="Bifroest Portal">
+    <button type="button" class="bottom-nav-item bifroest-toggle" data-nav="bifroest" aria-label="Bifroest Ansicht">
       <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 2L2 7l10 5 10-5-10-5z"/>
         <path d="m2 17 10 5 10-5"/>
         <path d="m2 12 10 5 10-5"/>
       </svg>
       <span class="bottom-nav-label">Bifroest</span>
-    </a>
+    </button>
   </nav>
 </Base>
 

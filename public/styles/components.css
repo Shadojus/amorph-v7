@@ -2148,6 +2148,16 @@
   z-index: 2;
 }
 
+/* 20% schwarzer Overlay über Bildern für besseren Kontrast */
+.item-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.32);
+  pointer-events: none;
+  z-index: 3;
+}
+
 /* Bild-Error: Sanfter Fallback */
 .item-image img[src=""],
 .item-image img:not([src]) {
@@ -2432,6 +2442,8 @@
   box-shadow: 
     0 2px 8px rgba(0, 0, 0, 0.5),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: visible;
 }
 
 /* Species Highlight - dimmen wenn andere Spezies aktiv */
@@ -2448,7 +2460,17 @@
     0 0 8px color-mix(in srgb, var(--pill-color) 30%, transparent);
 }
 
-/* Farbiger Punkt vor dem Namen */
+/* Thumbnail-Bild vor dem Namen (ersetzt den farbigen Punkt) */
+.pill-image {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Fallback: Farbiger Punkt wenn kein Bild */
 .pill-dot {
   width: 6px;
   height: 6px;
@@ -2465,22 +2487,26 @@
   text-overflow: ellipsis;
 }
 
-/* Remove Button */
+/* Remove Button - größere Touch-Fläche */
 .pill-remove {
-  width: 12px;
-  height: 12px;
+  /* Touch-freundliche Größe mit padding */
+  width: 24px;
+  height: 24px;
+  margin: -6px -8px -6px 0; /* Negative margin um Pill-padding auszugleichen */
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.625rem;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.35);
-  margin-left: 0.125rem;
   transition: all 0.15s ease;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
 }
 
 .pill-remove:hover {
   color: #ff6b6b;
+  background: rgba(255, 100, 100, 0.15);
 }
 
 /* Selection count and clear - versteckt */
@@ -3343,6 +3369,10 @@ mark.compare-highlight.is-current {
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 /* Badge for Compare count - Bio-Lumineszenz Farbe */
@@ -3370,6 +3400,20 @@ mark.compare-highlight.is-current {
 .bottom-nav-badge.has-items {
   opacity: 1;
   transform: scale(1);
+}
+
+/* Compare button disabled state when no items selected */
+.bottom-nav-item[data-nav="compare"]:not(:has(.bottom-nav-badge.has-items)) {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Fallback for browsers without :has() - use JS class */
+.bottom-nav-item[data-nav="compare"].is-disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* Spacer for main content to not be covered */

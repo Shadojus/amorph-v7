@@ -10,12 +10,12 @@
 // BIFROEST STATE
 // ═══════════════════════════════════════════════════════════════════════════════
 
-let bifrostActive = false;
+let bifroestActive = false;
 
 /**
  * Initialisiert das Bifroest-System.
  */
-export function initBifrost(): void {
+export function initBifroest(): void {
   // Nur initialisieren wenn nicht im Compare-Mode
   if (document.body.dataset.mode === 'compare') {
     return;
@@ -26,9 +26,9 @@ export function initBifrost(): void {
   createPopupContainer();
   
   // Restore state from localStorage
-  const savedState = localStorage.getItem('bifrost-active');
+  const savedState = localStorage.getItem('bifroest-active');
   if (savedState === 'true') {
-    toggleBifrost(true);
+    toggleBifroest(true);
   }
 }
 
@@ -41,31 +41,38 @@ export function initBifrost(): void {
  * Verwendet den existierenden Button aus dem HTML.
  */
 function createToggleButton(): void {
-  const button = document.querySelector('.bifrost-toggle');
+  const button = document.querySelector('.bifroest-toggle');
   if (!button) {
-    console.warn('[Bifrost] Toggle button not found in DOM');
+    console.warn('[Bifroest] Toggle button not found in DOM');
     return;
   }
   
-  button.addEventListener('click', () => toggleBifrost());
+  button.addEventListener('click', () => toggleBifroest());
 }
 
 /**
  * Aktiviert/Deaktiviert den Bifroest-Mode.
  */
-export function toggleBifrost(forceState?: boolean): void {
-  bifrostActive = forceState !== undefined ? forceState : !bifrostActive;
+export function toggleBifroest(forceState?: boolean): void {
+  bifroestActive = forceState !== undefined ? forceState : !bifroestActive;
   
-  document.body.classList.toggle('bifrost-active', bifrostActive);
+  document.body.classList.toggle('bifroest-active', bifroestActive);
   
-  const button = document.querySelector('.bifrost-toggle');
+  const button = document.querySelector('.bifroest-toggle');
   if (button) {
-    button.classList.toggle('active', bifrostActive);
-    button.setAttribute('aria-pressed', String(bifrostActive));
+    button.classList.toggle('active', bifroestActive);
+    button.setAttribute('aria-pressed', String(bifroestActive));
   }
   
   // Save state
-  localStorage.setItem('bifrost-active', String(bifrostActive));
+  localStorage.setItem('bifroest-active', String(bifroestActive));
+  
+  // Experten-Buttons dynamisch hinzufügen/entfernen (für Grid-Ansicht)
+  if (bifroestActive) {
+    addExpertButtonsToGrid();
+  } else {
+    removeExpertButtonsFromGrid();
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -81,17 +88,17 @@ function createPopupContainer(): void {
   if (popupContainer) return;
   
   popupContainer = document.createElement('div');
-  popupContainer.className = 'bifrost-overlay';
+  popupContainer.className = 'bifroest-overlay';
   popupContainer.innerHTML = `
-    <div class="bifrost-popup" role="dialog" aria-modal="true">
-      <div class="bifrost-popup-header">
-        <div class="bifrost-popup-title">
-          <span class="bifrost-symbol">©</span>
+    <div class="bifroest-popup" role="dialog" aria-modal="true">
+      <div class="bifroest-popup-header">
+        <div class="bifroest-popup-title">
+          <span class="bifroest-symbol">©</span>
           <span>Quellenangabe</span>
         </div>
-        <button class="bifrost-popup-close" aria-label="Schließen">✕</button>
+        <button class="bifroest-popup-close" aria-label="Schließen">✕</button>
       </div>
-      <div class="bifrost-sources"></div>
+      <div class="bifroest-sources"></div>
     </div>
   `;
   
@@ -102,7 +109,7 @@ function createPopupContainer(): void {
     }
   });
   
-  const closeBtn = popupContainer.querySelector('.bifrost-popup-close');
+  const closeBtn = popupContainer.querySelector('.bifroest-popup-close');
   closeBtn?.addEventListener('click', closePopup);
   
   // ESC to close
@@ -122,65 +129,65 @@ function showPopup(sources: FieldSource[], type: 'copyright' | 'expert' = 'copyr
   if (!popupContainer) return;
   
   // Update popup title
-  const titleElement = popupContainer.querySelector('.bifrost-popup-title');
+  const titleElement = popupContainer.querySelector('.bifroest-popup-title');
   if (titleElement) {
     titleElement.innerHTML = `
-      <span class="bifrost-symbol">©</span>
+      <span class="bifroest-symbol">©</span>
       <span>Quellenangabe</span>
     `;
   }
   
-  const sourcesContainer = popupContainer.querySelector('.bifrost-sources');
+  const sourcesContainer = popupContainer.querySelector('.bifroest-sources');
   if (!sourcesContainer) return;
   
   sourcesContainer.innerHTML = sources.map(source => `
-    <div class="bifrost-source">
-      <div class="bifrost-source-name">${escapeHtml(source.name)}</div>
-      <div class="bifrost-source-details">
+    <div class="bifroest-source">
+      <div class="bifroest-source-name">${escapeHtml(source.name)}</div>
+      <div class="bifroest-source-details">
         ${source.author ? `
-          <div class="bifrost-source-row">
-            <span class="bifrost-source-label">Autor:</span>
-            <span class="bifrost-source-value">${escapeHtml(source.author)}</span>
+          <div class="bifroest-source-row">
+            <span class="bifroest-source-label">Autor:</span>
+            <span class="bifroest-source-value">${escapeHtml(source.author)}</span>
           </div>
         ` : ''}
         ${source.copyright ? `
-          <div class="bifrost-source-row">
-            <span class="bifrost-source-label">Copyright:</span>
-            <span class="bifrost-source-value">${escapeHtml(source.copyright)}</span>
+          <div class="bifroest-source-row">
+            <span class="bifroest-source-label">Copyright:</span>
+            <span class="bifroest-source-value">${escapeHtml(source.copyright)}</span>
           </div>
         ` : ''}
         ${source.license ? `
-          <div class="bifrost-source-row">
-            <span class="bifrost-source-label">Lizenz:</span>
-            <span class="bifrost-source-value">${escapeHtml(source.license)}</span>
+          <div class="bifroest-source-row">
+            <span class="bifroest-source-label">Lizenz:</span>
+            <span class="bifroest-source-value">${escapeHtml(source.license)}</span>
           </div>
         ` : ''}
         ${source.url ? `
-          <div class="bifrost-source-row">
-            <span class="bifrost-source-label">URL:</span>
-            <span class="bifrost-source-value">
+          <div class="bifroest-source-row">
+            <span class="bifroest-source-label">URL:</span>
+            <span class="bifroest-source-value">
               <a href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(source.url)}</a>
             </span>
           </div>
         ` : ''}
         ${source.contact ? `
-          <div class="bifrost-source-row">
-            <span class="bifrost-source-label">Kontakt:</span>
-            <span class="bifrost-source-value">
+          <div class="bifroest-source-row">
+            <span class="bifroest-source-label">Kontakt:</span>
+            <span class="bifroest-source-value">
               <a href="mailto:${escapeHtml(source.contact)}">${escapeHtml(source.contact)}</a>
             </span>
           </div>
         ` : ''}
         ${source.date ? `
-          <div class="bifrost-source-row">
-            <span class="bifrost-source-label">Datum:</span>
-            <span class="bifrost-source-value">${escapeHtml(source.date)}</span>
+          <div class="bifroest-source-row">
+            <span class="bifroest-source-label">Datum:</span>
+            <span class="bifroest-source-value">${escapeHtml(source.date)}</span>
           </div>
         ` : ''}
         ${source.notes ? `
-          <div class="bifrost-source-row">
-            <span class="bifrost-source-label">Notizen:</span>
-            <span class="bifrost-source-value">${escapeHtml(source.notes)}</span>
+          <div class="bifroest-source-row">
+            <span class="bifroest-source-label">Notizen:</span>
+            <span class="bifroest-source-value">${escapeHtml(source.notes)}</span>
           </div>
         ` : ''}
       </div>
@@ -190,7 +197,7 @@ function showPopup(sources: FieldSource[], type: 'copyright' | 'expert' = 'copyr
   popupContainer.classList.add('visible');
   
   // Focus trap
-  const closeBtn = popupContainer.querySelector<HTMLElement>('.bifrost-popup-close');
+  const closeBtn = popupContainer.querySelector<HTMLElement>('.bifroest-popup-close');
   closeBtn?.focus();
 }
 
@@ -214,7 +221,7 @@ function attachCopyrightListeners(): void {
     const target = e.target as HTMLElement;
     
     // Copyright Button (© auf Bildern)
-    const copyrightBtn = target.closest('.bifrost-copyright') as HTMLElement | null;
+    const copyrightBtn = target.closest('.bifroest-copyright') as HTMLElement | null;
     if (copyrightBtn) {
       e.preventDefault();
       e.stopPropagation();
@@ -225,14 +232,14 @@ function attachCopyrightListeners(): void {
           const sources: FieldSource[] = JSON.parse(sourcesData);
           showPopup(sources, 'copyright');
         } catch (err) {
-          console.error('[Bifrost] Failed to parse sources:', err);
+          console.error('[Bifroest] Failed to parse sources:', err);
         }
       }
       return;
     }
     
     // Experten Button (schwebende Namen bei Feldern)
-    const expertBtn = target.closest('.bifrost-expert') as HTMLElement | null;
+    const expertBtn = target.closest('.bifroest-expert') as HTMLElement | null;
     if (expertBtn) {
       e.preventDefault();
       e.stopPropagation();
@@ -243,7 +250,7 @@ function attachCopyrightListeners(): void {
           const expert: Expert = JSON.parse(expertData);
           showExpertPopup(expert);
         } catch (err) {
-          console.error('[Bifrost] Failed to parse expert:', err);
+          console.error('[Bifroest] Failed to parse expert:', err);
         }
       }
     }
@@ -257,39 +264,39 @@ function showExpertPopup(expert: Expert): void {
   if (!popupContainer) return;
   
   // Update popup title for experts
-  const titleElement = popupContainer.querySelector('.bifrost-popup-title');
+  const titleElement = popupContainer.querySelector('.bifroest-popup-title');
   if (titleElement) {
     titleElement.innerHTML = `
-      <span class="bifrost-symbol">🎓</span>
+      <span class="bifroest-symbol">🎓</span>
       <span>Bifröst Experte</span>
     `;
   }
   
-  const sourcesContainer = popupContainer.querySelector('.bifrost-sources');
+  const sourcesContainer = popupContainer.querySelector('.bifroest-sources');
   if (!sourcesContainer) return;
   
   sourcesContainer.innerHTML = `
-    <div class="bifrost-source bifrost-expert-card">
-      <div class="bifrost-source-name">${escapeHtml(expert.name)}</div>
-      <div class="bifrost-source-details">
+    <div class="bifroest-source bifroest-expert-card">
+      <div class="bifroest-source-name">${escapeHtml(expert.name)}</div>
+      <div class="bifroest-source-details">
         ${expert.title ? `
-          <div class="bifrost-source-row">
-            <span class="bifrost-source-label">Position:</span>
-            <span class="bifrost-source-value">${escapeHtml(expert.title)}</span>
+          <div class="bifroest-source-row">
+            <span class="bifroest-source-label">Position:</span>
+            <span class="bifroest-source-value">${escapeHtml(expert.title)}</span>
           </div>
         ` : ''}
         ${expert.url ? `
-          <div class="bifrost-source-row">
-            <span class="bifrost-source-label">Website:</span>
-            <span class="bifrost-source-value">
+          <div class="bifroest-source-row">
+            <span class="bifroest-source-label">Website:</span>
+            <span class="bifroest-source-value">
               <a href="${escapeHtml(expert.url)}" target="_blank" rel="noopener">${escapeHtml(expert.url)}</a>
             </span>
           </div>
         ` : ''}
         ${expert.contact ? `
-          <div class="bifrost-source-row">
-            <span class="bifrost-source-label">Kontakt:</span>
-            <span class="bifrost-source-value">
+          <div class="bifroest-source-row">
+            <span class="bifroest-source-label">Kontakt:</span>
+            <span class="bifroest-source-value">
               ${expert.contact.includes('@') 
                 ? `<a href="mailto:${escapeHtml(expert.contact)}">${escapeHtml(expert.contact)}</a>`
                 : escapeHtml(expert.contact)
@@ -298,7 +305,7 @@ function showExpertPopup(expert: Expert): void {
           </div>
         ` : ''}
       </div>
-      <div class="bifrost-expert-link">
+      <div class="bifroest-expert-link">
         <a href="https://bifroest.io/expert/${encodeURIComponent(expert.name)}" target="_blank" rel="noopener">
           Auf Bifröst ansehen →
         </a>
@@ -309,7 +316,7 @@ function showExpertPopup(expert: Expert): void {
   popupContainer.classList.add('visible');
   
   // Focus trap
-  const closeBtn = popupContainer.querySelector<HTMLElement>('.bifrost-popup-close');
+  const closeBtn = popupContainer.querySelector<HTMLElement>('.bifroest-popup-close');
   closeBtn?.focus();
 }
 
@@ -339,4 +346,65 @@ function escapeHtml(text: string): string {
   const div = document.createElement('div');
   div.textContent = text;
   return div.innerHTML;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// GRID VIEW EXPERTEN (dynamisch hinzugefügt)
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * Fügt Experten-Buttons zu allen Feldern im Grid hinzu.
+ * Liest die Experten-Daten aus data-field-experts des Items.
+ */
+function addExpertButtonsToGrid(): void {
+  const items = document.querySelectorAll('.amorph-item');
+  
+  items.forEach(item => {
+    const expertsJson = (item as HTMLElement).dataset.fieldExperts;
+    if (!expertsJson) return;
+    
+    let fieldExperts: Record<string, Expert[]>;
+    try {
+      fieldExperts = JSON.parse(expertsJson);
+    } catch {
+      return;
+    }
+    
+    // Für jedes Feld im Item prüfen ob Experten vorhanden
+    const fields = item.querySelectorAll('.amorph-field');
+    fields.forEach(field => {
+      const fieldKey = (field as HTMLElement).dataset.field;
+      if (!fieldKey || !fieldExperts[fieldKey]) return;
+      
+      const experts = fieldExperts[fieldKey];
+      if (!experts || experts.length === 0) return;
+      
+      // Container bereits vorhanden?
+      if (field.querySelector('.bifroest-experts')) return;
+      
+      // Experten-Container erstellen
+      const expertsContainer = document.createElement('div');
+      expertsContainer.className = 'bifroest-experts bifroest-experts-dynamic';
+      expertsContainer.dataset.experts = JSON.stringify(experts);
+      
+      experts.forEach(expert => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'bifroest-expert';
+        btn.dataset.expert = JSON.stringify(expert);
+        btn.innerHTML = `<span class="bifroest-expert-name">${escapeHtml(expert.name)}</span>`;
+        expertsContainer.appendChild(btn);
+      });
+      
+      field.appendChild(expertsContainer);
+    });
+  });
+}
+
+/**
+ * Entfernt alle dynamisch hinzugefügten Experten-Buttons aus dem Grid.
+ */
+function removeExpertButtonsFromGrid(): void {
+  const dynamicExperts = document.querySelectorAll('.bifroest-experts-dynamic');
+  dynamicExperts.forEach(el => el.remove());
 }

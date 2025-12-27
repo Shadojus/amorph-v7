@@ -53,7 +53,7 @@ export interface RenderContext {
   sources?: FieldSource[];
   
   /** Bifroest Mode aktiv? (zeigt alle © leuchtend) */
-  bifrostMode?: boolean;
+  bifroestMode?: boolean;
   
   /** © komplett ausblenden (z.B. in Compare View) */
   hideCopyright?: boolean;
