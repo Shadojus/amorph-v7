@@ -13,6 +13,8 @@
 - **Bio-Lumineszenz Farbsystem** - 8 leuchtende Farben (Foxfire, Myzel, Sporen, etc.)
 - **HIGH_VALUE_FIELDS Priorisierung** - "Knaller"-Daten zuerst (Healing, WOW-Faktor, Kulinarik)
 - **SEO-optimierte Index-Generierung** - Taglines, Badges, Quick Facts pro Species
+- **Bifröst Attribution System** - © Copyright-Badges + Experten-Buttons mit Popup
+- **Nebel-Drift Animation** - Sanftes Cyan-Glow ohne Blinken (kein Weiß)
 
 ### Multi-Site System
 Drei Bio-Spezies Sites mit eigenem Farbsystem:
@@ -28,6 +30,7 @@ Drei Bio-Spezies Sites mit eigenem Farbsystem:
 - **Sticky Suchleiste** - z-index 10000, durchsucht auch Compare-View
 - **Compare mit Copy-Button** - Daten exportieren mit License-Hinweis
 - **Engagement-optimierte Feld-Anzeige** - WOW-Felder vor technischen Daten
+- **Bifröst-Mode** - Cyan-Nebel-Glow für Copyright/Experten-Attribution (kein Weiß, Drift-Animation)
 
 ### Technologie
 - **Astro 5.16** mit SSR auf Port 4321-4323
@@ -83,11 +86,11 @@ amorph-v7/
 │   ├── morphs/          # 28 Primitives + base.ts + debug.ts
 │   ├── observer/        # Debug & Analytics (interaction, rendering, session)
 │   ├── server/          # config.ts, data.ts (SSR)
-│   ├── client/features/ # app, search, grid, compare, selection, debug
+│   ├── client/features/ # app, search, grid, compare, selection, bifrost, debug
 │   ├── layouts/         # Base.astro
 │   └── pages/           # index.astro (mit HIGH_VALUE_FIELDS), [slug].astro, api/
 │
-├── public/styles/       # base.css, components.css, morphs/
+├── public/styles/       # base.css, components.css, morphs/ (inkl. bifroest.css)
 │
 └── tests/               # 421 Tests - detection, security, morphs, observer, integration
 ```

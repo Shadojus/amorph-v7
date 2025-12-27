@@ -10,7 +10,7 @@ src/
 ├── morphs/         # Unified Morph System (28 Primitives)
 ├── observer/       # Debug & Analytics
 ├── server/         # SSR: Config + Data Loader
-├── client/         # Browser: Features (7 Module)
+├── client/         # Browser: Features (8 Module inkl. Bifröst)
 ├── layouts/        # Astro Base Layout
 ├── pages/          # Routes + API (HIGH_VALUE_FIELDS in index.astro)
 └── env.d.ts        # Astro TypeScript Referenzen
@@ -48,12 +48,13 @@ pages/ → layouts/ → server/ → core/
 - `session.ts` - Page Views, Session Tracking
 - `target.ts` - Console/HTTP/WebSocket Backends
 
-### client/features/ (7 Dateien)
+### client/features/ (8 Dateien)
 - `app.ts` - Haupt-Initialisierung (~264 Zeilen)
 - `search.ts` - Suchmaschinen-UX mit Perspektiven (~508 Zeilen)
 - `grid.ts` - Grid-Layout und Feld-Selection
 - `compare.ts` - Compare-Panel + Diff-Updates (~670 Zeilen)
 - `selection.ts` - Feld/Item State Management (~317 Zeilen)
+- `bifrost.ts` - Bifröst Attribution System (Copyright + Experten)
 - `debug.ts` - Client-Debug-Logging
 - `index.ts` - Re-Exports (80+ Exports)
 

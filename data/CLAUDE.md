@@ -7,6 +7,7 @@
 ```
 data/
 ├── universe-index.json     # Haupt-Index aller Kingdoms (SEO-optimiert)
+├── bifroest-experts.json   # Bifröst Experten-Datenbank (NEU)
 └── fungi/
     ├── index.json          # Kingdom-Index mit allen Species + Perspektiven
     └── {species-slug}/     # Ein Ordner pro Spezies (27 Pilze)
@@ -26,6 +27,62 @@ data/
 - **27 Pilz-Spezies** (z.B. hericium-erinaceus, trametes-versicolor, psilocybe-*)
 - **196 JSON-Dateien** validiert (0 Errors)
 - **~12 Perspektiven** pro Spezies im Durchschnitt
+
+## 🔗 Bifröst Attribution System
+
+Das Bifröst-System trackt Datenquellen und Experten für Attribution:
+
+### Datenquellen (Bilder)
+```json
+{
+  "_source": {
+    "name": "iNaturalist",
+    "url": "https://www.inaturalist.org/...",
+    "license": "CC BY-NC 4.0",
+    "author": "MushroomObserver"
+  }
+}
+```
+
+### Experten (Datenfelder)
+Experten werden pro Perspektive definiert und im Frontend via `data-field-experts` Attribut übergeben:
+
+```json
+{
+  "_experts": {
+    "medicine": ["Paul Stamets", "Christopher Hobbs"],
+    "identification": ["Alan Rockefeller", "Michael Kuo"]
+  }
+}
+```
+
+### Bekannte Mykologen & Kontakte
+| Name | Spezialisierung | Kontakt |
+|------|-----------------|---------|
+| Paul Stamets | Medizinische Pilze, Kultivierung | fungi.com, info@fungi.com |
+| Alan Rockefeller | Psilocybe-Bestimmung, Fotografie | alanrockefeller@gmail.com, @alan_rockefeller |
+| Michael Kuo | Pilz-Identifikation, Morcheln | mushroomexpert.com |
+| Christopher Hobbs | TCM & Heilpilze | christopherhobbs.com |
+| Tradd Cotter | Pilz-Kultivierung, Mykoremediation | mushroommountain.com |
+| Michael Wood | Kalifornische Pilze | mykoweb.com, webmaster@mykoweb.com |
+| David Arora | Feldführer-Autor | (Mushrooms Demystified) |
+| Gary Lincoff † | Audubon Field Guide | (Legacy) |
+
+### Organisationen
+| Organisation | Kontakt |
+|--------------|---------|
+| NAMA (North American Mycological Association) | namyco.org, COO@namyco.org |
+| iNaturalist | inaturalist.org |
+| Mushroom Observer | mushroomobserver.org |
+| MSSF (Mycological Society of San Francisco) | mssf.org |
+
+### Vollständige Experten-Datenbank
+Siehe `data/bifroest-experts.json` für:
+- Detaillierte Kontaktinformationen
+- Social Media Links
+- Publikationslisten
+- Perspektiven-Zuordnung
+- Bild-Quellen mit Lizenzinfos
 
 ## 📦 Daten-Hierarchie
 

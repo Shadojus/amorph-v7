@@ -13,14 +13,15 @@ client/
     ├── search.ts       # Suche + Auto-Perspektiven (~508 Zeilen)
     ├── grid.ts         # Grid-Interaktionen + Feld-Selektion
     ├── compare.ts      # Compare-Panel + Diff-Updates (~670 Zeilen)
-    └── selection.ts    # Item + Field State (~317 Zeilen)
+    ├── selection.ts    # Item + Field State (~317 Zeilen)
+    └── bifrost.ts      # Bifröst Attribution System
 ```
 
 ## 🔧 Features
 
 ### app.ts (264 Zeilen)
 - Initialisiert alle Module beim DOM Ready
-- Reihenfolge: Search → Grid → Compare → BottomNav → SelectionBar → LoadFromStorage
+- Reihenfolge: Search → Grid → Compare → BottomNav → SelectionBar → Bifröst → LoadFromStorage
 - Guard gegen doppelte Initialisierung (`isInitialized`)
 - Restores from URL/sessionStorage
 
@@ -34,7 +35,7 @@ client/
 - Grid-Layout Management
 - Feld-Selektion mit Perspektiven-Farben
 - Base64-encoded Raw Values für Compare
-- **KEIN Click-Navigation** - Cards leiten nicht zur Spezies-URL
+- **Ignoriert Bifröst-Element Clicks** - Copyright/Experten blockieren keine Feld-Selektion
 
 ### compare.ts (670 Zeilen)
 - Compare-Panel Visibility (show/hide/toggle)
@@ -49,6 +50,17 @@ client/
 - **sessionStorage Persistenz**
 - **Perspektiven-Farben** für Felder
 - Max 8 Items für Compare
+
+### bifrost.ts - Bifröst Attribution System (~350 Zeilen)
+- **Copyright-Badges**: © auf Bildern mit Quellen-Namen (z.B. "© iNaturalist")
+- **Experten-Buttons**: Datenfeld-Attribution (dynamisch injiziert via `data-field-experts`)
+- **Popup-Overlay**: Zeigt Quellen-Details + Kontaktmöglichkeit + Links
+- **Toggle via Bottom-Nav**: Aktiviert/deaktiviert Bifröst-Mode (`body.bifroest-active`)
+- **Nebel-Drift Animation**: Sanftes Cyan-Glow ohne Blinken (`@keyframes bifroest-drift`)
+- **Grid-Integration**: `stopPropagation()` verhindert Feld-Selektion bei Clicks
+- **Index-Page Support**: `addExpertButtonsToGrid()` injiziert Experten-Buttons
+- **Farben**: Cyan-Töne (kein Weiß) für bessere Lesbarkeit
+- **Experten in data**: Mykologen wie Paul Stamets, Alan Rockefeller, etc.
 
 ## 🐛 Debug-Logging
 

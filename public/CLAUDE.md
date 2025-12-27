@@ -11,37 +11,38 @@ public/
 │   ├── components.css  # UI-Komponenten (~3600 Zeilen)
 │   ├── morphs.css      # Import aller Morph-Styles
 │   └── morphs/
-│       ├── index.css     # Import aller Morphs
-│       ├── _card.css     # Grid-Card Styles
-│       ├── _compare.css  # Compare-Mode Styles
-│       ├── _variables.css# Morph CSS Variables
-│       ├── badge.css     # Badge Morph (Essbarkeit, Status)
-│       ├── bar.css       # Bar Chart
-│       ├── boolean.css   # Boolean Display
-│       ├── calendar.css  # Calendar Lichtkugeln
-│       ├── citation.css  # Citation Cards
-│       ├── currency.css  # Currency Display
-│       ├── date.css      # Date Formatting
-│       ├── dosage.css    # Dosage Display
-│       ├── gauge.css     # Gauge Dial
-│       ├── image.css     # Image Thumbnails
-│       ├── lifecycle.css # Lifecycle Phasen
-│       ├── link.css      # Link Styling
-│       ├── list.css      # List Rendering
-│       ├── number.css    # Number Display
-│       ├── object.css    # Object Tables
-│       ├── pie.css       # Pie Charts
-│       ├── progress.css  # Progress Bars
-│       ├── radar.css     # Spider Charts
-│       ├── range.css     # Range Display
-│       ├── rating.css    # Star Rating
-│       ├── severity.css  # Severity Display
-│       ├── sparkline.css # Mini Line Charts
-│       ├── stats.css     # Stats Display
-│       ├── steps.css     # Step Lichtkugeln
-│       ├── tag.css       # Tag Pills
-│       ├── text.css      # Text Rendering
-│       └── timeline.css  # Timeline Events
+│       ├── index.css       # Import aller Morphs
+│       ├── _card.css       # Grid-Card Styles
+│       ├── _compare.css    # Compare-Mode Styles
+│       ├── _variables.css  # Morph CSS Variables
+│       ├── bifroest.css    # Bifröst Attribution System (~630 Zeilen)
+│       ├── badge.css       # Badge Morph (Essbarkeit, Status)
+│       ├── bar.css         # Bar Chart
+│       ├── boolean.css     # Boolean Display
+│       ├── calendar.css    # Calendar Lichtkugeln
+│       ├── citation.css    # Citation Cards
+│       ├── currency.css    # Currency Display
+│       ├── date.css        # Date Formatting
+│       ├── dosage.css      # Dosage Display
+│       ├── gauge.css       # Gauge Dial
+│       ├── image.css       # Image Thumbnails
+│       ├── lifecycle.css   # Lifecycle Phasen
+│       ├── link.css        # Link Styling
+│       ├── list.css        # List Rendering
+│       ├── number.css      # Number Display
+│       ├── object.css      # Object Tables
+│       ├── pie.css         # Pie Charts
+│       ├── progress.css    # Progress Bars
+│       ├── radar.css       # Spider Charts
+│       ├── range.css       # Range Display
+│       ├── rating.css      # Star Rating
+│       ├── severity.css    # Severity Display
+│       ├── sparkline.css   # Mini Line Charts
+│       ├── stats.css       # Stats Display
+│       ├── steps.css       # Step Lichtkugeln
+│       ├── tag.css         # Tag Pills
+│       ├── text.css        # Text Rendering
+│       └── timeline.css    # Timeline Events
 ├── images/
 │   └── species/          # Species-Bilder ({scientific-name}.webp)
 └── test-bar.html         # Test Page für Bar-Morph
@@ -52,9 +53,11 @@ public/
 ### Z-Index Hierarchie
 ```css
 z-index: 10001  /* Bottom Navigation - höchste */
-z-index: 10000  /* Suchleiste - sehr hoch */
+z-index: 10000  /* Suchleiste, Bifröst Overlay - sehr hoch */
 z-index: 9999   /* Compare-Panel */
 z-index: 200    /* Header */
+z-index: 15     /* Bifröst Expert Buttons */
+z-index: 10     /* Bifröst Copyright Badge */
 ```
 
 ### Multi-Site Colors (base.css)
@@ -64,6 +67,26 @@ z-index: 200    /* Header */
 --site-drakonomi-rgb: 235, 77, 180;  /* Magenta Pink */
 --system-rgb: var(--site-funginomi-rgb); /* Active Site */
 ```
+
+### Bifröst Colors (Cyan-Töne, kein Weiß)
+```css
+/* Active Mode - Nebel-Drift Animation */
+color: rgba(150, 230, 240, 0.95);        /* Sanftes Cyan */
+background: rgba(12, 35, 50, 0.95);      /* Dunkelblau */
+border-color: rgba(80, 190, 210, 0.45);  /* Gedämpftes Cyan */
+box-shadow: 0 0 8px rgba(0, 180, 200, 0.4); /* Sanfter Glow */
+
+/* Animationen - KEIN opacity-Flicker! */
+@keyframes bifroest-drift { transform: translateX/Y drift }
+@keyframes bifroest-expert-drift { ähnlich, leicht versetzt }
+```
+
+### bifroest.css Sections (~630 Zeilen)
+- **Copyright Badge** (Zeilen 1-70): © Symbol auf Bildern
+- **Bifröst Active** (Zeilen 90-140): Nebel-Drift Animation
+- **Bottom Nav Toggle** (Zeilen 145-180): Aktivierungs-Button
+- **Popup Overlay** (Zeilen 195-440): Quellen-Details Modal
+- **Expert Buttons** (Zeilen 450-580): Datenfeld-Attribution
 
 ### Bio-Lumineszenz (8 Farben)
 ```css
