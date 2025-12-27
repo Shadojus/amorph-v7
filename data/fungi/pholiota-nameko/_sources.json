@@ -10,5 +10,453 @@
       "url": "https://mushroomobserver.org",
       "notes": "Variante 2"
     }
-  ]
+  ],
+  "fields": {
+    "edibility_category": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "NAMA",
+        "title": "North American Mycological Association",
+        "url": "https://namyco.org",
+        "contact": "COO@namyco.org"
+      }
+    ],
+    "culinary_value": [
+      {
+        "name": "Michael Wood",
+        "title": "MykoWeb",
+        "url": "https://www.mykoweb.com",
+        "contact": "webmaster@mykoweb.com"
+      }
+    ],
+    "taste_profile": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "Michael Wood",
+        "title": "MykoWeb",
+        "url": "https://www.mykoweb.com",
+        "contact": "webmaster@mykoweb.com"
+      }
+    ],
+    "cooking_methods": [
+      {
+        "name": "Michael Wood",
+        "title": "MykoWeb",
+        "url": "https://www.mykoweb.com",
+        "contact": "webmaster@mykoweb.com"
+      }
+    ],
+    "cooking_time_minutes": [
+      {
+        "name": "Michael Wood",
+        "title": "MykoWeb",
+        "url": "https://www.mykoweb.com",
+        "contact": "webmaster@mykoweb.com"
+      }
+    ],
+    "cultivation_scale": [
+      {
+        "name": "Paul Stamets",
+        "title": "Mykologe & Autor",
+        "url": "https://fungi.com",
+        "contact": "info@fungi.com"
+      },
+      {
+        "name": "Tradd Cotter",
+        "title": "Pilzzuechter",
+        "url": "https://mushroommountain.com",
+        "contact": null
+      }
+    ],
+    "ecosystem_type": [
+      {
+        "name": "Paul Stamets",
+        "title": "Mykologe & Autor",
+        "url": "https://fungi.com",
+        "contact": "info@fungi.com"
+      },
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      }
+    ],
+    "ecosystem_subtype": [
+      {
+        "name": "Paul Stamets",
+        "title": "Mykologe & Autor",
+        "url": "https://fungi.com",
+        "contact": "info@fungi.com"
+      },
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      }
+    ],
+    "microhabitat_primary": [
+      {
+        "name": "Michael Wood",
+        "title": "MykoWeb",
+        "url": "https://www.mykoweb.com",
+        "contact": "webmaster@mykoweb.com"
+      },
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      }
+    ],
+    "microhabitat_secondary": [
+      {
+        "name": "Michael Wood",
+        "title": "MykoWeb",
+        "url": "https://www.mykoweb.com",
+        "contact": "webmaster@mykoweb.com"
+      },
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      }
+    ],
+    "substrate_type_primary": [
+      {
+        "name": "Tradd Cotter",
+        "title": "Pilzzuechter",
+        "url": "https://mushroommountain.com",
+        "contact": null
+      },
+      {
+        "name": "Paul Stamets",
+        "title": "Mykologe & Autor",
+        "url": "https://fungi.com",
+        "contact": "info@fungi.com"
+      }
+    ],
+    "substrate_types_secondary": [
+      {
+        "name": "Tradd Cotter",
+        "title": "Pilzzuechter",
+        "url": "https://mushroommountain.com",
+        "contact": null
+      },
+      {
+        "name": "Paul Stamets",
+        "title": "Mykologe & Autor",
+        "url": "https://fungi.com",
+        "contact": "info@fungi.com"
+      }
+    ],
+    "substrate_specificity": [
+      {
+        "name": "Tradd Cotter",
+        "title": "Pilzzuechter",
+        "url": "https://mushroommountain.com",
+        "contact": null
+      },
+      {
+        "name": "Paul Stamets",
+        "title": "Mykologe & Autor",
+        "url": "https://fungi.com",
+        "contact": "info@fungi.com"
+      }
+    ],
+    "fruiting_season_start": [
+      {
+        "name": "Tradd Cotter",
+        "title": "Pilzzuechter",
+        "url": "https://mushroommountain.com",
+        "contact": null
+      },
+      {
+        "name": "Paul Stamets",
+        "title": "Mykologe & Autor",
+        "url": "https://fungi.com",
+        "contact": "info@fungi.com"
+      }
+    ],
+    "fruiting_season_end": [
+      {
+        "name": "Tradd Cotter",
+        "title": "Pilzzuechter",
+        "url": "https://mushroommountain.com",
+        "contact": null
+      },
+      {
+        "name": "Paul Stamets",
+        "title": "Mykologe & Autor",
+        "url": "https://fungi.com",
+        "contact": "info@fungi.com"
+      }
+    ],
+    "color_primary": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "Alan Rockefeller",
+        "title": "Mykologe & Fotograf",
+        "url": "https://www.inaturalist.org/people/alan_rockefeller",
+        "contact": "alanrockefeller@gmail.com"
+      }
+    ],
+    "color_secondary": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "Alan Rockefeller",
+        "title": "Mykologe & Fotograf",
+        "url": "https://www.inaturalist.org/people/alan_rockefeller",
+        "contact": "alanrockefeller@gmail.com"
+      }
+    ],
+    "taste_description": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "Michael Wood",
+        "title": "MykoWeb",
+        "url": "https://www.mykoweb.com",
+        "contact": "webmaster@mykoweb.com"
+      }
+    ],
+    "primary_structure_color": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "Alan Rockefeller",
+        "title": "Mykologe & Fotograf",
+        "url": "https://www.inaturalist.org/people/alan_rockefeller",
+        "contact": "alanrockefeller@gmail.com"
+      }
+    ],
+    "veil_color": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "Alan Rockefeller",
+        "title": "Mykologe & Fotograf",
+        "url": "https://www.inaturalist.org/people/alan_rockefeller",
+        "contact": "alanrockefeller@gmail.com"
+      }
+    ],
+    "lamellae_color": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "Alan Rockefeller",
+        "title": "Mykologe & Fotograf",
+        "url": "https://www.inaturalist.org/people/alan_rockefeller",
+        "contact": "alanrockefeller@gmail.com"
+      }
+    ],
+    "tissue_color": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "Alan Rockefeller",
+        "title": "Mykologe & Fotograf",
+        "url": "https://www.inaturalist.org/people/alan_rockefeller",
+        "contact": "alanrockefeller@gmail.com"
+      }
+    ],
+    "propagule_color": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "Alan Rockefeller",
+        "title": "Mykologe & Fotograf",
+        "url": "https://www.inaturalist.org/people/alan_rockefeller",
+        "contact": "alanrockefeller@gmail.com"
+      }
+    ],
+    "confusion_risk_level": [
+      {
+        "name": "NAMA",
+        "title": "North American Mycological Association",
+        "url": "https://namyco.org",
+        "contact": "COO@namyco.org"
+      }
+    ],
+    "identification_difficulty": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "Alan Rockefeller",
+        "title": "Mykologe & Fotograf",
+        "url": "https://www.inaturalist.org/people/alan_rockefeller",
+        "contact": "alanrockefeller@gmail.com"
+      }
+    ],
+    "key_differentiating_features": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      }
+    ],
+    "safety_edibility_status": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "NAMA",
+        "title": "North American Mycological Association",
+        "url": "https://namyco.org",
+        "contact": "COO@namyco.org"
+      }
+    ],
+    "safety_edibility_confidence": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "NAMA",
+        "title": "North American Mycological Association",
+        "url": "https://namyco.org",
+        "contact": "COO@namyco.org"
+      }
+    ],
+    "safety_edibility_notes": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "NAMA",
+        "title": "North American Mycological Association",
+        "url": "https://namyco.org",
+        "contact": "COO@namyco.org"
+      }
+    ],
+    "safety_potentially_deadly": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "NAMA",
+        "title": "North American Mycological Association",
+        "url": "https://namyco.org",
+        "contact": "COO@namyco.org"
+      }
+    ],
+    "safety_toxicity_score": [
+      {
+        "name": "NAMA",
+        "title": "North American Mycological Association",
+        "url": "https://namyco.org",
+        "contact": "COO@namyco.org"
+      },
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      }
+    ],
+    "safety_warning_level": [
+      {
+        "name": "NAMA",
+        "title": "North American Mycological Association",
+        "url": "https://namyco.org",
+        "contact": "COO@namyco.org"
+      },
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      }
+    ],
+    "safety_summary": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "NAMA",
+        "title": "North American Mycological Association",
+        "url": "https://namyco.org",
+        "contact": "COO@namyco.org"
+      }
+    ],
+    "confusion_safety_critical": [
+      {
+        "name": "Michael Kuo",
+        "title": "Pilz-Experte",
+        "url": "https://www.mushroomexpert.com",
+        "contact": null
+      },
+      {
+        "name": "NAMA",
+        "title": "North American Mycological Association",
+        "url": "https://namyco.org",
+        "contact": "COO@namyco.org"
+      }
+    ]
+  }
 }

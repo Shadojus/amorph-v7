@@ -1,19 +1,16 @@
 # AMORPH v7 - Scripts
 
-> Build-Tools, Validierung und Agent-System für die Daten-Pipeline.
+> Build-Tools, Validierung und Feld-Experten-Mapping.
 
 ## 📁 Struktur
 
 ```
 scripts/
-├── build-index.js       # v2.0 - SEO-optimierte Index-Generierung
+├── build-index.js       # v2.0 - SEO-optimierte Index-Generierung + Bifröst
 ├── build-pages.js       # Static Page Generation (optional)
 ├── validate.js          # Zod-Schema-Validierung aller JSON-Dateien
-├── agent-create.js      # Agent Queue-Management für Multi-Agent Workflows
-├── agent-prompt.js      # Prompt-Generator für Claude-Agenten
-├── agent-validate.js    # Validierung + Experten-Anreicherung
 └── lib/
-    └── field-expert-mapping.js  # Hilbert-Raum Feld-Experten-Mapping
+    └── field-experts.js # Hilbert-ähnliches Feld-Experten-Mapping
 ```
 
 ## 📦 build-index.js (v2.0)

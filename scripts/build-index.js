@@ -621,11 +621,20 @@ function buildIndex() {
         
         // Get perspective files
         const perspectiveFiles = fs.readdirSync(speciesPath)
-          .filter(f => f.endsWith('.json') && f !== 'index.json')
+          .filter(f => f.endsWith('.json') && f !== 'index.json' && !f.startsWith('_'))
           .map(f => f.replace('.json', ''));
         
         // Extract high-value data
         const extracted = extractSpeciesData(speciesPath, perspectiveFiles);
+        
+        // Load _sources.json if exists (created by build-sources.js)
+        const sourcesPath = path.join(speciesPath, '_sources.json');
+        let sourcesData = { image: [], fields: {} };
+        if (fs.existsSync(sourcesPath)) {
+          try {
+            sourcesData = JSON.parse(fs.readFileSync(sourcesPath, 'utf-8'));
+          } catch {}
+        }
         
         // Sort quick facts by priority
         extracted.quickFacts.sort((a, b) => a.priority - b.priority);
@@ -691,7 +700,10 @@ function buildIndex() {
           engagement_score: perspectiveFiles.length * 10 + 
                            extracted.medicinalUses.length * 20 +
                            (extracted.edibility ? 15 : 0) +
-                           extracted.highlights.length * 5
+                           extracted.highlights.length * 5,
+          
+          // Bifröst: Sources (loaded from _sources.json)
+          _sources: sourcesData
         };
         
         index.species.push(speciesEntry);
