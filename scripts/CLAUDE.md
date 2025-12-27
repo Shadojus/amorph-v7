@@ -109,11 +109,135 @@ Validating 196 files...
 
 > **Hinweis**: AMORPH v7 nutzt Astro SSR, daher wird dieses Script normalerweise nicht benötigt.
 
-## 🔄 Build-Workflow
+## 🤖 Agent-System (NEU)
+
+Das Agent-System ermöglicht mehreren Claude-Agenten parallel Daten zu erstellen.
+
+### agent-create.js - Queue Management
+
+Verwaltet eine Task-Queue für Multi-Agent-Workflows:
 
 ```bash
-# 1. Validierung
-npm run validate        # 0 Errors expected
+# Queue initialisieren
+node scripts/agent-create.js --init
+
+# Aufgaben hinzufügen
+node scripts/agent-create.js --add steinpilz medicine 1    # Priorität 1 (hoch)
+node scripts/agent-create.js --add steinpilz ecology 5     # Priorität 5 (normal)
+
+# Aufgabe claimen (für Agent)
+node scripts/agent-create.js --claim claude-agent-1
+
+# Status prüfen
+node scripts/agent-create.js --list-pending
+node scripts/agent-create.js --list-progress
+
+# Experten für Perspektive
+node scripts/agent-create.js --experts medicine
+```
+
+### agent-prompt.js - Prompt Generator
+
+Generiert strukturierte Prompts für Daten-Agenten:
+
+```bash
+# Einzelner Prompt
+node scripts/agent-prompt.js hericium-erinaceus medicine
+
+# Batch für alle Spezies ohne diese Perspektive
+node scripts/agent-prompt.js --batch fungi ecology
+
+# Verfügbare Blueprints
+node scripts/agent-prompt.js --list-blueprints
+```
+
+### agent-validate.js - Validierung + Anreicherung
+
+Validiert Agent-Output und reichert mit Experten an:
+
+```bash
+# Einzelne Datei validieren
+node scripts/agent-validate.js steinpilz medicine
+
+# Alle Perspektiven einer Spezies
+node scripts/agent-validate.js --species steinpilz
+
+# Alle Spezies eines Kingdoms
+node scripts/agent-validate.js --all fungi
+
+# Mit Experten anreichern
+node scripts/agent-validate.js --enrich steinpilz medicine
+```
+
+### lib/field-expert-mapping.js - Hilbert-Raum Mapping
+
+Semantische Zuordnung von Feldern zu Experten:
+
+```javascript
+import { 
+  findExpertsForField,
+  findFieldsForExpert,
+  getExpertsForPerspective,
+  generateFieldExpertMapping
+} from './lib/field-expert-mapping.js';
+
+// Experten für ein Feld finden
+findExpertsForField('primary_medicinal_uses', 3);
+// → [{expert: 'paul-stamets', similarity: 0.85}, ...]
+
+// Feld-Experten-Mapping für ganzes Item
+generateFieldExpertMapping(itemData);
+// → {fieldName: ['expert1', 'expert2'], ...}
+```
+
+**Semantische Cluster:**
+- medical, identification, cultivation, ecology
+- chemistry, psychoactive, culinary, safety
+- culture, research
+
+## 🔄 Agent-Workflow
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│  1. Tasks zur Queue hinzufügen                                       │
+│     node scripts/agent-create.js --add steinpilz medicine 1          │
+└─────────────────────────────────────────────────────────────────────┘
+                                  │
+                                  ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  2. Agent claimt Task                                                │
+│     node scripts/agent-create.js --claim claude-agent-1              │
+│     → Erhält: species + perspective                                  │
+└─────────────────────────────────────────────────────────────────────┘
+                                  │
+                                  ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  3. Agent bekommt Prompt                                             │
+│     node scripts/agent-prompt.js steinpilz medicine                  │
+│     → Strukturierter Prompt mit Blueprint + Experten                 │
+└─────────────────────────────────────────────────────────────────────┘
+                                  │
+                                  ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  4. Agent erstellt JSON-Daten                                        │
+│     → Speichert in data/fungi/steinpilz/medicine.json               │
+└─────────────────────────────────────────────────────────────────────┘
+                                  │
+                                  ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  5. Validierung + Experten-Anreicherung                              │
+│     node scripts/agent-validate.js steinpilz medicine                │
+│     node scripts/agent-validate.js --enrich steinpilz medicine       │
+└─────────────────────────────────────────────────────────────────────┘
+                                  │
+                                  ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│  6. Index neu generieren                                             │
+│     npm run build:index                                              │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+## 🔄 Build-Workflow
 
 # 2. Index generieren (bei Datenänderungen)
 npm run build:index     # SEO-Index aktualisieren
