@@ -16,6 +16,14 @@
 - **Bifröst Attribution System** - © Copyright-Badges + Experten-Buttons mit Popup
 - **Nebel-Drift Animation** - Sanftes Cyan-Glow ohne Blinken (kein Weiß)
 
+### 🚀 Performance-Optimierungen (Dezember 2025)
+- **CSS Bundling** - 60+ CSS → `all.min.css` (154KB, 47% kleiner, 1 HTTP Request)
+- **WebP Bilder** - 96.65 MB eingespart durch automatische Konvertierung
+- **Observer Dynamic Import** - 87KB eingespart, nur bei `?observe=true` geladen
+- **Pagination** - Initial 12 Items statt 52, "Mehr laden" Button
+- **Backdrop-filter entfernt** - Kein GPU-Overhead auf Raspberry Pi
+- **DOM Reduktion** - ~1290 → ~400 Nodes (69% weniger)
+
 ### Multi-Site System
 Drei Bio-Spezies Sites mit eigenem Farbsystem:
 - **Funginomi** (Psychedelic Blue) - Pilze & Fungi
@@ -38,6 +46,7 @@ Drei Bio-Spezies Sites mit eigenem Farbsystem:
 - **Vitest** für Tests (421 Tests)
 - **sessionStorage** für Selection-Persistenz
 - **Zod** für Schema-Validierung
+- **Sharp** für WebP-Konvertierung
 
 ## 🎯 Kernkonzept
 
@@ -61,6 +70,8 @@ npm install
 npm run dev          # Port 4323
 npm test             # Tests im Watch-Modus
 npm run test:run     # Einmalig ohne Watch
+npm run build        # Production Build (inkl. CSS Bundling)
+npm run optimize:images  # WebP-Konvertierung
 ```
 
 ## 📁 Projektstruktur
@@ -78,19 +89,25 @@ amorph-v7/
 │
 ├── scripts/             # Build & Validierung
 │   ├── build-index.js   # v2.0 - SEO-optimierte Index-Generierung
+│   ├── build-css.js     # CSS Bundler (60+ → 1 Datei)
+│   ├── optimize-images.js # WebP-Konvertierung mit Sharp
 │   ├── build-pages.js   # Static Page Generation (optional)
 │   └── validate.js      # Zod-Schema-Validierung
 │
 ├── src/
 │   ├── core/            # types.ts, detection.ts, security.ts
 │   ├── morphs/          # 28 Primitives + base.ts + debug.ts
-│   ├── observer/        # Debug & Analytics (interaction, rendering, session)
+│   ├── observer/        # Debug & Analytics (DYNAMIC IMPORT!)
 │   ├── server/          # config.ts, data.ts (SSR)
 │   ├── client/features/ # app, search, grid, compare, selection, bifrost, debug
-│   ├── layouts/         # Base.astro
-│   └── pages/           # index.astro (mit HIGH_VALUE_FIELDS), [slug].astro, api/
+│   ├── layouts/         # Base.astro (CSS Bundling)
+│   └── pages/           # index.astro (Pagination), [slug].astro, api/
 │
-├── public/styles/       # base.css, components.css, morphs/ (inkl. bifroest.css)
+├── public/styles/       # CSS mit Bundled Outputs
+│   ├── all.min.css      # Production Bundle (154KB)
+│   ├── base.min.css     # Base Styles
+│   ├── components.min.css # UI Components
+│   └── morphs/          # Morph Styles (inkl. bifroest.css)
 │
 └── tests/               # 421 Tests - detection, security, morphs, observer, integration
 ```

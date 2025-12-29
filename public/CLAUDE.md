@@ -100,12 +100,28 @@ box-shadow: 0 0 8px rgba(0, 180, 200, 0.4); /* Sanfter Glow */
 --bio-lavendel: #c4b5fd;
 ```
 
-### Black Glass Morphism
+### Black Glass Morphism (PERFORMANCE OPTIMIERT)
 ```css
-background: rgba(8, 10, 16, 0.95);
-backdrop-filter: blur(20px);
+/* ENTFERNT für Raspberry Pi Performance: */
+/* backdrop-filter: blur(20px); - GPU-intensiv! */
+
+/* Stattdessen solide Backgrounds: */
+background: rgba(8, 10, 16, 0.98);
 border: 1px solid rgba(255, 255, 255, 0.04);
 ```
+
+## 🚀 CSS Bundling
+
+### Production (all.min.css)
+```html
+<!-- Base.astro lädt automatisch: -->
+<link rel="stylesheet" href="/styles/all.min.css" />
+```
+
+### Einsparungen
+- **60+ HTTP Requests → 1**
+- **292KB → 154KB** (47% kleiner)
+- **Keine @import Kaskaden**
 
 ## 📦 CSS Files
 

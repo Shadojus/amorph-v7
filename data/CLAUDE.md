@@ -2,16 +2,23 @@
 
 > JSON-Daten für biologische Spezies mit Perspektiven-System.
 
+## � Performance-Optimierungen (Dezember 2025)
+- **WebP Bilder** - Alle JPG/PNG zu WebP konvertiert (96.65 MB gespart!)
+- **Originale behalten** - JPG/PNG bleiben als Fallback
+- **~40-80% Reduktion** pro Bild
+
 ## 📁 Struktur (aktuell)
 
 ```
 data/
 ├── universe-index.json     # Haupt-Index aller Kingdoms (SEO-optimiert)
-├── bifroest-experts.json   # Bifröst Experten-Datenbank (NEU)
+├── bifroest-experts.json   # Bifröst Experten-Datenbank
 └── fungi/
     ├── index.json          # Kingdom-Index mit allen Species + Perspektiven
-    └── {species-slug}/     # Ein Ordner pro Spezies (27 Pilze)
+    └── {species-slug}/     # Ein Ordner pro Spezies (52 Pilze)
         ├── index.json      # Core-Daten (Name, Slug, Description)
+        ├── *.jpg           # Original-Bilder
+        ├── *.webp          # WebP-Versionen (automatisch generiert)
         ├── identification.json
         ├── ecology.json
         ├── safety.json
@@ -24,9 +31,21 @@ data/
 
 ## 📊 Aktuelle Daten
 
-- **27 Pilz-Spezies** (z.B. hericium-erinaceus, trametes-versicolor, psilocybe-*)
+- **52 Pilz-Spezies** (z.B. hericium-erinaceus, trametes-versicolor, psilocybe-*)
 - **196 JSON-Dateien** validiert (0 Errors)
+- **1763 Bilder** zu WebP konvertiert
 - **~12 Perspektiven** pro Spezies im Durchschnitt
+
+## 🖼️ Bild-Konvertierung
+
+```bash
+# WebP-Konvertierung ausführen:
+npm run optimize:images
+
+# Output:
+# ✅ 1763 Bilder konvertiert
+# 💾 96.65 MB eingespart
+```
 
 ## 🔗 Bifröst Attribution System
 

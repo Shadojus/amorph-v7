@@ -1,16 +1,67 @@
 # AMORPH v7 - Scripts
 
-> Build-Tools, Validierung und Feld-Experten-Mapping.
+> Build-Tools, Validierung, CSS-Bundling und Bild-Optimierung.
 
 ## 📁 Struktur
 
 ```
 scripts/
 ├── build-index.js       # v2.0 - SEO-optimierte Index-Generierung + Bifröst
+├── build-css.js         # CSS Bundler (60+ Dateien → all.min.css)
+├── optimize-images.js   # WebP-Konvertierung mit Sharp
 ├── build-pages.js       # Static Page Generation (optional)
 ├── validate.js          # Zod-Schema-Validierung aller JSON-Dateien
 └── lib/
     └── field-experts.js # Hilbert-ähnliches Feld-Experten-Mapping
+```
+
+## 📦 build-css.js (NEU - Dezember 2025)
+
+**Zweck**: Bundelt 60+ CSS-Dateien zu einer minifizierten Datei.
+
+### Features
+- **@import Resolution** - Löst alle CSS-Imports rekursiv auf
+- **Minifizierung** - Entfernt Whitespace, Kommentare
+- **All-in-One Bundle** - `all.min.css` für 1 HTTP Request
+- **Separate Bundles** - base.min.css, components.min.css, morphs.min.css
+
+### Ausführen
+```bash
+npm run build:css
+# oder
+node scripts/build-css.js
+```
+
+### Output
+```
+public/styles/
+├── all.min.css         # 154KB - Production Bundle (47% kleiner)
+├── base.min.css        # 21KB
+├── components.min.css  # 56KB
+└── morphs.min.css      # 77KB
+```
+
+## 📦 optimize-images.js (NEU - Dezember 2025)
+
+**Zweck**: Konvertiert JPG/PNG zu WebP für bessere Performance.
+
+### Features
+- **Sharp-basiert** - Schnelle Bildverarbeitung
+- **80% Qualität** - Guter Kompromiss Qualität/Größe
+- **Max 800px Breite** - Optimiert für Grid-Anzeige
+- **Skip Existing** - Überspringt bereits konvertierte
+- **~96MB Einsparung** - 40-80% pro Bild
+
+### Ausführen
+```bash
+npm run optimize:images
+# oder
+node scripts/optimize-images.js
+```
+
+### Voraussetzung
+```bash
+npm install sharp --save-dev
 ```
 
 ## 📦 build-index.js (v2.0)

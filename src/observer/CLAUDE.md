@@ -2,6 +2,29 @@
 
 > Debug & Analytics System mit kategorisiertem Logging.
 
+## � Performance-Optimierung (Dezember 2025)
+
+**⚡ DYNAMIC IMPORT - 87KB eingespart!**
+
+Observer wird **nicht mehr statisch importiert**, sondern nur bei Bedarf:
+
+```typescript
+// app.ts - NUR wenn aktiviert:
+if (isEnabled) {
+  const { setupObservers } = await import('../../observer');
+  // ...
+}
+```
+
+### Aktivierung (standardmäßig AUS)
+```javascript
+// Per localStorage:
+localStorage.setItem('amorph:observers', 'true')
+
+// Per URL:
+?observe=true
+```
+
 ## 📁 Struktur
 
 ```
@@ -16,19 +39,18 @@ observer/
 
 ## 🔧 Aktivierung
 
-**Standardmäßig AKTIVIERT** für Debugging.
+**Standardmäßig DEAKTIVIERT** für Production Performance.
+
+### Aktivieren
+```javascript
+localStorage.setItem('amorph:observers', 'true');
+// oder URL: ?observe=true
+```
 
 ### Deaktivieren
 ```javascript
-localStorage.setItem('amorph:observers', 'false');
-// oder
-window.amorphDebug.disable();
-```
-
-### Per URL Parameter
-```
-?observe=false    // Deaktivieren
-?observe=true     // Aktivieren
+localStorage.removeItem('amorph:observers');
+// oder URL: ?observe=false
 ```
 
 ## 📦 debug.ts - Kategorien
@@ -64,7 +86,7 @@ debug.getTimeline(20);
 
 ## 🌐 window.amorphDebug
 
-Global verfügbar für DevTools:
+Global verfügbar für DevTools (nur wenn Observer geladen):
 ```javascript
 amorphDebug.enable()
 amorphDebug.disable()

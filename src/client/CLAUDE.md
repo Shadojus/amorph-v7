@@ -2,13 +2,18 @@
 
 > Browser-seitige Features und Interaktionen.
 
+## � Performance-Optimierungen (Dezember 2025)
+- **Observer Dynamic Import** - 87KB eingespart, nur bei Bedarf geladen
+- **loadMoreItems()** - Pagination statt alle 52 Items laden
+- **Keine statischen Observer-Imports** - `await import()` nur wenn aktiviert
+
 ## 📁 Struktur
 
 ```
 client/
 └── features/           # Alle Client-Features
     ├── index.ts        # Re-Exports (80+ Exports)
-    ├── app.ts          # Haupt-Initialisierung (~264 Zeilen)
+    ├── app.ts          # Haupt-Initialisierung + loadMore (~420 Zeilen)
     ├── debug.ts        # Client Debug Logging
     ├── search.ts       # Suche + Auto-Perspektiven (~508 Zeilen)
     ├── grid.ts         # Grid-Interaktionen + Feld-Selektion
@@ -19,11 +24,12 @@ client/
 
 ## 🔧 Features
 
-### app.ts (264 Zeilen)
+### app.ts (~420 Zeilen)
 - Initialisiert alle Module beim DOM Ready
 - Reihenfolge: Search → Grid → Compare → BottomNav → SelectionBar → Bifröst → LoadFromStorage
 - Guard gegen doppelte Initialisierung (`isInitialized`)
-- Restores from URL/sessionStorage
+- **loadMoreItems()** - Pagination via Search API
+- **Observer Dynamic Import** - nur bei `?observe=true` oder localStorage
 
 ### search.ts (508 Zeilen)
 - Suchmaschinen-UX mit Auto-Perspektiven (ab 3 Zeichen)
@@ -65,9 +71,12 @@ client/
 ## 🐛 Debug-Logging
 
 ```javascript
+// Observer aktivieren (standardmäßig AUS):
+localStorage.setItem('amorph:observers', 'true')
+// oder URL: ?observe=true
+
 // Deaktivieren:
 localStorage.setItem('amorph:debug', 'false')
-localStorage.setItem('amorph:observers', 'false')
 
 // Console:
 window.amorphDebug.disable()

@@ -2,17 +2,23 @@
 
 > TypeScript-Module für biologische Datenvisualisierung mit Engagement-Optimierung.
 
+## � Performance-Optimierungen (Dezember 2025)
+- **Observer Dynamic Import** - 87KB eingespart, nur bei Bedarf geladen
+- **Pagination** - Initial 12 Items, "Mehr laden" Button
+- **WebP Bilder** - `<picture>` mit Fallback in image.ts und Templates
+- **CSS Bundling** - all.min.css in Production (Base.astro)
+
 ## 📁 Struktur
 
 ```
 src/
 ├── core/           # Typen, Detection (struktur-basiert), Security
 ├── morphs/         # Unified Morph System (28 Primitives)
-├── observer/       # Debug & Analytics
+├── observer/       # Debug & Analytics (DYNAMIC IMPORT - 87KB)
 ├── server/         # SSR: Config + Data Loader
-├── client/         # Browser: Features (8 Module inkl. Bifröst)
-├── layouts/        # Astro Base Layout
-├── pages/          # Routes + API (HIGH_VALUE_FIELDS in index.astro)
+├── client/         # Browser: Features (8 Module inkl. Bifröst + loadMore)
+├── layouts/        # Astro Base Layout (CSS Bundling)
+├── pages/          # Routes + API (Pagination in index.astro)
 └── env.d.ts        # Astro TypeScript Referenzen
 ```
 
@@ -23,7 +29,7 @@ pages/ → layouts/ → server/ → core/
                  ↘        ↘
                   client/ → morphs/ → core/
                         ↘
-                         observer/
+                         observer/ (DYNAMIC!)
 ```
 
 ## 📦 Module
@@ -37,19 +43,21 @@ pages/ → layouts/ → server/ → core/
 ### morphs/ (31 Dateien)
 - `base.ts` - createUnifiedMorph() Factory + wrapInField() (~261 Zeilen)
 - `primitives/` - 28 Morph-Typen
+- `primitives/image.ts` - **WebP Support** mit `<picture>` Element
 - `debug.ts` - morphDebug System für DevTools
 - `index.ts` - Registry, renderValue(), renderCompare() (~256 Zeilen)
 
-### observer/ (6 Dateien)
+### observer/ (6 Dateien) - **DYNAMIC IMPORT**
 - `index.ts` - setupObservers(), getObserverStats() (~160 Zeilen)
 - `debug.ts` - Kategorisiertes Logging
 - `interaction.ts` - Click, Hover, Input Tracking
 - `rendering.ts` - Mount/Unmount Events
 - `session.ts` - Page Views, Session Tracking
 - `target.ts` - Console/HTTP/WebSocket Backends
+- **⚡ Wird nur bei `?observe=true` oder localStorage geladen!**
 
 ### client/features/ (8 Dateien)
-- `app.ts` - Haupt-Initialisierung (~264 Zeilen)
+- `app.ts` - Haupt-Initialisierung + **loadMoreItems()** (~420 Zeilen)
 - `search.ts` - Suchmaschinen-UX mit Perspektiven (~508 Zeilen)
 - `grid.ts` - Grid-Layout und Feld-Selection
 - `compare.ts` - Compare-Panel + Diff-Updates (~670 Zeilen)
@@ -64,12 +72,12 @@ pages/ → layouts/ → server/ → core/
 - `index.ts` - Re-Exports
 
 ### layouts/ (1 Datei)
-- `Base.astro` - Modulares HTML-Gerüst mit Cache-Busting
+- `Base.astro` - **CSS Bundling** (all.min.css in Production)
 
 ### pages/ (4 Dateien)
-- `index.astro` - Grid-Übersicht mit HIGH_VALUE_FIELDS (~438 Zeilen)
+- `index.astro` - Grid mit **Pagination** (limit: 12) + WebP Bilder (~520 Zeilen)
 - `[slug].astro` - Detail-Seite mit Perspektiven (~699 Zeilen)
-- `api/search.ts` - GET /api/search
+- `api/search.ts` - GET /api/search (mit WebP in HTML Output)
 - `api/compare.ts` - POST /api/compare (Item & Feld Modus)
 
 ## 🔧 Build Info

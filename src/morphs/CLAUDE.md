@@ -4,6 +4,11 @@
 > Struktur-basierte Detection - Typ wird aus Datenstruktur erkannt.
 > Object-Parsing - Badge/Rating/Progress parsen Objekte automatisch.
 
+## � Performance-Optimierungen (Dezember 2025)
+- **WebP Support** - `image.ts` rendert `<picture>` mit WebP-Fallback
+- **decoding="async"** - Bilder blockieren nicht das Rendering
+- **loading="lazy"** - Bilder laden erst bei Sichtbarkeit
+
 ## 📁 Struktur
 
 ```
@@ -22,7 +27,7 @@ morphs/
     ├── date.ts       # ISO-Datum
     ├── dosage.ts     # [{amount, unit, frequency}] oder {min, max}
     ├── gauge.ts      # {value, min, max, unit}
-    ├── image.ts      # URL mit .jpg/.png/.webp/.svg
+    ├── image.ts      # URL mit WebP-Support (<picture>)
     ├── lifecycle.ts  # [{phase, duration}] - Phasen-Dots
     ├── link.ts       # http(s)://
     ├── list.ts       # ["strings"]
@@ -40,6 +45,24 @@ morphs/
     ├── tag.ts        # String ≤20 chars / ["short"]
     ├── text.ts       # String >20 chars
     └── timeline.ts   # [{date, event}]
+```
+
+## 🖼️ image.ts - WebP Support
+
+```typescript
+// Generiert <picture> mit WebP-Fallback:
+<picture class="morph-image">
+  <source srcset="image.webp" type="image/webp">
+  <img src="image.jpg" alt="Image" loading="lazy" decoding="async" />
+</picture>
+
+// Automatische Erkennung für JPG/PNG → WebP
+function getWebPSrc(src: string): string | null {
+  if (/\.(jpg|jpeg|png)$/i.test(src)) {
+    return src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+  }
+  return null;
+}
 ```
 
 ## 🎯 Priority im Grid

@@ -2,21 +2,28 @@
 
 > Astro-Routen und API-Endpoints mit Engagement-optimierter Feld-Priorisierung.
 
+## � Performance-Optimierungen (Dezember 2025)
+- **Pagination** - Initial 12 Items statt 52, "Mehr laden" Button
+- **WebP Bilder** - `<picture>` mit Fallback für Grid-Items
+- **DOM Reduktion** - ~1290 → ~400 Nodes (69% weniger)
+
 ## 📁 Struktur
 
 ```
 pages/
-├── index.astro     # Grid-Übersicht + HIGH_VALUE_FIELDS (~438 Zeilen)
+├── index.astro     # Grid + Pagination + WebP (~520 Zeilen)
 ├── [slug].astro    # Detail-Seite mit Perspektiven (~699 Zeilen)
 └── api/
-    ├── search.ts   # GET /api/search
+    ├── search.ts   # GET /api/search (mit WebP in HTML)
     └── compare.ts  # POST /api/compare (Feld-Modus)
 ```
 
-## 📄 index.astro - Hauptseite (~438 Zeilen)
+## 📄 index.astro - Hauptseite (~520 Zeilen)
 
 ### Features
-- **Grid-Ansicht** aller Spezies (27 Pilze)
+- **Grid-Ansicht** aller Spezies (52 Pilze)
+- **Pagination** - `limit: 12` initial, "Mehr laden" Button
+- **WebP Bilder** - `<picture>` Element mit Fallback
 - **HIGH_VALUE_FIELDS Priorisierung** - "Knaller"-Daten zuerst anzeigen
 - **MORPH_PRIORITY** - Badge vor Range, visuell wichtiges zuerst
 - **Sticky Suchleiste** unter Header (z-index: 10000)
@@ -25,7 +32,31 @@ pages/
 - **Bottom Navigation** mit Selection-Badge (z-index: 10001)
 - **Compare Panel** mit Copy-Button (z-index: 9999)
 
-### HIGH_VALUE_FIELDS Tiers (neu!)
+### Pagination
+```astro
+// Initial nur 12 Items laden
+const { items, total } = await searchItems({ limit: 12 });
+
+// "Mehr laden" Button
+{total > items.length && (
+  <button class="load-more-btn" 
+    onclick="window.loadMoreItems(this)"
+    data-loaded={items.length} 
+    data-total={total}>
+    Mehr laden ({items.length} von {total})
+  </button>
+)}
+```
+
+### WebP Bilder
+```astro
+<picture>
+  <source srcset={imageUrl.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
+  <img src={imageUrl} alt={item.name} loading="lazy" decoding="async" />
+</picture>
+```
+
+### HIGH_VALUE_FIELDS Tiers
 ```
 TIER 1: 🌟 WOW-FAKTOR
   - special_feature, bioluminescence, bioremediation_potential
