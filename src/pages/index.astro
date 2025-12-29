@@ -395,11 +395,8 @@ const gridContext: RenderContext = {
             <div class="item-header">
               {imageUrl && (
                 <div class="item-image">
-                  {/* PERFORMANCE: WebP mit JPG-Fallback */}
-                  <picture>
-                    <source srcset={imageUrl.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
-                    <img src={imageUrl} alt={item.name} loading="lazy" decoding="async" />
-                  </picture>
+                  {/* API serviert automatisch WebP wenn verfügbar */}
+                  <img src={imageUrl} alt={item.name} loading="lazy" decoding="async" />
                   {imageSource && (
                     <button type="button" class="bifroest-copyright" data-sources={imageSourcesJson}>
                       <span class="bifroest-symbol">©</span>

@@ -1,5 +1,8 @@
 /**
  * AMORPH v7 - Image Morph
+ * 
+ * PERFORMANCE: Kein <picture> nötig - die Image API serviert
+ * automatisch WebP wenn Browser es unterstützt!
  */
 
 import { createUnifiedMorph, escapeHtml } from '../base.js';
@@ -27,32 +30,13 @@ function sanitizeImageSrc(src: string): string {
   return '';
 }
 
-/**
- * Generiert WebP-Version einer Bild-URL (falls verfügbar)
- */
-function getWebPSrc(src: string): string | null {
-  if (/\.(jpg|jpeg|png)$/i.test(src)) {
-    return src.replace(/\.(jpg|jpeg|png)$/i, '.webp');
-  }
-  return null;
-}
-
 export const image = createUnifiedMorph(
   'image',
   (value) => {
     const src = sanitizeImageSrc(extractSrc(value));
     if (!src) return '<span class="morph-image-blocked" role="img" aria-label="Image blocked">[Blocked URL]</span>';
     
-    const webpSrc = getWebPSrc(src);
-    
-    // PERFORMANCE: <picture> mit WebP-Fallback
-    if (webpSrc) {
-      return `<picture class="morph-image">
-        <source srcset="${escapeHtml(webpSrc)}" type="image/webp">
-        <img src="${escapeHtml(src)}" alt="Image" loading="lazy" decoding="async" />
-      </picture>`;
-    }
-    
+    // Einfaches <img> - API macht WebP automatisch via Content Negotiation
     return `<img class="morph-image" src="${escapeHtml(src)}" alt="Image" loading="lazy" decoding="async" />`;
   },
   // Compare: Grid of images
@@ -61,19 +45,6 @@ export const image = createUnifiedMorph(
       ${values.map(({ item, value, color }) => {
         const src = sanitizeImageSrc(extractSrc(value));
         if (!src) return `<div class="morph-image-cell morph-image-blocked">[Blocked]</div>`;
-        
-        const webpSrc = getWebPSrc(src);
-        
-        if (webpSrc) {
-          return `
-            <div class="morph-image-cell" style="--item-color: ${escapeHtml(color)}">
-              <picture>
-                <source srcset="${escapeHtml(webpSrc)}" type="image/webp">
-                <img src="${escapeHtml(src)}" alt="${escapeHtml(item.name)}" loading="lazy" decoding="async" />
-              </picture>
-            </div>
-          `;
-        }
         
         return `
           <div class="morph-image-cell" style="--item-color: ${escapeHtml(color)}">

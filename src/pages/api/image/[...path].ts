@@ -2,14 +2,16 @@
  * AMORPH v7 - Image API
  * 
  * Serviert Bilder aus den data/ Verzeichnissen.
- * Route: /api/image/{kingdom}/{slug}/{filename}
+ * PERFORMANCE: Automatische WebP-Konvertierung wenn verfügbar!
  * 
+ * Route: /api/image/{kingdom}/{slug}/{filename}
  * Beispiel: /api/image/fungi/hericium-erinaceus/Hericium_erinaceus.jpg
+ *           → Serviert .webp wenn vorhanden und Browser es unterstützt
  */
 
 import type { APIRoute } from 'astro';
 import { readFileSync, existsSync } from 'fs';
-import { join, extname } from 'path';
+import { join, extname, basename, dirname } from 'path';
 import { getSiteType, SITE_META } from '../../../server/config';
 
 // MIME types for images
@@ -28,7 +30,7 @@ const BASE_DATA_PATH = process.env.NODE_ENV === 'production'
   ? join(process.cwd(), 'data')
   : join(process.cwd(), 'data');
 
-export const GET: APIRoute = async ({ params }) => {
+export const GET: APIRoute = async ({ params, request }) => {
   try {
     const pathParts = params.path?.split('/') || [];
     
@@ -46,31 +48,51 @@ export const GET: APIRoute = async ({ params }) => {
     }
     
     // Build file path
-    const filePath = join(BASE_DATA_PATH, kingdom, slug, decodeURIComponent(filename));
+    const decodedFilename = decodeURIComponent(filename);
+    let filePath = join(BASE_DATA_PATH, kingdom, slug, decodedFilename);
     
     // Security: prevent path traversal
-    const resolvedPath = join(BASE_DATA_PATH, kingdom, slug, decodeURIComponent(filename));
-    if (!resolvedPath.startsWith(BASE_DATA_PATH)) {
+    if (!filePath.startsWith(BASE_DATA_PATH)) {
       return new Response('Path traversal not allowed', { status: 403 });
     }
     
+    // PERFORMANCE: Automatisch WebP servieren wenn verfügbar
+    const acceptHeader = request.headers.get('Accept') || '';
+    const browserSupportsWebP = acceptHeader.includes('image/webp');
+    const ext = extname(decodedFilename).toLowerCase();
+    
+    // Wenn Browser WebP unterstützt und Datei ist JPG/PNG, prüfe ob WebP existiert
+    if (browserSupportsWebP && ['.jpg', '.jpeg', '.png'].includes(ext)) {
+      const webpPath = filePath.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+      if (existsSync(webpPath)) {
+        // WebP existiert - serviere diese statt Original
+        const imageBuffer = readFileSync(webpPath);
+        return new Response(imageBuffer, {
+          status: 200,
+          headers: {
+            'Content-Type': 'image/webp',
+            'Cache-Control': 'public, max-age=31536000, immutable',
+            'Vary': 'Accept', // Wichtig für CDN Caching!
+          },
+        });
+      }
+    }
+    
+    // Fallback: Original-Datei servieren
     if (!existsSync(filePath)) {
       console.log(`[Image API] Not found: ${filePath}`);
       return new Response('Image not found', { status: 404 });
     }
     
-    // Get MIME type
-    const ext = extname(filename).toLowerCase();
     const mimeType = MIME_TYPES[ext] || 'application/octet-stream';
-    
-    // Read and return image
     const imageBuffer = readFileSync(filePath);
     
     return new Response(imageBuffer, {
       status: 200,
       headers: {
         'Content-Type': mimeType,
-        'Cache-Control': 'public, max-age=31536000, immutable', // 1 year cache
+        'Cache-Control': 'public, max-age=31536000, immutable',
+        'Vary': 'Accept',
       },
     });
   } catch (error) {
