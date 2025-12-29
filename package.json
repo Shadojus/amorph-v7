@@ -5,7 +5,8 @@
   "description": "Formlos. Zustandslos. Transformierend. – Unified Morphs with Auto Single/Compare Detection",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npm run build:css && astro build",
+    "build:css": "node scripts/build-css.js",
     "preview": "astro preview",
     "start": "node dist/server/entry.mjs",
     "check": "astro check && tsc --noEmit",

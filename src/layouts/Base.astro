@@ -2,8 +2,10 @@
 /**
  * AMORPH v7 - Base Layout
  * 
- * Modulares Layout - kein Monolith mehr!
- * Unterstützt Multi-Site mit SITE_TYPE
+ * PERFORMANCE OPTIMIERT:
+ * - CSS preloading
+ * - Deferred script loading
+ * - Resource hints
  */
 
 import { getSiteType, SITE_META } from '../server/config';
@@ -21,6 +23,9 @@ const {
   title = siteMeta.name, 
   description = 'Biologische Daten visualisieren, vergleichen, verstehen.' 
 } = Astro.props;
+
+// Production mode check
+const isProd = import.meta.env.PROD;
 ---
 
 <!DOCTYPE html>
@@ -31,19 +36,36 @@ const {
   <meta name="description" content={description}>
   <title>{title}</title>
   
-  <!-- Styles -->
-  <link rel="stylesheet" href="/styles/base.css?v=7">
-  <link rel="stylesheet" href="/styles/components.css?v=7">
-  <link rel="stylesheet" href="/styles/morphs.css?v=7">
-  <link rel="stylesheet" href="/styles/morphs/bifroest.css?v=7">
+  <!-- PERFORMANCE: DNS Prefetch für externe Ressourcen -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  
+  {isProd ? (
+    <>
+      {/* Production: ALL-IN-ONE CSS Bundle (1 Request statt 60+) */}
+      <link rel="preload" href="/styles/all.min.css" as="style" />
+      <link rel="stylesheet" href="/styles/all.min.css" />
+    </>
+  ) : (
+    <>
+      {/* Development: Einzeldateien für besseres Debugging */}
+      <link rel="stylesheet" href="/styles/base.css" />
+      <link rel="stylesheet" href="/styles/components.css" />
+      <link rel="stylesheet" href="/styles/morphs.bundled.css" />
+    </>
+  )}
 </head>
 <body>
   <slot />
   
-  <!-- Client Scripts -->
+  <!-- Client Scripts - PERFORMANCE: Defer loading -->
   <script>
     import { initApp } from '../client/features';
-    initApp();
+    // Warte bis DOM ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initApp);
+    } else {
+      initApp();
+    }
   </script>
 </body>
 </html>

@@ -15,6 +15,11 @@ export default defineConfig({
     host: true
   },
   
+  // PERFORMANCE: Dev Toolbar nur in Development
+  devToolbar: {
+    enabled: false
+  },
+  
   vite: {
     resolve: {
       alias: {
@@ -24,6 +29,35 @@ export default defineConfig({
         '@server': '/src/server',
         '@client': '/src/client'
       }
+    },
+    
+    // PERFORMANCE: CSS und JS Bundling optimieren
+    build: {
+      // CSS in weniger Dateien bundeln
+      cssCodeSplit: false,
+      // JS besser bundeln
+      rollupOptions: {
+        output: {
+          // Alle JS in ein Bundle
+          manualChunks: undefined,
+          // Bessere Dateinamen für Caching
+          entryFileNames: 'assets/[name].[hash].js',
+          chunkFileNames: 'assets/[name].[hash].js',
+          assetFileNames: 'assets/[name].[hash][extname]'
+        }
+      },
+      // Kleinere Bundles
+      minify: 'esbuild',
+      // Source Maps nur in Dev
+      sourcemap: false
+    },
+    
+    // PERFORMANCE: CSS Optimierung
+    css: {
+      devSourcemap: false
     }
-  }
+  },
+  
+  // PERFORMANCE: Komprimierung aktivieren
+  compressHTML: true
 });

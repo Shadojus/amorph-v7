@@ -30,12 +30,12 @@
   stroke-width: 0.5;
 }
 
-/* Datenfläche - organisch gefüllt mit weichen Kanten */
+/* Datenfläche - organisch gefüllt */
 .radar-area {
   fill: rgba(var(--morph-color-rgb), 0.06);
   stroke: rgba(var(--morph-color-rgb), 0.4);
   stroke-width: 1;
-  filter: blur(0.3px);
+  /* PERFORMANCE: blur entfernt */
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
@@ -45,7 +45,7 @@
   fill: var(--morph-accent);
   stroke: none;
   opacity: 0.7;
-  filter: drop-shadow(0 0 3px var(--morph-accent));
+  /* PERFORMANCE: drop-shadow entfernt */
 }
 
 /* Labels - größer und besser lesbar */
@@ -78,7 +78,7 @@
   stroke: var(--item-color);
   stroke-opacity: 0.35;
   stroke-width: 1;
-  filter: blur(0.3px);
+  /* PERFORMANCE: blur entfernt */
   transition: opacity 0.3s ease, fill 0.3s ease;
   mix-blend-mode: screen;
 }
