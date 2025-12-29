@@ -17,7 +17,8 @@
     "build:index": "node scripts/build-index.js",
     "build:pages": "node scripts/build-pages.js",
     "build:sources": "node scripts/build-sources.js",
-    "build:all": "npm run build:sources && npm run build:index && npm run build:pages && npm run build"
+    "build:all": "npm run build:sources && npm run build:index && npm run build:pages && npm run build",
+    "optimize:images": "node scripts/optimize-images.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@types/node": "^20.0.0",
     "@vitest/coverage-v8": "^3.2.0",
+    "sharp": "^0.34.5",
     "typescript": "^5.9.3",
     "vitest": "^3.2.0"
   }

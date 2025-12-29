@@ -2,7 +2,7 @@
  * AMORPH v7 - Client App
  * 
  * Haupt-Initialisierung der Client-Anwendung.
- * Mit integriertem Observer-System für Debugging.
+ * PERFORMANCE OPTIMIERT: Observer nur bei Bedarf laden
  */
 
 import { debug } from './debug';
@@ -22,7 +22,7 @@ import {
   clearFields
 } from './selection';
 import { initBifroest } from './bifroest';
-import { setupObservers, stopObservers, getObserverStats, debug as observerDebug } from '../../observer';
+// PERFORMANCE: Observer wird nur bei Bedarf dynamisch importiert
 import { morphDebug } from '../../morphs/debug';
 
 // Expose morphDebug globally for console access
@@ -183,12 +183,12 @@ function updateBottomNavState(): void {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// OBSERVER SYSTEM
+// OBSERVER SYSTEM - PERFORMANCE: Dynamic Import
 // ═══════════════════════════════════════════════════════════════════════════════
 
-let activeObservers: ReturnType<typeof setupObservers> = [];
+let activeObservers: any[] = [];
 
-function initObservers(): void {
+async function initObservers(): Promise<void> {
   // Production: Standardmäßig DEAKTIVIERT
   // Aktivieren mit: localStorage.setItem('amorph:observers', 'true')
   // Oder: ?observe=true in URL
@@ -204,6 +204,9 @@ function initObservers(): void {
     debug.amorph('Observers disabled (enable with localStorage "amorph:observers" = true or ?observe=true)');
     return;
   }
+  
+  // PERFORMANCE: Nur wenn aktiviert, dann laden (87KB einsparen!)
+  const { setupObservers, stopObservers, getObserverStats } = await import('../../observer');
   
   const container = document.body;
   const sessionId = getOrCreateSessionId();
