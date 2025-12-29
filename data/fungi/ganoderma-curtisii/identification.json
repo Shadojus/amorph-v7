@@ -14,19 +14,19 @@
     "Scindalma curtisii"
   ],
   "common_names": [
-    "Goldener Lackporling",
     "Golden Reishi",
-    "Yellow Reishi"
+    "Yellow Reishi",
+    "Goldener Lackporling"
   ],
-  "color_primary": "goldgelb",
-  "color_secondary": "rotbraun",
+  "color_primary": "golden yellow",
+  "color_secondary": "reddish-brown",
   "primary_structure_present": true,
-  "primary_structure_type": "Konsole mit Stiel",
-  "primary_structure_surface": "lackiert, glaenzend",
+  "primary_structure_type": "bracket with stem",
+  "primary_structure_surface": "lacquered, shiny",
   "tubes_present": true,
-  "pores_color": "weiss, bei Beruehrung braun",
-  "tissue_consistency": "schwammig in Poren, fest im Stiel",
-  "propagule_color": "braun",
+  "pores_color": "white, staining brown when touched",
+  "tissue_consistency": "spongy in pores, firm in stem",
+  "propagule_color": "brown",
   "confusion_species_list": [
     "Ganoderma lucidum",
     "Ganoderma sessile"

@@ -1,37 +1,37 @@
 {
-  "trophic_mode_primary": "saprobiontisch",
-  "trophic_mode_secondary": "parasitisch",
-  "ecological_guild": "Holzzersetzer",
-  "decomposer_type": "Weissfaeule",
-  "ecosystem_type": "Wald",
-  "ecosystem_subtype": "Laubwald",
-  "microhabitat_primary": "Staemme lebender Baeume",
-  "microhabitat_secondary": "totes Laubholz",
-  "substrate_type_primary": "Laubholz",
+  "trophic_mode_primary": "saprotrophic",
+  "trophic_mode_secondary": "parasitic",
+  "ecological_guild": "wood decomposer",
+  "decomposer_type": "white rot",
+  "ecosystem_type": "forest",
+  "ecosystem_subtype": "deciduous forest",
+  "microhabitat_primary": "trunks of living trees",
+  "microhabitat_secondary": "dead hardwood",
+  "substrate_type_primary": "hardwood",
   "substrate_types_secondary": [
-    "Buche",
-    "Pappel",
-    "Erle",
-    "Eiche",
-    "Ahorn",
-    "Weide"
+    "beech",
+    "poplar",
+    "alder",
+    "oak",
+    "maple",
+    "willow"
   ],
   "substrate_specificity": {
-    "status": "breit",
+    "status": "broad",
     "variant": "success"
   },
   "fruiting_season_start": 1,
   "fruiting_season_end": 12,
-  "fruiting_frequency": "ganzjaehrig",
-  "climate_zone": "temperat",
-  "moisture_regime": "mesisch",
-  "light_requirement": "schattig bis halbschattig",
-  "spatial_distribution_pattern": "einzeln",
-  "native_range": "Kosmopolitisch",
+  "fruiting_frequency": "year-round",
+  "climate_zone": "temperate",
+  "moisture_regime": "mesic",
+  "light_requirement": "shady to semi-shady",
+  "spatial_distribution_pattern": "solitary",
+  "native_range": "cosmopolitan",
   "iucn_global_status": {
     "status": "LC",
     "variant": "success"
   },
   "perennial": true,
-  "lifespan": "mehrjaehrig (5-10+ Jahre)"
+  "lifespan": "perennial (5-10+ years)"
 }

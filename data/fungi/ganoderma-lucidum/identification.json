@@ -9,38 +9,38 @@
   "taxonomy_genus": "Ganoderma",
   "taxonomy_species": "lucidum",
   "common_names": [
-    "Glaenzender Lackporling",
     "Reishi",
     "Lingzhi",
     "Ling Zhi",
     "Mannentake",
-    "Pilz der Unsterblichkeit"
+    "Mushroom of Immortality",
+    "Glaenzender Lackporling"
   ],
   "size_range": {
     "min": 5,
     "max": 25,
     "unit": "cm"
   },
-  "color_primary": "rotbraun",
-  "color_secondary": "purpurrot",
+  "color_primary": "reddish-brown",
+  "color_secondary": "purplish-red",
   "primary_structure_present": true,
-  "primary_structure_type": "Konsole mit Stiel",
+  "primary_structure_type": "bracket with stem",
   "primary_structure_diameter": {
     "min": 5,
     "max": 25,
     "unit": "cm"
   },
-  "primary_structure_shape_mature": "nierenfoermig bis faecherfoermig",
-  "primary_structure_surface": "lackiert, glaenzend, konzentrisch gezont",
-  "primary_structure_color": "rotbraun, purpurrot, lackiert",
+  "primary_structure_shape_mature": "kidney-shaped to fan-shaped",
+  "primary_structure_surface": "lacquered, shiny, concentrically zoned",
+  "primary_structure_color": "reddish-brown, purplish-red, lacquered",
   "support_structure_present": true,
-  "support_structure_type": "Stiel",
-  "support_structure_color": "rotbraun, lackiert",
+  "support_structure_type": "stem",
+  "support_structure_color": "reddish-brown, lacquered",
   "tubes_present": true,
-  "pores_color": "weiss bis cremefarben",
-  "tissue_color": "hellbraun",
-  "tissue_consistency": "korkartig, holzig",
-  "propagule_color": "braun",
+  "pores_color": "white to cream",
+  "tissue_color": "light brown",
+  "tissue_consistency": "corky, woody",
+  "propagule_color": "brown",
   "confusion_species_list": [
     "Ganoderma curtisii",
     "Ganoderma sessile",
@@ -56,8 +56,8 @@
     "variant": "warning"
   },
   "key_differentiating_features": [
-    "Charakteristische rot-lackierte Oberflaeche",
-    "Meist gestielt",
-    "Auf Laubholz"
+    "Characteristic red-lacquered surface",
+    "Usually stalked",
+    "On hardwood"
   ]
 }

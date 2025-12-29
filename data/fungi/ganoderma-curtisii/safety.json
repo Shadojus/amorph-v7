@@ -8,7 +8,7 @@
     "max": 100,
     "unit": "%"
   },
-  "safety_edibility_notes": "Ungeniessbar als Speisepilz aufgrund holziger Konsistenz. Wird als Vitalpilz in Extrakt- und Teeform verwendet.",
+  "safety_edibility_notes": "Inedible as food mushroom due to woody consistency. Used as medicinal mushroom in extract and tea form.",
   "safety_potentially_deadly": false,
   "safety_toxicity_score": {
     "value": 0,
@@ -24,7 +24,7 @@
     "status": "none",
     "variant": "success"
   },
-  "safety_summary": "Ungeniessbar aber nicht giftig. Verwendung als Vitalpilz moeglich.",
+  "safety_summary": "Inedible but not toxic. Can be used as medicinal mushroom.",
   "confusion_risk_level": {
     "status": "low",
     "variant": "success"

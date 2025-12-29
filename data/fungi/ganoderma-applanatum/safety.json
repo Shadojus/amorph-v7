@@ -8,7 +8,7 @@
     "max": 100,
     "unit": "%"
   },
-  "safety_edibility_notes": "Ungeniessbar aufgrund holziger, zaeher Konsistenz. Wird als Vitalpilz in Teeform verwendet.",
+  "safety_edibility_notes": "Inedible due to woody, tough consistency. Used as medicinal mushroom in tea form.",
   "safety_potentially_deadly": false,
   "safety_toxicity_score": {
     "value": 0,
@@ -24,7 +24,7 @@
     "status": "none",
     "variant": "success"
   },
-  "safety_summary": "Ungeniessbar aber nicht giftig. Wird in der TCM als Heilpilz verwendet.",
+  "safety_summary": "Inedible but not toxic. Used in TCM as medicinal mushroom.",
   "safety_risk_inherent": {
     "value": 0,
     "min": 0,

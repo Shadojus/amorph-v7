@@ -6,7 +6,7 @@
     "fungi": {
       "name": "Fungi",
       "icon": "🍄",
-      "tagline": "Das verborgene Königreich",
+      "tagline": "The Hidden Kingdom",
       "color": "#8B4513",
       "count": 27,
       "featured": [
@@ -18,7 +18,7 @@
     "plantae": {
       "name": "Plantae",
       "icon": "🌿",
-      "tagline": "Die grüne Apotheke der Natur",
+      "tagline": "Nature's Green Pharmacy",
       "color": "#228B22",
       "count": 35,
       "featured": [
@@ -30,7 +30,7 @@
     "animalia": {
       "name": "Animalia",
       "icon": "🦋",
-      "tagline": "Fauna in all ihrer Vielfalt",
+      "tagline": "Fauna in All Its Diversity",
       "color": "#4169E1",
       "count": 0,
       "featured": []
@@ -38,7 +38,7 @@
     "bacteria": {
       "name": "Bacteria",
       "icon": "🦠",
-      "tagline": "Mikroskopische Lebensformen",
+      "tagline": "Microscopic Life Forms",
       "color": "#9932CC",
       "count": 0,
       "featured": []
@@ -59,36 +59,36 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "30–100 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Green to grey-green"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Trockengebiet"
+          "label": "Ecosystem",
+          "value": "Dryland"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Arabische Halbinsel (wahrscheinlich Jemen, Oman)"
+          "label": "Distribution",
+          "value": "Arabian Peninsula (probably Yemen, Oman)"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Low (latex contains anthraquinones)",
           "variant": "warning"
         }
@@ -157,36 +157,36 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "2–8 m"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Dark green (leaves)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Hochland von Aethiopien und Suedsudan"
+          "label": "Distribution",
+          "value": "Highlands of Ethiopia and South Sudan"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "EN",
           "variant": "danger"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic (caffeine content)",
           "variant": "success"
         }
@@ -248,22 +248,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "35–75 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Dull green (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Trockengebiet"
+          "label": "Ecosystem",
+          "value": "Dryland"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Indien, Nordafrika, Mittlerer Osten"
         }
       ],
@@ -271,7 +271,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -336,22 +336,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "30–60 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Green (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Nordostchina, Korea, Russisch-Fernost"
         }
       ],
@@ -359,13 +359,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "EN",
           "variant": "danger"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Low toxicity",
           "variant": "success"
         }
@@ -426,33 +426,33 @@
       "kingdom_icon": "🍄",
       "image": "Fomitopsis_betulina.jpg",
       "tagline": "Magen-Darm-Beschwerden · Jan–Dez",
-      "description": "Der Birkenporling (Fomitopsis betulina) ist ein bekannter Vitalpilz, der ausschliesslich auf Birken waechst. Historisch bedeutsam ist der Fund beim Mann aus dem Eis (Oetzi), der zwei Stuecke dieses Pilzes bei sich trug. In der Volksmedizin wird er seit Jahrtausenden gegen Magen-Darm-Beschwerden, zur Wundheilung und als Entzuendungshemmer verwendet. Moderne Studien bestaetigen antibakterielle, antivirale und antitumorale Eigenschaften.",
+      "description": "The Birch Polypore (Fomitopsis betulina) is a well-known medicinal fungus that grows exclusively on birch trees. Historically significant is the discovery with the Iceman (Oetzi), who carried two pieces of this fungus. In folk medicine, it has been used for thousands of years against gastrointestinal complaints, for wound healing, and as an anti-inflammatory. Modern studies confirm antibacterial, antiviral, and antitumoral properties.",
       "seo_description": "Birkenporling (Fomitopsis betulina). Heilwirkung: Magen-Darm-Beschwerden, Wundheilung",
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "3–30 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "weisslich-cremefarben"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
+          "label": "Substrate",
           "value": "Birkenholz"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Nordhemisphaere, Europa, Asien, Nordamerika"
+          "label": "Distribution",
+          "value": "Northern Hemisphere, Europe, Asia, North America"
         }
       ],
       "highlights": [
@@ -463,7 +463,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -1063,22 +1063,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "6–15 m"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Dark green (mature leaves)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Sri Lanka (endemisch)"
         }
       ],
@@ -1086,13 +1086,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic (low coumarin)",
           "variant": "success"
         }
@@ -1147,33 +1147,33 @@
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": "Inonotus_obliquus.jpg",
-      "tagline": "Antioxidativ · Geschützt · Jan–Dez",
-      "description": "Der Schiefer Schillerporling (Inonotus obliquus), bekannt als Chaga, ist ein bedeutender Vitalpilz, der besonders in Russland und Nordeuropa traditionell verwendet wird. Der Pilz bildet schwarze, kohleehnliche Auswuechse (Sklerotien) an lebenden Birken. Seine antioxidativen, immunstimulierenden und antitumoralen Eigenschaften werden seit Jahrhunderten geschaetzt. Er gilt als einer der staerksten Antioxidantien unter den Pilzen.",
-      "seo_description": "Chaga (Inonotus obliquus). Heilwirkung: Antioxidativ, Immunstimulation",
+      "tagline": "Antioxidant · Protected · Jan–Dec",
+      "description": "The Chaga (Inonotus obliquus) is a significant medicinal fungus traditionally used especially in Russia and Northern Europe. The fungus forms black, coal-like growths (sclerotia) on living birch trees. Its antioxidant, immunostimulatory, and antitumoral properties have been valued for centuries. It is considered one of the strongest antioxidants among fungi.",
+      "seo_description": "Chaga (Inonotus obliquus). Medicinal properties: Antioxidant, Immune stimulation",
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "4–50 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "schwarz"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
+          "label": "Substrate",
           "value": "Birke (Betula)"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Nordhemisphaere, besonders Russland, Skandinavi..."
         }
       ],
@@ -1185,7 +1185,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "VU",
           "variant": "warning"
         }
@@ -1244,36 +1244,36 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "5–50 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Yellow (flowers)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Grasland"
+          "label": "Ecosystem",
+          "value": "Grassland"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Eurasien (wahrscheinlich Zentralasien)"
+          "label": "Distribution",
+          "value": "Eurasia (probably Central Asia)"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -1342,36 +1342,36 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "30–80 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Grey-green (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Mediterrane Garrigue"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Mittelmeerraum (Balkanhalbinsel, Italien, Spanien)"
+          "label": "Distribution",
+          "value": "Mediterranean region (Balkan Peninsula, Italy, Spain)"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Low (thujone in excess)",
           "variant": "warning"
         }
@@ -1440,22 +1440,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "10–40 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Grey-green (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Mediterrane Garrigue"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Westliches Mittelmeergebiet (Suedfrankreich, Sp..."
         }
       ],
@@ -1463,13 +1463,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -1534,36 +1534,36 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "50–150 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Dull green (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Mittel- und Suedeuropa, Westasien, Nordafrika"
+          "label": "Distribution",
+          "value": "Central and Southern Europe, Western Asia, North Africa"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "EXTREMELY TOXIC - ONE OF MOST POISONOUS PLANTS",
           "variant": "danger"
         }
@@ -1627,22 +1627,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "30–100 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Grey-green (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Mediterrane Macchie"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Westliches Mittelmeergebiet (Spanien, Frankreic..."
         }
       ],
@@ -1650,13 +1650,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -1725,36 +1725,36 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "2–10 m"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Green (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Europa, Westasien, Nordafrika"
+          "label": "Distribution",
+          "value": "Europe, Western Asia, North Africa"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Toxic raw; safe when cooked",
           "variant": "warning"
         }
@@ -1817,33 +1817,33 @@
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": "Ganoderma_applanatum.jpg",
-      "tagline": "Jan–Dez",
-      "description": "Der Flache Lackporling (Ganoderma applanatum), auch Malerpilz genannt, ist ein mehrjaehriger Baumpilz mit charakteristisch flacher, konsolenfoermiger Gestalt. Sein Name Malerpilz ruehrt von der Eigenschaft der weissen Porenschicht, bei Beruehrung dauerhaft braun zu verfaerben - darauf lassen sich Bilder zeichnen. Der Pilz verursacht Weissfaeule an Laubhoelzern. In der Traditionellen Chinesischen Medizin wird er als Heilpilz verwendet.",
-      "seo_description": "Flacher Lackporling (Ganoderma applanatum)",
+      "tagline": "Jan–Dec",
+      "description": "The Artist's Conk (Ganoderma applanatum), also called painter's fungus, is a perennial tree fungus with a characteristically flat, bracket-shaped form. Its name derives from the property of the white pore surface to permanently turn brown when touched - drawings can be made on it. The fungus causes white rot in hardwoods. It is used as a medicinal mushroom in Traditional Chinese Medicine.",
+      "seo_description": "Artist's Conk (Ganoderma applanatum)",
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "6–30 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "braun"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
-          "value": "Laubholz"
+          "label": "Substrate",
+          "value": "Hardwood"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Kosmopolitisch"
         }
       ],
@@ -1851,7 +1851,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -2345,36 +2345,36 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "50–200 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Purple-pink (flowers)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Westeuropa (atlantisch gepraegt)"
+          "label": "Distribution",
+          "value": "Western Europe (Atlantic influenced)"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "EXTREMELY TOXIC - ALL PARTS LETHAL",
           "variant": "danger"
         }
@@ -2442,30 +2442,30 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "15–60 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "White (ray flowers)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Kulturlandschaft"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Suedeuropa, Westasien"
+          "label": "Distribution",
+          "value": "Southern Europe, Western Asia"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -2533,22 +2533,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "60–120 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Green (leaves/stems)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Suedostasien (wahrscheinlich Malaysia/Indonesie..."
         }
       ],
@@ -2556,13 +2556,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -2629,22 +2629,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "20–35 m"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Bright green (summer)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "China (Zhejiang, Anhui, Guizhou)"
         }
       ],
@@ -2652,13 +2652,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "EN",
           "variant": "danger"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Seeds toxic raw; leaves low toxicity",
           "variant": "warning"
         }
@@ -2719,33 +2719,33 @@
       "kingdom_icon": "🍄",
       "image": "Ganoderma_lucidum.jpg",
       "tagline": "Immunmodulation · Jun–Okt",
-      "description": "Der Glaenzende Lackporling (Ganoderma lucidum), bekannt als Reishi oder Lingzhi, ist einer der bedeutendsten Vitalpilze weltweit. In der Traditionellen Chinesischen Medizin wird er seit ueber 2000 Jahren als 'Pilz der Unsterblichkeit' verehrt. Er produziert Polysaccharide und Triterpenoide mit immunmodulierenden, antitumoralen und hepatoprotektiven Eigenschaften. Der charakteristisch rot-lackierte Fruchtkoerper waechst auf Laubhoelzern.",
+      "description": "The Reishi (Ganoderma lucidum), also known as Lingzhi, is one of the most significant medicinal mushrooms worldwide. In Traditional Chinese Medicine, it has been revered for over 2000 years as the 'Mushroom of Immortality'. It produces polysaccharides and triterpenoids with immunomodulating, antitumoral, and hepatoprotective properties. The characteristically red-lacquered fruiting body grows on hardwoods.",
       "seo_description": "Glaenzender Lackporling (Ganoderma lucidum). Heilwirkung: Immunmodulation, Antitumoral",
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "5–25 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "rotbraun"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
-          "value": "Laubholz"
+          "label": "Substrate",
+          "value": "Hardwood"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Europa, Asien, Nordamerika"
+          "label": "Distribution",
+          "value": "Europe, Asia, North America"
         }
       ],
       "highlights": [
@@ -2756,7 +2756,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -3320,35 +3320,35 @@
       "kingdom_icon": "🍄",
       "image": "Ganoderma_curtisii.jpg",
       "tagline": "Jun–Okt",
-      "description": "Der Goldene Lackporling (Ganoderma curtisii), auch Golden Reishi genannt, ist ein Vitalpilz aus Nordamerika, der dem bekannten Ganoderma lucidum (Reishi) sehr aehnlich ist und dieselben medizinischen Eigenschaften besitzt. Er waechst auf verrottenden Stubben und Wurzeln von Laubhoelzern. Die Art produziert Polysaccharide und Triterpenoide mit breitem Spektrum biologischer Aktivitaeten.",
+      "description": "The Golden Reishi (Ganoderma curtisii) is a medicinal mushroom from North America that is very similar to the well-known Ganoderma lucidum (Reishi) and possesses the same medicinal properties. It grows on rotting stumps and roots of hardwoods. The species produces polysaccharides and triterpenoids with a broad spectrum of biological activities.",
       "seo_description": "Goldener Lackporling (Ganoderma curtisii)",
       "quick_facts": [
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "goldgelb"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
-          "value": "Laubholz"
+          "label": "Substrate",
+          "value": "Hardwood"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Nordamerika"
+          "label": "Distribution",
+          "value": "North America"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -3732,22 +3732,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "5–15 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Green (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Feuchtgebiet"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Tropisches und subtropisches Asien, Afrika, Aus..."
         }
       ],
@@ -3755,7 +3755,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -3822,22 +3822,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "50–500 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Green"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Ruderalflaeche"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Zentralasien (wahrscheinlich Afghanistan, Himal..."
         }
       ],
@@ -3845,13 +3845,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Low physical toxicity; psychoactive effects",
           "variant": "warning"
         }
@@ -3908,33 +3908,33 @@
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": "Panellus_stipticus.jpg",
-      "tagline": "Jan–Dez",
-      "description": "Der Herbe Zwergknaeuel (Panellus stipticus) ist ein kleiner, muschelfoermiger Pilz, der auf Laubholz waechst. Er ist besonders bemerkenswert wegen seiner Biolumineszenz - das Myzel und junge Fruchtkoerper leuchten im Dunkeln gruenlich. Der Pilz ist ungeniessbar aufgrund seines bitter-scharfen Geschmacks. Die Biolumineszenz basiert auf den Substanzen PS-A und PS-B (Luciferin-Vorstufen).",
+      "tagline": "Jan–Dec",
+      "description": "The Bitter Oyster (Panellus stipticus) is a small, shell-shaped fungus that grows on hardwood. It is particularly notable for its bioluminescence - the mycelium and young fruiting bodies glow greenish in the dark. The fungus is inedible due to its bitter, acrid taste. The bioluminescence is based on the substances PS-A and PS-B (luciferin precursors).",
       "seo_description": "Herber Zwergknaeuel (Panellus stipticus)",
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "1–6 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "ockergelb"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
-          "value": "Laubholz"
+          "label": "Substrate",
+          "value": "Hardwood"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Nordhemisphaere"
         }
       ],
@@ -3942,7 +3942,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -4404,28 +4404,28 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "5–40 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "weiss"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
-          "value": "Laubholz"
+          "label": "Substrate",
+          "value": "Hardwood"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Nordhemisphaere, Europa, Asien, Nordamerika"
+          "label": "Distribution",
+          "value": "Northern Hemisphere, Europe, Asia, North America"
         }
       ],
       "highlights": [
@@ -4436,7 +4436,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "VU",
           "variant": "warning"
         }
@@ -5045,12 +5045,12 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "2–15 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Purpurgraubraun bis dunkelbraun"
         }
       ],
@@ -5058,7 +5058,7 @@
       "badges": [
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -5491,28 +5491,28 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "10–60 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "graubraun"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
-          "value": "Laubholz"
+          "label": "Substrate",
+          "value": "Hardwood"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Nordhemisphaere, Europa, Nordamerika, Ostasien"
+          "label": "Distribution",
+          "value": "Northern Hemisphere, Europe, North America, East Asia"
         }
       ],
       "highlights": [
@@ -5523,7 +5523,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -6156,30 +6156,30 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "30–100 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Green (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Suedeuropa, Westasien"
+          "label": "Distribution",
+          "value": "Southern Europe, Western Asia"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -6247,30 +6247,30 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "50–150 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Green (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Steppe"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Mittelmeerraum bis Westasien, Zentralasien"
+          "label": "Distribution",
+          "value": "Mediterranean to Western Asia, Central Asia"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -6338,13 +6338,13 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "5–20 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
-          "value": "grauweiß"
+          "label": "Color",
+          "value": "greyish white"
         }
       ],
       "highlights": [],
@@ -6642,12 +6642,12 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "7–25 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Hellbraun bis rotbraun"
         },
         {
@@ -6660,7 +6660,7 @@
       "badges": [
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -6732,36 +6732,36 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "30–200 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Green with white marbling"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Ruderalflaeche"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Mittelmeerraum"
+          "label": "Distribution",
+          "value": "Mediterranean region"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -6830,35 +6830,35 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "3–8 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "orange"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
-          "value": "Laubholz"
+          "label": "Substrate",
+          "value": "Hardwood"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Ostasien (Japan, China)"
+          "label": "Distribution",
+          "value": "East Asia (Japan, China)"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "neutral"
         }
@@ -7374,22 +7374,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "30–150 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Blue-grey (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Kulturlandschaft"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Oestliches Mittelmeergebiet (Kleinasien, wahrsc..."
         }
       ],
@@ -7397,13 +7397,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "HIGHLY TOXIC - Contains controlled substances",
           "variant": "danger"
         }
@@ -7467,12 +7467,12 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "10–40 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Hellbraun mit dunkleren Schuppen"
         }
       ],
@@ -7480,7 +7480,7 @@
       "badges": [
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -7943,22 +7943,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "30–90 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Dark green"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Feuchtgebiet"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Hybride (Mentha aquatica x Mentha spicata), Urs..."
         }
       ],
@@ -7966,13 +7966,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -8041,12 +8041,12 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "2–10 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Dottergelb bis citrusgelb"
         }
       ],
@@ -8054,7 +8054,7 @@
       "badges": [
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -8342,28 +8342,28 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "2–5 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "orangerot"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
+          "label": "Substrate",
           "value": "Insektenlarven"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Nordhemisphaere, vor allem Ostasien"
+          "label": "Distribution",
+          "value": "Northern Hemisphere, especially East Asia"
         }
       ],
       "highlights": [
@@ -8374,7 +8374,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "neutral"
         }
@@ -8985,36 +8985,36 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "60–150 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Purple-pink (flowers)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Praerie"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Oestliches Nordamerika (Central USA)"
+          "label": "Distribution",
+          "value": "Eastern North America (Central USA)"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -9082,22 +9082,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "300–900 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Green (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Suedosten der USA (Virginia bis Florida, westli..."
         }
       ],
@@ -9105,7 +9105,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -9173,22 +9173,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "10–35 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Blue-green (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Alpin"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Arktis und Hochgebirge der Nordhemisphaere (Alp..."
         }
       ],
@@ -9196,7 +9196,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -9262,12 +9262,12 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "10–100 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Weiss (jung)"
         }
       ],
@@ -9275,7 +9275,7 @@
       "badges": [
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -9539,22 +9539,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "10–30 cm"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Anthropogen beeinflusst"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
+          "label": "Substrate",
           "value": "Stroh (besonders Weizenstroh)"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Nordamerika (urspruenglich), jetzt weltweit kul..."
         }
       ],
@@ -9562,7 +9562,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         }
@@ -10687,36 +10687,36 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "10–30 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "White (ray flowers)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Grasland"
+          "label": "Ecosystem",
+          "value": "Grassland"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Westeuropa (Atlantikkueste), Nordafrika"
+          "label": "Distribution",
+          "value": "Western Europe (Atlantic coast), North Africa"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -10784,36 +10784,36 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "30–200 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Dark green (leaf upper)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Mediterrane Macchie"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Mittelmeerraum (gesamte Kuestenregion)"
+          "label": "Distribution",
+          "value": "Mediterranean region (entire coastal region)"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -10877,12 +10877,12 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "2–10 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "rosarot"
         }
       ],
@@ -11186,22 +11186,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "10–20 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Purple (flowers)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Kulturlandschaft"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Unbekannt (nur in Kultur, wahrscheinlich Griech..."
         }
       ],
@@ -11209,13 +11209,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Low (toxic in very large amounts)",
           "variant": "success"
         }
@@ -11276,27 +11276,27 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "1–5 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "gelborange"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
-          "value": "Laubholz"
+          "label": "Substrate",
+          "value": "Hardwood"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Nordhemisphaere, kosmopolitisch"
         }
       ],
@@ -11304,7 +11304,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -11911,41 +11911,41 @@
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": "Tramets_versicolor.jpg",
-      "tagline": "Jan–Dez",
+      "tagline": "Jan–Dec",
       "description": "Die Schmetterlingstramete (Trametes versicolor), auch Bunte Tramete oder Turkey Tail genannt, ist einer der haeufigsten und medizinisch bedeutsamsten Porlinge weltweit. Der faecher- bis rosettenfoermige Fruchtkörper zeigt charakteristische konzentrische Farbzonen in Grau-, Braun-, Blau- und Gruentoenen. Als Weissfaeulerreger zersetzt sie Totholz von Laubbaeumen. Sie ist Quelle von PSK (Krestin) und PSP, die in Asien als zugelassene Krebsmedikamente eingesetzt werden und das Immunsystem stimulieren.",
       "seo_description": "Schmetterlingstramete (Trametes versicolor)",
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "2–10 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Mehrfarbig zoniert"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
-          "value": "Totholz von Laubbaeumen"
+          "label": "Substrate",
+          "value": "Dead hardwood"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Weltweit in temperaten Regionen"
+          "label": "Distribution",
+          "value": "Worldwide in temperate regions"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -13067,12 +13067,12 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "5–20 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Weiss mit braunen Schuppen am Scheitel"
         }
       ],
@@ -13080,7 +13080,7 @@
       "badges": [
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -13376,27 +13376,27 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "5–50 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "schwefelgelb"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
-          "value": "Laubholz"
+          "label": "Substrate",
+          "value": "Hardwood"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Nordhemisphaere, kosmopolitisch"
         }
       ],
@@ -13404,7 +13404,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -13943,28 +13943,28 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "5–25 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "dunkelbraun"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
-          "value": "Laubholz"
+          "label": "Substrate",
+          "value": "Hardwood"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Ostasien (China, Japan, Korea)"
+          "label": "Distribution",
+          "value": "East Asia (China, Japan, Korea)"
         }
       ],
       "highlights": [
@@ -13975,7 +13975,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "neutral"
         }
@@ -14038,35 +14038,35 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "4–17 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Gelbbraun bis hellbraun"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Temperater Laubwald"
         },
         {
           "icon": "🌳",
-          "label": "Substrat",
+          "label": "Substrate",
           "value": "Humusreicher Boden"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Europa, Nordamerika, Asien"
+          "label": "Distribution",
+          "value": "Europe, North America, Asia"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -14135,36 +14135,36 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "30–90 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Yellow (flowers)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Grasland"
+          "label": "Ecosystem",
+          "value": "Grassland"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
-          "value": "Europa, Westasien, Nordafrika"
+          "label": "Distribution",
+          "value": "Europe, Western Asia, North Africa"
         }
       ],
       "highlights": [],
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Low toxicity but significant drug interactions",
           "variant": "warning"
         }
@@ -14233,22 +14233,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "30–200 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Green"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Ruderalflaeche"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Eurasien, Nordamerika (circumboreal)"
         }
       ],
@@ -14256,13 +14256,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic when cooked (stinging hairs)",
           "variant": "warning"
         }
@@ -14331,12 +14331,12 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "3–30 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Creme-weiss bis ocker-braeunlich"
         },
         {
@@ -14349,7 +14349,7 @@
       "badges": [
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -15304,22 +15304,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "20–100 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Bright green"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Kulturlandschaft"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Tropisches Asien (Indien bis Suedostasien)"
         }
       ],
@@ -15327,13 +15327,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -15396,12 +15396,12 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "1–40 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "taubenblau"
         }
       ],
@@ -15718,22 +15718,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "1–15 m"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Dark green"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Suedchina, Nordostindien, Myanmar, Nordthailand"
         }
       ],
@@ -15741,13 +15741,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "DD",
           "variant": "warning"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic (caffeine content)",
           "variant": "success"
         }
@@ -15812,22 +15812,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "60–100 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Green (leaves)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Suedostasien (Indien, Myanmar - genaue Herkunft..."
         }
       ],
@@ -15835,13 +15835,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -15908,22 +15908,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "80–150 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "White to pink (flowers)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Feuchtgebiet"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Europa, Nord- und Westasien"
         }
       ],
@@ -15931,13 +15931,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -16006,22 +16006,22 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "40–120 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Silvery-grey (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
+          "label": "Ecosystem",
           "value": "Trockenrasen"
         },
         {
           "icon": "🌍",
-          "label": "Verbreitung",
+          "label": "Distribution",
           "value": "Eurasien (Mittelmeerraum bis Sibirien)"
         }
       ],
@@ -16029,13 +16029,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Moderate (thujone content)",
           "variant": "warning"
         }
@@ -16099,12 +16099,12 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "2–5 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "zitronengelb"
         }
       ],

@@ -1,12 +1,12 @@
 {
-  "habitat_primary": "Naehrstoffreiche Boeden, Kompostboeden",
+  "habitat_primary": "nutrient-rich soils, compost soils",
   "habitat_secondary": [
-    "Mischwaelder",
-    "Waldraender",
-    "Gaerten und Beete",
-    "Gewaechshaeuser"
+    "mixed forests",
+    "forest edges",
+    "gardens and beds",
+    "greenhouses"
   ],
-  "habitat_description": "Agaricus subrufescens ist ein waermeliebender Sekundaerzersetzer, der gut kompostierte, stickstoffreiche Substrate bevorzugt. Natuerlich kommt er in tropischen und subtropischen Regionen vor, insbesondere in Brasilien und dem Mittelmeerraum. Er gedeiht auf naehrstoffreichen Boeden in Mischwäldern, an Waldrändern und in gut kompostierten Gartenbeeten.",
+  "habitat_description": "Agaricus subrufescens is a heat-loving secondary decomposer that prefers well-composted, nitrogen-rich substrates. It naturally occurs in tropical and subtropical regions, especially in Brazil and the Mediterranean region. It thrives on nutrient-rich soils in mixed forests, at forest edges and in well-composted garden beds.",
   "elevation_range": {
     "min": 0,
     "max": 1500,
@@ -29,44 +29,44 @@
     "unit": "C"
   },
   "microhabitat_requirements": [
-    "Naehrstoffreiche, gut kompostierte Boeden",
-    "Hohe Stickstoffverfuegbarkeit",
-    "Gute Bodenfeuchtigkeit",
-    "Waerme (21-27 Grad Celsius)"
+    "nutrient-rich, well-composted soils",
+    "high nitrogen availability",
+    "good soil moisture",
+    "warmth (21-27 degrees Celsius)"
   ],
   "substrate_preferences": [
-    "Gut kompostierte Erde",
-    "Angereicherte Komposte",
-    "Stickstoffreiche Substrate",
-    "Pasteurisierte Substrate mit Stickstoffzusaetzen"
+    "well-composted soil",
+    "enriched composts",
+    "nitrogen-rich substrates",
+    "pasteurized substrates with nitrogen additives"
   ],
   "vegetation_associations": [
-    "Tropische und subtropische Waelder",
-    "Mediterrane Vegetation",
-    "Kulturlandschaften"
+    "tropical and subtropical forests",
+    "Mediterranean vegetation",
+    "cultivated landscapes"
   ],
-  "ecological_role": "Sekundaerer Zersetzer organischen Materials",
-  "ecological_role_description": "Als saprotropher Pilz zersetzt Agaricus subrufescens bereits teilweise abgebautes organisches Material und traegt zur Humusbildung und Naehrstoffrueckfuehrung bei. Er bevorzugt bereits vorbehandeltes Material wie Kompost.",
+  "ecological_role": "secondary decomposer of organic material",
+  "ecological_role_description": "As a saprotrophic fungus, Agaricus subrufescens decomposes already partially degraded organic material and contributes to humus formation and nutrient recycling. It prefers pre-treated material such as compost.",
   "ecological_importance": [
-    {"axis": "Naehrstoffrecycling", "value": 75},
-    {"axis": "Humusbildung", "value": 70},
-    {"axis": "Medizinische Bedeutung", "value": 95},
-    {"axis": "Kulinarische Bedeutung", "value": 80}
+    {"axis": "nutrient recycling", "value": 75},
+    {"axis": "humus formation", "value": 70},
+    {"axis": "medicinal significance", "value": 95},
+    {"axis": "culinary significance", "value": 80}
   ],
   "trophic_level": 2,
   "trophic_category": "saprotroph",
-  "symbiosis_type": "Keine (Saprotroph)",
-  "symbiosis_description": "Agaricus subrufescens geht keine symbiotischen Beziehungen ein, sondern lebt als Zersetzer von totem organischem Material.",
+  "symbiosis_type": "none (saprotroph)",
+  "symbiosis_description": "Agaricus subrufescens does not form symbiotic relationships but lives as a decomposer of dead organic material.",
   "host_specificity": {
-    "status": "Low",
+    "status": "low",
     "variant": "success"
   },
   "co_occurring_species": [
-    "Agaricus bisporus (Zuchtchampignon)",
-    "Andere Agaricus-Arten",
-    "Coprinus-Arten"
+    "Agaricus bisporus (button mushroom)",
+    "other Agaricus species",
+    "Coprinus species"
   ],
-  "dispersal_mechanism": "Windverbreitung der Sporen",
+  "dispersal_mechanism": "wind dispersal of spores",
   "dispersal_range": {
     "min": 10,
     "max": 500,
@@ -77,21 +77,21 @@
     "max": 100,
     "unit": "%"
   },
-  "colonization_strategy": "Schnelle Besiedlung naehrstoffreicher Substrate",
-  "life_history": "Kurzlebige Fruchtkoerper, persistentes Myzel",
-  "phenology_description": "Fruchtkoerper erscheinen vom Fruehsommer bis Spaetherbst bei ausreichend Waerme und Feuchtigkeit",
+  "colonization_strategy": "rapid colonization of nutrient-rich substrates",
+  "life_history": "short-lived fruiting bodies, persistent mycelium",
+  "phenology_description": "fruiting bodies appear from early summer to late autumn with sufficient warmth and moisture",
   "fruiting_triggers": [
-    "Temperaturen zwischen 21-24 Grad Celsius",
-    "Relative Luftfeuchtigkeit 80-90%",
-    "Frischluftzufuhr",
-    "Licht 1000-2000 Lux"
+    "temperatures between 21-24 degrees Celsius",
+    "relative humidity 80-90%",
+    "fresh air supply",
+    "light 1000-2000 lux"
   ],
   "activity_months": [5, 6, 7, 8, 9, 10],
   "peak_fruiting_month": 7,
   "ecosystem_services": [
-    "Abbau organischer Substanz",
-    "Naehrstofffreisetzung",
-    "Bodenverbesserung"
+    "decomposition of organic matter",
+    "nutrient release",
+    "soil improvement"
   ],
   "indicator_species": false,
   "source": {

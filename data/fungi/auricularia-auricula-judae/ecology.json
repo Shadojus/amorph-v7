@@ -1,12 +1,12 @@
 {
-  "habitat_primary": "Laubholz, besonders Holunder",
+  "habitat_primary": "hardwood, especially elder",
   "habitat_secondary": [
-    "Birkenholz",
-    "Weidenholz",
-    "Eichenholz",
-    "Akazienholz"
+    "birch wood",
+    "willow wood",
+    "oak wood",
+    "acacia wood"
   ],
-  "habitat_description": "Das Judasohr ist ein kosmopolitischer holzbewohnender Pilz, der bevorzugt an Holunder waechst. Es ist frostbestaendig und fruktifiziert ganzjaehrig, besonders aber in der kuehlen, feuchten Jahreszeit. Der Pilz ist ein Weissfaeuleausloeser.",
+  "habitat_description": "The Wood Ear is a cosmopolitan wood-inhabiting fungus that preferentially grows on elder. It is frost-resistant and fruits year-round, but especially in the cool, humid season. The fungus causes white rot.",
   "elevation_range": {
     "min": 0,
     "max": 2000,
@@ -29,36 +29,36 @@
     "unit": "C"
   },
   "microhabitat_requirements": [
-    "Totes oder geschwächtes Laubholz",
-    "Hohe Luftfeuchtigkeit",
-    "Kühle Temperaturen bevorzugt"
+    "dead or weakened hardwood",
+    "high humidity",
+    "cool temperatures preferred"
   ],
   "substrate_preferences": [
-    "Sambucus nigra (Schwarzer Holunder)",
-    "Betula (Birken)",
-    "Salix (Weiden)",
-    "Quercus (Eichen)"
+    "Sambucus nigra (black elder)",
+    "Betula (birch)",
+    "Salix (willow)",
+    "Quercus (oak)"
   ],
-  "ecological_role": "Saprotroph und fakultativer Parasit",
-  "ecological_role_description": "Auricularia auricula-judae ist ein Weissfaeuleausloeser, der Lignin abbaut. Er kann sowohl totes Holz zersetzen als auch geschwächte lebende Baeume befallen.",
+  "ecological_role": "saprotroph and facultative parasite",
+  "ecological_role_description": "Auricularia auricula-judae is a white rot fungus that degrades lignin. It can decompose dead wood as well as infect weakened living trees.",
   "ecological_importance": [
-    {"axis": "Holzabbau", "value": 85},
-    {"axis": "Medizinische Bedeutung", "value": 90},
-    {"axis": "Kulinarische Bedeutung", "value": 80},
-    {"axis": "Kultivierbarkeit", "value": 85}
+    {"axis": "wood decomposition", "value": 85},
+    {"axis": "medicinal significance", "value": 90},
+    {"axis": "culinary significance", "value": 80},
+    {"axis": "cultivability", "value": 85}
   ],
   "trophic_level": 2,
   "trophic_category": "saprotroph",
   "host_specificity": {
-    "status": "Medium",
+    "status": "medium",
     "variant": "warning"
   },
   "co_occurring_species": [
-    "Exidia-Arten",
-    "Tremella-Arten",
-    "Stereum-Arten"
+    "Exidia species",
+    "Tremella species",
+    "Stereum species"
   ],
-  "dispersal_mechanism": "Windverbreitung der Sporen",
+  "dispersal_mechanism": "wind dispersal of spores",
   "dispersal_range": {
     "min": 10,
     "max": 500,
@@ -69,7 +69,7 @@
     "max": 100,
     "unit": "%"
   },
-  "phenology_description": "Ganzjaehrig fruktifizierend, besonders im Winter und Fruehling bei feuchtem Wetter",
+  "phenology_description": "fruiting year-round, especially in winter and spring during wet weather",
   "activity_months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
   "peak_fruiting_month": 2,
   "indicator_species": false,

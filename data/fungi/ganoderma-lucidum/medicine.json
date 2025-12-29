@@ -1,74 +1,74 @@
 {
   "traditional_medicine_use": true,
   "traditional_medicine_systems": [
-    "Traditionelle Chinesische Medizin",
-    "Japanische Kampo-Medizin",
-    "Koreanische Medizin"
+    "Traditional Chinese Medicine",
+    "Japanese Kampo Medicine",
+    "Korean Medicine"
   ],
   "medicinal_status": {
-    "status": "Vitalpilz",
+    "status": "medicinal mushroom",
     "variant": "info"
   },
-  "historical_significance": "In China als Lingzhi ('Pilz der Unsterblichkeit') seit ueber 2000 Jahren dokumentiert. Gehoert zu den bedeutendsten Heilpilzen weltweit.",
+  "historical_significance": "Known in China as Lingzhi ('Mushroom of Immortality') and documented for over 2000 years. One of the most important medicinal mushrooms worldwide.",
   "primary_medicinal_uses": [
-    "Immunmodulation",
-    "Antitumoral",
-    "Hepatoprotektiv (Leberschutz)",
-    "Adaptogen",
-    "Blutdruckregulation",
-    "Cholesterinsenkung"
+    "immunomodulation",
+    "antitumoral",
+    "hepatoprotective (liver protection)",
+    "adaptogen",
+    "blood pressure regulation",
+    "cholesterol reduction"
   ],
   "active_compounds": [
     {
-      "name": "Polysaccharide (Beta-Glucane)",
-      "class": "Polysaccharide",
-      "effects": ["immunstimulierend", "antitumoral"]
+      "name": "Polysaccharides (Beta-Glucans)",
+      "class": "polysaccharide",
+      "effects": ["immunostimulating", "antitumoral"]
     },
     {
-      "name": "Ganodersaeuren",
-      "class": "Triterpenoide",
-      "effects": ["antihistaminisch", "hepatoprotektiv", "blutdrucksenkend"]
+      "name": "Ganoderic acids",
+      "class": "triterpenoid",
+      "effects": ["antihistaminic", "hepatoprotective", "blood pressure lowering"]
     },
     {
       "name": "Ganodermanontriol",
-      "class": "Triterpenoid",
+      "class": "triterpenoid",
       "effects": ["antitumoral"]
     },
     {
-      "name": "Adenosin",
-      "class": "Nukleosid",
-      "effects": ["muskelentspannend", "schlaffoerdernd"]
+      "name": "Adenosine",
+      "class": "nucleoside",
+      "effects": ["muscle relaxing", "sleep promoting"]
     }
   ],
   "research_areas": [
-    "Onkologie",
-    "Immunologie",
-    "Hepatologie",
-    "Kardiologie",
-    "Neurologie"
+    "oncology",
+    "immunology",
+    "hepatology",
+    "cardiology",
+    "neurology"
   ],
   "clinical_evidence_level": {
-    "status": "klinische Studien",
+    "status": "clinical studies",
     "variant": "success"
   },
-  "clinical_evidence_notes": "Zahlreiche klinische Studien, besonders in Asien. Als Adjuvans in der Krebstherapie zunehmend erforscht.",
+  "clinical_evidence_notes": "Numerous clinical studies, especially in Asia. Increasingly researched as adjuvant in cancer therapy.",
   "contraindications": [
-    "Blutgerinnungsstoerungen",
-    "Antikoagulantien-Einnahme",
-    "Schwangerschaft (unzureichende Daten)",
-    "Vor Operationen"
+    "blood clotting disorders",
+    "anticoagulant use",
+    "pregnancy (insufficient data)",
+    "before surgery"
   ],
   "traditional_preparations": [
-    "Heisswasserextrakt (Tee)",
-    "Alkoholextrakt (Tinktur)",
-    "Doppelextrakt",
-    "Pulver (Kapseln)",
-    "Sporenoel"
+    "hot water extract (tea)",
+    "alcohol extract (tincture)",
+    "dual extract",
+    "powder (capsules)",
+    "spore oil"
   ],
-  "dosage_traditional": "1-3 g getrockneter Fruchtkoerper oder 3-9 g Extrakt pro Tag",
+  "dosage_traditional": "1-3 g dried fruiting body or 3-9 g extract per day",
   "safety_profile": {
-    "status": "gut vertraeglich",
+    "status": "well tolerated",
     "variant": "success"
   },
-  "regulatory_status_eu": "Nahrungsergaenzungsmittel"
+  "regulatory_status_eu": "dietary supplement"
 }

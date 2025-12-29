@@ -1,13 +1,13 @@
 {
   "version": "1.0",
   "generated": "2025-12-27",
-  "description": "Bifröst Experten-Datenbank für Attribution von Pilzdaten",
+  "description": "Bifröst expert database for attribution of mushroom data",
   
   "experts": {
     "paul-stamets": {
       "name": "Paul Stamets",
-      "title": "Mykologe, Autor & Unternehmer",
-      "specialization": ["Medizinische Pilze", "Pilzzucht", "Mykoremediation"],
+      "title": "Mycologist, Author & Entrepreneur",
+      "specialization": ["Medicinal Mushrooms", "Mushroom Cultivation", "Mycoremediation"],
       "affiliation": "Fungi Perfecti LLC",
       "location": "Olympia, Washington, USA",
       "contact": {
@@ -33,8 +33,8 @@
     
     "michael-kuo": {
       "name": "Michael Kuo",
-      "title": "Amateur Mykologe & Autor",
-      "specialization": ["Pilz-Identifikation", "Morcheln", "Taxonomie"],
+      "title": "Amateur Mycologist & Author",
+      "specialization": ["Mushroom Identification", "Morels", "Taxonomy"],
       "affiliation": "MushroomExpert.com",
       "location": "Ohio, USA",
       "contact": {
@@ -47,14 +47,14 @@
         "Mushrooms of the Midwest (2014)",
         "100 Cool Mushrooms (2010)"
       ],
-      "notes": "Ueber 1000 Pilzseiten mit wissenschaftlichen Beschreibungen",
+      "notes": "Over 1000 mushroom pages with scientific descriptions",
       "perspectives": ["identification", "taxonomy", "ecology"]
     },
     
     "alan-rockefeller": {
       "name": "Alan Rockefeller",
-      "title": "Mykologe, Fotograf & Biohacker",
-      "specialization": ["Psilocybe-Arten", "Pilz-Fotografie", "DNA-Sequenzierung"],
+      "title": "Mycologist, Photographer & Biohacker",
+      "specialization": ["Psilocybe Species", "Mushroom Photography", "DNA Sequencing"],
       "affiliation": "iNaturalist Curator",
       "location": "El Cerrito, California, USA",
       "contact": {
@@ -74,8 +74,8 @@
     
     "christopher-hobbs": {
       "name": "Dr. Christopher Hobbs, Ph.D.",
-      "title": "Kräuterkundler, Botaniker & Mykologe",
-      "specialization": ["Medizinische Pilze", "TCM", "Kräutermedizin"],
+      "title": "Herbalist, Botanist & Mycologist",
+      "specialization": ["Medicinal Mushrooms", "TCM", "Herbal Medicine"],
       "affiliation": "Christopher Hobbs LLC",
       "location": "USA",
       "contact": {
@@ -95,8 +95,8 @@
     
     "michael-wood": {
       "name": "Michael Wood",
-      "title": "Mykologe & Web-Pionier",
-      "specialization": ["Kalifornische Pilze", "Pilz-Fotografie", "Boleten"],
+      "title": "Mycologist & Web Pioneer",
+      "specialization": ["California Mushrooms", "Mushroom Photography", "Boletes"],
       "affiliation": "MykoWeb, MSSF (Past President)",
       "location": "San Francisco Bay Area, USA",
       "contact": {
@@ -104,7 +104,7 @@
         "email": "webmaster@mykoweb.com"
       },
       "publications": [
-        "The Fungi of California (850+ Arten dokumentiert)",
+        "The Fungi of California (850+ species documented)",
         "The Boletes of California (Reprint)"
       ],
       "stats": {
@@ -116,8 +116,8 @@
     
     "tradd-cotter": {
       "name": "Tradd Cotter",
-      "title": "Mykologe & Pilzzüchter",
-      "specialization": ["Pilzzucht", "Mykoremediation", "Medizinische Pilze"],
+      "title": "Mycologist & Mushroom Cultivator",
+      "specialization": ["Mushroom Cultivation", "Mycoremediation", "Medicinal Mushrooms"],
       "affiliation": "Mushroom Mountain",
       "location": "South Carolina, USA",
       "contact": {
@@ -132,8 +132,8 @@
     
     "gary-lincoff": {
       "name": "Gary Lincoff (1942-2018)",
-      "title": "Mykologe & Autor",
-      "specialization": ["Pilz-Identifikation", "Feldführer", "Ethnomykologie"],
+      "title": "Mycologist & Author",
+      "specialization": ["Mushroom Identification", "Field Guides", "Ethnomycology"],
       "affiliation": "New York Botanical Garden (Former)",
       "location": "New York, USA",
       "contact": {
@@ -143,14 +143,14 @@
         "The Audubon Society Field Guide to North American Mushrooms",
         "The Complete Mushroom Hunter"
       ],
-      "legacy": "Einer der einflussreichsten amerikanischen Mykologen",
+      "legacy": "One of the most influential American mycologists",
       "perspectives": ["identification", "culture", "culinary"]
     },
     
     "david-arora": {
       "name": "David Arora",
-      "title": "Mykologe & Autor",
-      "specialization": ["Pilz-Identifikation", "Feldfuehrer"],
+      "title": "Mycologist & Author",
+      "specialization": ["Mushroom Identification", "Field Guides"],
       "affiliation": "Independent",
       "location": "California, USA",
       "contact": {
@@ -160,7 +160,7 @@
         "Mushrooms Demystified (1986)",
         "All That the Rain Promises and More (1991)"
       ],
-      "legacy": "Standardwerk fuer Pilzbestimmung seit Jahrzehnten",
+      "legacy": "Standard reference for mushroom identification for decades",
       "perspectives": ["identification", "culinary", "ecology"]
       
     }
@@ -170,43 +170,43 @@
     "nama": {
       "name": "North American Mycological Association",
       "type": "Non-Profit",
-      "description": "Verband von ueber 90 Pilzvereinen in Nordamerika",
+      "description": "Association of over 90 mushroom clubs in North America",
       "contact": {
         "website": "https://namyco.org",
         "email": "COO@namyco.org",
         "facebook": "northamericanmyco",
         "instagram": "@northamericanmyco"
       },
-      "services": ["Jahrestagungen", "Webinare", "Publikationen", "Pilzverein-Netzwerk"],
+      "services": ["Annual Conferences", "Webinars", "Publications", "Mushroom Club Network"],
       "contact_person": "Bruch Reed (COO)"
     },
     
     "inaturalist": {
       "name": "iNaturalist",
       "type": "Citizen Science Platform",
-      "description": "Globale Biodiversitäts-Plattform für Beobachtungen",
+      "description": "Global biodiversity platform for observations",
       "contact": {
         "website": "https://www.inaturalist.org",
         "facebook": "inaturalist",
         "instagram": "@inaturalistorg"
       },
-      "services": ["Pilz-Identifikation", "Foto-Dokumentation", "Verbreitungsdaten"]
+      "services": ["Mushroom Identification", "Photo Documentation", "Distribution Data"]
     },
     
     "mushroomobserver": {
       "name": "Mushroom Observer",
       "type": "Community Platform",
-      "description": "Kollaborative Pilz-Dokumentationsplattform",
+      "description": "Collaborative mushroom documentation platform",
       "contact": {
         "website": "https://mushroomobserver.org"
       },
-      "services": ["Pilz-Identifikation", "Beobachtungsdatenbank"]
+      "services": ["Mushroom Identification", "Observation Database"]
     },
     
     "mssf": {
       "name": "Mycological Society of San Francisco",
       "type": "Regional Society",
-      "description": "Einer der aeltesten Pilzvereine der USA",
+      "description": "One of the oldest mushroom clubs in the USA",
       "contact": {
         "website": "https://www.mssf.org"
       }

@@ -8,7 +8,7 @@
     "max": 100,
     "unit": "%"
   },
-  "safety_edibility_notes": "Nicht als Speisepilz geeignet aufgrund bitterer Geschmack und holziger Konsistenz. Weltweit bedeutendster Vitalpilz mit langer Anwendungsgeschichte.",
+  "safety_edibility_notes": "Not suitable as edible mushroom due to bitter taste and woody consistency. Most important medicinal mushroom worldwide with long history of use.",
   "safety_potentially_deadly": false,
   "safety_toxicity_score": {
     "value": 5,
@@ -24,11 +24,11 @@
     "status": "none",
     "variant": "success"
   },
-  "safety_summary": "Ungeniessbar aber nicht giftig. Bedeutender Vitalpilz der TCM mit ueber 2000-jaehriger Anwendungstradition.",
+  "safety_summary": "Inedible but not toxic. Important TCM medicinal mushroom with over 2000 years of traditional use.",
   "safety_contraindications": [
-    "Blutgerinnungsstoerungen",
-    "Vor Operationen (1-2 Wochen vorher absetzen)",
-    "Bei Einnahme von Immunsuppressiva"
+    "blood clotting disorders",
+    "before surgery (discontinue 1-2 weeks prior)",
+    "when taking immunosuppressants"
   ],
   "confusion_risk_level": {
     "status": "moderate",
