@@ -1,35 +1,35 @@
 {
   "traditional_medicine": {
-    "systems": ["European_Folk_Medicine", "Griechische Medizin"],
-    "historical_use": "Seit der Antike als Leberschutz; Plinius empfahl den Saft gegen Gallebeschwerden",
-    "traditional_indications": ["Leberbeschwerden", "Gallenleiden", "Vergiftungen", "Verdauungsstoerungen"]
+    "systems": ["European_Folk_Medicine", "Greek medicine"],
+    "historical_use": "Used since antiquity for liver protection; Pliny recommended the juice for bile complaints",
+    "traditional_indications": ["Liver complaints", "Gallbladder ailments", "Poisoning", "Digestive disorders"]
   },
   "pharmacopoeia_names": ["Silybi mariani fructus"],
   "who_monograph_exists": true,
   "escop_monograph_exists": true,
-  "escop_therapeutic_indication": ["Toxische Leberschaeden", "Unterstuetzend bei chronischer Hepatitis und Leberzirrhose"],
+  "escop_therapeutic_indication": ["Toxic liver damage", "Supportive treatment in chronic hepatitis and liver cirrhosis"],
   "german_commission_e_status": {
-    "status": "Positiv-Monographie",
+    "status": "Positive monograph",
     "variant": "success"
   },
-  "german_commission_e_indication": ["Toxische Leberschaeden", "Unterstuetzende Behandlung bei chronisch-entzuendlichen Lebererkrankungen und Leberzirrhose"],
+  "german_commission_e_indication": ["Toxic liver damage", "Supportive treatment in chronic inflammatory liver diseases and liver cirrhosis"],
   "active_substances": [
-    "Silymarin (Flavonolignane)",
-    "Silybin A und B",
+    "Silymarin (Flavonolignans)",
+    "Silybin A and B",
     "Silychristin",
     "Silydianin"
   ],
   "effect_profile": [
-    {"axis": "Hepatoprotektiv", "value": 95},
-    {"axis": "Antioxidativ", "value": 85},
-    {"axis": "Antiinflammatorisch", "value": 70},
-    {"axis": "Membranstabilisierend", "value": 80},
-    {"axis": "Regenerationsfoerdernd", "value": 75}
+    {"axis": "Hepatoprotective", "value": 95},
+    {"axis": "Antioxidant", "value": 85},
+    {"axis": "Anti-inflammatory", "value": 70},
+    {"axis": "Membrane-stabilizing", "value": 80},
+    {"axis": "Regeneration-promoting", "value": 75}
   ],
   "therapeutic_categories": [
-    "Hepatoprotektivum",
-    "Antioxidans",
-    "Choleretikum"
+    "Hepatoprotective",
+    "Antioxidant",
+    "Choleretic"
   ],
   "evidence_level": {
     "status": "1b",
@@ -40,8 +40,8 @@
     "variant": "success"
   },
   "clinical_studies": [
-    "Ferenci et al. 1989: Verbesserte Überlebensrate bei Leberzirrhose",
-    "Rambaldi et al. Cochrane 2005: Systematische Uebersicht zur Hepatitis"
+    "Ferenci et al. 1989: Improved survival rate in liver cirrhosis",
+    "Rambaldi et al. Cochrane 2005: Systematic review on hepatitis"
   ],
   "safety_score": {
     "value": 90,
@@ -49,20 +49,20 @@
     "max": 100
   },
   "side_effects": [
-    {"level": "low", "typ": "Selten", "beschreibung": "Leichte Magen-Darm-Beschwerden, Laxierende Wirkung"}
+    {"level": "low", "typ": "Rare", "description": "Mild gastrointestinal complaints, laxative effect"}
   ],
   "interactions": [
-    {"level": "low", "typ": "CYP2C9", "beschreibung": "Theoretische Interaktion, klinisch nicht bedeutsam"}
+    {"level": "low", "typ": "CYP2C9", "description": "Theoretical interaction, clinically not significant"}
   ],
   "contraindications": [
-    "Allergie gegen Korbblütler (Asteraceae)"
+    "Allergy to Asteraceae (daisy family)"
   ],
   "special_populations_pregnancy": {
-    "status": "Wahrscheinlich sicher",
+    "status": "Probably safe",
     "variant": "success"
   },
   "special_populations_elderly": {
-    "status": "Gut geeignet",
+    "status": "Well suited",
     "variant": "success"
   },
   "standard_dose_range": {
@@ -70,13 +70,13 @@
     "max": 400,
     "unit": "mg"
   },
-  "dose_frequency": "dreimal taeglich",
+  "dose_frequency": "three times daily",
   "standardization_marker": "Silymarin 70-80%",
-  "dosage_notes": "200-400 mg Silymarin pro Tag verteilt auf 2-3 Dosen; fetthaltige Mahlzeit verbessert Resorption",
-  "preparation_forms": ["Standardisierter Extrakt", "Kapseln", "Tabletten", "Tee (weniger wirksam)"],
+  "dosage_notes": "200-400 mg silymarin per day divided into 2-3 doses; fatty meal improves absorption",
+  "preparation_forms": ["Standardized extract", "Capsules", "Tablets", "Tea (less effective)"],
   "status_by_region": {
-    "eu": "Pflanzliches Arzneimittel (well-established use)",
+    "eu": "Herbal medicinal product (well-established use)",
     "usa": "Dietary Supplement",
-    "germany": "Zugelassenes Arzneimittel"
+    "germany": "Approved medicinal product"
   }
 }

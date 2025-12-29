@@ -8,7 +8,7 @@
     "max": 100,
     "unit": "%"
   },
-  "safety_edibility_notes": "Guter Speisepilz, weltweit kultiviert. Rohe Pilze sollten vermieden werden. Schleimiger Hut ist geschmacksache.",
+  "safety_edibility_notes": "Good edible mushroom, cultivated worldwide. Raw mushrooms should be avoided. Slimy cap is a matter of taste.",
   "safety_potentially_deadly": false,
   "safety_toxicity_score": {
     "value": 5,
@@ -24,8 +24,8 @@
     "status": "caution",
     "variant": "warning"
   },
-  "safety_warning_text": "WICHTIG: Verwechslungsgefahr mit dem toedlich giftigen Gifthaeuptling (Galerina marginata)! Nur sammeln bei sicherer Artkenntnis.",
-  "safety_summary": "Guter Speisepilz aber kritische Verwechslungsgefahr mit Galerina marginata. Samtig behaarter Stiel als Schluesselmerkal beachten.",
+  "safety_warning_text": "IMPORTANT: Risk of confusion with the deadly poisonous Funeral Bell (Galerina marginata)! Only collect with certain species knowledge.",
+  "safety_summary": "Good edible mushroom but critical confusion risk with Galerina marginata. Pay attention to velvety hairy stem as key feature.",
   "safety_risk_inherent": {
     "value": 5,
     "min": 0,
@@ -47,8 +47,8 @@
     ]
   },
   "confusion_partner": [
-    {"name": "Galerina marginata", "type": "toedlich giftig", "intensity": 85},
-    {"name": "Gymnopilus penetrans", "type": "unessbar", "intensity": 50}
+    {"name": "Galerina marginata", "type": "deadly poisonous", "intensity": 85},
+    {"name": "Gymnopilus penetrans", "type": "inedible", "intensity": 50}
   ],
   "confusion_risk_level": {
     "status": "high",
@@ -56,8 +56,8 @@
   },
   "confusion_safety_critical": true,
   "confusion_key_features": [
-    "Samtfussruebling hat samtig behaarten Stiel",
-    "Galerina hat Ring oder Ringzone",
-    "Sporenfarbe unterschiedlich (weiss vs rostbraun)"
+    "Velvet Foot has velvety hairy stem",
+    "Galerina has ring or ring zone",
+    "Spore color different (white vs rust-brown)"
   ]
 }

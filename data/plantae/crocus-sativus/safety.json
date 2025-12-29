@@ -31,8 +31,8 @@
     }
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Culinary use", "beschreibung": "Completely safe as spice"},
-    {"level": "high", "typ": "Massive overdose (>5g)", "beschreibung": "Vomiting, bloody diarrhea, bleeding, numbness (theoretical)"}
+    {"level": "none", "type": "Culinary use", "description": "Completely safe as spice"},
+    {"level": "high", "type": "Massive overdose (>5g)", "description": "Vomiting, bloody diarrhea, bleeding, numbness (theoretical)"}
   ],
   "fatality_rate": {
     "value": 0,

@@ -1,43 +1,43 @@
 {
   "traditional_medicine": {
-    "systems": ["Ayurveda", "TCM", "Indonesische Volksmedizin"],
-    "historical_use": "Ueber 4000 Jahre in Indien als Gewuerz und Medizin",
-    "traditional_indications": ["Verdauungsbeschwerden", "Entzuendungen", "Hauterkrankungen", "Leberleiden"]
+    "systems": ["Ayurveda", "TCM", "Indonesian folk medicine"],
+    "historical_use": "Over 4000 years in India as spice and medicine",
+    "traditional_indications": ["Digestive complaints", "Inflammation", "Skin diseases", "Liver ailments"]
   },
   "ayurveda_sanskrit_name": "Haridra",
   "ayurveda_rasa": ["tikta", "katu"],
-  "ayurveda_guna": ["leicht", "trocken"],
-  "ayurveda_virya": "ushna (heiss)",
-  "ayurveda_dosha_effect": ["Kapha-reduzierend", "Pitta-ausgleichend"],
+  "ayurveda_guna": ["light", "dry"],
+  "ayurveda_virya": "Ushna (hot)",
+  "ayurveda_dosha_effect": ["Kapha-reducing", "Pitta-balancing"],
   "tcm_herb_name_pinyin": "Jiang Huang",
   "tcm_herb_name_chinese": "姜黄",
   "tcm_nature": "warm",
   "tcm_flavor": ["pungent", "bitter"],
-  "tcm_meridian_tropism": ["Leber", "Milz"],
+  "tcm_meridian_tropism": ["Liver", "Spleen"],
   "who_monograph_exists": true,
   "german_commission_e_status": {
-    "status": "Positiv-Monographie",
+    "status": "Positive monograph",
     "variant": "success"
   },
-  "german_commission_e_indication": ["Dyspeptische Beschwerden"],
+  "german_commission_e_indication": ["Dyspeptic complaints"],
   "active_substances": [
     "Curcumin",
     "Demethoxycurcumin",
     "Bisdemethoxycurcumin",
-    "Aetherische Oele (Tumeron)"
+    "Essential oils (Turmerone)"
   ],
   "effect_profile": [
-    {"axis": "Antiinflammatorisch", "value": 90},
-    {"axis": "Antioxidativ", "value": 85},
-    {"axis": "Hepatoprotektiv", "value": 75},
-    {"axis": "Cholekinetisch", "value": 70},
-    {"axis": "Antikanzerogen", "value": 65}
+    {"axis": "Anti-inflammatory", "value": 90},
+    {"axis": "Antioxidant", "value": 85},
+    {"axis": "Hepatoprotective", "value": 75},
+    {"axis": "Choleretic", "value": 70},
+    {"axis": "Anticarcinogenic", "value": 65}
   ],
   "therapeutic_categories": [
-    "Antiinflammatorium",
-    "Antioxidans",
-    "Choleretikum",
-    "Hepatoprotektivum"
+    "Anti-inflammatory",
+    "Antioxidant",
+    "Choleretic",
+    "Hepatoprotective"
   ],
   "evidence_level": {
     "status": "2a",
@@ -49,9 +49,9 @@
     "unit": "%"
   },
   "absorption_enhanced_by": [
-    "Piperin (aus schwarzem Pfeffer) - 2000% erhoehte Absorption",
-    "Fett",
-    "Phospholipid-Formulierungen"
+    "Piperine (from black pepper) - 2000% increased absorption",
+    "Fat",
+    "Phospholipid formulations"
   ],
   "safety_score": {
     "value": 85,
@@ -59,19 +59,19 @@
     "max": 100
   },
   "side_effects": [
-    {"level": "low", "typ": "Haeufig", "beschreibung": "Magen-Darm-Beschwerden bei hohen Dosen"}
+    {"level": "low", "type": "Common", "description": "Gastrointestinal complaints at high doses"}
   ],
   "interactions": [
-    {"level": "medium", "typ": "Antikoagulantien", "beschreibung": "Verstaerkte Blutungsneigung moeglich"},
-    {"level": "low", "typ": "Diabetes-Medikamente", "beschreibung": "Additive blutzuckersenkende Wirkung"}
+    {"level": "medium", "type": "Anticoagulants", "description": "Increased bleeding tendency possible"},
+    {"level": "low", "type": "Diabetes medications", "description": "Additive blood sugar-lowering effect"}
   ],
   "contraindications": [
-    "Gallensteine",
-    "Gallengangsverschluss",
-    "Schwangerschaft in hohen Dosen"
+    "Gallstones",
+    "Bile duct obstruction",
+    "Pregnancy in high doses"
   ],
   "special_populations_pregnancy": {
-    "status": "Kulinarische Mengen sicher, hohe Dosen vermeiden",
+    "status": "Culinary amounts safe, avoid high doses",
     "variant": "warning"
   },
   "standard_dose_range": {
@@ -79,13 +79,13 @@
     "max": 2000,
     "unit": "mg"
   },
-  "dose_frequency": "zwei- bis dreimal taeglich",
-  "standardization_marker": "Curcuminoide 95%",
-  "dosage_notes": "500-2000 mg Curcumin-Extrakt; immer mit Fett und/oder Piperin einnehmen",
-  "preparation_forms": ["Standardisierter Extrakt", "Pulver", "Kapseln", "Tee", "Frische Wurzel"],
+  "dose_frequency": "Two to three times daily",
+  "standardization_marker": "Curcuminoids 95%",
+  "dosage_notes": "500-2000 mg curcumin extract; always take with fat and/or piperine",
+  "preparation_forms": ["Standardized extract", "Powder", "Capsules", "Tea", "Fresh root"],
   "status_by_region": {
-    "eu": "Nahrungsergaenzungsmittel",
+    "eu": "Dietary supplement",
     "usa": "GRAS, Dietary Supplement",
-    "india": "Traditionelles Arzneimittel"
+    "india": "Traditional medicine"
   }
 }

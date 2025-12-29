@@ -35,8 +35,8 @@
     }
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Cooked berries/flowers", "beschreibung": "Safe and beneficial"},
-    {"level": "medium", "typ": "Raw berry consumption", "beschreibung": "Nausea, vomiting, diarrhea, abdominal cramps"}
+    {"level": "none", "typ": "Cooked berries/flowers", "description": "Safe and beneficial"},
+    {"level": "medium", "typ": "Raw berry consumption", "description": "Nausea, vomiting, diarrhea, abdominal cramps"}
   ],
   "fatality_rate": {
     "value": 0,

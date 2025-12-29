@@ -59,7 +59,7 @@
     "variant": "danger"
   },
   "confusion_consequences": [
-    {"level": "critical", "typ": "Colchicum autumnale", "beschreibung": "Meadow saffron is DEADLY POISONOUS - has 6 stamens vs. 3; wider leaves; no prominent red stigmas"}
+    {"level": "critical", "type": "Colchicum autumnale", "description": "Meadow saffron is DEADLY POISONOUS - has 6 stamens vs. 3; wider leaves; no prominent red stigmas"}
   ],
   "key_differentiating_features": [
     "3 stamens (Colchicum has 6)",

@@ -23,7 +23,7 @@
     "Potent diuretic effect"
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal use", "beschreibung": "Safe and nutritious"}
+    {"level": "none", "typ": "Normal use", "description": "Safe and nutritious"}
   ],
   "fatality_rate": {
     "value": 0,

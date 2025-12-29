@@ -1,33 +1,33 @@
 {
   "traditional_medicine": {
-    "systems": ["European_Folk_Medicine", "Antike Medizin"],
-    "historical_use": "Bereits von Dioskurides beschrieben; Blätter und Wurzel unterschiedlich genutzt",
-    "traditional_indications": ["Rheumatische Beschwerden", "Harnwegsinfekte", "Prostatabeschwerden", "Blutreinigung"]
+    "systems": ["European_Folk_Medicine", "Ancient Medicine"],
+    "historical_use": "Already described by Dioscorides; leaves and root used differently",
+    "traditional_indications": ["Rheumatic complaints", "Urinary tract infections", "Prostate complaints", "Blood purification"]
   },
   "pharmacopoeia_names": ["Urticae folium", "Urticae radix"],
   "who_monograph_exists": true,
   "escop_monograph_exists": true,
-  "escop_therapeutic_indication": ["Wurzel: Benigne Prostatahyperplasie", "Blätter: Adjuvans bei rheumatischen Beschwerden, Durchspülung"],
+  "escop_therapeutic_indication": ["Root: Benign prostatic hyperplasia", "Leaves: Adjuvant for rheumatic complaints, flushing therapy"],
   "german_commission_e_status": {
-    "status": "Positiv-Monographie",
+    "status": "Positive monograph",
     "variant": "success"
   },
-  "german_commission_e_indication": ["Wurzel: Miktionsbeschwerden bei BPH", "Blätter: Rheumatische Beschwerden, Durchspülungstherapie"],
+  "german_commission_e_indication": ["Root: Urinary disorders in BPH", "Leaves: Rheumatic complaints, flushing therapy"],
   "active_substances": [
-    "Blaetter: Kaffeesaeurederivate, Flavonoide, Mineralstoffe",
-    "Wurzel: Lektine, Polysaccharide, Sterole"
+    "Leaves: Caffeic acid derivatives, flavonoids, minerals",
+    "Root: Lectins, polysaccharides, sterols"
   ],
   "effect_profile": [
-    {"axis": "Antiphlogistisch", "value": 75},
-    {"axis": "Diuretisch", "value": 80},
-    {"axis": "Antiprostatisch (Wurzel)", "value": 70},
-    {"axis": "Antirheumatisch", "value": 65},
-    {"axis": "Mineralstoffreich", "value": 85}
+    {"axis": "Anti-inflammatory", "value": 75},
+    {"axis": "Diuretic", "value": 80},
+    {"axis": "Anti-prostatic (root)", "value": 70},
+    {"axis": "Anti-rheumatic", "value": 65},
+    {"axis": "Mineral-rich", "value": 85}
   ],
   "therapeutic_categories": [
-    "Diuretikum",
-    "Antirheumatikum",
-    "Urologikum"
+    "Diuretic",
+    "Anti-rheumatic",
+    "Urological agent"
   ],
   "evidence_level": {
     "status": "2b",
@@ -39,19 +39,19 @@
     "max": 100
   },
   "side_effects": [
-    {"level": "low", "typ": "Gelegentlich", "beschreibung": "Magen-Darm-Beschwerden"},
-    {"level": "low", "typ": "Aeusserlich", "beschreibung": "Hautreizung bei frischen Blaettern"}
+    {"level": "low", "typ": "Occasional", "description": "Gastrointestinal complaints"},
+    {"level": "low", "typ": "External", "description": "Skin irritation from fresh leaves"}
   ],
   "contraindications": [
-    "Oedembildung durch Herz- oder Niereninsuffizienz (Blätter)"
+    "Edema due to cardiac or renal insufficiency (leaves)"
   ],
   "special_populations_pregnancy": {
-    "status": "Nicht empfohlen",
+    "status": "Not recommended",
     "variant": "warning"
   },
-  "dosage_notes": "Blätter-Tee: 4-6g taeglich; Wurzel-Extrakt: 600-1200 mg taeglich bei BPH; reichlich trinken bei Durchspuelung",
-  "preparation_forms": ["Tee", "Frischpflanzenpresssaft", "Extrakt", "Kapseln", "Tinktur"],
+  "dosage_notes": "Leaf tea: 4-6g daily; Root extract: 600-1200 mg daily for BPH; drink plenty during flushing therapy",
+  "preparation_forms": ["Tea", "Fresh plant juice", "Extract", "Capsules", "Tincture"],
   "status_by_region": {
-    "eu": "Pflanzliches Arzneimittel (well-established use)"
+    "eu": "Herbal medicinal product (well-established use)"
   }
 }

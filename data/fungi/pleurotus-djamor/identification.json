@@ -12,9 +12,9 @@
     "Pleurotus salmoneostramineus"
   ],
   "common_names": [
-    "Rosenseitling",
-    "Rosafarbener Seitling",
-    "Rosenroter Seitling",
+    "Pink Oyster",
+    "Pink Oyster Mushroom",
+    "Rose Oyster",
     "Pink Oyster"
   ],
   "size_range": {
@@ -22,27 +22,27 @@
     "max": 10,
     "unit": "cm"
   },
-  "color_primary": "rosarot",
-  "color_secondary": "lachsfarben",
-  "smell_description": "Beissend, nitratartig, mandelartig",
+  "color_primary": "pink-red",
+  "color_secondary": "salmon-colored",
+  "smell_description": "Pungent, nitrate-like, almond-like",
   "taste_description": "Mild",
   "primary_structure_present": true,
-  "primary_structure_type": "Hut",
+  "primary_structure_type": "Cap",
   "primary_structure_diameter": {
     "min": 2,
     "max": 10,
     "unit": "cm"
   },
-  "primary_structure_surface": "samtig, filzig",
-  "primary_structure_color": "rosafarben, rosenrot, hellgrau",
+  "primary_structure_surface": "velvety, felty",
+  "primary_structure_color": "pink, rose-red, light gray",
   "support_structure_present": true,
-  "support_structure_type": "Stiel",
-  "support_structure_color": "weisslich bis rosa",
+  "support_structure_type": "Stem",
+  "support_structure_color": "whitish to pink",
   "lamellae_present": true,
-  "lamellae_attachment": "herablaufend",
-  "lamellae_color": "gelblich bis rosafarben",
-  "tissue_color": "weiss",
-  "propagule_color": "beige, hellbraun",
+  "lamellae_attachment": "decurrent",
+  "lamellae_color": "yellowish to pink",
+  "tissue_color": "white",
+  "propagule_color": "beige, light brown",
   "propagule_length": {
     "min": 6,
     "max": 9,

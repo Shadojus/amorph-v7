@@ -1,30 +1,30 @@
 {
-  "trophic_mode_primary": "parasitisch",
-  "trophic_mode_secondary": "saprobiontisch",
-  "ecological_guild": "Holzzersetzer",
-  "decomposer_type": "Braunfaeule",
-  "ecosystem_type": "Wald",
-  "ecosystem_subtype": "Laubwald",
-  "microhabitat_primary": "lebende Laubbaeume",
-  "microhabitat_secondary": "tote Staemme und Stubben",
-  "substrate_type_primary": "Laubholz",
+  "trophic_mode_primary": "parasitic",
+  "trophic_mode_secondary": "saprobiotic",
+  "ecological_guild": "Wood decomposer",
+  "decomposer_type": "Brown rot",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Deciduous forest",
+  "microhabitat_primary": "Living deciduous trees",
+  "microhabitat_secondary": "Dead trunks and stumps",
+  "substrate_type_primary": "Hardwood",
   "substrate_types_secondary": [
-    "Eiche",
-    "Weide",
-    "Kirsche",
-    "Buche",
-    "Nussbaum"
+    "Oak",
+    "Willow",
+    "Cherry",
+    "Beech",
+    "Walnut"
   ],
   "substrate_specificity": {
-    "status": "breit",
+    "status": "broad",
     "variant": "success"
   },
   "fruiting_season_start": 5,
   "fruiting_season_end": 10,
   "fruiting_peak_month": 7,
-  "climate_zone": "temperat",
-  "moisture_regime": "mesisch",
-  "native_range": "Nordhemisphaere, kosmopolitisch",
+  "climate_zone": "temperate",
+  "moisture_regime": "mesic",
+  "native_range": "Northern Hemisphere, cosmopolitan",
   "iucn_global_status": {
     "status": "LC",
     "variant": "success"

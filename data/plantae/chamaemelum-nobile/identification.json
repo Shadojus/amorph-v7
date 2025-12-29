@@ -59,8 +59,8 @@
     "variant": "warning"
   },
   "confusion_consequences": [
-    {"level": "none", "typ": "Matricaria chamomilla", "beschreibung": "Also chamomile, similar uses"},
-    {"level": "low", "typ": "Anthemis arvensis", "beschreibung": "Less aromatic, not recommended for tea"}
+    {"level": "none", "type": "Matricaria chamomilla", "description": "Also chamomile, similar uses"},
+    {"level": "low", "type": "Anthemis arvensis", "description": "Less aromatic, not recommended for tea"}
   ],
   "key_differentiating_features": [
     "Solid (not hollow) receptacle",

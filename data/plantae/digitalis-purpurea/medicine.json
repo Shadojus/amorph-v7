@@ -1,11 +1,11 @@
 {
   "traditional_medicine": {
     "systems": ["European_Folk_Medicine"],
-    "historical_use": "William Withering beschrieb 1785 die Wirkung bei 'Wassersucht'; eine der wichtigsten Entdeckungen der Pharmazie",
-    "traditional_indications": ["Herzinsuffizienz", "Oedeme"]
+    "historical_use": "William Withering described its effect on 'dropsy' in 1785; one of the most important discoveries in pharmacy",
+    "traditional_indications": ["Heart failure", "Edema"]
   },
   "pharmacopoeia_names": ["Digitalis purpureae folium"],
-  "description": "WARNUNG: Hochgiftig! Nur pharmazeutische Praeparate verwenden!",
+  "description": "WARNING: Highly toxic! Only use pharmaceutical preparations!",
   "active_substances": [
     "Digitoxin",
     "Gitoxin",
@@ -13,20 +13,20 @@
     "Digitalin"
   ],
   "effect_profile": [
-    {"axis": "Positiv inotrop", "value": 95},
-    {"axis": "Negativ chronotrop", "value": 85},
-    {"axis": "Negativ dromotrop", "value": 75},
-    {"axis": "Toxizitaet", "value": 100}
+    {"axis": "Positive inotropic", "value": 95},
+    {"axis": "Negative chronotropic", "value": 85},
+    {"axis": "Negative dromotropic", "value": 75},
+    {"axis": "Toxicity", "value": 100}
   ],
   "therapeutic_categories": [
-    "Herzglykosid",
-    "Kardiotonikum"
+    "Cardiac glycoside",
+    "Cardiotonic"
   ],
   "evidence_level": {
     "status": "1a",
     "variant": "success"
   },
-  "evidence_summary": "Standardmedikament bei Herzinsuffizienz und Vorhofflimmern; gut erforscht, aber heute durch modernere Medikamente teilweise ersetzt",
+  "evidence_summary": "Standard medication for heart failure and atrial fibrillation; well-researched, but now partially replaced by more modern drugs",
   "safety_score": {
     "value": 10,
     "min": 0,
@@ -34,38 +34,38 @@
   },
   "toxicology_therapeutic_index": 2,
   "side_effects": [
-    {"level": "high", "typ": "Toxisch", "beschreibung": "Uebelkeit, Erbrechen, Herzrhythmusstörungen, Sehstörungen (Gelbsehen)"},
-    {"level": "critical", "typ": "Ueberdosierung", "beschreibung": "Lebensbedrohliche Arrhythmien, Tod"}
+    {"level": "high", "type": "Toxic", "description": "Nausea, vomiting, cardiac arrhythmias, visual disturbances (yellow vision)"},
+    {"level": "critical", "type": "Overdose", "description": "Life-threatening arrhythmias, death"}
   ],
   "overdose": [
-    {"level": "critical", "typ": "Vergiftung", "beschreibung": "Antidot: Digitalis-Antikörper (Fab-Fragmente). Sofortige intensivmedizinische Behandlung erforderlich."}
+    {"level": "critical", "type": "Poisoning", "description": "Antidote: Digitalis antibodies (Fab fragments). Immediate intensive care treatment required."}
   ],
   "contraindications": [
-    "Selbstmedikation ABSOLUT VERBOTEN",
-    "Hypokaliämie",
-    "Hyperkalzämie",
-    "Bestimmte Herzrhythmusstörungen"
+    "Self-medication ABSOLUTELY FORBIDDEN",
+    "Hypokalemia",
+    "Hypercalcemia",
+    "Certain cardiac arrhythmias"
   ],
   "special_populations_pregnancy": {
-    "status": "Nur unter strenger aerztlicher Kontrolle",
+    "status": "Only under strict medical supervision",
     "variant": "danger"
   },
   "monitoring_recommended": true,
   "monitoring_parameters": [
-    "Serum-Digoxin-Spiegel",
-    "Kalium",
-    "Nierenfunktion",
-    "EKG"
+    "Serum digoxin level",
+    "Potassium",
+    "Kidney function",
+    "ECG"
   ],
-  "dosage_notes": "NUR UNTER AERZTLICHER AUFSICHT! Therapeutischer Bereich extrem schmal. Pflanze NIEMALS selbst anwenden!",
-  "preparation_forms": ["Pharmazeutische Praeparate (Digoxin, Digitoxin)"],
+  "dosage_notes": "ONLY UNDER MEDICAL SUPERVISION! Therapeutic range extremely narrow. NEVER use the plant yourself!",
+  "preparation_forms": ["Pharmaceutical preparations (Digoxin, Digitoxin)"],
   "patient_counseling_points": [
-    "NIEMALS die Pflanze selbst verwenden!",
-    "Alle Teile der Pflanze sind hochgiftig!",
-    "Bei Verdacht auf Vergiftung: Notarzt rufen!"
+    "NEVER use the plant yourself!",
+    "All parts of the plant are highly toxic!",
+    "If poisoning is suspected: Call emergency services!"
   ],
   "status_by_region": {
-    "eu": "Verschreibungspflichtiges Arzneimittel",
+    "eu": "Prescription medication",
     "usa": "Prescription Drug"
   }
 }

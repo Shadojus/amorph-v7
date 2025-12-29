@@ -1,61 +1,61 @@
 {
   "traditional_medicine_use": true,
   "traditional_medicine_systems": [
-    "Traditionelle Chinesische Medizin",
-    "Koreanische Medizin"
+    "Traditional Chinese Medicine",
+    "Korean Medicine"
   ],
   "medicinal_status": {
-    "status": "Vitalpilz",
+    "status": "Medicinal Mushroom",
     "variant": "info"
   },
   "primary_medicinal_uses": [
-    "Immunstimulation",
-    "Leistungssteigerung",
-    "Anti-Tumor",
-    "Antibiotisch"
+    "Immune stimulation",
+    "Performance enhancement",
+    "Anti-tumor",
+    "Antibiotic"
   ],
   "active_compounds": [
     {
       "name": "Cordycepin",
-      "class": "Nukleosid-Analogon",
-      "effects": ["antitumoral", "antibiotisch", "immunmodulierend"]
+      "class": "Nucleoside analogue",
+      "effects": ["antitumoral", "antibiotic", "immunomodulating"]
     },
     {
-      "name": "Polysaccharide",
-      "class": "Beta-Glucane",
-      "effects": ["immunstimulierend"]
+      "name": "Polysaccharides",
+      "class": "Beta-glucans",
+      "effects": ["immunostimulating"]
     },
     {
-      "name": "Adenosin",
-      "class": "Nukleosid",
-      "effects": ["kardiovaskulaer"]
+      "name": "Adenosine",
+      "class": "Nucleoside",
+      "effects": ["cardiovascular"]
     }
   ],
   "research_areas": [
-    "Onkologie",
-    "Immunologie",
-    "Sportmedizin",
-    "Antivirale Forschung"
+    "Oncology",
+    "Immunology",
+    "Sports Medicine",
+    "Antiviral Research"
   ],
   "clinical_evidence_level": {
-    "status": "praeklinisch",
+    "status": "preclinical",
     "variant": "warning"
   },
-  "clinical_evidence_notes": "Zahlreiche In-vitro und Tierstudien, begrenzte klinische Humanstudien. In der EU nicht als Arzneimittel zugelassen.",
+  "clinical_evidence_notes": "Numerous in-vitro and animal studies, limited clinical human studies. Not approved as a medicinal product in the EU.",
   "contraindications": [
-    "Autoimmunerkrankungen (immunmodulierende Wirkung)",
-    "Vor Operationen (potenzielle Blutgerinnungshemmung)"
+    "Autoimmune diseases (immunomodulating effect)",
+    "Before surgery (potential anticoagulant effect)"
   ],
   "traditional_preparations": [
-    "Heisswasserextrakt",
-    "Alkoholextrakt",
-    "Pulver",
-    "Kapseln"
+    "Hot water extract",
+    "Alcohol extract",
+    "Powder",
+    "Capsules"
   ],
-  "dosage_traditional": "1-3 g getrockneter Fruchtkoerper pro Tag",
+  "dosage_traditional": "1-3 g dried fruiting body per day",
   "safety_profile": {
-    "status": "gut vertraeglich",
+    "status": "well tolerated",
     "variant": "success"
   },
-  "regulatory_status_eu": "Nahrungsergaenzungsmittel (keine Heilmittelzulassung)"
+  "regulatory_status_eu": "Food supplement (no medicinal approval)"
 }

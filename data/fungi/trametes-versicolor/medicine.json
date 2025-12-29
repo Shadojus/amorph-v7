@@ -8,57 +8,57 @@
     "Yunzhi (TCM)",
     "Kawaratake (Kampo)"
   ],
-  "description": "Die Schmetterlingstramete ist einer der am besten erforschten Medizinalpilze. Die daraus gewonnenen Polysaccharide PSK (Krestin) und PSP sind in Asien als zugelassene Krebsmedikamente im Einsatz.",
+  "description": "Turkey Tail is one of the best-researched medicinal mushrooms. The polysaccharides PSK (Krestin) and PSP derived from it are approved cancer medicines in Asia.",
   "traditional_medicine": {
     "systems": [
-      "Traditionelle Chinesische Medizin (TCM)",
-      "Japanische Kampo-Medizin"
+      "Traditional Chinese Medicine (TCM)",
+      "Japanese Kampo Medicine"
     ],
-    "historical_use": "In der TCM seit Jahrhunderten als Tonikum und zur Staerkung des Immunsystems verwendet. In Japan wurde PSK 1977 als erstes Pilz-basiertes Krebsmedikament zugelassen.",
+    "historical_use": "Used in TCM for centuries as a tonic and to strengthen the immune system. In Japan, PSK was approved in 1977 as the first mushroom-based cancer medicine.",
     "traditional_indications": [
-      "Staerkung des Immunsystems",
-      "Unterstuetzung bei Krebstherapie",
-      "Chronische Muedigkeit",
-      "Infektionskrankheiten"
+      "Strengthening the immune system",
+      "Support during cancer therapy",
+      "Chronic fatigue",
+      "Infectious diseases"
     ]
   },
   "tcm_herb_name_pinyin": "Yunzhi",
   "tcm_herb_name_chinese": "云芝",
-  "tcm_nature": "Leicht warm",
+  "tcm_nature": "Slightly warm",
   "tcm_flavor": [
-    "Suess",
-    "Leicht bitter"
+    "Sweet",
+    "Slightly bitter"
   ],
   "tcm_meridian_tropism": [
-    "Leber",
-    "Milz",
-    "Lunge"
+    "Liver",
+    "Spleen",
+    "Lung"
   ],
   "tcm_therapeutic_actions": [
-    "Staerkt das Qi",
-    "Eliminiert Feuchtigkeit",
-    "Klaert Hitze",
-    "Staerkt die Milz"
+    "Strengthens Qi",
+    "Eliminates dampness",
+    "Clears heat",
+    "Strengthens the spleen"
   ],
   "who_monograph_exists": false,
   "escop_monograph_exists": false,
   "active_substances": [
-    "PSK (Polysaccharid-K, Krestin)",
-    "PSP (Polysaccharid-Peptid)",
-    "Beta-Glucane",
+    "PSK (Polysaccharide-K, Krestin)",
+    "PSP (Polysaccharide-Peptide)",
+    "Beta-glucans",
     "Ergosterol",
-    "Triterpenoide"
+    "Triterpenoids"
   ],
   "effect_profile": [
-    {"axis": "Immunmodulation", "value": 95},
+    {"axis": "Immunomodulation", "value": 95},
     {"axis": "Antitumoral", "value": 85},
-    {"axis": "Antioxidativ", "value": 70},
-    {"axis": "Hepatoprotektiv", "value": 60},
-    {"axis": "Antibakteriell", "value": 50}
+    {"axis": "Antioxidant", "value": 70},
+    {"axis": "Hepatoprotective", "value": 60},
+    {"axis": "Antibacterial", "value": 50}
   ],
   "therapeutic_categories": [
-    "Immunmodulator",
-    "Biologische Krebstherapie-Adjuvans",
+    "Immunomodulator",
+    "Biological cancer therapy adjuvant",
     "Adaptogen"
   ],
   "evidence_level": {
@@ -66,12 +66,12 @@
     "variant": "success"
   },
   "clinical_studies": [
-    "Zahlreiche RCTs in Japan und China zu PSK/PSP bei Krebs",
-    "Phase-I-Studien zur Immunstimulation bei Brustkrebs",
-    "Studien zur Verbesserung der Ueberlebensraten bei Magen- und Darmkrebs"
+    "Numerous RCTs in Japan and China on PSK/PSP for cancer",
+    "Phase I studies on immune stimulation in breast cancer",
+    "Studies on improved survival rates in gastric and colorectal cancer"
   ],
   "meta_analyses": [
-    "Cochrane Reviews zu PSK bei Magenkrebs zeigen signifikante Vorteile"
+    "Cochrane Reviews on PSK for gastric cancer show significant benefits"
   ],
   "safety_score": {
     "value": 85,
@@ -84,17 +84,17 @@
     ]
   },
   "side_effects": [
-    {"level": "trivial", "typ": "Gastrointestinale Beschwerden", "beschreibung": "Selten leichte Verdauungsbeschwerden"},
-    {"level": "trivial", "typ": "Dunkelfaerbung der Naegel", "beschreibung": "Gelegentlich bei PSK beobachtet, reversibel"}
+    {"level": "trivial", "typ": "Gastrointestinal complaints", "beschreibung": "Rarely mild digestive discomfort"},
+    {"level": "trivial", "typ": "Darkening of nails", "beschreibung": "Occasionally observed with PSK, reversible"}
   ],
   "interactions": [
-    {"level": "moderate", "typ": "Immunsuppressiva", "beschreibung": "Moegliche Abschwächung immunsuppressiver Therapien"},
-    {"level": "trivial", "typ": "Chemotherapie", "beschreibung": "Wird gezielt als Adjuvans eingesetzt"}
+    {"level": "moderate", "typ": "Immunosuppressants", "beschreibung": "Possible weakening of immunosuppressive therapies"},
+    {"level": "trivial", "typ": "Chemotherapy", "beschreibung": "Specifically used as adjuvant"}
   ],
   "contraindications": [
-    "Bekannte Pilzallergie",
-    "Schwere Autoimmunerkrankungen (aerztliche Begleitung erforderlich)",
-    "Vor Operationen (1-2 Wochen vorher absetzen)"
+    "Known mushroom allergy",
+    "Severe autoimmune diseases (medical supervision required)",
+    "Before surgery (discontinue 1-2 weeks prior)"
   ],
   "special_populations_pregnancy": {
     "status": "Insufficient data",
@@ -108,24 +108,24 @@
     "status": "Caution advised",
     "variant": "warning"
   },
-  "dosage_notes": "PSK wird typischerweise mit 3 g/Tag oral verabreicht. Extrakte und Pulver variieren je nach Hersteller.",
+  "dosage_notes": "PSK is typically administered at 3 g/day orally. Extracts and powders vary by manufacturer.",
   "dosage_schemes": [
-    {"amount": 3, "unit": "g", "frequency": "taeglich", "route": "oral", "notes": "PSK Standard-Dosis in klinischen Studien"},
-    {"amount": 1, "unit": "g", "frequency": "2-3x taeglich", "route": "oral", "notes": "Typische Supplement-Dosierung"}
+    {"amount": 3, "unit": "g", "frequency": "daily", "route": "oral", "notes": "PSK standard dose in clinical studies"},
+    {"amount": 1, "unit": "g", "frequency": "2-3x daily", "route": "oral", "notes": "Typical supplement dosage"}
   ],
   "preparation_forms": [
-    "PSK (Krestin) - zugelassenes Medikament in Japan",
-    "PSP - zugelassenes Medikament in China",
-    "Heisswasser-Extrakt",
-    "Pulver",
-    "Kapseln",
-    "Tee"
+    "PSK (Krestin) - approved medicine in Japan",
+    "PSP - approved medicine in China",
+    "Hot water extract",
+    "Powder",
+    "Capsules",
+    "Tea"
   ],
   "status_by_region": {
-    "eu": "Nahrungsergaenzungsmittel",
+    "eu": "Dietary supplement",
     "usa": "Dietary Supplement",
-    "japan": "Zugelassenes Medikament (PSK)",
-    "china": "Zugelassenes Medikament (PSP)",
+    "japan": "Approved medicine (PSK)",
+    "china": "Approved medicine (PSP)",
     "canada": "Natural Health Product",
     "australia": "Complementary Medicine"
   },
@@ -137,12 +137,12 @@
   "origin_wild_collection": {
     "available": true,
     "regions": [
-      "Weltweit",
-      "Europa",
-      "Nordamerika",
-      "Asien"
+      "Worldwide",
+      "Europe",
+      "North America",
+      "Asia"
     ],
-    "sustainability_concerns": "Haeuufiger Pilz, keine Bedenken bei maessiger Sammlung"
+    "sustainability_concerns": "Common mushroom, no concerns with moderate collection"
   },
   "origin_cultivation": {
     "available": true,
@@ -150,13 +150,13 @@
       "China",
       "Japan",
       "USA",
-      "Europa"
+      "Europe"
     ],
-    "methods": "Substratkultivierung auf Saegemehl oder Holz"
+    "methods": "Substrate cultivation on sawdust or wood"
   },
-  "quality_differences": "Extrakte variieren stark in Polysaccharidgehalt. Beta-Glucan-Gehalt sollte standardisiert sein.",
-  "patient_information": "Trametes versicolor ist ein gut vertraeglicher Medizinalpilz mit starker Forschungsbasis zur Immunstimulation. In Asien als Adjuvans bei Krebstherapie zugelassen.",
-  "for_physicians": "PSK und PSP sind die klinisch am besten untersuchten Pilz-Polysaccharide. Randomisierte Studien zeigen verbesserte Ueberlebensraten bei Magen- und Darmkrebs in Kombination mit Chemotherapie.",
+  "quality_differences": "Extracts vary greatly in polysaccharide content. Beta-glucan content should be standardized.",
+  "patient_information": "Trametes versicolor is a well-tolerated medicinal mushroom with strong research basis for immune stimulation. Approved in Asia as adjuvant for cancer therapy.",
+  "for_physicians": "PSK and PSP are the clinically best-studied mushroom polysaccharides. Randomized studies show improved survival rates in gastric and colorectal cancer in combination with chemotherapy.",
   "further_literature": {
     "authors": "Standish, L.J. et al.",
     "year": 2008,
@@ -168,7 +168,7 @@
     "rating": 9,
     "max": 10
   },
-  "profile": "Immunmodulator mit starker klinischer Evidenz als Adjuvans bei Krebstherapie",
+  "profile": "Immunomodulator with strong clinical evidence as adjuvant in cancer therapy",
   "evidence_grade_overall": {
     "status": "A (Asia), B (Western)",
     "variant": "success"

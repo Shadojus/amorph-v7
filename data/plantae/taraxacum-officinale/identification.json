@@ -61,7 +61,7 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "none", "typ": "Similar species", "beschreibung": "All similar species are also edible"}
+    {"level": "none", "typ": "Similar species", "description": "All similar species are also edible"}
   ],
   "key_differentiating_features": [
     "Single flower head per hollow stalk",

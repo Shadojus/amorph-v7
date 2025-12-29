@@ -97,7 +97,7 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
     const html = result.items.map(item => {
       // Standard-Felder (ohne Perspektiven) - renderValue gibt bereits komplettes amorph-field zurück
       const standardFields = Object.entries(item)
-        .filter(([k]) => !['id', 'slug', 'name', 'image', 'bild', 'wissenschaftlich', 'tagline', 'badges', 'season', 'perspectives', 'categories', 'description', 'scientific_name'].includes(k) && !k.startsWith('_'))
+        .filter(([k]) => !['id', 'slug', 'name', 'image', 'bild', 'wissenschaftlich', 'scientific_name', 'tagline', 'badges', 'season', 'perspectives', 'categories', 'description', 'source'].includes(k) && !k.startsWith('_'))
         .slice(0, 4)  // Weniger Standard-Felder wenn Perspektiven aktiv
         .map(([key, value]) => {
           const morphHtml = renderValue(value, key, gridContext);
@@ -199,7 +199,7 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
               <h2 class="item-name">${escapeHtml(item.name)}</h2>
               <a href="/${escapeAttribute(item.slug)}" class="item-detail-link" title="Details anzeigen">→</a>
             </div>
-            ${item.wissenschaftlich ? `<span class="item-scientific">${escapeHtml(String(item.wissenschaftlich))}</span>` : ''}
+            ${(item.wissenschaftlich || item.scientific_name) ? `<span class="item-scientific">${escapeHtml(String(item.wissenschaftlich || item.scientific_name))}</span>` : ''}
           </div>
           <div class="item-body">${allFields}</div>
           <div class="item-actions">

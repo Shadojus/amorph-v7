@@ -13,8 +13,8 @@
     "Pleurotus ostreatus var. pulmonarius"
   ],
   "common_names": [
-    "Lungenseitling",
-    "Sommer-Austernseitling",
+    "Lung Oyster",
+    "Summer Oyster",
     "Phoenix Mushroom",
     "Indian Oyster"
   ],
@@ -23,28 +23,28 @@
     "max": 20,
     "unit": "cm"
   },
-  "color_primary": "grauweiß",
+  "color_primary": "grayish-white",
   "color_secondary": "beige",
-  "smell_description": "Suess, angenehm, austernartig",
+  "smell_description": "Sweet, pleasant, oyster-like",
   "taste_description": "Mild",
   "primary_structure_present": true,
-  "primary_structure_type": "Hut",
+  "primary_structure_type": "Cap",
   "primary_structure_diameter": {
     "min": 5,
     "max": 20,
     "unit": "cm"
   },
-  "primary_structure_shape_young": "konvex",
-  "primary_structure_shape_mature": "flach bis aufgebogen, wellig",
-  "primary_structure_color": "grauweiß bis beige, lilac-grau",
+  "primary_structure_shape_young": "convex",
+  "primary_structure_shape_mature": "flat to upturned, wavy",
+  "primary_structure_color": "grayish-white to beige, lilac-gray",
   "support_structure_present": true,
-  "support_structure_type": "Stiel",
-  "support_structure_position": "exzentrisch",
+  "support_structure_type": "Stem",
+  "support_structure_position": "eccentric",
   "lamellae_present": true,
-  "lamellae_attachment": "herablaufend",
-  "lamellae_color": "weisslich bis cremefarben",
-  "tissue_consistency": "duenn",
-  "propagule_color": "weiss bis lavendelgrau",
+  "lamellae_attachment": "decurrent",
+  "lamellae_color": "whitish to cream-colored",
+  "tissue_consistency": "thin",
+  "propagule_color": "white to lavender-gray",
   "propagule_length": {
     "min": 7.5,
     "max": 11,
@@ -55,7 +55,7 @@
     "max": 4,
     "unit": "um"
   },
-  "propagule_shape": "zylindrisch",
+  "propagule_shape": "cylindrical",
   "confusion_species_list": [
     "Pleurotus ostreatus",
     "Pleurotus cornucopiae"
@@ -70,8 +70,8 @@
     "variant": "success"
   },
   "key_differentiating_features": [
-    "Kein Kaeltereiz fuer Fruktifikation noetig",
-    "Huete meist in kleinen Gruppen (5-6)",
-    "Waechst auch auf Nadelholz"
+    "No cold shock required for fruiting",
+    "Caps usually in small groups (5-6)",
+    "Also grows on coniferous wood"
   ]
 }

@@ -23,7 +23,7 @@
     "Avoid large medicinal doses during pregnancy"
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal use", "beschreibung": "Safe as culinary herb and tea"}
+    {"level": "none", "typ": "Normal use", "description": "Safe as culinary herb and tea"}
   ],
   "fatality_rate": {
     "value": 0,

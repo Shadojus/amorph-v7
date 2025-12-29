@@ -14,11 +14,11 @@
   "is_controlled_substance": false,
   "is_protected_species": false,
   "handling_precautions": [
-    "Gruendlich reinigen von Sand und Nadeln",
-    "Gut durchkochen"
+    "Clean thoroughly from sand and needles",
+    "Cook well"
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal consumption", "beschreibung": "Einer der sichersten Speisepilze"}
+    {"level": "none", "type": "Normal consumption", "description": "One of the safest edible mushrooms"}
   ],
   "fatality_rate": {
     "value": 0,
@@ -27,9 +27,9 @@
   },
   "fatality_documented": false,
   "collection_warnings": [
-    "Verwechslung mit Oelbaumpilz (Omphalotus olearius) vermeiden",
-    "Pfifferlinge haben Leisten, keine echten Lamellen",
-    "Falscher Pfifferling ist ungefaehrlich aber minderwertig"
+    "Avoid confusion with Jack O'Lantern (Omphalotus olearius)",
+    "Chanterelles have ridges, not true gills",
+    "False Chanterelle is harmless but inferior"
   ],
   "allergy_potential": {
     "status": "Low",

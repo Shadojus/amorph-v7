@@ -59,7 +59,7 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "none", "typ": "Other Ocimum species", "beschreibung": "All basil species are edible and aromatic"}
+    {"level": "none", "typ": "Other Ocimum species", "description": "All basil species are edible and aromatic"}
   ],
   "key_differentiating_features": [
     "Distinctive sweet basil aroma",

@@ -9,126 +9,126 @@
     "Himematsutake",
     "Cogumelo de Deus"
   ],
-  "description": "Agaricus subrufescens ist einer der am intensivsten erforschten Medizinalpilze mit der hoechsten bekannten Konzentration an Beta-Glucanen unter den Heilpilzen. Er wird traditionell in Brasilien, Japan und den USA fuer immunstimulierende und antitumorale Anwendungen verwendet.",
+  "description": "Agaricus subrufescens is one of the most intensively researched medicinal mushrooms with the highest known concentration of beta-glucans among medicinal mushrooms. It is traditionally used in Brazil, Japan and the USA for immunostimulating and antitumoral applications.",
   "traditional_medicine": {
     "systems": [
-      "Brasilianische Volksmedizin",
-      "Japanische Medizin (Kampo)",
-      "Traditionelle Chinesische Medizin"
+      "Brazilian Folk Medicine",
+      "Japanese Medicine (Kampo)",
+      "Traditional Chinese Medicine"
     ],
-    "historical_use": "In den brasilianischen Regenwäldern wurde beobachtet, dass die lokale Bevoelkerung, die diesen Pilz regelmaessig konsumierte, praktisch keine Krebserkrankungen aufwies. Dies fuehrte zur intensiven wissenschaftlichen Erforschung.",
+    "historical_use": "In the Brazilian rainforests, it was observed that the local population who regularly consumed this mushroom had virtually no cancer cases. This led to intensive scientific research.",
     "traditional_indications": [
-      "Krebs-Praevention und -begleitung",
-      "Immunschwaeche",
+      "Cancer prevention and support",
+      "Immune deficiency",
       "Diabetes mellitus",
-      "Lebererkrankungen",
-      "Allergien",
-      "Infektionen"
+      "Liver diseases",
+      "Allergies",
+      "Infections"
     ]
   },
   "active_substances": [
-    "Beta-Glucane (1-3, 1-6 D-Fraktionen)",
+    "Beta-glucans (1-3, 1-6 D-fractions)",
     "Ergosterol",
-    "Natriumpyroglutamat",
-    "Polysaccharid-Protein-Komplexe",
-    "Lektine"
+    "Sodium pyroglutamate",
+    "Polysaccharide-protein complexes",
+    "Lectins"
   ],
   "effect_profile": [
-    {"axis": "Immunmodulation", "value": 95},
+    {"axis": "Immunomodulation", "value": 95},
     {"axis": "Antitumoral", "value": 90},
-    {"axis": "Leberschutz", "value": 80},
-    {"axis": "Antidiabetisch", "value": 75},
-    {"axis": "Antiallergisch", "value": 70},
-    {"axis": "Antiinflammatorisch", "value": 75}
+    {"axis": "Liver protection", "value": 80},
+    {"axis": "Antidiabetic", "value": 75},
+    {"axis": "Antiallergic", "value": 70},
+    {"axis": "Anti-inflammatory", "value": 75}
   ],
   "therapeutic_categories": [
-    "Immunmodulator",
-    "Adjuvante Krebstherapie",
-    "Hepatoprotektivum",
-    "Antidiabetikum",
-    "Antiallergikum"
+    "Immunomodulator",
+    "Adjuvant cancer therapy",
+    "Hepatoprotective",
+    "Antidiabetic",
+    "Antiallergic"
   ],
   "clinical_indications": [
     {
-      "condition": "Tumorerkrankungen",
+      "condition": "Tumor diseases",
       "evidence_level": "Moderate",
       "indication_type": "Adjuvant",
-      "description": "Unterstuetzende Behandlung bei Leukämie, Prostatakrebs, Lungenkrebs, Leberkrebs, Sarkomen"
+      "description": "Supportive treatment for leukemia, prostate cancer, lung cancer, liver cancer, sarcomas"
     },
     {
-      "condition": "Immunschwaeche",
+      "condition": "Immune deficiency",
       "evidence_level": "Good",
       "indication_type": "Primary",
-      "description": "Stimulation des Immunsystems, Aktivierung von NK-Zellen"
+      "description": "Stimulation of the immune system, activation of NK cells"
     },
     {
       "condition": "Diabetes mellitus",
       "evidence_level": "Moderate",
       "indication_type": "Adjuvant",
-      "description": "Regulation des Blutzuckerspiegels"
+      "description": "Regulation of blood sugar levels"
     },
     {
-      "condition": "Lebererkrankungen",
+      "condition": "Liver diseases",
       "evidence_level": "Moderate",
       "indication_type": "Adjuvant",
-      "description": "Leberschutz, Entgiftung bei toxischen Lebererkrankungen"
+      "description": "Liver protection, detoxification in toxic liver diseases"
     },
     {
-      "condition": "Allergien",
+      "condition": "Allergies",
       "evidence_level": "Low",
       "indication_type": "Adjuvant",
-      "description": "Modulation der allergischen Immunantwort"
+      "description": "Modulation of allergic immune response"
     }
   ],
   "mechanism_of_action": [
-    "Beta-Glucane binden an Dectin-1 und CR3-Rezeptoren auf Immunzellen",
-    "Aktivierung von Makrophagen und natuerlichen Killerzellen",
-    "Selektive Zytotoxizitaet auf Tumorzellen",
-    "Induktion von Apoptose in Krebszellen",
-    "Hemmung der Angiogenese in Tumoren (Metastasenverhinderung)",
-    "Foerderung der Blutbildung im Knochenmark",
-    "Unterstuetzung der Reinigungsfunktion der Milz"
+    "Beta-glucans bind to Dectin-1 and CR3 receptors on immune cells",
+    "Activation of macrophages and natural killer cells",
+    "Selective cytotoxicity on tumor cells",
+    "Induction of apoptosis in cancer cells",
+    "Inhibition of angiogenesis in tumors (metastasis prevention)",
+    "Promotion of blood formation in bone marrow",
+    "Support of spleen cleansing function"
   ],
   "dosage_forms": [
-    "Getrocknete Fruchtkörper (Pulver)",
-    "Kapseln",
-    "Extrakte",
-    "Tee",
-    "Frische Pilze (kulinarisch)"
+    "Dried fruiting bodies (powder)",
+    "Capsules",
+    "Extracts",
+    "Tea",
+    "Fresh mushrooms (culinary)"
   ],
   "dosage_general": {
     "min": 3,
     "max": 9,
     "unit": "g/day",
-    "description": "Typische Tagesdosis als Trockenextrakt oder Pulver"
+    "description": "Typical daily dose as dry extract or powder"
   },
   "contraindications": [
-    "Bekannte Allergie gegen Agaricus-Arten",
-    "Autoimmunerkrankungen (Arzt konsultieren)",
-    "Vor Operationen absetzen (immunstimulierende Wirkung)"
+    "Known allergy to Agaricus species",
+    "Autoimmune diseases (consult physician)",
+    "Discontinue before surgery (immunostimulating effect)"
   ],
   "side_effects": [
-    {"level": "low", "typ": "Gastrointestinal", "beschreibung": "Selten: leichte Magenbeschwerden, Blähungen"},
-    {"level": "low", "typ": "Allergisch", "beschreibung": "Sehr selten: allergische Reaktionen bei empfindlichen Personen"},
-    {"level": "medium", "typ": "Wechselwirkungen", "beschreibung": "Potentielle Interaktion mit Immunsuppressiva"}
+    {"level": "low", "typ": "Gastrointestinal", "description": "Rare: mild stomach discomfort, bloating"},
+    {"level": "low", "typ": "Allergic", "description": "Very rare: allergic reactions in sensitive individuals"},
+    {"level": "medium", "typ": "Interactions", "description": "Potential interaction with immunosuppressants"}
   ],
   "drug_interactions": [
-    "Immunsuppressiva - moegliche Wirkungsabschwächung",
-    "Chemotherapeutika - moegliche Wirkungsverstärkung (positiv)"
+    "Immunosuppressants - possible weakening of effect",
+    "Chemotherapeutics - possible enhancement of effect (positive)"
   ],
   "safety_in_pregnancy": {
     "status": "Not recommended",
     "variant": "warning"
   },
-  "safety_in_pregnancy_note": "Keine ausreichenden Daten. Verwendung in Schwangerschaft und Stillzeit nicht empfohlen.",
+  "safety_in_pregnancy_note": "Insufficient data. Use during pregnancy and breastfeeding not recommended.",
   "clinical_studies": [
     {
       "authors": "Fujimiya, Y. et al.",
       "year": 1998,
-      "title": "Antitumor-Aktivitaet von Agaricus blazei",
+      "title": "Antitumor activity of Agaricus blazei",
       "journal": "International Journal of Immunopharmacology",
       "doi": "",
-      "conclusion": "Signifikante immunstimulierende und antitumorale Wirkung nachgewiesen"
+      "conclusion": "Significant immunostimulating and antitumoral effect demonstrated"
     },
     {
       "authors": "Ito, H. et al.",
@@ -136,21 +136,21 @@
       "title": "Anti-tumor effects of Agaricus blazei",
       "journal": "Anticancer Research",
       "doi": "",
-      "conclusion": "Beta-Glucane zeigen selektive Zytotoxizitaet auf Tumorzellen"
+      "conclusion": "Beta-glucans show selective cytotoxicity on tumor cells"
     }
   ],
   "quality_markers": [
-    "Beta-Glucan-Gehalt > 10%",
-    "Polysaccharid-Gehalt",
-    "Ergosterol-Gehalt",
-    "Schwermetall-Freiheit"
+    "Beta-glucan content > 10%",
+    "Polysaccharide content",
+    "Ergosterol content",
+    "Heavy metal-free"
   ],
-  "standardization": "Standardisierung auf Beta-Glucan-Gehalt ueblich",
+  "standardization": "Standardization to beta-glucan content common",
   "regulatory_status": {
     "status": "Food Supplement",
     "variant": "success"
   },
-  "regulatory_note": "In den meisten Laendern als Nahrungsergaenzungsmittel klassifiziert",
+  "regulatory_note": "Classified as food supplement in most countries",
   "source": {
     "authors": "Stamets, P.",
     "year": 2000,

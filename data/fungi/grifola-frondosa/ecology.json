@@ -1,21 +1,21 @@
 {
-  "trophic_mode_primary": "parasitisch",
-  "trophic_mode_secondary": "saprobiontisch",
-  "ecological_guild": "Holzzersetzer",
-  "decomposer_type": "Weissfaeule",
-  "ecosystem_type": "Wald",
-  "ecosystem_subtype": "Laubwald",
-  "microhabitat_primary": "Wurzelbereich lebender Eichen",
-  "microhabitat_secondary": "Stubben von Laubbaumen",
-  "substrate_type_primary": "Laubholz",
+  "trophic_mode_primary": "parasitic",
+  "trophic_mode_secondary": "saprobic",
+  "ecological_guild": "Wood Decomposer",
+  "decomposer_type": "White Rot",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Deciduous Forest",
+  "microhabitat_primary": "Root area of living oaks",
+  "microhabitat_secondary": "Stumps of deciduous trees",
+  "substrate_type_primary": "Hardwood",
   "substrate_types_secondary": [
-    "Eiche (Quercus)",
-    "Kastanie (Castanea)",
-    "Linde (Tilia)",
-    "Buche (Fagus)"
+    "Oak (Quercus)",
+    "Chestnut (Castanea)",
+    "Linden (Tilia)",
+    "Beech (Fagus)"
   ],
   "substrate_specificity": {
-    "status": "mittel",
+    "status": "medium",
     "variant": "warning"
   },
   "associated_plant_genera": [
@@ -25,9 +25,9 @@
   "fruiting_season_start": 8,
   "fruiting_season_end": 11,
   "fruiting_peak_month": 10,
-  "climate_zone": "temperat",
-  "moisture_regime": "mesisch",
-  "native_range": "Nordhemisphaere, Europa, Nordamerika, Ostasien",
+  "climate_zone": "temperate",
+  "moisture_regime": "mesic",
+  "native_range": "Northern Hemisphere, Europe, North America, East Asia",
   "iucn_global_status": {
     "status": "LC",
     "variant": "success"

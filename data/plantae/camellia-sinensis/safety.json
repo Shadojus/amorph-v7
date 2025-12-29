@@ -31,8 +31,8 @@
     }
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal consumption", "beschreibung": "Safe and beneficial in moderate amounts"},
-    {"level": "low", "typ": "Excessive consumption", "beschreibung": "Insomnia, anxiety, heart palpitations, GI upset"}
+    {"level": "none", "type": "normal consumption", "description": "safe and beneficial in moderate amounts"},
+    {"level": "low", "type": "excessive consumption", "description": "insomnia, anxiety, heart palpitations, GI upset"}
   ],
   "fatality_rate": {
     "value": 0,

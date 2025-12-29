@@ -1,33 +1,33 @@
 {
-  "trophic_mode_primary": "parasitisch",
-  "trophic_mode_secondary": "saprobiontisch",
-  "ecological_guild": "Holzzersetzer",
-  "decomposer_type": "Weissfaeule",
-  "ecosystem_type": "Wald",
-  "ecosystem_subtype": "Laubwald",
-  "microhabitat_primary": "Wunden an lebenden Baeumen",
-  "microhabitat_secondary": "totes Laubholz",
-  "substrate_type_primary": "Laubholz",
+  "trophic_mode_primary": "parasitic",
+  "trophic_mode_secondary": "saprobic",
+  "ecological_guild": "Wood Decomposer",
+  "decomposer_type": "White Rot",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Deciduous Forest",
+  "microhabitat_primary": "Wounds on Living Trees",
+  "microhabitat_secondary": "Dead Hardwood",
+  "substrate_type_primary": "Hardwood",
   "substrate_types_secondary": [
-    "Eiche",
-    "Buche",
-    "Walnuss",
-    "Ahorn",
-    "Platane"
+    "Oak",
+    "Beech",
+    "Walnut",
+    "Maple",
+    "Plane Tree"
   ],
   "substrate_specificity": {
-    "status": "breit",
+    "status": "broad",
     "variant": "success"
   },
   "fruiting_season_start": 8,
   "fruiting_season_end": 11,
   "fruiting_peak_month": 9,
-  "climate_zone": "temperat",
-  "moisture_regime": "feucht",
-  "native_range": "Nordhemisphaere, Europa, Asien, Nordamerika",
+  "climate_zone": "temperate",
+  "moisture_regime": "humid",
+  "native_range": "Northern Hemisphere, Europe, Asia, North America",
   "iucn_global_status": {
     "status": "VU",
     "variant": "warning"
   },
-  "conservation_notes": "RL2 Deutschland (stark gefaehrdet), RL Schweiz EN (endangered)"
+  "conservation_notes": "RL2 Germany (critically endangered), RL Switzerland EN (endangered)"
 }

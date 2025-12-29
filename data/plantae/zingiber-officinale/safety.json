@@ -23,8 +23,8 @@
     "Large amounts may cause heartburn"
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal use", "beschreibung": "Safe and beneficial"},
-    {"level": "low", "typ": "Excessive consumption", "beschreibung": "Heartburn, mouth irritation, diarrhea"}
+    {"level": "none", "typ": "Normal use", "description": "Safe and beneficial"},
+    {"level": "low", "typ": "Excessive consumption", "description": "Heartburn, mouth irritation, diarrhea"}
   ],
   "fatality_rate": {
     "value": 0,

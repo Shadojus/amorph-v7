@@ -8,7 +8,7 @@
     "max": 100,
     "unit": "%"
   },
-  "safety_edibility_notes": "Guter Speisepilz. Die gelbe Farbe verblasst beim Garen.",
+  "safety_edibility_notes": "Good edible mushroom. The yellow color fades when cooking.",
   "safety_potentially_deadly": false,
   "safety_toxicity_score": {
     "value": 0,
@@ -24,7 +24,7 @@
     "status": "none",
     "variant": "success"
   },
-  "safety_summary": "Guter Speisepilz ohne bekannte Toxizitaet.",
+  "safety_summary": "Good edible mushroom with no known toxicity.",
   "confusion_risk_level": {
     "status": "low",
     "variant": "success"

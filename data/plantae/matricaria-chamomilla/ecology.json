@@ -1,41 +1,41 @@
 {
   "trophic_mode_primary": "autotroph",
-  "ecological_guild": "Einjahrige Krautpflanze",
-  "primary_ecosystem_function": "Pionierpflanze",
+  "ecological_guild": "Annual herb",
+  "primary_ecosystem_function": "Pioneer plant",
   "secondary_ecosystem_functions": [
-    "Bestaeubungsmagnet",
-    "Ackerbegleitflora"
+    "Pollinator magnet",
+    "Arable field flora"
   ],
-  "ecosystem_type": "Kulturlandschaft",
-  "ecosystem_subtype": "Aecker, Brachen",
-  "microhabitat_primary": "Gestorte, offene Boeden",
-  "microhabitat_secondary": "Wegraender, Schuttplaetze",
-  "light_requirement": "volle Sonne",
-  "moisture_regime": "mesisch",
+  "ecosystem_type": "Agricultural landscape",
+  "ecosystem_subtype": "Fields, fallow land",
+  "microhabitat_primary": "Disturbed, open soils",
+  "microhabitat_secondary": "Roadsides, rubble sites",
+  "light_requirement": "Full sun",
+  "moisture_regime": "Mesic",
   "drought_tolerance": {
     "rating": 5,
     "max": 10
   },
   "soil_ph_optimal_min": 5.5,
   "soil_ph_optimal_max": 8.0,
-  "soil_texture_preference": "sandig-lehmig",
-  "climate_zone": "temperat bis mediterran",
+  "soil_texture_preference": "Sandy-loamy",
+  "climate_zone": "Temperate to Mediterranean",
   "temperature_optimal_min_c": -15,
   "temperature_optimal_max_c": 30,
   "frost_tolerance": {
     "rating": 6,
     "max": 10
   },
-  "native_range": "Suedeuropa, Westasien",
+  "native_range": "Southern Europe, Western Asia",
   "invasive_in_regions": [
-    "Nordamerika",
-    "Australien"
+    "North America",
+    "Australia"
   ],
   "iucn_global_status": {
     "status": "LC",
     "variant": "success"
   },
-  "disturbance_response": "Starke Ausbreitung nach Stoerung",
-  "dispersal_vector_type": "Anemochor",
-  "dispersal_mechanism": "Windausbreitung"
+  "disturbance_response": "Strong spread after disturbance",
+  "dispersal_vector_type": "Anemochory",
+  "dispersal_mechanism": "Wind dispersal"
 }

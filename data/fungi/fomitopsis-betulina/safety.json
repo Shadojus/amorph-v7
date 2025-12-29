@@ -8,7 +8,7 @@
     "max": 100,
     "unit": "%"
   },
-  "safety_edibility_notes": "Nicht als Speisepilz geeignet aufgrund bitterer Geschmack und zaehe Konsistenz. Wird als Vitalpilz in Teeform verwendet.",
+  "safety_edibility_notes": "Not suitable as an edible mushroom due to bitter taste and tough texture. Used as a medicinal mushroom in tea form.",
   "safety_potentially_deadly": false,
   "safety_toxicity_score": {
     "value": 5,
@@ -24,8 +24,8 @@
     "status": "none",
     "variant": "success"
   },
-  "safety_warning_text": "Nicht giftig, aber ungeniessbar aufgrund bitterer Geschmack.",
-  "safety_summary": "Der Birkenporling ist ungeniessbar aber nicht giftig. Als Teeaufguss in der Volksmedizin verwendet.",
+  "safety_warning_text": "Not poisonous, but inedible due to bitter taste.",
+  "safety_summary": "The Birch Polypore is inedible but not poisonous. Used as tea infusion in folk medicine.",
   "safety_risk_inherent": {
     "value": 0,
     "min": 0,

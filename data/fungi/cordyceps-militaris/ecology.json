@@ -1,18 +1,18 @@
 {
-  "trophic_mode_primary": "parasitisch",
-  "trophic_mode_secondary": "saprobiontisch",
+  "trophic_mode_primary": "parasitic",
+  "trophic_mode_secondary": "saprobic",
   "ecological_guild": "Entomopathogen",
-  "ecosystem_type": "Wald",
-  "ecosystem_subtype": "Mischwald",
-  "microhabitat_primary": "auf toten Insektenlarven",
-  "microhabitat_secondary": "auf Insektenpuppen",
-  "substrate_type_primary": "Insektenlarven",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Mixed Forest",
+  "microhabitat_primary": "on dead insect larvae",
+  "microhabitat_secondary": "on insect pupae",
+  "substrate_type_primary": "Insect larvae",
   "substrate_types_secondary": [
-    "Insektenpuppen",
-    "vergrabene Insekten"
+    "Insect pupae",
+    "buried insects"
   ],
   "substrate_specificity": {
-    "status": "hoch",
+    "status": "high",
     "variant": "warning"
   },
   "associated_plant_families": [
@@ -22,15 +22,15 @@
   "fruiting_season_start": 7,
   "fruiting_season_end": 10,
   "fruiting_peak_month": 9,
-  "fruiting_frequency": "selten",
-  "climate_zone": "temperat",
-  "moisture_regime": "mesisch",
-  "light_requirement": "schattig bis halbschattig",
-  "spatial_distribution_pattern": "einzeln oder in kleinen Gruppen",
-  "rarity_type": "extrem selten",
-  "native_range": "Nordhemisphaere, vor allem Ostasien",
-  "symbiosis_type": "Parasitismus",
-  "parasitism_type": "Entomoparasit",
+  "fruiting_frequency": "rare",
+  "climate_zone": "temperate",
+  "moisture_regime": "mesic",
+  "light_requirement": "shady to semi-shaded",
+  "spatial_distribution_pattern": "solitary or in small groups",
+  "rarity_type": "extremely rare",
+  "native_range": "Northern Hemisphere, especially East Asia",
+  "symbiosis_type": "Parasitism",
+  "parasitism_type": "Entomoparasite",
   "iucn_global_status": {
     "status": "NE",
     "variant": "neutral"

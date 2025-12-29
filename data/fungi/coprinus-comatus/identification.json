@@ -16,10 +16,10 @@
     "Coprinus ovatus (Schaeff.) Fr."
   ],
   "common_names": [
-    "Schopftintling",
-    "Spargelpilz",
-    "Tintenpilz",
-    "Porzellantintling"
+    "Shaggy Mane",
+    "Asparagus Mushroom",
+    "Ink Cap",
+    "Porcelain Ink Cap"
   ],
   "international_names": [
     "Shaggy Mane (EN)",
@@ -32,11 +32,11 @@
     "variant": "success"
   },
   "quick_id_checklist": [
-    {"step": 1, "label": "Zylindrischer weisser Hut", "status": "pending"},
-    {"step": 2, "label": "Aufstehende weisse Schuppen", "status": "pending"},
-    {"step": 3, "label": "Loser verschiebbarer Ring", "status": "pending"},
-    {"step": 4, "label": "Lamellen werden schwarz und zerfliessen", "status": "pending"},
-    {"step": 5, "label": "Stiel hohl, Basis knollig", "status": "pending"}
+    {"step": 1, "label": "Cylindrical white cap", "status": "pending"},
+    {"step": 2, "label": "Upturned white scales", "status": "pending"},
+    {"step": 3, "label": "Loose movable ring", "status": "pending"},
+    {"step": 4, "label": "Gills turn black and liquefy", "status": "pending"},
+    {"step": 5, "label": "Stem hollow, base bulbous", "status": "pending"}
   ],
   "identification_difficulty": {
     "status": "Easy",
@@ -44,31 +44,31 @@
   },
   "field_identifiable": true,
   "confusion_species_list": [
-    "Coprinopsis atramentaria (Grauer Faltentintling)",
-    "Coprinopsis picacea (Spechttintling)"
+    "Coprinopsis atramentaria (Common Ink Cap)",
+    "Coprinopsis picacea (Magpie Ink Cap)"
   ],
   "confusion_risk_level": {
     "status": "Low",
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "medium", "typ": "Coprinopsis atramentaria", "beschreibung": "Enthält Coprin - mit Alkohol unvertraeglich (Antabus-Syndrom)"}
+    {"level": "medium", "type": "Coprinopsis atramentaria", "description": "Contains coprine - incompatible with alcohol (Antabuse syndrome)"}
   ],
   "key_differentiating_features": [
-    "Zylindrischer Hut mit aufstehenden Schuppen",
-    "Hut bedeckt anfangs den groessten Teil des Stiels",
-    "Schuppen am Scheitel braeunlich",
-    "Deliqueszenz - zerfließen zu schwarzer Tinte"
+    "Cylindrical cap with upturned scales",
+    "Cap initially covers most of the stem",
+    "Scales at apex brownish",
+    "Deliquescence - liquefies into black ink"
   ],
-  "habit": "Terrestrisch, saprotroph",
-  "growth_form": "In Gruppen",
+  "habit": "Terrestrial, saprotrophic",
+  "growth_form": "In groups",
   "size_range": {
     "min": 5,
     "max": 20,
     "unit": "cm"
   },
   "size_typical_cm": 12,
-  "basic_shape": "Zylindrisch mit langem Stiel",
+  "basic_shape": "Cylindrical with long stem",
   "height": {
     "min": 10,
     "max": 40,
@@ -79,14 +79,14 @@
     "max": 5,
     "unit": "cm"
   },
-  "color_primary": "Weiss mit braunen Schuppen am Scheitel",
+  "color_primary": "White with brown scales at apex",
   "primary_structure_present": true,
-  "primary_structure_type": "Hut (Pileus)",
-  "primary_structure_shape_young": "Laenglich zylindrisch",
-  "primary_structure_shape_mature": "Glockenfoermig, dann zerfliessend",
-  "primary_structure_surface": "Mit aufstehenden schuppigen Fasern",
+  "primary_structure_type": "Cap (Pileus)",
+  "primary_structure_shape_young": "Elongated cylindrical",
+  "primary_structure_shape_mature": "Bell-shaped, then deliquescing",
+  "primary_structure_surface": "With upturned scaly fibers",
   "support_structure_present": true,
-  "support_structure_type": "Stiel (Stipe)",
+  "support_structure_type": "Stem (Stipe)",
   "support_structure_length": {
     "min": 10,
     "max": 40,
@@ -97,20 +97,20 @@
     "max": 2.5,
     "unit": "cm"
   },
-  "support_structure_shape": "Hohl, an der Basis knollig",
+  "support_structure_shape": "Hollow, bulbous at base",
   "ring_present": true,
-  "ring_type": "Lose, verschiebbar, haeutig",
+  "ring_type": "Loose, movable, membranous",
   "lamellae_present": true,
-  "lamellae_attachment": "Frei bis leicht angeheftet",
-  "lamellae_color": "Weiss, dann rosa, dann schwarz (zerfliessend)",
-  "spore_print_color": "Schwarz-braun",
-  "smell_description": "Lecker pilzig, mehlig, leicht suesslich",
+  "lamellae_attachment": "Free to slightly attached",
+  "lamellae_color": "White, then pink, then black (deliquescing)",
+  "spore_print_color": "Black-brown",
+  "smell_description": "Pleasantly mushroomy, mealy, slightly sweet",
   "taste_safe_to_test": true,
-  "taste_description": "Pilzig, mild, suess",
+  "taste_description": "Mushroomy, mild, sweet",
   "microscopy_key_features": [
-    "Sporen 10-13 x 6.5-8 um",
+    "Spores 10-13 x 6.5-8 um",
     "Oval",
-    "Keine Pleurozystiden"
+    "No pleurocystidia"
   ],
   "spore_measurement_diagnostic": {
     "min": 10,
@@ -120,11 +120,11 @@
   "season_peak_months": [6, 7, 8, 9, 10, 11],
   "nutrition_type": "Saprotroph",
   "substrate_species": [
-    "Rasen",
-    "Wiesen",
-    "Wegränder",
-    "Holzhackschnitzel",
-    "Gedüngte Böden"
+    "Lawns",
+    "Meadows",
+    "Roadsides",
+    "Wood chips",
+    "Fertilized soils"
   ],
   "source": {
     "authors": "Persoon, C.H.",

@@ -30,7 +30,7 @@
     }
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal use", "beschreibung": "Completely safe as culinary herb"}
+    {"level": "none", "typ": "Normal use", "description": "Completely safe as culinary herb"}
   ],
   "fatality_rate": {
     "value": 0,

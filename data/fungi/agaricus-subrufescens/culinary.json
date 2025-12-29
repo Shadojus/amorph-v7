@@ -8,67 +8,67 @@
     "rating": 5,
     "max": 5
   },
-  "culinary_description": "Der Mandel-Egerling ist ein erstklassiger Speisepilz mit einem unverwechselbaren, intensiven Mandelaroma. Der Geschmack ist suess, mild und erinnert an gruene Nuesse. Er eignet sich hervorragend fuer Gourmet-Gerichte und ist gleichzeitig ein wertvoller Medizinalpilz.",
+  "culinary_description": "The Almond Mushroom is a first-class edible mushroom with an unmistakable, intense almond aroma. The taste is sweet, mild and reminiscent of green nuts. It is excellent for gourmet dishes and is also a valuable medicinal mushroom.",
   "flavor_profile": [
-    {"axis": "Suesse", "value": 70},
+    {"axis": "Sweetness", "value": 70},
     {"axis": "Umami", "value": 60},
-    {"axis": "Nussig", "value": 85},
-    {"axis": "Erdig", "value": 40},
+    {"axis": "Nutty", "value": 85},
+    {"axis": "Earthy", "value": 40},
     {"axis": "Mild", "value": 75}
   ],
-  "taste_description": "Suess, mild, leicht muffig, Geschmack nach gruenen Nuessen und Marzipan",
-  "aroma_description": "Intensives Mandelaroma, pilzig, suesslich",
-  "texture_raw": "Fest, fleischig",
-  "texture_cooked": "Zart, saftig, behaelt gute Textur",
+  "taste_description": "Sweet, mild, slightly musty, taste of green nuts and marzipan",
+  "aroma_description": "Intense almond aroma, mushroomy, sweet",
+  "texture_raw": "Firm, meaty",
+  "texture_cooked": "Tender, juicy, retains good texture",
   "edible_parts": [
-    "Hut",
-    "Stiel",
-    "Lamellen"
+    "Cap",
+    "Stipe",
+    "Gills"
   ],
   "inedible_parts": [],
   "preparation_requirements": [
-    "Gruendlich reinigen",
-    "Immer kochen - nicht roh verzehren",
-    "Stielende abschneiden"
+    "Clean thoroughly",
+    "Always cook - do not eat raw",
+    "Cut off stipe base"
   ],
   "cooking_methods": [
-    "Braten",
-    "Grillen",
-    "Schmoren",
-    "In Suppen und Saucen",
-    "Trocknen"
+    "Frying",
+    "Grilling",
+    "Braising",
+    "In soups and sauces",
+    "Drying"
   ],
   "cooking_time": {
     "min": 10,
     "max": 20,
     "unit": "minutes"
   },
-  "best_cooking_method": "Braten bei mittlerer Hitze in Butter oder Olivenoel",
+  "best_cooking_method": "Frying at medium heat in butter or olive oil",
   "flavor_pairings": [
-    "Knoblauch",
-    "Petersilie",
-    "Thymian",
-    "Sahne",
-    "Weisswein",
+    "Garlic",
+    "Parsley",
+    "Thyme",
+    "Cream",
+    "White wine",
     "Parmesan",
     "Risotto"
   ],
   "cuisine_associations": [
-    "Brasilianische Kueche",
-    "Japanische Kueche",
-    "Europaeische Gourmet-Kueche"
+    "Brazilian Cuisine",
+    "Japanese Cuisine",
+    "European Gourmet Cuisine"
   ],
   "traditional_dishes": [
-    "Himematsutake-Reis (Japan)",
-    "Pilzrisotto",
-    "Champignon-Gerichte",
-    "Pilzsuppen"
+    "Himematsutake Rice (Japan)",
+    "Mushroom Risotto",
+    "Champignon dishes",
+    "Mushroom soups"
   ],
   "preservation_methods": [
-    {"label": "Trocknen", "value": 95},
-    {"label": "Pulverisieren", "value": 90},
-    {"label": "Kuehlen", "value": 60},
-    {"label": "Einfrieren", "value": 70}
+    {"label": "Drying", "value": 95},
+    {"label": "Powdering", "value": 90},
+    {"label": "Refrigerating", "value": 60},
+    {"label": "Freezing", "value": 70}
   ],
   "shelf_life_fresh": {
     "min": 3,
@@ -81,11 +81,11 @@
     "unit": "months"
   },
   "nutritional_highlights": [
-    "Sehr hoher Proteingehalt (39.3%)",
-    "Hoher Ballaststoffgehalt (25.6%)",
-    "Reich an Phosphor und Eisen",
-    "Bedeutende Vitamin B-Quelle",
-    "Hoechster Beta-Glucan-Gehalt aller Pilze"
+    "Very high protein content (39.3%)",
+    "High fiber content (25.6%)",
+    "Rich in phosphorus and iron",
+    "Significant vitamin B source",
+    "Highest beta-glucan content of all mushrooms"
   ],
   "nutritional_per_100g": {
     "calories": 27,
@@ -96,8 +96,8 @@
     "moisture_percent": 9.88
   },
   "minerals_per_100g": [
-    {"label": "Phosphor (mg)", "value": 939},
-    {"label": "Eisen (mg)", "value": 18.2},
+    {"label": "Phosphorus (mg)", "value": 939},
+    {"label": "Iron (mg)", "value": 18.2},
     {"label": "Calcium (mg)", "value": 41.6}
   ],
   "vitamins_per_100g": [
@@ -107,22 +107,22 @@
     {"label": "Ergosterol (mg)", "value": 345}
   ],
   "dietary_considerations": [
-    "Vegetarisch",
+    "Vegetarian",
     "Vegan",
-    "Glutenfrei",
-    "Low-Carb geeignet"
+    "Gluten-free",
+    "Suitable for low-carb"
   ],
-  "allergen_info": "Kann bei Pilzallergikern Reaktionen ausloesen",
+  "allergen_info": "May cause reactions in mushroom allergy sufferers",
   "commercial_availability": {
     "status": "Specialty Markets",
     "variant": "warning"
   },
   "commercial_forms": [
-    "Frische Fruchtkoerper (selten)",
-    "Getrocknete Pilze",
-    "Pulver",
-    "Extrakte",
-    "Kapseln"
+    "Fresh fruiting bodies (rare)",
+    "Dried mushrooms",
+    "Powder",
+    "Extracts",
+    "Capsules"
   ],
   "price_range": {
     "status": "Premium",

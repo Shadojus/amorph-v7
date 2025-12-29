@@ -39,9 +39,9 @@
     {"label": "Other compounds", "value": 15}
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Gel (topical)", "beschreibung": "Safe for most people; moisturizing and soothing"},
-    {"level": "low", "typ": "Gel (oral)", "beschreibung": "Generally safe in small amounts; may cause mild GI upset"},
-    {"level": "medium", "typ": "Latex ingestion", "beschreibung": "Diarrhea, abdominal cramps, electrolyte imbalance"}
+    {"level": "none", "type": "gel (topical)", "description": "safe for most people; moisturizing and soothing"},
+    {"level": "low", "type": "gel (oral)", "description": "generally safe in small amounts; may cause mild GI upset"},
+    {"level": "medium", "type": "latex ingestion", "description": "diarrhea, abdominal cramps, electrolyte imbalance"}
   ],
   "symptoms_acute": [
     "Severe diarrhea from latex",

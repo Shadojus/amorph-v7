@@ -18,24 +18,24 @@
   "is_controlled_substance": false,
   "is_protected_species": false,
   "handling_precautions": [
-    "Vor dem Verzehr gruendlich kochen",
-    "Wie alle Pilze nicht roh verzehren",
-    "Bei empfindlichen Personen kann Agaritine allergische Reaktionen ausloesen"
+    "Cook thoroughly before consumption",
+    "Like all mushrooms, do not eat raw",
+    "Agaritine may cause allergic reactions in sensitive individuals"
   ],
   "toxin_classes": [
-    "Agaritine (hydrazin-basiert, hitzelabil)"
+    "Agaritine (hydrazine-based, heat-labile)"
   ],
   "primary_toxins": [
     {
       "name": "Agaritine",
       "cas": "2757-90-6",
-      "mechanism": "Potentiell karzinogen bei Langzeitexposition hoher Dosen, wird durch Kochen abgebaut",
-      "lethal_dose": "Nicht relevant bei normaler kulinarischer Verwendung"
+      "mechanism": "Potentially carcinogenic with long-term exposure to high doses, degraded by cooking",
+      "lethal_dose": "Not relevant with normal culinary use"
     }
   ],
   "toxin_distribution": [
     {"label": "Agaritine", "value": 85},
-    {"label": "Andere Phenylhydrazine", "value": 15}
+    {"label": "Other phenylhydrazines", "value": 15}
   ],
   "toxin_concentration": {
     "min": 0.1,
@@ -43,11 +43,11 @@
     "unit": "% dry weight"
   },
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal consumption", "beschreibung": "Keine Symptome bei normaler Zubereitung und Verzehr"},
-    {"level": "low", "typ": "Allergische Reaktion", "beschreibung": "Selten: leichte allergische Reaktionen bei empfindlichen Personen"}
+    {"level": "none", "typ": "Normal consumption", "description": "No symptoms with proper preparation and consumption"},
+    {"level": "low", "typ": "Allergic reaction", "description": "Rare: mild allergic reactions in sensitive individuals"}
   ],
   "symptoms_acute": [
-    "Keine bei ordnungsgemaesser Zubereitung"
+    "None with proper preparation"
   ],
   "fatality_rate": {
     "value": 0,
@@ -55,47 +55,47 @@
     "unit": "%"
   },
   "fatality_documented": false,
-  "fatality_note": "Keine Todesfaelle bekannt. Gilt als sicherer Speise- und Medizinalpilz.",
+  "fatality_note": "No deaths known. Considered a safe edible and medicinal mushroom.",
   "affected_systems": [],
   "risk_groups": [
-    "Personen mit Pilzallergien",
-    "Immunsupprimierte (wegen immunstimulierender Wirkung vorher Arzt konsultieren)"
+    "Persons with mushroom allergies",
+    "Immunosuppressed individuals (consult physician before use due to immunostimulating effect)"
   ],
   "first_aid_immediate": [
-    "Keine spezifischen Massnahmen erforderlich"
+    "No specific measures required"
   ],
   "first_aid_medical": [
-    "Bei allergischen Reaktionen: symptomatische Behandlung"
+    "For allergic reactions: symptomatic treatment"
   ],
-  "antidote": "Nicht erforderlich",
-  "medical_treatment": "Symptomatisch bei seltenen allergischen Reaktionen",
+  "antidote": "Not required",
+  "medical_treatment": "Symptomatic for rare allergic reactions",
   "poison_control_relevant": false,
   "prognosis": {
     "status": "Excellent",
     "variant": "success"
   },
-  "long_term_effects": "Keine negativen Langzeiteffekte bei normaler Verwendung bekannt. Wird traditionell als Gesundheitspilz verwendet.",
+  "long_term_effects": "No negative long-term effects known with normal use. Traditionally used as a health mushroom.",
   "environmental_risks": {
     "status": "None",
     "variant": "success"
   },
-  "environmental_risk_description": "Keine Umweltrisiken bekannt",
+  "environmental_risk_description": "No environmental risks known",
   "collection_warnings": [
-    "Verwechslungsgefahr mit Karbol-Egerling (Agaricus moelleri) beachten",
-    "Geruchstest: Mandel- statt Karbolgeruch"
+    "Watch for confusion with Inky Mushroom (Agaricus moelleri)",
+    "Smell test: almond instead of carbolic smell"
   ],
-  "storage_risks": "Frische Pilze schnell verarbeiten oder trocknen",
+  "storage_risks": "Process fresh mushrooms quickly or dry them",
   "processing_risks": [
-    "Roh nicht verzehren",
-    "Gruendliches Kochen reduziert Agaritine erheblich"
+    "Do not eat raw",
+    "Thorough cooking significantly reduces agaritine"
   ],
   "allergy_potential": {
     "status": "Low",
     "variant": "success"
   },
   "contraindications": [
-    "Bekannte Pilzallergie",
-    "Bei Autoimmunerkrankungen vor Einnahme als Supplement Arzt konsultieren"
+    "Known mushroom allergy",
+    "Consult physician before use as supplement with autoimmune diseases"
   ],
   "safety_studies_available": true,
   "clinical_case_reports": [

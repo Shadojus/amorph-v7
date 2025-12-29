@@ -6,45 +6,45 @@
     "status": "Moderate",
     "variant": "info"
   },
-  "trophic_notes": "Primaerzersetzer auf lignocellulosehaltigem Material wie Stroh und Holzhaecksel. Kann auch in Boeden mit hohem Anteil organischen Materials wachsen.",
-  "decomposer_type": "Primaerzersetzer",
+  "trophic_notes": "Primary decomposer on lignocellulosic material such as straw and wood chips. Can also grow in soils with high organic matter content.",
+  "decomposer_type": "Primary decomposer",
   "lignin_degradation_capability": true,
   "cellulose_degradation_capability": true,
-  "ecological_guild": "Streuzersetzer",
-  "guild_evidence": "Waechst auf Stroh, Holzhaecksel und organischem Mulch",
-  "primary_ecosystem_function": "Zersetzung organischer Materialien",
+  "ecological_guild": "Litter decomposer",
+  "guild_evidence": "Grows on straw, wood chips and organic mulch",
+  "primary_ecosystem_function": "Decomposition of organic materials",
   "secondary_ecosystem_functions": [
-    "Naehrstofffreisetzung",
-    "Bodenverbesserung",
-    "Mykoremediation"
+    "Nutrient release",
+    "Soil improvement",
+    "Mycoremediation"
   ],
-  "ecosystem_type": "Anthropogen beeinflusst",
-  "ecosystem_subtype": "Gaerten, Kompost, landwirtschaftliche Flaechen",
+  "ecosystem_type": "Anthropogenically influenced",
+  "ecosystem_subtype": "Gardens, compost, agricultural areas",
   "association_strength": {
     "status": "Moderate",
     "variant": "info"
   },
-  "dominant_vegetation_type": "Keine spezifische Assoziation",
-  "microhabitat_primary": "Stroh- und Holzhaeckselbeete",
-  "microhabitat_secondary": "Kompost, Gartenbeete, Mulchflaechen",
+  "dominant_vegetation_type": "No specific association",
+  "microhabitat_primary": "Straw and wood chip beds",
+  "microhabitat_secondary": "Compost, garden beds, mulched areas",
   "substrate_specificity": {
     "status": "Low",
     "variant": "success"
   },
-  "substrate_type_primary": "Stroh (besonders Weizenstroh)",
+  "substrate_type_primary": "Straw (especially wheat straw)",
   "substrate_types_secondary": [
-    "Holzhaecksel",
-    "Kompost",
-    "Gartenabfaelle",
-    "Laub",
-    "Hackschnitzel"
+    "Wood chips",
+    "Compost",
+    "Garden waste",
+    "Leaf litter",
+    "Wood chips"
   ],
-  "light_requirement": "Teilschatten",
+  "light_requirement": "Partial shade",
   "elevation_minimum_m": 0,
   "elevation_maximum_m": 1500,
   "elevation_optimal_min_m": 0,
   "elevation_optimal_max_m": 800,
-  "moisture_regime": "Mesisch bis feucht",
+  "moisture_regime": "Mesic to moist",
   "flooding_tolerance": {
     "rating": 3,
     "max": 10
@@ -57,15 +57,15 @@
   "soil_ph_optimal_min": 6.0,
   "soil_ph_optimal_max": 7.5,
   "soil_ph_maximum": 8.0,
-  "soil_nutrient_preference": "Nahrstoffreich",
-  "soil_texture_preference": "Durchlaessig, humusreich",
+  "soil_nutrient_preference": "Nutrient-rich",
+  "soil_texture_preference": "Well-draining, humus-rich",
   "organic_matter_preference": "Very High",
-  "climate_zone": "Temperat",
+  "climate_zone": "Temperate",
   "temperature_minimum_mean_c": 5,
   "temperature_optimal_min_c": 15,
   "temperature_optimal_max_c": 25,
   "temperature_maximum_mean_c": 35,
-  "seasonality_preference": "Sommer bis Herbst",
+  "seasonality_preference": "Summer to autumn",
   "disturbance_response": "Opportunist",
   "temp_fruiting_minimum_c": 10,
   "temp_fruiting_optimum_c": 20,
@@ -85,9 +85,9 @@
     "max": 10
   },
   "fruiting_triggers": [
-    "Feuchte Bedingungen",
-    "Temperaturen ueber 15 Grad C",
-    "Ausreichend kolonisiertes Substrat"
+    "Moist conditions",
+    "Temperatures above 15 degrees C",
+    "Sufficiently colonized substrate"
   ],
   "mycelial_activity_season": [
     {"month": 1, "active": false},
@@ -108,30 +108,30 @@
     "status": "NE",
     "variant": "info"
   },
-  "native_range": "Nordamerika (urspruenglich), jetzt weltweit kultiviert",
+  "native_range": "North America (originally), now cultivated worldwide",
   "consumer_mammals": [
-    "Schnecken"
+    "Slugs"
   ],
   "consumer_insects": [
-    "Pilzmuecken (Mycetophilidae)",
-    "Pilzkaefer"
+    "Fungus gnats (Mycetophilidae)",
+    "Fungus beetles"
   ],
   "dispersal_vector_type": "Wind",
-  "dispersal_mechanism": "Sporenfreisetzung durch Lamellen",
+  "dispersal_mechanism": "Spore release through gills",
   "bioremediation_potential": true,
   "bioremediation_targets": [
-    "Schwermetalle",
-    "PAK (Polycyclische aromatische Kohlenwasserstoffe)",
-    "Pestizide"
+    "Heavy metals",
+    "PAHs (Polycyclic aromatic hydrocarbons)",
+    "Pesticides"
   ],
-  "bioremediation_notes": "Stropharia rugosoannulata hat nachgewiesene Faehigkeiten zur Mykoremediation und kann verschiedene Schadstoffe aus dem Boden aufnehmen.",
+  "bioremediation_notes": "Stropharia rugosoannulata has proven mycoremediation capabilities and can absorb various pollutants from the soil.",
   "citizen_science_suitability": {
     "rating": 9,
     "max": 10
   },
   "photo_identification_reliable": true,
-  "optimal_survey_method": "Visuelle Suche in Kultivierungsbeeten",
-  "survey_timing_optimal": "Juni bis Oktober nach Niederschlag",
+  "optimal_survey_method": "Visual search in cultivation beds",
+  "survey_timing_optimal": "June to October after rainfall",
   "ecology_data_quality_score": {
     "rating": 8,
     "max": 10

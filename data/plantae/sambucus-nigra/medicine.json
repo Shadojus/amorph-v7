@@ -1,40 +1,40 @@
 {
   "traditional_medicine": {
     "systems": ["European_Folk_Medicine"],
-    "historical_use": "Hippokrates nannte ihn 'Medizinschrank'; jahrhundertelang als Hausmittel",
-    "traditional_indications": ["Erkaeltungen", "Fieber", "Schnupfen", "Husten"]
+    "historical_use": "Hippocrates called it the 'medicine chest'; used as household remedy for centuries",
+    "traditional_indications": ["Colds", "Fever", "Runny nose", "Cough"]
   },
   "pharmacopoeia_names": ["Sambuci flos", "Sambuci fructus"],
   "who_monograph_exists": false,
   "escop_monograph_exists": true,
-  "escop_therapeutic_indication": ["Blueten: Erkaeltungskrankheiten", "Beeren: Stuetzend bei Erkaeltungen"],
+  "escop_therapeutic_indication": ["Flowers: Common cold", "Berries: Supportive treatment for colds"],
   "german_commission_e_status": {
-    "status": "Positiv-Monographie (Blueten)",
+    "status": "Positive monograph (flowers)",
     "variant": "success"
   },
-  "german_commission_e_indication": ["Erkaeltungskrankheiten"],
+  "german_commission_e_indication": ["Common cold"],
   "active_substances": [
-    "Blueten: Flavonoide, aetherisches Oel, Schleimstoffe",
-    "Beeren: Anthocyane, Vitamin C, Flavonoide"
+    "Flowers: Flavonoids, essential oil, mucilage",
+    "Berries: Anthocyanins, Vitamin C, Flavonoids"
   ],
   "effect_profile": [
-    {"axis": "Schweisstreibend", "value": 80},
+    {"axis": "Diaphoretic", "value": 80},
     {"axis": "Antiviral", "value": 70},
-    {"axis": "Immunstimulierend", "value": 75},
-    {"axis": "Antioxidativ", "value": 80},
-    {"axis": "Schleimlösend", "value": 65}
+    {"axis": "Immunostimulant", "value": 75},
+    {"axis": "Antioxidant", "value": 80},
+    {"axis": "Expectorant", "value": 65}
   ],
   "therapeutic_categories": [
-    "Diaphoretikum",
-    "Antiinfektivum",
-    "Immunstimulans"
+    "Diaphoretic",
+    "Anti-infective",
+    "Immunostimulant"
   ],
   "evidence_level": {
     "status": "2b",
     "variant": "warning"
   },
   "clinical_studies": [
-    "Zakay-Rones et al. 2004: Holunderbeerenextrakt verkuerzt Grippe-Symptome"
+    "Zakay-Rones et al. 2004: Elderberry extract shortens flu symptoms"
   ],
   "safety_score": {
     "value": 80,
@@ -42,24 +42,24 @@
     "max": 100
   },
   "side_effects": [
-    {"level": "medium", "typ": "Rohe Beeren", "beschreibung": "Übelkeit, Erbrechen, Durchfall durch Sambunigrin"}
+    {"level": "medium", "typ": "Raw berries", "description": "Nausea, vomiting, diarrhea from sambunigrin"}
   ],
   "contraindications": [
-    "NIEMALS rohe Beeren verwenden",
-    "Autoimmunerkrankungen (theoretische Bedenken)"
+    "NEVER use raw berries",
+    "Autoimmune diseases (theoretical concerns)"
   ],
   "special_populations_pregnancy": {
-    "status": "Gekochte Beeren wahrscheinlich sicher",
+    "status": "Cooked berries probably safe",
     "variant": "success"
   },
-  "dosage_notes": "Blüten-Tee: 2-4g, 2-3x täglich; Beerenextrakt: nach Herstellerangaben; BEEREN IMMER KOCHEN",
-  "preparation_forms": ["Tee (Blueten)", "Sirup (Beeren)", "Extrakt", "Saft (gekocht)"],
+  "dosage_notes": "Flower tea: 2-4g, 2-3x daily; Berry extract: follow manufacturer's instructions; ALWAYS COOK BERRIES",
+  "preparation_forms": ["Tea (flowers)", "Syrup (berries)", "Extract", "Juice (cooked)"],
   "patient_counseling_points": [
-    "Rohe Beeren sind GIFTIG - immer kochen!",
-    "Blüten als Tee bei Erkältungsbeginn",
-    "Ausreichend trinken"
+    "Raw berries are TOXIC - always cook!",
+    "Flower tea at onset of cold",
+    "Drink plenty of fluids"
   ],
   "status_by_region": {
-    "eu": "Pflanzliches Arzneimittel (traditional use)"
+    "eu": "Herbal medicinal product (traditional use)"
   }
 }

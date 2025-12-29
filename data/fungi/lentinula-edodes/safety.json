@@ -8,7 +8,7 @@
     "max": 100,
     "unit": "%"
   },
-  "safety_edibility_notes": "Ausgezeichneter Speisepilz, einer der wichtigsten Kulturpilze weltweit. Selten allergische Reaktionen (Shiitake-Dermatitis) moeglich.",
+  "safety_edibility_notes": "Excellent edible mushroom, one of the most important cultivated mushrooms worldwide. Rarely allergic reactions (shiitake dermatitis) possible.",
   "safety_potentially_deadly": false,
   "safety_toxicity_score": {
     "value": 5,
@@ -24,8 +24,8 @@
     "status": "advisory",
     "variant": "neutral"
   },
-  "safety_warning_text": "Bei wenigen Personen kann Shiitake-Dermatitis auftreten (Hautausschlag durch roh oder unzureichend gegarte Pilze).",
-  "safety_summary": "Sehr guter Speisepilz. Immer gut durchgaren. Selten Hautausschlaege moeglich.",
+  "safety_warning_text": "In rare cases, shiitake dermatitis may occur (skin rash from raw or insufficiently cooked mushrooms).",
+  "safety_summary": "Very good edible mushroom. Always cook thoroughly. Rarely skin rashes possible.",
   "confusion_risk_level": {
     "status": "low",
     "variant": "success"

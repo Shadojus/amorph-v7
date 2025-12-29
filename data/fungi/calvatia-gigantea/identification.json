@@ -16,8 +16,8 @@
     "Bovista gigantea (Batsch) Gray"
   ],
   "common_names": [
-    "Riesenbovist",
-    "Riesenstaubling",
+    "Giant Puffball",
+    "Giant Puffball Fungus",
     "Giant Puffball"
   ],
   "taxonomy_status": {
@@ -25,11 +25,11 @@
     "variant": "success"
   },
   "quick_id_checklist": [
-    {"step": 1, "label": "Sehr gross, 10-100 cm Durchmesser", "status": "pending"},
-    {"step": 2, "label": "Kugelfoermig ohne Stiel", "status": "pending"},
-    {"step": 3, "label": "Jung weiss, aussen und innen", "status": "pending"},
-    {"step": 4, "label": "Spaeter braeunend", "status": "pending"},
-    {"step": 5, "label": "Wiesen und Parks", "status": "pending"}
+    {"step": 1, "label": "Very large, 10-100 cm diameter", "status": "pending"},
+    {"step": 2, "label": "Spherical without stem", "status": "pending"},
+    {"step": 3, "label": "White when young, inside and outside", "status": "pending"},
+    {"step": 4, "label": "Browning later", "status": "pending"},
+    {"step": 5, "label": "Meadows and parks", "status": "pending"}
   ],
   "identification_difficulty": {
     "status": "Easy",
@@ -38,30 +38,30 @@
   "field_identifiable": true,
   "confusion_species_list": [
     "Bovistella utriformis",
-    "Amanita phalloides var. alba (jung, gefaehrlich!)"
+    "Amanita phalloides var. alba (young, dangerous!)"
   ],
   "confusion_risk_level": {
     "status": "Medium",
     "variant": "warning"
   },
   "confusion_consequences": [
-    {"level": "critical", "typ": "Amanita phalloides", "beschreibung": "Junge weisse Knollenblaetterpilze koennen aehnlich aussehen - toedlich giftig! Immer aufschneiden - Bovist hat keine Lamellen innen"}
+    {"level": "critical", "type": "Amanita phalloides", "description": "Young white Death Caps can look similar - deadly poisonous! Always cut open - puffball has no gills inside"}
   ],
   "key_differentiating_features": [
-    "Enorme Groesse (bis 1 m)",
-    "Keine Lamellen im Inneren",
-    "Innen einheitlich weiss (jung)",
-    "Dicke wurzelartige Myzelstraenge an der Basis"
+    "Enormous size (up to 1 m)",
+    "No gills inside",
+    "Uniformly white inside (when young)",
+    "Thick root-like mycelial strands at base"
   ],
-  "habit": "Terrestrisch, saprotroph",
-  "growth_form": "Einzeln oder in Gruppen",
+  "habit": "Terrestrial, saprotrophic",
+  "growth_form": "Solitary or in groups",
   "size_range": {
     "min": 10,
     "max": 100,
     "unit": "cm"
   },
   "size_typical_cm": 30,
-  "basic_shape": "Kugelfoermig bis unregelmässig rund",
+  "basic_shape": "Spherical to irregularly round",
   "diameter": {
     "min": 10,
     "max": 100,
@@ -72,19 +72,19 @@
     "max": 15000,
     "unit": "g"
   },
-  "color_primary": "Weiss (jung)",
-  "color_secondary": "Braeunlich (alt)",
+  "color_primary": "White (young)",
+  "color_secondary": "Brownish (old)",
   "primary_structure_present": true,
-  "primary_structure_type": "Kugelfoermiger Fruchtkoerper (Gasterothek)",
+  "primary_structure_type": "Spherical fruiting body (Gasterothek)",
   "support_structure_present": false,
   "lamellae_present": false,
-  "spore_print_color": "Olivbraun",
-  "smell_description": "Unangenehm, urinartig",
+  "spore_print_color": "Olive-brown",
+  "smell_description": "Unpleasant, urine-like",
   "taste_safe_to_test": true,
   "taste_description": "Mild",
   "microscopy_key_features": [
-    "Sporen olivbraun, 3-5.5 x 3-5 um",
-    "Kugelig"
+    "Spores olive-brown, 3-5.5 x 3-5 um",
+    "Spherical"
   ],
   "spore_measurement_diagnostic": {
     "min": 3,
@@ -92,7 +92,7 @@
     "unit": "um"
   },
   "season_peak_months": [7, 8, 9],
-  "nutrition_type": "Saprotroph",
+  "nutrition_type": "Saprotrophic",
   "source": {
     "authors": "Lloyd, C.G.",
     "year": 1904,

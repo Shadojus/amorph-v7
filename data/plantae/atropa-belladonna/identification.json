@@ -60,7 +60,7 @@
     "variant": "danger"
   },
   "confusion_consequences": [
-    {"level": "critical", "typ": "Berries mistaken for edible fruit", "beschreibung": "Berries are sweet-tasting but EXTREMELY POISONOUS - can be fatal, especially to children"}
+    {"level": "critical", "type": "berries mistaken for edible fruit", "description": "berries are sweet-tasting but EXTREMELY POISONOUS - can be fatal, especially to children"}
   ],
   "key_differentiating_features": [
     "Single shiny black berry in star-shaped calyx",

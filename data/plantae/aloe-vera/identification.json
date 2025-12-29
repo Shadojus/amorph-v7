@@ -62,8 +62,8 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "low", "typ": "Aloe arborescens", "beschreibung": "Also medicinal, similar properties"},
-    {"level": "medium", "typ": "Agave americana", "beschreibung": "Different genus, leaves contain saponins"}
+    {"level": "low", "type": "Aloe arborescens", "description": "Also medicinal, similar properties"},
+    {"level": "medium", "type": "Agave americana", "description": "Different genus, leaves contain saponins"}
   ],
   "key_differentiating_features": [
     "Stemless or very short-stemmed rosette",

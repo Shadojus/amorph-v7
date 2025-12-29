@@ -1,29 +1,29 @@
 {
-  "trophic_mode_primary": "parasitisch",
-  "trophic_mode_secondary": "saprobiontisch",
-  "ecological_guild": "Holzzersetzer",
-  "decomposer_type": "Weissfaeule",
-  "ecosystem_type": "Wald",
-  "ecosystem_subtype": "Birkenwald",
-  "microhabitat_primary": "lebende Birken",
-  "microhabitat_secondary": "Walnuss, Erle",
-  "substrate_type_primary": "Birke (Betula)",
+  "trophic_mode_primary": "parasitic",
+  "trophic_mode_secondary": "saprobic",
+  "ecological_guild": "Wood Decomposer",
+  "decomposer_type": "White Rot",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Birch Forest",
+  "microhabitat_primary": "living birch trees",
+  "microhabitat_secondary": "Walnut, Alder",
+  "substrate_type_primary": "Birch (Betula)",
   "substrate_types_secondary": [
-    "Walnuss",
-    "Erle"
+    "Walnut",
+    "Alder"
   ],
   "substrate_specificity": {
-    "status": "mittel",
+    "status": "medium",
     "variant": "warning"
   },
   "fruiting_season_start": 1,
   "fruiting_season_end": 12,
-  "fruiting_frequency": "ganzjaehrig (Sklerotium)",
-  "climate_zone": "boreal bis temperat",
-  "native_range": "Nordhemisphaere, besonders Russland, Skandinavien, Nordamerika",
+  "fruiting_frequency": "year-round (sclerotium)",
+  "climate_zone": "boreal to temperate",
+  "native_range": "Northern Hemisphere, especially Russia, Scandinavia, North America",
   "iucn_global_status": {
     "status": "VU",
     "variant": "warning"
   },
-  "conservation_notes": "RL Schweiz VU (verletzlich), selten"
+  "conservation_notes": "RL Switzerland VU (vulnerable), rare"
 }

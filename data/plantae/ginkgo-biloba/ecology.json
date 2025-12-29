@@ -1,23 +1,23 @@
 {
   "trophic_mode_primary": "autotroph",
-  "ecological_guild": "Grossbaum",
-  "primary_ecosystem_function": "Kohlenstoffspeicherung",
+  "ecological_guild": "Large tree",
+  "primary_ecosystem_function": "Carbon storage",
   "secondary_ecosystem_functions": [
-    "Schattenspender",
-    "Lebensraum fuer Voegel"
+    "Shade provider",
+    "Habitat for birds"
   ],
-  "ecosystem_type": "Wald",
-  "ecosystem_subtype": "Mischwald",
-  "microhabitat_primary": "Tiefgruendige Boeden",
-  "light_requirement": "volle Sonne bis Halbschatten",
-  "moisture_regime": "mesisch",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Mixed forest",
+  "microhabitat_primary": "Deep soils",
+  "light_requirement": "Full sun to partial shade",
+  "moisture_regime": "Mesic",
   "drought_tolerance": {
     "rating": 6,
     "max": 10
   },
   "soil_ph_optimal_min": 5.0,
   "soil_ph_optimal_max": 8.0,
-  "climate_zone": "temperat",
+  "climate_zone": "Temperate",
   "temperature_optimal_min_c": -20,
   "temperature_optimal_max_c": 35,
   "frost_tolerance": {
@@ -39,19 +39,19 @@
     "rating": 10,
     "max": 10
   },
-  "rarity_type": "Lebendes Fossil",
-  "endemism_status": "Endemisch in China (wild)",
+  "rarity_type": "Living fossil",
+  "endemism_status": "Endemic to China (wild)",
   "conservation_actions_in_place": [
-    "Ex-situ Kultivierung weltweit",
-    "Geschuetzt in China"
+    "Ex-situ cultivation worldwide",
+    "Protected in China"
   ],
   "carbon_storage_capacity": {
     "rating": 8,
     "max": 10
   },
-  "dispersal_vector_type": "Zoochor",
+  "dispersal_vector_type": "Zoochory",
   "dispersal_vector_species": [
-    "Voegel",
-    "Saugetiere"
+    "Birds",
+    "Mammals"
   ]
 }

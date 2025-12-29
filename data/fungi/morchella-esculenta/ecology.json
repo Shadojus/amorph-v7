@@ -1,158 +1,42 @@
 {
-  "scientific": "Morchella esculenta",
-  "trophic_mode_primary": "Saprotroph",
-  "trophic_mode_secondary": "Fakultativ mykorrhizal",
-  "trophic_flexibility": {
-    "status": "High",
-    "variant": "success"
-  },
-  "trophic_notes": "Die trophische Strategie von Morchella ist nicht vollstaendig geklaert. Gelbe Morcheln scheinen fakultativ mykorrhizale Beziehungen mit Laubbaeumen einzugehen, koennen aber auch saprotroph auf organischem Material leben.",
-  "decomposer_type": "Sekundaerzersetzer",
-  "lignin_degradation_capability": true,
-  "cellulose_degradation_capability": true,
-  "ecological_guild": "Saprotroph-Mykorrhiza",
-  "guild_evidence": "Genome zeigen sowohl saprotrophe als auch mykorrhizale Gene. Fruchtet oft in Verbindung mit lebenden Baeumen, aber auch auf Brandflaechen.",
-  "primary_ecosystem_function": "Naehrstoffkreislauf",
-  "secondary_ecosystem_functions": [
-    "Moeglicherweise Naehrstofftransfer zu Baeumen",
-    "Zersetzung organischer Stoffe im Fruehling"
+  "nutrition_mode": "saprobiotic",
+  "nutrition_mode_detail": "Humus decomposer",
+  "primary_substrate": "Humus-rich soil",
+  "secondary_substrates": [
+    "Bark mulch",
+    "Sandy soils",
+    "Garden soils",
+    "Forest clearings"
   ],
-  "ecosystem_type": "Temperater Laubwald",
-  "ecosystem_subtype": "Auwald, Hartholzwald",
-  "association_strength": {
-    "status": "Strong",
-    "variant": "success"
-  },
-  "dominant_vegetation_type": "Laubwald",
-  "associated_plant_families": [
-    "Oleaceae (Eschengewaechse)",
-    "Ulmaceae (Ulmengewaechse)",
-    "Rosaceae (Rosengewaechse)"
+  "associated_trees": [
+    "Apple",
+    "Ash",
+    "Elm",
+    "Poplar"
   ],
-  "associated_plant_genera": [
-    "Fraxinus (Eschen)",
-    "Ulmus (Ulmen)",
-    "Malus (Apfel)",
-    "Populus (Pappeln)"
+  "habitat_types": [
+    "Forest edges",
+    "Parks and gardens",
+    "Old orchards",
+    "Burn sites"
   ],
-  "associated_plant_species": [
-    "Fraxinus excelsior (Gemeine Esche)",
-    "Ulmus minor (Feldulme)",
-    "Malus domestica (Kulturapfel)",
-    "Populus alba (Silberpappel)"
+  "geographic_distribution": "Northern Hemisphere, temperate zones",
+  "fruiting_season": {
+    "start": 3,
+    "peak": 4,
+    "end": 5
+  },
+  "climate_preferences": {
+    "temperature_optimal_celsius": {
+      "min": 8,
+      "max": 18
+    },
+    "moisture_level": "moist, not wet"
+  },
+  "indicator_species_for": [
+    "Humus-rich soils",
+    "Recent soil disturbances",
+    "Fire sites"
   ],
-  "vegetation_age_preference": "Mature trees",
-  "microhabitat_primary": "Boden unter Laubbaeumen",
-  "microhabitat_secondary": "Waldraender, Parks, alte Obstgaerten",
-  "substrate_specificity": {
-    "status": "Moderate",
-    "variant": "info"
-  },
-  "substrate_type_primary": "Humusreicher Boden",
-  "substrate_types_secondary": [
-    "Laubstreu",
-    "Brandflaechen",
-    "Mulchbeete"
-  ],
-  "light_requirement": "Halbschatten bis licht",
-  "elevation_minimum_m": 0,
-  "elevation_maximum_m": 2000,
-  "elevation_optimal_min_m": 100,
-  "elevation_optimal_max_m": 800,
-  "moisture_regime": "Mesisch",
-  "flooding_tolerance": {
-    "rating": 4,
-    "max": 10
-  },
-  "drought_tolerance": {
-    "rating": 2,
-    "max": 10
-  },
-  "soil_ph_minimum": 6.0,
-  "soil_ph_optimal_min": 6.5,
-  "soil_ph_optimal_max": 7.5,
-  "soil_ph_maximum": 8.0,
-  "soil_nutrient_preference": "Nahrstoffreich",
-  "calcium_requirement": "High",
-  "soil_texture_preference": "Lehm bis sandig-lehmig",
-  "organic_matter_preference": "High",
-  "climate_zone": "Temperat",
-  "temperature_minimum_mean_c": 5,
-  "temperature_optimal_min_c": 10,
-  "temperature_optimal_max_c": 18,
-  "temperature_maximum_mean_c": 25,
-  "seasonality_preference": "Fruehling",
-  "disturbance_response": "Pioneer",
-  "fire_response": "Positive",
-  "post_fire_fruiting": true,
-  "temp_fruiting_minimum_c": 8,
-  "temp_fruiting_optimum_c": 15,
-  "temp_fruiting_maximum_c": 22,
-  "frost_tolerance": {
-    "rating": 3,
-    "max": 10
-  },
-  "fruiting_season_start": 3,
-  "fruiting_season_end": 5,
-  "fruiting_peak_month": 4,
-  "fruiting_duration_weeks": 6,
-  "fruiting_frequency": "Annual",
-  "fruiting_predictability": {
-    "rating": 6,
-    "max": 10
-  },
-  "fruiting_triggers": [
-    "Bodenerwaermung im Fruehling",
-    "Niederschlag nach Trockenphasen",
-    "Nachtfroeste gefolgt von warmen Tagen"
-  ],
-  "mycelial_activity_season": [
-    {"month": 1, "active": false},
-    {"month": 2, "active": true},
-    {"month": 3, "active": true},
-    {"month": 4, "active": true},
-    {"month": 5, "active": true},
-    {"month": 6, "active": false},
-    {"month": 7, "active": false},
-    {"month": 8, "active": false},
-    {"month": 9, "active": false},
-    {"month": 10, "active": true},
-    {"month": 11, "active": true},
-    {"month": 12, "active": false}
-  ],
-  "temperature_trigger_min_c": 8,
-  "temperature_trigger_max_c": 18,
-  "rainfall_trigger_mm": 20,
-  "iucn_global_status": {
-    "status": "LC",
-    "variant": "success"
-  },
-  "iucn_population_trend": {
-    "status": "Stable",
-    "variant": "info"
-  },
-  "native_range": "Europa, Nordamerika, Asien",
-  "consumer_mammals": [
-    "Wildschweine",
-    "Eichhoernchen",
-    "Maeuse"
-  ],
-  "consumer_insects": [
-    "Pilzmuecken (Mycetophilidae)",
-    "Pilzkaefer"
-  ],
-  "dispersal_vector_type": "Wind",
-  "dispersal_mechanism": "Aktive Sporenfreisetzung durch Asci",
-  "citizen_science_suitability": {
-    "rating": 8,
-    "max": 10
-  },
-  "photo_identification_reliable": true,
-  "optimal_survey_method": "Visuelle Suche",
-  "survey_timing_optimal": "Maerz bis Mai, nach Niederschlag",
-  "ecology_data_quality_score": {
-    "rating": 7,
-    "max": 10
-  },
-  "ecology_evidence_basis": "Multiple peer-reviewed sources"
+  "ecological_role": "Nutrient cycling in spring ecosystems"
 }

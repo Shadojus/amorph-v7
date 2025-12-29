@@ -18,10 +18,10 @@
     "Togaria cylindracea (DC.) Romagn. 1937"
   ],
   "common_names": [
-    "Suedlicher Ackerling",
-    "Suedlicher Schueppling",
-    "Samthaube",
-    "Pioppino"
+    "Black Poplar Mushroom",
+    "Pioppino",
+    "Velvet Pioppini",
+    "Southern Agrocybe"
   ],
   "international_names": [
     "Black Poplar Mushroom (EN)",
@@ -36,12 +36,12 @@
     "variant": "success"
   },
   "quick_id_checklist": [
-    {"step": 1, "label": "Hut creme-weiss bis ocker-braeunlich, 3-11 cm", "status": "pending"},
-    {"step": 2, "label": "Oberflaeche grubig-runzelig", "status": "pending"},
-    {"step": 3, "label": "Haengender weisser bis brauner Ring am Stiel", "status": "pending"},
-    {"step": 4, "label": "Lamellen weisslich, spaeter zimtbraun", "status": "pending"},
-    {"step": 5, "label": "Waechst bueschelig an Laubholz", "status": "pending"},
-    {"step": 6, "label": "Mehlartiger Geruch", "status": "pending"}
+    {"step": 1, "label": "Cap cream-white to ochre-brownish, 3-11 cm", "status": "pending"},
+    {"step": 2, "label": "Surface pitted-wrinkled", "status": "pending"},
+    {"step": 3, "label": "Pendant white to brown ring on stipe", "status": "pending"},
+    {"step": 4, "label": "Gills whitish, later cinnamon-brown", "status": "pending"},
+    {"step": 5, "label": "Grows clustered on hardwood", "status": "pending"},
+    {"step": 6, "label": "Floury smell", "status": "pending"}
   ],
   "identification_difficulty": {
     "status": "Moderate",
@@ -49,31 +49,31 @@
   },
   "time_to_identify_minutes": 10,
   "minimum_equipment_needed": [
-    "Keine Ausruestung erforderlich",
-    "Optional: Lupe fuer Oberflaeche"
+    "No equipment required",
+    "Optional: magnifying glass for surface"
   ],
   "field_identifiable": true,
   "confusion_species_list": [
-    "Agrocybe praecox (Voreilender Ackerling)",
-    "Pleurotus dryinus (Berindeter Seitling)",
-    "Pleurotus pulmonarius (Cremeweisser Seitling)"
+    "Agrocybe praecox (Spring Fieldcap)",
+    "Pleurotus dryinus (Veiled Oyster)",
+    "Pleurotus pulmonarius (Pale Oyster)"
   ],
   "confusion_risk_level": {
     "status": "Low",
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "low", "typ": "Agrocybe praecox", "beschreibung": "Essbar, aehnliche Erscheinung, waechst am Boden statt an Holz"},
-    {"level": "low", "typ": "Pleurotus-Arten", "beschreibung": "Essbar, anders geformte Fruchtkoerper ohne zentralen Stiel"}
+    {"level": "low", "typ": "Agrocybe praecox", "description": "Edible, similar appearance, grows on ground instead of on wood"},
+    {"level": "low", "typ": "Pleurotus species", "description": "Edible, differently shaped fruiting bodies without central stipe"}
   ],
   "key_differentiating_features": [
-    "Waechst bueschelig an Laubholz, besonders Pappeln",
-    "Haengender, oft durch Sporen braun gefaerbter Ring",
-    "Grubig-runzelige Hutoberflaeche",
-    "Mehlartiger Geruch"
+    "Grows clustered on hardwood, especially poplars",
+    "Pendant ring, often stained brown by spores",
+    "Pitted-wrinkled cap surface",
+    "Floury smell"
   ],
-  "habit": "Holzbewohnend, saprotroph bis parasitaer",
-  "growth_form": "Bueschelig wachsend",
+  "habit": "Wood-inhabiting, saprotrophic to parasitic",
+  "growth_form": "Growing in clusters",
   "symmetry": "radial",
   "size_range": {
     "min": 3,
@@ -81,7 +81,7 @@
     "unit": "cm"
   },
   "size_typical_cm": 10,
-  "basic_shape": "Hutpilz mit zentralem Stiel und Ring",
+  "basic_shape": "Cap mushroom with central stipe and ring",
   "height": {
     "min": 5,
     "max": 15,
@@ -92,27 +92,27 @@
     "max": 11,
     "unit": "cm"
   },
-  "surface_type": "Grubig-runzelig, bei Trockenheit aufreissend",
-  "color_primary": "Creme-weiss bis ocker-braeunlich",
-  "color_secondary": "Mitte dunkler braun, Rand heller",
+  "surface_type": "Pitted-wrinkled, cracking when dry",
+  "color_primary": "Cream-white to ochre-brownish",
+  "color_secondary": "Center darker brown, margin lighter",
   "color_variations": [
-    "Gelblichgrau",
-    "Graubraun",
-    "Hellbraun"
+    "Yellowish-gray",
+    "Gray-brown",
+    "Light brown"
   ],
   "primary_structure_present": true,
-  "primary_structure_type": "Hut (Pileus)",
+  "primary_structure_type": "Cap (Pileus)",
   "primary_structure_diameter": {
     "min": 3,
     "max": 11,
     "unit": "cm"
   },
-  "primary_structure_shape_young": "Konvex bis halbkugelig",
-  "primary_structure_shape_mature": "Flach ausgebreitet",
-  "primary_structure_surface": "Glatt bis grubig-runzelig",
-  "primary_structure_color": "Gelblichgrau bis braeunlich, Mitte dunkler",
+  "primary_structure_shape_young": "Convex to hemispherical",
+  "primary_structure_shape_mature": "Flat expanded",
+  "primary_structure_surface": "Smooth to pitted-wrinkled",
+  "primary_structure_color": "Yellowish-gray to brownish, center darker",
   "support_structure_present": true,
-  "support_structure_type": "Stiel (Stipe)",
+  "support_structure_type": "Stipe",
   "support_structure_length": {
     "min": 5,
     "max": 15,
@@ -123,26 +123,26 @@
     "max": 2.5,
     "unit": "cm"
   },
-  "support_structure_shape": "Zylindrisch",
-  "support_structure_color": "Weisslich",
+  "support_structure_shape": "Cylindrical",
+  "support_structure_color": "Whitish",
   "ring_present": true,
-  "ring_type": "Haengend, haeutig, weisslich bis orangebraun",
-  "ring_position": "Oberes Stieldrittel",
+  "ring_type": "Pendant, membranous, whitish to orange-brown",
+  "ring_position": "Upper third of stipe",
   "lamellae_present": true,
-  "lamellae_attachment": "Breit angewachsen bis schwach herablaufend",
-  "lamellae_density": "Sehr gedraengt",
-  "lamellae_color": "Weisslich, dann grau, reif schokoladenbraun bis tabakbraun",
-  "spore_print_color": "Tabakbraun bis ockerbraun",
-  "smell_description": "Mehlartig, ranzig",
-  "smell_comparable_to": "Ranziges Mehl",
+  "lamellae_attachment": "Broadly attached to slightly decurrent",
+  "lamellae_density": "Very crowded",
+  "lamellae_color": "Whitish, then gray, mature chocolate-brown to tobacco-brown",
+  "spore_print_color": "Tobacco-brown to ochre-brown",
+  "smell_description": "Floury, rancid",
+  "smell_comparable_to": "Rancid flour",
   "taste_safe_to_test": true,
   "taste_description": "Mild",
   "microscopy_required": false,
   "microscopy_key_features": [
-    "Sporen glatt, eifoermig bis leicht ellipsoid",
-    "Braun, 9-11 x 5-6.5 um",
-    "Kein deutlicher Keimporus",
-    "Schnallen vorhanden"
+    "Spores smooth, ovoid to slightly ellipsoid",
+    "Brown, 9-11 x 5-6.5 um",
+    "No distinct germ pore",
+    "Clamp connections present"
   ],
   "spore_measurement_diagnostic": {
     "min": 9,
@@ -150,26 +150,26 @@
     "unit": "um"
   },
   "appearance_by_season": {
-    "spring": "Fruehsaison, haeufig",
-    "summer": "Moeglich bei Feuchtigkeit",
-    "autumn": "Hauptsaison bis Spaetherbst",
-    "winter": "Selten"
+    "spring": "Early season, frequent",
+    "summer": "Possible with moisture",
+    "autumn": "Main season until late autumn",
+    "winter": "Rare"
   },
   "season_peak_months": [4, 5, 9, 10, 11],
   "age_stage_variations": [
-    {"phase": "Primordia", "duration": "7-14 Tage"},
-    {"phase": "Junge Fruchtkörper", "duration": "4-6 Tage"},
-    {"phase": "Reif", "duration": "5-7 Tage"},
-    {"phase": "Ueberreif", "duration": "3-5 Tage"}
+    {"phase": "Primordia", "duration": "7-14 days"},
+    {"phase": "Young fruiting bodies", "duration": "4-6 days"},
+    {"phase": "Mature", "duration": "5-7 days"},
+    {"phase": "Overmature", "duration": "3-5 days"}
   ],
-  "nutrition_type": "Saprotroph bis parasitaer",
-  "nutrition_type_detail": "Folgezersetzer an Laubholz, kann auch lebende Baeume angreifen",
+  "nutrition_type": "Saprotroph to parasitic",
+  "nutrition_type_detail": "Secondary decomposer on hardwood, can also attack living trees",
   "substrate_species": [
-    "Populus (Pappeln)",
-    "Salix (Weiden)",
-    "Acer (Ahorne)",
-    "Alnus (Erlen)",
-    "Quercus (Eichen)"
+    "Populus (Poplars)",
+    "Salix (Willows)",
+    "Acer (Maples)",
+    "Alnus (Alders)",
+    "Quercus (Oaks)"
   ],
   "source": {
     "authors": "Stamets, P.",

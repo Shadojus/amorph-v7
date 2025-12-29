@@ -14,40 +14,38 @@
     "Agaricus stypticus"
   ],
   "common_names": [
-    "Herber Zwergknaeuel",
-    "Eichen-Zwergknaeuel",
-    "Bitterer Muschelseitling",
     "Bitter Oyster",
-    "Luminescent Panellus"
+    "Luminescent Panellus",
+    "Astringent Panus"
   ],
   "size_range": {
     "min": 1,
     "max": 6,
     "unit": "cm"
   },
-  "color_primary": "ockergelb",
-  "color_secondary": "rotbraeunlich",
-  "smell_description": "Neutral bis pilzig",
-  "taste_description": "Bitter, scharf, herb, pfeffrig",
+  "color_primary": "ochre-yellow",
+  "color_secondary": "reddish-brown",
+  "smell_description": "neutral to mushroomy",
+  "taste_description": "bitter, acrid, astringent, peppery",
   "primary_structure_present": true,
-  "primary_structure_type": "Hut",
+  "primary_structure_type": "cap",
   "primary_structure_diameter": {
     "min": 1,
     "max": 6,
     "unit": "cm"
   },
-  "primary_structure_shape_mature": "muschelfoermig, nierenfoermig",
-  "primary_structure_surface": "klebrig mit gummiartiger Schicht",
-  "primary_structure_color": "ockergelb, rotbraeunlich",
+  "primary_structure_shape_mature": "shell-shaped, kidney-shaped",
+  "primary_structure_surface": "sticky with rubbery layer",
+  "primary_structure_color": "ochre-yellow, reddish-brown",
   "support_structure_present": true,
-  "support_structure_type": "Stiel",
-  "support_structure_position": "seitlich",
-  "support_structure_color": "ockergelblich wie Hut",
+  "support_structure_type": "stem",
+  "support_structure_position": "lateral",
+  "support_structure_color": "ochre-yellowish like cap",
   "lamellae_present": true,
-  "lamellae_spacing": "dicht",
-  "lamellae_color": "ockergelb",
-  "tissue_color": "hellbraun",
-  "propagule_color": "weiss",
+  "lamellae_spacing": "crowded",
+  "lamellae_color": "ochre-yellow",
+  "tissue_color": "light brown",
+  "propagule_color": "white",
   "propagule_length": {
     "min": 2.5,
     "max": 3,
@@ -73,9 +71,9 @@
     "variant": "warning"
   },
   "key_differentiating_features": [
-    "Biolumineszenz (leuchtet im Dunkeln)",
-    "Bitterer, scharfer Geschmack",
-    "Muschelfoermig auf Laubholz"
+    "Bioluminescence (glows in the dark)",
+    "Bitter, acrid taste",
+    "Shell-shaped on hardwood"
   ],
-  "special_feature": "Biolumineszenz - Myzel und Fruchtkoerper leuchten gruenlich im Dunkeln"
+  "special_feature": "Bioluminescence - mycelium and fruiting bodies glow greenish in the dark"
 }

@@ -1,256 +1,63 @@
 {
   "edibility_status": {
-    "status": "Choice Edible",
+    "status": "edible when cooked",
+    "variant": "warning"
+  },
+  "flavor_profile": "Aromatic, nutty, earthy",
+  "recommended_cooking_methods": [
+    "Sautéing",
+    "Creamed",
+    "Dried and rehydrated"
+  ],
+  "preparation_notes": [
+    "MUST be cooked thoroughly, never eat raw!",
+    "Cut in half to clean the interior",
+    "Wash thoroughly to remove sand and insects"
+  ],
+  "pairing_suggestions": [
+    {
+      "category": "Wine",
+      "items": [
+        "Burgundy",
+        "Chardonnay"
+      ]
+    },
+    {
+      "category": "Meat",
+      "items": [
+        "Veal",
+        "Chicken",
+        "Duck"
+      ]
+    },
+    {
+      "category": "Sides",
+      "items": [
+        "Cream sauces",
+        "Asparagus",
+        "Fresh herbs"
+      ]
+    }
+  ],
+  "nutritional_highlights": [
+    "High protein content",
+    "Rich in vitamin D",
+    "Good source of iron and zinc"
+  ],
+  "storage_duration_days": {
+    "fresh": 3,
+    "dried": 365,
+    "frozen": 180
+  },
+  "drying_suitable": true,
+  "freezing_suitable": true,
+  "commercial_value": {
+    "status": "very high",
     "variant": "success"
   },
-  "edibility_rating": {
-    "rating": 9,
-    "max": 10
-  },
-  "edibility_requirements": [
-    {"step": 1, "label": "Gruendlich reinigen (Sand aus Hohlraeumen entfernen)", "status": "pending"},
-    {"step": 2, "label": "Mindestens 15-20 Minuten kochen oder braten", "status": "pending"},
-    {"step": 3, "label": "NIEMALS roh verzehren", "status": "pending"}
-  ],
-  "edibility_warnings": [
-    {"level": "severe", "typ": "Rohverzehr", "beschreibung": "Rohe Morcheln sind giftig und verursachen schwere gastrointestinale Beschwerden"},
-    {"level": "moderate", "typ": "Alkoholkombination", "beschreibung": "Manche Personen berichten von Unvertraeglichkeit bei gleichzeitigem Alkoholkonsum"}
-  ],
-  "edibility_risk_groups": [
-    "Personen mit Pilzallergien",
-    "Personen mit empfindlichem Magen"
-  ],
-  "sensory": [
-    {"axis": "Umami", "value": 85},
-    {"axis": "Erdigkeit", "value": 75},
-    {"axis": "Nussigkeit", "value": 70},
-    {"axis": "Suesse", "value": 20},
-    {"axis": "Bitterkeit", "value": 5}
-  ],
-  "taste_primary": "Erdig-nussig",
-  "taste_secondary": [
-    "Wuerzig",
-    "Leicht rauchig",
-    "Fleischig"
-  ],
-  "aroma_profile": [
-    {"axis": "Erdig", "value": 80},
-    {"axis": "Nussig", "value": 65},
-    {"axis": "Waldig", "value": 60},
-    {"axis": "Wuerzig", "value": 40},
-    {"axis": "Rauchig", "value": 30}
-  ],
-  "texture_raw": "Schwammig, bruechig (NICHT verzehren!)",
-  "texture_cooked": "Zart, fleischig, leicht bissfest",
-  "appearance": {
-    "color": "Gelbbraun bis hellbraun",
-    "shape": "Wabenartig mit Gruben",
-    "size": "4-17 cm gesamt",
-    "surface": "Netzartig strukturiert"
-  },
-  "preparation_methods": [
-    {"label": "Sautieren in Butter", "value": 95},
-    {"label": "Schmoren in Sahnesauce", "value": 90},
-    {"label": "Braten", "value": 85},
-    {"label": "In Risotto", "value": 85},
-    {"label": "Gefuellt und gebacken", "value": 80},
-    {"label": "Getrocknet rehydriert", "value": 85}
-  ],
-  "preparation_temperatures": {
-    "min": 70,
-    "max": 180,
-    "unit": "deg C"
-  },
-  "preparation_times": {
-    "sauteed": "15-20 Minuten",
-    "braised": "20-30 Minuten",
-    "grilled": "Nicht empfohlen",
-    "dried_rehydrated": "20-30 Minuten einweichen + 15 Min kochen"
-  },
-  "preparation_techniques": [
-    {"step": 1, "label": "Laengs halbieren und gruendlich waschen", "status": "pending"},
-    {"step": 2, "label": "In Salzwasser kurz blanchieren (optional)", "status": "pending"},
-    {"step": 3, "label": "Trockentupfen", "status": "pending"},
-    {"step": 4, "label": "In Butter bei mittlerer Hitze sautieren", "status": "pending"},
-    {"step": 5, "label": "Mindestens 15 Minuten garen", "status": "pending"}
-  ],
-  "preparation_mistakes": [
-    {"level": "critical", "typ": "Rohverzehr", "beschreibung": "Fuehrt zu Vergiftung mit Erbrechen und Durchfall"},
-    {"level": "severe", "typ": "Zu kurzes Garen", "beschreibung": "Toxine werden nicht vollstaendig abgebaut"},
-    {"level": "moderate", "typ": "Unzureichende Reinigung", "beschreibung": "Sand und Insekten in den Hohlraeumen"}
-  ],
-  "prep_work": [
-    {"step": 1, "label": "Pilze laengs halbieren", "status": "pending"},
-    {"step": 2, "label": "Unter fliessendem Wasser reinigen", "status": "pending"},
-    {"step": 3, "label": "In Salzwasser 10 Min einlegen (entfernt Insekten)", "status": "pending"},
-    {"step": 4, "label": "Gruendlich abspuelen und trocknen", "status": "pending"}
-  ],
-  "flavor_profile_primary": "Erdig-nussig",
-  "flavor_profile_secondary": [
-    "Wuerzig",
-    "Fleischig",
-    "Leicht rauchig"
-  ],
-  "aroma_compounds_key": [
-    "1-Octen-3-ol (Pilzaroma)",
-    "2-Methylbutanal",
-    "3-Methylbutanal"
-  ],
-  "pairs_well_with_proteins": [
-    "Kalb",
-    "Huhn",
-    "Kaninchen",
-    "Fisch (weisse Sorten)",
-    "Eier"
-  ],
-  "pairs_well_with_vegetables": [
-    "Spargel",
-    "Erbsen",
-    "Fruehlingszwiebeln",
-    "Spinat",
-    "Kartoffeln"
-  ],
-  "pairs_well_with_grains": [
-    "Risotto",
-    "Pasta (Tagliatelle)",
-    "Polenta",
-    "Brioche"
-  ],
-  "pairs_well_with_dairy": [
-    "Butter",
-    "Sahne",
-    "Creme fraiche",
-    "Parmesan",
-    "Gruyere"
-  ],
-  "pairs_well_with_herbs": [
-    "Thymian",
-    "Estragon",
-    "Schnittlauch",
-    "Petersilie",
-    "Kerbel"
-  ],
-  "pairs_well_with_spices": [
-    "Schwarzer Pfeffer",
-    "Muskatnuss",
-    "Weisser Pfeffer"
-  ],
-  "wine_pairing": [
-    "Weisser Burgunder",
-    "Chardonnay (nicht zu holzig)",
-    "Pinot Gris",
-    "Champagner"
-  ],
-  "avoid_combining_with": [
-    "Stark wuerzige Zutaten (ueberdecken Aroma)",
-    "Essig-basierte Saucen"
-  ],
-  "substitute_for": [
-    "Steinpilze (in Cremesaucen)",
-    "Trueffel (als guenstigere Alternative)"
-  ],
-  "can_be_substituted_by": [
-    "Getrocknete Steinpilze",
-    "Shiitake (teilweise)"
-  ],
-  "best_cooking_methods": [
-    {"label": "Sautieren in Butter", "value": 95},
-    {"label": "Cremesauce", "value": 90},
-    {"label": "Gefuellt", "value": 85}
-  ],
-  "worst_cooking_methods": [
-    "Rohverzehr (GIFTIG!)",
-    "Grillen (trocknet aus)",
-    "Frittieren"
-  ],
-  "cooking_time_raw": {
-    "min": 15,
-    "max": 25,
-    "unit": "min"
-  },
-  "cooking_time_dried": {
-    "min": 20,
-    "max": 30,
-    "unit": "min"
-  },
-  "shelf_life_fresh_room_temp": {
-    "min": 0,
-    "max": 1,
-    "unit": "days"
-  },
-  "shelf_life_fresh_refrigerated": {
-    "min": 3,
-    "max": 7,
-    "unit": "days"
-  },
-  "shelf_life_dried": {
-    "min": 12,
-    "max": 24,
-    "unit": "months"
-  },
-  "shelf_life_frozen": {
-    "min": 6,
-    "max": 12,
-    "unit": "months"
-  },
-  "freezing_instructions": [
-    {"step": 1, "label": "Zuerst sautieren oder blanchieren", "status": "pending"},
-    {"step": 2, "label": "Vollstaendig abkuehlen lassen", "status": "pending"},
-    {"step": 3, "label": "In Gefrierbeutel portionieren", "status": "pending"},
-    {"step": 4, "label": "Bei -18 Grad einfrieren", "status": "pending"}
-  ],
-  "signs_of_spoilage": [
-    {"level": "moderate", "typ": "Schleimigkeit", "beschreibung": "Schleimige Oberflaeche deutet auf Verderb hin"},
-    {"level": "severe", "typ": "Fauler Geruch", "beschreibung": "Unangenehmer, fauliger Geruch"},
-    {"level": "moderate", "typ": "Schwarze Flecken", "beschreibung": "Dunkle, matschige Stellen"}
-  ],
-  "signature_dishes_famous": [
-    "Morcheln in Rahmsauce",
-    "Gefuellte Morcheln",
-    "Morchelrisotto",
-    "Kalbsmedaillons mit Morcheln"
-  ],
-  "professional_prep_tips": [
-    "Einweichwasser von getrockneten Morcheln als Fond verwenden",
-    "Nie zu viele andere Aromen hinzufuegen",
-    "Butter ist das ideale Garmedium",
-    "Frische Morcheln immer am Tag der Ernte verarbeiten"
-  ],
-  "peak_season_months": [
-    {"month": 1, "active": false},
-    {"month": 2, "active": false},
-    {"month": 3, "active": true},
-    {"month": 4, "active": true},
-    {"month": 5, "active": true},
-    {"month": 6, "active": false},
-    {"month": 7, "active": false},
-    {"month": 8, "active": false},
-    {"month": 9, "active": false},
-    {"month": 10, "active": false},
-    {"month": 11, "active": false},
-    {"month": 12, "active": false}
-  ],
-  "availability_year_round": false,
-  "best_sources_fresh": [
-    "Fachhaendler im Fruehling",
-    "Selbst sammeln (nur mit Erfahrung!)",
-    "Wochenmaerkte im April/Mai"
-  ],
-  "best_sources_dried": [
-    "Delikatessengeschaefte",
-    "Online-Fachhaendler",
-    "Gourmet-Supermaerkte"
-  ],
-  "price_category": {
-    "status": "Luxury",
-    "variant": "info"
-  },
-  "culinary_notes": "Die Speisemorchel zaehlt zu den wertvollsten Speisepilzen der Welt. Ihr einzigartiges, erdig-nussiges Aroma und die fleischige Textur machen sie zur begehrten Zutat in der Haute Cuisine.",
-  "source": {
-    "authors": "Boa, E.",
-    "year": 2004,
-    "title": "Wild edible fungi: A global overview of their use and importance to people",
-    "journal": "FAO Non-Wood Forest Products",
-    "doi": ""
-  }
+  "culinary_traditions": [
+    "French haute cuisine",
+    "Classic mushroom dishes",
+    "Easter tradition in Central Europe"
+  ]
 }

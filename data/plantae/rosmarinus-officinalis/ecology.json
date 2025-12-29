@@ -1,17 +1,17 @@
 {
   "trophic_mode_primary": "autotroph",
-  "ecological_guild": "Strauch",
-  "primary_ecosystem_function": "Bestaeubungsmagnet",
+  "ecological_guild": "Shrub",
+  "primary_ecosystem_function": "Pollinator magnet",
   "secondary_ecosystem_functions": [
-    "Nektarquelle (ganzjaehrig in milden Klimaten)",
-    "Windschutz"
+    "Nectar source (year-round in mild climates)",
+    "Windbreak"
   ],
-  "ecosystem_type": "Mediterrane Macchie",
-  "ecosystem_subtype": "Kuestenvegetation",
-  "microhabitat_primary": "Trockene, sonnige Felshaenge",
-  "microhabitat_secondary": "Kuestenduenen",
-  "light_requirement": "volle Sonne",
-  "moisture_regime": "xerisch",
+  "ecosystem_type": "Mediterranean maquis",
+  "ecosystem_subtype": "Coastal vegetation",
+  "microhabitat_primary": "Dry, sunny rocky slopes",
+  "microhabitat_secondary": "Coastal dunes",
+  "light_requirement": "full sun",
+  "moisture_regime": "xeric",
   "drought_tolerance": {
     "rating": 9,
     "max": 10
@@ -19,23 +19,23 @@
   "soil_ph_optimal_min": 6.0,
   "soil_ph_optimal_max": 8.0,
   "calcium_requirement": "tolerant",
-  "soil_texture_preference": "steinig, sandig, durchlaessig",
-  "climate_zone": "mediterran",
+  "soil_texture_preference": "rocky, sandy, well-drained",
+  "climate_zone": "mediterranean",
   "temperature_optimal_min_c": -5,
   "temperature_optimal_max_c": 35,
   "frost_tolerance": {
     "rating": 5,
     "max": 10
   },
-  "native_range": "Mittelmeerraum (gesamte Kuestenregion)",
+  "native_range": "Mediterranean region (entire coastal area)",
   "iucn_global_status": {
     "status": "LC",
     "variant": "success"
   },
-  "fire_response": "Sprouting nach Brand",
+  "fire_response": "Resprouting after fire",
   "allelopathic_effects": [
-    "Aetherische Oele hemmen Keimung"
+    "Essential oils inhibit germination"
   ],
-  "dispersal_vector_type": "Zoochor",
-  "dispersal_mechanism": "Vogelausbreitung"
+  "dispersal_vector_type": "Zoochory",
+  "dispersal_mechanism": "Bird dispersal"
 }

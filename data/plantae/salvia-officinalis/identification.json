@@ -60,7 +60,7 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "low", "typ": "Other Salvia species", "beschreibung": "Most are edible or ornamental, similar uses"}
+    {"level": "low", "typ": "Other Salvia species", "description": "Most are edible or ornamental, similar uses"}
   ],
   "key_differentiating_features": [
     "Distinctive grey-green velvety leaves",

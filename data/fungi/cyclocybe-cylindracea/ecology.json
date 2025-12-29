@@ -1,13 +1,13 @@
 {
-  "habitat_primary": "Laubholz, besonders Pappel-Stuempfe und -Staemme",
+  "habitat_primary": "Hardwood, especially poplar stumps and trunks",
   "habitat_secondary": [
-    "Weidenholz",
-    "Ahornholz",
-    "Erlenholz",
-    "Ulmenholz",
-    "Teeoel-Baeume (in China)"
+    "Willow wood",
+    "Maple wood",
+    "Alder wood",
+    "Elm wood",
+    "Tea oil trees (in China)"
   ],
-  "habitat_description": "Cyclocybe cylindracea ist ein waermeliebender holzbewohnender Pilz, der bevorzugt an Stuempfen und Staemmen von Pappeln waechst. Er kommt auch an anderen Laubhoelzern vor, insbesondere Weiden, Ahornen und Baumwollpappeln. Der Pilz bevorzugt Weinanbaugebiete und suedliche Regionen.",
+  "habitat_description": "Cyclocybe cylindracea is a heat-loving wood-inhabiting fungus that preferentially grows on stumps and trunks of poplars. It also occurs on other hardwoods, particularly willows, maples and cottonwoods. The fungus prefers wine-growing regions and southern areas.",
   "elevation_range": {
     "min": 0,
     "max": 800,
@@ -30,45 +30,45 @@
     "unit": "C"
   },
   "microhabitat_requirements": [
-    "Laubholz-Substrate",
-    "Besonders Pappeln und Weiden",
-    "Waermeliebend",
-    "Gute Feuchtigkeit"
+    "Hardwood substrates",
+    "Especially poplars and willows",
+    "Heat-loving",
+    "Good moisture"
   ],
   "substrate_preferences": [
-    "Pappelholz",
-    "Weidenholz",
-    "Baumwollpappelholz",
-    "Ahornholz"
+    "Poplar wood",
+    "Willow wood",
+    "Cottonwood",
+    "Maple wood"
   ],
   "vegetation_associations": [
-    "Auwaelder",
-    "Weinanbaugebiete",
-    "Suedeuropaeische Laubwaelder",
-    "Kulturlandschaften mit Pappeln"
+    "Riparian forests",
+    "Wine-growing regions",
+    "Southern European deciduous forests",
+    "Cultivated landscapes with poplars"
   ],
-  "ecological_role": "Saprotroph und fakultativer Parasit",
-  "ecological_role_description": "Als Holzzersetzer baut Cyclocybe cylindracea totes Laubholz ab. Er kann jedoch auch lebende Baeume angreifen und ist somit ein fakultativer Parasit. Der Pilz spielt eine wichtige Rolle im Naehrstoffkreislauf von Auwaldoekosystemen.",
+  "ecological_role": "Saprotroph and facultative parasite",
+  "ecological_role_description": "As a wood decomposer, Cyclocybe cylindracea breaks down dead hardwood. However, it can also attack living trees and is thus a facultative parasite. The fungus plays an important role in nutrient cycling of riparian forest ecosystems.",
   "ecological_importance": [
-    {"axis": "Holzabbau", "value": 85},
-    {"axis": "Naehrstoffrecycling", "value": 75},
-    {"axis": "Kulinarische Bedeutung", "value": 90},
-    {"axis": "Kultivierbarkeit", "value": 85}
+    {"axis": "Wood decomposition", "value": 85},
+    {"axis": "Nutrient recycling", "value": 75},
+    {"axis": "Culinary significance", "value": 90},
+    {"axis": "Cultivability", "value": 85}
   ],
   "trophic_level": 2,
   "trophic_category": "saprotroph",
-  "symbiosis_type": "Keine (Saprotroph/Parasit)",
-  "symbiosis_description": "Cyclocybe cylindracea lebt als Zersetzer von Holz und kann fakultativ auch lebende Baeume befallen.",
+  "symbiosis_type": "None (Saprotroph/Parasite)",
+  "symbiosis_description": "Cyclocybe cylindracea lives as a wood decomposer and can facultatively infest living trees.",
   "host_specificity": {
     "status": "Medium",
     "variant": "warning"
   },
   "co_occurring_species": [
-    "Pleurotus-Arten",
+    "Pleurotus species",
     "Armillaria mellea",
-    "Andere holzbewohnende Pilze"
+    "Other wood-inhabiting fungi"
   ],
-  "dispersal_mechanism": "Windverbreitung der Sporen",
+  "dispersal_mechanism": "Wind dispersal of spores",
   "dispersal_range": {
     "min": 10,
     "max": 500,
@@ -79,21 +79,21 @@
     "max": 100,
     "unit": "%"
   },
-  "colonization_strategy": "Schnelle Besiedlung von Holzsubstraten",
-  "life_history": "Bueschelig wachsende Fruchtkoerper, mehrjaehriges Myzel im Holz",
-  "phenology_description": "Fruchtkoerper erscheinen hauptsaechlich im Fruehling und Herbst bei warmem, feuchtem Wetter",
+  "colonization_strategy": "Rapid colonization of wood substrates",
+  "life_history": "Clustered fruiting bodies, perennial mycelium in wood",
+  "phenology_description": "Fruiting bodies appear mainly in spring and autumn in warm, humid weather",
   "fruiting_triggers": [
-    "Temperaturen zwischen 13-18 Grad Celsius",
-    "Hohe Luftfeuchtigkeit (90-95%)",
-    "Nach Regenfaellen",
-    "Frische Luft"
+    "Temperatures between 13-18 degrees Celsius",
+    "High humidity (90-95%)",
+    "After rainfall",
+    "Fresh air"
   ],
   "activity_months": [3, 4, 5, 6, 9, 10, 11],
   "peak_fruiting_month": 10,
   "ecosystem_services": [
-    "Abbau von Totholz",
-    "Naehrstofffreisetzung",
-    "Nahrungsquelle fuer Insekten"
+    "Deadwood decomposition",
+    "Nutrient release",
+    "Food source for insects"
   ],
   "indicator_species": false,
   "source": {

@@ -8,7 +8,7 @@
     "max": 100,
     "unit": "%"
   },
-  "safety_edibility_notes": "Ungeniessbar aufgrund geringer Groesse und seltenem Vorkommen, aber nicht giftig. Wird in Asien als Vitalpilz kultiviert und als Nahrungsergaenzungsmittel verwendet.",
+  "safety_edibility_notes": "Inedible due to small size and rare occurrence, but not poisonous. Cultivated in Asia as a medicinal mushroom and used as a food supplement.",
   "safety_potentially_deadly": false,
   "safety_toxicity_score": {
     "value": 5,
@@ -24,8 +24,8 @@
     "status": "advisory",
     "variant": "neutral"
   },
-  "safety_warning_text": "Nicht zum Verzehr in der Wildnis sammeln aufgrund extremer Seltenheit und geringer Groesse.",
-  "safety_summary": "Cordyceps militaris ist ungeniessbar aber nicht giftig. Die Art ist extrem selten und sollte nicht gesammelt werden.",
+  "safety_warning_text": "Do not collect in the wild for consumption due to extreme rarity and small size.",
+  "safety_summary": "Cordyceps militaris is inedible but not poisonous. The species is extremely rare and should not be collected.",
   "safety_risk_inherent": {
     "value": 5,
     "min": 0,
@@ -47,8 +47,8 @@
     ]
   },
   "confusion_partner": [
-    {"name": "Ophiocordyceps sinensis", "type": "aehnlich", "intensity": 60},
-    {"name": "Typhula fistulosa", "type": "aehnlich", "intensity": 40}
+    {"name": "Ophiocordyceps sinensis", "type": "similar", "intensity": 60},
+    {"name": "Typhula fistulosa", "type": "similar", "intensity": 40}
   ],
   "confusion_risk_level": {
     "status": "low",

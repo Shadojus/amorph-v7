@@ -61,8 +61,8 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "none", "typ": "Curcuma longa", "beschreibung": "Related plant, also edible"},
-    {"level": "low", "typ": "Alpinia galanga", "beschreibung": "Different flavor, also edible"}
+    {"level": "none", "typ": "Curcuma longa", "description": "Related plant, also edible"},
+    {"level": "low", "typ": "Alpinia galanga", "description": "Different flavor, also edible"}
   ],
   "key_differentiating_features": [
     "Characteristic spicy ginger aroma",

@@ -59,7 +59,7 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "none", "typ": "Other Passiflora species", "beschreibung": "Most are edible or medicinal; P. incarnata is most studied medicinally"}
+    {"level": "none", "typ": "Other Passiflora species", "description": "Most are edible or medicinal; P. incarnata is most studied medicinally"}
   ],
   "key_differentiating_features": [
     "Highly distinctive complex flower structure",

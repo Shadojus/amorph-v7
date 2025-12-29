@@ -18,11 +18,9 @@
     "Leucocoprinus procerus (Scop.) Pat. 1900"
   ],
   "common_names": [
+    "Parasol Mushroom",
     "Parasol",
-    "Riesenschirmling",
-    "Riesenschirmpilz",
-    "Paukenschlaeger",
-    "Gemeiner Riesenschirmling"
+    "Drumstick Mushroom"
   ],
   "international_names": [
     "Parasol Mushroom (EN)",
@@ -35,12 +33,12 @@
     "variant": "success"
   },
   "quick_id_checklist": [
-    {"step": 1, "label": "Grosser Hut 10-30 cm mit wolligen Schuppen", "status": "pending"},
-    {"step": 2, "label": "Verschiebbarer, doppelrandiger Ring", "status": "pending"},
-    {"step": 3, "label": "Stiel mit brauner Natterung", "status": "pending"},
-    {"step": 4, "label": "Weisse, freie Lamellen", "status": "pending"},
-    {"step": 5, "label": "Nussartiger Geruch und Geschmack", "status": "pending"},
-    {"step": 6, "label": "Roetendes Fleisch bei Verletzung", "status": "pending"}
+    {"step": 1, "label": "Large cap 10-30 cm with woolly scales", "status": "pending"},
+    {"step": 2, "label": "Movable, double-edged ring", "status": "pending"},
+    {"step": 3, "label": "Stem with brown snakeskin pattern", "status": "pending"},
+    {"step": 4, "label": "White, free gills", "status": "pending"},
+    {"step": 5, "label": "Nutty smell and taste", "status": "pending"},
+    {"step": 6, "label": "Flesh stains reddish when cut", "status": "pending"}
   ],
   "identification_difficulty": {
     "status": "Moderate",
@@ -48,33 +46,33 @@
   },
   "time_to_identify_minutes": 5,
   "minimum_equipment_needed": [
-    "Keine Ausruestung erforderlich"
+    "No equipment required"
   ],
   "field_identifiable": true,
   "confusion_species_list": [
-    "Chlorophyllum olivieri (Olivgruener Safranschirmling)",
-    "Chlorophyllum rhacodes (Safranschirmling)",
-    "Chlorophyllum venenatum (Gift-Riesenschirmling)",
-    "Lepiota brunneoincarnata (Fleischbrauner Schirmling - toedlich)"
+    "Chlorophyllum olivieri (Olive Shaggy Parasol)",
+    "Chlorophyllum rhacodes (Shaggy Parasol)",
+    "Chlorophyllum venenatum (Vomiter)",
+    "Lepiota brunneoincarnata (Deadly Dapperling - deadly)"
   ],
   "confusion_risk_level": {
     "status": "High",
     "variant": "danger"
   },
   "confusion_consequences": [
-    {"level": "critical", "typ": "Chlorophyllum venenatum", "beschreibung": "Gift-Riesenschirmling auf Kompost - schwere Magen-Darm-Stoerungen"},
-    {"level": "critical", "typ": "Lepiota-Arten", "beschreibung": "Kleine Schirmlinge ohne verschiebbaren Ring - toedlich giftig!"},
-    {"level": "low", "typ": "Chlorophyllum rhacodes", "beschreibung": "Essbar, aber roh unvertraeglich"}
+    {"level": "critical", "type": "Chlorophyllum venenatum", "description": "Vomiter on compost - severe gastrointestinal disturbances"},
+    {"level": "critical", "type": "Lepiota species", "description": "Small dapperlings without movable ring - deadly poisonous!"},
+    {"level": "low", "type": "Chlorophyllum rhacodes", "description": "Edible, but intolerable raw"}
   ],
   "key_differentiating_features": [
-    "Ring MUSS verschiebbar sein",
-    "Stiel mit brauner Natterung",
-    "Grosse Huete (bis 30 cm)",
-    "Wollige Schuppen auf dem Hut",
-    "Roetendes Fleisch"
+    "Ring MUST be movable",
+    "Stem with brown snakeskin pattern",
+    "Large caps (up to 30 cm)",
+    "Woolly scales on cap",
+    "Flesh stains reddish"
   ],
-  "habit": "Terrestrisch, saprotroph",
-  "growth_form": "Einzeln oder in Gruppen",
+  "habit": "Terrestrial, saprotrophic",
+  "growth_form": "Solitary or in groups",
   "symmetry": "radial",
   "size_range": {
     "min": 10,
@@ -82,7 +80,7 @@
     "unit": "cm"
   },
   "size_typical_cm": 25,
-  "basic_shape": "Schirmfoermiger Hutpilz mit langem Stiel und Ring",
+  "basic_shape": "Umbrella-shaped cap mushroom with long stem and ring",
   "height": {
     "min": 15,
     "max": 40,
@@ -93,22 +91,22 @@
     "max": 30,
     "unit": "cm"
   },
-  "surface_type": "Mit weichen, wolligen Schuppen bedeckt",
-  "color_primary": "Hellbraun mit dunkleren Schuppen",
-  "color_secondary": "Weisslich (Stiel, Lamellen)",
+  "surface_type": "Covered with soft, woolly scales",
+  "color_primary": "Light brown with darker scales",
+  "color_secondary": "Whitish (stem, gills)",
   "primary_structure_present": true,
-  "primary_structure_type": "Hut (Pileus)",
+  "primary_structure_type": "Cap (Pileus)",
   "primary_structure_diameter": {
     "min": 10,
     "max": 30,
     "unit": "cm"
   },
-  "primary_structure_shape_young": "Kugelig, geschlossen (Paukenschlaeger)",
-  "primary_structure_shape_mature": "Flach ausgebreitet mit Buckel",
-  "primary_structure_surface": "Mit gezonten, weichen, wolligen Schuppen",
-  "primary_structure_color": "Hellbraun, Mitte dunkler",
+  "primary_structure_shape_young": "Spherical, closed (drumstick)",
+  "primary_structure_shape_mature": "Flat expanded with central umbo",
+  "primary_structure_surface": "With zoned, soft, woolly scales",
+  "primary_structure_color": "Light brown, center darker",
   "support_structure_present": true,
-  "support_structure_type": "Stiel (Stipe)",
+  "support_structure_type": "Stem (Stipe)",
   "support_structure_length": {
     "min": 15,
     "max": 40,
@@ -119,25 +117,25 @@
     "max": 3,
     "unit": "cm"
   },
-  "support_structure_shape": "Schlank, zaeh, faserig, Basis verdickt",
-  "support_structure_color": "Weisslich bis hellbraun mit brauner Natterung",
+  "support_structure_shape": "Slender, tough, fibrous, base enlarged",
+  "support_structure_color": "Whitish to light brown with brown snakeskin pattern",
   "ring_present": true,
-  "ring_type": "Wollig-weisslich, doppelrandig, VERSCHIEBBAR",
-  "ring_position": "Mittleres Stieldrittel",
+  "ring_type": "Woolly-whitish, double-edged, MOVABLE",
+  "ring_position": "Middle third of stem",
   "lamellae_present": true,
-  "lamellae_attachment": "Frei",
-  "lamellae_density": "Gedraengt",
-  "lamellae_color": "Weiss, weich",
-  "spore_print_color": "Weiss",
-  "smell_description": "Angenehm nussartig",
-  "smell_comparable_to": "Nuesse, angenehm pilzig",
+  "lamellae_attachment": "Free",
+  "lamellae_density": "Crowded",
+  "lamellae_color": "White, soft",
+  "spore_print_color": "White",
+  "smell_description": "Pleasant nutty",
+  "smell_comparable_to": "Nuts, pleasantly mushroomy",
   "taste_safe_to_test": true,
-  "taste_description": "Angenehm nussartig, mild - auch roh essbar",
+  "taste_description": "Pleasant nutty, mild - also edible raw",
   "microscopy_required": false,
   "microscopy_key_features": [
-    "Sporen 12-18 x 9-12 um",
-    "Ellipsoid geformt",
-    "Weisses Sporenpulver"
+    "Spores 12-18 x 9-12 um",
+    "Ellipsoid shaped",
+    "White spore print"
   ],
   "spore_measurement_diagnostic": {
     "min": 12,
@@ -145,19 +143,19 @@
     "unit": "um"
   },
   "appearance_by_season": {
-    "spring": "Selten",
-    "summer": "Fruehsommer bis Sommer",
-    "autumn": "Hauptsaison",
-    "winter": "Nicht vorhanden"
+    "spring": "Rare",
+    "summer": "Early summer to summer",
+    "autumn": "Peak season",
+    "winter": "Not present"
   },
   "season_peak_months": [7, 8, 9, 10],
-  "nutrition_type": "Saprotroph",
-  "nutrition_type_detail": "Folgezersetzer in Wiesen und Waeldern",
+  "nutrition_type": "Saprotrophic",
+  "nutrition_type_detail": "Secondary decomposer in meadows and forests",
   "substrate_species": [
-    "Waldboeden",
-    "Wiesen",
-    "Heiden",
-    "Waldraender"
+    "Forest soils",
+    "Meadows",
+    "Heathlands",
+    "Forest edges"
   ],
   "source": {
     "authors": "Singer, R.",

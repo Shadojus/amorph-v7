@@ -59,7 +59,7 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "low", "typ": "Centranthus ruber", "beschreibung": "Different genus, not toxic but different properties"}
+    {"level": "low", "typ": "Centranthus ruber", "description": "Different genus, not toxic but different properties"}
   ],
   "key_differentiating_features": [
     "Strong musty odor from roots (like old socks)",

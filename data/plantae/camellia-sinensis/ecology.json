@@ -1,22 +1,22 @@
 {
   "trophic_mode_primary": "autotroph",
-  "ecological_guild": "Strauch bis Kleinbaum",
-  "primary_ecosystem_function": "Unterholzbildner",
-  "ecosystem_type": "Wald",
-  "ecosystem_subtype": "Subtropischer Regenwald",
-  "microhabitat_primary": "Waldraender",
-  "microhabitat_secondary": "Bergwaelder",
-  "light_requirement": "Halbschatten",
-  "moisture_regime": "feucht",
+  "ecological_guild": "shrub to small tree",
+  "primary_ecosystem_function": "understory former",
+  "ecosystem_type": "forest",
+  "ecosystem_subtype": "subtropical rainforest",
+  "microhabitat_primary": "forest edges",
+  "microhabitat_secondary": "mountain forests",
+  "light_requirement": "partial shade",
+  "moisture_regime": "moist",
   "drought_tolerance": {
     "rating": 3,
     "max": 10
   },
   "soil_ph_optimal_min": 4.5,
   "soil_ph_optimal_max": 5.5,
-  "soil_nutrient_preference": "sauer, humusreich",
-  "organic_matter_preference": "hoch",
-  "climate_zone": "subtropisch",
+  "soil_nutrient_preference": "acidic, humus-rich",
+  "organic_matter_preference": "high",
+  "climate_zone": "subtropical",
   "temperature_optimal_min_c": 10,
   "temperature_optimal_max_c": 30,
   "frost_tolerance": {
@@ -27,12 +27,12 @@
   "precipitation_optimal_max_mm": 2500,
   "elevation_optimal_min_m": 300,
   "elevation_optimal_max_m": 2000,
-  "native_range": "Suedchina, Nordostindien, Myanmar, Nordthailand",
+  "native_range": "Southern China, Northeast India, Myanmar, Northern Thailand",
   "iucn_global_status": {
     "status": "DD",
     "variant": "warning"
   },
   "center_of_diversity": "Yunnan, China",
-  "dispersal_vector_type": "Zoochor",
-  "dispersal_mechanism": "Vogelausbreitung (Fruechte)"
+  "dispersal_vector_type": "zoochory",
+  "dispersal_mechanism": "bird dispersal (fruits)"
 }

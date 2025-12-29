@@ -1,37 +1,37 @@
 {
   "trophic_mode_primary": "autotroph",
-  "ecological_guild": "Staude (niederliegend)",
-  "primary_ecosystem_function": "Bodendecker",
+  "ecological_guild": "Perennial (prostrate)",
+  "primary_ecosystem_function": "Ground cover",
   "secondary_ecosystem_functions": [
-    "Bestaeubungsmagnet",
-    "Erosionsschutz"
+    "Pollinator magnet",
+    "Erosion control"
   ],
-  "ecosystem_type": "Grasland",
-  "ecosystem_subtype": "Kurzrasen, Weiden",
-  "microhabitat_primary": "Kurzgrasige, sandige Standorte",
-  "microhabitat_secondary": "Wegraender, Trittrasen",
-  "light_requirement": "volle Sonne",
-  "moisture_regime": "mesisch",
+  "ecosystem_type": "Grassland",
+  "ecosystem_subtype": "Short turf, pastures",
+  "microhabitat_primary": "Short-grass, sandy sites",
+  "microhabitat_secondary": "Roadsides, trampled lawns",
+  "light_requirement": "Full sun",
+  "moisture_regime": "Mesic",
   "drought_tolerance": {
     "rating": 5,
     "max": 10
   },
   "soil_ph_optimal_min": 5.5,
   "soil_ph_optimal_max": 7.5,
-  "soil_texture_preference": "sandig-lehmig",
-  "climate_zone": "atlantisch-mediterran",
+  "soil_texture_preference": "Sandy-loamy",
+  "climate_zone": "Atlantic-Mediterranean",
   "temperature_optimal_min_c": -15,
   "temperature_optimal_max_c": 25,
   "frost_tolerance": {
     "rating": 7,
     "max": 10
   },
-  "native_range": "Westeuropa (Atlantikkueste), Nordafrika",
+  "native_range": "Western Europe (Atlantic coast), North Africa",
   "iucn_global_status": {
     "status": "LC",
     "variant": "success"
   },
-  "grazing_response": "Tolerant, profitiert von Beweidung",
-  "dispersal_vector_type": "Anemochor",
-  "dispersal_mechanism": "Windausbreitung"
+  "grazing_response": "Tolerant, benefits from grazing",
+  "dispersal_vector_type": "Anemochorous",
+  "dispersal_mechanism": "Wind dispersal"
 }

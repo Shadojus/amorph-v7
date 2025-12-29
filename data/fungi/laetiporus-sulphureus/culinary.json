@@ -4,19 +4,19 @@
     "rating": 7,
     "max": 10
   },
-  "taste_profile": "huehnchenartig, mild saeuerlich",
-  "texture": "fest, fleischig (jung)",
-  "aroma": "pilzig, obstartig",
+  "taste_profile": "chicken-like, mildly sour",
+  "texture": "firm, meaty (when young)",
+  "aroma": "mushroomy, fruity",
   "recommended_preparations": [
-    "Paniert und gebraten",
-    "Als Huehnchenersatz",
-    "Geschmort",
-    "In Suppen"
+    "Breaded and fried",
+    "As chicken substitute",
+    "Braised",
+    "In soups"
   ],
   "cooking_methods": [
-    "Braten (mindestens 20 Minuten)",
-    "Schmoren",
-    "Panieren"
+    "Frying (at least 20 minutes)",
+    "Braising",
+    "Breading"
   ],
   "cooking_time_minutes": {
     "min": 20,
@@ -26,20 +26,20 @@
   "storage_fresh_days": {
     "min": 3,
     "max": 5,
-    "unit": "Tage"
+    "unit": "days"
   },
   "storage_methods": [
-    "Gekuehlt",
-    "Einfrieren (blanchiert)",
-    "Trocknen"
+    "Refrigerated",
+    "Freezing (blanched)",
+    "Drying"
   ],
   "parts_used": [
-    "Nur junge, weiche Randteile",
-    "Aeltere Teile entsorgen"
+    "Only young, soft edge portions",
+    "Discard older parts"
   ],
-  "preparation_notes": "Von Weide oder Birke geschmacklich besser als von Eiche oder Buche. Immer gut durchgaren!",
+  "preparation_notes": "From willow or birch better flavor than from oak or beech. Always cook thoroughly!",
   "commercial_availability": {
-    "status": "gering",
+    "status": "low",
     "variant": "warning"
   },
   "market_names": [

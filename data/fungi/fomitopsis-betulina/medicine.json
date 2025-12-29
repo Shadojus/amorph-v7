@@ -1,61 +1,61 @@
 {
   "traditional_medicine_use": true,
   "traditional_medicine_systems": [
-    "Europaeische Volksmedizin",
-    "Traditionelle Russische Medizin"
+    "European Folk Medicine",
+    "Traditional Russian Medicine"
   ],
   "medicinal_status": {
-    "status": "Vitalpilz",
+    "status": "Medicinal Mushroom",
     "variant": "info"
   },
-  "historical_significance": "Der Oetzi (Gletschermumie, ca. 5300 Jahre alt) trug zwei Stuecke Birkenporling bei sich, vermutlich zur Behandlung von Darmparasiten.",
+  "historical_significance": "Oetzi (glacier mummy, approximately 5300 years old) carried two pieces of Birch Polypore with him, presumably for treating intestinal parasites.",
   "primary_medicinal_uses": [
-    "Magen-Darm-Beschwerden",
-    "Wundheilung",
-    "Entzuendungshemmung",
-    "Antiparasitaer"
+    "Gastrointestinal complaints",
+    "Wound healing",
+    "Anti-inflammatory",
+    "Antiparasitic"
   ],
   "active_compounds": [
     {
-      "name": "Agaricinsaeure",
-      "class": "Triterpensaeure",
-      "effects": ["antiparasitaer", "abfuehrend"]
+      "name": "Agaric acid",
+      "class": "Triterpene acid",
+      "effects": ["antiparasitic", "laxative"]
     },
     {
-      "name": "Polyporensaeure",
-      "class": "Triterpensaeure",
-      "effects": ["antibiotisch", "entzuendungshemmend"]
+      "name": "Polyporic acid",
+      "class": "Triterpene acid",
+      "effects": ["antibiotic", "anti-inflammatory"]
     },
     {
       "name": "Betulin",
-      "class": "Triterpen",
+      "class": "Triterpene",
       "effects": ["antiviral", "antitumoral"]
     },
     {
-      "name": "Phenolsaeuren",
-      "class": "Phenole",
-      "effects": ["antioxidativ"]
+      "name": "Phenolic acids",
+      "class": "Phenols",
+      "effects": ["antioxidant"]
     }
   ],
   "research_areas": [
-    "Antivirale Wirkung (Influenza)",
-    "Antibakterielle Wirkung",
-    "Antitumorale Wirkung",
-    "Wundheilung"
+    "Antiviral activity (Influenza)",
+    "Antibacterial activity",
+    "Antitumoral activity",
+    "Wound healing"
   ],
   "clinical_evidence_level": {
-    "status": "praeklinisch",
+    "status": "preclinical",
     "variant": "warning"
   },
-  "clinical_evidence_notes": "Zahlreiche In-vitro Studien bestaetigen antibakterielle und antivirale Aktivitaet.",
+  "clinical_evidence_notes": "Numerous in-vitro studies confirm antibacterial and antiviral activity.",
   "traditional_preparations": [
-    "Teeaufguss",
-    "Wundverband (duenne Streifen)",
-    "Pulver"
+    "Tea infusion",
+    "Wound dressing (thin strips)",
+    "Powder"
   ],
   "safety_profile": {
-    "status": "gut vertraeglich",
+    "status": "well tolerated",
     "variant": "success"
   },
-  "regulatory_status_eu": "Nahrungsergaenzungsmittel"
+  "regulatory_status_eu": "Food supplement"
 }

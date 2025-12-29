@@ -1,15 +1,15 @@
 {
   "scientific": "Cyclocybe cylindracea",
-  "description": "Cyclocybe cylindracea ist ein gut kultivierbarer Speisepilz, der auf verschiedenen Laubholz-Substraten angebaut werden kann. Er ist kommerziell erfolgreich und liefert gute Ertraege.",
+  "description": "Cyclocybe cylindracea is a well-cultivated edible mushroom that can be grown on various hardwood substrates. It is commercially successful and yields good harvests.",
   "synonyms": [
     "Agrocybe cylindracea",
     "Agrocybe aegerita",
     "Pioppino"
   ],
-  "location": "Suedeuropa, suedoestliche USA, kultiviert weltweit",
-  "habitat": "Laubholz, besonders Pappeln, Weiden, Ahorne",
-  "native_range": "Suedeuropa, suedoestliche USA",
-  "season": "Ganzjaehrig in kontrollierter Kultur",
+  "location": "Southern Europe, southeastern USA, cultivated worldwide",
+  "habitat": "Hardwood, especially poplars, willows, maples",
+  "native_range": "Southern Europe, southeastern USA",
+  "season": "Year-round in controlled cultivation",
   "seasonality": [
     {"month": 1, "active": true},
     {"month": 2, "active": true},
@@ -24,7 +24,7 @@
     {"month": 11, "active": true},
     {"month": 12, "active": true}
   ],
-  "seasonality_details": "Natuerlich Fruehling bis Spaetherbst, in Kultur ganzjaehrig",
+  "seasonality_details": "Naturally spring to late autumn, year-round in cultivation",
   "temperature": {
     "min": 10,
     "max": 27,
@@ -62,15 +62,15 @@
     ]
   },
   "cultivation_equipment_needed": [
-    "Polypropylen-Beutel oder Schalen",
-    "Sterilisationsausruestung",
-    "Klimasteuerung",
-    "Belueftungssystem"
+    "Polypropylene bags or trays",
+    "Sterilization equipment",
+    "Climate control",
+    "Ventilation system"
   ],
   "cultivation_skill_prerequisites": [
-    "Grundkenntnisse Pilzzucht",
-    "Sterilisationstechniken",
-    "Klimamanagement"
+    "Basic mushroom cultivation knowledge",
+    "Sterilization techniques",
+    "Climate management"
   ],
   "agar_culture_media": "MYPA, PDYA, OMYA, DFA",
   "spawn_run_temperature": {
@@ -149,21 +149,21 @@
     "unit": "exchanges"
   },
   "substrates": [
-    "Eichen-Saegemehl mit Zusaetzen",
-    "Erlen-Saegemehl mit Zusaetzen",
-    "Weidenholz",
-    "Pappelholz",
-    "Baumwollpappelholz",
-    "Ahornholz"
+    "Oak sawdust with supplements",
+    "Alder sawdust with supplements",
+    "Willow wood",
+    "Poplar wood",
+    "Cottonwood",
+    "Maple wood"
   ],
-  "substrate_note": "Waechst am besten auf horizontalen als auf vertikalen Oberflaechen",
+  "substrate_note": "Grows best on horizontal rather than vertical surfaces",
   "casing_required": false,
   "recommended_containers": [
-    "Polypropylen-Beutel",
-    "Schalen",
-    "Horizontale Anordnung bevorzugt"
+    "Polypropylene bags",
+    "Trays",
+    "Horizontal arrangement preferred"
   ],
-  "cropping_cycle": "Zwei Flushes, 10-14 Tage Abstand",
+  "cropping_cycle": "Two flushes, 10-14 days apart",
   "biological_efficiency": {
     "min": 80,
     "max": 100,
@@ -174,27 +174,27 @@
     "max": 1.0,
     "unit": "kg"
   },
-  "yield_note": "Bis zu 1 Pfund frische Pilze pro 5-6 Pfund sterilisiertem Substrat",
+  "yield_note": "Up to 1 pound fresh mushrooms per 5-6 pounds sterilized substrate",
   "lifecycle": [
-    {"phase": "Spawn Run", "duration": "20-28 Tage"},
-    {"phase": "Primordia Formation", "duration": "7-14 Tage"},
-    {"phase": "Fruchtkörperentwicklung", "duration": "4-6 Tage"}
+    {"phase": "Spawn Run", "duration": "20-28 days"},
+    {"phase": "Primordia Formation", "duration": "7-14 days"},
+    {"phase": "Fruiting Body Development", "duration": "4-6 days"}
   ],
-  "mycelial_characteristics": "Laengs-linear, wird watteartig, meist nicht luftig. Zuerst weiss, bald braun gefleckt, schliesslich hellbraun. Primordia bilden sich meist auf Malzextrakt-Agar.",
+  "mycelial_characteristics": "Longitudinal-linear, becomes cottony, usually not aerial. First white, soon brown-spotted, finally light brown. Primordia usually form on malt extract agar.",
   "contamination_risks": [
-    "Trichoderma (Gruenschimmel)",
-    "Bakterien",
-    "Andere Schimmelpilze"
+    "Trichoderma (green mold)",
+    "Bacteria",
+    "Other mold fungi"
   ],
-  "outdoor_cultivation": "Grosse Weiden-, Pappel- und Baumwollpappel-Stuempfe koennen massive Fruchtungen ueber viele Jahre tragen",
+  "outdoor_cultivation": "Large willow, poplar and cottonwood stumps can bear massive fruitings over many years",
   "economic_value": {
     "status": "High",
     "variant": "success"
   },
   "market_forms": [
-    "Frische Fruchtkoerper",
-    "Getrocknete Pilze",
-    "Brutsaetze"
+    "Fresh fruiting bodies",
+    "Dried mushrooms",
+    "Spawn sets"
   ],
   "source": {
     "authors": "Stamets, P.",

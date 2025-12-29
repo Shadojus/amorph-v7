@@ -1,43 +1,43 @@
 {
   "traditional_medicine": {
-    "systems": ["European_Folk_Medicine", "Arabische Medizin"],
-    "historical_use": "Paracelsus nannte sie 'Elixier des Lebens'; seit der Antike geschaetzt",
-    "traditional_indications": ["Nervositaet", "Schlafstörungen", "Verdauungsbeschwerden", "Herzbeschwerden"]
+    "systems": ["European_Folk_Medicine", "Arabic Medicine"],
+    "historical_use": "Paracelsus called it 'Elixir of Life'; valued since antiquity",
+    "traditional_indications": ["Nervousness", "Sleep disorders", "Digestive complaints", "Heart complaints"]
   },
   "pharmacopoeia_names": ["Melissae folium"],
   "who_monograph_exists": true,
   "escop_monograph_exists": true,
-  "escop_therapeutic_indication": ["Nervöse Unruhe", "Einschlafstörungen", "Dyspeptische Beschwerden"],
+  "escop_therapeutic_indication": ["Nervous restlessness", "Sleep onset disorders", "Dyspeptic complaints"],
   "german_commission_e_status": {
-    "status": "Positiv-Monographie",
+    "status": "Positive Monograph",
     "variant": "success"
   },
-  "german_commission_e_indication": ["Nervös bedingte Einschlafstörungen", "Funktionelle Magen-Darm-Beschwerden"],
+  "german_commission_e_indication": ["Nervous sleep onset disorders", "Functional gastrointestinal complaints"],
   "active_substances": [
-    "Aetherisches Oel (Citral, Citronellal)",
-    "Rosmarinsaeure",
-    "Flavonoide",
-    "Triterpene"
+    "Essential oil (Citral, Citronellal)",
+    "Rosmarinic acid",
+    "Flavonoids",
+    "Triterpenes"
   ],
   "effect_profile": [
-    {"axis": "Beruhigend", "value": 80},
-    {"axis": "Spasmolytisch", "value": 75},
+    {"axis": "Calming", "value": 80},
+    {"axis": "Spasmolytic", "value": 75},
     {"axis": "Antiviral", "value": 70},
-    {"axis": "Karminativ", "value": 70},
-    {"axis": "Anxiolytisch", "value": 75}
+    {"axis": "Carminative", "value": 70},
+    {"axis": "Anxiolytic", "value": 75}
   ],
   "therapeutic_categories": [
-    "Sedativum",
-    "Spasmolytikum",
-    "Karminativum"
+    "Sedative",
+    "Spasmolytic",
+    "Carminative"
   ],
   "evidence_level": {
     "status": "2b",
     "variant": "warning"
   },
   "clinical_studies": [
-    "Kennedy et al. 2004: Verbesserte Stimmung und kognitive Leistung",
-    "Koytchev et al. 1999: Wirksamkeit bei Herpes labialis (aeusserlich)"
+    "Kennedy et al. 2004: Improved mood and cognitive performance",
+    "Koytchev et al. 1999: Efficacy for herpes labialis (topical)"
   ],
   "safety_score": {
     "value": 95,
@@ -45,21 +45,21 @@
     "max": 100
   },
   "side_effects": [
-    {"level": "low", "typ": "Selten", "beschreibung": "Magen-Darm-Beschwerden"}
+    {"level": "low", "typ": "Rare", "description": "Gastrointestinal complaints"}
   ],
   "interactions": [
-    {"level": "low", "typ": "Schilddruese", "beschreibung": "Theoretische Wechselwirkung mit Schilddruesenmedikamenten"}
+    {"level": "low", "typ": "Thyroid", "description": "Theoretical interaction with thyroid medications"}
   ],
   "contraindications": [
-    "Schilddruesenerkrankungen (Vorsicht bei hohen Dosen)"
+    "Thyroid disorders (caution with high doses)"
   ],
   "special_populations_pregnancy": {
-    "status": "Wahrscheinlich sicher als Tee",
+    "status": "Probably safe as tea",
     "variant": "success"
   },
-  "dosage_notes": "Tee: 1.5-4.5g Blaetter; Oft in Kombination mit Baldrian; Aeusserlich: Creme bei Lippenherpes",
-  "preparation_forms": ["Tee", "Tinktur", "Extrakt", "Creme", "Aetherisches Oel"],
+  "dosage_notes": "Tea: 1.5-4.5g leaves; Often combined with valerian; Topical: Cream for cold sores",
+  "preparation_forms": ["Tea", "Tincture", "Extract", "Cream", "Essential oil"],
   "status_by_region": {
-    "eu": "Pflanzliches Arzneimittel (traditional use)"
+    "eu": "Herbal medicinal product (traditional use)"
   }
 }

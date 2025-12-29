@@ -1,65 +1,65 @@
 {
   "traditional_medicine": {
-    "systems": ["TCM", "Japanische Medizin", "Ayurveda"],
-    "historical_use": "Ueber 4700 Jahre in China als Heilgetränk und Stimulans",
-    "traditional_indications": ["Muedigkeit", "Kopfschmerzen", "Verdauungsstoerungen", "Wasserretention"]
+    "systems": ["TCM", "Japanese medicine", "Ayurveda"],
+    "historical_use": "over 4700 years in China as healing beverage and stimulant",
+    "traditional_indications": ["fatigue", "headaches", "digestive disorders", "water retention"]
   },
   "tcm_herb_name_pinyin": "Cha",
   "tcm_herb_name_chinese": "茶",
-  "tcm_nature": "kuehl (Gruentee) bis warm (Schwarztee)",
+  "tcm_nature": "cool (green tea) to warm (black tea)",
   "tcm_flavor": ["bitter", "sweet"],
   "who_monograph_exists": false,
   "active_substances": [
-    "Catechine (EGCG, EGC, ECG)",
-    "Koffein",
-    "L-Theanin",
-    "Theaflavine (Schwarztee)",
-    "Polyphenole"
+    "catechins (EGCG, EGC, ECG)",
+    "caffeine",
+    "L-theanine",
+    "theaflavins (black tea)",
+    "polyphenols"
   ],
   "effect_profile": [
-    {"axis": "Antioxidativ", "value": 95},
-    {"axis": "Stimulierend", "value": 80},
-    {"axis": "Neuroprotektiv", "value": 70},
-    {"axis": "Thermogenisch", "value": 65},
-    {"axis": "Kardiovaskulaer", "value": 75}
+    {"axis": "antioxidant", "value": 95},
+    {"axis": "stimulating", "value": 80},
+    {"axis": "neuroprotective", "value": 70},
+    {"axis": "thermogenic", "value": 65},
+    {"axis": "cardiovascular", "value": 75}
   ],
   "therapeutic_categories": [
-    "Antioxidans",
-    "Stimulans",
-    "Neuroprotektivum"
+    "antioxidant",
+    "stimulant",
+    "neuroprotective agent"
   ],
   "evidence_level": {
     "status": "1a",
     "variant": "success"
   },
-  "evidence_summary": "Umfangreiche epidemiologische Studien zeigen Zusammenhang zwischen Teekonsum und reduziertem kardiovaskulärem Risiko",
+  "evidence_summary": "extensive epidemiological studies show association between tea consumption and reduced cardiovascular risk",
   "safety_score": {
     "value": 85,
     "min": 0,
     "max": 100
   },
   "side_effects": [
-    {"level": "low", "typ": "Koffein", "beschreibung": "Schlaflosigkeit, Nervositaet, Herzklopfen"},
-    {"level": "medium", "typ": "Hohe Dosen Grunetee-Extrakt", "beschreibung": "Lebertoxizität in Einzelfällen beschrieben"}
+    {"level": "low", "type": "caffeine", "description": "insomnia, nervousness, heart palpitations"},
+    {"level": "medium", "type": "high doses green tea extract", "description": "liver toxicity reported in isolated cases"}
   ],
   "interactions": [
-    {"level": "medium", "typ": "Eisenresorption", "beschreibung": "Tanine hemmen Eisenaufnahme aus pflanzlicher Nahrung"},
-    {"level": "low", "typ": "Stimulanzien", "beschreibung": "Additive Wirkung mit anderen Koffeinquellen"}
+    {"level": "medium", "type": "iron absorption", "description": "tannins inhibit iron uptake from plant foods"},
+    {"level": "low", "type": "stimulants", "description": "additive effect with other caffeine sources"}
   ],
   "contraindications": [
-    "Koffeinempfindlichkeit",
-    "Schwere Herz-Rhythmus-Stoerungen",
-    "Angststoerungen (bei hohem Konsum)"
+    "caffeine sensitivity",
+    "severe heart rhythm disorders",
+    "anxiety disorders (with high consumption)"
   ],
   "special_populations_pregnancy": {
-    "status": "Moderater Konsum (2-3 Tassen) sicher",
+    "status": "moderate consumption (2-3 cups) safe",
     "variant": "success"
   },
-  "dosage_notes": "Gruentee: 2-4 Tassen taeglich; EGCG-Extrakt: 200-400 mg; Koffeingehalt beachten",
-  "preparation_forms": ["Aufguss (Tee)", "Matcha", "Extrakt", "Kapseln"],
+  "dosage_notes": "green tea: 2-4 cups daily; EGCG extract: 200-400 mg; consider caffeine content",
+  "preparation_forms": ["infusion (tea)", "matcha", "extract", "capsules"],
   "status_by_region": {
-    "eu": "Lebensmittel/Nahrungsergänzungsmittel",
+    "eu": "food/dietary supplement",
     "usa": "GRAS",
-    "japan": "Lebensmittel"
+    "japan": "food"
   }
 }

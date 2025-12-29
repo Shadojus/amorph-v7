@@ -16,10 +16,10 @@
     "Agaricus rufotegulis Nauta 1999"
   ],
   "common_names": [
-    "Mandel-Egerling",
-    "Sonnenpilz",
-    "Lebenspilz",
-    "Brasilianischer Mandel-Egerling",
+    "Almond Mushroom",
+    "Sun Mushroom",
+    "Life Mushroom",
+    "Brazilian Almond Mushroom",
     "Almond Portobello",
     "King Agaricus"
   ],
@@ -35,12 +35,12 @@
     "variant": "success"
   },
   "quick_id_checklist": [
-    {"step": 1, "label": "Intensiver Mandelgeruch", "status": "pending"},
-    {"step": 2, "label": "Hut 7-25 cm, hellbraun bis rotbraun", "status": "pending"},
-    {"step": 3, "label": "Oberflaeche mit braunen faserigen Schuppen", "status": "pending"},
-    {"step": 4, "label": "Lamellen erst blass, dann grau, zuletzt schokoladenbraun", "status": "pending"},
-    {"step": 5, "label": "Fleisch verfaerbt sich gelblich bei Verletzung", "status": "pending"},
-    {"step": 6, "label": "Duenner, vergaenglicher Ring", "status": "pending"}
+    {"step": 1, "label": "Intense almond smell", "status": "pending"},
+    {"step": 2, "label": "Cap 7-25 cm, light brown to reddish-brown", "status": "pending"},
+    {"step": 3, "label": "Surface with brown fibrous scales", "status": "pending"},
+    {"step": 4, "label": "Gills first pale, then gray, finally chocolate-brown", "status": "pending"},
+    {"step": 5, "label": "Flesh turns yellowish when damaged", "status": "pending"},
+    {"step": 6, "label": "Thin, ephemeral ring", "status": "pending"}
   ],
   "identification_difficulty": {
     "status": "Moderate",
@@ -48,32 +48,32 @@
   },
   "time_to_identify_minutes": 10,
   "minimum_equipment_needed": [
-    "Keine Ausruestung erforderlich",
-    "Optional: Lupe fuer Oberflaeche"
+    "No equipment required",
+    "Optional: magnifying glass for surface"
   ],
   "field_identifiable": true,
   "confusion_species_list": [
-    "Agaricus silvaticus (Wald-Egerling)",
+    "Agaricus silvaticus (Wood Mushroom)",
     "Agaricus cappellianus",
     "Agaricus langei",
-    "Agaricus moelleri (Karbol-Egerling - unvertraeglich)"
+    "Agaricus moelleri (Inky Mushroom - indigestible)"
   ],
   "confusion_risk_level": {
     "status": "Medium",
     "variant": "warning"
   },
   "confusion_consequences": [
-    {"level": "low", "typ": "Agaricus silvaticus", "beschreibung": "Essbar, aehnliche Erscheinung, weniger intensives Mandelaroma"},
-    {"level": "medium", "typ": "Agaricus moelleri", "beschreibung": "Karbolgeruch statt Mandelgeruch, verursacht Magen-Darm-Beschwerden"}
+    {"level": "low", "typ": "Agaricus silvaticus", "description": "Edible, similar appearance, less intense almond aroma"},
+    {"level": "medium", "typ": "Agaricus moelleri", "description": "Carbolic smell instead of almond smell, causes gastrointestinal complaints"}
   ],
   "key_differentiating_features": [
-    "Charakteristischer intensiver Mandelgeruch",
-    "Fleisch verfaerbt sich gelblich (ockerfarben) bei Verletzung",
-    "Braune faserige Schuppen auf dem Hut",
-    "Duenner, schnell vergaenglicher Ring"
+    "Characteristic intense almond smell",
+    "Flesh turns yellowish (ochre) when damaged",
+    "Brown fibrous scales on cap",
+    "Thin, quickly ephemeral ring"
   ],
-  "habit": "Terrestrisch, saprotroph",
-  "growth_form": "Einzeln oder in Buescheln",
+  "habit": "Terrestrial, saprotrophic",
+  "growth_form": "Solitary or in clusters",
   "symmetry": "radial",
   "size_range": {
     "min": 7,
@@ -81,7 +81,7 @@
     "unit": "cm"
   },
   "size_typical_cm": 15,
-  "basic_shape": "Hutpilz mit zentralem Stiel und Ring",
+  "basic_shape": "Cap mushroom with central stipe and ring",
   "height": {
     "min": 8,
     "max": 20,
@@ -92,26 +92,26 @@
     "max": 25,
     "unit": "cm"
   },
-  "surface_type": "Mit braunen faserigen Schuppen bedeckt",
-  "color_primary": "Hellbraun bis rotbraun",
-  "color_secondary": "Weiss (Stiel), Schokoladenbraun (Lamellen reif)",
+  "surface_type": "Covered with brown fibrous scales",
+  "color_primary": "Light brown to reddish-brown",
+  "color_secondary": "White (stipe), chocolate-brown (mature gills)",
   "color_variations": [
-    "Jung: Blass mit braunen Schuppen",
-    "Reif: Dunkler, rotbraun"
+    "Young: Pale with brown scales",
+    "Mature: Darker, reddish-brown"
   ],
   "primary_structure_present": true,
-  "primary_structure_type": "Hut (Pileus)",
+  "primary_structure_type": "Cap (Pileus)",
   "primary_structure_diameter": {
     "min": 7,
     "max": 25,
     "unit": "cm"
   },
-  "primary_structure_shape_young": "Konvex, bald halbkugelig",
-  "primary_structure_shape_mature": "Breit konvex bis flach",
-  "primary_structure_surface": "Mit braunen faserigen Schuppen bedeckt",
-  "primary_structure_color": "Hellbraun bis dunkelrotbraun",
+  "primary_structure_shape_young": "Convex, soon hemispherical",
+  "primary_structure_shape_mature": "Broadly convex to flat",
+  "primary_structure_surface": "Covered with brown fibrous scales",
+  "primary_structure_color": "Light brown to dark reddish-brown",
   "support_structure_present": true,
-  "support_structure_type": "Stiel (Stipe)",
+  "support_structure_type": "Stipe",
   "support_structure_length": {
     "min": 6,
     "max": 15,
@@ -122,26 +122,26 @@
     "max": 3,
     "unit": "cm"
   },
-  "support_structure_shape": "Zylindrisch, voll, hoch",
-  "support_structure_color": "Weisslich, glatt",
+  "support_structure_shape": "Cylindrical, solid, tall",
+  "support_structure_color": "Whitish, smooth",
   "ring_present": true,
-  "ring_type": "Duenn, haengend, schnell vergaenglich",
-  "ring_position": "Mittleres bis oberes Stieldrittel",
+  "ring_type": "Thin, pendant, quickly ephemeral",
+  "ring_position": "Middle to upper third of stipe",
   "lamellae_present": true,
-  "lamellae_attachment": "Frei",
-  "lamellae_density": "Eng stehend",
-  "lamellae_color": "Erst blass, dann grau, zuletzt schokoladenbraun",
-  "spore_print_color": "Dunkelviolett-schokoladenbraun",
-  "smell_description": "Intensiv nach Mandeln, pilzig",
-  "smell_comparable_to": "Marzipan, Mandeln, leicht muffig, gruene Nuesse",
+  "lamellae_attachment": "Free",
+  "lamellae_density": "Crowded",
+  "lamellae_color": "First pale, then gray, finally chocolate-brown",
+  "spore_print_color": "Dark violet-chocolate-brown",
+  "smell_description": "Intensely almond-like, mushroomy",
+  "smell_comparable_to": "Marzipan, almonds, slightly musty, green nuts",
   "taste_safe_to_test": true,
-  "taste_description": "Suess, mild, leicht muffig, nach gruenen Nuessen",
+  "taste_description": "Sweet, mild, slightly musty, like green nuts",
   "microscopy_required": false,
   "microscopy_key_features": [
-    "Sporen 5.5-7.5 x 4-5 um",
-    "Dunkelviolett-schokoladenbraun",
-    "Basidien viersporig",
-    "Heterothallisches Paarungssystem"
+    "Spores 5.5-7.5 x 4-5 um",
+    "Dark violet-chocolate-brown",
+    "Basidia four-spored",
+    "Heterothallic mating system"
   ],
   "spore_measurement_diagnostic": {
     "min": 5.5,
@@ -149,26 +149,26 @@
     "unit": "um"
   },
   "appearance_by_season": {
-    "spring": "Moeglich in waermeren Regionen",
-    "summer": "Hauptsaison",
-    "autumn": "Bis Spaetherbst",
-    "winter": "Nur im Gewaechshaus"
+    "spring": "Possible in warmer regions",
+    "summer": "Main season",
+    "autumn": "Until late autumn",
+    "winter": "Only in greenhouse"
   },
   "season_peak_months": [6, 7, 8, 9, 10],
   "age_stage_variations": [
-    {"phase": "Primordia", "duration": "18-24 Tage"},
-    {"phase": "Junge Fruchtkörper", "duration": "3-4 Tage"},
-    {"phase": "Reif", "duration": "4-8 Tage"},
-    {"phase": "Ueberreif", "duration": "2-3 Tage"}
+    {"phase": "Primordia", "duration": "18-24 days"},
+    {"phase": "Young fruiting bodies", "duration": "3-4 days"},
+    {"phase": "Mature", "duration": "4-8 days"},
+    {"phase": "Overmature", "duration": "2-3 days"}
   ],
   "nutrition_type": "Saprotroph",
-  "nutrition_type_detail": "Sekundaerer Zersetzer, liebt gut kompostierte, stickstoffreiche Substrate",
+  "nutrition_type_detail": "Secondary decomposer, prefers well-composted, nitrogen-rich substrates",
   "substrate_species": [
-    "Gut kompostierte Erde",
-    "Naehrstoffreicher Boden",
-    "Kompost",
-    "Mischwaldboeden",
-    "Waldraender"
+    "Well-composted soil",
+    "Nutrient-rich soil",
+    "Compost",
+    "Mixed forest soils",
+    "Forest edges"
   ],
   "source": {
     "authors": "Stamets, P.",

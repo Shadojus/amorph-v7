@@ -60,7 +60,7 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "low", "typ": "Other Artemisia species", "beschreibung": "Similar uses, different chemical profiles"}
+    {"level": "low", "type": "other Artemisia species", "description": "similar uses, different chemical profiles"}
   ],
   "key_differentiating_features": [
     "Distinctly silvery-grey color",

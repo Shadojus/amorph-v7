@@ -15,10 +15,10 @@
   ],
   "common_names": [
     "Nameko",
-    "Japanisches Stockschwaemmchen",
-    "Toskanapilz",
-    "Goldkaeppchen",
-    "Klebriger Schueppling"
+    "Japanese Honey Fungus",
+    "Tuscan Mushroom",
+    "Golden Cap",
+    "Sticky Pholiota"
   ],
   "size_range": {
     "min": 3,
@@ -26,34 +26,34 @@
     "unit": "cm"
   },
   "color_primary": "orange",
-  "color_secondary": "bernsteinfarben",
-  "smell_description": "Mehlartig, muffig",
-  "taste_description": "Mild, mehlartig",
+  "color_secondary": "amber-colored",
+  "smell_description": "Floury, musty",
+  "taste_description": "Mild, floury",
   "primary_structure_present": true,
-  "primary_structure_type": "Hut",
+  "primary_structure_type": "Cap",
   "primary_structure_diameter": {
     "min": 3,
     "max": 8,
     "unit": "cm"
   },
-  "primary_structure_shape_young": "halbkugelig",
-  "primary_structure_shape_mature": "konvex bis flach",
-  "primary_structure_surface": "schleimig, klebrig",
-  "primary_structure_color": "orange, bernsteinfarben",
+  "primary_structure_shape_young": "hemispherical",
+  "primary_structure_shape_mature": "convex to flat",
+  "primary_structure_surface": "slimy, sticky",
+  "primary_structure_color": "orange, amber-colored",
   "support_structure_present": true,
-  "support_structure_type": "Stiel",
+  "support_structure_type": "Stipe",
   "support_structure_length": {
     "min": 5,
     "max": 8,
     "unit": "cm"
   },
   "veil_present": true,
-  "veil_type": "schleimig-haeutig",
-  "veil_color": "gelblich",
+  "veil_type": "slimy-membranous",
+  "veil_color": "yellowish",
   "lamellae_present": true,
-  "lamellae_color": "weiss bis gelb, dann braun",
-  "tissue_color": "weiss",
-  "propagule_color": "zimtbraun",
+  "lamellae_color": "white to yellow, then brown",
+  "tissue_color": "white",
+  "propagule_color": "cinnamon-brown",
   "propagule_length": {
     "min": 4,
     "max": 7,
@@ -78,7 +78,7 @@
     "variant": "success"
   },
   "key_differentiating_features": [
-    "Charakteristischer oranger Schleim",
-    "Bernsteinfarben, klebrig"
+    "Characteristic orange slime",
+    "Amber-colored, sticky"
   ]
 }

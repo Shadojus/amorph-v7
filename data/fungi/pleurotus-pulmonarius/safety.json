@@ -8,7 +8,7 @@
     "max": 100,
     "unit": "%"
   },
-  "safety_edibility_notes": "Guter Speisepilz. Enthaelt Haemolysine, die durch Erhitzen zerstoert werden. Immer gut durchgaren!",
+  "safety_edibility_notes": "Good edible mushroom. Contains hemolysins that are destroyed by heating. Always cook thoroughly!",
   "safety_potentially_deadly": false,
   "safety_toxicity_score": {
     "value": 15,
@@ -24,8 +24,8 @@
     "status": "caution",
     "variant": "warning"
   },
-  "safety_warning_text": "Nie roh essen! Enthaelt blutzersetzende Haemolysine, die durch Hitze zerstoert werden.",
-  "safety_summary": "Guter Speisepilz, muss aber gut durchgegart werden.",
+  "safety_warning_text": "Never eat raw! Contains blood-destroying hemolysins that are destroyed by heat.",
+  "safety_summary": "Good edible mushroom, but must be cooked thoroughly.",
   "confusion_risk_level": {
     "status": "low",
     "variant": "success"

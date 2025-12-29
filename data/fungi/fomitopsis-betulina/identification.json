@@ -13,11 +13,10 @@
     "Boletus betulinus"
   ],
   "common_names": [
-    "Birkenporling",
-    "Birkenzungenporling",
-    "Birkenschwamm",
-    "Oetzipilz",
     "Birch Polypore",
+    "Birch Bracket",
+    "Birch Sponge",
+    "Oetzi Mushroom",
     "Razor Strop Fungus"
   ],
   "size_range": {
@@ -25,28 +24,28 @@
     "max": 30,
     "unit": "cm"
   },
-  "color_primary": "weisslich-cremefarben",
-  "color_secondary": "braun",
-  "smell_description": "Saeuerlich, an gruene Aepfel erinnernd",
-  "taste_description": "Sauer, bitter",
+  "color_primary": "whitish-cream",
+  "color_secondary": "brown",
+  "smell_description": "Acidic, reminiscent of green apples",
+  "taste_description": "Sour, bitter",
   "primary_structure_present": true,
-  "primary_structure_type": "Konsole",
+  "primary_structure_type": "Bracket",
   "primary_structure_diameter": {
     "min": 3,
     "max": 30,
     "unit": "cm"
   },
-  "primary_structure_shape_young": "kugelig-knollig",
-  "primary_structure_shape_mature": "kissenfoermig",
-  "primary_structure_surface": "glatt, spaeter rissig",
-  "primary_structure_color": "weisslich bis braun",
+  "primary_structure_shape_young": "spherical-bulbous",
+  "primary_structure_shape_mature": "cushion-shaped",
+  "primary_structure_surface": "smooth, later cracked",
+  "primary_structure_color": "whitish to brown",
   "tubes_present": true,
-  "tubes_color": "weisslich bis hellgelb",
-  "pores_size": "2-4 pro mm",
-  "pores_color": "weisslich bis ockerbraun",
-  "tissue_color": "weiss",
-  "tissue_consistency": "jung weich, alt korkartig",
-  "propagule_color": "weiss",
+  "tubes_color": "whitish to pale yellow",
+  "pores_size": "2-4 per mm",
+  "pores_color": "whitish to ochre-brown",
+  "tissue_color": "white",
+  "tissue_consistency": "young soft, old cork-like",
+  "propagule_color": "white",
   "propagule_length": {
     "min": 5,
     "max": 7,
@@ -57,7 +56,7 @@
     "max": 2,
     "unit": "um"
   },
-  "propagule_shape": "wuerstchenfoermig, gebogen",
+  "propagule_shape": "sausage-shaped, curved",
   "confusion_species_list": [
     "Fomitiporia robusta",
     "Ganoderma adspersum"
@@ -72,8 +71,8 @@
     "variant": "success"
   },
   "key_differentiating_features": [
-    "Waechst NUR auf Birke",
-    "Weisse, kissenfoermige Konsole",
-    "Apfelaertiger Geruch"
+    "Grows ONLY on birch",
+    "White, cushion-shaped bracket",
+    "Apple-like smell"
   ]
 }

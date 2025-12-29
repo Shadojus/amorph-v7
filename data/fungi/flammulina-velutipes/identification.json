@@ -13,49 +13,47 @@
     "Agaricus velutipes"
   ],
   "common_names": [
-    "Samtfussruebling",
-    "Gemeiner Samtfussruebling",
-    "Winterruebling",
-    "Enoki",
-    "Enokitake",
+    "Velvet Foot",
+    "Velvet Shank",
     "Winter Mushroom",
-    "Velvet Foot"
+    "Enoki",
+    "Enokitake"
   ],
   "size_range": {
     "min": 1,
     "max": 5,
     "unit": "cm"
   },
-  "color_primary": "gelborange",
-  "color_secondary": "gelbbraun",
-  "smell_description": "Pilzartig, angenehm",
-  "taste_description": "Pilzartig, mild suesslich",
+  "color_primary": "yellow-orange",
+  "color_secondary": "yellow-brown",
+  "smell_description": "Mushroomy, pleasant",
+  "taste_description": "Mushroomy, mildly sweet",
   "primary_structure_present": true,
-  "primary_structure_type": "Hut",
+  "primary_structure_type": "Cap",
   "primary_structure_diameter": {
     "min": 1,
     "max": 5,
     "unit": "cm"
   },
-  "primary_structure_shape_young": "konvex",
-  "primary_structure_shape_mature": "flach",
-  "primary_structure_surface": "glatt, schleimig bei Feuchtigkeit",
-  "primary_structure_color": "gelbbraun bis orangebraun",
+  "primary_structure_shape_young": "convex",
+  "primary_structure_shape_mature": "flat",
+  "primary_structure_surface": "smooth, slimy when moist",
+  "primary_structure_color": "yellow-brown to orange-brown",
   "support_structure_present": true,
-  "support_structure_type": "Stiel",
+  "support_structure_type": "Stem",
   "support_structure_length": {
     "min": 2,
     "max": 8,
     "unit": "cm"
   },
-  "support_structure_shape": "zylindrisch, oft gebogen",
-  "support_structure_color": "gelbbraun, zur Basis dunkelbraun",
-  "support_structure_surface": "samtig behaart",
-  "tissue_color": "weiss bis hellgelb",
+  "support_structure_shape": "cylindrical, often curved",
+  "support_structure_color": "yellow-brown, dark brown toward base",
+  "support_structure_surface": "velvety hairy",
+  "tissue_color": "white to pale yellow",
   "lamellae_present": true,
-  "lamellae_attachment": "angewachsen",
-  "lamellae_color": "weiss bis gelb",
-  "propagule_color": "weiss",
+  "lamellae_attachment": "adnate",
+  "lamellae_color": "white to yellow",
+  "propagule_color": "white",
   "propagule_length": {
     "min": 6,
     "max": 8,
@@ -82,8 +80,8 @@
     "variant": "warning"
   },
   "key_differentiating_features": [
-    "Samtig behaarter Stiel",
-    "Wachstum im Winter",
-    "Schleimiger Hut bei Feuchtigkeit"
+    "Velvety hairy stem",
+    "Growth in winter",
+    "Slimy cap when moist"
   ]
 }

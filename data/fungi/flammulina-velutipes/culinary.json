@@ -4,20 +4,20 @@
     "rating": 7,
     "max": 10
   },
-  "taste_profile": "mild, leicht suesslich, pilzartig",
-  "texture": "fest, leicht knusprig bei schnellem Garen",
-  "aroma": "dezent pilzartig",
+  "taste_profile": "mild, slightly sweet, mushroomy",
+  "texture": "firm, slightly crispy when cooked quickly",
+  "aroma": "subtle mushroomy",
   "recommended_preparations": [
-    "Suppen",
-    "Wok-Gerichte",
-    "Salate",
+    "Soups",
+    "Wok dishes",
+    "Salads",
     "Hot Pot"
   ],
   "cooking_methods": [
-    "Kurz anbraten",
-    "Blanchieren",
-    "In Suppen kochen",
-    "Roh in Salaten (kultivierte Form)"
+    "Brief sauteing",
+    "Blanching",
+    "Cooking in soups",
+    "Raw in salads (cultivated form)"
   ],
   "cooking_time_minutes": {
     "min": 2,
@@ -27,35 +27,35 @@
   "storage_fresh_days": {
     "min": 5,
     "max": 10,
-    "unit": "Tage"
+    "unit": "days"
   },
   "storage_methods": [
-    "Gekuehlt bei 2-4 Grad Celsius",
-    "Trocknen",
-    "Einfrieren nach Blanchieren"
+    "Refrigerated at 2-4 degrees Celsius",
+    "Drying",
+    "Freezing after blanching"
   ],
   "parts_used": [
-    "Ganzer Fruchtkoerper",
-    "Bei Wild-Exemplaren Stiel oft zaeh"
+    "Whole fruiting body",
+    "Wild specimens often have tough stems"
   ],
   "cuisine_traditions": [
-    "Japanische Kueche",
-    "Chinesische Kueche",
-    "Koreanische Kueche"
+    "Japanese cuisine",
+    "Chinese cuisine",
+    "Korean cuisine"
   ],
   "commercial_availability": {
-    "status": "hoch",
+    "status": "high",
     "variant": "success"
   },
-  "cultivation_scale": "industriell",
+  "cultivation_scale": "industrial",
   "market_names": [
     "Enoki",
     "Enokitake",
     "Golden Needle Mushroom"
   ],
   "nutritional_highlights": [
-    "Reich an Vitaminen B1, B2, B3",
-    "Hoher Proteingehalt (17-31%)",
-    "Niedriger Fettgehalt"
+    "Rich in vitamins B1, B2, B3",
+    "High protein content (17-31%)",
+    "Low fat content"
   ]
 }

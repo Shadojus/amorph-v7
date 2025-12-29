@@ -14,11 +14,11 @@
     "Grifola albicans"
   ],
   "common_names": [
-    "Klapperschwamm",
+    "Hen of the Woods",
     "Maitake",
-    "Spatelhuetige Porling",
-    "Laubporling",
-    "Graue Gans",
+    "Spatulate Polypore",
+    "Leaf Polypore",
+    "Grey Goose",
     "Hen-of-the-Woods",
     "Dancing Mushroom"
   ],
@@ -32,25 +32,25 @@
     "max": 20,
     "unit": "kg"
   },
-  "color_primary": "graubraun",
-  "color_secondary": "hellgrau",
-  "smell_description": "Pilzig, mehlartig, suesslich",
-  "taste_description": "Mild, nussig",
+  "color_primary": "gray-brown",
+  "color_secondary": "light gray",
+  "smell_description": "Mushroomy, floury, sweet",
+  "taste_description": "Mild, nutty",
   "primary_structure_present": true,
-  "primary_structure_type": "vielfach verzweigt",
+  "primary_structure_type": "multi-branched",
   "primary_structure_diameter": {
     "min": 2,
     "max": 10,
     "unit": "cm"
   },
-  "primary_structure_shape_mature": "faecherfoermig, spatelfoermig",
-  "primary_structure_surface": "fein behaart, faserig",
-  "primary_structure_color": "graubraun, im Alter heller",
+  "primary_structure_shape_mature": "fan-shaped, spatulate",
+  "primary_structure_surface": "finely hairy, fibrous",
+  "primary_structure_color": "gray-brown, lighter with age",
   "tubes_present": true,
-  "pores_color": "weiss",
-  "pores_attachment": "herablaufend",
-  "tissue_color": "hellbraun",
-  "propagule_color": "weiss",
+  "pores_color": "white",
+  "pores_attachment": "decurrent",
+  "tissue_color": "light brown",
+  "propagule_color": "white",
   "propagule_length": {
     "min": 6,
     "max": 7,
@@ -61,7 +61,7 @@
     "max": 5,
     "unit": "um"
   },
-  "propagule_shape": "elliptisch",
+  "propagule_shape": "elliptical",
   "confusion_species_list": [
     "Polyporus umbellatus",
     "Meripilus giganteus",
@@ -77,8 +77,8 @@
     "variant": "warning"
   },
   "key_differentiating_features": [
-    "Vielfach verzweigter Fruchtkoerper",
-    "Graubraune, spatelfoermige Huete",
-    "Waechst an Eichen-Basis"
+    "Multi-branched fruiting body",
+    "Gray-brown, spatulate caps",
+    "Grows at oak base"
   ]
 }

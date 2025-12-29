@@ -1,61 +1,61 @@
 {
   "scientific": "Trametes versicolor",
   "trophic_mode_primary": "Saprotroph",
-  "trophic_mode_secondary": "Fakultativ parasitisch",
+  "trophic_mode_secondary": "Facultatively parasitic",
   "trophic_flexibility": {
     "status": "High",
     "variant": "success"
   },
-  "trophic_notes": "Primaer ein Weissfaeule-Erreger, der Lignin in Totholz abbaut. Kann auch geschwächte lebende Baeume befallen.",
-  "decomposer_type": "Primaerzersetzer (Weissfaeule)",
+  "trophic_notes": "Primarily a white rot fungus that degrades lignin in deadwood. Can also attack weakened living trees.",
+  "decomposer_type": "Primary decomposer (White rot)",
   "lignin_degradation_capability": true,
   "cellulose_degradation_capability": true,
   "wood_decay_type": "White rot",
-  "ecological_guild": "Holzzersetzer",
-  "guild_evidence": "Fruchtkoerper wachsen ausschliesslich auf Holz, enzymatische Studien bestaetigen Ligninabbau",
-  "primary_ecosystem_function": "Holzabbau und Naehrstoffrecycling",
+  "ecological_guild": "Wood decomposer",
+  "guild_evidence": "Fruiting bodies grow exclusively on wood, enzymatic studies confirm lignin degradation",
+  "primary_ecosystem_function": "Wood decomposition and nutrient recycling",
   "secondary_ecosystem_functions": [
-    "Kohlenstoffkreislauf",
-    "Habitatbildung fuer Insekten"
+    "Carbon cycling",
+    "Habitat formation for insects"
   ],
-  "ecosystem_type": "Wald",
-  "ecosystem_subtype": "Laub- und Mischwald",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Deciduous and mixed forest",
   "association_strength": {
     "status": "Strong",
     "variant": "success"
   },
-  "dominant_vegetation_type": "Laubwald",
+  "dominant_vegetation_type": "Deciduous forest",
   "associated_plant_families": [
-    "Fagaceae (Buchengewaechse)",
-    "Betulaceae (Birkengewaechse)",
-    "Salicaceae (Weidengewaechse)"
+    "Fagaceae (Beech family)",
+    "Betulaceae (Birch family)",
+    "Salicaceae (Willow family)"
   ],
   "associated_plant_genera": [
-    "Fagus (Buchen)",
-    "Quercus (Eichen)",
-    "Betula (Birken)",
-    "Salix (Weiden)",
-    "Populus (Pappeln)"
+    "Fagus (Beeches)",
+    "Quercus (Oaks)",
+    "Betula (Birches)",
+    "Salix (Willows)",
+    "Populus (Poplars)"
   ],
-  "microhabitat_primary": "Totes Laubholz",
-  "microhabitat_secondary": "Stuempfe, gefallene Staemme, Aeste",
+  "microhabitat_primary": "Dead hardwood",
+  "microhabitat_secondary": "Stumps, fallen trunks, branches",
   "substrate_specificity": {
     "status": "Moderate",
     "variant": "info"
   },
-  "substrate_type_primary": "Totholz von Laubbaeumen",
+  "substrate_type_primary": "Deadwood of deciduous trees",
   "substrate_types_secondary": [
-    "Stuempfe",
-    "Gefallene Staemme",
-    "Grosse Aeste",
-    "Selten Nadelholz"
+    "Stumps",
+    "Fallen trunks",
+    "Large branches",
+    "Rarely coniferous wood"
   ],
-  "light_requirement": "Schatten bis Halbschatten",
+  "light_requirement": "Shade to partial shade",
   "elevation_minimum_m": 0,
   "elevation_maximum_m": 2500,
   "elevation_optimal_min_m": 0,
   "elevation_optimal_max_m": 1500,
-  "moisture_regime": "Mesisch",
+  "moisture_regime": "Mesic",
   "flooding_tolerance": {
     "rating": 4,
     "max": 10
@@ -68,12 +68,12 @@
   "soil_ph_optimal_min": 5.5,
   "soil_ph_optimal_max": 7.0,
   "soil_ph_maximum": 8.0,
-  "climate_zone": "Temperat bis subtropisch",
+  "climate_zone": "Temperate to subtropical",
   "temperature_minimum_mean_c": -10,
   "temperature_optimal_min_c": 15,
   "temperature_optimal_max_c": 25,
   "temperature_maximum_mean_c": 35,
-  "seasonality_preference": "Ganzjaehrig",
+  "seasonality_preference": "Year-round",
   "disturbance_response": "Opportunist",
   "temp_fruiting_minimum_c": 5,
   "temp_fruiting_optimum_c": 20,
@@ -92,8 +92,8 @@
     "max": 10
   },
   "fruiting_triggers": [
-    "Ausreichende Feuchtigkeit",
-    "Vorhandensein geeigneten Substrats"
+    "Sufficient moisture",
+    "Presence of suitable substrate"
   ],
   "mycelial_activity_season": [
     {"month": 1, "active": true},
@@ -117,26 +117,26 @@
     "status": "Stable",
     "variant": "info"
   },
-  "native_range": "Weltweit in temperaten Regionen",
-  "global_distribution": "Kosmopolitisch",
+  "native_range": "Worldwide in temperate regions",
+  "global_distribution": "Cosmopolitan",
   "consumer_insects": [
-    "Holzbewohnende Kaefer",
-    "Pilzmuecken"
+    "Wood-dwelling beetles",
+    "Fungus gnats"
   ],
   "dispersal_vector_type": "Wind",
-  "dispersal_mechanism": "Sporenfreisetzung durch Poren",
+  "dispersal_mechanism": "Spore release through pores",
   "bioremediation_potential": true,
   "bioremediation_targets": [
-    "Lignin-haltige Abfaelle",
-    "Holzabfaelle"
+    "Lignin-containing waste",
+    "Wood waste"
   ],
   "citizen_science_suitability": {
     "rating": 8,
     "max": 10
   },
   "photo_identification_reliable": true,
-  "optimal_survey_method": "Visuelle Suche auf Totholz",
-  "survey_timing_optimal": "Ganzjaehrig moeglich",
+  "optimal_survey_method": "Visual search on deadwood",
+  "survey_timing_optimal": "Possible year-round",
   "ecology_data_quality_score": {
     "rating": 9,
     "max": 10

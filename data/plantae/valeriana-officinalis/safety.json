@@ -23,8 +23,8 @@
     "Avoid driving after taking"
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal use", "beschreibung": "Safe as sleep aid"},
-    {"level": "low", "typ": "High doses", "beschreibung": "Headache, upset stomach, morning grogginess"}
+    {"level": "none", "typ": "Normal use", "description": "Safe as sleep aid"},
+    {"level": "low", "typ": "High doses", "description": "Headache, upset stomach, morning grogginess"}
   ],
   "fatality_rate": {
     "value": 0,

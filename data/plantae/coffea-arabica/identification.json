@@ -59,7 +59,7 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "none", "typ": "Other Coffea species", "beschreibung": "All coffee species produce usable beans"}
+    {"level": "none", "type": "Other Coffea species", "description": "All coffee species produce usable beans"}
   ],
   "key_differentiating_features": [
     "Leaves smaller than Robusta (5-12 cm)",

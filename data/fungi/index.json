@@ -2,20 +2,20 @@
   "kingdom": "fungi",
   "name": "Fungi",
   "icon": "🍄",
-  "tagline": "Das verborgene Königreich",
+  "tagline": "The Hidden Kingdom",
   "color": "#8B4513",
   "count": 27,
   "featured": [
     {
       "slug": "hericium-erinaceus",
-      "name": "Igelstachelbart",
+      "name": "Lion's Mane",
       "scientific_name": "Hericium erinaceus",
-      "tagline": "Neuroregeneration · Geschützt · Aug–Nov",
+      "tagline": "Neuroregeneration · Protected · Aug–Nov",
       "image": "Hericium_erinaceus.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "VU",
           "variant": "warning"
         }
@@ -23,31 +23,31 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "5–40 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
-          "value": "weiss"
+          "label": "Color",
+          "value": "white"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         }
       ]
     },
     {
       "slug": "grifola-frondosa",
-      "name": "Klapperschwamm",
+      "name": "Hen of the Woods",
       "scientific_name": "Grifola frondosa",
-      "tagline": "Immunstimulation · Aug–Nov",
+      "tagline": "Immune Stimulation · Aug–Nov",
       "image": "Grifola_frondosa.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -55,18 +55,18 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "10–60 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
-          "value": "graubraun"
+          "label": "Color",
+          "value": "grey-brown"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         }
       ]
     },
@@ -74,12 +74,12 @@
       "slug": "inonotus-obliquus",
       "name": "Chaga",
       "scientific_name": "Inonotus obliquus",
-      "tagline": "Antioxidativ · Geschützt · Jan–Dez",
+      "tagline": "Antioxidant · Protected · Jan–Dec",
       "image": "Inonotus_obliquus.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "VU",
           "variant": "warning"
         }
@@ -87,31 +87,31 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "4–50 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
-          "value": "schwarz"
+          "label": "Color",
+          "value": "black"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         }
       ]
     },
     {
       "slug": "ganoderma-lucidum",
-      "name": "Glaenzender Lackporling",
+      "name": "Reishi",
       "scientific_name": "Ganoderma lucidum",
-      "tagline": "Immunmodulation · Jun–Okt",
+      "tagline": "Immune Modulation · Jun–Oct",
       "image": "Ganoderma_lucidum.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -119,18 +119,18 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "5–25 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
-          "value": "rotbraun"
+          "label": "Color",
+          "value": "red-brown"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         }
       ]
     },
@@ -138,12 +138,12 @@
       "slug": "lentinula-edodes",
       "name": "Shiitake",
       "scientific_name": "Lentinula edodes",
-      "tagline": "Immunstimulation · Apr–Nov",
+      "tagline": "Immune Stimulation · Apr–Nov",
       "image": "Lentinula_edodes.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "neutral"
         }
@@ -151,18 +151,18 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "5–25 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
-          "value": "dunkelbraun"
+          "label": "Color",
+          "value": "dark brown"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         }
       ]
     }
@@ -170,14 +170,14 @@
   "species": [
     {
       "slug": "hericium-erinaceus",
-      "name": "Igelstachelbart",
+      "name": "Lion's Mane",
       "scientific_name": "Hericium erinaceus",
-      "tagline": "Neuroregeneration · Geschützt · Aug–Nov",
+      "tagline": "Neuroregeneration · Protected · Aug–Nov",
       "image": "Hericium_erinaceus.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "VU",
           "variant": "warning"
         }
@@ -197,14 +197,14 @@
     },
     {
       "slug": "grifola-frondosa",
-      "name": "Klapperschwamm",
+      "name": "Hen of the Woods",
       "scientific_name": "Grifola frondosa",
-      "tagline": "Immunstimulation · Aug–Nov",
+      "tagline": "Immune Stimulation · Aug–Nov",
       "image": "Grifola_frondosa.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -226,17 +226,17 @@
       "slug": "inonotus-obliquus",
       "name": "Chaga",
       "scientific_name": "Inonotus obliquus",
-      "tagline": "Antioxidativ · Geschützt · Jan–Dez",
+      "tagline": "Antioxidant · Protected · Jan–Dec",
       "image": "Inonotus_obliquus.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "VU",
           "variant": "warning"
         }
       ],
-      "season": "Jan–Dez",
+      "season": "Jan–Dec",
       "perspectives": [
         "ecology",
         "identification",
@@ -250,19 +250,19 @@
     },
     {
       "slug": "ganoderma-lucidum",
-      "name": "Glaenzender Lackporling",
+      "name": "Reishi",
       "scientific_name": "Ganoderma lucidum",
-      "tagline": "Immunmodulation · Jun–Okt",
+      "tagline": "Immune Modulation · Jun–Oct",
       "image": "Ganoderma_lucidum.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
       ],
-      "season": "Jun–Okt",
+      "season": "Jun–Oct",
       "perspectives": [
         "ecology",
         "identification",
@@ -278,12 +278,12 @@
       "slug": "lentinula-edodes",
       "name": "Shiitake",
       "scientific_name": "Lentinula edodes",
-      "tagline": "Immunstimulation · Apr–Nov",
+      "tagline": "Immune Stimulation · Apr–Nov",
       "image": "Lentinula_edodes.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "neutral"
         }
@@ -303,19 +303,19 @@
     },
     {
       "slug": "fomitopsis-betulina",
-      "name": "Birkenporling",
+      "name": "Birch Polypore",
       "scientific_name": "Fomitopsis betulina",
-      "tagline": "Magen-Darm-Beschwerden · Jan–Dez",
+      "tagline": "Gastrointestinal Support · Jan–Dec",
       "image": "Fomitopsis_betulina.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
       ],
-      "season": "Jan–Dez",
+      "season": "Jan–Dec",
       "perspectives": [
         "ecology",
         "identification",
@@ -329,19 +329,19 @@
     },
     {
       "slug": "cordyceps-militaris",
-      "name": "Puppenkernkeule",
+      "name": "Scarlet Caterpillar Club",
       "scientific_name": "Cordyceps militaris",
-      "tagline": "Immunstimulation · Jul–Okt",
+      "tagline": "Immune Stimulation · Jul–Oct",
       "image": "Cordyceps_militaris.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "neutral"
         }
       ],
-      "season": "Jul–Okt",
+      "season": "Jul–Oct",
       "perspectives": [
         "ecology",
         "identification",
@@ -355,14 +355,14 @@
     },
     {
       "slug": "agaricus-subrufescens",
-      "name": "Mandel-Egerling",
+      "name": "Almond Mushroom",
       "scientific_name": "Agaricus subrufescens",
       "tagline": null,
       "image": "Agaricus_Subrufescens.jpg",
       "badges": [
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -384,14 +384,14 @@
     },
     {
       "slug": "cyclocybe-cylindracea",
-      "name": "Suedlicher Ackerling",
+      "name": "Southern Poplar Mushroom",
       "scientific_name": "Cyclocybe cylindracea",
       "tagline": null,
       "image": "Cyclocybe_cylindracea.jpg",
       "badges": [
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -418,7 +418,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "neutral"
         }
@@ -437,19 +437,19 @@
     },
     {
       "slug": "stropharia-rugosoannulata",
-      "name": "Riesentraeuschlinge",
+      "name": "Wine Cap",
       "scientific_name": "Stropharia rugosoannulata",
-      "tagline": "Mai–Okt",
+      "tagline": "May–Oct",
       "image": "Stropharius-rugosoannulata.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         }
       ],
-      "season": "Mai–Okt",
+      "season": "May–Oct",
       "perspectives": [
         "culinary",
         "ecology",
@@ -463,19 +463,19 @@
     },
     {
       "slug": "flammulina-velutipes",
-      "name": "Samtfussruebling",
+      "name": "Velvet Foot",
       "scientific_name": "Flammulina velutipes",
-      "tagline": "Okt–Mär",
+      "tagline": "Oct–Mar",
       "image": "Flammulina_velutipes.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
       ],
-      "season": "Okt–Mär",
+      "season": "Oct–Mar",
       "perspectives": [
         "culinary",
         "ecology",
@@ -489,19 +489,19 @@
     },
     {
       "slug": "trametes-versicolor",
-      "name": "Schmetterlingstramete",
+      "name": "Turkey Tail",
       "scientific_name": "Trametes versicolor",
-      "tagline": "Jan–Dez",
+      "tagline": "Jan–Dec",
       "image": "Tramets_versicolor.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
       ],
-      "season": "Jan–Dez",
+      "season": "Jan–Dec",
       "perspectives": [
         "ecology",
         "identification",
@@ -515,19 +515,19 @@
     },
     {
       "slug": "laetiporus-sulphureus",
-      "name": "Schwefelporling",
+      "name": "Chicken of the Woods",
       "scientific_name": "Laetiporus sulphureus",
-      "tagline": "Mai–Okt",
+      "tagline": "May–Oct",
       "image": "laetiporus_sulphureus.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
       ],
-      "season": "Mai–Okt",
+      "season": "May–Oct",
       "perspectives": [
         "culinary",
         "ecology",
@@ -541,19 +541,19 @@
     },
     {
       "slug": "morchella-esculenta",
-      "name": "Speisemorchel",
+      "name": "Common Morel",
       "scientific_name": "Morchella esculenta",
-      "tagline": "Mär–Mai",
+      "tagline": "Mar–May",
       "image": null,
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
       ],
-      "season": "Mär–Mai",
+      "season": "Mar–May",
       "perspectives": [
         "culinary",
         "ecology",
@@ -567,19 +567,19 @@
     },
     {
       "slug": "ganoderma-applanatum",
-      "name": "Flacher Lackporling",
+      "name": "Artist's Conk",
       "scientific_name": "Ganoderma applanatum",
-      "tagline": "Jan–Dez",
+      "tagline": "Jan–Dec",
       "image": "Ganoderma_applanatum.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
       ],
-      "season": "Jan–Dez",
+      "season": "Jan–Dec",
       "perspectives": [
         "ecology",
         "identification",
@@ -592,19 +592,19 @@
     },
     {
       "slug": "ganoderma-curtisii",
-      "name": "Goldener Lackporling",
+      "name": "Golden Reishi",
       "scientific_name": "Ganoderma curtisii",
-      "tagline": "Jun–Okt",
+      "tagline": "Jun–Oct",
       "image": "Ganoderma_curtisii.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
       ],
-      "season": "Jun–Okt",
+      "season": "Jun–Oct",
       "perspectives": [
         "ecology",
         "identification",
@@ -617,19 +617,19 @@
     },
     {
       "slug": "panellus-stipticus",
-      "name": "Herber Zwergknaeuel",
+      "name": "Bitter Oysterling",
       "scientific_name": "Panellus stipticus",
-      "tagline": "Jan–Dez",
+      "tagline": "Jan–Dec",
       "image": "Panellus_stipticus.jpg",
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
       ],
-      "season": "Jan–Dez",
+      "season": "Jan–Dec",
       "perspectives": [
         "ecology",
         "identification",
@@ -642,14 +642,14 @@
     },
     {
       "slug": "auricularia-auricula-judae",
-      "name": "Judasohr",
+      "name": "Wood Ear",
       "scientific_name": "Auricularia auricula-judae",
       "tagline": null,
       "image": "Auricularia_auricula_judae.jpg",
       "badges": [
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -674,7 +674,7 @@
       "badges": [
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -692,7 +692,7 @@
     },
     {
       "slug": "pleurotus-pulmonarius",
-      "name": "Lungenseitling",
+      "name": "Lung Oyster",
       "scientific_name": "Pleurotus pulmonarius",
       "tagline": null,
       "image": "Pleurotus_pulmonarius.jpg",
@@ -709,14 +709,14 @@
     },
     {
       "slug": "cantharellus-cibarius",
-      "name": "Pfifferling",
+      "name": "Chanterelle",
       "scientific_name": "Cantharellus cibarius",
       "tagline": null,
       "image": "Cantharellus_cibarius.jpg",
       "badges": [
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -733,14 +733,14 @@
     },
     {
       "slug": "calvatia-gigantea",
-      "name": "Riesenbovist",
+      "name": "Giant Puffball",
       "scientific_name": "Calvatia gigantea",
       "tagline": null,
       "image": "Calvatia_gigantea.jpg",
       "badges": [
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -757,7 +757,7 @@
     },
     {
       "slug": "pleurotus-djamor",
-      "name": "Rosenseitling",
+      "name": "Pink Oyster",
       "scientific_name": "Pleurotus djamor",
       "tagline": null,
       "image": "Pleurotus_djamor.jpg",
@@ -774,14 +774,14 @@
     },
     {
       "slug": "coprinus-comatus",
-      "name": "Schopftintling",
+      "name": "Shaggy Ink Cap",
       "scientific_name": "Coprinus comatus",
       "tagline": null,
       "image": "Coprinus_comatus.jpg",
       "badges": [
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -798,7 +798,7 @@
     },
     {
       "slug": "pleurotus-columbinus",
-      "name": "Taubenblauer Seitling",
+      "name": "Blue Oyster",
       "scientific_name": "Pleurotus columbinus",
       "tagline": null,
       "image": "Pleurotus_columbinus.jpg",
@@ -815,7 +815,7 @@
     },
     {
       "slug": "pleurotus-citrinopileatus",
-      "name": "Zitronenseitling",
+      "name": "Golden Oyster",
       "scientific_name": "Pleurotus citrinopileatus",
       "tagline": null,
       "image": "Pleurotus_citrinopileatus.jpg",

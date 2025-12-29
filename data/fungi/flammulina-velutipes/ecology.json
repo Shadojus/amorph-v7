@@ -1,42 +1,42 @@
 {
-  "trophic_mode_primary": "saprobiontisch",
-  "trophic_mode_secondary": "parasitisch",
-  "ecological_guild": "Holzzersetzer",
-  "decomposer_type": "Weissfaeule",
-  "ecosystem_type": "Wald",
-  "ecosystem_subtype": "Laubwald",
-  "microhabitat_primary": "stehendes Totholz",
-  "microhabitat_secondary": "liegendes Holz",
-  "substrate_type_primary": "Laubholz",
+  "trophic_mode_primary": "saprobiotic",
+  "trophic_mode_secondary": "parasitic",
+  "ecological_guild": "Wood decomposer",
+  "decomposer_type": "White rot",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Deciduous forest",
+  "microhabitat_primary": "Standing deadwood",
+  "microhabitat_secondary": "Fallen wood",
+  "substrate_type_primary": "Hardwood",
   "substrate_types_secondary": [
-    "Eiche",
-    "Buche",
-    "Weide",
-    "Pappel",
-    "Birke",
-    "Erle"
+    "Oak",
+    "Beech",
+    "Willow",
+    "Poplar",
+    "Birch",
+    "Alder"
   ],
   "substrate_specificity": {
-    "status": "breit",
+    "status": "broad",
     "variant": "success"
   },
   "fruiting_season_start": 10,
   "fruiting_season_end": 3,
   "fruiting_peak_month": 12,
-  "fruiting_frequency": "haeufig",
+  "fruiting_frequency": "frequent",
   "fruiting_triggers": [
     "Frost",
-    "Feuchtigkeit"
+    "Moisture"
   ],
-  "climate_zone": "temperat",
-  "moisture_regime": "mesisch",
+  "climate_zone": "temperate",
+  "moisture_regime": "mesic",
   "frost_tolerance": {
     "rating": 10,
     "max": 10
   },
-  "light_requirement": "schattig bis halbschattig",
-  "spatial_distribution_pattern": "bueschelig",
-  "native_range": "Nordhemisphaere, kosmopolitisch",
+  "light_requirement": "shady to partially shaded",
+  "spatial_distribution_pattern": "clustered",
+  "native_range": "Northern Hemisphere, cosmopolitan",
   "iucn_global_status": {
     "status": "LC",
     "variant": "success"

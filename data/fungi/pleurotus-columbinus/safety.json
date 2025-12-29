@@ -8,7 +8,7 @@
     "max": 100,
     "unit": "%"
   },
-  "safety_edibility_notes": "Guter Speisepilz. Enthaelt Pleurotolysin (Haemolysin), das durch Erhitzen zerstoert wird. Immer gut durchgaren!",
+  "safety_edibility_notes": "Good edible mushroom. Contains pleurotolysin (hemolysin), which is destroyed by heating. Always cook thoroughly!",
   "safety_potentially_deadly": false,
   "safety_toxicity_score": {
     "value": 15,
@@ -24,8 +24,8 @@
     "status": "caution",
     "variant": "warning"
   },
-  "safety_warning_text": "Nie roh essen! Enthaelt Pleurotolysin (blutzersetzend), wird durch Hitze zerstoert.",
-  "safety_summary": "Guter Speisepilz, muss aber immer gut durchgegart werden wegen Pleurotolysin.",
+  "safety_warning_text": "Never eat raw! Contains pleurotolysin (blood-destroying), destroyed by heat.",
+  "safety_summary": "Good edible mushroom, but must always be cooked thoroughly due to pleurotolysin.",
   "confusion_risk_level": {
     "status": "low",
     "variant": "success"

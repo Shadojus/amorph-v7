@@ -59,7 +59,7 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "low", "typ": "Papaver rhoeas", "beschreibung": "Field poppy is not narcotic; different appearance"}
+    {"level": "low", "typ": "Papaver rhoeas", "description": "Field poppy is not narcotic; different appearance"}
   ],
   "key_differentiating_features": [
     "Distinctly glaucous (waxy blue-grey) foliage",

@@ -14,12 +14,12 @@
   "is_controlled_substance": false,
   "is_protected_species": false,
   "handling_precautions": [
-    "Nur jung essen wenn innen komplett weiss",
-    "Immer aufschneiden zur Kontrolle",
-    "Bei Verfaerbung nicht mehr essbar"
+    "Only eat young when completely white inside",
+    "Always cut open to check",
+    "Not edible when discolored"
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal consumption", "beschreibung": "Keine Symptome bei jungen weissen Exemplaren"}
+    {"level": "none", "type": "Normal consumption", "description": "No symptoms with young white specimens"}
   ],
   "fatality_rate": {
     "value": 0,
@@ -28,9 +28,9 @@
   },
   "fatality_documented": false,
   "collection_warnings": [
-    "IMMER aufschneiden - junge weisse Knollenblaetterpilze koennen aehnlich aussehen!",
-    "Innen muss einheitlich weiss sein, keine Lamellenstruktur erkennbar",
-    "Bei gelber oder gruener Verfaerbung nicht mehr essen"
+    "ALWAYS cut open - young white Death Caps can look similar!",
+    "Inside must be uniformly white, no gill structure visible",
+    "Do not eat if yellow or green discoloration present"
   ],
   "allergy_potential": {
     "status": "Low",

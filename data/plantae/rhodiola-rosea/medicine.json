@@ -1,41 +1,41 @@
 {
   "traditional_medicine": {
-    "systems": ["Tibetan_Medicine", "Russische Volksmedizin", "Skandinavische Volksmedizin"],
-    "historical_use": "Wikinger nutzten es zur Steigerung der Ausdauer; in Sibirien 'Goldene Wurzel'",
-    "traditional_indications": ["Erschoepfung", "Höhenkrankheit", "Depression", "Leistungssteigerung"]
+    "systems": ["Tibetan_Medicine", "Russian folk medicine", "Scandinavian folk medicine"],
+    "historical_use": "Vikings used it to enhance endurance; in Siberia known as 'Golden Root'",
+    "traditional_indications": ["Exhaustion", "Altitude sickness", "Depression", "Performance enhancement"]
   },
   "pharmacopoeia_names": ["Rhodiolae roseae radix et rhizoma"],
   "who_monograph_exists": false,
   "escop_monograph_exists": false,
   "german_commission_e_status": {
-    "status": "Keine Monographie",
+    "status": "No monograph",
     "variant": "warning"
   },
   "active_substances": [
-    "Rosavine (Rosavin, Rosin, Rosarin)",
-    "Salidrosid (Rhodiolosid)",
+    "Rosavins (Rosavin, Rosin, Rosarin)",
+    "Salidroside (Rhodioloside)",
     "Tyrosol",
     "p-Tyrosol"
   ],
   "effect_profile": [
-    {"axis": "Adaptogen", "value": 90},
-    {"axis": "Antidepressiv", "value": 75},
-    {"axis": "Antifatigue", "value": 85},
-    {"axis": "Neuroprotektiv", "value": 70},
-    {"axis": "Leistungssteigernd", "value": 75}
+    {"axis": "Adaptogenic", "value": 90},
+    {"axis": "Antidepressant", "value": 75},
+    {"axis": "Anti-fatigue", "value": 85},
+    {"axis": "Neuroprotective", "value": 70},
+    {"axis": "Performance-enhancing", "value": 75}
   ],
   "therapeutic_categories": [
     "Adaptogen",
-    "Nootropikum",
-    "Antidepressivum"
+    "Nootropic",
+    "Antidepressant"
   ],
   "evidence_level": {
     "status": "2b",
     "variant": "warning"
   },
   "clinical_studies": [
-    "Olsson et al. 2009: Reduktion von Muedigkeit bei Stress",
-    "Darbinyan et al. 2007: Wirksamkeit bei milder bis moderater Depression"
+    "Olsson et al. 2009: Reduction of fatigue under stress",
+    "Darbinyan et al. 2007: Efficacy in mild to moderate depression"
   ],
   "safety_score": {
     "value": 80,
@@ -43,15 +43,15 @@
     "max": 100
   },
   "side_effects": [
-    {"level": "low", "typ": "Gelegentlich", "beschreibung": "Reizbarkeit, Schlaflosigkeit, Unruhe"},
-    {"level": "low", "typ": "Bei hohen Dosen", "beschreibung": "Kopfschmerzen, Trockenheit im Mund"}
+    {"level": "low", "typ": "Occasional", "beschreibung": "Irritability, insomnia, restlessness"},
+    {"level": "low", "typ": "At high doses", "beschreibung": "Headache, dry mouth"}
   ],
   "contraindications": [
-    "Bipolare Störung",
-    "Schwangerschaft und Stillzeit"
+    "Bipolar disorder",
+    "Pregnancy and breastfeeding"
   ],
   "special_populations_pregnancy": {
-    "status": "Nicht empfohlen",
+    "status": "Not recommended",
     "variant": "warning"
   },
   "standard_dose_range": {
@@ -59,14 +59,14 @@
     "max": 600,
     "unit": "mg"
   },
-  "dose_frequency": "einmal taeglich morgens",
-  "dose_timing_field": "morgens",
-  "standardization_marker": "Rosavine 3%, Salidrosid 1%",
-  "dosage_notes": "200-600 mg morgens; nicht abends (kann Schlaf stoeren); Kurweise mit Pausen",
-  "preparation_forms": ["Standardisierter Extrakt", "Kapseln", "Tinktur"],
+  "dose_frequency": "once daily in the morning",
+  "dose_timing_field": "morning",
+  "standardization_marker": "Rosavins 3%, Salidroside 1%",
+  "dosage_notes": "200-600 mg in the morning; not in the evening (may disturb sleep); cyclical use with breaks",
+  "preparation_forms": ["Standardized extract", "Capsules", "Tincture"],
   "status_by_region": {
-    "eu": "Nahrungsergaenzungsmittel",
+    "eu": "Dietary supplement",
     "usa": "Dietary Supplement",
-    "russia": "Adaptogen (traditionell)"
+    "russia": "Adaptogen (traditional)"
   }
 }

@@ -60,7 +60,7 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "none", "typ": "Lamium species", "beschreibung": "Dead-nettles are edible and don't sting"}
+    {"level": "none", "typ": "Lamium species", "description": "Dead-nettles are edible and don't sting"}
   ],
   "key_differentiating_features": [
     "Stinging hairs that inject formic acid",

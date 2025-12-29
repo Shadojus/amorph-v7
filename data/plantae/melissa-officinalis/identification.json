@@ -60,7 +60,7 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "none", "typ": "Other Lamiaceae", "beschreibung": "Similar species are also edible herbs"}
+    {"level": "none", "typ": "Other Lamiaceae", "description": "Similar species are also edible herbs"}
   ],
   "key_differentiating_features": [
     "Distinctive strong lemon scent",

@@ -1,64 +1,64 @@
 {
   "traditional_medicine_use": true,
   "traditional_medicine_systems": [
-    "Russische Volksmedizin",
-    "Skandinavische Volksmedizin"
+    "Russian Folk Medicine",
+    "Scandinavian Folk Medicine"
   ],
   "medicinal_status": {
-    "status": "Vitalpilz",
+    "status": "Medicinal Mushroom",
     "variant": "info"
   },
   "primary_medicinal_uses": [
-    "Antioxidativ",
-    "Immunstimulation",
-    "Krebs-Begleittherapie",
-    "Entzuendungshemmung",
-    "Magen-Darm-Beschwerden"
+    "Antioxidant",
+    "Immunostimulation",
+    "Cancer Adjuvant Therapy",
+    "Anti-inflammatory",
+    "Gastrointestinal Disorders"
   ],
   "active_compounds": [
     {
-      "name": "Betulin/Betulinsaeure",
-      "class": "Triterpen (aus Birkenrinde)",
-      "effects": ["antitumoral", "entzuendungshemmend"]
+      "name": "Betulin/Betulinic Acid",
+      "class": "Triterpenoid (from birch bark)",
+      "effects": ["antitumoral", "anti-inflammatory"]
     },
     {
-      "name": "Polysaccharide",
-      "class": "Beta-Glucane",
-      "effects": ["immunstimulierend"]
+      "name": "Polysaccharides",
+      "class": "Beta-Glucans",
+      "effects": ["immunostimulant"]
     },
     {
       "name": "Melanin",
       "class": "Pigment",
-      "effects": ["antioxidativ", "UV-Schutz"]
+      "effects": ["antioxidant", "UV protection"]
     }
   ],
   "research_areas": [
-    "Onkologie",
-    "Immunologie",
-    "Dermatologie",
-    "Gastroenterologie"
+    "Oncology",
+    "Immunology",
+    "Dermatology",
+    "Gastroenterology"
   ],
   "clinical_evidence_level": {
-    "status": "praeklinisch",
+    "status": "preclinical",
     "variant": "warning"
   },
-  "clinical_evidence_notes": "Umfangreiche Nutzung in Russland seit Jahrhunderten. Moderne Studien bestaetigen antioxidative und antitumorale Eigenschaften in vitro.",
+  "clinical_evidence_notes": "Extensive use in Russia for centuries. Modern studies confirm antioxidant and antitumoral properties in vitro.",
   "contraindications": [
-    "Nierensteine (hoher Oxalsaeuregehalt)",
-    "Antikoagulantien-Einnahme",
-    "Autoimmunerkrankungen",
-    "Hypoglykamie-Risiko (senkt Blutzucker)"
+    "Kidney stones (high oxalic acid content)",
+    "Anticoagulant use",
+    "Autoimmune diseases",
+    "Hypoglycemia risk (lowers blood sugar)"
   ],
   "traditional_preparations": [
-    "Tee (Dekokt)",
-    "Wasserextrakt",
-    "Alkoholextrakt",
-    "Pulver"
+    "Tea (decoction)",
+    "Water extract",
+    "Alcohol Extract",
+    "Powder"
   ],
-  "dosage_traditional": "1-3 g Pulver pro Tag als Tee",
+  "dosage_traditional": "1-3 g powder per day as tea",
   "safety_profile": {
-    "status": "gut vertraeglich mit Einschraenkungen",
+    "status": "well tolerated with restrictions",
     "variant": "warning"
   },
-  "regulatory_status_eu": "Nahrungsergaenzungsmittel"
+  "regulatory_status_eu": "Dietary Supplement"
 }

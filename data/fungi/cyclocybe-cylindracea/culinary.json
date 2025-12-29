@@ -8,56 +8,56 @@
     "rating": 5,
     "max": 5
   },
-  "culinary_description": "Der Suedliche Ackerling ist ein sehr guter Speisepilz mit mildem Geschmack und fester Textur. Er ist in der italienischen Kueche als Pioppino sehr beliebt und wird auch kommerziell angebaut. In der Schweiz ist er marktfaehig und steht auf der DGfM Positivliste.",
+  "culinary_description": "The Southern Poplar Mushroom is a very good edible mushroom with mild flavor and firm texture. It is very popular in Italian cuisine as Pioppino and is also commercially cultivated. In Switzerland it is marketable and listed on the DGfM positive list.",
   "flavor_profile": [
     {"axis": "Mild", "value": 80},
     {"axis": "Umami", "value": 70},
-    {"axis": "Erdig", "value": 50},
-    {"axis": "Nussig", "value": 40},
-    {"axis": "Suesse", "value": 30}
+    {"axis": "Earthy", "value": 50},
+    {"axis": "Nutty", "value": 40},
+    {"axis": "Sweetness", "value": 30}
   ],
-  "taste_description": "Mild, angenehm",
-  "aroma_description": "Neutral bis leicht mehlartig",
-  "texture_raw": "Fest, fleischig",
-  "texture_cooked": "Fest, behaelt gute Textur, leicht knackig",
+  "taste_description": "Mild, pleasant",
+  "aroma_description": "Neutral to slightly floury",
+  "texture_raw": "Firm, fleshy",
+  "texture_cooked": "Firm, retains good texture, slightly crunchy",
   "edible_parts": [
-    "Hut",
-    "Stiel",
-    "Lamellen"
+    "Cap",
+    "Stipe",
+    "Lamellae"
   ],
   "inedible_parts": [],
   "preparation_requirements": [
-    "Gruendlich reinigen",
-    "Immer kochen",
-    "Stielende abschneiden"
+    "Clean thoroughly",
+    "Always cook",
+    "Cut off stipe base"
   ],
   "cooking_methods": [
-    "Braten",
-    "Grillen",
-    "In Pasta-Gerichten",
-    "In Risotto",
-    "In Saucen"
+    "Frying",
+    "Grilling",
+    "In pasta dishes",
+    "In risotto",
+    "In sauces"
   ],
   "cooking_time": {
     "min": 8,
     "max": 15,
     "unit": "minutes"
   },
-  "best_cooking_method": "Braten in Olivenoel mit Knoblauch - typisch italienisch",
+  "best_cooking_method": "Frying in olive oil with garlic - typically Italian",
   "flavor_pairings": [
-    "Knoblauch",
-    "Olivenoel",
-    "Petersilie",
-    "Weisswein",
+    "Garlic",
+    "Olive oil",
+    "Parsley",
+    "White wine",
     "Pasta",
     "Risotto",
     "Polenta"
   ],
   "cuisine_associations": [
-    "Italienische Kueche",
-    "Mediterrane Kueche",
-    "Japanische Kueche",
-    "Chinesische Kueche"
+    "Italian cuisine",
+    "Mediterranean cuisine",
+    "Japanese cuisine",
+    "Chinese cuisine"
   ],
   "traditional_dishes": [
     "Pasta con Pioppini (IT)",
@@ -65,10 +65,10 @@
     "Pioppini trifolati (IT)"
   ],
   "preservation_methods": [
-    {"label": "Trocknen", "value": 85},
-    {"label": "Einfrieren", "value": 75},
-    {"label": "Kuehlen", "value": 60},
-    {"label": "Einlegen", "value": 70}
+    {"label": "Drying", "value": 85},
+    {"label": "Freezing", "value": 75},
+    {"label": "Refrigerating", "value": 60},
+    {"label": "Pickling", "value": 70}
   ],
   "shelf_life_fresh": {
     "min": 3,
@@ -81,25 +81,25 @@
     "unit": "months"
   },
   "nutritional_highlights": [
-    "Gute Proteinquelle",
-    "Reich an Ballaststoffen",
-    "Niedriger Fettgehalt"
+    "Good protein source",
+    "Rich in fiber",
+    "Low fat content"
   ],
   "dietary_considerations": [
-    "Vegetarisch",
+    "Vegetarian",
     "Vegan",
-    "Glutenfrei",
-    "Kalorienarm"
+    "Gluten-free",
+    "Low calorie"
   ],
-  "allergen_info": "Kann bei Pilzallergikern Reaktionen ausloesen",
+  "allergen_info": "May cause reactions in persons with mushroom allergies",
   "commercial_availability": {
     "status": "Available",
     "variant": "success"
   },
   "commercial_forms": [
-    "Frische Fruchtkoerper",
-    "Getrocknete Pilze",
-    "Zuchtsets"
+    "Fresh fruiting bodies",
+    "Dried mushrooms",
+    "Cultivation kits"
   ],
   "price_range": {
     "status": "Moderate",
@@ -109,7 +109,7 @@
     "status": "High",
     "variant": "success"
   },
-  "market_note": "Marktfaehig in der Schweiz, DGfM Positivliste Speisepilz",
+  "market_note": "Marketable in Switzerland, DGfM positive list edible mushroom",
   "source": {
     "authors": "Stamets, P.",
     "year": 2000,

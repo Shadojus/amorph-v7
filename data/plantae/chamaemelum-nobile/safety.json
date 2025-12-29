@@ -22,7 +22,7 @@
     "May cause allergic reactions in those allergic to daisies"
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal use", "beschreibung": "Safe and soothing as tea"}
+    {"level": "none", "type": "Normal use", "description": "Safe and soothing as tea"}
   ],
   "fatality_rate": {
     "value": 0,

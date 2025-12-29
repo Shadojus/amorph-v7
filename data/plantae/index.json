@@ -2,7 +2,7 @@
   "kingdom": "plantae",
   "name": "Plantae",
   "icon": "🌿",
-  "tagline": "Die grüne Apotheke der Natur",
+  "tagline": "Nature's Green Pharmacy",
   "color": "#228B22",
   "count": 35,
   "featured": [
@@ -15,13 +15,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Low (latex contains anthraquinones)",
           "variant": "warning"
         }
@@ -29,18 +29,18 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "30–100 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Green to grey-green"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Trockengebiet"
+          "label": "Ecosystem",
+          "value": "Dryland"
         }
       ]
     },
@@ -53,13 +53,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "EN",
           "variant": "danger"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Low toxicity",
           "variant": "success"
         }
@@ -67,18 +67,18 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "30–60 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Green (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Wald"
+          "label": "Ecosystem",
+          "value": "Forest"
         }
       ]
     },
@@ -91,13 +91,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -105,18 +105,18 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "5–50 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Yellow (flowers)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Grasland"
+          "label": "Ecosystem",
+          "value": "Grassland"
         }
       ]
     },
@@ -129,13 +129,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Low (thujone in excess)",
           "variant": "warning"
         }
@@ -143,18 +143,18 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "30–80 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Grey-green (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Mediterrane Garrigue"
+          "label": "Ecosystem",
+          "value": "Mediterranean Garrigue"
         }
       ]
     },
@@ -167,13 +167,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -181,18 +181,18 @@
       "quick_facts": [
         {
           "icon": "📏",
-          "label": "Größe",
+          "label": "Size",
           "value": "30–100 cm"
         },
         {
           "icon": "🎨",
-          "label": "Farbe",
+          "label": "Color",
           "value": "Grey-green (foliage)"
         },
         {
           "icon": "🌲",
-          "label": "Ökosystem",
-          "value": "Mediterrane Macchie"
+          "label": "Ecosystem",
+          "value": "Mediterranean Maquis"
         }
       ]
     }
@@ -207,13 +207,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Low (latex contains anthraquinones)",
           "variant": "warning"
         }
@@ -239,13 +239,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "EN",
           "variant": "danger"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Low toxicity",
           "variant": "success"
         }
@@ -271,13 +271,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -303,13 +303,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Low (thujone in excess)",
           "variant": "warning"
         }
@@ -335,13 +335,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -367,13 +367,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Toxic raw; safe when cooked",
           "variant": "warning"
         }
@@ -399,13 +399,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "EXTREMELY TOXIC - ALL PARTS LETHAL",
           "variant": "danger"
         }
@@ -431,13 +431,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -463,13 +463,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "EN",
           "variant": "danger"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Seeds toxic raw; leaves low toxicity",
           "variant": "warning"
         }
@@ -495,13 +495,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -527,13 +527,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -559,13 +559,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -591,13 +591,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -623,13 +623,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Low toxicity but significant drug interactions",
           "variant": "warning"
         }
@@ -655,13 +655,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic when cooked (stinging hairs)",
           "variant": "warning"
         }
@@ -682,18 +682,18 @@
       "slug": "camellia-sinensis",
       "name": "Tea Plant",
       "scientific_name": "Camellia sinensis",
-      "tagline": "Geschützt",
+      "tagline": "Protected",
       "image": null,
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "DD",
           "variant": "warning"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic (caffeine content)",
           "variant": "success"
         }
@@ -719,13 +719,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -751,13 +751,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -783,13 +783,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "EN",
           "variant": "danger"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic (caffeine content)",
           "variant": "success"
         }
@@ -814,7 +814,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -839,13 +839,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic (low coumarin)",
           "variant": "success"
         }
@@ -870,13 +870,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -901,13 +901,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "EXTREMELY TOXIC - ONE OF MOST POISONOUS PLANTS",
           "variant": "danger"
         }
@@ -932,7 +932,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -957,7 +957,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -982,13 +982,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Low physical toxicity; psychoactive effects",
           "variant": "warning"
         }
@@ -1013,7 +1013,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -1038,7 +1038,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -1063,13 +1063,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "HIGHLY TOXIC - Contains controlled substances",
           "variant": "danger"
         }
@@ -1094,7 +1094,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -1119,7 +1119,7 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         }
@@ -1144,13 +1144,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -1175,13 +1175,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Low (toxic in very large amounts)",
           "variant": "success"
         }
@@ -1206,13 +1206,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "NE",
           "variant": "info"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Non-toxic",
           "variant": "success"
         }
@@ -1237,13 +1237,13 @@
       "badges": [
         {
           "icon": "🛡️",
-          "label": "Schutzstatus",
+          "label": "Conservation Status",
           "status": "LC",
           "variant": "success"
         },
         {
           "icon": "☠️",
-          "label": "Giftigkeit",
+          "label": "Toxicity",
           "status": "Moderate (thujone content)",
           "variant": "warning"
         }

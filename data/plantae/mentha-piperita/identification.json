@@ -59,8 +59,8 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "none", "typ": "Mentha spicata", "beschreibung": "Parent species, also edible and aromatic"},
-    {"level": "none", "typ": "Mentha aquatica", "beschreibung": "Parent species, also edible"}
+    {"level": "none", "typ": "Mentha spicata", "description": "Parent species, also edible and aromatic"},
+    {"level": "none", "typ": "Mentha aquatica", "description": "Parent species, also edible"}
   ],
   "key_differentiating_features": [
     "Intense menthol cooling sensation",

@@ -34,9 +34,9 @@
     }
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Moderate use", "beschreibung": "Safe in normal herbal tea amounts"},
-    {"level": "medium", "typ": "Excessive intake", "beschreibung": "Restlessness, vomiting, vertigo, tremors"},
-    {"level": "high", "typ": "Thujone poisoning", "beschreibung": "Seizures, delirium (rare with normal use)"}
+    {"level": "none", "type": "moderate use", "description": "safe in normal herbal tea amounts"},
+    {"level": "medium", "type": "excessive intake", "description": "restlessness, vomiting, vertigo, tremors"},
+    {"level": "high", "type": "thujone poisoning", "description": "seizures, delirium (rare with normal use)"}
   ],
   "fatality_rate": {
     "value": 0,

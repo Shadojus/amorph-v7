@@ -183,9 +183,9 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
             item._perspectives![perspName] = perspData;
             (item._loadedPerspectives as string[]).push(perspName);
             
-            // Merge perspective fields into main item
+            // Merge perspective fields into main item (exclude 'source' - that's metadata, not a field)
             for (const [key, value] of Object.entries(perspData)) {
-              if (!key.startsWith('_') && item[key] === undefined) {
+              if (!key.startsWith('_') && key !== 'source' && item[key] === undefined) {
                 item[key] = value;
                 (item._fieldPerspective as Record<string, string>)[key] = perspName;
               }
@@ -242,9 +242,16 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
               _fieldPerspective: {} as Record<string, string>
             };
             
+            // Lade Quellenangaben (_sources.json) für Bifroest-System
+            const sourcesPath = join(speciesPath, '_sources.json');
+            const sourcesResult = safeReadJson<Record<string, unknown[]>>(sourcesPath);
+            if (sourcesResult.data) {
+              item._sources = sourcesResult.data;
+            }
+            
             // Look for perspective JSON files
             const perspFiles = readdirSync(speciesPath)
-              .filter(f => f.endsWith('.json') && f !== 'index.json')
+              .filter(f => f.endsWith('.json') && f !== 'index.json' && f !== '_sources.json')
               .map(f => f.replace('.json', ''));
             
             for (const perspName of perspFiles) {
@@ -256,8 +263,9 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
                 item._perspectives![perspName] = perspData;
                 (item._loadedPerspectives as string[]).push(perspName);
                 
+                // Merge perspective fields into main item (exclude 'source' - that's metadata, not a field)
                 for (const [key, value] of Object.entries(perspData)) {
-                  if (!key.startsWith('_') && item[key] === undefined) {
+                  if (!key.startsWith('_') && key !== 'source' && item[key] === undefined) {
                     item[key] = value;
                     (item._fieldPerspective as Record<string, string>)[key] = perspName;
                   }
@@ -522,7 +530,7 @@ function calculateRelevanceScore(item: ItemData, searchTerms: string[]): number 
   let matchedTerms = 0;
   
   const name = item.name || '';
-  const scientific = item.wissenschaftlich ? String(item.wissenschaftlich) : '';
+  const scientific = (item.wissenschaftlich || item.scientific_name) ? String(item.wissenschaftlich || item.scientific_name) : '';
   
   for (const term of searchTerms) {
     let termScore = 0;
@@ -542,7 +550,7 @@ function calculateRelevanceScore(item: ItemData, searchTerms: string[]): number 
     // Andere Felder (nur exact/contains, kein fuzzy) - suche in Key UND Value!
     if (termScore === 0) {
       for (const [key, value] of Object.entries(item)) {
-        if (key.startsWith('_') || key === 'name' || key === 'wissenschaftlich') continue;
+        if (key.startsWith('_') || key === 'name' || key === 'wissenschaftlich' || key === 'scientific_name') continue;
         if (searchInKeyValue(key, value, term.toLowerCase())) {
           termScore = 20;
           break;

@@ -1,36 +1,36 @@
 {
   "traditional_medicine": {
-    "systems": ["European_Folk_Medicine", "Antike Medizin"],
-    "historical_use": "Seit der Antike bei Wundheilung und melancholischen Stoerungen",
-    "traditional_indications": ["Melancholie", "Wundheilung", "Nervenleiden", "Angstzustaende"]
+    "systems": ["European_Folk_Medicine", "Ancient Medicine"],
+    "historical_use": "Used since antiquity for wound healing and melancholic disorders",
+    "traditional_indications": ["Melancholy", "Wound healing", "Nervous disorders", "Anxiety"]
   },
   "pharmacopoeia_names": ["Hyperici herba"],
   "who_monograph_exists": true,
   "escop_monograph_exists": true,
-  "escop_therapeutic_indication": ["Leichte bis mittelschwere Depression", "Angstzustaende"],
+  "escop_therapeutic_indication": ["Mild to moderate depression", "Anxiety disorders"],
   "german_commission_e_status": {
-    "status": "Positiv-Monographie",
+    "status": "Positive monograph",
     "variant": "success"
   },
-  "german_commission_e_indication": ["Psychovegetative Stoerungen", "Depressive Verstimmungen", "Angst", "Nervöse Unruhe"],
+  "german_commission_e_indication": ["Psychovegetative disorders", "Depressive moods", "Anxiety", "Nervous restlessness"],
   "active_substances": [
     "Hyperforin",
     "Hypericin",
     "Pseudohypericin",
-    "Flavonoide",
-    "Proanthocyanidine"
+    "Flavonoids",
+    "Proanthocyanidins"
   ],
   "effect_profile": [
-    {"axis": "Antidepressiv", "value": 90},
-    {"axis": "Anxiolytisch", "value": 70},
-    {"axis": "Antiinflammatorisch", "value": 60},
+    {"axis": "Antidepressant", "value": 90},
+    {"axis": "Anxiolytic", "value": 70},
+    {"axis": "Anti-inflammatory", "value": 60},
     {"axis": "Antiviral", "value": 55},
-    {"axis": "Wundheilend", "value": 65}
+    {"axis": "Wound healing", "value": 65}
   ],
   "therapeutic_categories": [
-    "Antidepressivum",
-    "Anxiolytikum",
-    "Vulnerarium"
+    "Antidepressant",
+    "Anxiolytic",
+    "Vulnerary"
   ],
   "evidence_level": {
     "status": "1a",
@@ -42,29 +42,29 @@
   },
   "meta_analyses_count": 20,
   "rcts_count": 60,
-  "evidence_summary": "Cochrane-Reviews bestaetigen Wirksamkeit bei leichter bis mittelschwerer Depression vergleichbar mit SSRIs",
+  "evidence_summary": "Cochrane reviews confirm efficacy for mild to moderate depression comparable to SSRIs",
   "safety_score": {
     "value": 60,
     "min": 0,
     "max": 100
   },
   "side_effects": [
-    {"level": "low", "typ": "Haeufig", "beschreibung": "Magen-Darm-Beschwerden, Muedigkeit, Unruhe"},
-    {"level": "medium", "typ": "Photosensibilisierung", "beschreibung": "Erhoehte Sonnenlichtempfindlichkeit"}
+    {"level": "low", "typ": "Common", "beschreibung": "Gastrointestinal complaints, fatigue, restlessness"},
+    {"level": "medium", "typ": "Photosensitization", "beschreibung": "Increased sensitivity to sunlight"}
   ],
   "interactions": [
-    {"level": "critical", "typ": "CYP3A4-Induktion", "beschreibung": "Reduziert Wirkung von Ciclosporin, HIV-Medikamenten, oralen Kontrazeptiva, Warfarin"},
-    {"level": "high", "typ": "Serotonin-Syndrom", "beschreibung": "Risiko mit SSRI, SNRI, Triptanen"}
+    {"level": "critical", "typ": "CYP3A4 induction", "beschreibung": "Reduces efficacy of cyclosporine, HIV medications, oral contraceptives, warfarin"},
+    {"level": "high", "typ": "Serotonin syndrome", "beschreibung": "Risk with SSRI, SNRI, triptans"}
   ],
   "contraindications": [
-    "Gleichzeitige Einnahme von SSRI/SNRI",
-    "Ciclosporin-Therapie",
-    "HIV-Behandlung",
-    "Schwere Depression",
-    "Bipolare Stoerung"
+    "Concurrent use of SSRI/SNRI",
+    "Cyclosporine therapy",
+    "HIV treatment",
+    "Severe depression",
+    "Bipolar disorder"
   ],
   "special_populations_pregnancy": {
-    "status": "Nicht empfohlen",
+    "status": "Not recommended",
     "variant": "warning"
   },
   "standard_dose_range": {
@@ -72,15 +72,15 @@
     "max": 900,
     "unit": "mg"
   },
-  "dose_frequency": "dreimal taeglich",
-  "standardization_marker": "Hyperforin 3-5%, Gesamthypericine 0.1-0.3%",
-  "onset_of_action": "2-4 Wochen",
-  "treatment_duration_typical": "Mindestens 4-6 Wochen, Langzeittherapie moeglich",
-  "dosage_notes": "Standardisierter Extrakt 300 mg dreimal taeglich; Sonnenexposition vermeiden",
-  "preparation_forms": ["Standardisierter Extrakt", "Kapseln", "Tabletten", "Rotoel (aeusserlich)"],
+  "dose_frequency": "Three times daily",
+  "standardization_marker": "Hyperforin 3-5%, total hypericins 0.1-0.3%",
+  "onset_of_action": "2-4 weeks",
+  "treatment_duration_typical": "At least 4-6 weeks, long-term therapy possible",
+  "dosage_notes": "Standardized extract 300 mg three times daily; avoid sun exposure",
+  "preparation_forms": ["Standardized extract", "Capsules", "Tablets", "Red oil (external)"],
   "status_by_region": {
-    "eu": "Pflanzliches Arzneimittel (well-established use)",
+    "eu": "Herbal medicinal product (well-established use)",
     "usa": "Dietary Supplement",
-    "germany": "Verschreibungspflichtig ab bestimmter Dosis"
+    "germany": "Prescription required above certain doses"
   }
 }

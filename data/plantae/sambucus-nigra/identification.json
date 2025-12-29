@@ -59,8 +59,8 @@
     "variant": "warning"
   },
   "confusion_consequences": [
-    {"level": "high", "typ": "Sambucus ebulus", "beschreibung": "Dwarf elder is toxic; has upright fruit clusters, not drooping"},
-    {"level": "low", "typ": "Sambucus racemosa", "beschreibung": "Red berries, mildly toxic raw"}
+    {"level": "high", "typ": "Sambucus ebulus", "description": "Dwarf elder is toxic; has upright fruit clusters, not drooping"},
+    {"level": "low", "typ": "Sambucus racemosa", "description": "Red berries, mildly toxic raw"}
   ],
   "key_differentiating_features": [
     "Dark purple-black berries (not red)",

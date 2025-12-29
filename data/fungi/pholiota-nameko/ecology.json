@@ -1,23 +1,23 @@
 {
-  "trophic_mode_primary": "saprobiontisch",
-  "ecological_guild": "Holzzersetzer",
-  "ecosystem_type": "Wald",
-  "ecosystem_subtype": "Laubwald",
-  "microhabitat_primary": "Laubholzstaemme",
-  "microhabitat_secondary": "Stubben",
-  "substrate_type_primary": "Laubholz",
+  "trophic_mode_primary": "saprobic",
+  "ecological_guild": "Wood Decomposer",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Deciduous Forest",
+  "microhabitat_primary": "Hardwood trunks",
+  "microhabitat_secondary": "Stumps",
+  "substrate_type_primary": "Hardwood",
   "substrate_types_secondary": [
-    "Eiche",
-    "Buche"
+    "Oak",
+    "Beech"
   ],
   "substrate_specificity": {
-    "status": "breit",
+    "status": "broad",
     "variant": "success"
   },
   "fruiting_season_start": 9,
   "fruiting_season_end": 11,
-  "climate_zone": "temperat",
-  "native_range": "Ostasien (Japan, China)",
+  "climate_zone": "temperate",
+  "native_range": "East Asia (Japan, China)",
   "iucn_global_status": {
     "status": "NE",
     "variant": "neutral"

@@ -1,15 +1,15 @@
 {
-  "trophic_mode_primary": "parasitisch",
-  "trophic_mode_secondary": "saprobiontisch",
-  "ecological_guild": "Holzzersetzer",
-  "decomposer_type": "Braunfaeule",
-  "ecosystem_type": "Wald",
-  "ecosystem_subtype": "Birkenwald",
-  "microhabitat_primary": "lebende Birken",
-  "microhabitat_secondary": "tote Birken",
-  "substrate_type_primary": "Birkenholz",
+  "trophic_mode_primary": "parasitic",
+  "trophic_mode_secondary": "saprobic",
+  "ecological_guild": "Wood Decomposer",
+  "decomposer_type": "Brown Rot",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Birch Forest",
+  "microhabitat_primary": "living birch trees",
+  "microhabitat_secondary": "dead birch trees",
+  "substrate_type_primary": "Birch wood",
   "substrate_specificity": {
-    "status": "streng spezialisiert",
+    "status": "strictly specialized",
     "variant": "warning"
   },
   "associated_plant_species": [
@@ -19,16 +19,16 @@
   "fruiting_season_start": 1,
   "fruiting_season_end": 12,
   "fruiting_peak_month": 10,
-  "fruiting_frequency": "ganzjaehrig",
-  "climate_zone": "temperat bis boreal",
-  "moisture_regime": "mesisch",
-  "light_requirement": "schattig bis halbschattig",
-  "spatial_distribution_pattern": "einzeln",
-  "native_range": "Nordhemisphaere, Europa, Asien, Nordamerika",
+  "fruiting_frequency": "year-round",
+  "climate_zone": "temperate to boreal",
+  "moisture_regime": "mesic",
+  "light_requirement": "shady to semi-shaded",
+  "spatial_distribution_pattern": "solitary",
+  "native_range": "Northern Hemisphere, Europe, Asia, North America",
   "iucn_global_status": {
     "status": "LC",
     "variant": "success"
   },
   "perennial": true,
-  "lifespan": "mehrjaehrig"
+  "lifespan": "perennial"
 }

@@ -99,12 +99,12 @@
         "Asparagales"
       ],
       "keywords": [
-        "wasserspeicherung",
-        "trockengebiet",
-        "halbwueste",
-        "felsige, trockene standorte",
-        "sandboden",
-        "erosionsschutz",
+        "water storage",
+        "dryland",
+        "semi-desert",
+        "rocky, dry sites",
+        "sandy soil",
+        "erosion control",
         "aloe vera",
         "true aloe",
         "medicinal aloe",
@@ -126,9 +126,9 @@
         "well-drained sandy soil",
         "rocky terrain",
         "coastal sand dunes",
-        "dermatikum",
-        "laxans",
-        "wundheilungsmittel"
+        "dermatological agent",
+        "laxative",
+        "wound healing agent"
       ],
       "perspectives": [
         "ecology",
@@ -197,11 +197,11 @@
         "Gentianales"
       ],
       "keywords": [
-        "unterholzbildner",
-        "wald",
-        "tropischer bergwald",
-        "waldunterwuchs",
-        "schattige berghaenge",
+        "understory plant",
+        "forest",
+        "tropical montane forest",
+        "forest undergrowth",
+        "shaded mountain slopes",
         "arabica coffee",
         "coffee",
         "arabian coffee",
@@ -264,7 +264,7 @@
         {
           "icon": "🌍",
           "label": "Distribution",
-          "value": "Indien, Nordafrika, Mittlerer Osten"
+          "value": "India, North Africa, Middle East"
         }
       ],
       "highlights": [],
@@ -282,11 +282,11 @@
         "Solanales"
       ],
       "keywords": [
-        "trockensavannenpflanze",
-        "trockengebiet",
-        "trockensavanne, halbwueste",
-        "trockene, offene standorte",
-        "wegraender, gestorte flaechen",
+        "dry savanna plant",
+        "dryland",
+        "dry savanna, semi-desert",
+        "dry, open sites",
+        "roadsides, disturbed areas",
         "ashwagandha",
         "indian ginseng",
         "winter cherry",
@@ -307,8 +307,8 @@
         "waste ground",
         "semi-arid regions",
         "adaptogen",
-        "anxiolytikum",
-        "tonikum"
+        "anxiolytic",
+        "tonic"
       ],
       "perspectives": [
         "ecology",
@@ -352,7 +352,7 @@
         {
           "icon": "🌍",
           "label": "Distribution",
-          "value": "Nordostchina, Korea, Russisch-Fernost"
+          "value": "Northeast China, Korea, Russian Far East"
         }
       ],
       "highlights": [],
@@ -376,11 +376,11 @@
         "Apiales"
       ],
       "keywords": [
-        "unterholzpflanze",
-        "wald",
-        "temperate laub- und mischwaelder",
-        "tiefschattige waldboeden",
-        "nordhaenge",
+        "understory plant",
+        "forest",
+        "temperate deciduous and mixed forests",
+        "deeply shaded forest floors",
+        "north-facing slopes",
         "asian ginseng",
         "korean ginseng",
         "chinese ginseng",
@@ -401,8 +401,8 @@
         "mountain forests",
         "shaded woodland understory",
         "adaptogen",
-        "tonikum",
-        "immunstimulans"
+        "tonic",
+        "immunostimulant"
       ],
       "perspectives": [
         "ecology",
@@ -420,14 +420,14 @@
     {
       "id": "fomitopsis-betulina",
       "slug": "fomitopsis-betulina",
-      "name": "Birkenporling",
+      "name": "Birch Polypore",
       "scientific_name": "Fomitopsis betulina",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": "Fomitopsis_betulina.jpg",
-      "tagline": "Magen-Darm-Beschwerden · Jan–Dez",
+      "tagline": "Gastrointestinal Support · Jan–Dec",
       "description": "The Birch Polypore (Fomitopsis betulina) is a well-known medicinal fungus that grows exclusively on birch trees. Historically significant is the discovery with the Iceman (Oetzi), who carried two pieces of this fungus. In folk medicine, it has been used for thousands of years against gastrointestinal complaints, for wound healing, and as an anti-inflammatory. Modern studies confirm antibacterial, antiviral, and antitumoral properties.",
-      "seo_description": "Birkenporling (Fomitopsis betulina). Heilwirkung: Magen-Darm-Beschwerden, Wundheilung",
+      "seo_description": "Birch Polypore (Fomitopsis betulina). Benefits: Gastrointestinal Support, Wound Healing",
       "quick_facts": [
         {
           "icon": "📏",
@@ -437,7 +437,7 @@
         {
           "icon": "🎨",
           "label": "Color",
-          "value": "weisslich-cremefarben"
+          "value": "whitish-cream"
         },
         {
           "icon": "🌲",
@@ -447,7 +447,7 @@
         {
           "icon": "🌳",
           "label": "Substrate",
-          "value": "Birkenholz"
+          "value": "Birch Wood"
         },
         {
           "icon": "🌍",
@@ -456,9 +456,9 @@
         }
       ],
       "highlights": [
-        "Magen-Darm-Beschwerden",
-        "Wundheilung",
-        "Entzuendungshemmung"
+        "Gastrointestinal Support",
+        "Wound Healing",
+        "Anti-inflammatory"
       ],
       "badges": [
         {
@@ -468,21 +468,21 @@
           "variant": "success"
         }
       ],
-      "season": "Jan–Dez",
+      "season": "Jan–Dec",
       "categories": [
         "Fomitopsidaceae",
         "Polyporales"
       ],
       "keywords": [
-        "wald",
-        "birkenwald",
-        "lebende birken",
-        "tote birken",
-        "birkenholz",
-        "birkenporling",
-        "birkenzungenporling",
-        "birkenschwamm",
-        "oetzipilz",
+        "forest",
+        "birch forest",
+        "living birch trees",
+        "dead birch trees",
+        "Birch Wood",
+        "birch polypore",
+        "birch tongue polypore",
+        "birch sponge",
+        "oetzi mushroom",
         "birch polypore",
         "razor strop fungus",
         "piptoporus betulinus",
@@ -491,10 +491,10 @@
         "polyporales",
         "fomitopsidaceae",
         "fomitopsis",
-        "antivirale wirkung (influenza)",
-        "antibakterielle wirkung",
-        "antitumorale wirkung",
-        "wundheilung"
+        "antiviral effect (influenza)",
+        "antibacterial effect",
+        "antitumoral effect",
+        "Wound Healing"
       ],
       "perspectives": [
         "ecology",
@@ -514,7 +514,7 @@
             "copyright": "© 2009 amadej trnkoczy (amadej)",
             "license": "CC BY-SA 3.0",
             "url": "https://mushroomobserver.org",
-            "notes": "Variante 2"
+            "notes": "Variant 2"
           }
         ],
         "fields": {
@@ -1103,10 +1103,10 @@
         "Laurales"
       ],
       "keywords": [
-        "waldbaumart",
-        "wald",
-        "tropischer immergruener regenwald",
-        "unterholz tropischer waelder",
+        "forest tree species",
+        "forest",
+        "tropical evergreen rainforest",
+        "undergrowth of tropical forests",
         "ceylon cinnamon",
         "true cinnamon",
         "sri lankan cinnamon",
@@ -1179,7 +1179,7 @@
       ],
       "highlights": [
         "Antioxidativ",
-        "Immunstimulation",
+        "Immune Stimulation",
         "Krebs-Begleittherapie"
       ],
       "badges": [
@@ -1190,15 +1190,15 @@
           "variant": "warning"
         }
       ],
-      "season": "Jan–Dez",
+      "season": "Jan–Dec",
       "categories": [
         "Hymenochaetaceae",
         "Hymenochaetales"
       ],
       "keywords": [
-        "wald",
-        "birkenwald",
-        "lebende birken",
+        "forest",
+        "birch forest",
+        "living birch trees",
         "walnuss, erle",
         "birke (betula)",
         "walnuss",
@@ -1212,8 +1212,8 @@
         "hymenochaetales",
         "hymenochaetaceae",
         "inonotus",
-        "onkologie",
-        "immunologie",
+        "oncology",
+        "immunology",
         "dermatologie",
         "gastroenterologie"
       ],
@@ -1287,10 +1287,10 @@
         "pionierpflanze",
         "fruehlingsnahrung fuer bienen",
         "bodenlockerer",
-        "grasland",
+        "grassland",
         "fettwiesen, ruderalflaechen",
         "offene, gestorte flaechen",
-        "rasen, wegraender",
+        "lawns, roadsides",
         "common dandelion",
         "dandelion",
         "lion's tooth",
@@ -1384,7 +1384,7 @@
       "keywords": [
         "bestaeubungsmagnet",
         "nektarquelle fuer bienen",
-        "erosionsschutz",
+        "erosion control",
         "mediterrane garrigue",
         "felsheide",
         "trockene, steinige haenge",
@@ -1481,7 +1481,7 @@
       ],
       "keywords": [
         "bestaeubungsmagnet",
-        "erosionsschutz",
+        "erosion control",
         "bodenbedeckung",
         "mediterrane garrigue",
         "kalkmagerrasen",
@@ -1574,11 +1574,11 @@
         "Solanales"
       ],
       "keywords": [
-        "unterholzpflanze",
-        "wald",
+        "understory plant",
+        "forest",
         "kalkbuchenwaelder",
-        "waldlichtungen auf kalk",
-        "waldraender, schutthalden",
+        "forest clearings on limestone",
+        "forest edges, scree slopes",
         "deadly nightshade",
         "belladonna",
         "devil's cherries",
@@ -1669,7 +1669,7 @@
       "keywords": [
         "bestaeubungsmagnet",
         "nektarquelle",
-        "erosionsschutz",
+        "erosion control",
         "mediterrane macchie",
         "felsheide",
         "trockene, sonnige haenge",
@@ -1694,7 +1694,7 @@
         "sandy or gravelly soils",
         "rocky hillsides",
         "lavandulae flos",
-        "anxiolytikum",
+        "anxiolytic",
         "sedativum",
         "spasmolytikum"
       ],
@@ -1766,10 +1766,10 @@
       ],
       "keywords": [
         "vogelnahrung",
-        "erosionsschutz",
-        "unterholzbildner",
-        "wald",
-        "auwaelder, waldraender",
+        "erosion control",
+        "understory plant",
+        "forest",
+        "riparian forests, forest edges",
         "naehrstoffreiche, feuchte standorte",
         "hecken, ruderalflaechen",
         "vogelnahrung im herbst",
@@ -1812,7 +1812,7 @@
     {
       "id": "ganoderma-applanatum",
       "slug": "ganoderma-applanatum",
-      "name": "Flacher Lackporling",
+      "name": "Artist's Bracket",
       "scientific_name": "Ganoderma applanatum",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
@@ -1856,24 +1856,24 @@
           "variant": "success"
         }
       ],
-      "season": "Jan–Dez",
+      "season": "Jan–Dec",
       "categories": [
         "Ganodermataceae",
         "Polyporales"
       ],
       "keywords": [
-        "wald",
-        "laubwald",
+        "forest",
+        "deciduous forest",
         "staemme lebender baeume",
         "totes laubholz",
-        "laubholz",
-        "buche",
+        "hardwood",
+        "beech",
         "pappel",
         "erle",
-        "eiche",
-        "ahorn",
+        "oak",
+        "maple",
         "weide",
-        "flacher lackporling",
+        "artist's bracket",
         "malerpilz",
         "artist's bracket",
         "artist's conk",
@@ -2388,10 +2388,10 @@
         "pionierpflanze",
         "hummelnahrung",
         "kahlschlagbesiedler",
-        "wald",
-        "waldlichtungen, kahlschlaege",
-        "lichte waldstandorte",
-        "wegraender, felshaenge",
+        "forest",
+        "forest clearings, clear-cuts",
+        "open forest sites",
+        "roadsides, rocky slopes",
         "foxglove",
         "purple foxglove",
         "common foxglove",
@@ -2482,7 +2482,7 @@
         "kulturlandschaft",
         "aecker, brachen",
         "gestorte, offene boeden",
-        "wegraender, schuttplaetze",
+        "roadsides, rubble sites",
         "german chamomile",
         "wild chamomile",
         "scented mayweed",
@@ -2573,11 +2573,11 @@
         "Zingiberales"
       ],
       "keywords": [
-        "unterholzpflanze",
-        "wald",
-        "tropischer regenwald",
-        "feuchte, schattige waldboeden",
-        "waldraender",
+        "understory plant",
+        "forest",
+        "tropical rainforest",
+        "moist, shaded forest floors",
+        "forest edges",
         "ginger",
         "common ginger",
         "culinary ginger",
@@ -2672,8 +2672,8 @@
         "kohlenstoffspeicherung",
         "schattenspender",
         "lebensraum fuer voegel",
-        "wald",
-        "mischwald",
+        "forest",
+        "mixed forest",
         "tiefgruendige boeden",
         "ginkgo",
         "maidenhair tree",
@@ -2713,14 +2713,14 @@
     {
       "id": "ganoderma-lucidum",
       "slug": "ganoderma-lucidum",
-      "name": "Glaenzender Lackporling",
+      "name": "Reishi",
       "scientific_name": "Ganoderma lucidum",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": "Ganoderma_lucidum.jpg",
-      "tagline": "Immunmodulation · Jun–Okt",
+      "tagline": "Immune Modulation · Jun–Oct",
       "description": "The Reishi (Ganoderma lucidum), also known as Lingzhi, is one of the most significant medicinal mushrooms worldwide. In Traditional Chinese Medicine, it has been revered for over 2000 years as the 'Mushroom of Immortality'. It produces polysaccharides and triterpenoids with immunomodulating, antitumoral, and hepatoprotective properties. The characteristically red-lacquered fruiting body grows on hardwoods.",
-      "seo_description": "Glaenzender Lackporling (Ganoderma lucidum). Heilwirkung: Immunmodulation, Antitumoral",
+      "seo_description": "Reishi (Ganoderma lucidum). Benefits: Immune Modulation, Antitumoral",
       "quick_facts": [
         {
           "icon": "📏",
@@ -2730,7 +2730,7 @@
         {
           "icon": "🎨",
           "label": "Color",
-          "value": "rotbraun"
+          "value": "reddish-brown"
         },
         {
           "icon": "🌲",
@@ -2749,9 +2749,9 @@
         }
       ],
       "highlights": [
-        "Immunmodulation",
+        "Immune Modulation",
         "Antitumoral",
-        "Hepatoprotektiv (Leberschutz)"
+        "Hepatoprotective (Liver Protection)"
       ],
       "badges": [
         {
@@ -2761,37 +2761,37 @@
           "variant": "success"
         }
       ],
-      "season": "Jun–Okt",
+      "season": "Jun–Oct",
       "categories": [
         "Ganodermataceae",
         "Polyporales"
       ],
       "keywords": [
-        "wald",
-        "laubwald",
-        "basis lebender baeume",
-        "tote stubben",
-        "laubholz",
-        "eiche",
-        "buche",
-        "birke",
-        "ahorn",
-        "pflaumenbaum",
-        "glaenzender lackporling",
+        "forest",
+        "deciduous forest",
+        "base of living trees",
+        "dead stumps",
+        "hardwood",
+        "oak",
+        "beech",
+        "birch",
+        "maple",
+        "plum tree",
+        "reishi",
         "reishi",
         "lingzhi",
         "ling zhi",
         "mannentake",
-        "pilz der unsterblichkeit",
+        "mushroom of immortality",
         "agaricomycetes",
         "polyporales",
         "ganodermataceae",
         "ganoderma",
-        "onkologie",
-        "immunologie",
-        "hepatologie",
-        "kardiologie",
-        "neurologie"
+        "oncology",
+        "immunology",
+        "hepatology",
+        "cardiology",
+        "neurology"
       ],
       "perspectives": [
         "ecology",
@@ -3314,14 +3314,14 @@
     {
       "id": "ganoderma-curtisii",
       "slug": "ganoderma-curtisii",
-      "name": "Goldener Lackporling",
+      "name": "Golden Reishi",
       "scientific_name": "Ganoderma curtisii",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": "Ganoderma_curtisii.jpg",
-      "tagline": "Jun–Okt",
+      "tagline": "Jun–Oct",
       "description": "The Golden Reishi (Ganoderma curtisii) is a medicinal mushroom from North America that is very similar to the well-known Ganoderma lucidum (Reishi) and possesses the same medicinal properties. It grows on rotting stumps and roots of hardwoods. The species produces polysaccharides and triterpenoids with a broad spectrum of biological activities.",
-      "seo_description": "Goldener Lackporling (Ganoderma curtisii)",
+      "seo_description": "Golden Reishi (Ganoderma curtisii)",
       "quick_facts": [
         {
           "icon": "🎨",
@@ -3353,22 +3353,22 @@
           "variant": "success"
         }
       ],
-      "season": "Jun–Okt",
+      "season": "Jun–Oct",
       "categories": [
         "Ganodermataceae",
         "Polyporales"
       ],
       "keywords": [
-        "wald",
-        "laubwald",
+        "forest",
+        "deciduous forest",
         "verrottende stubben",
         "wurzeln von laubbaumen",
-        "laubholz",
-        "eiche",
-        "buche",
-        "birke",
+        "hardwood",
+        "oak",
+        "beech",
+        "birch",
         "erle",
-        "goldener lackporling",
+        "golden reishi",
         "golden reishi",
         "yellow reishi",
         "polyporus curtisii",
@@ -3947,22 +3947,22 @@
           "variant": "success"
         }
       ],
-      "season": "Jan–Dez",
+      "season": "Jan–Dec",
       "categories": [
         "Mycenaceae",
         "Agaricales"
       ],
       "keywords": [
-        "wald",
-        "laubwald",
+        "forest",
+        "deciduous forest",
         "totes laubholz",
-        "laubholz",
-        "eiche",
-        "buche",
-        "birke",
+        "hardwood",
+        "oak",
+        "beech",
+        "birch",
         "herber zwergknaeuel",
         "eichen-zwergknaeuel",
-        "bitterer muschelseitling",
+        "bitter oyster mushroom",
         "bitter oyster",
         "luminescent panellus",
         "panus stipticus",
@@ -4393,14 +4393,14 @@
     {
       "id": "hericium-erinaceus",
       "slug": "hericium-erinaceus",
-      "name": "Igelstachelbart",
+      "name": "Lion's Mane",
       "scientific_name": "Hericium erinaceus",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": "Hericium_erinaceus.jpg",
       "tagline": "Neuroregeneration · Geschützt · Aug–Nov",
       "description": "Der Igelstachelbart (Hericium erinaceus), auch als Loewenmaehne oder Pom-Pom bekannt, ist ein spektakulaerer Speise- und Vitalpilz mit langen, herabhangenden weissen Stacheln. Er waechst auf Laubholz und gilt als gefaehrdet (RL2 Deutschland). Besonders bemerkenswert sind seine neuroregenrativen Eigenschaften durch Erinacine, die das Nervenwachstum stimulieren - vielversprechend bei Alzheimer und neurologischen Erkrankungen.",
-      "seo_description": "Igelstachelbart (Hericium erinaceus). Heilwirkung: Neuroregeneration, Alzheimer-Unterstuetzung",
+      "seo_description": "Lion's Mane (Hericium erinaceus). Benefits: Neuroregeneration, Alzheimer Support",
       "quick_facts": [
         {
           "icon": "📏",
@@ -4431,7 +4431,7 @@
       "highlights": [
         "Neuroregeneration",
         "Alzheimer-Unterstuetzung",
-        "Magen-Darm-Erkrankungen"
+        "Gastrointestinal Disorders"
       ],
       "badges": [
         {
@@ -4447,17 +4447,17 @@
         "Russulales"
       ],
       "keywords": [
-        "wald",
-        "laubwald",
+        "forest",
+        "deciduous forest",
         "wunden an lebenden baeumen",
         "totes laubholz",
-        "laubholz",
-        "eiche",
-        "buche",
+        "hardwood",
+        "oak",
+        "beech",
         "walnuss",
-        "ahorn",
+        "maple",
         "platane",
-        "igelstachelbart",
+        "lion's mane",
         "loewenmaehne",
         "affenkopfpilz",
         "pom-pom blanc",
@@ -4471,7 +4471,7 @@
         "hericium",
         "neurologie (alzheimer, demenz)",
         "gastroenterologie",
-        "onkologie",
+        "oncology",
         "psychiatrie"
       ],
       "perspectives": [
@@ -5070,7 +5070,7 @@
       ],
       "keywords": [
         "laubholz, besonders holunder",
-        "birkenholz",
+        "Birch Wood",
         "weidenholz",
         "eichenholz",
         "akazienholz",
@@ -5480,14 +5480,14 @@
     {
       "id": "grifola-frondosa",
       "slug": "grifola-frondosa",
-      "name": "Klapperschwamm",
+      "name": "Maitake",
       "scientific_name": "Grifola frondosa",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": "Grifola_frondosa.jpg",
-      "tagline": "Immunstimulation · Aug–Nov",
-      "description": "Der Klapperschwamm (Grifola frondosa), auch Maitake ('Tanzender Pilz') genannt, ist ein grosser, geschaetzter Speise- und Vitalpilz. Er kann ueber 20 kg schwer werden und besteht aus vielen ueberlappenden, graubraunen Hueten an einem gemeinsamen Strunk. Er waechst am Wurzelbereich von Eichen und Kastanien. In Japan gilt er als wichtiger Heilpilz mit immunstimulierenden und antitumoralen Eigenschaften durch den Inhaltsstoff Grifolan (Beta-Glucan D-Fraktion).",
-      "seo_description": "Klapperschwamm (Grifola frondosa). Heilwirkung: Immunstimulation, Antitumoral",
+      "tagline": "Immune Stimulation · Aug–Nov",
+      "description": "The Maitake (Grifola frondosa), auch Maitake ('Tanzender Pilz') genannt, ist ein grosser, geschaetzter Speise- und Vitalpilz. Er kann ueber 20 kg schwer werden und besteht aus vielen ueberlappenden, graubraunen Hueten an einem gemeinsamen Strunk. Er waechst am Wurzelbereich von Eichen und Kastanien. In Japan gilt er als wichtiger Heilpilz mit immunstimulierenden und antitumoralen Eigenschaften durch den Inhaltsstoff Grifolan (Beta-Glucan D-Fraktion).",
+      "seo_description": "Maitake (Grifola frondosa). Benefits: Immune Stimulation, Antitumoral",
       "quick_facts": [
         {
           "icon": "📏",
@@ -5497,7 +5497,7 @@
         {
           "icon": "🎨",
           "label": "Color",
-          "value": "graubraun"
+          "value": "grayish-brown"
         },
         {
           "icon": "🌲",
@@ -5516,7 +5516,7 @@
         }
       ],
       "highlights": [
-        "Immunstimulation",
+        "Immune Stimulation",
         "Antitumoral",
         "Blutdrucksenkung"
       ],
@@ -5534,16 +5534,16 @@
         "Polyporales"
       ],
       "keywords": [
-        "wald",
-        "laubwald",
+        "forest",
+        "deciduous forest",
         "wurzelbereich lebender eichen",
         "stubben von laubbaumen",
-        "laubholz",
+        "hardwood",
         "eiche (quercus)",
         "kastanie (castanea)",
         "linde (tilia)",
         "buche (fagus)",
-        "klapperschwamm",
+        "hen of the woods",
         "maitake",
         "spatelhuetige porling",
         "laubporling",
@@ -5557,11 +5557,11 @@
         "polyporales",
         "meripilaceae",
         "grifola",
-        "onkologie",
+        "oncology",
         "hiv/aids-forschung",
-        "immunologie",
+        "immunology",
         "diabetes",
-        "kardiologie"
+        "cardiology"
       ],
       "perspectives": [
         "culinary",
@@ -6193,10 +6193,10 @@
         "bienenweide",
         "nektarquelle",
         "bodendecker",
-        "wald",
-        "lichte waelder, waldraender",
+        "forest",
+        "open forests, forest edges",
         "halbschattige, naehrstoffreiche standorte",
-        "gaerten, wegboeschungen",
+        "gardens, road embankments",
         "lemon balm",
         "balm",
         "common balm",
@@ -6327,14 +6327,14 @@
     {
       "id": "pleurotus-pulmonarius",
       "slug": "pleurotus-pulmonarius",
-      "name": "Lungenseitling",
+      "name": "Lung Oyster",
       "scientific_name": "Pleurotus pulmonarius",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": "Pleurotus_pulmonarius.jpg",
       "tagline": null,
       "description": "Der Lungenseitling (Pleurotus pulmonarius), auch Sommer-Austernseitling genannt, ist ein weit verbreiteter Speise- und Zuchtpilz. Im Gegensatz zum Austernseitling benoetigt er keinen Kaeltereiz zur Fruchtkoerperbildung. Er enthaelt Haemolysine (wie alle Pleurotus-Arten), die beim Garen zerstoert werden. Seine Polysaccharide zeigen antimikrobielle und entzuendungshemmende Eigenschaften.",
-      "seo_description": "Lungenseitling (Pleurotus pulmonarius)",
+      "seo_description": "Lung Oyster (Pleurotus pulmonarius)",
       "quick_facts": [
         {
           "icon": "📏",
@@ -6355,8 +6355,8 @@
         "Agaricales"
       ],
       "keywords": [
-        "lungenseitling",
-        "sommer-austernseitling",
+        "lung oyster",
+        "summer oyster mushroom",
         "phoenix mushroom",
         "indian oyster",
         "agaricus pulmonarius",
@@ -6631,7 +6631,7 @@
     {
       "id": "agaricus-subrufescens",
       "slug": "agaricus-subrufescens",
-      "name": "Mandel-Egerling",
+      "name": "Almond Portobello",
       "scientific_name": "Agaricus subrufescens",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
@@ -6681,7 +6681,7 @@
         "pilzzucht-kompost mit deckerde",
         "naehrstoffreiche boeden, kompostboeden",
         "mischwaelder",
-        "waldraender",
+        "forest edges",
         "gaerten und beete",
         "gewaechshaeuser",
         "hohe stickstoffverfuegbarkeit",
@@ -6869,13 +6869,13 @@
         "Agaricales"
       ],
       "keywords": [
-        "wald",
-        "laubwald",
+        "forest",
+        "deciduous forest",
         "laubholzstaemme",
         "stubben",
-        "laubholz",
-        "eiche",
-        "buche",
+        "hardwood",
+        "oak",
+        "beech",
         "nameko",
         "japanisches stockschwaemmchen",
         "toskanapilz",
@@ -6907,7 +6907,7 @@
             "copyright": "© 2007 Vasco Fachada (v_polecat)",
             "license": "CC BY-SA 3.0",
             "url": "https://mushroomobserver.org",
-            "notes": "Variante 2"
+            "notes": "Variant 2"
           }
         ],
         "fields": {
@@ -7491,15 +7491,15 @@
         "Agaricales"
       ],
       "keywords": [
-        "waldraender, lichtungen, heiden",
+        "forest edges, clearings, heaths",
         "mischwaelder",
-        "waldwege",
+        "forest paths",
         "wiesen",
         "parks",
         "naehrstoffreiche boeden",
         "offene bis halbschattige standorte",
         "gute drainage",
-        "humusreiche waldboeden",
+        "humus-rich forest floors",
         "heideboeden",
         "parasol",
         "riesenschirmling",
@@ -7518,9 +7518,9 @@
         "coulemelle (fr)",
         "mazza di tamburo (it)",
         "apagador (es)",
-        "waldboeden",
+        "forest floors",
         "heiden",
-        "waldraender"
+        "forest edges"
       ],
       "perspectives": [
         "ecology",
@@ -7989,7 +7989,7 @@
         "feuchtgebiet",
         "uferzone",
         "feuchte, naehrstoffreiche standorte",
-        "bachraender",
+        "stream banks",
         "peppermint",
         "brandy mint",
         "lamb mint",
@@ -8030,7 +8030,7 @@
     {
       "id": "cantharellus-cibarius",
       "slug": "cantharellus-cibarius",
-      "name": "Pfifferling",
+      "name": "Chanterelle",
       "scientific_name": "Cantharellus cibarius",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
@@ -8101,7 +8101,7 @@
             "copyright": "© 2020 Penny Firth (pfirth)",
             "license": "CC BY-SA 3.0",
             "url": "https://mushroomobserver.org",
-            "notes": "Variante 2"
+            "notes": "Variant 2"
           }
         ],
         "fields": {
@@ -8331,14 +8331,14 @@
     {
       "id": "cordyceps-militaris",
       "slug": "cordyceps-militaris",
-      "name": "Puppenkernkeule",
+      "name": "Cordyceps",
       "scientific_name": "Cordyceps militaris",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": "Cordyceps_militaris.jpg",
       "tagline": "Immunstimulation · Jul–Okt",
       "description": "Die Puppenkernkeule (Cordyceps militaris) ist ein parasitischer Schlauchpilz, der auf toten Insektenlarven und -puppen waechst. Der Fruchtkoerper ist orangerot bis ziegelrot gefaerbt und wird bis zu 50 mm hoch. In der Traditionellen Chinesischen Medizin gilt er als bedeutender Vitalpilz mit immunstimulierenden und leistungssteigernden Eigenschaften, was dem Inhaltsstoff Cordycepin zugeschrieben wird. In Europa ist der Pilz extrem selten anzutreffen.",
-      "seo_description": "Puppenkernkeule (Cordyceps militaris). Heilwirkung: Immunstimulation, Leistungssteigerung",
+      "seo_description": "Cordyceps (Cordyceps militaris). Benefits: Immune Stimulation, Performance Enhancement",
       "quick_facts": [
         {
           "icon": "📏",
@@ -8367,7 +8367,7 @@
         }
       ],
       "highlights": [
-        "Immunstimulation",
+        "Immune Stimulation",
         "Leistungssteigerung",
         "Anti-Tumor"
       ],
@@ -8385,8 +8385,8 @@
         "Hypocreales"
       ],
       "keywords": [
-        "wald",
-        "mischwald",
+        "forest",
+        "mixed forest",
         "auf toten insektenlarven",
         "auf insektenpuppen",
         "insektenlarven",
@@ -8406,8 +8406,8 @@
         "hypocreales",
         "cordycipitaceae",
         "cordyceps",
-        "onkologie",
-        "immunologie",
+        "oncology",
+        "immunology",
         "sportmedizin",
         "antivirale forschung"
       ],
@@ -9031,7 +9031,7 @@
         "praerie",
         "tallgrass prairie",
         "offene praerieflaechen",
-        "trockene waldraender",
+        "dry forest edges",
         "purple coneflower",
         "eastern purple coneflower",
         "echinacea",
@@ -9051,7 +9051,7 @@
         "open woods",
         "echinaceae purpureae herba",
         "echinaceae purpureae radix",
-        "immunstimulans",
+        "immunostimulant",
         "vulnerarium",
         "antiinfektivum"
       ],
@@ -9119,9 +9119,9 @@
         "rankpflanze",
         "bestaeubungsmagnet",
         "schmetterlingsnahrung",
-        "wald",
-        "waldraender, hecken",
-        "sonnige waldraender",
+        "forest",
+        "forest edges, hedges",
+        "sunny forest edges",
         "zaeune, ruderalflaechen",
         "purple passionflower",
         "maypop",
@@ -9143,7 +9143,7 @@
         "woodland edges",
         "fencerows and thickets",
         "passiflorae herba",
-        "anxiolytikum",
+        "anxiolytic",
         "sedativum",
         "spasmolytikum"
       ],
@@ -9251,7 +9251,7 @@
     {
       "id": "calvatia-gigantea",
       "slug": "calvatia-gigantea",
-      "name": "Riesenbovist",
+      "name": "Giant Puffball",
       "scientific_name": "Calvatia gigantea",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
@@ -9528,7 +9528,7 @@
     {
       "id": "stropharia-rugosoannulata",
       "slug": "stropharia-rugosoannulata",
-      "name": "Riesentraeuschlinge",
+      "name": "Wine Cap",
       "scientific_name": "Stropharia rugosoannulata",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
@@ -9622,7 +9622,7 @@
             "copyright": "© 2016 Ann B. (Ann F. Berger)",
             "license": "CC BY-SA 3.0",
             "url": "https://mushroomobserver.org",
-            "notes": "Variante 2"
+            "notes": "Variant 2"
           }
         ],
         "fields": {
@@ -10729,11 +10729,11 @@
       "keywords": [
         "bodendecker",
         "bestaeubungsmagnet",
-        "erosionsschutz",
-        "grasland",
+        "erosion control",
+        "grassland",
         "kurzrasen, weiden",
         "kurzgrasige, sandige standorte",
-        "wegraender, trittrasen",
+        "roadsides, trampled lawns",
         "roman chamomile",
         "english chamomile",
         "garden chamomile",
@@ -10866,14 +10866,14 @@
     {
       "id": "pleurotus-djamor",
       "slug": "pleurotus-djamor",
-      "name": "Rosenseitling",
+      "name": "Pink Oyster",
       "scientific_name": "Pleurotus djamor",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": "Pleurotus_djamor.jpg",
       "tagline": null,
       "description": "Der Rosenseitling (Pleurotus djamor) ist ein spektakulaerer tropischer Speisepilz mit rosaroten bis lachsfarbenen Hueten. Er stammt aus den Tropen und Subtropen, wo er auf Palmen, Bambus und anderen Hoelzern waechst. Fuer die Kultivierung benoetigt er hohe Temperaturen (20-30 Grad Celsius) und hohe Luftfeuchtigkeit. Sein beissender, leicht mandelartiger Geruch ist charakteristisch.",
-      "seo_description": "Rosenseitling (Pleurotus djamor)",
+      "seo_description": "Pink Oyster (Pleurotus djamor)",
       "quick_facts": [
         {
           "icon": "📏",
@@ -10894,9 +10894,9 @@
         "Agaricales"
       ],
       "keywords": [
-        "rosenseitling",
-        "rosafarbener seitling",
-        "rosenroter seitling",
+        "pink oyster",
+        "pink oyster mushroom",
+        "rose-pink oyster",
         "pink oyster",
         "pleurotus salmoneostramineus",
         "agaricomycetes",
@@ -11265,7 +11265,7 @@
     {
       "id": "flammulina-velutipes",
       "slug": "flammulina-velutipes",
-      "name": "Samtfussruebling",
+      "name": "Enoki",
       "scientific_name": "Flammulina velutipes",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
@@ -11318,16 +11318,16 @@
         "enoki",
         "enokitake",
         "golden needle mushroom",
-        "wald",
-        "laubwald",
+        "forest",
+        "deciduous forest",
         "stehendes totholz",
         "liegendes holz",
-        "laubholz",
-        "eiche",
-        "buche",
+        "hardwood",
+        "oak",
+        "beech",
         "weide",
         "pappel",
-        "birke",
+        "birch",
         "erle",
         "samtfussruebling",
         "gemeiner samtfussruebling",
@@ -11906,7 +11906,7 @@
     {
       "id": "trametes-versicolor",
       "slug": "trametes-versicolor",
-      "name": "Schmetterlingstramete",
+      "name": "Turkey Tail",
       "scientific_name": "Trametes versicolor",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
@@ -11950,7 +11950,7 @@
           "variant": "success"
         }
       ],
-      "season": "Jan–Dez",
+      "season": "Jan–Dec",
       "categories": [
         "Polyporaceae",
         "Polyporales"
@@ -11959,8 +11959,8 @@
         "holzabbau und naehrstoffrecycling",
         "kohlenstoffkreislauf",
         "habitatbildung fuer insekten",
-        "wald",
-        "laub- und mischwald",
+        "forest",
+        "deciduous and mixed forest",
         "totes laubholz",
         "stuempfe, gefallene staemme, aeste",
         "totholz von laubbaeumen",
@@ -13056,7 +13056,7 @@
     {
       "id": "coprinus-comatus",
       "slug": "coprinus-comatus",
-      "name": "Schopftintling",
+      "name": "Shaggy Mane",
       "scientific_name": "Coprinus comatus",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
@@ -13365,7 +13365,7 @@
     {
       "id": "laetiporus-sulphureus",
       "slug": "laetiporus-sulphureus",
-      "name": "Schwefelporling",
+      "name": "Chicken of the Woods",
       "scientific_name": "Laetiporus sulphureus",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
@@ -13416,15 +13416,15 @@
       ],
       "keywords": [
         "chicken of the woods",
-        "wald",
-        "laubwald",
+        "forest",
+        "deciduous forest",
         "lebende laubbaeume",
         "tote staemme und stubben",
-        "laubholz",
-        "eiche",
+        "hardwood",
+        "oak",
         "weide",
         "kirsche",
-        "buche",
+        "beech",
         "nussbaum",
         "schwefelporling",
         "gemeiner schwefelporling",
@@ -13932,14 +13932,14 @@
     {
       "id": "lentinula-edodes",
       "slug": "lentinula-edodes",
-      "name": "Shiitake",
+      "name": "shiitake",
       "scientific_name": "Lentinula edodes",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": "Lentinula_edodes.jpg",
       "tagline": "Immunstimulation · Apr–Nov",
       "description": "Der Shiitake (Lentinula edodes) ist nach dem Champignon der meistangebaute Speisepilz weltweit und ein bedeutender Vitalpilz. Er stammt aus Ostasien und waechst dort natuerlich auf Shii-Baeumen und anderen Harthoelzern. Der Inhaltsstoff Lentinan ist in Japan als Krebsmedikament zugelassen. Shiitake ist reich an Vitamin D und hat immunstimulierende, antivirale und cholesterinsenkende Eigenschaften.",
-      "seo_description": "Shiitake (Lentinula edodes). Heilwirkung: Immunstimulation, Krebs-Begleittherapie",
+      "seo_description": "Shiitake (Lentinula edodes). Benefits: Immune Stimulation, Cancer Support Therapy",
       "quick_facts": [
         {
           "icon": "📏",
@@ -13968,7 +13968,7 @@
         }
       ],
       "highlights": [
-        "Immunstimulation",
+        "Immune Stimulation",
         "Krebs-Begleittherapie",
         "Cholesterinsenkung"
       ],
@@ -13986,18 +13986,18 @@
         "Agaricales"
       ],
       "keywords": [
-        "wald",
-        "laubwald",
+        "forest",
+        "deciduous forest",
         "tote laubholzstaemme",
         "stubben",
-        "laubholz",
+        "hardwood",
         "shii-baum (castanopsis cuspidata)",
-        "eiche",
-        "buche",
+        "oak",
+        "beech",
         "erle",
         "shiitake",
         "shii-take",
-        "chinesischer champignon",
+        "chinese mushroom",
         "black forest mushroom",
         "golden oak mushroom",
         "lentinus edodes",
@@ -14005,10 +14005,10 @@
         "agaricales",
         "omphalotaceae",
         "lentinula",
-        "onkologie",
+        "oncology",
         "hiv/aids",
-        "kardiologie",
-        "immunologie"
+        "cardiology",
+        "immunology"
       ],
       "perspectives": [
         "culinary",
@@ -14027,14 +14027,14 @@
     {
       "id": "morchella-esculenta",
       "slug": "morchella-esculenta",
-      "name": "Speisemorchel",
+      "name": "Common Morel",
       "scientific_name": "Morchella esculenta",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": null,
-      "tagline": "Mär–Mai",
+      "tagline": "Mar–May",
       "description": "Die Speisemorchel (Morchella esculenta) ist ein begehrter Fruehlingspilz aus der Familie Morchellaceae. Der charakteristische wabenartige Hut mit tiefen Hohlkammern und der hohle Stiel machen sie unverwechselbar. Sie waechst von Maerz bis Mai in Auwaeldern, Parks und auf kalkreichen Boeden, oft in Begleitung von Eschen. Morcheln duerfen niemals roh verzehrt werden, da sie den hitzeempfindlichen Giftstoff Gyromitrin enthalten. Richtig zubereitet gehoeren sie zu den kulinarisch wertvollsten Pilzen mit intensivem, nussig-wuerzigem Aroma.",
-      "seo_description": "Speisemorchel (Morchella esculenta)",
+      "seo_description": "Common Morel (Morchella esculenta)",
       "quick_facts": [
         {
           "icon": "📏",
@@ -14044,17 +14044,17 @@
         {
           "icon": "🎨",
           "label": "Color",
-          "value": "Gelbbraun bis hellbraun"
+          "value": "Yellowish-brown to light brown"
         },
         {
           "icon": "🌲",
           "label": "Ecosystem",
-          "value": "Temperater Laubwald"
+          "value": "Temperate Deciduous Forest"
         },
         {
           "icon": "🌳",
           "label": "Substrate",
-          "value": "Humusreicher Boden"
+          "value": "Humus-rich Soil"
         },
         {
           "icon": "🌍",
@@ -14071,26 +14071,26 @@
           "variant": "success"
         }
       ],
-      "season": "Mär–Mai",
+      "season": "Mar–May",
       "categories": [
         "Morchellaceae",
         "Pezizales"
       ],
       "keywords": [
-        "naehrstoffkreislauf",
-        "moeglicherweise naehrstofftransfer zu baeumen",
-        "zersetzung organischer stoffe im fruehling",
-        "temperater laubwald",
-        "auwald, hartholzwald",
-        "boden unter laubbaeumen",
-        "waldraender, parks, alte obstgaerten",
-        "humusreicher boden",
-        "laubstreu",
-        "brandflaechen",
-        "mulchbeete",
-        "speisemorchel",
-        "gelbe morchel",
-        "rundmorchel",
+        "nutrient cycling",
+        "possible nutrient transfer to trees",
+        "decomposition of organic matter in spring",
+        "Temperate Deciduous Forest",
+        "riparian forest, hardwood forest",
+        "soil under deciduous trees",
+        "forest edges, parks, old orchards",
+        "Humus-rich Soil",
+        "leaf litter",
+        "burned areas",
+        "mulch beds",
+        "common morel",
+        "yellow morel",
+        "round morel",
         "common morel",
         "yellow morel",
         "true morel",
@@ -14177,11 +14177,11 @@
       "keywords": [
         "pionierpflanze",
         "bestaeubungsmagnet",
-        "erosionsschutz",
-        "grasland",
+        "erosion control",
+        "grassland",
         "magerrasen, ruderalflaechen",
         "trockene, sonnige standorte",
-        "waldraender, wegboeschungen",
+        "forest edges, road embankments",
         "st. john's wort",
         "perforate st. john's wort",
         "common st. john's wort",
@@ -14203,7 +14203,7 @@
         "woodland edges",
         "hyperici herba",
         "antidepressivum",
-        "anxiolytikum",
+        "anxiolytic",
         "vulnerarium"
       ],
       "perspectives": [
@@ -14279,7 +14279,7 @@
         "ruderalflaeche",
         "stickstoffreiche standorte",
         "naehrstoffreiche, gestorte boeden",
-        "waldraender, bachraender",
+        "forest edges, stream banks",
         "stinging nettle",
         "common nettle",
         "nettle",
@@ -14320,7 +14320,7 @@
     {
       "id": "cyclocybe-cylindracea",
       "slug": "cyclocybe-cylindracea",
-      "name": "Suedlicher Ackerling",
+      "name": "Pioppino",
       "scientific_name": "Cyclocybe cylindracea",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
@@ -15348,7 +15348,7 @@
         "nektarquelle",
         "begleitpflanze",
         "kulturlandschaft",
-        "garten, tropische walder",
+        "gardens, tropical forests",
         "naehrstoffreiche, warme standorte",
         "sweet basil",
         "basil",
@@ -15385,14 +15385,14 @@
     {
       "id": "pleurotus-columbinus",
       "slug": "pleurotus-columbinus",
-      "name": "Taubenblauer Seitling",
+      "name": "Blue Oyster",
       "scientific_name": "Pleurotus columbinus",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": "Pleurotus_columbinus.jpg",
       "tagline": null,
       "description": "Der Taubenblaue Seitling (Pleurotus columbinus) ist eine Variante des Austernseitlings mit charakteristisch blau-grauer Hutfarbe. Er waechst bevorzugt auf Nadelholz und wird ganzjaehrig kultiviert. Wie andere Pleurotus-Arten enthaelt er Pleurotolysin, das durch Erhitzen zerstoert wird - daher immer gut garen. Er hat immunstimulierende und cholesterinsenkende Eigenschaften.",
-      "seo_description": "Taubenblauer Seitling (Pleurotus columbinus)",
+      "seo_description": "Blue Oyster (Pleurotus columbinus)",
       "quick_facts": [
         {
           "icon": "📏",
@@ -15413,8 +15413,8 @@
         "Agaricales"
       ],
       "keywords": [
-        "taubenblauer seitling",
-        "taubenblauer austernseitling",
+        "blue oyster",
+        "blue oyster mushroom",
         "gray dove oyster",
         "pleurotus ostreatus var. columbinus",
         "agaricomycetes",
@@ -15758,10 +15758,10 @@
         "Ericales"
       ],
       "keywords": [
-        "unterholzbildner",
-        "wald",
-        "subtropischer regenwald",
-        "waldraender",
+        "understory plant",
+        "forest",
+        "subtropical rainforest",
+        "forest edges",
         "bergwaelder",
         "tea plant",
         "tea shrub",
@@ -15852,11 +15852,11 @@
         "Zingiberales"
       ],
       "keywords": [
-        "unterholzpflanze",
-        "wald",
-        "tropischer monsunwald",
+        "understory plant",
+        "forest",
+        "tropical monsoon forest",
         "feuchte, schattige standorte",
-        "waldlichtungen",
+        "forest clearings",
         "turmeric",
         "indian saffron",
         "curcuma",
@@ -15952,9 +15952,9 @@
         "bestaeubungsmagnet",
         "uferbefestigung",
         "feuchtgebiet",
-        "feuchte wiesen, bachraender",
+        "wet meadows, stream banks",
         "feuchte, halbschattige standorte",
-        "waldraender, graeben",
+        "forest edges, ditches",
         "valerian",
         "garden valerian",
         "common valerian",
@@ -15977,7 +15977,7 @@
         "valerianae radix",
         "sedativum",
         "hypnotikum",
-        "anxiolytikum"
+        "anxiolytic"
       ],
       "perspectives": [
         "ecology",
@@ -16050,7 +16050,7 @@
         "trockenrasen",
         "steppen, ruderalflaechen",
         "trockene, sonnige standorte",
-        "wegraender, bahndaemme",
+        "roadsides, railway embankments",
         "wormwood",
         "grand wormwood",
         "absinthe wormwood",
@@ -16088,14 +16088,14 @@
     {
       "id": "pleurotus-citrinopileatus",
       "slug": "pleurotus-citrinopileatus",
-      "name": "Zitronenseitling",
+      "name": "Golden Oyster",
       "scientific_name": "Pleurotus citrinopileatus",
       "kingdom": "fungi",
       "kingdom_icon": "🍄",
       "image": "Pleurotus_citrinopileatus.jpg",
       "tagline": null,
       "description": "Der Zitronenseitling (Pleurotus citrinopileatus), auch Golden Oyster genannt, ist ein spektakulaerer Speisepilz mit leuchtend zitronengelben Hueten. Er waechst in grossen Buescheln und stammt urspruenglich aus Asien. Der Pilz ist reich an Vitaminen (A, B, C, D) und hat einen milden, nussigen Geschmack mit cashew-artigen Nuancen. Er soll bei Lungenemphysemen wirksam sein.",
-      "seo_description": "Zitronenseitling (Pleurotus citrinopileatus)",
+      "seo_description": "Golden Oyster (Pleurotus citrinopileatus)",
       "quick_facts": [
         {
           "icon": "📏",
@@ -16116,8 +16116,8 @@
         "Agaricales"
       ],
       "keywords": [
-        "zitronenseitling",
-        "limonenseitling",
+        "golden oyster",
+        "lemon oyster",
         "golden oyster",
         "yellow oyster",
         "tamogitake",

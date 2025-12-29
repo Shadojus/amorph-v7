@@ -1,42 +1,42 @@
 {
   "traditional_medicine": {
     "systems": ["TCM", "Ayurveda", "European_Folk_Medicine"],
-    "historical_use": "Eine der aeltesten und am weitesten verbreiteten Heilpflanzen weltweit",
-    "traditional_indications": ["Husten", "Magengeschwuere", "Entzuendungen", "Harmonisierung (TCM)"]
+    "historical_use": "One of the oldest and most widely used medicinal plants worldwide",
+    "traditional_indications": ["Cough", "Gastric ulcers", "Inflammation", "Harmonization (TCM)"]
   },
   "tcm_herb_name_pinyin": "Gan Cao",
   "tcm_herb_name_chinese": "甘草",
   "tcm_nature": "neutral",
   "tcm_flavor": ["sweet"],
-  "tcm_meridian_tropism": ["Alle 12 Meridiane"],
-  "tcm_therapeutic_actions": ["Tonisiert Qi", "Harmonisiert andere Kraeuter", "Befeuchtet Lunge"],
+  "tcm_meridian_tropism": ["All 12 meridians"],
+  "tcm_therapeutic_actions": ["Tonifies Qi", "Harmonizes other herbs", "Moistens the lungs"],
   "ayurveda_sanskrit_name": "Yashtimadhu",
   "pharmacopoeia_names": ["Liquiritiae radix"],
   "who_monograph_exists": true,
   "escop_monograph_exists": true,
-  "escop_therapeutic_indication": ["Magengeschwuere", "Katarrh der oberen Atemwege"],
+  "escop_therapeutic_indication": ["Gastric ulcers", "Upper respiratory catarrh"],
   "german_commission_e_status": {
-    "status": "Positiv-Monographie",
+    "status": "Positive monograph",
     "variant": "success"
   },
-  "german_commission_e_indication": ["Magengeschwuere", "Katarrhe der oberen Atemwege"],
+  "german_commission_e_indication": ["Gastric ulcers", "Upper respiratory catarrh"],
   "active_substances": [
-    "Glycyrrhizin (Glycyrrhizinsaeure)",
+    "Glycyrrhizin (Glycyrrhizinic acid)",
     "Glabridin",
-    "Flavonoide",
-    "Isoflavone"
+    "Flavonoids",
+    "Isoflavones"
   ],
   "effect_profile": [
-    {"axis": "Antiulzerogen", "value": 85},
-    {"axis": "Antiinflammatorisch", "value": 80},
-    {"axis": "Expektorierend", "value": 75},
-    {"axis": "Kortisonaehnlich", "value": 70},
-    {"axis": "Antimikrobiell", "value": 65}
+    {"axis": "Antiulcerogenic", "value": 85},
+    {"axis": "Anti-inflammatory", "value": 80},
+    {"axis": "Expectorant", "value": 75},
+    {"axis": "Cortisone-like", "value": 70},
+    {"axis": "Antimicrobial", "value": 65}
   ],
   "therapeutic_categories": [
-    "Expektorans",
-    "Antiulkerosum",
-    "Antiinflammatorium"
+    "Expectorant",
+    "Anti-ulcer agent",
+    "Anti-inflammatory"
   ],
   "evidence_level": {
     "status": "1b",
@@ -48,23 +48,23 @@
     "max": 100
   },
   "side_effects": [
-    {"level": "medium", "typ": "Mineralokortikoid-Effekt", "beschreibung": "Natriumretention, Kaliumverlust, Bluthochdruck, Ödeme"},
-    {"level": "high", "typ": "Hohe Dosen/Langzeit", "beschreibung": "Pseudoaldosteronismus mit schwerer Hypokaliämie"}
+    {"level": "medium", "typ": "Mineralocorticoid effect", "beschreibung": "Sodium retention, potassium loss, hypertension, edema"},
+    {"level": "high", "typ": "High doses/long-term", "beschreibung": "Pseudoaldosteronism with severe hypokalemia"}
   ],
   "interactions": [
-    {"level": "high", "typ": "Diuretika", "beschreibung": "Verstärkter Kaliumverlust"},
-    {"level": "medium", "typ": "Digitalis", "beschreibung": "Erhöhte Digitalis-Empfindlichkeit bei Hypokaliämie"},
-    {"level": "medium", "typ": "Kortikosteroide", "beschreibung": "Additive Wirkung"}
+    {"level": "high", "typ": "Diuretics", "beschreibung": "Increased potassium loss"},
+    {"level": "medium", "typ": "Digitalis", "beschreibung": "Increased digitalis sensitivity with hypokalemia"},
+    {"level": "medium", "typ": "Corticosteroids", "beschreibung": "Additive effect"}
   ],
   "contraindications": [
-    "Bluthochdruck",
-    "Schwangerschaft",
-    "Herzinsuffizienz",
-    "Niereninsuffizienz",
-    "Hypokaliämie"
+    "Hypertension",
+    "Pregnancy",
+    "Heart failure",
+    "Kidney insufficiency",
+    "Hypokalemia"
   ],
   "special_populations_pregnancy": {
-    "status": "Kontraindiziert",
+    "status": "Contraindicated",
     "variant": "danger"
   },
   "standard_dose_range": {
@@ -73,10 +73,10 @@
     "unit": "g"
   },
   "maximum_daily_dose": 100,
-  "treatment_duration_typical": "Maximal 4-6 Wochen",
-  "dosage_notes": "Wurzel: 5-15g als Dekokt; Extrakt: max. 100mg Glycyrrhizin/Tag; DGL (deglycyrrhiziniert) fuer Langzeitanwendung",
-  "preparation_forms": ["Wurzel", "Extrakt", "DGL-Praeparate", "Tee", "Sirup"],
+  "treatment_duration_typical": "Maximum 4-6 weeks",
+  "dosage_notes": "Root: 5-15g as decoction; Extract: max. 100mg glycyrrhizin/day; DGL (deglycyrrhizinated) for long-term use",
+  "preparation_forms": ["Root", "Extract", "DGL preparations", "Tea", "Syrup"],
   "status_by_region": {
-    "eu": "Pflanzliches Arzneimittel (well-established use)"
+    "eu": "Herbal medicinal product (well-established use)"
   }
 }

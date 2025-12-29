@@ -52,9 +52,9 @@
     "unit": "% dry weight"
   },
   "symptoms_by_severity": [
-    {"level": "medium", "typ": "Early symptoms", "beschreibung": "Nausea, vomiting, diarrhea, abdominal pain"},
-    {"level": "high", "typ": "Cardiac effects", "beschreibung": "Irregular heartbeat, bradycardia, heart block"},
-    {"level": "critical", "typ": "Severe poisoning", "beschreibung": "Visual disturbances (yellow-green halos), confusion, cardiac arrest"}
+    {"level": "medium", "type": "Early symptoms", "description": "Nausea, vomiting, diarrhea, abdominal pain"},
+    {"level": "high", "type": "Cardiac effects", "description": "Irregular heartbeat, bradycardia, heart block"},
+    {"level": "critical", "type": "Severe poisoning", "description": "Visual disturbances (yellow-green halos), confusion, cardiac arrest"}
   ],
   "symptoms_acute": [
     "Nausea and vomiting",

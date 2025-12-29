@@ -1,42 +1,42 @@
 {
   "trophic_mode_primary": "autotroph",
-  "ecological_guild": "Staude",
-  "primary_ecosystem_function": "Bestaeubungsmagnet",
+  "ecological_guild": "Perennial",
+  "primary_ecosystem_function": "Pollinator magnet",
   "secondary_ecosystem_functions": [
-    "Nektarquelle fuer Schmetterlinge",
-    "Samenquelle fuer Voegel"
+    "Nectar source for butterflies",
+    "Seed source for birds"
   ],
-  "ecosystem_type": "Praerie",
+  "ecosystem_type": "Prairie",
   "ecosystem_subtype": "Tallgrass Prairie",
-  "microhabitat_primary": "Offene Praerieflaechen",
-  "microhabitat_secondary": "Trockene Waldraender",
-  "light_requirement": "volle Sonne bis Halbschatten",
-  "moisture_regime": "mesisch",
+  "microhabitat_primary": "Open prairie areas",
+  "microhabitat_secondary": "Dry forest edges",
+  "light_requirement": "Full sun to partial shade",
+  "moisture_regime": "Mesic",
   "drought_tolerance": {
     "rating": 7,
     "max": 10
   },
   "soil_ph_optimal_min": 6.0,
   "soil_ph_optimal_max": 8.0,
-  "soil_texture_preference": "durchlaessig",
-  "climate_zone": "temperat-kontinental",
+  "soil_texture_preference": "Well-drained",
+  "climate_zone": "Temperate-continental",
   "temperature_optimal_min_c": -25,
   "temperature_optimal_max_c": 35,
   "frost_tolerance": {
     "rating": 9,
     "max": 10
   },
-  "fire_response": "Sprouting nach Prairie-Brand",
+  "fire_response": "Sprouting after prairie fire",
   "post_fire_fruiting": true,
-  "native_range": "Oestliches Nordamerika (Central USA)",
+  "native_range": "Eastern North America (Central USA)",
   "iucn_global_status": {
     "status": "LC",
     "variant": "success"
   },
   "conservation_actions_needed": [
-    "Praerie-Restauration",
-    "Brandmanagement"
+    "Prairie restoration",
+    "Fire management"
   ],
-  "dispersal_vector_type": "Zoochor",
-  "dispersal_mechanism": "Vogelausbreitung (Samen)"
+  "dispersal_vector_type": "Zoochory",
+  "dispersal_mechanism": "Bird dispersal (seeds)"
 }

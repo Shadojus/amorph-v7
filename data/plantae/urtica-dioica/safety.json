@@ -37,8 +37,8 @@
     }
   ],
   "symptoms_by_severity": [
-    {"level": "low", "typ": "Skin contact", "beschreibung": "Stinging, burning, rash (temporary)"},
-    {"level": "none", "typ": "After cooking", "beschreibung": "Completely safe and nutritious"}
+    {"level": "low", "typ": "Skin contact", "description": "Stinging, burning, rash (temporary)"},
+    {"level": "none", "typ": "After cooking", "description": "Completely safe and nutritious"}
   ],
   "fatality_rate": {
     "value": 0,

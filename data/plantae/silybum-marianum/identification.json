@@ -61,7 +61,7 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "none", "typ": "Other thistles", "beschreibung": "Other thistles are not toxic, but lack medicinal value of milk thistle"}
+    {"level": "none", "typ": "Other thistles", "description": "Other thistles are not toxic, but lack medicinal value of milk thistle"}
   ],
   "key_differentiating_features": [
     "Distinctive white marbling on leaves",

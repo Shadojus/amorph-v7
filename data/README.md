@@ -1,14 +1,14 @@
-# Testdaten Übersicht
+# Test Data Overview
 
-Modulare Testdaten-Struktur für AMORPH.
+Modular test data structure for AMORPH.
 
-## Aktuelle Struktur
+## Current Structure
 
 ```
 data/
 ├── animalia/
 │   ├── index.json
-│   └── alpine-marmot/          # 11 JSON-Dateien
+│   └── alpine-marmot/          # 11 JSON files
 │       ├── index.json
 │       ├── chemistry.json
 │       ├── conservation.json
@@ -23,7 +23,7 @@ data/
 │
 ├── plantae/
 │   ├── index.json
-│   └── deadly-nightshade/      # 8 JSON-Dateien
+│   └── deadly-nightshade/      # 8 JSON files
 │       ├── index.json
 │       ├── chemistry.json
 │       ├── culinary.json
@@ -34,22 +34,22 @@ data/
 │       └── safety.json
 │
 ├── fungi/
-│   └── index.json              # (leer)
+│   └── index.json              # (empty)
 │
 └── bacteria/
-    └── index.json              # (leer)
+    └── index.json              # (empty)
 ```
 
-## Aktive Spezies
+## Active Species
 
-| Kingdom   | Spezies               | Wissenschaftlich      | Dateien |
+| Kingdom   | Species               | Scientific Name       | Files   |
 |-----------|----------------------|----------------------|---------|
 | Animalia  | Alpine Marmot        | Marmota marmota      | 11      |
 | Plantae   | Deadly Nightshade    | Atropa belladonna    | 8       |
 
-## Datei-Format
+## File Format
 
-### index.json (Spezies)
+### index.json (Species)
 ```json
 {
   "id": "alpine-marmot",
@@ -61,42 +61,42 @@ data/
 }
 ```
 
-### Perspektive-JSON
+### Perspective JSON
 ```json
 {
-  "feldname": { "type": "morph-typ", "data": ... },
+  "fieldname": { "type": "morph-type", "data": ... },
   ...
 }
 ```
 
-## Verwendete Morphs
+## Used Morphs
 
-Die Perspektiven nutzen verschiedene Morph-Typen je nach Datenstruktur:
-- `text`, `number`, `boolean` - Einzelwerte
-- `list`, `object` - Strukturierte Daten
+The perspectives use various morph types depending on data structure:
+- `text`, `number`, `boolean` - Single values
+- `list`, `object` - Structured data
 - `bar`, `pie`, `radar` - Charts
-- `range`, `stats` - Statistiken
-- `badge`, `tag`, `rating` - Bewertungen
+- `range`, `stats` - Statistics
+- `badge`, `tag`, `rating` - Ratings
 
-## Konfiguration
+## Configuration
 
 In `config/daten.yaml`:
 ```yaml
-quelle:
-  typ: json-universe-optimized
-  pfad: ./data
+source:
+  type: json-universe-optimized
+  path: ./data
 ```
 
-## Neue Spezies hinzufügen
+## Adding New Species
 
-1. Ordner erstellen: `data/{kingdom}/{species-slug}/`
-2. index.json mit Basis-Infos erstellen
-3. Perspektiven-JSONs nach Blueprints erstellen
-4. `npm run validate` ausführen
-5. `npm run build:index` ausführen
+1. Create folder: `data/{kingdom}/{species-slug}/`
+2. Create index.json with basic info
+3. Create perspective JSONs following blueprints
+4. Run `npm run validate`
+5. Run `npm run build:index`
 
-## Siehe auch
+## See Also
 
-- [CLAUDE.md](CLAUDE.md) - Daten-System Dokumentation
-- [/docs/DATEN_ERSTELLEN.md](/docs/DATEN_ERSTELLEN.md) - Manuelle Erstellung
-- [/scripts/CLAUDE.md](/scripts/CLAUDE.md) - Validierung & Build
+- [CLAUDE.md](CLAUDE.md) - Data System Documentation
+- [/docs/DATEN_ERSTELLEN.md](/docs/DATEN_ERSTELLEN.md) - Manual Creation
+- [/scripts/CLAUDE.md](/scripts/CLAUDE.md) - Validation & Build

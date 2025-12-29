@@ -60,7 +60,7 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "medium", "typ": "Vitex agnus-castus", "beschreibung": "Different plant entirely, leaves superficially similar"}
+    {"level": "medium", "type": "Vitex agnus-castus", "description": "different plant entirely, leaves superficially similar"}
   ],
   "key_differentiating_features": [
     "Distinctive serrated palmate leaves",

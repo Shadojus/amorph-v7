@@ -4,18 +4,18 @@
     "rating": 8,
     "max": 10
   },
-  "taste_profile": "mild, mehlartig",
-  "texture": "schleimig, gallertartig",
-  "aroma": "dezent pilzig",
+  "taste_profile": "mild, floury",
+  "texture": "slimy, gelatinous",
+  "aroma": "subtle mushroom-like",
   "recommended_preparations": [
-    "Miso-Suppe",
-    "Nudelgerichte",
-    "Saucen",
-    "Eintöpfe"
+    "Miso soup",
+    "Noodle dishes",
+    "Sauces",
+    "Stews"
   ],
   "cooking_methods": [
-    "In Suppen kochen",
-    "Kurz anbraten"
+    "Cooking in soups",
+    "Brief frying"
   ],
   "cooking_time_minutes": {
     "min": 3,
@@ -25,24 +25,24 @@
   "storage_fresh_days": {
     "min": 5,
     "max": 7,
-    "unit": "Tage"
+    "unit": "days"
   },
   "storage_methods": [
-    "Gekuehlt",
-    "In Salzlake"
+    "Refrigerated",
+    "In brine"
   ],
   "cuisine_traditions": [
-    "Japanische Kueche",
-    "Chinesische Kueche"
+    "Japanese cuisine",
+    "Chinese cuisine"
   ],
   "commercial_availability": {
-    "status": "mittel",
+    "status": "medium",
     "variant": "warning"
   },
-  "cultivation_scale": "kommerziell",
+  "cultivation_scale": "commercial",
   "nutritional_highlights": [
     "20.8% Protein",
     "Niacin (72.9mg/100g)",
-    "Kalium (2083mg/100g)"
+    "Potassium (2083mg/100g)"
   ]
 }

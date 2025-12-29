@@ -58,7 +58,7 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "low", "typ": "Other Camellia species", "beschreibung": "Ornamental, not toxic but not used for tea"}
+    {"level": "low", "type": "other Camellia species", "description": "ornamental, not toxic but not used for tea"}
   ],
   "key_differentiating_features": [
     "Smaller flowers than ornamental camellias",

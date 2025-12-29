@@ -17,11 +17,9 @@
     "Polystictus versicolor (L.) Fr."
   ],
   "common_names": [
-    "Schmetterlingstramete",
-    "Bunte Tramete",
-    "Zonentramete",
     "Turkey Tail",
-    "Yunzhi"
+    "Many-Colored Polypore",
+    "Zoned Polypore"
   ],
   "international_names": [
     "Turkey Tail (EN)",
@@ -35,12 +33,12 @@
     "variant": "success"
   },
   "quick_id_checklist": [
-    {"step": 1, "label": "Faecher- bis rosettenfoermige Fruchtkörper", "status": "pending"},
-    {"step": 2, "label": "Konzentrische, mehrfarbige Zonen auf der Oberseite", "status": "pending"},
-    {"step": 3, "label": "Samtige bis filzige Oberflaeche", "status": "pending"},
-    {"step": 4, "label": "Weisse bis cremefarbene Poren auf der Unterseite", "status": "pending"},
-    {"step": 5, "label": "Duenn, lederig-zaeh", "status": "pending"},
-    {"step": 6, "label": "Auf Totholz von Laubbaeumen wachsend", "status": "pending"}
+    {"step": 1, "label": "Fan to rosette-shaped fruiting bodies", "status": "pending"},
+    {"step": 2, "label": "Concentric, multicolored zones on upper surface", "status": "pending"},
+    {"step": 3, "label": "Velvety to felty surface", "status": "pending"},
+    {"step": 4, "label": "White to cream-colored pores on underside", "status": "pending"},
+    {"step": 5, "label": "Thin, leathery-tough", "status": "pending"},
+    {"step": 6, "label": "Growing on deadwood of deciduous trees", "status": "pending"}
   ],
   "identification_difficulty": {
     "status": "Moderate",
@@ -48,83 +46,83 @@
   },
   "time_to_identify_minutes": 10,
   "minimum_equipment_needed": [
-    "Lupe fuer Porengroesse",
-    "Gute Beleuchtung"
+    "Loupe for pore size",
+    "Good lighting"
   ],
   "field_identifiable": true,
   "confusion_species_list": [
-    "Stereum hirsutum (Striegeliger Schichtpilz)",
-    "Stereum ostrea (Wellenfoermiger Schichtpilz)",
-    "Trichaptum biforme (Violetter Knorpelporling)",
-    "Trametes hirsuta (Striegelige Tramete)"
+    "Stereum hirsutum (Hairy Curtain Crust)",
+    "Stereum ostrea (False Turkey Tail)",
+    "Trichaptum biforme (Violet Toothed Polypore)",
+    "Trametes hirsuta (Hairy Bracket)"
   ],
   "confusion_risk_level": {
     "status": "Moderate",
     "variant": "warning"
   },
   "confusion_consequences": [
-    {"level": "low", "typ": "Stereum-Arten", "beschreibung": "Haben glatte Unterseite statt Poren - nicht giftig, aber ohne medizinischen Wert"},
-    {"level": "low", "typ": "Trametes hirsuta", "beschreibung": "Aehnlich aber weniger farbig - ebenfalls nicht giftig"},
-    {"level": "low", "typ": "Trichaptum biforme", "beschreibung": "Hat violette Poren - nicht giftig"}
+    {"level": "low", "typ": "Stereum species", "beschreibung": "Have smooth underside instead of pores - not poisonous but without medicinal value"},
+    {"level": "low", "typ": "Trametes hirsuta", "beschreibung": "Similar but less colorful - also not poisonous"},
+    {"level": "low", "typ": "Trichaptum biforme", "beschreibung": "Has violet pores - not poisonous"}
   ],
   "key_differentiating_features": [
-    "Konzentrische, mehrfarbige Zonen (grau, braun, blau, gruen)",
-    "Samtige Oberflaeche (nicht struppig behaart)",
-    "Weisse bis cremefarbene Poren (3-5 pro mm)",
-    "Duenn (1-3 mm dick)"
+    "Concentric, multicolored zones (gray, brown, blue, green)",
+    "Velvety surface (not shaggy hairy)",
+    "White to cream-colored pores (3-5 per mm)",
+    "Thin (1-3 mm thick)"
   ],
-  "habit": "Lignicol (holzbewohnend)",
-  "growth_form": "Faecherartig bis rosettenfoermig, oft dachziegelartig",
-  "symmetry": "Halbkreisfoermig",
+  "habit": "Lignicolous (wood-dwelling)",
+  "growth_form": "Fan-shaped to rosette-shaped, often imbricate",
+  "symmetry": "Semicircular",
   "size_range": {
     "min": 2,
     "max": 10,
     "unit": "cm"
   },
   "size_typical_cm": 5,
-  "basic_shape": "Konsolen- oder faecherfoermig",
+  "basic_shape": "Bracket or fan-shaped",
   "primary_structure_present": true,
-  "primary_structure_type": "Konsole (Fruchtkörper)",
+  "primary_structure_type": "Bracket (Fruiting body)",
   "primary_structure_diameter": {
     "min": 2,
     "max": 10,
     "unit": "cm"
   },
-  "primary_structure_shape_young": "Rundlich, halbkreisfoermig",
-  "primary_structure_shape_mature": "Faecherfoermig mit gewelltem Rand",
-  "primary_structure_surface": "Samtig bis fein filzig, mit konzentrischen Zonen",
-  "primary_structure_color": "Mehrfarbig: grau, braun, blau, gruen, weiss in Zonen",
+  "primary_structure_shape_young": "Rounded, semicircular",
+  "primary_structure_shape_mature": "Fan-shaped with wavy margin",
+  "primary_structure_surface": "Velvety to finely felty, with concentric zones",
+  "primary_structure_color": "Multicolored: gray, brown, blue, green, white in zones",
   "primary_structure_thickness": {
     "min": 1,
     "max": 3,
     "unit": "mm"
   },
   "support_structure_present": false,
-  "hymenophore_type": "Poren",
-  "pore_surface_color": "Weiss bis creme",
-  "pore_density": "3-5 Poren pro mm",
-  "color_primary": "Mehrfarbig zoniert",
-  "color_secondary": "Weiss (Unterseite)",
+  "hymenophore_type": "Pores",
+  "pore_surface_color": "White to cream",
+  "pore_density": "3-5 pores per mm",
+  "color_primary": "Multicolored zoned",
+  "color_secondary": "White (underside)",
   "color_variations": [
-    "Braun-grau zoniert",
-    "Mit blauen und gruenen Toenen",
-    "Weiss bis cremefarben am Rand"
+    "Brown-gray zoned",
+    "With blue and green tones",
+    "White to cream-colored at margin"
   ],
-  "smell_description": "Schwach pilzig, holzig",
+  "smell_description": "Weakly mushroomy, woody",
   "taste_safe_to_test": true,
-  "taste_description": "Mild, ledrig, zaeh (nicht zum Essen geeignet)",
+  "taste_description": "Mild, leathery, tough (not suitable for eating)",
   "microscopy_required": false,
   "microscopy_key_features": [
-    "Sporen zylindrisch, leicht gebogen",
-    "Sporengroesse 5-6 x 1.5-2 um",
-    "Trameten-Typ Hyphenstruktur"
+    "Spores cylindrical, slightly curved",
+    "Spore size 5-6 x 1.5-2 um",
+    "Trametes-type hyphal structure"
   ],
   "spore_measurement_diagnostic": {
     "min": 5,
     "max": 6,
     "unit": "um"
   },
-  "reproductive_cell_shape": "Zylindrisch, leicht gebogen",
+  "reproductive_cell_shape": "Cylindrical, slightly curved",
   "reproductive_cell_length": {
     "min": 5,
     "max": 6,
@@ -135,25 +133,25 @@
     "max": 2,
     "unit": "um"
   },
-  "reproductive_cell_color": "Hyalin",
+  "reproductive_cell_color": "Hyaline",
   "appearance_by_season": {
-    "spring": "Fruchtend",
-    "summer": "Fruchtend",
-    "autumn": "Fruchtend",
-    "winter": "Fruchtkoerper persistent"
+    "spring": "Fruiting",
+    "summer": "Fruiting",
+    "autumn": "Fruiting",
+    "winter": "Fruiting bodies persistent"
   },
   "age_stage_variations": [
-    {"phase": "Jung", "duration": "1-2 Wochen"},
-    {"phase": "Reif", "duration": "Monate bis Jahre"},
-    {"phase": "Alt", "duration": "Persistent"}
+    {"phase": "Young", "duration": "1-2 weeks"},
+    {"phase": "Mature", "duration": "Months to years"},
+    {"phase": "Old", "duration": "Persistent"}
   ],
   "nutrition_type": "Saprotroph",
-  "nutrition_type_detail": "Weissfaeule-Erreger, baut Lignin ab",
+  "nutrition_type_detail": "White rot fungus, degrades lignin",
   "substrate_species": [
-    "Totholz von Laubbaeumen",
-    "Besonders Buche, Eiche, Birke",
-    "Selten auf Nadelholz",
-    "Stuempfe und gefallene Staemme"
+    "Deadwood of deciduous trees",
+    "Especially beech, oak, birch",
+    "Rarely on coniferous wood",
+    "Stumps and fallen trunks"
   ],
   "source": {
     "authors": "Ryvarden, L. & Gilbertson, R.L.",

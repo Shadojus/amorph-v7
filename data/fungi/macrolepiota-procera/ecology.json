@@ -1,12 +1,12 @@
 {
-  "habitat_primary": "Waldraender, Lichtungen, Heiden",
+  "habitat_primary": "forest edges, clearings, heathlands",
   "habitat_secondary": [
-    "Mischwaelder",
-    "Waldwege",
-    "Wiesen",
-    "Parks"
+    "mixed forests",
+    "forest paths",
+    "meadows",
+    "parks"
   ],
-  "habitat_description": "Der Parasol ist ein typischer Bewohner offener und halboffener Standorte. Er bevorzugt naehrstoffreiche Boeden an Waldraendern, auf Lichtungen und Heiden. Man findet ihn vom Fruehsommer bis Spaetherbst, oft in grossen Gruppen.",
+  "habitat_description": "The Parasol is a typical inhabitant of open and semi-open habitats. It prefers nutrient-rich soils at forest edges, in clearings and heathlands. It can be found from early summer to late autumn, often in large groups.",
   "elevation_range": {
     "min": 0,
     "max": 1500,
@@ -23,21 +23,21 @@
     "unit": "C"
   },
   "microhabitat_requirements": [
-    "Naehrstoffreiche Boeden",
-    "Offene bis halbschattige Standorte",
-    "Gute Drainage"
+    "Nutrient-rich soils",
+    "Open to semi-shaded locations",
+    "Good drainage"
   ],
   "substrate_preferences": [
-    "Humusreiche Waldboeden",
-    "Wiesen",
-    "Heideboeden"
+    "Humus-rich forest soils",
+    "Meadows",
+    "Heathland soils"
   ],
-  "ecological_role": "Saprotroph (Folgezersetzer)",
-  "ecological_role_description": "Macrolepiota procera zersetzt organisches Material im Boden und traegt zur Humusbildung bei.",
+  "ecological_role": "Saprotroph (secondary decomposer)",
+  "ecological_role_description": "Macrolepiota procera decomposes organic material in the soil and contributes to humus formation.",
   "ecological_importance": [
-    {"axis": "Naehrstoffrecycling", "value": 70},
-    {"axis": "Kulinarische Bedeutung", "value": 95},
-    {"axis": "Kulturelle Bedeutung", "value": 80}
+    {"axis": "Nutrient recycling", "value": 70},
+    {"axis": "Culinary significance", "value": 95},
+    {"axis": "Cultural significance", "value": 80}
   ],
   "trophic_level": 2,
   "trophic_category": "saprotroph",
@@ -46,11 +46,11 @@
     "variant": "success"
   },
   "co_occurring_species": [
-    "Andere Macrolepiota-Arten",
-    "Agaricus-Arten",
-    "Lycoperdon-Arten"
+    "Other Macrolepiota species",
+    "Agaricus species",
+    "Lycoperdon species"
   ],
-  "dispersal_mechanism": "Windverbreitung der Sporen",
+  "dispersal_mechanism": "Wind dispersal of spores",
   "dispersal_range": {
     "min": 10,
     "max": 1000,

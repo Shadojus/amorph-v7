@@ -58,7 +58,7 @@
     "variant": "warning"
   },
   "confusion_consequences": [
-    {"level": "high", "typ": "Symphytum officinale", "beschreibung": "Comfrey leaves similar to foxglove rosette; foxglove is deadly poisonous"}
+    {"level": "high", "type": "Symphytum officinale", "description": "Comfrey leaves similar to foxglove rosette; foxglove is deadly poisonous"}
   ],
   "key_differentiating_features": [
     "Distinctive tubular, thimble-shaped flowers",

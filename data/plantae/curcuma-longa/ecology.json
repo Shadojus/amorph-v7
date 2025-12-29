@@ -1,22 +1,22 @@
 {
   "trophic_mode_primary": "autotroph",
-  "ecological_guild": "Geophyt",
-  "primary_ecosystem_function": "Unterholzpflanze",
-  "ecosystem_type": "Wald",
-  "ecosystem_subtype": "Tropischer Monsunwald",
-  "microhabitat_primary": "Feuchte, schattige Standorte",
-  "microhabitat_secondary": "Waldlichtungen",
-  "light_requirement": "Halbschatten bis volle Sonne",
-  "moisture_regime": "feucht",
+  "ecological_guild": "Geophyte",
+  "primary_ecosystem_function": "Understory plant",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Tropical monsoon forest",
+  "microhabitat_primary": "Moist, shady sites",
+  "microhabitat_secondary": "Forest clearings",
+  "light_requirement": "Partial shade to full sun",
+  "moisture_regime": "Humid",
   "drought_tolerance": {
     "rating": 2,
     "max": 10
   },
   "soil_ph_optimal_min": 5.5,
   "soil_ph_optimal_max": 7.5,
-  "soil_nutrient_preference": "lehmig-humusreich",
-  "organic_matter_preference": "hoch",
-  "climate_zone": "tropisch",
+  "soil_nutrient_preference": "Loamy-humus-rich",
+  "organic_matter_preference": "High",
+  "climate_zone": "Tropical",
   "temperature_optimal_min_c": 20,
   "temperature_optimal_max_c": 35,
   "frost_tolerance": {
@@ -25,13 +25,13 @@
   },
   "precipitation_optimal_min_mm": 1000,
   "precipitation_optimal_max_mm": 2000,
-  "seasonality_preference": "Monsun (Trocken-/Regenzeit)",
-  "native_range": "Suedostasien (Indien, Myanmar - genaue Herkunft unbekannt)",
+  "seasonality_preference": "Monsoon (dry/rainy season)",
+  "native_range": "Southeast Asia (India, Myanmar - exact origin unknown)",
   "iucn_global_status": {
     "status": "NE",
     "variant": "info"
   },
-  "dispersal_vector_type": "Vegetativ",
-  "dispersal_mechanism": "Rhizomteilung",
-  "dormancy_type": "Trockenheitsdormanz"
+  "dispersal_vector_type": "Vegetative",
+  "dispersal_mechanism": "Rhizome division",
+  "dormancy_type": "Drought dormancy"
 }

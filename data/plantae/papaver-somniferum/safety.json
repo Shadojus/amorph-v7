@@ -54,9 +54,9 @@
     {"label": "Other alkaloids", "value": 15}
   ],
   "symptoms_by_severity": [
-    {"level": "low", "typ": "Mild exposure", "beschreibung": "Drowsiness, nausea, constipation"},
-    {"level": "high", "typ": "Overdose", "beschreibung": "Pinpoint pupils, respiratory depression, unconsciousness"},
-    {"level": "critical", "typ": "Severe overdose", "beschreibung": "Respiratory arrest, coma, death"}
+    {"level": "low", "typ": "Mild exposure", "description": "Drowsiness, nausea, constipation"},
+    {"level": "high", "typ": "Overdose", "description": "Pinpoint pupils, respiratory depression, unconsciousness"},
+    {"level": "critical", "typ": "Severe overdose", "description": "Respiratory arrest, coma, death"}
   ],
   "symptoms_acute": [
     "Pinpoint pupils (miosis)",

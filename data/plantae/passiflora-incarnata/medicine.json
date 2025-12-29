@@ -1,43 +1,43 @@
 {
   "traditional_medicine": {
     "systems": ["Indigenous_North_America", "European_Folk_Medicine"],
-    "historical_use": "Von indigenen Völkern Nordamerikas als Beruhigungsmittel; seit dem 19. Jh. in Europa",
-    "traditional_indications": ["Schlafstörungen", "Nervositaet", "Angstzustaende", "Kraempfe"]
+    "historical_use": "Used by indigenous North American peoples as a sedative; in Europe since the 19th century",
+    "traditional_indications": ["Sleep disorders", "Nervousness", "Anxiety states", "Spasms"]
   },
   "pharmacopoeia_names": ["Passiflorae herba"],
   "who_monograph_exists": true,
   "escop_monograph_exists": true,
-  "escop_therapeutic_indication": ["Nervöse Unruhe", "Einschlafstörungen"],
+  "escop_therapeutic_indication": ["Nervous restlessness", "Sleep onset disorders"],
   "german_commission_e_status": {
-    "status": "Positiv-Monographie",
+    "status": "Positive Monograph",
     "variant": "success"
   },
-  "german_commission_e_indication": ["Nervöse Unruhezustaende"],
+  "german_commission_e_indication": ["Nervous restlessness states"],
   "active_substances": [
-    "Flavonoide (Chrysin, Vitexin)",
+    "Flavonoids (Chrysin, Vitexin)",
     "Maltol",
-    "Harman-Alkaloide (Spuren)",
-    "GABA (in der Pflanze)"
+    "Harman alkaloids (traces)",
+    "GABA (in the plant)"
   ],
   "effect_profile": [
-    {"axis": "Anxiolytisch", "value": 85},
-    {"axis": "Sedativ", "value": 75},
-    {"axis": "Spasmolytisch", "value": 65},
-    {"axis": "Schlaffoerdernd", "value": 70},
-    {"axis": "Blutdrucksenkend", "value": 55}
+    {"axis": "Anxiolytic", "value": 85},
+    {"axis": "Sedative", "value": 75},
+    {"axis": "Spasmolytic", "value": 65},
+    {"axis": "Sleep-promoting", "value": 70},
+    {"axis": "Blood pressure lowering", "value": 55}
   ],
   "therapeutic_categories": [
-    "Anxiolytikum",
-    "Sedativum",
-    "Spasmolytikum"
+    "Anxiolytic",
+    "Sedative",
+    "Spasmolytic"
   ],
   "evidence_level": {
     "status": "2a",
     "variant": "success"
   },
   "clinical_studies": [
-    "Akhondzadeh et al. 2001: Wirksamkeit vergleichbar mit Oxazepam bei Angststörung",
-    "Movafegh et al. 2008: Präoperative Angstreduktion"
+    "Akhondzadeh et al. 2001: Efficacy comparable to oxazepam for anxiety disorder",
+    "Movafegh et al. 2008: Preoperative anxiety reduction"
   ],
   "safety_score": {
     "value": 85,
@@ -45,17 +45,17 @@
     "max": 100
   },
   "side_effects": [
-    {"level": "low", "typ": "Gelegentlich", "beschreibung": "Muedigkeit, Schwindel"}
+    {"level": "low", "typ": "Occasional", "description": "Fatigue, dizziness"}
   ],
   "interactions": [
-    {"level": "medium", "typ": "ZNS-Depressiva", "beschreibung": "Additive Wirkung mit Sedativa"}
+    {"level": "medium", "typ": "CNS depressants", "description": "Additive effect with sedatives"}
   ],
   "contraindications": [
-    "Schwangerschaft",
-    "MAO-Hemmer (theoretisch)"
+    "Pregnancy",
+    "MAO inhibitors (theoretical)"
   ],
   "special_populations_pregnancy": {
-    "status": "Nicht empfohlen",
+    "status": "Not recommended",
     "variant": "warning"
   },
   "standard_dose_range": {
@@ -63,10 +63,10 @@
     "max": 500,
     "unit": "mg"
   },
-  "dosage_notes": "Extrakt: 250-500 mg; Tee: 4-8g Kraut; oft mit Baldrian und Hopfen kombiniert",
-  "preparation_forms": ["Tee", "Extrakt", "Tinktur", "Kapseln"],
+  "dosage_notes": "Extract: 250-500 mg; Tea: 4-8g herb; often combined with valerian and hops",
+  "preparation_forms": ["Tea", "Extract", "Tincture", "Capsules"],
   "status_by_region": {
-    "eu": "Pflanzliches Arzneimittel (traditional use)",
+    "eu": "Herbal medicinal product (traditional use)",
     "usa": "GRAS, Dietary Supplement"
   }
 }

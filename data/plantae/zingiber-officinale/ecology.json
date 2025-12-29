@@ -1,22 +1,22 @@
 {
   "trophic_mode_primary": "autotroph",
-  "ecological_guild": "Geophyt",
-  "primary_ecosystem_function": "Unterholzpflanze",
-  "ecosystem_type": "Wald",
-  "ecosystem_subtype": "Tropischer Regenwald",
-  "microhabitat_primary": "Feuchte, schattige Waldboeden",
-  "microhabitat_secondary": "Waldraender",
-  "light_requirement": "Halbschatten",
-  "moisture_regime": "feucht",
+  "ecological_guild": "Geophyte",
+  "primary_ecosystem_function": "Understory plant",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Tropical rainforest",
+  "microhabitat_primary": "Moist, shady forest floors",
+  "microhabitat_secondary": "Forest edges",
+  "light_requirement": "Partial shade",
+  "moisture_regime": "Moist",
   "drought_tolerance": {
     "rating": 2,
     "max": 10
   },
   "soil_ph_optimal_min": 5.5,
   "soil_ph_optimal_max": 6.5,
-  "soil_nutrient_preference": "humusreich, gut drainiert",
-  "organic_matter_preference": "hoch",
-  "climate_zone": "tropisch",
+  "soil_nutrient_preference": "Humus-rich, well-drained",
+  "organic_matter_preference": "High",
+  "climate_zone": "Tropical",
   "temperature_optimal_min_c": 20,
   "temperature_optimal_max_c": 32,
   "frost_tolerance": {
@@ -25,11 +25,11 @@
   },
   "precipitation_optimal_min_mm": 1500,
   "precipitation_optimal_max_mm": 3000,
-  "native_range": "Suedostasien (wahrscheinlich Malaysia/Indonesien, genaue Herkunft unbekannt)",
+  "native_range": "Southeast Asia (probably Malaysia/Indonesia, exact origin unknown)",
   "iucn_global_status": {
     "status": "NE",
     "variant": "info"
   },
-  "dispersal_vector_type": "Vegetativ",
-  "dispersal_mechanism": "Rhizomteilung"
+  "dispersal_vector_type": "Vegetative",
+  "dispersal_mechanism": "Rhizome division"
 }

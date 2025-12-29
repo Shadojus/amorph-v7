@@ -13,36 +13,34 @@
     "Sulphurina sulphurea"
   ],
   "common_names": [
-    "Schwefelporling",
-    "Gemeiner Schwefelporling",
-    "Eierporling",
-    "Chicken of the Woods",
-    "Sulphur Shelf"
+    "Sulphur Polypore",
+    "Sulphur Shelf",
+    "Chicken of the Woods"
   ],
   "size_range": {
     "min": 5,
     "max": 50,
     "unit": "cm"
   },
-  "color_primary": "schwefelgelb",
+  "color_primary": "sulphur-yellow",
   "color_secondary": "orange",
-  "smell_description": "Aromatisch, pilzig, saeuerlich, obstartig",
-  "taste_description": "Saeuerlich, auf Hartholz oft bitter",
+  "smell_description": "Aromatic, mushroomy, sour, fruity",
+  "taste_description": "Sour, often bitter on hardwood",
   "primary_structure_present": true,
-  "primary_structure_type": "Konsole, dachziegelartig",
+  "primary_structure_type": "Bracket, imbricate",
   "primary_structure_diameter": {
     "min": 5,
     "max": 50,
     "unit": "cm"
   },
-  "primary_structure_shape_mature": "faecherfoermig, dachziegelartig",
-  "primary_structure_surface": "samtig",
-  "primary_structure_color": "orange, gelb, hellgelb, alt weiss",
+  "primary_structure_shape_mature": "Fan-shaped, imbricate",
+  "primary_structure_surface": "velvety",
+  "primary_structure_color": "orange, yellow, pale yellow, white when old",
   "tubes_present": true,
-  "pores_color": "schwefelgelb",
-  "tissue_color": "gelb bis weiss",
-  "tissue_consistency": "weich, elastisch (jung), hart, bruechig (alt)",
-  "propagule_color": "weiss",
+  "pores_color": "sulphur-yellow",
+  "tissue_color": "yellow to white",
+  "tissue_consistency": "soft, elastic (young), hard, brittle (old)",
+  "propagule_color": "white",
   "propagule_length": {
     "min": 5.5,
     "max": 7,
@@ -69,8 +67,8 @@
     "variant": "success"
   },
   "key_differentiating_features": [
-    "Leuchtend schwefelgelb-orange Farbe",
-    "Dachziegelartiges Wachstum",
-    "Auf Laubholz"
+    "Bright sulphur-yellow-orange color",
+    "Imbricate growth pattern",
+    "On hardwood"
   ]
 }

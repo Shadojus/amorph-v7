@@ -8,7 +8,7 @@
     "max": 100,
     "unit": "%"
   },
-  "safety_edibility_notes": "Ausgezeichneter Speisepilz mit feinem Aroma. Weltweit kultiviert. Auch bedeutender Vitalpilz fuer neurologische Anwendungen.",
+  "safety_edibility_notes": "Excellent edible mushroom with delicate aroma. Cultivated worldwide. Also an important medicinal mushroom for neurological applications.",
   "safety_potentially_deadly": false,
   "safety_toxicity_score": {
     "value": 0,
@@ -24,8 +24,8 @@
     "status": "none",
     "variant": "success"
   },
-  "safety_warning_text": "Wildexemplare sind geschuetzt und sollten nicht gesammelt werden.",
-  "safety_summary": "Hervorragender Speise- und Vitalpilz. In der Natur geschuetzt - nur kultivierte Exemplare verwenden.",
+  "safety_warning_text": "Wild specimens are protected and should not be collected.",
+  "safety_summary": "Excellent edible and medicinal mushroom. Protected in the wild - use only cultivated specimens.",
   "confusion_risk_level": {
     "status": "low",
     "variant": "success"

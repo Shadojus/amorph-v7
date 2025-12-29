@@ -23,7 +23,7 @@
     "Thymol in oil can irritate skin"
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal use", "beschreibung": "Safe and beneficial as culinary herb"}
+    {"level": "none", "typ": "Normal use", "description": "Safe and beneficial as culinary herb"}
   ],
   "fatality_rate": {
     "value": 0,

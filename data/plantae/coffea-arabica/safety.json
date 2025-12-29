@@ -31,9 +31,9 @@
     }
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Moderate consumption", "beschreibung": "Safe; associated with health benefits"},
-    {"level": "low", "typ": "High consumption", "beschreibung": "Insomnia, anxiety, tachycardia, GI upset"},
-    {"level": "medium", "typ": "Excessive caffeine", "beschreibung": "Severe anxiety, arrhythmias, tremors"}
+    {"level": "none", "type": "Moderate consumption", "description": "Safe; associated with health benefits"},
+    {"level": "low", "type": "High consumption", "description": "Insomnia, anxiety, tachycardia, GI upset"},
+    {"level": "medium", "type": "Excessive caffeine", "description": "Severe anxiety, arrhythmias, tremors"}
   ],
   "fatality_rate": {
     "value": 0,

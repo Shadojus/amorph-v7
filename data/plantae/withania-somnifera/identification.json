@@ -59,7 +59,7 @@
     "variant": "warning"
   },
   "confusion_consequences": [
-    {"level": "low", "typ": "Physalis species", "beschreibung": "Some Physalis are edible; careful identification needed"}
+    {"level": "low", "typ": "Physalis species", "description": "Some Physalis are edible; careful identification needed"}
   ],
   "key_differentiating_features": [
     "Root has distinctive horse-like smell (ashwa = horse)",

@@ -17,41 +17,40 @@
     "Sphaeria militaris"
   ],
   "common_names": [
-    "Puppenkernkeule",
-    "Orangerote Puppenkernkeule",
     "Scarlet Caterpillar Club",
-    "Orange Caterpillar Fungus"
+    "Orange Caterpillar Fungus",
+    "Pupa Club Fungus"
   ],
   "size_range": {
     "min": 2,
     "max": 5,
     "unit": "cm"
   },
-  "color_primary": "orangerot",
-  "color_secondary": "ziegelrot",
-  "smell_description": "Neutral, unbedeutend",
-  "taste_description": "Neutral, unbedeutend",
+  "color_primary": "orange-red",
+  "color_secondary": "brick-red",
+  "smell_description": "Neutral, insignificant",
+  "taste_description": "Neutral, insignificant",
   "primary_structure_present": true,
-  "primary_structure_type": "keulenfoermig",
+  "primary_structure_type": "club-shaped",
   "primary_structure_diameter": {
     "min": 0.3,
     "max": 1,
     "unit": "cm"
   },
-  "primary_structure_shape_mature": "zungenfoermig",
-  "primary_structure_surface": "warzige Oberflaeche",
-  "primary_structure_color": "orangerot bis ziegelrot",
+  "primary_structure_shape_mature": "tongue-shaped",
+  "primary_structure_surface": "warty surface",
+  "primary_structure_color": "orange-red to brick-red",
   "support_structure_present": true,
-  "support_structure_type": "Stiel",
+  "support_structure_type": "Stipe",
   "support_structure_length": {
     "min": 2,
     "max": 5,
     "unit": "cm"
   },
-  "support_structure_shape": "schlank, oft gekruemmt",
-  "support_structure_color": "orangerot bis ziegelrot",
-  "tissue_color": "gelblich",
-  "propagule_color": "weiss",
+  "support_structure_shape": "slender, often curved",
+  "support_structure_color": "orange-red to brick-red",
+  "tissue_color": "yellowish",
+  "propagule_color": "white",
   "propagule_length": {
     "min": 4,
     "max": 6,
@@ -62,7 +61,7 @@
     "max": 2,
     "unit": "um"
   },
-  "propagule_shape": "zylindrisch-spindelig",
+  "propagule_shape": "cylindrical-spindle",
   "confusion_species_list": [
     "Ophiocordyceps sinensis",
     "Typhula fistulosa",

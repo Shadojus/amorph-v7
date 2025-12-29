@@ -5,10 +5,30 @@
  * © Symbol auf jedem Bild, leuchtend im Bifröst-Mode.
  * 
  * DESIGN PHILOSOPHY:
- * - Dunkel & dezent im Normalzustand (harmonisch mit Dark Theme)
- * - Glowing & prominent im Bifröst-Mode
- * - Transparenz nutzt das dunkle Theme für Glow-Effekte
+ * - Dunkel & dezent im Normalzustand
+ * - PLASMA-STURM im aktiven Modus - elektrisch, wild, aber lesbar
+ * - FUNGINOMI = BLAU (Phytonomi = Grün, Drakonomi = Magenta)
+ * - Keine Regenbogen, nur eine Farbfamilie
  */
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   FARB-VARIABLEN - FUNGINOMI = BLAU
+   Für andere Projekte:
+   - Phytonomi: Grün (#0fa)
+   - Drakonomi: Magenta (#f0a)
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* FUNGINOMI: REINES BLAU - kein Türkis! */
+  --bifroest-primary: #0088ff;
+  --bifroest-glow: rgba(0, 100, 255, 0.9);
+  --bifroest-glow-soft: rgba(0, 80, 255, 0.6);
+  --bifroest-glow-faint: rgba(0, 60, 255, 0.35);
+  --bifroest-border: rgba(0, 100, 255, 0.6);
+  --bifroest-border-bright: rgba(50, 130, 255, 0.9);
+  --bifroest-bg: rgba(0, 10, 35, 0.95);
+  --bifroest-bg-hover: rgba(0, 20, 50, 0.98);
+}
 
 /* ═══════════════════════════════════════════════════════════════════════════════
    IMAGE CONTAINER - Position Context für © Badge
@@ -16,56 +36,66 @@
 
 .item-image {
   position: relative;
+  /* WICHTIG: Overflow sichtbar damit Copyright-Glow nicht abgeschnitten wird */
+  overflow: visible;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
    COPYRIGHT BADGE (© Symbol)
-   Positioniert unten rechts im Bild - dezent aber sichtbar
+   SCHWEBEND - kein Button-Look, nur Text mit Glow
+   KEINE Animation im Normalzustand - bleibt dezent grau
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 .bifroest-copyright {
-  /* Reset button styles */
+  /* Reset */
   all: unset;
   cursor: pointer;
   box-sizing: border-box;
   
-  /* Position: unten rechts im Bild */
+  /* Position: unten rechts im Bild - mit Abstand vom Rand */
   position: absolute;
-  bottom: 0.5rem;
-  right: 0.5rem;
+  bottom: 0.4rem;
+  right: 0.4rem;
   z-index: 10;
+  
+  /* WICHTIG: Overflow sichtbar für Glow-Effekte */
+  overflow: visible;
   
   /* Layout */
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.2rem;
   
-  /* Padding & Border */
-  padding: 0.3rem 0.6rem;
-  border-radius: 1rem;
+  /* Größe wie Experten - 0.75rem */
+  padding: 0.15rem 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
   
-  /* Styling: Dunkel, dezent, transparent - harmonisch mit Dark Theme */
-  font-size: 0.7rem;
-  font-weight: 500;
-  color: rgba(180, 200, 210, 0.7);
-  background: rgba(10, 20, 30, 0.95);
-  /* PERFORMANCE: blur entfernt */
-  border: 1px solid rgba(100, 150, 180, 0.2);
+  /* KEIN Background, KEIN Border - schwebender Text */
+  /* GLEICHE Farbe wie Experten im Normalzustand */
+  color: rgba(120, 160, 190, 0.35);
+  background: transparent;
+  border: none;
   
-  /* Smooth Transition für Bifröst-Mode */
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  /* Subtiler Text-Schatten für Lesbarkeit */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+  
+  /* KEINE Animation im Normalzustand */
+  
+  transition: all 0.2s ease;
 }
 
 .bifroest-copyright:hover {
-  color: rgba(200, 220, 230, 0.95);
-  background: rgba(10, 25, 40, 0.95);
-  border-color: rgba(100, 180, 200, 0.4);
+  color: rgba(160, 200, 220, 0.7);
+  text-shadow: 
+    0 0 8px var(--bifroest-glow-soft),
+    0 1px 3px rgba(0, 0, 0, 0.8);
   transform: scale(1.05);
 }
 
 .bifroest-copyright:focus-visible {
-  outline: 2px solid rgba(0, 180, 200, 0.6);
-  outline-offset: 2px;
+  outline: none;
+  text-shadow: 0 0 12px var(--bifroest-glow);
 }
 
 /* © Symbol */
@@ -86,36 +116,44 @@
 
 /* ═══════════════════════════════════════════════════════════════════════════════
    BIFRÖST MODE (aktiv)
-   © zeigen sanften Nebel-Drift wie im Header
-   Keine harten Farbwechsel, nur fließende Bewegung
+   GEWITTER - Echte Blitze, nicht nur Pulsieren!
+   Schwebend, elektrisch, wild
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 body.bifroest-active .bifroest-copyright {
-  /* Cyan-Töne statt weiß - gut lesbar */
-  color: rgba(150, 230, 240, 0.95);
-  background: linear-gradient(135deg, 
-    rgba(10, 40, 50, 0.95), 
-    rgba(15, 35, 45, 0.9)
-  );
-  border-color: rgba(80, 200, 220, 0.5);
+  /* PLASMA-BLAU - wie Experten */
+  color: rgba(0, 160, 255, 0.95) !important;
+  background: transparent;
+  border: none;
   
-  /* Statischer Glow - keine Animation die blinkt */
-  box-shadow: 
-    0 0 8px rgba(0, 180, 200, 0.4),
-    0 0 15px rgba(0, 200, 180, 0.2),
-    inset 0 0 6px rgba(0, 200, 220, 0.1);
+  /* PLASMA-Glow - mehrschichtig, aufgelöst */
+  text-shadow: 
+    0 0 2px rgba(150, 220, 255, 0.9),
+    0 0 4px rgba(80, 180, 255, 0.8),
+    0 0 8px rgba(0, 140, 255, 0.6),
+    0 0 15px rgba(0, 100, 255, 0.4),
+    0 0 25px rgba(0, 80, 255, 0.25),
+    0 0 40px rgba(0, 60, 255, 0.15),
+    0 1px 2px rgba(0, 0, 0, 0.9);
   
-  /* Nebel-Drift Animation statt Pulsieren */
-  animation: bifroest-drift 8s ease-in-out infinite;
+  /* PLASMA-Animation - wie Experten */
+  animation: bifroest-plasma 4s ease-in-out infinite;
 }
 
 body.bifroest-active .bifroest-copyright:hover {
-  transform: scale(1.08);
-  color: rgba(180, 240, 250, 1);
-  box-shadow: 
-    0 0 12px rgba(0, 200, 220, 0.6),
-    0 0 25px rgba(0, 220, 200, 0.3),
-    inset 0 0 8px rgba(0, 220, 240, 0.15);
+  /* PLASMA Hover - wie Experten */
+  color: rgba(200, 240, 255, 1) !important;
+  text-shadow: 
+    0 0 3px rgba(255, 255, 255, 0.95),
+    0 0 6px rgba(150, 220, 255, 0.9),
+    0 0 12px rgba(80, 180, 255, 0.8),
+    0 0 20px rgba(0, 140, 255, 0.6),
+    0 0 35px rgba(0, 100, 255, 0.4),
+    0 0 50px rgba(0, 80, 255, 0.25),
+    0 0 70px rgba(0, 60, 255, 0.15),
+    0 1px 2px rgba(0, 0, 0, 0.9);
+  animation: none;
+  transform: scale(1.1);
 }
 
 /* Name sichtbar im Bifröst-Mode */
@@ -123,20 +161,156 @@ body.bifroest-active .bifroest-name {
   display: inline;
 }
 
-/* Nebel-Drift: PERFORMANCE OPTIMIERT - nur transform */
-@keyframes bifroest-drift {
+/* ═══════════════════════════════════════════════════════════════════════════════
+   GEWITTER ANIMATIONEN
+   Echte Blitze - unregelmäßig, wild, elektrisch!
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Sanftes Pulsieren für BIFRÖST-BUTTON im Footer (inaktiv)
+   Atmet langsam - baut sich auf, baut sich ab, ein fließender Rhythmus */
+@keyframes bifroest-idle-storm {
+  /* Ruhezustand - dezentes Grau */
   0%, 100% {
-    transform: translateX(0) translateY(0);
+    color: rgba(90, 100, 115, 0.55);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   }
-  25% {
-    transform: translateX(1px) translateY(-1px);
+  /* Langsames Aufbauen */
+  20% {
+    color: rgba(80, 95, 120, 0.6);
+    text-shadow: 
+      0 0 1px rgba(0, 70, 160, 0.15),
+      0 1px 2px rgba(0, 0, 0, 0.6);
   }
+  35% {
+    color: rgba(60, 85, 140, 0.7);
+    text-shadow: 
+      0 0 2px rgba(0, 80, 170, 0.3),
+      0 0 4px rgba(0, 60, 140, 0.15),
+      0 1px 2px rgba(0, 0, 0, 0.6);
+  }
+  /* Peak - volles Blau */
   50% {
-    transform: translateX(2px) translateY(-1px);
+    color: rgba(0, 102, 204, 0.85);
+    text-shadow: 
+      0 0 4px rgba(0, 80, 180, 0.5),
+      0 0 8px rgba(0, 60, 150, 0.25),
+      0 1px 2px rgba(0, 0, 0, 0.6);
   }
-  75% {
-    transform: translateX(1px) translateY(0);
+  /* Langsames Abbauen */
+  65% {
+    color: rgba(60, 85, 140, 0.7);
+    text-shadow: 
+      0 0 2px rgba(0, 80, 170, 0.3),
+      0 0 4px rgba(0, 60, 140, 0.15),
+      0 1px 2px rgba(0, 0, 0, 0.6);
   }
+  80% {
+    color: rgba(80, 95, 120, 0.6);
+    text-shadow: 
+      0 0 1px rgba(0, 70, 160, 0.15),
+      0 1px 2px rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* Aktives Gewitter - häufiger, intensiver */
+@keyframes bifroest-storm {
+  0%, 100% {
+    text-shadow: 
+      0 0 6px var(--bifroest-glow-soft),
+      0 0 12px var(--bifroest-glow-faint),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+  /* BLITZ 1 */
+  8% {
+    text-shadow: 
+      0 0 6px var(--bifroest-glow-soft),
+      0 0 12px var(--bifroest-glow-faint),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+  10% {
+    text-shadow: 
+      0 0 15px var(--bifroest-glow),
+      0 0 30px var(--bifroest-glow-soft),
+      0 0 50px var(--bifroest-glow-faint),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+  12% {
+    text-shadow: 
+      0 0 8px var(--bifroest-glow-soft),
+      0 0 16px var(--bifroest-glow-faint),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+  /* Ruhe */
+  20%, 30% {
+    text-shadow: 
+      0 0 6px var(--bifroest-glow-soft),
+      0 0 12px var(--bifroest-glow-faint),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+  /* BLITZ 2 - Doppelblitz */
+  35% {
+    text-shadow: 
+      0 0 20px var(--bifroest-glow),
+      0 0 40px var(--bifroest-glow-soft),
+      0 0 60px var(--bifroest-glow-faint),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+  37% {
+    text-shadow: 
+      0 0 8px var(--bifroest-glow-soft),
+      0 0 14px var(--bifroest-glow-faint),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+  39% {
+    text-shadow: 
+      0 0 12px var(--bifroest-glow),
+      0 0 25px var(--bifroest-glow-soft),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+  41% {
+    text-shadow: 
+      0 0 6px var(--bifroest-glow-soft),
+      0 0 12px var(--bifroest-glow-faint),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+  /* Ruhe */
+  50%, 65% {
+    text-shadow: 
+      0 0 6px var(--bifroest-glow-soft),
+      0 0 12px var(--bifroest-glow-faint),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+  /* BLITZ 3 */
+  70% {
+    text-shadow: 
+      0 0 18px var(--bifroest-glow),
+      0 0 35px var(--bifroest-glow-soft),
+      0 0 55px var(--bifroest-glow-faint),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+  73% {
+    text-shadow: 
+      0 0 6px var(--bifroest-glow-soft),
+      0 0 12px var(--bifroest-glow-faint),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+  /* Ruhe bis Ende */
+  85%, 95% {
+    text-shadow: 
+      0 0 6px var(--bifroest-glow-soft),
+      0 0 12px var(--bifroest-glow-faint),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+  }
+}
+
+/* Blitz-Flackern für Experten */
+@keyframes bifroest-flicker {
+  0%, 100% { opacity: 1; }
+  15% { opacity: 0.85; }
+  30% { opacity: 1; }
+  45% { opacity: 0.9; }
+  60% { opacity: 1; }
+  75% { opacity: 0.88; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
@@ -145,32 +319,53 @@ body.bifroest-active .bifroest-name {
    Verwendet das normale bottom-nav-item Design, nur aktiver Zustand ist speziell
    ═══════════════════════════════════════════════════════════════════════════════ */
 
-/* Bottom Nav Bifröst Button aktiv - GLOWING! */
-body.bifroest-active .bottom-nav-item.bifroest-toggle {
-  color: #0df !important;
+/* Bottom Nav Bifröst Button - gelegentliches Blitzen auch wenn INAKTIV */
+.bottom-nav-item.bifroest-toggle {
+  animation: bifroest-idle-storm 5s ease-in-out infinite;
 }
 
-/* Active indicator line - Cyan statt System-Color */
+/* Bottom Nav Bifröst Button aktiv */
+body.bifroest-active .bottom-nav-item.bifroest-toggle {
+  color: #0088ff !important;
+  text-shadow: 0 0 8px rgba(0, 100, 255, 0.9);
+  animation: none; /* Keine idle-Animation wenn aktiv */
+}
+
+/* Active indicator line - Energie-Strahl */
 body.bifroest-active .bottom-nav-item.bifroest-toggle::before {
   content: '';
   position: absolute;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 28px;
-  height: 2px;
-  background: #0df;
-  border-radius: 0 0 2px 2px;
-  box-shadow: 0 0 12px #0df;
+  width: 32px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--bifroest-primary), transparent);
+  border-radius: 0 0 3px 3px;
+  box-shadow: 
+    0 0 8px var(--bifroest-glow),
+    0 0 16px var(--bifroest-glow-soft);
+  animation: bifroest-line-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes bifroest-line-pulse {
+  0%, 100% { opacity: 0.8; width: 32px; }
+  50% { opacity: 1; width: 40px; }
 }
 
 body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-icon {
-  transform: scale(1.1);
-  filter: drop-shadow(0 0 8px rgba(0, 220, 255, 0.8));
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 10px var(--bifroest-glow));
+  animation: bifroest-icon-glow 2s ease-in-out infinite;
+}
+
+@keyframes bifroest-icon-glow {
+  0%, 100% { filter: drop-shadow(0 0 8px var(--bifroest-glow-soft)); }
+  50% { filter: drop-shadow(0 0 14px var(--bifroest-glow)); }
 }
 
 body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-label {
-  text-shadow: 0 0 10px rgba(0, 220, 255, 0.8);
+  text-shadow: 0 0 12px var(--bifroest-glow);
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
@@ -206,7 +401,7 @@ body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-label {
   visibility: visible;
 }
 
-/* Popup Container mit Glow */
+/* Popup Container mit Plasma-Glow */
 .bifroest-popup {
   /* Layout */
   position: relative;
@@ -215,24 +410,56 @@ body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-label {
   max-height: 80vh;
   overflow-y: auto;
   
-  /* Styling */
-  background: linear-gradient(145deg, 
-    rgba(15, 20, 30, 0.98), 
-    rgba(10, 15, 25, 0.99)
-  );
+  /* Styling - dezenter */
+  background: rgba(8, 18, 32, 0.98);
   padding: 1.5rem;
-  border-radius: 1rem;
-  border: 1px solid rgba(0, 255, 220, 0.35);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(0, 100, 255, 0.3);
   
-  /* Subtle Glow */
+  /* Subtiler Glow - nicht zu dick */
   box-shadow: 
-    0 0 25px rgba(0, 220, 255, 0.25),
-    0 0 50px rgba(0, 200, 255, 0.1),
-    0 10px 40px rgba(0, 0, 0, 0.5);
+    0 0 20px rgba(0, 80, 255, 0.15),
+    0 0 40px rgba(0, 60, 255, 0.1),
+    0 8px 32px rgba(0, 0, 0, 0.6);
   
   /* Animation */
   transform: scale(0.92) translateY(20px);
   transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: bifroest-popup-glow 4s ease-in-out infinite;
+}
+
+@keyframes bifroest-popup-glow {
+  0%, 100% {
+    border-color: rgba(0, 100, 255, 0.25);
+    box-shadow: 
+      0 0 20px rgba(0, 80, 255, 0.12),
+      0 0 40px rgba(0, 60, 255, 0.08),
+      0 8px 32px rgba(0, 0, 0, 0.6);
+  }
+  /* Langsames Aufleuchten */
+  25% {
+    border-color: rgba(0, 100, 255, 0.35);
+    box-shadow: 
+      0 0 25px rgba(0, 80, 255, 0.18),
+      0 0 50px rgba(0, 60, 255, 0.12),
+      0 8px 32px rgba(0, 0, 0, 0.6);
+  }
+  /* Intensitätsspitze - Blitzstrang */
+  50% {
+    border-color: rgba(0, 120, 255, 0.5);
+    box-shadow: 
+      0 0 30px rgba(0, 100, 255, 0.25),
+      0 0 60px rgba(0, 80, 255, 0.15),
+      0 8px 32px rgba(0, 0, 0, 0.6);
+  }
+  /* Abklingen */
+  75% {
+    border-color: rgba(0, 100, 255, 0.3);
+    box-shadow: 
+      0 0 22px rgba(0, 80, 255, 0.15),
+      0 0 45px rgba(0, 60, 255, 0.1),
+      0 8px 32px rgba(0, 0, 0, 0.6);
+  }
 }
 
 .bifroest-overlay.visible .bifroest-popup {
@@ -256,11 +483,11 @@ body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-label {
   margin: 0;
   font-size: 1.1rem;
   font-weight: 600;
-  color: rgba(200, 230, 240, 0.95);
+  color: rgba(200, 220, 240, 0.95);
 }
 
 .bifroest-popup-title .bifroest-symbol {
-  color: rgba(0, 255, 220, 0.9);
+  color: var(--bifroest-primary);
   font-size: 1.2rem;
 }
 
@@ -300,7 +527,7 @@ body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-label {
 .bifroest-source-name {
   font-weight: 600;
   font-size: 1.05rem;
-  color: rgba(0, 255, 220, 0.95);
+  color: var(--bifroest-primary);
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
@@ -334,13 +561,14 @@ body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-label {
 }
 
 .bifroest-source-value a {
-  color: rgba(0, 200, 255, 0.9);
+  color: var(--bifroest-primary);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .bifroest-source-value a:hover {
-  color: #0ff;
+  color: #fff;
+  text-shadow: 0 0 6px var(--bifroest-glow-soft);
   text-decoration: underline;
 }
 
@@ -356,22 +584,22 @@ body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-label {
   border-radius: 0.5rem;
   font-size: 0.85rem;
   font-weight: 500;
-  color: rgba(150, 230, 245, 0.95);
-  background: rgba(15, 45, 60, 0.8);
-  border: 1px solid rgba(80, 190, 210, 0.45);
+  color: var(--bifroest-primary);
+  background: var(--bifroest-bg);
+  border: 1px solid var(--bifroest-border);
   transition: all 0.2s ease;
 }
 
 .bifroest-contact-btn:hover {
-  background: rgba(20, 55, 75, 0.9);
-  border-color: rgba(100, 210, 230, 0.6);
-  box-shadow: 0 0 12px rgba(0, 200, 220, 0.35);
+  background: var(--bifroest-bg-hover);
+  border-color: var(--bifroest-border-bright);
+  box-shadow: 0 0 10px var(--bifroest-glow-soft);
   transform: translateY(-1px);
 }
 
 /* Experten-Karte im Popup */
 .bifroest-expert-card {
-  border-color: rgba(0, 220, 255, 0.4);
+  border-color: var(--bifroest-border);
 }
 
 .bifroest-expert-link {
@@ -388,17 +616,17 @@ body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-label {
   border-radius: 0.5rem;
   font-size: 0.85rem;
   font-weight: 500;
-  color: rgba(150, 230, 245, 0.95);
-  background: rgba(15, 45, 60, 0.8);
-  border: 1px solid rgba(80, 190, 210, 0.45);
+  color: var(--bifroest-primary);
+  background: var(--bifroest-bg);
+  border: 1px solid var(--bifroest-border);
   text-decoration: none;
   transition: all 0.2s ease;
 }
 
 .bifroest-expert-link a:hover {
-  background: rgba(20, 55, 75, 0.9);
-  border-color: rgba(100, 210, 230, 0.6);
-  box-shadow: 0 0 12px rgba(0, 200, 220, 0.35);
+  background: var(--bifroest-bg-hover);
+  border-color: var(--bifroest-border-bright);
+  box-shadow: 0 0 10px var(--bifroest-glow-soft);
   transform: translateY(-1px);
 }
 
@@ -432,6 +660,9 @@ body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-label {
   right: 0.25rem;
   z-index: 15; /* Above field selection (z-index: 10) */
   
+  /* WICHTIG: Overflow sichtbar für Glow */
+  overflow: visible;
+  
   /* Layout (vorbereitet für wenn sichtbar) */
   display: flex;
   flex-wrap: wrap;
@@ -447,39 +678,44 @@ body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-label {
   transition: all 0.3s ease;
 }
 
-/* Einzelner Experten-Button */
+/* Einzelner Experten-Button - SCHWEBEND & GRÖSSER */
 .bifroest-expert {
   /* Reset */
   all: unset;
   cursor: pointer;
   box-sizing: border-box;
   
+  /* WICHTIG: Overflow sichtbar für Glow */
+  overflow: visible;
+  
   /* Layout */
   display: inline-flex;
   align-items: center;
   gap: 0.2rem;
   
-  /* Styling */
-  padding: 0.15rem 0.5rem;
-  border-radius: 0.75rem;
-  font-size: 0.65rem;
-  font-weight: 500;
+  /* GRÖSSERE Schrift - 0.75rem */
+  padding: 0.15rem 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
   
-  /* Farben - dezent, transparent, kein Weiß */
-  color: rgba(160, 200, 210, 0.6);
-  background: rgba(10, 25, 35, 0.9);
-  /* PERFORMANCE: blur entfernt */
-  border: 1px solid rgba(80, 140, 160, 0.15);
+  /* KEIN Background, KEIN Border */
+  color: rgba(120, 160, 190, 0.35);
+  background: transparent;
+  border: none;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
   
-  /* Animation */
-  transition: all 0.3s ease;
+  /* KEINE Animation im Normalzustand */
+  
+  transition: all 0.2s ease;
 }
 
 .bifroest-expert:hover {
-  color: rgba(180, 220, 230, 0.95);
-  background: rgba(15, 35, 50, 0.85);
-  border-color: rgba(80, 180, 200, 0.5);
+  color: rgba(160, 200, 220, 0.7);
+  text-shadow: 
+    0 0 6px var(--bifroest-glow-soft),
+    0 1px 2px rgba(0, 0, 0, 0.8);
   transform: scale(1.05);
+  animation: none;
 }
 
 .bifroest-expert-name {
@@ -490,7 +726,8 @@ body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-label {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   BIFRÖST ACTIVE - Experten werden sichtbar mit sanftem Nebel-Effekt
+   BIFRÖST ACTIVE - Experten mit GEWITTER
+   Schwebend, elektrisch, wild
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 body.bifroest-active .bifroest-experts {
@@ -501,51 +738,341 @@ body.bifroest-active .bifroest-experts {
 }
 
 body.bifroest-active .bifroest-expert {
-  /* Cyan-Töne statt Weiß - bessere Lesbarkeit */
-  color: rgba(140, 220, 235, 0.95);
-  background: rgba(12, 35, 50, 0.95);
-  border-color: rgba(80, 190, 210, 0.45);
+  /* PLASMA-BLAU - leicht transparent für Partikel-Effekt */
+  color: rgba(0, 160, 255, 0.95) !important;
+  background: transparent;
+  border: none;
   
-  /* Statischer sanfter Glow */
-  box-shadow: 
-    0 0 6px rgba(0, 180, 200, 0.3),
-    0 0 12px rgba(0, 180, 200, 0.15),
-    inset 0 0 4px rgba(0, 200, 220, 0.08);
+  /* PLASMA-Glow - mehrschichtig, aufgelöst */
+  text-shadow: 
+    /* Kern - scharf */
+    0 0 2px rgba(150, 220, 255, 0.9),
+    /* Innerer Glow - intensiv */
+    0 0 4px rgba(80, 180, 255, 0.8),
+    0 0 8px rgba(0, 140, 255, 0.6),
+    /* Äußerer Glow - diffus */
+    0 0 15px rgba(0, 100, 255, 0.4),
+    0 0 25px rgba(0, 80, 255, 0.25),
+    /* Plasma-Strahlen - weit */
+    0 0 40px rgba(0, 60, 255, 0.15),
+    0 1px 2px rgba(0, 0, 0, 0.9);
   
-  /* Nebel-Drift wie beim Copyright-Badge */
-  animation: bifroest-expert-drift 10s ease-in-out infinite;
+  /* PLASMA-Animation - wild, unruhig */
+  animation: bifroest-plasma 4s ease-in-out infinite;
 }
+
+/* Verschiedene Delays für versetztes Pulsieren */
+body.bifroest-active .bifroest-expert:nth-child(1) { animation-delay: 0s; }
+body.bifroest-active .bifroest-expert:nth-child(2) { animation-delay: 1.5s; }
+body.bifroest-active .bifroest-expert:nth-child(3) { animation-delay: 3s; }
+body.bifroest-active .bifroest-expert:nth-child(4) { animation-delay: 4.5s; }
 
 body.bifroest-active .bifroest-expert:hover {
-  color: rgba(170, 240, 250, 1);
-  background: rgba(15, 45, 65, 0.98);
-  border-color: rgba(100, 210, 230, 0.7);
-  box-shadow: 
-    0 0 10px rgba(0, 200, 220, 0.5),
-    0 0 20px rgba(0, 200, 220, 0.25),
-    inset 0 0 6px rgba(0, 220, 240, 0.12);
+  color: rgba(200, 240, 255, 1) !important;
+  text-shadow: 
+    0 0 3px rgba(255, 255, 255, 0.95),
+    0 0 6px rgba(150, 220, 255, 0.9),
+    0 0 12px rgba(80, 180, 255, 0.8),
+    0 0 20px rgba(0, 140, 255, 0.6),
+    0 0 35px rgba(0, 100, 255, 0.4),
+    0 0 50px rgba(0, 80, 255, 0.25),
+    0 0 70px rgba(0, 60, 255, 0.15),
+    0 1px 2px rgba(0, 0, 0, 0.9);
   animation: none;
+  transform: scale(1.1);
 }
 
-/* Expert-Drift: PERFORMANCE OPTIMIERT - nur transform */
-@keyframes bifroest-expert-drift {
-  0%, 100% {
-    transform: translateX(0) translateY(0);
+/* PLASMA Animation - Wild, unruhig, aufgelöste Funkenpartikel
+   Wie ionisiertes Gas das flackert und zuckt */
+@keyframes bifroest-plasma {
+  /* Basis - unruhiges Glimmen */
+  0% {
+    color: rgba(0, 160, 255, 0.92);
+    text-shadow: 
+      0 0 2px rgba(150, 220, 255, 0.85),
+      0 0 5px rgba(80, 180, 255, 0.7),
+      0 0 10px rgba(0, 140, 255, 0.5),
+      0 0 18px rgba(0, 100, 255, 0.3),
+      0 0 30px rgba(0, 80, 255, 0.15),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1) blur(0px);
   }
-  30% {
-    transform: translateX(0.5px) translateY(-0.5px);
+  /* Leichtes Flackern */
+  3% {
+    color: rgba(0, 170, 255, 0.88);
+    text-shadow: 
+      0 0 2px rgba(140, 210, 255, 0.8),
+      0 0 4px rgba(70, 170, 255, 0.65),
+      0 0 9px rgba(0, 130, 255, 0.45),
+      0 0 16px rgba(0, 90, 255, 0.25),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(0.98);
   }
-  60% {
-    transform: translateX(1px) translateY(-0.5px);
+  /* Aufladung - Energie sammelt sich */
+  8% {
+    color: rgba(30, 180, 255, 0.94);
+    text-shadow: 
+      0 0 3px rgba(160, 225, 255, 0.9),
+      0 0 6px rgba(90, 185, 255, 0.75),
+      0 0 12px rgba(20, 145, 255, 0.55),
+      0 0 22px rgba(0, 105, 255, 0.35),
+      0 0 35px rgba(0, 85, 255, 0.2),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.08);
   }
-  80% {
-    transform: translateX(0.5px) translateY(0);
+  /* ENTLADUNG 1 - Plasma-Blitz! */
+  11% {
+    color: rgba(120, 210, 255, 1);
+    text-shadow: 
+      0 0 4px rgba(220, 245, 255, 1),
+      0 0 8px rgba(150, 220, 255, 0.95),
+      0 0 14px rgba(80, 180, 255, 0.85),
+      0 0 24px rgba(30, 150, 255, 0.7),
+      0 0 40px rgba(0, 120, 255, 0.5),
+      0 0 60px rgba(0, 90, 255, 0.3),
+      0 0 85px rgba(0, 70, 255, 0.15),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.35) blur(0.3px);
+  }
+  /* Zuckendes Flackern */
+  13% {
+    color: rgba(60, 175, 255, 0.9);
+    text-shadow: 
+      0 0 2px rgba(140, 215, 255, 0.8),
+      0 0 5px rgba(70, 170, 255, 0.6),
+      0 0 10px rgba(0, 130, 255, 0.4),
+      0 0 18px rgba(0, 95, 255, 0.25),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.05);
+  }
+  /* Nachzucken */
+  15% {
+    color: rgba(100, 200, 255, 0.96);
+    text-shadow: 
+      0 0 3px rgba(180, 235, 255, 0.92),
+      0 0 7px rgba(100, 195, 255, 0.8),
+      0 0 13px rgba(40, 160, 255, 0.6),
+      0 0 25px rgba(0, 120, 255, 0.4),
+      0 0 42px rgba(0, 90, 255, 0.22),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.2) blur(0.2px);
+  }
+  /* Abklingen mit Unruhe */
+  18% {
+    color: rgba(40, 165, 255, 0.91);
+    text-shadow: 
+      0 0 2px rgba(145, 215, 255, 0.82),
+      0 0 5px rgba(75, 175, 255, 0.65),
+      0 0 10px rgba(10, 135, 255, 0.45),
+      0 0 18px rgba(0, 100, 255, 0.28),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.02);
+  }
+  /* Micro-Flackern in Ruhe */
+  22% {
+    color: rgba(15, 155, 255, 0.89);
+    text-shadow: 
+      0 0 2px rgba(135, 205, 255, 0.78),
+      0 0 4px rgba(65, 165, 255, 0.58),
+      0 0 9px rgba(0, 125, 255, 0.4),
+      0 0 16px rgba(0, 90, 255, 0.22),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(0.98);
+  }
+  25% {
+    color: rgba(25, 162, 255, 0.92);
+    text-shadow: 
+      0 0 2px rgba(145, 212, 255, 0.82),
+      0 0 5px rgba(72, 172, 255, 0.62),
+      0 0 10px rgba(5, 132, 255, 0.44),
+      0 0 17px rgba(0, 97, 255, 0.26),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.01);
+  }
+  /* Unruhige Pause */
+  30%, 38% {
+    color: rgba(10, 158, 255, 0.9);
+    text-shadow: 
+      0 0 2px rgba(140, 210, 255, 0.8),
+      0 0 4px rgba(68, 168, 255, 0.6),
+      0 0 9px rgba(0, 128, 255, 0.42),
+      0 0 16px rgba(0, 93, 255, 0.24),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1);
+  }
+  /* Kleines Zucken */
+  40% {
+    color: rgba(45, 172, 255, 0.93);
+    text-shadow: 
+      0 0 3px rgba(155, 218, 255, 0.86),
+      0 0 6px rgba(82, 178, 255, 0.68),
+      0 0 11px rgba(15, 140, 255, 0.48),
+      0 0 19px rgba(0, 102, 255, 0.3),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.06);
+  }
+  42% {
+    color: rgba(20, 160, 255, 0.89);
+    text-shadow: 
+      0 0 2px rgba(138, 208, 255, 0.79),
+      0 0 4px rgba(66, 166, 255, 0.59),
+      0 0 9px rgba(0, 126, 255, 0.41),
+      0 0 15px rgba(0, 91, 255, 0.23),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(0.99);
+  }
+  /* Erneute Aufladung */
+  48% {
+    color: rgba(50, 178, 255, 0.95);
+    text-shadow: 
+      0 0 3px rgba(165, 222, 255, 0.88),
+      0 0 6px rgba(95, 188, 255, 0.72),
+      0 0 12px rgba(30, 150, 255, 0.52),
+      0 0 21px rgba(0, 110, 255, 0.34),
+      0 0 35px rgba(0, 88, 255, 0.18),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.1);
+  }
+  /* ENTLADUNG 2 - Stärkerer Plasma-Blitz! */
+  52% {
+    color: rgba(160, 230, 255, 1);
+    text-shadow: 
+      0 0 5px rgba(240, 252, 255, 1),
+      0 0 10px rgba(180, 235, 255, 0.98),
+      0 0 18px rgba(100, 200, 255, 0.88),
+      0 0 30px rgba(50, 170, 255, 0.72),
+      0 0 48px rgba(0, 135, 255, 0.52),
+      0 0 70px rgba(0, 105, 255, 0.32),
+      0 0 95px rgba(0, 80, 255, 0.18),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.45) blur(0.4px);
+  }
+  /* Schnelles Zucken - Partikel-Effekt */
+  54% {
+    color: rgba(80, 185, 255, 0.88);
+    text-shadow: 
+      0 0 2px rgba(145, 215, 255, 0.78),
+      0 0 5px rgba(72, 172, 255, 0.58),
+      0 0 10px rgba(8, 132, 255, 0.4),
+      0 0 18px rgba(0, 96, 255, 0.24),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.02);
+  }
+  /* Nachblitz-Sequenz */
+  56% {
+    color: rgba(130, 215, 255, 0.97);
+    text-shadow: 
+      0 0 4px rgba(200, 242, 255, 0.95),
+      0 0 9px rgba(130, 210, 255, 0.82),
+      0 0 16px rgba(60, 175, 255, 0.65),
+      0 0 28px rgba(10, 140, 255, 0.45),
+      0 0 45px rgba(0, 108, 255, 0.28),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.28) blur(0.25px);
+  }
+  58% {
+    color: rgba(55, 172, 255, 0.9);
+    text-shadow: 
+      0 0 2px rgba(142, 212, 255, 0.8),
+      0 0 5px rgba(70, 170, 255, 0.6),
+      0 0 10px rgba(5, 130, 255, 0.42),
+      0 0 17px rgba(0, 94, 255, 0.25),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.04);
+  }
+  /* Noch ein Zucken */
+  61% {
+    color: rgba(90, 195, 255, 0.94);
+    text-shadow: 
+      0 0 3px rgba(165, 225, 255, 0.88),
+      0 0 7px rgba(95, 190, 255, 0.72),
+      0 0 13px rgba(35, 155, 255, 0.52),
+      0 0 23px rgba(0, 115, 255, 0.34),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.15) blur(0.15px);
+  }
+  /* Abklingende Unruhe */
+  65% {
+    color: rgba(30, 165, 255, 0.9);
+    text-shadow: 
+      0 0 2px rgba(140, 210, 255, 0.8),
+      0 0 4px rgba(68, 168, 255, 0.6),
+      0 0 9px rgba(2, 128, 255, 0.42),
+      0 0 16px rgba(0, 93, 255, 0.24),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1);
+  }
+  /* Micro-Zuckungen */
+  70% {
+    color: rgba(18, 158, 255, 0.88);
+    text-shadow: 
+      0 0 2px rgba(135, 205, 255, 0.76),
+      0 0 4px rgba(62, 162, 255, 0.56),
+      0 0 8px rgba(0, 122, 255, 0.38),
+      0 0 14px rgba(0, 88, 255, 0.2),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(0.97);
+  }
+  73% {
+    color: rgba(35, 168, 255, 0.92);
+    text-shadow: 
+      0 0 2px rgba(148, 215, 255, 0.84),
+      0 0 5px rgba(75, 175, 255, 0.64),
+      0 0 10px rgba(12, 135, 255, 0.46),
+      0 0 17px rgba(0, 98, 255, 0.27),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.03);
+  }
+  /* Letzte unruhige Phase */
+  78% {
+    color: rgba(12, 155, 255, 0.89);
+    text-shadow: 
+      0 0 2px rgba(138, 208, 255, 0.78),
+      0 0 4px rgba(65, 165, 255, 0.58),
+      0 0 9px rgba(0, 125, 255, 0.4),
+      0 0 15px rgba(0, 90, 255, 0.22),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(0.98);
+  }
+  82% {
+    color: rgba(28, 163, 255, 0.91);
+    text-shadow: 
+      0 0 2px rgba(143, 212, 255, 0.82),
+      0 0 5px rgba(70, 170, 255, 0.62),
+      0 0 9px rgba(5, 130, 255, 0.43),
+      0 0 16px rgba(0, 95, 255, 0.25),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1.01);
+  }
+  /* Ruhe mit leichtem Flimmern */
+  88%, 95% {
+    color: rgba(15, 158, 255, 0.9);
+    text-shadow: 
+      0 0 2px rgba(140, 210, 255, 0.8),
+      0 0 4px rgba(68, 168, 255, 0.6),
+      0 0 9px rgba(0, 128, 255, 0.42),
+      0 0 16px rgba(0, 93, 255, 0.24),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1);
+  }
+  100% {
+    color: rgba(0, 160, 255, 0.92);
+    text-shadow: 
+      0 0 2px rgba(150, 220, 255, 0.85),
+      0 0 5px rgba(80, 180, 255, 0.7),
+      0 0 10px rgba(0, 140, 255, 0.5),
+      0 0 18px rgba(0, 100, 255, 0.3),
+      0 0 30px rgba(0, 80, 255, 0.15),
+      0 1px 2px rgba(0, 0, 0, 0.9);
+    filter: brightness(1) blur(0px);
   }
 }
 
 /* Detail-Field muss position: relative haben für absolute Positionierung */
 .detail-field {
   position: relative;
+  /* WICHTIG: Overflow sichtbar für Experten-Glow */
+  overflow: visible;
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
@@ -553,7 +1080,8 @@ body.bifroest-active .bifroest-expert:hover {
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 @media (max-width: 640px) {
-  .bifroest-toggle {
+  /* Nur für den alten FAB-Button, nicht bottom-nav-item */
+  .bifroest-toggle:not(.bottom-nav-item) {
     bottom: 1rem;
     right: 1rem;
     padding: 0.6rem 0.8rem;

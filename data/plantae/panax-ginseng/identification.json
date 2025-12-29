@@ -59,8 +59,8 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "none", "typ": "Panax quinquefolius", "beschreibung": "Similar properties, also valuable"},
-    {"level": "low", "typ": "Eleutherococcus senticosus", "beschreibung": "Different plant, also adaptogenic"}
+    {"level": "none", "typ": "Panax quinquefolius", "description": "Similar properties, also valuable"},
+    {"level": "low", "typ": "Eleutherococcus senticosus", "description": "Different plant, also adaptogenic"}
   ],
   "key_differentiating_features": [
     "Palmately compound leaves with 5 leaflets",

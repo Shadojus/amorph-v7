@@ -1,15 +1,15 @@
 {
   "scientific": "Agaricus subrufescens",
-  "description": "Agaricus subrufescens ist ein anspruchsvoller, aber lohnender Kulturpilz, der gut kompostierte, stickstoffreiche Substrate benoetigt. Er wird weltweit fuer den Medizinal- und Gourmetmarkt angebaut.",
+  "description": "Agaricus subrufescens is a demanding but rewarding cultivated mushroom that requires well-composted, nitrogen-rich substrates. It is cultivated worldwide for the medicinal and gourmet market.",
   "synonyms": [
     "Agaricus blazei Murrill",
     "Agaricus brasiliensis",
     "ABM"
   ],
-  "location": "Weltweit kultiviert, urspruenglich Brasilien",
-  "habitat": "Naehrstoffreiche, gut kompostierte Boeden",
-  "native_range": "Tropische und subtropische Regionen, insbesondere Brasilien und Mittelmeerraum",
-  "season": "Ganzjaehrig in kontrollierter Kultur",
+  "location": "Cultivated worldwide, originally Brazil",
+  "habitat": "Nutrient-rich, well-composted soils",
+  "native_range": "Tropical and subtropical regions, especially Brazil and Mediterranean region",
+  "season": "Year-round in controlled culture",
   "seasonality": [
     {"month": 1, "active": true},
     {"month": 2, "active": true},
@@ -24,7 +24,7 @@
     {"month": 11, "active": true},
     {"month": 12, "active": true}
   ],
-  "seasonality_details": "Ganzjaehrig kultivierbar unter kontrollierten Bedingungen, natuerlich Fruehsommer bis Spaetherbst",
+  "seasonality_details": "Cultivatable year-round under controlled conditions, naturally early summer to late autumn",
   "temperature": {
     "min": 21,
     "max": 27,
@@ -62,19 +62,19 @@
     ]
   },
   "cultivation_equipment_needed": [
-    "Gewaechshaus oder klimatisierter Raum",
-    "Pasteurisierungsausruestung",
-    "Klimasteuerung (Temperatur, Luftfeuchtigkeit)",
-    "Belueftungssystem",
-    "Beleuchtung (1000-2000 Lux)"
+    "Greenhouse or climate-controlled room",
+    "Pasteurization equipment",
+    "Climate control (temperature, humidity)",
+    "Ventilation system",
+    "Lighting (1000-2000 Lux)"
   ],
   "cultivation_skill_prerequisites": [
-    "Kompostierung",
-    "Sterilisationstechniken",
-    "Klimamanagement",
-    "Myzelkultur"
+    "Composting",
+    "Sterilization techniques",
+    "Climate management",
+    "Mycelium culture"
   ],
-  "agar_culture_media": "MYPA (Malzextrakt-Hefeextrakt-Pepton-Agar)",
+  "agar_culture_media": "MYPA (Malt extract-yeast extract-peptone-agar)",
   "spawn_run_temperature": {
     "min": 21,
     "max": 27,
@@ -151,20 +151,20 @@
     "unit": "exchanges"
   },
   "substrates": [
-    "Angereicherte Komposte",
-    "Pasteurisierte Substrate mit Stickstoffzusaetzen (Kleie, Harnstoff, Huehnermist, Ammoniumnitrat)",
-    "Holz mit Deckerde",
-    "Pilzzucht-Kompost mit Deckerde"
+    "Enriched composts",
+    "Pasteurized substrates with nitrogen additives (bran, urea, chicken manure, ammonium nitrate)",
+    "Wood with casing layer",
+    "Mushroom cultivation compost with casing layer"
   ],
-  "substrate_note": "Sekundaerer Zersetzer - benoetigt gut kompostierte, stickstoffreiche Substrate die dann pasteurisiert werden",
+  "substrate_note": "Secondary decomposer - requires well-composted, nitrogen-rich substrates that are then pasteurized",
   "casing_required": true,
-  "casing_material": "Deckerde (Torf-Kalk-Mischung oder aehnlich)",
+  "casing_material": "Casing layer (peat-lime mixture or similar)",
   "recommended_containers": [
-    "Fertigkultur im Gewaechshaus",
-    "Baumstaemme im tropischen/subtropischen Klima",
-    "Pilzbeete"
+    "Ready culture in greenhouse",
+    "Logs in tropical/subtropical climate",
+    "Mushroom beds"
   ],
-  "cropping_cycle": "Alle 2-3 Wochen, 2-3 Flushes",
+  "cropping_cycle": "Every 2-3 weeks, 2-3 flushes",
   "biological_efficiency": {
     "min": 50,
     "max": 75,
@@ -176,20 +176,20 @@
     "unit": "kg"
   },
   "lifecycle": [
-    {"phase": "Spawn Run (Kompost)", "duration": "28-40 Tage"},
-    {"phase": "Spawn Run (Saegemehl)", "duration": "60-90 Tage"},
-    {"phase": "Primordia Formation", "duration": "18-24 Tage"},
-    {"phase": "Fruchtkörperentwicklung", "duration": "4-8 Tage"}
+    {"phase": "Spawn Run (Compost)", "duration": "28-40 days"},
+    {"phase": "Spawn Run (Sawdust)", "duration": "60-90 days"},
+    {"phase": "Primordia Formation", "duration": "18-24 days"},
+    {"phase": "Fruiting body development", "duration": "4-8 days"}
   ],
-  "mycelial_characteristics": "Laengssreifiges Myzel mit strahlenfoermigen Rhizomorphen ueber einem watteartigen Myzeluntergrund. Rhizomorphes Myzel bildet in Kultur Hyphenaggregat und Pseudo-Primordia nach einem Monat Inkubation auf 2% MEA. Wird mit zunehmendem Alter locker-luftig, scheidet oft einen gelblichen, nach Mandeln riechenden Metaboliten aus.",
+  "mycelial_characteristics": "Linear-striped mycelium with radiating rhizomorphs over a cottony mycelial background. Rhizomorphic mycelium forms hyphal aggregates and pseudo-primordia after one month incubation on 2% MEA. Becomes loosely-fluffy with age, often exudes a yellowish, almond-smelling metabolite.",
   "contamination_risks": [
-    "Trichoderma (Gruenschimmel)",
-    "Andere Schimmelpilze",
-    "Bakterien bei zu hoher Feuchtigkeit"
+    "Trichoderma (green mold)",
+    "Other molds",
+    "Bacteria at excessive humidity"
   ],
   "commercial_producers": [
-    "Japan (Hauptproduzent)",
-    "Brasilien",
+    "Japan (main producer)",
+    "Brazil",
     "China",
     "USA"
   ],
@@ -198,11 +198,11 @@
     "variant": "success"
   },
   "market_forms": [
-    "Frische Fruchtkoerper",
-    "Getrocknete Pilze",
-    "Pulver",
-    "Extrakte",
-    "Nahrungsergaenzungsmittel"
+    "Fresh fruiting bodies",
+    "Dried mushrooms",
+    "Powder",
+    "Extracts",
+    "Food supplements"
   ],
   "source": {
     "authors": "Stamets, P.",

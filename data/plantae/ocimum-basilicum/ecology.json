@@ -1,36 +1,36 @@
 {
   "trophic_mode_primary": "autotroph",
-  "ecological_guild": "Einjahrige Krautpflanze",
-  "primary_ecosystem_function": "Bestaeubungsmagnet",
+  "ecological_guild": "Annual herbaceous plant",
+  "primary_ecosystem_function": "Pollinator magnet",
   "secondary_ecosystem_functions": [
-    "Nektarquelle",
-    "Begleitpflanze"
+    "Nectar source",
+    "Companion plant"
   ],
-  "ecosystem_type": "Kulturlandschaft",
-  "ecosystem_subtype": "Garten, tropische Walder",
-  "microhabitat_primary": "Naehrstoffreiche, warme Standorte",
-  "light_requirement": "volle Sonne",
-  "moisture_regime": "mesisch",
+  "ecosystem_type": "Cultivated landscape",
+  "ecosystem_subtype": "Garden, tropical forests",
+  "microhabitat_primary": "Nutrient-rich, warm sites",
+  "light_requirement": "Full sun",
+  "moisture_regime": "mesic",
   "drought_tolerance": {
     "rating": 3,
     "max": 10
   },
   "soil_ph_optimal_min": 6.0,
   "soil_ph_optimal_max": 7.0,
-  "soil_nutrient_preference": "naehrstoffreich",
-  "climate_zone": "tropisch bis warm-temperat",
+  "soil_nutrient_preference": "Nutrient-rich",
+  "climate_zone": "Tropical to warm-temperate",
   "temperature_optimal_min_c": 15,
   "temperature_optimal_max_c": 30,
   "frost_tolerance": {
     "rating": 0,
     "max": 10
   },
-  "native_range": "Tropisches Asien (Indien bis Suedostasien)",
-  "center_of_diversity": "Indien",
+  "native_range": "Tropical Asia (India to Southeast Asia)",
+  "center_of_diversity": "India",
   "iucn_global_status": {
     "status": "NE",
     "variant": "info"
   },
-  "dispersal_vector_type": "Myrmekochor",
-  "dispersal_mechanism": "Samenfall, Ameisenausbreitung"
+  "dispersal_vector_type": "Myrmecochory",
+  "dispersal_mechanism": "Seed fall, ant dispersal"
 }

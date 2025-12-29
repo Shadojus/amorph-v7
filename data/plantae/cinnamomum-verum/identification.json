@@ -60,8 +60,8 @@
     "variant": "warning"
   },
   "confusion_consequences": [
-    {"level": "low", "typ": "Cinnamomum cassia", "beschreibung": "Also used as cinnamon, higher coumarin content"},
-    {"level": "medium", "typ": "Cinnamomum camphora", "beschreibung": "Different genus, camphor odor"}
+    {"level": "low", "type": "Cinnamomum cassia", "description": "Also used as cinnamon, higher coumarin content"},
+    {"level": "medium", "type": "Cinnamomum camphora", "description": "Different genus, camphor odor"}
   ],
   "key_differentiating_features": [
     "Thinner bark than cassia",

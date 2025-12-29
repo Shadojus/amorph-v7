@@ -1,62 +1,62 @@
 {
   "traditional_medicine_use": true,
   "traditional_medicine_systems": [
-    "Traditionelle Chinesische Medizin",
-    "Japanische Medizin"
+    "Traditional Chinese Medicine",
+    "Japanese Medicine"
   ],
   "medicinal_status": {
-    "status": "Vitalpilz und zugelassenes Arzneimittel (Japan)",
+    "status": "Medicinal Mushroom and Approved Medicine (Japan)",
     "variant": "success"
   },
   "primary_medicinal_uses": [
-    "Immunstimulation",
-    "Krebs-Begleittherapie",
-    "Cholesterinsenkung",
+    "Immunostimulation",
+    "Cancer Adjuvant Therapy",
+    "Cholesterol Reduction",
     "Antiviral"
   ],
   "active_compounds": [
     {
       "name": "Lentinan",
       "class": "Beta-1,3-1,6-Glucan",
-      "effects": ["immunstimulierend", "antitumoral"]
+      "effects": ["immunostimulant", "antitumoral"]
     },
     {
       "name": "KS-2",
-      "class": "Polysaccharid",
+      "class": "Polysaccharide",
       "effects": ["antitumoral"]
     },
     {
-      "name": "Eritadenin",
-      "class": "Adenin-Derivat",
-      "effects": ["cholesterinsenkend"]
+      "name": "Eritadenine",
+      "class": "Adenine Derivative",
+      "effects": ["cholesterol-lowering"]
     }
   ],
   "research_areas": [
-    "Onkologie",
+    "Oncology",
     "HIV/AIDS",
-    "Kardiologie",
-    "Immunologie"
+    "Cardiology",
+    "Immunology"
   ],
   "clinical_evidence_level": {
-    "status": "zugelassenes Medikament",
+    "status": "approved medicine",
     "variant": "success"
   },
-  "clinical_evidence_notes": "Lentinan ist in Japan als Krebsmedikament (Adjuvans) zugelassen. Umfangreiche klinische Forschung seit den 1960er Jahren.",
+  "clinical_evidence_notes": "Lentinan is approved as cancer medicine (adjuvant) in Japan. Extensive clinical research since the 1960s.",
   "traditional_preparations": [
-    "Gekocht als Speisepilz",
-    "Heisswasserextrakt",
-    "Lentinan-Injektionen (medizinisch)"
+    "Cooked as edible mushroom",
+    "Hot Water Extract",
+    "Lentinan Injections (medical)"
   ],
   "safety_profile": {
-    "status": "gut vertraeglich",
+    "status": "well tolerated",
     "variant": "success"
   },
   "side_effects": [
     {
       "level": "low",
-      "typ": "Dermatologisch",
-      "beschreibung": "Shiitake-Dermatitis (selten, durch Lentinan bei Rohverzehr oder unzureichendem Garen)"
+      "type": "Dermatological",
+      "description": "Shiitake dermatitis (rare, caused by lentinan when eaten raw or insufficiently cooked)"
     }
   ],
-  "regulatory_status_eu": "Lebensmittel und Nahrungsergaenzungsmittel"
+  "regulatory_status_eu": "Food and Dietary Supplement"
 }

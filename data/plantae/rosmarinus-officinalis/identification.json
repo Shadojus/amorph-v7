@@ -59,7 +59,7 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "none", "typ": "Similar herbs", "beschreibung": "All similar species are also culinary herbs"}
+    {"level": "none", "typ": "Similar herbs", "description": "All similar species are also culinary herbs"}
   ],
   "key_differentiating_features": [
     "Distinctive rosemary pine-camphor scent",

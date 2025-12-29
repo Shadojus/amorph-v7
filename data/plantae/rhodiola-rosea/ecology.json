@@ -1,21 +1,21 @@
 {
   "trophic_mode_primary": "autotroph",
-  "ecological_guild": "Sukkulente Staude",
-  "primary_ecosystem_function": "Alpenpflanze",
-  "ecosystem_type": "Alpin",
-  "ecosystem_subtype": "Felsspalten, alpine Rasen",
-  "microhabitat_primary": "Felsige Standorte in grosser Hoehe",
-  "microhabitat_secondary": "Kuesten, arktische Tundra",
-  "light_requirement": "volle Sonne",
-  "moisture_regime": "mesisch",
+  "ecological_guild": "Succulent perennial",
+  "primary_ecosystem_function": "Alpine plant",
+  "ecosystem_type": "Alpine",
+  "ecosystem_subtype": "Rock crevices, alpine meadows",
+  "microhabitat_primary": "Rocky sites at high elevation",
+  "microhabitat_secondary": "Coasts, arctic tundra",
+  "light_requirement": "full sun",
+  "moisture_regime": "mesic",
   "drought_tolerance": {
     "rating": 6,
     "max": 10
   },
   "soil_ph_optimal_min": 5.5,
   "soil_ph_optimal_max": 7.5,
-  "soil_texture_preference": "steinig, gut drainiert",
-  "climate_zone": "arktisch-alpin",
+  "soil_texture_preference": "rocky, well-drained",
+  "climate_zone": "arctic-alpine",
   "temperature_optimal_min_c": -40,
   "temperature_optimal_max_c": 20,
   "frost_tolerance": {
@@ -24,27 +24,27 @@
   },
   "elevation_optimal_min_m": 1500,
   "elevation_optimal_max_m": 4500,
-  "native_range": "Arktis und Hochgebirge der Nordhemisphaere (Alpen, Skandinavien, Sibirien, Nordamerika)",
+  "native_range": "Arctic and high mountains of Northern Hemisphere (Alps, Scandinavia, Siberia, North America)",
   "iucn_global_status": {
     "status": "LC",
     "variant": "success"
   },
   "regional_status": {
-    "status": "Gefaehrdet in einigen Regionen",
+    "status": "Endangered in some regions",
     "variant": "warning"
   },
   "overexploitation_pressure": {
-    "status": "Hoch",
+    "status": "High",
     "variant": "danger"
   },
   "primary_threats": [
-    "Uebersammlung fuer Heilzwecke",
-    "Klimawandel"
+    "Overharvesting for medicinal purposes",
+    "Climate change"
   ],
   "climate_change_sensitivity": {
-    "status": "Hoch",
+    "status": "High",
     "variant": "danger"
   },
-  "dispersal_vector_type": "Anemochor",
-  "dispersal_mechanism": "Windausbreitung (sehr kleine Samen)"
+  "dispersal_vector_type": "Anemochory",
+  "dispersal_mechanism": "Wind dispersal (very small seeds)"
 }

@@ -1,36 +1,36 @@
 {
   "traditional_medicine": {
-    "systems": ["European_Folk_Medicine", "Griechisch-roemische Medizin"],
-    "historical_use": "Bereits von Hippokrates und Dioskurides beschrieben",
-    "traditional_indications": ["Schlaflosigkeit", "Nervositaet", "Herzklopfen", "Kraempfe"]
+    "systems": ["European_Folk_Medicine", "Greco-Roman Medicine"],
+    "historical_use": "Already described by Hippocrates and Dioscorides",
+    "traditional_indications": ["Insomnia", "Nervousness", "Heart palpitations", "Cramps"]
   },
   "pharmacopoeia_names": ["Valerianae radix"],
   "who_monograph_exists": true,
   "escop_monograph_exists": true,
-  "escop_therapeutic_indication": ["Einschlafprobleme", "Nervöse Unruhe", "Innere Anspannung"],
+  "escop_therapeutic_indication": ["Sleep onset problems", "Nervous restlessness", "Inner tension"],
   "german_commission_e_status": {
-    "status": "Positiv-Monographie",
+    "status": "Positive monograph",
     "variant": "success"
   },
-  "german_commission_e_indication": ["Unruhezustaende", "Nervös bedingte Einschlafstorungen"],
+  "german_commission_e_indication": ["Restlessness", "Nervous sleep disorders"],
   "active_substances": [
-    "Valerensaeure",
+    "Valerenic acid",
     "Valerenol",
-    "Valtrat (Iridoide)",
-    "Sesquiterpene",
-    "Lignane"
+    "Valtrate (iridoids)",
+    "Sesquiterpenes",
+    "Lignans"
   ],
   "effect_profile": [
-    {"axis": "Sedativ", "value": 80},
-    {"axis": "Anxiolytisch", "value": 70},
-    {"axis": "Spasmolytisch", "value": 60},
-    {"axis": "Schlaffoerdernd", "value": 85},
-    {"axis": "Muskelrelaxierend", "value": 55}
+    {"axis": "Sedative", "value": 80},
+    {"axis": "Anxiolytic", "value": 70},
+    {"axis": "Spasmolytic", "value": 60},
+    {"axis": "Sleep-promoting", "value": 85},
+    {"axis": "Muscle-relaxing", "value": 55}
   ],
   "therapeutic_categories": [
-    "Sedativum",
-    "Hypnotikum",
-    "Anxiolytikum"
+    "Sedative",
+    "Hypnotic",
+    "Anxiolytic"
   ],
   "evidence_level": {
     "status": "2a",
@@ -46,22 +46,22 @@
     "max": 100
   },
   "side_effects": [
-    {"level": "low", "typ": "Gelegentlich", "beschreibung": "Magen-Darm-Beschwerden, Kopfschmerzen"},
-    {"level": "low", "typ": "Paradoxe Reaktion", "beschreibung": "Unruhe bei einzelnen Personen"}
+    {"level": "low", "typ": "Occasional", "description": "Gastrointestinal complaints, headache"},
+    {"level": "low", "typ": "Paradoxical reaction", "description": "Restlessness in some individuals"}
   ],
   "interactions": [
-    {"level": "medium", "typ": "ZNS-Depressiva", "beschreibung": "Verstaerkte Wirkung mit Alkohol, Benzodiazepinen"}
+    {"level": "medium", "typ": "CNS depressants", "description": "Enhanced effect with alcohol, benzodiazepines"}
   ],
   "contraindications": [
-    "Kinder unter 12 Jahren",
-    "Schwangerschaft (Vorsicht)"
+    "Children under 12 years",
+    "Pregnancy (caution)"
   ],
   "special_populations_pregnancy": {
-    "status": "Nicht empfohlen",
+    "status": "Not recommended",
     "variant": "warning"
   },
   "special_populations_elderly": {
-    "status": "Geeignet",
+    "status": "Suitable",
     "variant": "success"
   },
   "standard_dose_range": {
@@ -69,12 +69,12 @@
     "max": 600,
     "unit": "mg"
   },
-  "dose_timing_field": "30-60 min vor dem Schlafengehen",
-  "onset_of_action": "Volle Wirkung nach 2-4 Wochen regelmaessiger Einnahme",
-  "dosage_notes": "Extrakt 300-600 mg abends; bei Nervosität auch tagesüber",
-  "preparation_forms": ["Extrakt", "Tinktur", "Tee", "Kapseln", "Tabletten", "Bad"],
+  "dose_timing_field": "30-60 min before bedtime",
+  "onset_of_action": "Full effect after 2-4 weeks of regular use",
+  "dosage_notes": "Extract 300-600 mg in the evening; for nervousness also during the day",
+  "preparation_forms": ["Extract", "Tincture", "Tea", "Capsules", "Tablets", "Bath"],
   "status_by_region": {
-    "eu": "Pflanzliches Arzneimittel (traditional use)",
+    "eu": "Herbal medicinal product (traditional use)",
     "usa": "GRAS, Dietary Supplement"
   }
 }

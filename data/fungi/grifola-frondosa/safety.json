@@ -8,7 +8,7 @@
     "max": 100,
     "unit": "%"
   },
-  "safety_edibility_notes": "Hervorragender Speisepilz, jung zart und aromatisch. Im Alter wird er zaeh. Auch als bedeutender Vitalpilz genutzt.",
+  "safety_edibility_notes": "Excellent edible mushroom, tender and aromatic when young. Becomes tough with age. Also used as an important medicinal mushroom.",
   "safety_potentially_deadly": false,
   "safety_toxicity_score": {
     "value": 0,
@@ -24,10 +24,10 @@
     "status": "none",
     "variant": "success"
   },
-  "safety_summary": "Ausgezeichneter Speise- und Vitalpilz. Nur junge Exemplare sammeln, aeltere werden zaeh.",
+  "safety_summary": "Excellent edible and medicinal mushroom. Only collect young specimens, older ones become tough.",
   "confusion_partner": [
-    {"name": "Meripilus giganteus", "type": "essbar", "intensity": 40},
-    {"name": "Polyporus umbellatus", "type": "essbar", "intensity": 30}
+    {"name": "Meripilus giganteus", "type": "edible", "intensity": 40},
+    {"name": "Polyporus umbellatus", "type": "edible", "intensity": 30}
   ],
   "confusion_risk_level": {
     "status": "moderate",

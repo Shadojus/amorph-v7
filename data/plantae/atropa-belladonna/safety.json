@@ -58,9 +58,9 @@
     "unit": "% total alkaloids"
   },
   "symptoms_by_severity": [
-    {"level": "medium", "typ": "Early symptoms", "beschreibung": "Dry mouth, dilated pupils, flushed skin, rapid heartbeat"},
-    {"level": "high", "typ": "Moderate poisoning", "beschreibung": "Hallucinations, delirium, agitation, inability to urinate"},
-    {"level": "critical", "typ": "Severe poisoning", "beschreibung": "Convulsions, coma, respiratory failure, death"}
+    {"level": "medium", "type": "early symptoms", "description": "dry mouth, dilated pupils, flushed skin, rapid heartbeat"},
+    {"level": "high", "type": "moderate poisoning", "description": "hallucinations, delirium, agitation, inability to urinate"},
+    {"level": "critical", "type": "severe poisoning", "description": "convulsions, coma, respiratory failure, death"}
   ],
   "symptoms_acute": [
     "Dilated pupils (mydriasis)",

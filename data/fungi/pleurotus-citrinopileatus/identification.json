@@ -9,8 +9,8 @@
   "taxonomy_genus": "Pleurotus",
   "taxonomy_species": "citrinopileatus",
   "common_names": [
-    "Zitronenseitling",
-    "Limonenseitling",
+    "Lemon Oyster",
+    "Yellow Oyster",
     "Golden Oyster",
     "Yellow Oyster",
     "Tamogitake"
@@ -20,29 +20,29 @@
     "max": 5,
     "unit": "cm"
   },
-  "color_primary": "zitronengelb",
+  "color_primary": "lemon yellow",
   "color_secondary": "gold",
-  "smell_description": "Adstringent, nussig, fruchtig",
-  "taste_description": "Mild, cashew-artig",
+  "smell_description": "Astringent, nutty, fruity",
+  "taste_description": "Mild, cashew-like",
   "primary_structure_present": true,
-  "primary_structure_type": "Hut",
+  "primary_structure_type": "Cap",
   "primary_structure_diameter": {
     "min": 2,
     "max": 5,
     "unit": "cm"
   },
-  "primary_structure_shape_mature": "konvex bis flach, Mitte vertieft",
-  "primary_structure_surface": "glatt",
-  "primary_structure_color": "leuchtend zitronengelb bis gold",
+  "primary_structure_shape_mature": "convex to flat, center depressed",
+  "primary_structure_surface": "smooth",
+  "primary_structure_color": "bright lemon yellow to gold",
   "support_structure_present": true,
-  "support_structure_type": "Stiel",
-  "support_structure_color": "weiss",
-  "support_structure_position": "zentral",
+  "support_structure_type": "Stem",
+  "support_structure_color": "white",
+  "support_structure_position": "central",
   "lamellae_present": true,
-  "lamellae_attachment": "herablaufend",
-  "lamellae_color": "weisslich",
-  "tissue_color": "weiss",
-  "propagule_color": "blassrosa",
+  "lamellae_attachment": "decurrent",
+  "lamellae_color": "whitish",
+  "tissue_color": "white",
+  "propagule_color": "pale pink",
   "propagule_length": {
     "min": 7.5,
     "max": 9,
@@ -67,8 +67,8 @@
     "variant": "success"
   },
   "key_differentiating_features": [
-    "Leuchtend zitronengelbe Farbe",
-    "Grosse Bueschel mit 50-100 Pilzen",
-    "Weisser, zentral angesetzter Stiel"
+    "Bright lemon yellow color",
+    "Large clusters with 50-100 mushrooms",
+    "White, centrally attached stem"
   ]
 }

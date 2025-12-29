@@ -23,8 +23,8 @@
     "May lower blood sugar"
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal use", "beschreibung": "Well tolerated; hepatoprotective"},
-    {"level": "low", "typ": "Some individuals", "beschreibung": "Mild laxative effect, allergic reactions (rare)"}
+    {"level": "none", "typ": "Normal use", "description": "Well tolerated; hepatoprotective"},
+    {"level": "low", "typ": "Some individuals", "description": "Mild laxative effect, allergic reactions (rare)"}
   ],
   "fatality_rate": {
     "value": 0,

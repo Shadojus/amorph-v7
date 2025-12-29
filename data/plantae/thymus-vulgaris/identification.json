@@ -60,7 +60,7 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "none", "typ": "Other Thymus species", "beschreibung": "All thyme species are edible and aromatic"}
+    {"level": "none", "typ": "Other Thymus species", "description": "All thyme species are edible and aromatic"}
   ],
   "key_differentiating_features": [
     "Characteristic thyme/thymol aroma",

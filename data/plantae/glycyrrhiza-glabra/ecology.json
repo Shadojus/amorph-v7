@@ -1,42 +1,42 @@
 {
   "trophic_mode_primary": "autotroph",
-  "ecological_guild": "Staude (tiefwurzelnd)",
-  "primary_ecosystem_function": "Stickstofffixierung",
+  "ecological_guild": "Perennial (deep-rooted)",
+  "primary_ecosystem_function": "Nitrogen fixation",
   "secondary_ecosystem_functions": [
-    "Pionierpflanze",
-    "Bodenverbesserung"
+    "Pioneer plant",
+    "Soil improvement"
   ],
   "ecosystem_type": "Steppe",
-  "ecosystem_subtype": "Halbwueste, Flusstaeler",
-  "microhabitat_primary": "Tiefgruendige Talboeden",
-  "microhabitat_secondary": "Flussufer, trockene Grabenraender",
-  "light_requirement": "volle Sonne",
-  "moisture_regime": "mesisch bis xerisch",
+  "ecosystem_subtype": "Semi-desert, river valleys",
+  "microhabitat_primary": "Deep valley soils",
+  "microhabitat_secondary": "Riverbanks, dry ditch edges",
+  "light_requirement": "Full sun",
+  "moisture_regime": "Mesic to xeric",
   "drought_tolerance": {
     "rating": 7,
     "max": 10
   },
   "soil_ph_optimal_min": 6.0,
   "soil_ph_optimal_max": 8.5,
-  "soil_texture_preference": "tiefgruendig, sandig-lehmig",
+  "soil_texture_preference": "Deep, sandy-loamy",
   "n_fixation": true,
-  "symbiosis_type": "Rhizobium-Symbiose",
-  "climate_zone": "mediterran bis kontinental",
+  "symbiosis_type": "Rhizobium symbiosis",
+  "climate_zone": "Mediterranean to continental",
   "temperature_optimal_min_c": -20,
   "temperature_optimal_max_c": 35,
   "frost_tolerance": {
     "rating": 7,
     "max": 10
   },
-  "native_range": "Mittelmeerraum bis Westasien, Zentralasien",
+  "native_range": "Mediterranean to Western Asia, Central Asia",
   "iucn_global_status": {
     "status": "LC",
     "variant": "success"
   },
   "overexploitation_pressure": {
-    "status": "Mittel",
+    "status": "Medium",
     "variant": "warning"
   },
-  "dispersal_vector_type": "Vegetativ",
-  "dispersal_mechanism": "Rhizomausbreitung"
+  "dispersal_vector_type": "Vegetative",
+  "dispersal_mechanism": "Rhizome spreading"
 }

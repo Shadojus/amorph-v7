@@ -13,9 +13,9 @@
     "Hydnum erinaceus"
   ],
   "common_names": [
-    "Igelstachelbart",
-    "Loewenmaehne",
-    "Affenkopfpilz",
+    "Lion's Mane",
+    "Bearded Tooth",
+    "Monkey Head Mushroom",
     "Pom-Pom blanc",
     "Lions Mane",
     "Yamabushitake"
@@ -25,28 +25,28 @@
     "max": 40,
     "unit": "cm"
   },
-  "color_primary": "weiss",
-  "color_secondary": "gelbbraun",
-  "smell_description": "Suesslich, mehlartig, aromatisch",
-  "taste_description": "Mild, fein",
+  "color_primary": "white",
+  "color_secondary": "yellow-brown",
+  "smell_description": "Sweet, floury, aromatic",
+  "taste_description": "Mild, delicate",
   "primary_structure_present": true,
-  "primary_structure_type": "kompakt-kugelig",
+  "primary_structure_type": "compact-spherical",
   "primary_structure_diameter": {
     "min": 5,
     "max": 40,
     "unit": "cm"
   },
-  "primary_structure_surface": "lange herabhaegende Stacheln",
-  "primary_structure_color": "weiss, im Alter gelbbraun",
-  "hymenium_type": "Stacheln/Zaehne",
+  "primary_structure_surface": "long hanging spines",
+  "primary_structure_color": "white, yellow-brown when old",
+  "hymenium_type": "Spines/Teeth",
   "hymenium_length": {
     "min": 1,
     "max": 5,
     "unit": "cm"
   },
-  "tissue_color": "weisslich",
-  "tissue_consistency": "faserig, weich",
-  "propagule_color": "weiss",
+  "tissue_color": "whitish",
+  "tissue_consistency": "fibrous, soft",
+  "propagule_color": "white",
   "propagule_length": {
     "min": 5.5,
     "max": 7,
@@ -72,8 +72,8 @@
     "variant": "success"
   },
   "key_differentiating_features": [
-    "Unverzweigte, herabhaegende Stacheln",
-    "Kompakter, kugeliger Fruchtkoerper",
-    "Waechst auf Laubholz"
+    "Unbranched, hanging spines",
+    "Compact, spherical fruiting body",
+    "Grows on hardwood"
   ]
 }

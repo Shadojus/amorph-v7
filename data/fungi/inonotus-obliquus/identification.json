@@ -1,6 +1,6 @@
 {
   "scientific_name": "Inonotus obliquus",
-  "author_citation": "(Ach. ex Pers.) Pil\u00e1t",
+  "author_citation": "(Ach. ex Pers.) Pilát",
   "taxonomy_kingdom": "Fungi",
   "taxonomy_phylum": "Basidiomycota",
   "taxonomy_class": "Agaricomycetes",
@@ -14,30 +14,30 @@
   "common_names": [
     "Chaga",
     "Tschaga",
-    "Schiefer Schillerporling",
-    "Sibirischer Chagapilz"
+    "Clinker Polypore",
+    "Siberian Chaga Mushroom"
   ],
   "size_range": {
     "min": 4,
     "max": 50,
     "unit": "cm"
   },
-  "color_primary": "schwarz",
-  "color_secondary": "dunkelbraun",
+  "color_primary": "black",
+  "color_secondary": "dark brown",
   "smell_description": "Neutral",
-  "taste_description": "Neutral, leicht bitter",
+  "taste_description": "Neutral, slightly bitter",
   "primary_structure_present": true,
-  "primary_structure_type": "Sklerotium (sterile Masse)",
+  "primary_structure_type": "Sclerotium (sterile mass)",
   "primary_structure_diameter": {
     "min": 4,
     "max": 50,
     "unit": "cm"
   },
-  "primary_structure_surface": "rissig, korkig, kohlenheart",
-  "primary_structure_color": "aussen schwarz, innen dunkelbraun",
-  "tissue_color": "kastanienbraun bis dunkelbraun",
-  "tissue_consistency": "korkig, hart",
-  "propagule_color": "gelbbraun",
+  "primary_structure_surface": "cracked, corky, charcoal-like",
+  "primary_structure_color": "black outside, dark brown inside",
+  "tissue_color": "chestnut brown to dark brown",
+  "tissue_consistency": "corky, hard",
+  "propagule_color": "yellow-brown",
   "propagule_length": {
     "min": 7.5,
     "max": 10,
@@ -62,8 +62,8 @@
     "variant": "warning"
   },
   "key_differentiating_features": [
-    "Schwarze, kohleartige Auswuechse an Birken",
-    "Innen goldbraun bis dunkelbraun",
-    "Aus Rinde ausbrechend"
+    "Black, charcoal-like growths on birch trees",
+    "Golden brown to dark brown inside",
+    "Breaking through bark"
   ]
 }

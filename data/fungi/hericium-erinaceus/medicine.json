@@ -1,58 +1,58 @@
 {
   "traditional_medicine_use": true,
   "traditional_medicine_systems": [
-    "Traditionelle Chinesische Medizin",
-    "Japanische Medizin"
+    "Traditional Chinese Medicine",
+    "Japanese Medicine"
   ],
   "medicinal_status": {
-    "status": "Vitalpilz",
+    "status": "Medicinal Mushroom",
     "variant": "info"
   },
   "primary_medicinal_uses": [
     "Neuroregeneration",
-    "Alzheimer-Unterstuetzung",
-    "Magen-Darm-Erkrankungen",
-    "Kognitive Funktion",
-    "Angst und Unruhe"
+    "Alzheimer Support",
+    "Gastrointestinal Disorders",
+    "Cognitive Function",
+    "Anxiety and Restlessness"
   ],
   "active_compounds": [
     {
-      "name": "Erinacine",
+      "name": "Erinacines",
       "class": "Diterpenoid",
-      "effects": ["Nervenwachstumsfaktor-Stimulation", "neuroprotektiv"]
+      "effects": ["Nerve Growth Factor Stimulation", "neuroprotective"]
     },
     {
-      "name": "Hericenone",
-      "class": "Phenolverbindung",
-      "effects": ["Nervenwachstumsfaktor-Stimulation"]
+      "name": "Hericenones",
+      "class": "Phenolic Compound",
+      "effects": ["Nerve Growth Factor Stimulation"]
     },
     {
-      "name": "Beta-Glucane",
-      "class": "Polysaccharid",
-      "effects": ["immunstimulierend"]
+      "name": "Beta-Glucans",
+      "class": "Polysaccharide",
+      "effects": ["immunostimulant"]
     }
   ],
   "research_areas": [
-    "Neurologie (Alzheimer, Demenz)",
-    "Gastroenterologie",
-    "Onkologie",
-    "Psychiatrie"
+    "Neurology (Alzheimer's, Dementia)",
+    "Gastroenterology",
+    "Oncology",
+    "Psychiatry"
   ],
   "clinical_evidence_level": {
-    "status": "klinische Studien",
+    "status": "clinical studies",
     "variant": "success"
   },
-  "clinical_evidence_notes": "Studien am Third People's Hospital of Shanghai zeigten Wirksamkeit bei Magen-Darm-Erkrankungen und Tumoren. Patentierte Nervenwachstumsfaktor-Stimulation (JP #05391544).",
+  "clinical_evidence_notes": "Studies at Third People's Hospital of Shanghai showed efficacy for gastrointestinal disorders and tumors. Patented Nerve Growth Factor Stimulation (JP #05391544).",
   "traditional_preparations": [
-    "Gekocht als Speisepilz",
-    "Heisswasserextrakt",
-    "Alkoholextrakt (fuer Erinacine)",
-    "Doppelextrakt"
+    "Cooked as edible mushroom",
+    "Hot Water Extract",
+    "Alcohol Extract (for Erinacines)",
+    "Dual Extract"
   ],
-  "dosage_traditional": "1-3 g Extrakt pro Tag",
+  "dosage_traditional": "1-3 g extract per day",
   "safety_profile": {
-    "status": "sehr gut vertraeglich",
+    "status": "very well tolerated",
     "variant": "success"
   },
-  "regulatory_status_eu": "Lebensmittel und Nahrungsergaenzungsmittel"
+  "regulatory_status_eu": "Food and Dietary Supplement"
 }

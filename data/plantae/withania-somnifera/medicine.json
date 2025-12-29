@@ -1,39 +1,39 @@
 {
   "traditional_medicine": {
     "systems": ["Ayurveda", "Unani"],
-    "historical_use": "Ueber 3000 Jahre in Ayurveda als Rasayana (Verjuengungsmittel)",
-    "traditional_indications": ["Schwaeche", "Erschoepfung", "Stress", "Impotenz", "Schlafstörungen"]
+    "historical_use": "Over 3000 years in Ayurveda as Rasayana (rejuvenating tonic)",
+    "traditional_indications": ["Weakness", "Exhaustion", "Stress", "Impotence", "Sleep disorders"]
   },
   "ayurveda_sanskrit_name": "Ashwagandha",
   "ayurveda_rasa": ["tikta", "kashaya"],
-  "ayurveda_guna": ["leicht", "oelig"],
+  "ayurveda_guna": ["light", "oily"],
   "ayurveda_virya": "ushna (warm)",
-  "ayurveda_vipaka": "madhura (suess)",
-  "ayurveda_dosha_effect": ["Vata-reduzierend", "Kapha-reduzierend"],
+  "ayurveda_vipaka": "madhura (sweet)",
+  "ayurveda_dosha_effect": ["Vata-reducing", "Kapha-reducing"],
   "active_substances": [
-    "Withanolide (Withaferin A, Withanolid D)",
-    "Withanosid",
-    "Alkaloide (Isopelletierin)"
+    "Withanolides (Withaferin A, Withanolide D)",
+    "Withanosides",
+    "Alkaloids (isopelletierine)"
   ],
   "effect_profile": [
-    {"axis": "Adaptogen", "value": 95},
-    {"axis": "Anxiolytisch", "value": 80},
-    {"axis": "Antiinflammatorisch", "value": 70},
-    {"axis": "Neuroprotektiv", "value": 75},
-    {"axis": "Immunmodulierend", "value": 70}
+    {"axis": "Adaptogenic", "value": 95},
+    {"axis": "Anxiolytic", "value": 80},
+    {"axis": "Anti-inflammatory", "value": 70},
+    {"axis": "Neuroprotective", "value": 75},
+    {"axis": "Immunomodulating", "value": 70}
   ],
   "therapeutic_categories": [
     "Adaptogen",
-    "Anxiolytikum",
-    "Tonikum"
+    "Anxiolytic",
+    "Tonic"
   ],
   "evidence_level": {
     "status": "2a",
     "variant": "success"
   },
   "clinical_studies": [
-    "Chandrasekhar et al. 2012: Signifikante Reduktion von Stress und Cortisol",
-    "Wankhede et al. 2015: Erhöhte Muskelkraft und Regeneration"
+    "Chandrasekhar et al. 2012: Significant reduction of stress and cortisol",
+    "Wankhede et al. 2015: Increased muscle strength and recovery"
   ],
   "safety_score": {
     "value": 80,
@@ -41,20 +41,20 @@
     "max": 100
   },
   "side_effects": [
-    {"level": "low", "typ": "Gelegentlich", "beschreibung": "Magen-Darm-Beschwerden, Schläfrigkeit"},
-    {"level": "medium", "typ": "Schilddruese", "beschreibung": "Kann Schilddruesenhormone beeinflussen"}
+    {"level": "low", "typ": "Occasional", "description": "Gastrointestinal complaints, drowsiness"},
+    {"level": "medium", "typ": "Thyroid", "description": "May affect thyroid hormones"}
   ],
   "interactions": [
-    {"level": "medium", "typ": "Sedativa", "beschreibung": "Additive sedierende Wirkung"},
-    {"level": "medium", "typ": "Schilddruesenmedikamente", "beschreibung": "Kann Hormonspiegel beeinflussen"}
+    {"level": "medium", "typ": "Sedatives", "description": "Additive sedating effect"},
+    {"level": "medium", "typ": "Thyroid medications", "description": "May affect hormone levels"}
   ],
   "contraindications": [
-    "Schwangerschaft",
-    "Hyperthyreose",
-    "Autoimmunerkrankungen (Vorsicht)"
+    "Pregnancy",
+    "Hyperthyroidism",
+    "Autoimmune diseases (caution)"
   ],
   "special_populations_pregnancy": {
-    "status": "Kontraindiziert",
+    "status": "Contraindicated",
     "variant": "danger"
   },
   "standard_dose_range": {
@@ -62,13 +62,13 @@
     "max": 600,
     "unit": "mg"
   },
-  "dose_frequency": "ein- bis zweimal taeglich",
-  "standardization_marker": "Withanolide 5%",
-  "dosage_notes": "Wurzelextrakt 300-600 mg taeglich; traditionell mit warmer Milch",
-  "preparation_forms": ["Wurzelpulver", "Extrakt", "Kapseln", "Churna"],
+  "dose_frequency": "Once to twice daily",
+  "standardization_marker": "Withanolides 5%",
+  "dosage_notes": "Root extract 300-600 mg daily; traditionally with warm milk",
+  "preparation_forms": ["Root powder", "Extract", "Capsules", "Churna"],
   "status_by_region": {
-    "eu": "Nahrungsergaenzungsmittel",
+    "eu": "Dietary supplement",
     "usa": "Dietary Supplement",
-    "india": "Traditionelles Arzneimittel"
+    "india": "Traditional medicine"
   }
 }

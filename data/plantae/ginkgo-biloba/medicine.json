@@ -1,40 +1,40 @@
 {
   "traditional_medicine": {
     "systems": ["TCM"],
-    "historical_use": "Ueber 1000 Jahre in der chinesischen Medizin; Samen und Blaetter",
-    "traditional_indications": ["Atemwegserkrankungen", "Blasenprobleme", "Kognitiver Abbau"]
+    "historical_use": "Over 1000 years in Chinese medicine; seeds and leaves",
+    "traditional_indications": ["Respiratory diseases", "Bladder problems", "Cognitive decline"]
   },
   "tcm_herb_name_pinyin": "Yin Xing Ye",
   "tcm_herb_name_chinese": "银杏叶",
   "tcm_nature": "neutral",
   "tcm_flavor": ["bitter", "sweet", "astringent"],
-  "tcm_meridian_tropism": ["Herz", "Lunge"],
+  "tcm_meridian_tropism": ["Heart", "Lung"],
   "who_monograph_exists": true,
-  "who_monograph_volume": "Band 1",
+  "who_monograph_volume": "Volume 1",
   "escop_monograph_exists": true,
-  "escop_therapeutic_indication": ["Periphere arterielle Verschlusskrankheit", "Schwindel", "Tinnitus", "Kognitive Stoerungen"],
+  "escop_therapeutic_indication": ["Peripheral arterial occlusive disease", "Vertigo", "Tinnitus", "Cognitive disorders"],
   "german_commission_e_status": {
-    "status": "Positiv-Monographie",
+    "status": "Positive monograph",
     "variant": "success"
   },
-  "german_commission_e_indication": ["Hirnleistungsstoerungen", "Durchblutungsstoerungen"],
+  "german_commission_e_indication": ["Cerebral performance disorders", "Circulatory disorders"],
   "active_substances": [
     "Ginkgolide A, B, C",
-    "Bilobalid",
-    "Flavonglykoside (Quercetin, Kaempferol)",
-    "Proanthocyanidine"
+    "Bilobalide",
+    "Flavone glycosides (Quercetin, Kaempferol)",
+    "Proanthocyanidins"
   ],
   "effect_profile": [
-    {"axis": "Neuroprotektiv", "value": 85},
-    {"axis": "Durchblutungsfoerdernd", "value": 90},
-    {"axis": "Antioxidativ", "value": 80},
-    {"axis": "PAF-Antagonismus", "value": 75},
-    {"axis": "Gedaechtnisfoerdernd", "value": 70}
+    {"axis": "Neuroprotective", "value": 85},
+    {"axis": "Circulation-promoting", "value": 90},
+    {"axis": "Antioxidant", "value": 80},
+    {"axis": "PAF antagonism", "value": 75},
+    {"axis": "Memory-enhancing", "value": 70}
   ],
   "therapeutic_categories": [
-    "Nootropikum",
-    "Vasodilatator",
-    "Antidementivum"
+    "Nootropic",
+    "Vasodilator",
+    "Anti-dementia agent"
   ],
   "evidence_level": {
     "status": "1a",
@@ -52,16 +52,16 @@
     "max": 100
   },
   "interactions": [
-    {"level": "high", "typ": "Antikoagulantien", "beschreibung": "Erhoehtes Blutungsrisiko mit Warfarin, ASS"},
-    {"level": "medium", "typ": "Antikonvulsiva", "beschreibung": "Moegliche Wirkungsminderung"}
+    {"level": "high", "typ": "Anticoagulants", "beschreibung": "Increased bleeding risk with warfarin, aspirin"},
+    {"level": "medium", "typ": "Anticonvulsants", "beschreibung": "Possible reduced efficacy"}
   ],
   "contraindications": [
-    "Blutungsneigung",
-    "Geplante Operationen (absetzen 2 Wochen vorher)",
-    "Schwangerschaft"
+    "Bleeding tendency",
+    "Planned surgery (discontinue 2 weeks before)",
+    "Pregnancy"
   ],
   "special_populations_pregnancy": {
-    "status": "Kontraindiziert",
+    "status": "Contraindicated",
     "variant": "danger"
   },
   "standard_dose_range": {
@@ -69,13 +69,13 @@
     "max": 240,
     "unit": "mg"
   },
-  "dose_frequency": "zweimal taeglich",
-  "standardization_marker": "Ginkgoflavonglykoside 24%, Terpenlactone 6%",
-  "dosage_notes": "Standardisierter Extrakt EGb 761: 120-240 mg/Tag verteilt auf 2-3 Gaben",
-  "preparation_forms": ["Standardisierter Extrakt", "Kapseln", "Tabletten", "Tinktur"],
+  "dose_frequency": "Twice daily",
+  "standardization_marker": "Ginkgo flavone glycosides 24%, terpene lactones 6%",
+  "dosage_notes": "Standardized extract EGb 761: 120-240 mg/day divided into 2-3 doses",
+  "preparation_forms": ["Standardized extract", "Capsules", "Tablets", "Tincture"],
   "status_by_region": {
-    "eu": "Pflanzliches Arzneimittel (well-established use)",
+    "eu": "Herbal medicinal product (well-established use)",
     "usa": "Dietary Supplement",
-    "germany": "Zugelassenes Arzneimittel"
+    "germany": "Approved medicinal product"
   }
 }

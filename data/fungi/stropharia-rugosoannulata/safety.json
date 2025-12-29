@@ -8,7 +8,7 @@
     "max": 100,
     "unit": "%"
   },
-  "safety_edibility_notes": "Ausgezeichneter Speisepilz mit mildem, angenehmem Geschmack. Sollte wie alle Pilze vor dem Verzehr gekocht werden.",
+  "safety_edibility_notes": "Excellent edible mushroom with mild, pleasant taste. Should be cooked before consumption like all mushrooms.",
   "safety_potentially_deadly": false,
   "safety_toxicity_score": {
     "value": 5,
@@ -25,9 +25,9 @@
     "status": "None",
     "variant": "success"
   },
-  "safety_warning_text": "Keine besonderen Warnungen. Wie alle Wildpilze vor dem Verzehr gruendlich kochen. Bei selbst angebautem Pilz keine Schadstoffe akkumuliert.",
-  "safety_warning_text_short": "Keine besonderen Warnungen",
-  "safety_summary": "Hervorragender Speisepilz ohne bekannte Giftigkeit. Leicht zu identifizieren und zu kultivieren.",
+  "safety_warning_text": "No special warnings. Like all wild mushrooms, cook thoroughly before consumption. Home-cultivated mushrooms do not accumulate pollutants.",
+  "safety_warning_text_short": "No special warnings",
+  "safety_summary": "Outstanding edible mushroom with no known toxicity. Easy to identify and cultivate.",
   "safety_risk_inherent": {
     "value": 5,
     "min": 0,
@@ -59,17 +59,17 @@
     ]
   },
   "safety_risk_groups": [
-    "Personen mit Pilzallergien"
+    "People with mushroom allergies"
   ],
   "safety_contraindications": [
-    "Bekannte Pilzallergie"
+    "Known mushroom allergy"
   ],
   "safety_regions": [
-    "Europa",
-    "Nordamerika",
-    "Asien",
-    "Australien",
-    "Neuseeland"
+    "Europe",
+    "North America",
+    "Asia",
+    "Australia",
+    "New Zealand"
   ],
   "safety_season_risk": [
     {"month": 1, "active": false},
@@ -90,18 +90,18 @@
     "variant": "success"
   },
   "safety_id_requirements": [
-    "Rotbrauner bis weinroter Hut",
-    "Gerillter, haeutiger Ring",
-    "Purpurschwarzer Sporenabdruck",
-    "Wachstum auf Stroh oder Holzhaecksel"
+    "Reddish-brown to wine-red cap",
+    "Grooved, membranous ring",
+    "Purple-black spore print",
+    "Growth on straw or wood chips"
   ],
   "safety_microscopy_needed": false,
   "safety_chemtests_needed": false,
   "safety_sporeprint_needed": false,
   "toxin_organ_damage_reversible": true,
   "confusion_partner": [
-    {"name": "Agaricus-Arten", "type": "Unbedenklich", "intensity": 20},
-    {"name": "Hypholoma sublateritium", "type": "Gering", "intensity": 15}
+    {"name": "Agaricus species", "type": "Harmless", "intensity": 20},
+    {"name": "Hypholoma sublateritium", "type": "Low risk", "intensity": 15}
   ],
   "confusion_risk_level": {
     "status": "Low",
@@ -113,21 +113,21 @@
     "max": 100,
     "unit": "%"
   },
-  "confusion_similarity_details": "Aehnlichkeit mit anderen Stropharia-Arten und Champignons, aber keine giftigen Doppelgaenger bekannt.",
+  "confusion_similarity_details": "Similarity with other Stropharia species and button mushrooms, but no known toxic lookalikes.",
   "confusion_key_features": [
-    "Charakteristisch gerillter Ring",
-    "Rotbraune bis weinrote Hutfarbe",
-    "Purpurschwarzer Sporenabdruck",
-    "Typisches Substrat (Stroh, Haecksel)"
+    "Characteristically grooved ring",
+    "Reddish-brown to wine-red cap color",
+    "Purple-black spore print",
+    "Typical substrate (straw, wood chips)"
   ],
-  "confusion_best_feature": "Gerillter Ring und purpurschwarzer Sporenabdruck",
+  "confusion_best_feature": "Grooved ring and purple-black spore print",
   "confusion_habitat_overlap": false,
-  "confusion_if_in_doubt": "Sporenabdruck machen - muss purpurschwarz sein. Im Kulturbeet gesammelte Exemplare sind sicher zu identifizieren.",
+  "confusion_if_in_doubt": "Make a spore print - must be purple-black. Specimens collected from cultivation beds are easy to identify.",
   "prognosis": {
     "status": "Excellent",
     "variant": "success"
   },
-  "recovery_prognosis": "Keine Vergiftungen bekannt bei korrekter Identifikation",
+  "recovery_prognosis": "No poisonings known with correct identification",
   "permanent_damage_risk": {
     "value": 0,
     "min": 0,

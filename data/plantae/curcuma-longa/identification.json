@@ -61,8 +61,8 @@
     "variant": "success"
   },
   "confusion_consequences": [
-    {"level": "none", "typ": "Zingiber officinale", "beschreibung": "Related, also edible"},
-    {"level": "low", "typ": "Other Curcuma species", "beschreibung": "Similar uses, different flavor profiles"}
+    {"level": "none", "type": "Zingiber officinale", "description": "Related, also edible"},
+    {"level": "low", "type": "Other Curcuma species", "description": "Similar uses, different flavor profiles"}
   ],
   "key_differentiating_features": [
     "Deep orange-yellow rhizome color",

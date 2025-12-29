@@ -46,9 +46,9 @@
     {"label": "Other cannabinoids", "value": 15}
   ],
   "symptoms_by_severity": [
-    {"level": "low", "typ": "Mild effects", "beschreibung": "Euphoria, relaxation, altered time perception, increased appetite"},
-    {"level": "medium", "typ": "Higher doses", "beschreibung": "Anxiety, paranoia, impaired coordination, tachycardia"},
-    {"level": "high", "typ": "Acute intoxication", "beschreibung": "Severe anxiety/panic, psychotic symptoms (rare), vomiting (cannabinoid hyperemesis)"}
+    {"level": "low", "type": "mild effects", "description": "euphoria, relaxation, altered time perception, increased appetite"},
+    {"level": "medium", "type": "higher doses", "description": "anxiety, paranoia, impaired coordination, tachycardia"},
+    {"level": "high", "type": "acute intoxication", "description": "severe anxiety/panic, psychotic symptoms (rare), vomiting (cannabinoid hyperemesis)"}
   ],
   "symptoms_acute": [
     "Tachycardia",

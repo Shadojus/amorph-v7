@@ -14,12 +14,12 @@
   "is_controlled_substance": false,
   "is_protected_species": false,
   "handling_precautions": [
-    "Nur junge geschlossene Exemplare sammeln",
-    "Sofort verarbeiten - zerfließt schnell",
-    "Mit Alkohol kombinierbar (anders als Faltentintling)"
+    "Only collect young, closed specimens",
+    "Process immediately - liquefies quickly",
+    "Can be combined with alcohol (unlike Common Ink Cap)"
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal consumption", "beschreibung": "Ausgezeichneter Speisepilz ohne bekannte Nebenwirkungen"}
+    {"level": "none", "type": "Normal consumption", "description": "Excellent edible mushroom with no known side effects"}
   ],
   "fatality_rate": {
     "value": 0,
@@ -28,14 +28,14 @@
   },
   "fatality_documented": false,
   "collection_warnings": [
-    "Verwechslung mit Faltentintling (Coprinopsis atramentaria) vermeiden",
-    "Faltentintling verursacht mit Alkohol Antabus-Syndrom",
-    "Schopftintling hat aufstehende weisse Schuppen"
+    "Avoid confusion with Common Ink Cap (Coprinopsis atramentaria)",
+    "Common Ink Cap causes Antabuse syndrome with alcohol",
+    "Shaggy Mane has upturned white scales"
   ],
   "processing_risks": [
-    "Sehr schnell verderblich",
-    "Beginnt innerhalb von Stunden zu zerfliessen",
-    "Sofort nach Ernte zubereiten"
+    "Very perishable",
+    "Begins to liquefy within hours",
+    "Prepare immediately after harvest"
   ],
   "allergy_potential": {
     "status": "Low",

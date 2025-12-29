@@ -23,8 +23,8 @@
     "Can cause insomnia if taken at night"
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal use", "beschreibung": "Safe and beneficial as adaptogen"},
-    {"level": "low", "typ": "Excessive use", "beschreibung": "Insomnia, nervousness, raised blood pressure"}
+    {"level": "none", "typ": "Normal use", "description": "Safe and beneficial as adaptogen"},
+    {"level": "low", "typ": "Excessive use", "description": "Insomnia, nervousness, raised blood pressure"}
   ],
   "fatality_rate": {
     "value": 0,

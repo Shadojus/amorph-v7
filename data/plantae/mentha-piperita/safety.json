@@ -24,8 +24,8 @@
     "May worsen GERD symptoms"
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal use", "beschreibung": "Safe as tea, flavoring, and in reasonable amounts"},
-    {"level": "low", "typ": "Excessive oil", "beschreibung": "Heartburn, headache, skin irritation"}
+    {"level": "none", "typ": "Normal use", "description": "Safe as tea, flavoring, and in reasonable amounts"},
+    {"level": "low", "typ": "Excessive oil", "description": "Heartburn, headache, skin irritation"}
   ],
   "fatality_rate": {
     "value": 0,

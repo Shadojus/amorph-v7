@@ -31,7 +31,7 @@
     }
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal use", "beschreibung": "Safe for culinary use; Ceylon variety is safest"}
+    {"level": "none", "type": "Normal use", "description": "Safe for culinary use; Ceylon variety is safest"}
   ],
   "fatality_rate": {
     "value": 0,

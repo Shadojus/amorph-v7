@@ -1,22 +1,22 @@
 {
   "trophic_mode_primary": "autotroph",
-  "ecological_guild": "Unterholzstrauch",
-  "primary_ecosystem_function": "Unterholzbildner",
-  "ecosystem_type": "Wald",
-  "ecosystem_subtype": "Tropischer Bergwald",
-  "microhabitat_primary": "Waldunterwuchs",
-  "microhabitat_secondary": "Schattige Berghaenge",
-  "light_requirement": "Halbschatten (Schattenkultur)",
-  "moisture_regime": "feucht",
+  "ecological_guild": "Understory shrub",
+  "primary_ecosystem_function": "Understory former",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Tropical montane forest",
+  "microhabitat_primary": "Forest understory",
+  "microhabitat_secondary": "Shaded mountain slopes",
+  "light_requirement": "Partial shade (shade cultivation)",
+  "moisture_regime": "Humid",
   "drought_tolerance": {
     "rating": 3,
     "max": 10
   },
   "soil_ph_optimal_min": 6.0,
   "soil_ph_optimal_max": 6.5,
-  "soil_nutrient_preference": "vulkanisch, naehrstoffreich",
-  "organic_matter_preference": "hoch",
-  "climate_zone": "tropisch-subtropisch",
+  "soil_nutrient_preference": "Volcanic, nutrient-rich",
+  "organic_matter_preference": "High",
+  "climate_zone": "Tropical-subtropical",
   "temperature_optimal_min_c": 15,
   "temperature_optimal_max_c": 24,
   "frost_tolerance": {
@@ -27,22 +27,22 @@
   "precipitation_optimal_max_mm": 2000,
   "elevation_optimal_min_m": 1000,
   "elevation_optimal_max_m": 2000,
-  "native_range": "Hochland von Aethiopien und Suedsudan",
+  "native_range": "Highlands of Ethiopia and South Sudan",
   "iucn_global_status": {
     "status": "EN",
     "variant": "danger"
   },
   "iucn_assessment_year": 2018,
   "primary_threats": [
-    "Klimawandel",
-    "Lebensraumverlust",
-    "Kaffeekrankheiten"
+    "Climate change",
+    "Habitat loss",
+    "Coffee diseases"
   ],
   "climate_change_sensitivity": {
-    "status": "Hoch",
+    "status": "High",
     "variant": "danger"
   },
-  "center_of_diversity": "Aethiopische Hochlaender",
-  "dispersal_vector_type": "Zoochor",
-  "dispersal_mechanism": "Vogelausbreitung"
+  "center_of_diversity": "Ethiopian highlands",
+  "dispersal_vector_type": "Zoochorous",
+  "dispersal_mechanism": "Bird dispersal"
 }

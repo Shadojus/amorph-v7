@@ -23,8 +23,8 @@
     "High doses may cause GI upset"
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Normal use", "beschreibung": "Safe as spice and supplement"},
-    {"level": "low", "typ": "Very high doses", "beschreibung": "Nausea, diarrhea, risk of kidney stones"}
+    {"level": "none", "type": "Normal use", "description": "Safe as spice and supplement"},
+    {"level": "low", "type": "Very high doses", "description": "Nausea, diarrhea, risk of kidney stones"}
   ],
   "fatality_rate": {
     "value": 0,

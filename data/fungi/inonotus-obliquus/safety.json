@@ -8,7 +8,7 @@
     "max": 100,
     "unit": "%"
   },
-  "safety_edibility_notes": "Nicht als Speisepilz geeignet. Wird traditionell als Tee oder Extrakt verwendet.",
+  "safety_edibility_notes": "Not suitable as edible mushroom. Traditionally used as tea or extract.",
   "safety_potentially_deadly": false,
   "safety_toxicity_score": {
     "value": 5,
@@ -24,12 +24,12 @@
     "status": "advisory",
     "variant": "neutral"
   },
-  "safety_warning_text": "Bei Oxalsaeure-empfindlichen Personen und Nierenerkrankungen vorsichtig dosieren.",
-  "safety_summary": "Bedeutender Vitalpilz mit hohem Oxalsaeuregehalt. Nicht fuer Personen mit Nierensteinen geeignet.",
+  "safety_warning_text": "Dose carefully for persons sensitive to oxalic acid and those with kidney disease.",
+  "safety_summary": "Important medicinal mushroom with high oxalic acid content. Not suitable for persons with kidney stones.",
   "safety_contraindications": [
-    "Nierensteine (Oxalsaeure)",
-    "Blutverdunner (Wechselwirkung)",
-    "Autoimmunerkrankungen"
+    "Kidney stones (oxalic acid)",
+    "Blood thinners (interaction)",
+    "Autoimmune diseases"
   ],
   "confusion_risk_level": {
     "status": "moderate",

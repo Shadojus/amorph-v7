@@ -10,5 +10,83 @@
       "url": "https://mushroomobserver.org"
     }
   ],
-  "fields": {}
+  "fields": {
+    "active_substances": [
+      {
+        "name": "Solomon Habtemariam",
+        "title": "Pharmacognosy researcher - Polysaccharide research",
+        "url": "https://www.mdpi.com/2227-9059/8/5/135"
+      }
+    ],
+    "effect_profile": [
+      {
+        "name": "Dr. Leanna J. Standish",
+        "title": "Bastyr University - Breast cancer immune therapy",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19087769/"
+      }
+    ],
+    "clinical_studies": [
+      {
+        "name": "Dr. Leanna J. Standish",
+        "title": "Bastyr University - Phase I studies breast cancer",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19087769/"
+      }
+    ],
+    "therapeutic_categories": [
+      {
+        "name": "Christopher Hobbs",
+        "title": "Herbalist - Medicinal Mushroom Expert",
+        "url": "https://christopherhobbs.com"
+      }
+    ],
+    "traditional_medicine": [
+      {
+        "name": "Christopher Hobbs",
+        "title": "TCM & Medicinal Mushroom Expert",
+        "url": "https://christopherhobbs.com"
+      }
+    ],
+    "taxonomy_family": [
+      {
+        "name": "Leif Ryvarden",
+        "title": "Polypore taxonomist, University of Oslo",
+        "url": "https://en.wikipedia.org/wiki/Leif_Ryvarden"
+      }
+    ],
+    "taxonomy_genus": [
+      {
+        "name": "Leif Ryvarden",
+        "title": "Polypore taxonomist, University of Oslo",
+        "url": "https://en.wikipedia.org/wiki/Leif_Ryvarden"
+      }
+    ],
+    "confusion_species_list": [
+      {
+        "name": "David Arora",
+        "title": "Author 'Mushrooms Demystified'",
+        "url": "https://en.wikipedia.org/wiki/David_Arora"
+      }
+    ],
+    "quick_id_checklist": [
+      {
+        "name": "David Arora",
+        "title": "Author 'Mushrooms Demystified'",
+        "url": "https://en.wikipedia.org/wiki/David_Arora"
+      }
+    ],
+    "safety_edibility_status": [
+      {
+        "name": "Christopher Hobbs",
+        "title": "Medicinal Value of Turkey Tail Fungus (2004)",
+        "url": "https://christopherhobbs.com"
+      }
+    ],
+    "safety_toxicity_score": [
+      {
+        "name": "Dr. Leanna J. Standish",
+        "title": "Safety profile research",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19087769/"
+      }
+    ]
+  }
 }

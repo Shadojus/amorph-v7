@@ -31,8 +31,8 @@
     }
   ],
   "symptoms_by_severity": [
-    {"level": "none", "typ": "Culinary use", "beschreibung": "Safe in normal cooking amounts"},
-    {"level": "medium", "typ": "Excessive intake", "beschreibung": "Nausea, vertigo, rapid heartbeat, seizures (rare)"}
+    {"level": "none", "typ": "Culinary use", "description": "Safe in normal cooking amounts"},
+    {"level": "medium", "typ": "Excessive intake", "description": "Nausea, vertigo, rapid heartbeat, seizures (rare)"}
   ],
   "fatality_rate": {
     "value": 0,

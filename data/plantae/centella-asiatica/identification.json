@@ -60,7 +60,7 @@
     "variant": "warning"
   },
   "confusion_consequences": [
-    {"level": "low", "typ": "Hydrocotyle species", "beschreibung": "Some Hydrocotyle species are edible, some not recommended"}
+    {"level": "low", "type": "Hydrocotyle species", "description": "some Hydrocotyle species are edible, some not recommended"}
   ],
   "key_differentiating_features": [
     "Fan or kidney-shaped leaves",
