@@ -194,7 +194,7 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
       return `
         <article class="amorph-item" data-slug="${escapeAttribute(item.slug)}" data-id="${escapeAttribute(item.id)}" data-name="${escapeAttribute(item.name)}" data-field-perspectives="${escapeAttribute(fieldPerspectiveJson)}" data-field-experts="${escapeAttribute(JSON.stringify(fieldExperts))}">
           <div class="item-header">
-            ${imageUrl ? `<div class="item-image"><img src="${escapeAttribute(imageUrl)}" alt="${escapeAttribute(item.name)}" loading="lazy" />${imageSource ? `<button type="button" class="bifroest-copyright" data-sources="${escapeAttribute(imageSourcesJson)}"><span class="bifroest-symbol">©</span><span class="bifroest-name">${escapeHtml(imageSource.name || imageSource.author || '')}</span></button>` : ''}</div>` : ''}
+            ${imageUrl ? `<div class="item-image"><picture><source srcset="${escapeAttribute(imageUrl.replace(/\.(jpg|jpeg|png)$/i, '.webp'))}" type="image/webp"><img src="${escapeAttribute(imageUrl)}" alt="${escapeAttribute(item.name)}" loading="lazy" decoding="async" /></picture>${imageSource ? `<button type="button" class="bifroest-copyright" data-sources="${escapeAttribute(imageSourcesJson)}"><span class="bifroest-symbol">©</span><span class="bifroest-name">${escapeHtml(imageSource.name || imageSource.author || '')}</span></button>` : ''}</div>` : ''}
             <div class="item-title-row">
               <h2 class="item-name">${escapeHtml(item.name)}</h2>
               <a href="/${escapeAttribute(item.slug)}" class="item-detail-link" title="Details anzeigen">→</a>

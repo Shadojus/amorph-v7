@@ -395,7 +395,11 @@ const gridContext: RenderContext = {
             <div class="item-header">
               {imageUrl && (
                 <div class="item-image">
-                  <img src={imageUrl} alt={item.name} loading="lazy" />
+                  {/* PERFORMANCE: WebP mit JPG-Fallback */}
+                  <picture>
+                    <source srcset={imageUrl.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
+                    <img src={imageUrl} alt={item.name} loading="lazy" decoding="async" />
+                  </picture>
                   {imageSource && (
                     <button type="button" class="bifroest-copyright" data-sources={imageSourcesJson}>
                       <span class="bifroest-symbol">©</span>
@@ -436,7 +440,13 @@ const gridContext: RenderContext = {
     {/* PERFORMANCE: "Mehr laden" Button wenn mehr Items vorhanden */}
     {total > items.length && (
       <div class="load-more-container">
-        <button class="load-more-btn" data-loaded={items.length} data-total={total}>
+        <button 
+          class="load-more-btn" 
+          data-loaded={items.length} 
+          data-total={total}
+          data-page="1"
+          onclick="window.loadMoreItems && window.loadMoreItems(this)"
+        >
           Mehr laden ({items.length} von {total})
         </button>
       </div>

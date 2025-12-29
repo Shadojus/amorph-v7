@@ -28,6 +28,41 @@ import { morphDebug } from '../../morphs/debug';
 // Expose morphDebug globally for console access
 if (typeof window !== 'undefined') {
   (window as any).morphDebug = morphDebug;
+  
+  // PERFORMANCE: Load More Funktion für Pagination
+  (window as any).loadMoreItems = async function(btn: HTMLButtonElement) {
+    const loaded = parseInt(btn.dataset.loaded || '0');
+    const total = parseInt(btn.dataset.total || '0');
+    
+    btn.disabled = true;
+    btn.textContent = 'Lade...';
+    
+    try {
+      // Search API mit offset nutzen
+      const response = await fetch(`/api/search?offset=${loaded}&limit=12`);
+      if (!response.ok) throw new Error('API Error');
+      
+      const data = await response.json();
+      const grid = document.querySelector('.amorph-grid');
+      
+      if (grid && data.html) {
+        grid.insertAdjacentHTML('beforeend', data.html);
+        
+        const newLoaded = loaded + data.items.length;
+        btn.dataset.loaded = String(newLoaded);
+        btn.textContent = `Mehr laden (${newLoaded} von ${total})`;
+        btn.disabled = false;
+        
+        if (newLoaded >= total) {
+          btn.parentElement?.remove();
+        }
+      }
+    } catch (e) {
+      console.error('Load more failed:', e);
+      btn.textContent = 'Fehler - erneut versuchen';
+      btn.disabled = false;
+    }
+  };
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
