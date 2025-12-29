@@ -28,41 +28,84 @@ import { morphDebug } from '../../morphs/debug';
 // Expose morphDebug globally for console access
 if (typeof window !== 'undefined') {
   (window as any).morphDebug = morphDebug;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// INFINITE SCROLL
+// ═══════════════════════════════════════════════════════════════════════════════
+
+let infiniteScrollObserver: IntersectionObserver | null = null;
+let isLoadingMore = false;
+
+function initInfiniteScroll(): void {
+  const sentinel = document.querySelector<HTMLElement>('.infinite-scroll-sentinel');
+  if (!sentinel) return;
   
-  // PERFORMANCE: Load More Funktion für Pagination
-  (window as any).loadMoreItems = async function(btn: HTMLButtonElement) {
-    const loaded = parseInt(btn.dataset.loaded || '0');
-    const total = parseInt(btn.dataset.total || '0');
-    
-    btn.disabled = true;
-    btn.textContent = 'Lade...';
-    
-    try {
-      // Search API mit offset nutzen
-      const response = await fetch(`/api/search?offset=${loaded}&limit=12`);
-      if (!response.ok) throw new Error('API Error');
+  debug.amorph('Infinite scroll initialized');
+  
+  infiniteScrollObserver = new IntersectionObserver(
+    async (entries) => {
+      const entry = entries[0];
+      if (!entry.isIntersecting || isLoadingMore) return;
       
-      const data = await response.json();
-      const grid = document.querySelector('.amorph-grid');
+      const loaded = parseInt(sentinel.dataset.loaded || '0');
+      const total = parseInt(sentinel.dataset.total || '0');
       
-      if (grid && data.html) {
-        grid.insertAdjacentHTML('beforeend', data.html);
-        
-        const newLoaded = loaded + data.items.length;
-        btn.dataset.loaded = String(newLoaded);
-        btn.textContent = `Mehr laden (${newLoaded} von ${total})`;
-        btn.disabled = false;
-        
-        if (newLoaded >= total) {
-          btn.parentElement?.remove();
-        }
+      if (loaded >= total) {
+        // Alles geladen - Observer entfernen
+        infiniteScrollObserver?.disconnect();
+        sentinel.remove();
+        return;
       }
-    } catch (e) {
-      console.error('Load more failed:', e);
-      btn.textContent = 'Fehler - erneut versuchen';
-      btn.disabled = false;
+      
+      await loadMoreItems(sentinel);
+    },
+    {
+      rootMargin: '200px', // 200px bevor sichtbar - lädt früh
+      threshold: 0
     }
-  };
+  );
+  
+  infiniteScrollObserver.observe(sentinel);
+}
+
+async function loadMoreItems(sentinel: HTMLElement): Promise<void> {
+  if (isLoadingMore) return;
+  isLoadingMore = true;
+  
+  const loaded = parseInt(sentinel.dataset.loaded || '0');
+  const total = parseInt(sentinel.dataset.total || '0');
+  
+  sentinel.classList.add('is-loading');
+  
+  try {
+    const response = await fetch(`/api/search?offset=${loaded}&limit=12`);
+    if (!response.ok) throw new Error('API Error');
+    
+    const data = await response.json();
+    const grid = document.querySelector('.amorph-grid');
+    
+    if (grid && data.html) {
+      grid.insertAdjacentHTML('beforeend', data.html);
+      
+      const newLoaded = loaded + data.items.length;
+      sentinel.dataset.loaded = String(newLoaded);
+      
+      debug.amorph(`Loaded ${data.items.length} more items (${newLoaded}/${total})`);
+      
+      if (newLoaded >= total) {
+        // Fertig - Sentinel entfernen
+        infiniteScrollObserver?.disconnect();
+        sentinel.remove();
+      }
+    }
+  } catch (e) {
+    console.error('Infinite scroll load failed:', e);
+    sentinel.classList.add('is-error');
+  } finally {
+    isLoadingMore = false;
+    sentinel.classList.remove('is-loading');
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -123,6 +166,9 @@ export function initApp(): void {
   
   // Restore from URL
   restoreFromURL();
+  
+  // === INFINITE SCROLL ===
+  initInfiniteScroll();
   
   // === OBSERVER SYSTEM ===
   initObservers();

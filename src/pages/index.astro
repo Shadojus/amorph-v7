@@ -434,18 +434,16 @@ const gridContext: RenderContext = {
       })}
     </div>
     
-    {/* PERFORMANCE: "Mehr laden" Button wenn mehr Items vorhanden */}
+    {/* PERFORMANCE: Infinite Scroll Sentinel */}
     {total > items.length && (
-      <div class="load-more-container">
-        <button 
-          class="load-more-btn" 
-          data-loaded={items.length} 
-          data-total={total}
-          data-page="1"
-          onclick="window.loadMoreItems && window.loadMoreItems(this)"
-        >
-          Mehr laden ({items.length} von {total})
-        </button>
+      <div 
+        class="infinite-scroll-sentinel" 
+        data-loaded={items.length} 
+        data-total={total}
+        aria-hidden="true"
+      >
+        <div class="loading-spinner"></div>
+        <span class="loading-text">Lade mehr...</span>
       </div>
     )}
     
