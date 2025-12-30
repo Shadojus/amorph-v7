@@ -2150,6 +2150,8 @@
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
+  /* Chrome Tap-Highlight deaktivieren - verhindert weißen Flash */
+  -webkit-tap-highlight-color: transparent;
   /* PERFORMANCE: Nur transform und opacity animieren */
   transition: transform 0.2s ease, border-color 0.2s ease;
   box-shadow: 
@@ -2686,13 +2688,55 @@
   font-size: 1.125rem;
 }
 
-/* Header Actions (Copy + Close) */
+/* Header Actions (Autocomplete + Copy + Close) */
 .compare-header-actions {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
+/* Autocomplete Button */
+.compare-autocomplete {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: rgba(251, 191, 36, 0.15);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  border-radius: 6px;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.compare-autocomplete:hover {
+  background: rgba(251, 191, 36, 0.25);
+  border-color: rgba(251, 191, 36, 0.5);
+  color: #fff;
+}
+
+.compare-autocomplete.is-loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.compare-autocomplete.is-loading .autocomplete-icon {
+  animation: spin 1s linear infinite;
+}
+
+.compare-autocomplete.is-success {
+  background: rgba(100, 200, 120, 0.2);
+  border-color: rgba(100, 200, 120, 0.4);
+  color: rgba(150, 230, 150, 1);
+}
+
+.compare-autocomplete .autocomplete-icon {
+  font-size: 0.9rem;
+}
+
+/* Copy Button */
 .compare-copy {
   display: flex;
   align-items: center;

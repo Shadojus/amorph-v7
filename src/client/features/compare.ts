@@ -5,7 +5,7 @@
  */
 
 import { debug } from './debug';
-import { getSelectedItems, canCompare, getSelectedFields, getSelectedFieldsGrouped, canCompareFields, deselectField } from './selection';
+import { getSelectedItems, canCompare, getSelectedFields, getSelectedFieldsGrouped, canCompareFields, deselectField, selectField, isFieldSelected } from './selection';
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // STATE
@@ -30,6 +30,10 @@ export function initCompare(panel: HTMLElement): void {
   // Copy button
   const copyBtn = panel.querySelector('.compare-copy');
   copyBtn?.addEventListener('click', handleCopyData);
+  
+  // Autocomplete button
+  const autocompleteBtn = panel.querySelector('.compare-autocomplete');
+  autocompleteBtn?.addEventListener('click', handleAutocomplete);
   
   // Escape key
   document.addEventListener('keydown', (e) => {
@@ -116,6 +120,99 @@ function formatValueForExport(value: unknown): string {
     return JSON.stringify(value, null, 2);
   }
   return String(value);
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// AUTOCOMPLETE FUNCTIONALITY
+// Ergänzt fehlende Felder bei allen Spezies im Vergleich
+// ═══════════════════════════════════════════════════════════════════════════════
+
+async function handleAutocomplete(): Promise<void> {
+  if (!comparePanel) return;
+  
+  const autocompleteBtn = comparePanel.querySelector('.compare-autocomplete');
+  const selectedFields = getSelectedFields();
+  
+  if (selectedFields.length === 0) {
+    debug.compare('Autocomplete: No fields selected');
+    return;
+  }
+  
+  // 1. Sammle alle einzigartigen Feld-Namen
+  const uniqueFieldNames = new Set<string>();
+  selectedFields.forEach(f => uniqueFieldNames.add(f.fieldName));
+  
+  // 2. Sammle alle einzigartigen Spezies (itemSlugs)
+  const uniqueItemSlugs = new Set<string>();
+  selectedFields.forEach(f => uniqueItemSlugs.add(f.itemSlug));
+  
+  debug.compare('Autocomplete starting', { 
+    fieldNames: [...uniqueFieldNames], 
+    itemSlugs: [...uniqueItemSlugs] 
+  });
+  
+  // 3. Hole Daten für alle Spezies via API
+  try {
+    autocompleteBtn?.classList.add('is-loading');
+    
+    const response = await fetch('/api/autocomplete', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        itemSlugs: [...uniqueItemSlugs],
+        fieldNames: [...uniqueFieldNames]
+      })
+    });
+    
+    if (!response.ok) {
+      throw new Error(`Autocomplete API error: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    // data.fields: Array<{ itemSlug, itemName, fieldName, value, perspectiveId }>
+    
+    let addedCount = 0;
+    
+    // 4. Füge fehlende Felder hinzu
+    for (const field of data.fields) {
+      if (!isFieldSelected(field.itemSlug, field.fieldName)) {
+        selectField(
+          field.itemSlug, 
+          field.itemName, 
+          field.fieldName, 
+          field.value, 
+          field.perspectiveId
+        );
+        addedCount++;
+      }
+    }
+    
+    debug.compare('Autocomplete completed', { added: addedCount });
+    
+    // Visuelles Feedback
+    if (autocompleteBtn) {
+      autocompleteBtn.classList.remove('is-loading');
+      autocompleteBtn.classList.add('is-success');
+      const label = autocompleteBtn.querySelector('.autocomplete-label');
+      const originalText = label?.textContent;
+      if (label) label.textContent = addedCount > 0 ? `+${addedCount} Felder` : 'Vollständig';
+      
+      setTimeout(() => {
+        autocompleteBtn.classList.remove('is-success');
+        if (label && originalText) label.textContent = originalText;
+      }, 2000);
+    }
+    
+    // Refresh compare view if fields were added
+    if (addedCount > 0) {
+      showCompare(true); // seamless update
+    }
+    
+  } catch (err) {
+    debug.compare('Autocomplete failed', err);
+    console.error('Autocomplete failed:', err);
+    autocompleteBtn?.classList.remove('is-loading');
+  }
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
