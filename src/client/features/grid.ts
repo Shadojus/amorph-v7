@@ -63,17 +63,21 @@ function handleGridClick(e: Event): void {
 function applySelectionColor(field: HTMLElement, color: string): void {
   // Parse RGBA and create variants with different opacities
   const rgbaMatch = color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
-  if (rgbaMatch) {
-    const [, r, g, b] = rgbaMatch;
-    field.style.setProperty('--selection-color', `rgba(${r}, ${g}, ${b}, 0.9)`);
-    field.style.setProperty('--selection-bg', `rgba(${r}, ${g}, ${b}, 0.04)`);
-    field.style.setProperty('--selection-border', `rgba(${r}, ${g}, ${b}, 0.64)`);
-  } else {
-    // Fallback for other color formats
-    field.style.setProperty('--selection-color', color);
-    field.style.setProperty('--selection-bg', color);
-    field.style.setProperty('--selection-border', color);
-  }
+  
+  // CHROME FLICKER FIX: Batch alle Style-Änderungen in einem requestAnimationFrame
+  requestAnimationFrame(() => {
+    if (rgbaMatch) {
+      const [, r, g, b] = rgbaMatch;
+      field.style.setProperty('--selection-color', `rgba(${r}, ${g}, ${b}, 0.9)`);
+      field.style.setProperty('--selection-bg', `rgba(${r}, ${g}, ${b}, 0.04)`);
+      field.style.setProperty('--selection-border', `rgba(${r}, ${g}, ${b}, 0.64)`);
+    } else {
+      // Fallback for other color formats
+      field.style.setProperty('--selection-color', color);
+      field.style.setProperty('--selection-bg', color);
+      field.style.setProperty('--selection-border', color);
+    }
+  });
 }
 
 // Handle field selection for compare
@@ -94,22 +98,25 @@ function handleFieldSelect(field: HTMLElement): void {
     // Ignore parse errors
   }
   
-  // Toggle field selection
-  if (field.classList.contains('is-selected')) {
-    field.classList.remove('is-selected');
-    field.style.removeProperty('--selection-color');
-    field.style.removeProperty('--selection-bg');
-    field.style.removeProperty('--selection-border');
-    deselectField(itemSlug, fieldName);
-  } else {
-    selectField(itemSlug, itemName, fieldName, getFieldValue(field), perspectiveId);
-    // Get the assigned color and apply it
-    const color = getFieldColor(itemSlug, fieldName);
-    if (color) {
-      applySelectionColor(field, color);
+  // CHROME FLICKER FIX: Batch DOM-Änderungen in requestAnimationFrame
+  requestAnimationFrame(() => {
+    // Toggle field selection
+    if (field.classList.contains('is-selected')) {
+      field.classList.remove('is-selected');
+      field.style.removeProperty('--selection-color');
+      field.style.removeProperty('--selection-bg');
+      field.style.removeProperty('--selection-border');
+      deselectField(itemSlug, fieldName);
+    } else {
+      selectField(itemSlug, itemName, fieldName, getFieldValue(field), perspectiveId);
+      // Get the assigned color and apply it
+      const color = getFieldColor(itemSlug, fieldName);
+      if (color) {
+        applySelectionColor(field, color);
+      }
+      field.classList.add('is-selected');
     }
-    field.classList.add('is-selected');
-  }
+  });
   
   debug.selection(`Field ${fieldName} on ${itemSlug}`, { selected: field.classList.contains('is-selected'), perspectiveId });
 }

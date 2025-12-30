@@ -38,6 +38,10 @@ body {
   min-height: 100vh;
   background: #000000;
   color: var(--text-primary);
+  /* CHROME FLICKER FIX: Globale Fixes */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
   
   /* UNIVERSUM - Tiefschwarzer Raum mit leuchtenden Ultramarinblauen Nebeln */
   /* 64% Black Overlay zuerst, dann die Nebel */
