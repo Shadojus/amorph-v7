@@ -124,7 +124,7 @@ const fieldsWithPerspectives = Object.entries(item)
         <input 
           type="search" 
           class="search-input-main"
-          placeholder="In dieser Spezies suchen..." 
+          placeholder="Search this species..." 
           autocomplete="off"
         />
         <div class="search-nav" style="display: none;">
@@ -187,18 +187,22 @@ const fieldsWithPerspectives = Object.entries(item)
   <!-- Selection Bar (wie index.astro) -->
   <div class="selection-bar">
     <div class="selection-pills"></div>
-    <span class="selection-count">0 ausgewählt</span>
-    <button class="selection-clear">Alle entfernen</button>
+    <span class="selection-count">0 selected</span>
+    <button class="selection-clear">Clear all</button>
   </div>
   
-  <!-- Compare Panel (Overlay) -->
+  <!-- My Species Panel (Overlay) -->
   <aside class="amorph-compare">
     <div class="compare-header">
-      <h2>Vergleich</h2>
+      <h2>My Species</h2>
       <div class="compare-header-actions">
-        <button class="compare-copy" title="Daten kopieren">
+        <button class="compare-autocomplete" title="Complete missing fields from other species">
+          <span class="autocomplete-icon">✨</span>
+          <span class="autocomplete-label">Complete</span>
+        </button>
+        <button class="compare-copy" title="Copy data">
           <span class="copy-icon">📋</span>
-          <span class="copy-label">Kopieren</span>
+          <span class="copy-label">Copy</span>
         </button>
         <button class="compare-close">×</button>
       </div>
@@ -212,11 +216,11 @@ const fieldsWithPerspectives = Object.entries(item)
     </div>
   </aside>
   
-  <!-- Selection Bar - Zeigt Spezies mit ausgewählten Feldern -->
+  <!-- Selection Bar - Shows species with selected fields -->
   <div class="selection-bar">
     <div class="selection-pills"></div>
-    <span class="selection-count">0 Spezies</span>
-    <button class="selection-clear">Alle entfernen</button>
+    <span class="selection-count">0 species</span>
+    <button class="selection-clear">Clear all</button>
   </div>
   
   <!-- Footer -->
@@ -240,11 +244,11 @@ const fieldsWithPerspectives = Object.entries(item)
       </svg>
       <span class="bottom-nav-label">Home</span>
     </a>
-    <button type="button" class="bottom-nav-item" data-nav="compare" aria-label="Vergleichen">
+    <button type="button" class="bottom-nav-item" data-nav="compare" aria-label="My Species">
       <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4"/>
+        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
       </svg>
-      <span class="bottom-nav-label">Vergleich</span>
+      <span class="bottom-nav-label">My Species</span>
       <span class="bottom-nav-badge">0</span>
     </button>
     <button type="button" class="bottom-nav-item bifroest-toggle" data-nav="bifroest" aria-label="Bifroest Ansicht">

@@ -1460,7 +1460,8 @@
   color: rgba(255, 255, 255, 0.35);
 }
 
-.bifroest-name {
+/* Bifroest Portal Name - Bunter Gradient NUR für Portal, nicht für Copyright */
+.bifroest-portal .bifroest-name {
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.1em;

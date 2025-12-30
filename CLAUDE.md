@@ -10,11 +10,13 @@
 - **Struktur-basierte Detection** - Typ-Erkennung rein aus Datenstruktur
 - **Field-basierte Selektion** - Einzelne Felder aus beliebigen Spezies auswählen
 - **Live Compare Updates** - Diff-basierte Aktualisierung ohne Reload
+- **Autocomplete Feature** - Fehlende Felder automatisch bei anderen Spezies ergänzen
 - **Bio-Lumineszenz Farbsystem** - 8 leuchtende Farben (Foxfire, Myzel, Sporen, etc.)
 - **HIGH_VALUE_FIELDS Priorisierung** - "Knaller"-Daten zuerst (Healing, WOW-Faktor, Kulinarik)
 - **SEO-optimierte Index-Generierung** - Taglines, Badges, Quick Facts pro Species
 - **Bifröst Attribution System** - © Copyright-Badges + Experten-Buttons mit Popup
 - **Nebel-Drift Animation** - Sanftes Cyan-Glow ohne Blinken (kein Weiß)
+- **English UI Labels** - Search, Compare, Complete, Copy (international)
 
 ### 🚀 Performance-Optimierungen (Dezember 2025)
 - **CSS Bundling** - 60+ CSS → `all.min.css` (154KB, 47% kleiner, 1 HTTP Request)
@@ -36,7 +38,8 @@ Drei Bio-Spezies Sites mit eigenem Farbsystem:
 - **Lichtkugel-Design** - 6px Dots mit Glow-Effekt
 - **Perspektiven: Matte Pastell-Töne** - 15 Kategorien, klar von Bio-Lumineszenz unterscheidbar
 - **Sticky Suchleiste** - z-index 10000, durchsucht auch Compare-View
-- **Compare mit Copy-Button** - Daten exportieren mit License-Hinweis
+- **Compare mit Autocomplete** - Fehlende Felder automatisch ergänzen + Copy-Button
+- **Compare-Toggle Footer** - Button wechselt zwischen "Compare" und "Close"
 - **Engagement-optimierte Feld-Anzeige** - WOW-Felder vor technischen Daten
 - **Bifröst-Mode** - Cyan-Nebel-Glow für Copyright/Experten-Attribution (kein Weiß, Drift-Animation)
 

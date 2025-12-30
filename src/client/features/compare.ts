@@ -189,13 +189,13 @@ async function handleAutocomplete(): Promise<void> {
     
     debug.compare('Autocomplete completed', { added: addedCount });
     
-    // Visuelles Feedback
+    // Visual feedback
     if (autocompleteBtn) {
       autocompleteBtn.classList.remove('is-loading');
       autocompleteBtn.classList.add('is-success');
       const label = autocompleteBtn.querySelector('.autocomplete-label');
       const originalText = label?.textContent;
-      if (label) label.textContent = addedCount > 0 ? `+${addedCount} Felder` : 'Vollständig';
+      if (label) label.textContent = addedCount > 0 ? `+${addedCount} fields` : 'Complete';
       
       setTimeout(() => {
         autocompleteBtn.classList.remove('is-success');

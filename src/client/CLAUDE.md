@@ -24,12 +24,13 @@ client/
 
 ## 🔧 Features
 
-### app.ts (~420 Zeilen)
+### app.ts (~480 Zeilen)
 - Initialisiert alle Module beim DOM Ready
 - Reihenfolge: Search → Grid → Compare → BottomNav → SelectionBar → Bifröst → LoadFromStorage
 - Guard gegen doppelte Initialisierung (`isInitialized`)
 - **loadMoreItems()** - Pagination via Search API
 - **Observer Dynamic Import** - nur bei `?observe=true` oder localStorage
+- **updateBottomNavState()** - Toggle Compare-Button Label (Compare/Close)
 
 ### search.ts (508 Zeilen)
 - Suchmaschinen-UX mit Auto-Perspektiven (ab 3 Zeichen)
@@ -43,13 +44,15 @@ client/
 - Base64-encoded Raw Values für Compare
 - **Ignoriert Bifröst-Element Clicks** - Copyright/Experten blockieren keine Feld-Selektion
 
-### compare.ts (670 Zeilen)
+### compare.ts (~940 Zeilen)
 - Compare-Panel Visibility (show/hide/toggle)
 - **Diff-Based Updates**: `updateFieldsDiff()` für Animation
 - **Search-in-Compare**: Durchsucht Compare-Content
 - **Copy-Button**: Exportiert Daten mit License-Hinweis
+- **Autocomplete-Button**: Fehlende Felder automatisch ergänzen via `/api/autocomplete`
 - **Species-Highlight System** (Hover/Click)
 - CSS-Klassen: `.is-adding`, `.is-removing`
+- **handleAutocomplete()**: Sammelt fieldNames + itemSlugs → API → selectField()
 
 ### selection.ts (317 Zeilen)
 - Item + Field Selection State

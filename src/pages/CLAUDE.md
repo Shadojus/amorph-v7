@@ -14,23 +14,25 @@ pages/
 ├── index.astro     # Grid + Pagination + WebP (~520 Zeilen)
 ├── [slug].astro    # Detail-Seite mit Perspektiven (~699 Zeilen)
 └── api/
-    ├── search.ts   # GET /api/search (mit WebP in HTML)
-    └── compare.ts  # POST /api/compare (Feld-Modus)
+    ├── search.ts      # GET /api/search (mit WebP in HTML)
+    ├── compare.ts     # POST /api/compare (Feld-Modus)
+    └── autocomplete.ts # POST /api/autocomplete (Feld-Ergänzung)
 ```
 
 ## 📄 index.astro - Hauptseite (~520 Zeilen)
 
 ### Features
 - **Grid-Ansicht** aller Spezies (52 Pilze)
-- **Pagination** - `limit: 12` initial, "Mehr laden" Button
+- **Pagination** - `limit: 12` initial, infinite scroll
 - **WebP Bilder** - `<picture>` Element mit Fallback
 - **HIGH_VALUE_FIELDS Priorisierung** - "Knaller"-Daten zuerst anzeigen
 - **MORPH_PRIORITY** - Badge vor Range, visuell wichtiges zuerst
 - **Sticky Suchleiste** unter Header (z-index: 10000)
 - **Feld-Selektion** mit Perspektiven-Farben
 - **Site-Switcher Header** mit Bifroest-Portal
-- **Bottom Navigation** mit Selection-Badge (z-index: 10001)
-- **Compare Panel** mit Copy-Button (z-index: 9999)
+- **Bottom Navigation** mit Toggle-Label (Compare/Close)
+- **Compare Panel** mit Autocomplete + Copy-Button
+- **English UI Labels** - Search, Compare, Complete, Copy
 
 ### Pagination
 ```astro
@@ -205,7 +207,42 @@ POST /api/compare
 }
 ```
 
-## 🔒 Security
+## � api/autocomplete.ts - Autocomplete-API (NEU)
+
+Ergänzt fehlende Felder bei allen Spezies im Vergleich.
+
+### Request
+```json
+POST /api/autocomplete
+{
+  "itemSlugs": ["hericium-erinaceus", "ganoderma-lucidum"],
+  "fieldNames": ["safety_summary", "toxicity_level"]
+}
+```
+
+### Response
+```json
+{
+  "fields": [
+    {
+      "itemSlug": "hericium-erinaceus",
+      "itemName": "Lion's Mane",
+      "fieldName": "safety_summary",
+      "value": "...",
+      "perspectiveId": "safety"
+    }
+  ],
+  "count": 4
+}
+```
+
+### Verwendung
+- Client sammelt alle unique `fieldNames` und `itemSlugs` aus Selection
+- API liefert alle existierenden Feld-Werte zurück
+- Client fügt fehlende Felder via `selectField()` hinzu
+- Visual Feedback: "+X fields" oder "Complete"
+
+## �🔒 Security
 
 Alle Endpoints verwenden `core/security.ts`:
 - `validateQuery()` für Suchbegriffe

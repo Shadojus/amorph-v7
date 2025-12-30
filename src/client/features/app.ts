@@ -254,8 +254,14 @@ function updateBottomNavState(): void {
   const searchItem = bottomNav.querySelector('[data-nav="search"]');
   const homeItem = bottomNav.querySelector('[data-nav="home"]');
   const compareItem = bottomNav.querySelector('[data-nav="compare"]');
+  const compareLabel = compareItem?.querySelector('.bottom-nav-label');
   
   const compareOpen = isCompareOpen();
+  
+  // Update compare button label based on state
+  if (compareLabel) {
+    compareLabel.textContent = compareOpen ? 'Close' : 'My Species';
+  }
   
   // Toggle active states
   searchItem?.classList.toggle('is-active', !compareOpen);
