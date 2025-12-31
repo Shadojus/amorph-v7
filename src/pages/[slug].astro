@@ -406,7 +406,7 @@ perspectives.forEach(p => {
   
   // DOM Elements
   const searchInput = document.querySelector<HTMLInputElement>('.search-input-main');
-  const fieldsContainer = document.querySelector<HTMLElement>('.detail-fields');
+  const fieldsContainer = document.querySelector<HTMLElement>('.detail-perspectives');
   const activePerspectivesContainer = document.querySelector<HTMLElement>('.active-perspectives');
   const searchNavContainer = document.querySelector<HTMLElement>('.search-nav');
   
@@ -429,7 +429,8 @@ perspectives.forEach(p => {
     
     const query = searchInput?.value.trim().toLowerCase() || '';
     const queryNormalized = normalizeForSearch(query);
-    const fields = fieldsContainer.querySelectorAll<HTMLElement>('.detail-field');
+    // Fields are now inside .perspective-fields containers within .perspective-section elements
+    const fields = fieldsContainer.querySelectorAll<HTMLElement>('.perspective-section .detail-field');
     
     fields.forEach(field => {
       const fieldKey = field.dataset.fieldKey || '';
@@ -461,7 +462,7 @@ perspectives.forEach(p => {
     }
     lastSearchQuery = query;
     
-    const fields = fieldsContainer.querySelectorAll<HTMLElement>('.detail-field');
+    const fields = fieldsContainer.querySelectorAll<HTMLElement>('.perspective-section .detail-field');
     let matchedPerspectives: Set<string> = new Set();
     
     fields.forEach(field => {
