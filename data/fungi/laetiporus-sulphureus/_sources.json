@@ -10,5 +10,98 @@
       "url": "https://mushroomobserver.org"
     }
   ],
-  "fields": {}
+  "fields": {
+    "decomposer_type": [
+      {
+        "name": "Brown Rot Mechanism Research Team",
+        "title": "Cellulose & Lignin Modification Researchers",
+        "url": "https://www.kew.org/read-and-watch/chicken-of-the-woods",
+        "contact": "Selectively degrades cellulose/hemicellulose, modifies lignin via enzyme suite"
+      },
+      {
+        "name": "Oak Hollowing Engineering Research Team",
+        "title": "Veteran Tree Microhabitat Researchers",
+        "url": "https://edis.ifas.ufl.edu/publication/PP358",
+        "contact": "Key engineer of hollowing in Quercus, creates microhabitats with high biodiversity"
+      },
+      {
+        "name": "Darwin Tree of Life Genome Team",
+        "title": "Fungal Genome Sequencing Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10652036/",
+        "contact": "37.4 megabases genome, 14 chromosomal pseudomolecules (2023)"
+      }
+    ],
+    "preparation_notes": [
+      {
+        "name": "Oxalic Acid Content Research Team",
+        "title": "Organic Acid Composition Researchers",
+        "url": "https://www.researchgate.net/publication/273483883_Chemical_composition_of_the_mushroom_Laetiporus_sulphureus_Bull_Murill",
+        "contact": "Oxalic acid 2.66 g/100g dry weight, most abundant organic acid"
+      },
+      {
+        "name": "Digestibility Research Team",
+        "title": "In Vitro Protein Digestibility Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10093887/",
+        "contact": "92% digestible protein, good biological value, regulates metabolism (2023)"
+      }
+    ],
+    "edibility_category": [
+      {
+        "name": "Adverse Reactions Research Team",
+        "title": "Gastrointestinal Toxicity Researchers",
+        "url": "https://www.mykoweb.com/TFWNA/P-52.html",
+        "contact": "7 persons: nausea/vomiting 5-45 min post-ingestion, 2.5h duration; eucalyptus substrate correlation"
+      }
+    ],
+    "substrate_types_secondary": [
+      {
+        "name": "Volatile Compound Substrate Research Team",
+        "title": "Host Tree Flavor Profile Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23811530/",
+        "contact": "Serbian willow specimens: 56 volatile components via GC/MS-SPME, substrate affects flavor"
+      },
+      {
+        "name": "Host Tree Preference Research Team",
+        "title": "Quercus & Prunus Association Researchers",
+        "url": "https://www.first-nature.com/fungi/laetiporus-sulphureus.php",
+        "contact": "Frequent on oak (Quercus), also maple, chestnut, willow, cherry (Prunus)"
+      }
+    ],
+    "polysaccharides": [
+      {
+        "name": "Sulfated Polysaccharide Anti-Cancer Team",
+        "title": "MDA-MB-231 Breast Cancer Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38061441/",
+        "contact": "F2 component: G0/G1 cell cycle arrest, apoptosis, migration inhibition (2023)"
+      },
+      {
+        "name": "LSPS2 Lung Cancer Research Team",
+        "title": "A549 Cell Oxidative Stress Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/41011599/",
+        "contact": "Suppresses A549 viability, induces oxidative stress in lung cancer (2025)"
+      },
+      {
+        "name": "Gastrointestinal Probiotic Research Team",
+        "title": "In Vitro Digestion & Prebiotic Researchers",
+        "url": "https://www.frontiersin.org/journals/sustainable-food-systems/articles/10.3389/fsufs.2024.1470426/full",
+        "contact": "LSP promotes GI probiotics growth, prebiotic potential (2024)"
+      }
+    ],
+    "traditional_medicine": [
+      {
+        "name": "Asian/European Folk Medicine Team",
+        "title": "Traditional Use Documentation Researchers",
+        "url": "https://link.springer.com/article/10.1007/s00253-022-12149-w",
+        "contact": "Folk medicine for cancer, gastric diseases, cough, rheumatism in Asia/America/Europe (2022)"
+      }
+    ],
+    "bioactive_compounds": [
+      {
+        "name": "Lectin & Triterpenoid Research Team",
+        "title": "Bioactive Compound Profiling Researchers",
+        "url": "https://www.researchgate.net/publication/236668814_Sulphur_Tuft_Culinary-Medicinal_Mushroom_Laetiporus_sulphureus_Bull_Fr_Murrill_Aphyllophoromycetideae_Bioactive_Compounds_and_Pharmaceutical_Effects_Review",
+        "contact": "Lectin, polysaccharides, triterpenoids, phenolic compounds; anti-inflammatory, hepatoprotective, hypoglycemic"
+      }
+    ]
+  }
 }

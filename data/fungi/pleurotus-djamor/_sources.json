@@ -10,5 +10,74 @@
       "url": "https://mushroomobserver.org"
     }
   ],
-  "fields": {}
+  "fields": {
+    "tropical_cultivation": [
+      {
+        "name": "Gourab Chowdhury, Riya Sharma, Uttara Sarkar",
+        "title": "West Bengal Cultural Studies Researchers",
+        "url": "https://bioresources.cnr.ncsu.edu/resources/cultural-studies-and-yield-attributes-of-pink-oyster-mushroom-pleurotus-djamor-in-west-bengal/",
+        "contact": "BioResources 19(1), 1696-1706 (2024): 25-28°C optimal, 80-90% humidity, 4-5 days maturation"
+      }
+    ],
+    "temperature_requirements": [
+      {
+        "name": "Identification & Therapeutic Efficacy Research Team",
+        "title": "P. djamor var fuscopruinosus Researchers",
+        "url": "https://www.nature.com/articles/s41598-025-02900-4",
+        "contact": "Scientific Reports: Fruiting at 25-28°C, 70-80% humidity, optimal mycelial 18-24°C (2025)"
+      }
+    ],
+    "antioxidant_compounds": [
+      {
+        "name": "Beatriz Hernández-Carlos, Paula Cecilia Guadarrama-Mendoza",
+        "title": "Universidad Tecnológica de la Mixteca, Mexico",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30055553/",
+        "contact": "Wild/reconstituted/hybrid strains productivity & antioxidant: phenolic compounds, functional properties"
+      },
+      {
+        "name": "Rich Milton R. Dulay, E.M.G. Cardona",
+        "title": "Philippine Antioxidant Activity Researchers",
+        "url": "https://www.dl.begellhouse.com/journals/708ae68d64b17c52,284d849a2568dd16,72fa85c60e16f8cd.html",
+        "contact": "DPPH, DMPD, lipid peroxidation inhibition assays: total phenolic & flavonoid contents"
+      }
+    ],
+    "bioactive_secondary_metabolites": [
+      {
+        "name": "Chowdhury M, Kubra K, Ahmed S",
+        "title": "Antimicrobial & Antioxidant Screening Researchers",
+        "url": "https://link.springer.com/article/10.1007/s42770-024-01336-8",
+        "contact": "Tannins, flavonoids, terpenoids, cardiac glycosides, saponins (2024)"
+      }
+    ],
+    "lovastatin_production": [
+      {
+        "name": "Abbasali Keymasi",
+        "title": "University of Zabol, Iran - Masters Thesis",
+        "url": "http://eprints.uoz.ac.ir/2240/",
+        "contact": "Date palm leaf wastes: 219.20 mg lovastatin/100g dry weight; wheat straw+MnSO4: 600 mg (2018)"
+      }
+    ],
+    "substrate_palm_bamboo": [
+      {
+        "name": "Natural Substrate Documentation Team",
+        "title": "Tropical Hardwood Ecology Researchers",
+        "url": "https://funginomi.com/pleurotus-djamor/",
+        "contact": "Natural on palm trees, rubber trees, bamboo in tropics/subtropics"
+      },
+      {
+        "name": "Banana Leaves & Sugarcane Bagasse Team",
+        "title": "Brazilian Agronomic Waste Researchers",
+        "url": "https://link.springer.com/article/10.1007/s42770-024-01336-8",
+        "contact": "Brazilian Journal Microbiology: nutritional & antioxidant on banana/sugarcane substrates (2024)"
+      }
+    ],
+    "fruiting_speed": [
+      {
+        "name": "Lignocellulosic Substrate Research Team",
+        "title": "Tropical Rapid Fruiting Researchers",
+        "url": "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/pleurotus-djamor",
+        "contact": "Fruiting bodies in 1-2 weeks on lignocellulosic substrates, best for tropical areas"
+      }
+    ]
+  }
 }

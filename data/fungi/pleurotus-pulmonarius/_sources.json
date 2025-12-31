@@ -10,5 +10,56 @@
       "url": "https://mushroomobserver.org"
     }
   ],
-  "fields": {}
+  "fields": {
+    "cultivation_no_cold_shock": [
+      {
+        "name": "Ade-Ogunnowo F.E., Adejoye O.D., Giwa I.A., Adeyemo K.C., Bakare O.R.",
+        "title": "CO2, Humidity, O2 & Light Effects Researchers",
+        "url": "https://www.science.gov/topicpages/p/pleurotus+pulmonarius+cultivated",
+        "contact": "African Science 2024: P. pulmonarius growth optimization without cold shock requirement"
+      }
+    ],
+    "laccase_enzyme": [
+      {
+        "name": "Bhim Pratap Singh",
+        "title": "Mizoram University, India - Biotechnology Dept",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6408733/",
+        "contact": "bhimpratap@gmail.com - BPSM10 isolate: 103.50 U/ml laccase activity, dye decolorization"
+      },
+      {
+        "name": "National Technical University of Athens Team",
+        "title": "Industrial Biotechnology & Biocatalysis Group",
+        "url": "https://pubs.acs.org/doi/10.1021/acs.jafc.5b09170",
+        "contact": "School of Chemical Engineering, Athens - LGAM 28684 genome & high laccase production"
+      },
+      {
+        "name": "Agricultural University of Athens Team",
+        "title": "Laboratory of Enzyme Technology",
+        "url": "https://pubs.acs.org/doi/10.1021/acs.jafc.5b09170",
+        "contact": "75 Iera Odos Street, Athens - Secretome proteomic & biochemical studies"
+      }
+    ],
+    "mitochondrial_genetics": [
+      {
+        "name": "Liu X.-R., Ye L.-Y., Zhang L.-J., Xie B.-G., Wu X.-P.",
+        "title": "Chinese Cultivar Mitogenome Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10869244/",
+        "contact": "36 cultivars + 5 wild isolates: de novo sequencing, high-quality mitogenome assembly (2024)"
+      },
+      {
+        "name": "Yong Zhu, Chunrong Zhang",
+        "title": "Rantong Family Farm, Jintang County, Sichuan",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10869244/",
+        "contact": "China - P. pulmonarius cultivation & fruiting management assistance (2024)"
+      }
+    ],
+    "polysaccharides_anti_inflammatory": [
+      {
+        "name": "Antimicrobial & Anti-inflammatory Review Team",
+        "title": "Polysaccharide Bioactivity Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7832515/",
+        "contact": "Cultivation & Nutritional Value review: polysaccharides show antimicrobial, anti-inflammatory properties"
+      }
+    ]
+  }
 }

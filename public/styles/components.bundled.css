@@ -3208,190 +3208,112 @@ mark.compare-highlight.is-current {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   PERSPECTIVE NAVIGATION - Sticky sidebar with scroll indicators
+   PERSPECTIVE SECTIONS - Clean Accordion Design
    ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Navigation ausgeblendet - nicht mehr verwendet */
 .perspective-nav {
-  position: fixed;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: 0.75rem 0.5rem;
-  background: rgba(8, 10, 16, 0.9);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 0 12px 12px 0;
+  display: none;
 }
 
-.perspective-nav-track {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.perspective-nav-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-radius: 8px;
-}
-
-.perspective-nav-item:hover {
-  background: rgba(var(--persp-rgb), 0.15);
-}
-
-.perspective-nav-item.is-active {
-  background: rgba(var(--persp-rgb), 0.25);
-}
-
-.perspective-nav-item.is-active .perspective-nav-dot {
-  transform: scale(1.3);
-  box-shadow: 0 0 8px rgba(var(--persp-rgb), 0.6);
-}
-
-.perspective-nav-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(var(--persp-rgb), 0.8);
-  transition: all 0.2s ease;
-  flex-shrink: 0;
-}
-
-.perspective-nav-label {
-  font-size: 0.65rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 0;
-  opacity: 0;
-  transition: all 0.2s ease;
-}
-
-.perspective-nav:hover .perspective-nav-label {
-  max-width: 100px;
-  opacity: 1;
-}
-
-.perspective-nav-progress {
-  margin-top: 0.5rem;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 1px;
-  overflow: hidden;
-}
-
-.perspective-nav-fill {
-  height: 100%;
-  width: 0%;
-  background: rgba(var(--system-rgb), 0.6);
-  transition: width 0.1s ease;
-}
-
-/* Mobile: Nav am unteren Rand */
-@media (max-width: 768px) {
-  .perspective-nav {
-    position: fixed;
-    left: 50%;
-    top: auto;
-    bottom: 80px; /* Above bottom nav */
-    transform: translateX(-50%);
-    flex-direction: row;
-    padding: 0.5rem 0.75rem;
-    border-right: none;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    max-width: 90vw;
-    overflow-x: auto;
-    scrollbar-width: none;
-  }
-  
-  .perspective-nav::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .perspective-nav-track {
-    flex-direction: row;
-  }
-  
-  .perspective-nav-label {
-    display: none;
-  }
-  
-  .perspective-nav-progress {
-    display: none;
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════════
-   PERSPECTIVE SECTIONS - Grouped fields by perspective
-   ═══════════════════════════════════════════════════════════════════════════════ */
+/* Perspective Sections - Clean Accordion */
 .detail-perspectives {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  gap: 1rem;
+  padding: 0;
+  margin-bottom: 6rem;
 }
 
 .perspective-section {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-left: 3px solid rgba(var(--persp-rgb), 0.6);
+  background: rgba(12, 14, 22, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 12px;
   overflow: hidden;
-  scroll-margin-top: 140px; /* Account for sticky header + search */
+  scroll-margin-top: 140px;
 }
 
+/* Header - klickbar für Toggle */
 .perspective-header {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   padding: 1rem 1.25rem;
-  background: rgba(var(--persp-rgb), 0.08);
-  border-bottom: 1px solid rgba(var(--persp-rgb), 0.15);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.perspective-header:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.perspective-section:not(.is-collapsed) .perspective-header {
+  border-bottom-color: rgba(255, 255, 255, 0.04);
 }
 
 .perspective-indicator {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: rgba(var(--persp-rgb), 0.8);
-  box-shadow: 0 0 8px rgba(var(--persp-rgb), 0.4);
+  box-shadow: 0 0 6px rgba(var(--persp-rgb), 0.4);
+  flex-shrink: 0;
 }
 
 .perspective-title {
-  font-size: 0.875rem;
-  font-weight: 600;
+  flex: 1;
+  font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: rgba(255, 255, 255, 0.85);
   margin: 0;
-  flex: 1;
 }
 
 .perspective-count {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
+  font-weight: 600;
   color: rgba(255, 255, 255, 0.4);
 }
 
-.perspective-fields {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+.perspective-chevron {
+  font-size: 0.625rem;
+  color: rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease;
 }
 
+.perspective-section.is-collapsed .perspective-chevron {
+  transform: rotate(-90deg);
+}
+
+/* Fields Container */
+.perspective-fields {
+  display: grid;
+  grid-template-rows: 1fr;
+  transition: grid-template-rows 0.3s ease;
+}
+
+.perspective-section.is-collapsed .perspective-fields {
+  grid-template-rows: 0fr;
+}
+
+.perspective-fields > * {
+  overflow: hidden;
+}
+
+.perspective-fields-inner {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Field Items */
 .perspective-fields .detail-field {
   padding: 0.875rem 1.25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  transition: background 0.15s ease;
 }
 
 .perspective-fields .detail-field:last-child {
@@ -3399,26 +3321,161 @@ mark.compare-highlight.is-current {
 }
 
 .perspective-fields .detail-field:hover {
-  background: rgba(var(--persp-rgb), 0.05);
+  background: rgba(255, 255, 255, 0.02);
 }
 
-/* Hero description */
-.hero-description {
-  margin-top: 1rem;
-  font-size: 0.9375rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
+/* ═══════════════════════════════════════════════════════════════════════════════
+   DETAIL PAGE - Mobile First Layout
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.amorph-detail {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
 }
 
-/* Hero image with copyright */
+/* Hero Section - Konsistent mit Hauptseite */
+.detail-hero {
+  margin-bottom: 1.5rem;
+}
+
 .hero-image {
   position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 18, 28, 0.85) 0%,
+    rgba(10, 12, 20, 0.9) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 }
 
+.hero-image img {
+  width: 100%;
+  height: auto;
+  max-height: 50vh;
+  object-fit: cover;
+  opacity: 0.95;
+}
+
+.hero-info h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 0.25rem 0;
+  line-height: 1.2;
+}
+
+.scientific-name {
+  font-size: 1rem;
+  font-style: italic;
+  color: rgba(var(--system-rgb), 0.8);
+  margin: 0 0 0.75rem 0;
+}
+
+.hero-description {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+  /* Einklappbar auf Mobile */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hero-description.is-expanded {
+  -webkit-line-clamp: unset;
+}
+
+/* Copyright Button */
 .hero-image .bifroest-copyright {
   position: absolute;
-  bottom: 0.5rem;
-  left: 0.5rem;
+  bottom: 0.75rem;
+  left: 0.75rem;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   AMORPH FIELD - Verbesserte Hierarchie
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.amorph-field {
+  margin-bottom: 0;
+}
+
+.amorph-field-label {
+  display: block;
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 0.375rem;
+}
+
+.amorph-field-value {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+}
+
+/* Größere/wichtigere Werte */
+.amorph-field[data-morph="rating"] .amorph-field-value,
+.amorph-field[data-morph="number"] .amorph-field-value,
+.amorph-field[data-morph="stats"] .amorph-field-value {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   TABLET+ BREAKPOINT (768px+)
+   ═══════════════════════════════════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+  .amorph-detail {
+    padding: 0 2rem;
+    max-width: 900px;
+  }
+  
+  .detail-hero {
+    margin-bottom: 2rem;
+  }
+  
+  .hero-info h1 {
+    font-size: 2.25rem;
+  }
+  
+  .hero-description {
+    -webkit-line-clamp: unset;
+  }
+  
+  .detail-perspectives {
+    gap: 1rem;
+  }
+  
+  .perspective-header {
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .perspective-fields .detail-field {
+    padding: 1rem 1.5rem;
+  }
+  
+  /* Toggle Label horizontal */
+  .toggle-label {
+    writing-mode: horizontal-tb;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   DESKTOP BREAKPOINT (1024px+)
+   ═══════════════════════════════════════════════════════════════════════════════ */
+@media (min-width: 1024px) {
+  .amorph-detail {
+    max-width: 800px;
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────

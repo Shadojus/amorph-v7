@@ -206,32 +206,6 @@ perspectives.forEach(p => {
     <div class="active-perspectives"></div>
   </div>
   
-  <!-- Perspektiven-Navigation (Sticky Scrollbar) -->
-  <nav class="perspective-nav" aria-label="Perspektiven-Navigation">
-    <div class="perspective-nav-track">
-      {sortedPerspectives.map((perspId, idx) => {
-        const perspName = perspectiveNames[perspId] || perspId;
-        const rgb = perspectiveRgb[perspId] || '150, 150, 150';
-        const fieldCount = fieldsByPerspective.get(perspId)?.length || 0;
-        return (
-          <button 
-            type="button"
-            class="perspective-nav-item"
-            data-perspective={perspId}
-            style={`--persp-rgb: ${rgb}`}
-            title={`${perspName} (${fieldCount} fields)`}
-          >
-            <span class="perspective-nav-dot"></span>
-            <span class="perspective-nav-label">{perspName}</span>
-          </button>
-        );
-      })}
-    </div>
-    <div class="perspective-nav-progress">
-      <div class="perspective-nav-fill"></div>
-    </div>
-  </nav>
-  
   <!-- Detail View -->
   <main class="amorph-detail">
     <!-- Hero Section -->
@@ -277,30 +251,33 @@ perspectives.forEach(p => {
             data-perspective={perspId}
             style={`--persp-rgb: ${rgb}`}
           >
-            <header class="perspective-header">
+            <header class="perspective-header" role="button" tabindex="0" aria-expanded="true">
               <div class="perspective-indicator"></div>
               <h2 class="perspective-title">{perspName}</h2>
-              <span class="perspective-count">{fields.length} fields</span>
+              <span class="perspective-count">{fields.length}</span>
+              <span class="perspective-chevron">▼</span>
             </header>
             <div class="perspective-fields">
-              {fields.map(({ key, value, experts }) => (
-                <div class="detail-field" data-field-key={key} data-perspective={perspId}>
-                  <Fragment set:html={renderValue(value, key, detailContext)} />
-                  {experts.length > 0 && (
-                    <div class="bifroest-experts" data-experts={JSON.stringify(experts)}>
-                      {experts.map((expert: any) => (
-                        <button 
-                          type="button" 
-                          class="bifroest-expert"
-                          data-expert={JSON.stringify(expert)}
-                        >
-                          <span class="bifroest-expert-name">{expert.name}</span>
-                        </button>
+              <div class="perspective-fields-inner">
+                {fields.map(({ key, value, experts }) => (
+                  <div class="detail-field" data-field-key={key} data-perspective={perspId}>
+                    <Fragment set:html={renderValue(value, key, detailContext)} />
+                    {experts.length > 0 && (
+                      <div class="bifroest-experts" data-experts={JSON.stringify(experts)}>
+                        {experts.map((expert: any) => (
+                          <button 
+                            type="button" 
+                            class="bifroest-expert"
+                            data-expert={JSON.stringify(expert)}
+                          >
+                            <span class="bifroest-expert-name">{expert.name}</span>
+                          </button>
                       ))}
                     </div>
                   )}
                 </div>
               ))}
+              </div>
             </div>
           </section>
         );
@@ -706,22 +683,52 @@ perspectives.forEach(p => {
   console.log('[Detail] Search initialized');
   
   // ═══════════════════════════════════════════════════════════════════════════════
-  // PERSPECTIVE NAVIGATION - Scroll tracking & click navigation
+  // PERSPECTIVE NAVIGATION - Kompakte Dot-Nav & Collapsible Sections
   // ═══════════════════════════════════════════════════════════════════════════════
   
-  const perspectiveNav = document.querySelector('.perspective-nav');
+  const perspectiveNav = document.querySelector<HTMLElement>('.perspective-nav');
   const perspectiveNavItems = document.querySelectorAll<HTMLElement>('.perspective-nav-item');
   const perspectiveSections = document.querySelectorAll<HTMLElement>('.perspective-section');
-  const navProgressFill = document.querySelector<HTMLElement>('.perspective-nav-fill');
   
-  // Click navigation
+  // Section collapse/expand functionality
+  function toggleSection(section: HTMLElement, forceState?: boolean): void {
+    const isCollapsed = section.classList.contains('is-collapsed');
+    const shouldCollapse = forceState !== undefined ? !forceState : !isCollapsed;
+    
+    section.classList.toggle('is-collapsed', shouldCollapse);
+    
+    const header = section.querySelector('.perspective-header');
+    if (header) {
+      header.setAttribute('aria-expanded', String(!shouldCollapse));
+    }
+  }
+  
+  // Click on perspective header to toggle
+  perspectiveSections.forEach(section => {
+    const header = section.querySelector('.perspective-header');
+    header?.addEventListener('click', () => toggleSection(section));
+    header?.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleSection(section);
+      }
+    });
+  });
+  
+  // Click navigation - navigate to section and expand it
   perspectiveNavItems.forEach(item => {
     item.addEventListener('click', () => {
       const perspId = item.dataset.perspective;
       if (!perspId) return;
       
-      const section = document.querySelector(`#perspective-${perspId}`);
+      const section = document.querySelector<HTMLElement>(`#perspective-${perspId}`);
       if (section) {
+        // Expand the section if collapsed
+        if (section.classList.contains('is-collapsed')) {
+          toggleSection(section, true);
+        }
+        
+        // Scroll to section
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
@@ -733,13 +740,6 @@ perspectives.forEach(p => {
   function updateActivePerspective(): void {
     const scrollY = window.scrollY;
     const windowHeight = window.innerHeight;
-    const docHeight = document.documentElement.scrollHeight;
-    
-    // Update progress bar
-    if (navProgressFill) {
-      const progress = Math.min(scrollY / (docHeight - windowHeight) * 100, 100);
-      navProgressFill.style.width = `${progress}%`;
-    }
     
     // Find which section is most visible
     let activeSection: HTMLElement | null = null;
@@ -752,7 +752,7 @@ perspectives.forEach(p => {
       
       // Calculate how much of the section is visible in viewport
       const visibleTop = Math.max(0, Math.min(windowHeight, sectionTop + sectionHeight) - Math.max(0, sectionTop));
-      const visibleRatio = visibleTop / sectionHeight;
+      const visibleRatio = visibleTop / Math.max(sectionHeight, 1);
       
       // Prefer sections that are near the top of the viewport
       const topBonus = sectionTop > 0 && sectionTop < windowHeight * 0.5 ? 0.3 : 0;
