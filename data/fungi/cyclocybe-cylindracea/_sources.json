@@ -10,5 +10,66 @@
       "url": "https://mushroomobserver.org"
     }
   ],
-  "fields": {}
+  "fields": {
+    "cylindracin_antifungal_protein": [
+      {
+        "name": "Kuratani et al.",
+        "title": "FEBS Open Bio Researchers",
+        "url": "https://febs.onlinelibrary.wiley.com/doi/10.1002/2211-5463.13910",
+        "contact": "Cationic cysteine-rich protein cylindracin: inhibits hyphal growth & conidiogenesis of filamentous fungi (2024)"
+      }
+    ],
+    "nutritional_components_regional_differences": [
+      {
+        "name": "Chen et al.",
+        "title": "eFood (Wiley) Researchers",
+        "url": "https://iadns.onlinelibrary.wiley.com/doi/full/10.1002/efd2.81",
+        "contact": "Crude protein 13.5%, fat 1.52%, radical scavenging 40%, phenolic 41.08 mg GAE/g - regional comparison (2023)"
+      }
+    ],
+    "bioactive_metabolites_review": [
+      {
+        "name": "Agrocybe Secondary Metabolites Review Team",
+        "title": "Comprehensive Review Authors",
+        "url": "https://www.tandfonline.com/doi/full/10.1080/21501203.2023.2292994",
+        "contact": "β-glucans, agrocybin, cylindan, agrocybenine, indole derivatives: biological activities & pharmacology (2023)"
+      }
+    ],
+    "substrate_cultivation_optimization": [
+      {
+        "name": "Substrate Comparison Researchers (2025)",
+        "title": "Giant Juncao, Tea Leaves, Cottonseed Hulls Study",
+        "url": "https://www.mdpi.com/2309-608X/11/2/132",
+        "contact": "Cottonseed hulls 35.8% BE, GD+DD 31.5%, WTL+SD 28.7%: physicochemical & metabolite profiling (Feb 2025)"
+      },
+      {
+        "name": "Harold Ray R. Landingin, Bismark E. Francisco, Rich Milton R. Dulay",
+        "title": "Culture Conditions Optimization Researchers",
+        "url": "https://www.creamjournal.org/pdf/CREAM_11_1_3.pdf",
+        "contact": "25°C, pH 6, PDA media: dextrin/maltose/fructose carbon, arginine/glycine nitrogen optimal (2021)"
+      }
+    ],
+    "phenolic_antioxidant_heavy_metals": [
+      {
+        "name": "Phenolic Contents & Antioxidant Researchers",
+        "title": "Turkish Research Team",
+        "url": "https://www.researchgate.net/publication/325343306_Phenolic_Contents_OxidantAntioxidant_Potential_and_Heavy_Metal_Levels_in_Cyclocybe_cylindracea",
+        "contact": "Gallic acid, hesperidin, catechin, syringic acid, hydroxybenzoic acid: antioxidant potential & heavy metals"
+      }
+    ],
+    "taste_components_chemical_analysis": [
+      {
+        "name": "Shu-Yao Tsai, Hui-Li Tsai, Jeng-Leun Mau",
+        "title": "National Chung-Hsing University, Taiwan - Department of Food Science",
+        "url": "https://pubs.acs.org/doi/10.1021/jf971016k",
+        "contact": "Nonvolatile taste components: 3 strain comparison, flavor analysis"
+      },
+      {
+        "name": "Xiaojun Huang",
+        "title": "State Key Laboratory of Food Science and Technology, Nanchang University, China",
+        "url": "https://www.mdpi.com/2309-608X/6/3/166",
+        "contact": "China-Canada Joint Lab: antioxidant, enzyme inhibition, antimutagenic properties - 8 species comparison"
+      }
+    ]
+  }
 }

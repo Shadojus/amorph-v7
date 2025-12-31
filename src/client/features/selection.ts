@@ -41,8 +41,8 @@ export interface SelectionState {
 const state: SelectionState = {
   items: new Map(),
   fields: new Map(),  // NEW
-  maxItems: 6,
-  maxFields: 99  // Bis zu 99 Felder auswählbar
+  maxItems: 20,
+  maxFields: 999  // Bis zu 999 Felder auswählbar
 };
 
 const listeners: Set<() => void> = new Set();

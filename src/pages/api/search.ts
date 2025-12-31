@@ -202,11 +202,6 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
             ${(item.wissenschaftlich || item.scientific_name) ? `<span class="item-scientific">${escapeHtml(String(item.wissenschaftlich || item.scientific_name))}</span>` : ''}
           </div>
           <div class="item-body">${allFields}</div>
-          <div class="item-actions">
-            <button class="item-select-all" aria-label="Alle Felder auswählen">
-              <span class="select-icon"></span>
-            </button>
-          </div>
         </article>
       `;
     }).join('');

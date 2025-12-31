@@ -215,15 +215,31 @@ function initBottomNav(): void {
     updateBottomNavState();
   });
   
-  // Badge update function
+  // Badge update function - shows SPECIES count, not field count
   const updateBadge = () => {
-    const itemCount = getSelectedCount();
-    const fieldCount = getSelectedFieldCount();
-    const totalCount = itemCount + fieldCount;
+    // Get species count from localStorage (set by compact view)
+    const storedSpecies = localStorage.getItem('amorph:selected-species');
+    let speciesCount = 0;
+    if (storedSpecies) {
+      try {
+        const species = JSON.parse(storedSpecies);
+        speciesCount = Array.isArray(species) ? species.length : 0;
+      } catch (e) {
+        speciesCount = 0;
+      }
+    }
+    
+    // Also count unique species from field selection (grid view)
+    const fieldItems = new Set<string>();
+    const fields = getSelectedFields();
+    fields.forEach(f => fieldItems.add(f.itemSlug));
+    
+    // Total unique species
+    const totalSpecies = Math.max(speciesCount, fieldItems.size);
     
     if (badge) {
-      badge.textContent = String(totalCount);
-      badge.classList.toggle('has-items', totalCount > 0);
+      badge.textContent = String(totalSpecies);
+      badge.classList.toggle('has-items', totalSpecies > 0);
     }
   };
   
@@ -422,6 +438,22 @@ function initSelectionBar(): void {
               fields.forEach(f => {
                 import('./selection').then(mod => mod.deselectField(f.itemSlug, f.fieldName));
               });
+              
+              // Also remove species-selected class from grid item
+              const gridItem = document.querySelector(`.amorph-item[data-slug="${slug}"]`);
+              if (gridItem) {
+                gridItem.classList.remove('species-selected');
+              }
+              
+              // Update localStorage selected species
+              const storedSpecies = localStorage.getItem('amorph:selected-species');
+              if (storedSpecies) {
+                try {
+                  const speciesArray = JSON.parse(storedSpecies);
+                  const filtered = speciesArray.filter((s: string) => s !== slug);
+                  localStorage.setItem('amorph:selected-species', JSON.stringify(filtered));
+                } catch (e) { /* ignore */ }
+              }
             }
           } else if (species) {
             // Toggle species highlight in compare view

@@ -267,6 +267,234 @@ const gridContext: RenderContext = {
     window.AMORPH_PERSPECTIVES = perspectives;
   </script>
   
+  <!-- View Toggle Script -->
+  <script>
+    // View Toggle - Grid/Compact
+    const viewToggleBtns = document.querySelectorAll<HTMLButtonElement>('.view-toggle-btn');
+    const grid = document.querySelector<HTMLElement>('.amorph-grid');
+    
+    // Load saved preference
+    const savedView = localStorage.getItem('amorph-view') || 'grid';
+    
+    function setView(view: string): void {
+      if (!grid) return;
+      
+      // Update grid class
+      grid.classList.toggle('view-compact', view === 'compact');
+      
+      // Update button states
+      viewToggleBtns.forEach(btn => {
+        btn.classList.toggle('is-active', btn.dataset.view === view);
+      });
+      
+      // Save preference
+      localStorage.setItem('amorph-view', view);
+    }
+    
+    // Initialize with saved view
+    setView(savedView);
+    
+    // Button click handlers
+    viewToggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const view = btn.dataset.view || 'grid';
+        setView(view);
+      });
+    });
+    
+    // ═══════════════════════════════════════════════════════════════════════════
+    // SPECIES SELECTION - Compact View Mode
+    // Wählt komplette Spezies mit allen Feldern für My Species
+    // ═══════════════════════════════════════════════════════════════════════════
+    
+    import { selectField, deselectField, getSelectedFields, clearSelection } from '../client/features';
+    
+    const speciesSelectBtns = document.querySelectorAll<HTMLButtonElement>('.species-select');
+    
+    // Track selected species
+    const selectedSpecies = new Set<string>();
+    
+    // Load previously selected species from localStorage
+    const savedSpecies = localStorage.getItem('amorph-selected-species');
+    if (savedSpecies) {
+      try {
+        const parsed = JSON.parse(savedSpecies);
+        parsed.forEach((slug: string) => selectedSpecies.add(slug));
+        // Restore UI state
+        selectedSpecies.forEach(slug => {
+          const item = document.querySelector(`.amorph-item[data-slug="${slug}"]`);
+          item?.classList.add('species-selected');
+        });
+      } catch (e) {}
+    }
+    
+    function saveSelectedSpecies() {
+      localStorage.setItem('amorph-selected-species', JSON.stringify([...selectedSpecies]));
+    }
+    
+    // Lädt ALLE Felder einer Spezies via API
+    async function selectSpeciesFields(item: HTMLElement, slug: string, name: string) {
+      try {
+        // Lade komplette Spezies-Daten via API
+        const response = await fetch(`/api/search?q=${encodeURIComponent(slug)}&limit=1`);
+        const data = await response.json();
+        
+        if (data.items && data.items.length > 0) {
+          const speciesData = data.items[0];
+          
+          // Get perspective mapping
+          let fieldPerspectives: Record<string, string> = {};
+          try {
+            fieldPerspectives = JSON.parse(item.dataset.fieldPerspectives || '{}');
+          } catch (e) {}
+          
+          // Alle Felder der Spezies hinzufügen (außer interne)
+          Object.entries(speciesData).forEach(([fieldName, value]) => {
+            // Skip interne Felder und Basis-Felder
+            if (fieldName.startsWith('_') || 
+                ['id', 'slug', 'name', 'bild', 'wissenschaftlich', 'image', 'scientific_name'].includes(fieldName)) {
+              return;
+            }
+            
+            const perspective = fieldPerspectives[fieldName];
+            selectField(slug, name, fieldName, value, perspective);
+          });
+          
+          console.log(`[Species] Selected ${name} with all fields`);
+        }
+      } catch (e) {
+        console.error('[Species] Failed to load species data:', e);
+        // Fallback: Nur sichtbare Felder
+        const fields = item.querySelectorAll('.amorph-field');
+        fields.forEach((field, index) => {
+          const fieldEl = field as HTMLElement;
+          const fieldName = fieldEl.dataset.field || `field_${index}`;
+          const valueEl = fieldEl.querySelector('.amorph-field-value');
+          const value = valueEl?.textContent?.trim() || '';
+          
+          let perspective: string | undefined;
+          try {
+            const fieldPerspectives = JSON.parse(item.dataset.fieldPerspectives || '{}');
+            perspective = fieldPerspectives[fieldName];
+          } catch (e) {}
+          
+          selectField(slug, name, fieldName, value, perspective);
+        });
+      }
+    }
+    
+    function deselectSpeciesFields(slug: string) {
+      // Alle Felder dieser Spezies abwählen
+      const currentFields = getSelectedFields();
+      currentFields.forEach(field => {
+        if (field.itemSlug === slug) {
+          deselectField(slug, field.fieldName);
+        }
+      });
+    }
+    
+    speciesSelectBtns.forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const item = btn.closest('.amorph-item') as HTMLElement;
+        if (!item) return;
+        
+        const slug = item.dataset.slug || '';
+        const name = item.dataset.name || '';
+        
+        // Show loading state
+        btn.classList.add('is-loading');
+        
+        if (selectedSpecies.has(slug)) {
+          // Deselect
+          selectedSpecies.delete(slug);
+          item.classList.remove('species-selected');
+          deselectSpeciesFields(slug);
+        } else {
+          // Select - lädt alle Daten async
+          selectedSpecies.add(slug);
+          item.classList.add('species-selected');
+          await selectSpeciesFields(item, slug, name);
+        }
+        
+        btn.classList.remove('is-loading');
+        saveSelectedSpecies();
+        
+        // Update badge
+        const badge = document.querySelector('.bottom-nav-badge');
+        if (badge) {
+          const count = selectedSpecies.size;
+          badge.textContent = String(count);
+          badge.classList.toggle('has-items', count > 0);
+        }
+      });
+    });
+    
+    // Initial badge update
+    const badge = document.querySelector('.bottom-nav-badge');
+    if (badge && selectedSpecies.size > 0) {
+      badge.textContent = String(selectedSpecies.size);
+      badge.classList.add('has-items');
+    }
+    
+    // Compact view: tap on card SELECTS species (not navigates)
+    // Only the arrow button navigates to detail page
+    if (grid) {
+      grid.addEventListener('click', async (e) => {
+        // Only in compact view
+        if (!grid.classList.contains('view-compact')) return;
+        
+        const target = e.target as HTMLElement;
+        
+        // Arrow button navigates to detail
+        if (target.closest('.item-detail-link')) {
+          return; // Let the link handle navigation
+        }
+        
+        // Ignore copyright clicks
+        if (target.closest('.bifroest-copyright')) {
+          return;
+        }
+        
+        // Click anywhere on card = select/deselect species
+        const item = target.closest('.amorph-item') as HTMLElement;
+        if (item) {
+          e.preventDefault();
+          const slug = item.dataset.slug || '';
+          const name = item.dataset.name || '';
+          
+          // Visual feedback
+          item.style.transform = 'scale(0.96)';
+          setTimeout(() => item.style.transform = '', 150);
+          
+          if (selectedSpecies.has(slug)) {
+            // Deselect
+            selectedSpecies.delete(slug);
+            item.classList.remove('species-selected');
+            deselectSpeciesFields(slug);
+          } else {
+            // Select - load all data async
+            selectedSpecies.add(slug);
+            item.classList.add('species-selected');
+            await selectSpeciesFields(item, slug, name);
+          }
+          
+          saveSelectedSpecies();
+          
+          // Update badge
+          const badge = document.querySelector('.bottom-nav-badge');
+          if (badge) {
+            const count = selectedSpecies.size;
+            badge.textContent = String(count);
+            badge.classList.toggle('has-items', count > 0);
+          }
+        }
+      });
+    }
+  </script>
+  
   <!-- ═══════════════════════════════════════════════════════════════════════════
        HEADER - Site-Switcher mit Bifroest Portal
        Funginomi (blau), Phytonomi (jade), Drakonomi (türkis) → Bifroest
@@ -346,6 +574,30 @@ const gridContext: RenderContext = {
           <span class="search-nav-count">0/0</span>
           <button type="button" class="search-nav-prev" aria-label="Vorheriger Treffer">↑</button>
           <button type="button" class="search-nav-next" aria-label="Nächster Treffer">↓</button>
+        </div>
+        <!-- View Toggle -->
+        <div class="view-toggle">
+          <button type="button" class="view-toggle-btn is-active" data-view="grid" title="Grid View">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <rect x="3" y="3" width="7" height="7" rx="1"/>
+              <rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/>
+              <rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+          </button>
+          <button type="button" class="view-toggle-btn" data-view="compact" title="Compact Gallery">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <rect x="3" y="3" width="4" height="4" rx="0.5"/>
+              <rect x="10" y="3" width="4" height="4" rx="0.5"/>
+              <rect x="17" y="3" width="4" height="4" rx="0.5"/>
+              <rect x="3" y="10" width="4" height="4" rx="0.5"/>
+              <rect x="10" y="10" width="4" height="4" rx="0.5"/>
+              <rect x="17" y="10" width="4" height="4" rx="0.5"/>
+              <rect x="3" y="17" width="4" height="4" rx="0.5"/>
+              <rect x="10" y="17" width="4" height="4" rx="0.5"/>
+              <rect x="17" y="17" width="4" height="4" rx="0.5"/>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
