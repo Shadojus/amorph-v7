@@ -1,0 +1,90 @@
+{
+  "image": [],
+  "fields": {
+    "betulinic_acid": [
+      {
+        "name": "Antoine Géry, David Garon et al.",
+        "title": "Cytotoxicity & Chemical Study Researchers",
+        "url": "https://journals.sagepub.com/doi/full/10.1177/1534735418757912",
+        "contact": "Comparison against A549 lung adenocarcinoma cells (2018)"
+      }
+    ],
+    "triterpenoids": [
+      {
+        "name": "Chemical Characterization Team",
+        "title": "HPLC/LC-ESI-MS Analysis Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12026145/",
+        "contact": "Identified betulinic acid, betulin, trametenolic acid, inopodiol"
+      }
+    ],
+    "polysaccharides": [
+      {
+        "name": "Fan L, Ding S, Ai L, Deng K",
+        "title": "Immunomodulatory Activity Researchers",
+        "url": "https://www.tandfonline.com/doi/full/10.1080/21501203.2023.2260408",
+        "contact": "Water-soluble polysaccharide antitumor & immunomodulation"
+      }
+    ],
+    "superoxide_dismutase": [
+      {
+        "name": "SOD Quantification Research Team",
+        "title": "Antioxidant Enzyme Researchers",
+        "url": "https://www.mycologyresearch.com/articles/clinicalarticles/superoxide-dismutase",
+        "contact": "35,000-105,000 SOD units per gram measured"
+      }
+    ],
+    "melanin_content": [
+      {
+        "name": "Phenolic Compounds Research Team",
+        "title": "Melanin & Pigmentation Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10728660/",
+        "contact": "Highest melanin content of any food/herb known"
+      }
+    ],
+    "anticancer_activity": [
+      {
+        "name": "Youn MJ, Kim JK, Park SY",
+        "title": "Apoptosis Mechanism Researchers",
+        "url": "https://www.cell.com/heliyon/fulltext/S2405-8440(24)11669-6",
+        "contact": "Induces apoptosis, inhibits tumor growth, suppresses metastasis"
+      },
+      {
+        "name": "Ergosterol Peroxide Research Team",
+        "title": "Beta-Catenin Pathway Researchers",
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/chaga-mushroom",
+        "contact": "Anti-cancer activity via beta-catenin down-regulation in colorectal cancer"
+      }
+    ],
+    "tumor_reduction": [
+      {
+        "name": "Mouse Model Research Team",
+        "title": "In Vivo Tumor Researchers",
+        "url": "https://nootriment.com/chaga-mushroom-cancer/",
+        "contact": "60% tumor size reduction in mouse study"
+      }
+    ],
+    "birch_metabolites": [
+      {
+        "name": "Wang Q, Mu H, Zhang L, Dong D, Zhang W, Duan J",
+        "title": "Lignin Metabolite Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12026145/",
+        "contact": "Water-soluble lignin metabolites from birch conversion"
+      }
+    ],
+    "antiviral_activity": [
+      {
+        "name": "Teplyakova et al.",
+        "title": "Antiviral Research Team",
+        "url": "https://fungalbiolbiotech.biomedcentral.com/articles/10.1186/s40694-024-00176-3",
+        "contact": "Antiviral activity against SARS-CoV-2"
+      }
+    ],
+    "traditional_use": [
+      {
+        "name": "Russian Traditional Medicine Scholars",
+        "title": "Ethnomycology Researchers",
+        "contact": "Centuries of traditional use in Russia and Northern Europe"
+      }
+    ]
+  }
+}

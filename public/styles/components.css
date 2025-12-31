@@ -3207,6 +3207,220 @@ mark.compare-highlight.is-current {
   box-shadow: 0 4px 12px rgba(77, 136, 255, 0.2);
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════════
+   PERSPECTIVE NAVIGATION - Sticky sidebar with scroll indicators
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.perspective-nav {
+  position: fixed;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 0.5rem;
+  background: rgba(8, 10, 16, 0.9);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0 12px 12px 0;
+}
+
+.perspective-nav-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.perspective-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+
+.perspective-nav-item:hover {
+  background: rgba(var(--persp-rgb), 0.15);
+}
+
+.perspective-nav-item.is-active {
+  background: rgba(var(--persp-rgb), 0.25);
+}
+
+.perspective-nav-item.is-active .perspective-nav-dot {
+  transform: scale(1.3);
+  box-shadow: 0 0 8px rgba(var(--persp-rgb), 0.6);
+}
+
+.perspective-nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(var(--persp-rgb), 0.8);
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.perspective-nav-label {
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 0;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.perspective-nav:hover .perspective-nav-label {
+  max-width: 100px;
+  opacity: 1;
+}
+
+.perspective-nav-progress {
+  margin-top: 0.5rem;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.perspective-nav-fill {
+  height: 100%;
+  width: 0%;
+  background: rgba(var(--system-rgb), 0.6);
+  transition: width 0.1s ease;
+}
+
+/* Mobile: Nav am unteren Rand */
+@media (max-width: 768px) {
+  .perspective-nav {
+    position: fixed;
+    left: 50%;
+    top: auto;
+    bottom: 80px; /* Above bottom nav */
+    transform: translateX(-50%);
+    flex-direction: row;
+    padding: 0.5rem 0.75rem;
+    border-right: none;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    max-width: 90vw;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  
+  .perspective-nav::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .perspective-nav-track {
+    flex-direction: row;
+  }
+  
+  .perspective-nav-label {
+    display: none;
+  }
+  
+  .perspective-nav-progress {
+    display: none;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   PERSPECTIVE SECTIONS - Grouped fields by perspective
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.detail-perspectives {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.perspective-section {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-left: 3px solid rgba(var(--persp-rgb), 0.6);
+  border-radius: 12px;
+  overflow: hidden;
+  scroll-margin-top: 140px; /* Account for sticky header + search */
+}
+
+.perspective-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: rgba(var(--persp-rgb), 0.08);
+  border-bottom: 1px solid rgba(var(--persp-rgb), 0.15);
+}
+
+.perspective-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(var(--persp-rgb), 0.8);
+  box-shadow: 0 0 8px rgba(var(--persp-rgb), 0.4);
+}
+
+.perspective-title {
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  flex: 1;
+}
+
+.perspective-count {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.perspective-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.perspective-fields .detail-field {
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.perspective-fields .detail-field:last-child {
+  border-bottom: none;
+}
+
+.perspective-fields .detail-field:hover {
+  background: rgba(var(--persp-rgb), 0.05);
+}
+
+/* Hero description */
+.hero-description {
+  margin-top: 1rem;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Hero image with copyright */
+.hero-image {
+  position: relative;
+}
+
+.hero-image .bifroest-copyright {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 0.5rem;
+}
+
 /* ─────────────────────────────────────────────────────────────────────────────
    EMPTY STATE (Override for amorph)
    ───────────────────────────────────────────────────────────────────────────── */

@@ -10,5 +10,124 @@
       "url": "https://mushroomobserver.org"
     }
   ],
-  "fields": {}
+  "fields": {
+    "polysaccharides": [
+      {
+        "name": "FVP Research Consortium 2024",
+        "title": "Polysaccharide Structure & Pharmacology Researchers",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0141813024022724",
+        "contact": "Extraction, purification, structural analysis, immunomodulatory & anti-tumor properties (2024)"
+      },
+      {
+        "name": "FVP-S1 Lung Adenocarcinoma Research Team",
+        "title": "Mitochondrial Apoptosis Researchers",
+        "url": "https://www.nature.com/articles/s41598-024-57211-x",
+        "contact": "FVP-S1 inhibits A549 cell proliferation & migration, chromosome changes (July 2024)"
+      },
+      {
+        "name": "RSAD2/NF-κB/MAPK Research Team",
+        "title": "RAW264.7 Macrophage Immunomodulation Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/40210026/",
+        "contact": "FVP-1 increases TNF-α, IL-6, IL-1β, COX-2, iNOS, ROS, phagocytic activity (2024)"
+      },
+      {
+        "name": "FVPT1 Heteropolysaccharide Research Team",
+        "title": "Magnetic-Field-Assisted Purification Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/38475282/",
+        "contact": "Novel heteropolysaccharide, lipid-lowering & immunomodulation (Feb 2024)"
+      }
+    ],
+    "protein_FVE": [
+      {
+        "name": "FVE Anti-Tumor Protein Research Team",
+        "title": "Murine Hepatocellular Carcinoma Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/19909827/",
+        "contact": "Enoki protein FVE activates innate & adaptive immunity, anti-tumor vs hepatocellular carcinoma"
+      }
+    ],
+    "cultivation_scale": [
+      {
+        "name": "Nagano Mushroom General Research Institute",
+        "title": "Japanese Bottle Cultivation Researchers",
+        "url": "https://www.dl.begellhouse.com/journals/708ae68d64b17c52,1e91bb632ed37d8b,189b22c6273a38e7.html",
+        "contact": "Established 1983, world's first pure-white Enoki-take (1986), Nagano Prefecture"
+      },
+      {
+        "name": "Spent Mushroom Substrate Research Team",
+        "title": "Anaerobic Digestion Residue Cultivation Researchers",
+        "url": "https://www.sciencedirect.com/science/article/pii/S2352186421006945",
+        "contact": "Development using SMS anaerobic digestion residue as medium base material"
+      },
+      {
+        "name": "Japan Enokitake Production Research Team",
+        "title": "Industrial Production Statistics Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/30685812/",
+        "contact": "113,000 tons production in Japan (2004), most popular bottle cultured mushroom"
+      }
+    ],
+    "nutritional_highlights": [
+      {
+        "name": "Nutritional Profile Research Team",
+        "title": "Vitamin B & Protein Composition Researchers",
+        "url": "https://www.researchgate.net/figure/Nutritional-profile-of-different-strains-of-Flammulina-velutipes_tbl1_347796764",
+        "contact": "Strain DMRX-1446: 32.06% protein, B1-B12 vitamins, 18 amino acids incl. lysine"
+      },
+      {
+        "name": "Golden Needle Mushroom Review Team",
+        "title": "Culinary Medicine & Health Properties Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5141589/",
+        "contact": "Rich in β-glucans, amino acids, polyphenols, terpenoids, sterols, B vitamins, lovastatin (2016)"
+      },
+      {
+        "name": "Hypolipidemic Activity Research Team",
+        "title": "Antioxidant & Lipid-Lowering Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4164374/",
+        "contact": "Protein, dietary fibers, peculiar flavor, hypolipidemic & antioxidant properties"
+      }
+    ],
+    "frost_tolerance": [
+      {
+        "name": "Cold-Responsive Gene Research Team",
+        "title": "Genomic Cold Adaptation Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11942922/",
+        "contact": "25 COR genes, 520 cold-adapted enzymes, carbohydrate metabolism at 10°C (2025)"
+      },
+      {
+        "name": "Ste12-like Transcription Factor Research Team",
+        "title": "Abiotic Stress Tolerance Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10192742/",
+        "contact": "Overexpression: increased salt, cold, oxidative stress tolerance vs wild-type (2023)"
+      },
+      {
+        "name": "Antifreeze Compound Research Team",
+        "title": "Glycerol & Trehalose Researchers",
+        "url": "https://www.wildwoodlandlearning.co.uk/post/the-winter-mushroom",
+        "contact": "Antifreeze-like compounds (glycerol, trehalose, proteins) prevent ice crystal formation"
+      }
+    ],
+    "cuisine_traditions": [
+      {
+        "name": "Japanese Enokitake Cultural Research Team",
+        "title": "Traditional Cuisine Documentation Researchers",
+        "url": "https://www.hokto-kinoko.com/why-hokto/japan-technology/",
+        "contact": "Japanese, Chinese, Korean cuisine traditions, enokitake/Golden Needle Mushroom"
+      }
+    ],
+    "decomposer_type": [
+      {
+        "name": "White Rot Enzyme Research Team",
+        "title": "Ligninolytic Activity Researchers",
+        "url": "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/flammulina-velutipes",
+        "contact": "White rot decomposer on hardwood (oak, beech, willow, poplar, birch, alder)"
+      }
+    ],
+    "fruiting_triggers": [
+      {
+        "name": "Winter Mushroom Ecology Research Team",
+        "title": "Frost-Triggered Fruiting Researchers",
+        "url": "https://botit.botany.wisc.edu/toms_fungi/march97.html",
+        "contact": "Cold essential triggering element, fruits even in February Wisconsin"
+      }
+    ]
+  }
 }

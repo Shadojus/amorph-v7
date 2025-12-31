@@ -10,7 +10,7 @@
  */
 
 import Base from '../layouts/Base.astro';
-import { loadConfig, getAllPerspectives } from '../server/config';
+import { loadConfig, getAllPerspectives, getSiteType, SITE_META } from '../server/config';
 import { getItem } from '../server/data';
 import { renderValue } from '../morphs';
 import type { RenderContext } from '../core/types';
@@ -45,6 +45,11 @@ const detailContext: RenderContext = {
   itemCount: 1
 };
 
+// Site metadata for image URLs
+const siteType = getSiteType();
+const siteMeta = SITE_META[siteType];
+const kingdom = siteMeta.dataFolder;
+
 // Get perspectives and field mapping
 const perspectives = getAllPerspectives();
 const fieldPerspectiveMap = item._fieldPerspective || {};
@@ -68,6 +73,25 @@ const perspectiveColors: Record<string, string[]> = {
   identification: ['rgba(145, 155, 125, 0.2)']
 };
 
+// Perspektiven-RGB für stärkere Farben (für Borders etc.)
+const perspectiveRgb: Record<string, string> = {
+  culinary: '180, 140, 120',
+  safety: '170, 130, 140',
+  cultivation: '120, 150, 130',
+  medicine: '150, 140, 170',
+  chemistry: '160, 140, 160',
+  ecology: '130, 150, 120',
+  statistics: '165, 155, 140',
+  geography: '160, 135, 120',
+  temporal: '170, 160, 130',
+  economy: '165, 150, 115',
+  conservation: '115, 150, 145',
+  culture: '155, 140, 160',
+  research: '140, 145, 160',
+  interactions: '175, 145, 135',
+  identification: '145, 155, 125'
+};
+
 // Ermittle verfügbare Perspektiven dieser Spezies
 const availablePerspectives = [...new Set(Object.values(fieldPerspectiveMap))].filter(Boolean) as string[];
 
@@ -76,13 +100,57 @@ const fieldSources = (item._sources as any)?.fields || {};
 
 // Alle Felder mit ihren Perspektiven und Experten
 const fieldsWithPerspectives = Object.entries(item)
-  .filter(([k]) => !['id', 'slug', 'name', 'bild', 'wissenschaftlich', 'image', 'scientific_name'].includes(k) && !k.startsWith('_'))
+  .filter(([k]) => !['id', 'slug', 'name', 'bild', 'wissenschaftlich', 'image', 'scientific_name', 'description'].includes(k) && !k.startsWith('_'))
   .map(([key, value]) => ({
     key,
     value,
     perspective: fieldPerspectiveMap[key] || null,
     experts: fieldSources[key] || []
   }));
+
+// Gruppiere Felder nach Perspektiven
+const fieldsByPerspective = new Map<string, typeof fieldsWithPerspectives>();
+fieldsWithPerspectives.forEach(field => {
+  const perspKey = field.perspective || 'other';
+  if (!fieldsByPerspective.has(perspKey)) {
+    fieldsByPerspective.set(perspKey, []);
+  }
+  fieldsByPerspective.get(perspKey)!.push(field);
+});
+
+// Sortiere Perspektiven nach Config-Reihenfolge
+const perspectiveOrder = perspectives.map(p => p.id);
+const sortedPerspectives = [...fieldsByPerspective.keys()].sort((a, b) => {
+  const aIdx = perspectiveOrder.indexOf(a);
+  const bIdx = perspectiveOrder.indexOf(b);
+  if (aIdx === -1 && bIdx === -1) return 0;
+  if (aIdx === -1) return 1;
+  if (bIdx === -1) return -1;
+  return aIdx - bIdx;
+});
+
+// Bild-URL berechnen (gleiche Logik wie index.astro)
+const imageField = item.image ? String(item.image) : (item.bild ? String(item.bild) : null);
+let imageUrl: string | null = null;
+if (imageField) {
+  if (imageField.startsWith('/') || imageField.startsWith('http')) {
+    imageUrl = imageField;
+  } else {
+    imageUrl = '/api/image/' + kingdom + '/' + item.slug + '/' + encodeURIComponent(imageField);
+  }
+}
+
+// Bifröst: Image copyright sources
+const itemSources = item._sources || {};
+const imageSources = (itemSources as any).image || [];
+const imageSource = imageSources.length > 0 ? imageSources[0] : null;
+const imageSourcesJson = imageSources.length > 0 ? JSON.stringify(imageSources) : '';
+
+// Perspektiven-Namen aus Config
+const perspectiveNames: Record<string, string> = {};
+perspectives.forEach(p => {
+  perspectiveNames[p.id] = p.name || p.id;
+});
 ---
 
 <Base title={`${item.name} – AMORPH`}>
@@ -138,13 +206,45 @@ const fieldsWithPerspectives = Object.entries(item)
     <div class="active-perspectives"></div>
   </div>
   
+  <!-- Perspektiven-Navigation (Sticky Scrollbar) -->
+  <nav class="perspective-nav" aria-label="Perspektiven-Navigation">
+    <div class="perspective-nav-track">
+      {sortedPerspectives.map((perspId, idx) => {
+        const perspName = perspectiveNames[perspId] || perspId;
+        const rgb = perspectiveRgb[perspId] || '150, 150, 150';
+        const fieldCount = fieldsByPerspective.get(perspId)?.length || 0;
+        return (
+          <button 
+            type="button"
+            class="perspective-nav-item"
+            data-perspective={perspId}
+            style={`--persp-rgb: ${rgb}`}
+            title={`${perspName} (${fieldCount} fields)`}
+          >
+            <span class="perspective-nav-dot"></span>
+            <span class="perspective-nav-label">{perspName}</span>
+          </button>
+        );
+      })}
+    </div>
+    <div class="perspective-nav-progress">
+      <div class="perspective-nav-fill"></div>
+    </div>
+  </nav>
+  
   <!-- Detail View -->
   <main class="amorph-detail">
     <!-- Hero Section -->
-    <section class="detail-hero">
-      {(item.bild || item.image) && (
+    <section class="detail-hero" id="hero">
+      {imageUrl && (
         <div class="hero-image">
-          <img src={String(item.bild || item.image)} alt={item.name} />
+          <img src={imageUrl} alt={item.name} />
+          {imageSource && (
+            <button type="button" class="bifroest-copyright" data-sources={imageSourcesJson}>
+              <span class="bifroest-symbol">©</span>
+              <span class="bifroest-name">{imageSource.name || imageSource.author || ''}</span>
+            </button>
+          )}
         </div>
       )}
       
@@ -153,35 +253,59 @@ const fieldsWithPerspectives = Object.entries(item)
         {(item.wissenschaftlich || item.scientific_name) && (
           <p class="scientific-name">{String(item.wissenschaftlich || item.scientific_name)}</p>
         )}
+        {item.description && (
+          <p class="hero-description">{String(item.description)}</p>
+        )}
       </div>
     </section>
     
-    <!-- Fields Container (filterable) - mit Slug für Selection -->
-    <section 
-      class="detail-fields" 
+    <!-- Perspektiven-Sektionen -->
+    <div 
+      class="detail-perspectives" 
       data-field-perspectives={JSON.stringify(fieldPerspectiveMap)}
       data-item-slug={item.slug}
       data-item-name={item.name}
     >
-      {fieldsWithPerspectives.map(({ key, value, perspective, experts }) => (
-        <div class="detail-field" data-field-key={key} data-perspective={perspective || ''}>
-          <Fragment set:html={renderValue(value, key, detailContext)} />
-          {experts.length > 0 && (
-            <div class="bifroest-experts" data-experts={JSON.stringify(experts)}>
-              {experts.map((expert: any) => (
-                <button 
-                  type="button" 
-                  class="bifroest-expert"
-                  data-expert={JSON.stringify(expert)}
-                >
-                  <span class="bifroest-expert-name">{expert.name}</span>
-                </button>
+      {sortedPerspectives.map((perspId) => {
+        const fields = fieldsByPerspective.get(perspId) || [];
+        const perspName = perspectiveNames[perspId] || perspId;
+        const rgb = perspectiveRgb[perspId] || '150, 150, 150';
+        return (
+          <section 
+            class="perspective-section" 
+            id={`perspective-${perspId}`}
+            data-perspective={perspId}
+            style={`--persp-rgb: ${rgb}`}
+          >
+            <header class="perspective-header">
+              <div class="perspective-indicator"></div>
+              <h2 class="perspective-title">{perspName}</h2>
+              <span class="perspective-count">{fields.length} fields</span>
+            </header>
+            <div class="perspective-fields">
+              {fields.map(({ key, value, experts }) => (
+                <div class="detail-field" data-field-key={key} data-perspective={perspId}>
+                  <Fragment set:html={renderValue(value, key, detailContext)} />
+                  {experts.length > 0 && (
+                    <div class="bifroest-experts" data-experts={JSON.stringify(experts)}>
+                      {experts.map((expert: any) => (
+                        <button 
+                          type="button" 
+                          class="bifroest-expert"
+                          data-expert={JSON.stringify(expert)}
+                        >
+                          <span class="bifroest-expert-name">{expert.name}</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
             </div>
-          )}
-        </div>
-      ))}
-    </section>
+          </section>
+        );
+      })}
+    </div>
   </main>
   
   <!-- Selection Bar (wie index.astro) -->
@@ -579,6 +703,83 @@ const fieldsWithPerspectives = Object.entries(item)
   document.querySelector('.search-nav-next')?.addEventListener('click', () => navigateHighlight(1));
   
   console.log('[Detail] Search initialized');
+  
+  // ═══════════════════════════════════════════════════════════════════════════════
+  // PERSPECTIVE NAVIGATION - Scroll tracking & click navigation
+  // ═══════════════════════════════════════════════════════════════════════════════
+  
+  const perspectiveNav = document.querySelector('.perspective-nav');
+  const perspectiveNavItems = document.querySelectorAll<HTMLElement>('.perspective-nav-item');
+  const perspectiveSections = document.querySelectorAll<HTMLElement>('.perspective-section');
+  const navProgressFill = document.querySelector<HTMLElement>('.perspective-nav-fill');
+  
+  // Click navigation
+  perspectiveNavItems.forEach(item => {
+    item.addEventListener('click', () => {
+      const perspId = item.dataset.perspective;
+      if (!perspId) return;
+      
+      const section = document.querySelector(`#perspective-${perspId}`);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+  
+  // Scroll tracking - update active perspective based on scroll position
+  let scrollTimeout: number | null = null;
+  
+  function updateActivePerspective(): void {
+    const scrollY = window.scrollY;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+    
+    // Update progress bar
+    if (navProgressFill) {
+      const progress = Math.min(scrollY / (docHeight - windowHeight) * 100, 100);
+      navProgressFill.style.width = `${progress}%`;
+    }
+    
+    // Find which section is most visible
+    let activeSection: HTMLElement | null = null;
+    let maxVisibility = 0;
+    
+    perspectiveSections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      const sectionTop = rect.top;
+      const sectionHeight = rect.height;
+      
+      // Calculate how much of the section is visible in viewport
+      const visibleTop = Math.max(0, Math.min(windowHeight, sectionTop + sectionHeight) - Math.max(0, sectionTop));
+      const visibleRatio = visibleTop / sectionHeight;
+      
+      // Prefer sections that are near the top of the viewport
+      const topBonus = sectionTop > 0 && sectionTop < windowHeight * 0.5 ? 0.3 : 0;
+      const score = visibleRatio + topBonus;
+      
+      if (score > maxVisibility) {
+        maxVisibility = score;
+        activeSection = section;
+      }
+    });
+    
+    // Update nav items
+    perspectiveNavItems.forEach(item => {
+      const isActive = activeSection && item.dataset.perspective === activeSection.dataset.perspective;
+      item.classList.toggle('is-active', !!isActive);
+    });
+  }
+  
+  // Debounced scroll handler
+  window.addEventListener('scroll', () => {
+    if (scrollTimeout) cancelAnimationFrame(scrollTimeout);
+    scrollTimeout = requestAnimationFrame(updateActivePerspective);
+  }, { passive: true });
+  
+  // Initial update
+  updateActivePerspective();
+  
+  console.log('[Detail] Perspective navigation initialized');
   
   // ═══════════════════════════════════════════════════════════════════════════════
   // FIELD SELECTION - Mit Perspektiven-Farben

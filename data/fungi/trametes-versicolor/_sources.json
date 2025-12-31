@@ -87,6 +87,34 @@
         "title": "Safety profile research",
         "url": "https://pubmed.ncbi.nlm.nih.gov/19087769/"
       }
+    ],
+    "psk_krestin": [
+      {
+        "name": "Cynthia A. Wenner, PhD",
+        "title": "Oncology & PSK Immunology Researcher",
+        "url": "https://bastyr.edu/about/news/cancer-researchers-present-turkey-tail-findings-japan",
+        "contact": "Bastyr University - PSK anti-tumor effects"
+      },
+      {
+        "name": "Kureha Corporation (Japan)",
+        "title": "Krestin Pharmaceutical Developer",
+        "url": "https://www.cancer.gov/about-cancer/treatment/cam/hp/mushrooms-pdq",
+        "contact": "PSK approved 1977, 25% of Japan cancer drug expenditure"
+      }
+    ],
+    "cancer_clinical_trials": [
+      {
+        "name": "Bastyr/UW Myco-Immunology Center",
+        "title": "NIH-Funded Oncomycology Research",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2845472/",
+        "contact": "$5.4M NIH grant collaboration"
+      },
+      {
+        "name": "Mark Martzen, PhD",
+        "title": "TLR2 Agonist Researcher",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3017241/",
+        "contact": "PSK TLR-4 dependent mechanism"
+      }
     ]
   }
 }

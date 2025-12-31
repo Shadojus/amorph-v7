@@ -10,5 +10,60 @@
       "url": "https://mushroomobserver.org"
     }
   ],
-  "fields": {}
+  "fields": {
+    "scientific_name": [
+      {
+        "name": "Zhao Y., Wang L. et al.",
+        "title": "Auricularia Genomics Researchers",
+        "url": "http://english.cas.cn/newsroom/news/201903/t20190301_205942.shtml",
+        "contact": "Comparative transcriptome analysis of Auricularia varieties"
+      }
+    ],
+    "anticoagulant_properties": [
+      {
+        "name": "Bian C., Wang Z., Shi J.",
+        "title": "Polysaccharide & Anticoagulant Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7036816/",
+        "contact": "Agriculture and Agri-Food Canada, Guelph Food Research Center (2020)"
+      },
+      {
+        "name": "Yoon et al.",
+        "title": "Anticoagulant Activity Researchers",
+        "url": "https://www.thrombosisresearch.com/article/S0049-3848(03)00550-4/abstract",
+        "contact": "Thrombosis Research (2003) - Antithrombin-mediated activity"
+      }
+    ],
+    "polysaccharides": [
+      {
+        "name": "Miao J., Regenstein J.M., Wang Z.",
+        "title": "Polysaccharide Processing Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9861292/",
+        "contact": "Processing Technology Portfolio (2023)"
+      }
+    ],
+    "traditional_medicine_use": [
+      {
+        "name": "Traditional Chinese Medicine Scholars",
+        "title": "TCM Herbalists & Researchers",
+        "url": "https://www.acupuncturebethesda.com/post/wood-ear-mushrooms",
+        "contact": "Used for millennia to activate blood flow and cleanse blood vessels"
+      }
+    ],
+    "cardiovascular_effects": [
+      {
+        "name": "Suzhou Institute Research Team",
+        "title": "Biomedical Engineering Researchers",
+        "url": "http://english.cas.cn/newsroom/news/201903/t20190301_205942.shtml",
+        "contact": "Suzhou Institute of Biomedical Engineering & Technology + Oxford University"
+      }
+    ],
+    "substrate_specificity": [
+      {
+        "name": "Michael Wood",
+        "title": "Ecology & Substrate Expert",
+        "url": "https://www.mykoweb.com",
+        "contact": "Elder (Sambucus) substrate specialist"
+      }
+    ]
+  }
 }

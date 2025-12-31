@@ -11,5 +11,114 @@
       "notes": "Variante 2"
     }
   ],
-  "fields": {}
+  "fields": {
+    "bioactive_compounds": [
+      {
+        "name": "Comprehensive Review Consortium 2024",
+        "title": "Nutritional, Nutraceutical & Medicinal Potential Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11717058/",
+        "contact": "Flavonoids, phenolics, sterols, carotenoids, β-glucans, lectins, selenoproteins (Dec 2024)"
+      },
+      {
+        "name": "Nigerian Mushroom Bioactivity Research Team",
+        "title": "Antioxidant & Antimicrobial Researchers",
+        "url": "https://www.semanticscholar.org/paper/Antioxidant-,-antimicrobial-and-phytochemical-of-of-Aina-Jonathan/3d681450c58c028caebcab3ff98d0d497a7201bf",
+        "contact": "Caffeic acid & catechin: greatest antioxidant activities"
+      }
+    ],
+    "antibacterial_activity": [
+      {
+        "name": "Methanolic Extract Antimicrobial Team",
+        "title": "Multi-Pathogen Researchers",
+        "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/fsn3.4641",
+        "contact": "Active vs B. subtilis, S. aureus, E. coli, P. aeruginosa, C. albicans, H. pylori"
+      },
+      {
+        "name": "H. pylori Resistance Research Team",
+        "title": "Antibiotic-Resistant Strain Researchers",
+        "url": "https://www.bio-conferences.org/articles/bioconf/full_html/2019/05/bioconf_rpgrs2019_00039/bioconf_rpgrs2019_00039.html",
+        "contact": "All extracts active against antibiotic resistant H. pylori strains"
+      }
+    ],
+    "nutrition_type": [
+      {
+        "name": "Ectomycorrhiza Formation Research Team",
+        "title": "In Vitro Mycorrhization Researchers",
+        "url": "https://link.springer.com/article/10.1007/BF00202339",
+        "contact": "Moore, Jansen, van Griensven: first in vitro ectomycorrhization (1989)"
+      },
+      {
+        "name": "Cantharellaceae Phylogeny Research Team",
+        "title": "Ancestral Ectomycorrhizal Clade Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10043572/",
+        "contact": "Cantharellaceae among most ancestral clades of ectomycorrhizal basidiomycetous fungi (2023)"
+      },
+      {
+        "name": "Bacterial Association Research Team",
+        "title": "Symbiotic Pattern & Assembly Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9978014/",
+        "contact": "C. cibarius incapable of artificial cultivation due to bacterial presence (2023)"
+      }
+    ],
+    "cultivation_attempts": [
+      {
+        "name": "Greenhouse Fruiting Research Team",
+        "title": "Mycorrhizal Seedling Cultivation Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10043572/",
+        "contact": "Pure culture 1990s, successful fruiting from mycorrhizal seedlings in greenhouse"
+      },
+      {
+        "name": "Mycelial Growth Requirements Team",
+        "title": "In Vitro Culture Optimization Researchers",
+        "url": "https://link.springer.com/article/10.1007/s00203-020-02142-0",
+        "contact": "Modified Fries medium, 5mM succinate/25mM-MES buffer, pH 5.5, 20°C optimal (2020)"
+      }
+    ],
+    "smell_description": [
+      {
+        "name": "Aroma Compound Research Team",
+        "title": "3-Octanone & Apricot Aroma Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11717058/",
+        "contact": "Octanal, (E)-2-octenal, 3-octanone, (E)-2-octen-1-ol: apricot-like aroma (2024)"
+      },
+      {
+        "name": "Flavor Profile Research Team",
+        "title": "Molecular Sensory Science Researchers",
+        "url": "https://khymos.org/2008/11/04/tgrwt-12-chanterelle-and-apricot/",
+        "contact": "1-octen-3-one (OAV=55) & hexanal (OAV=15): shared with apricots"
+      }
+    ],
+    "edibility_rating": [
+      {
+        "name": "Global Economic Value Research Team",
+        "title": "Edible Mycorrhizal Mushroom Market Researchers",
+        "url": "https://botit.botany.wisc.edu/toms_fungi/july97.html",
+        "contact": "200,000 metric tons, $1.25-1.4 billion wholesale value annually, highest among ectomycorrhizal"
+      }
+    ],
+    "confusion_species_list": [
+      {
+        "name": "Omphalotus olearius Safety Research Team",
+        "title": "Jack O'Lantern Toxicity Researchers",
+        "url": "https://en.wikipedia.org/wiki/Cantharellus_cibarius",
+        "contact": "Poisonous look-alike: true gills instead of ridges, grows on wood"
+      }
+    ],
+    "substrate_species": [
+      {
+        "name": "Pine & Spruce Mycorrhiza Research Team",
+        "title": "Ectomycorrhizal Synthesis Researchers",
+        "url": "https://pbsociety.org.pl/journals/index.php/am/article/view/am.1996.013",
+        "contact": "Pachlewski: C. cibarius mycorrhizal fungus of pine & spruce (1996)"
+      }
+    ],
+    "key_differentiating_features": [
+      {
+        "name": "Forked Ridges Morphology Research Team",
+        "title": "Taxonomic Identification Researchers",
+        "url": "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/cantharellus-cibarius",
+        "contact": "Forked ridges (not true gills), decurrent, cross-connected, egg-yolk yellow"
+      }
+    ]
+  }
 }
