@@ -2185,48 +2185,43 @@
 
 /* ═══════════════════════════════════════════════════════════════════════════════
    COMPACT VIEW - Gallery für Spezies-Selektion
+   Größere Karten mit Description
    ═══════════════════════════════════════════════════════════════════════════════ */
 .amorph-grid.view-compact {
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
+  gap: 0.75rem;
   padding: 0 0.5rem;
 }
 
-@media (min-width: 360px) {
+@media (min-width: 480px) {
   .amorph-grid.view-compact {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
   }
 }
 
-@media (min-width: 480px) {
+@media (min-width: 640px) {
+  .amorph-grid.view-compact {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+@media (min-width: 900px) {
   .amorph-grid.view-compact {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (min-width: 520px) {
+@media (min-width: 1200px) {
   .amorph-grid.view-compact {
     grid-template-columns: repeat(5, 1fr);
-    gap: 0.5rem;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1600px) {
   .amorph-grid.view-compact {
     grid-template-columns: repeat(6, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .amorph-grid.view-compact {
-    grid-template-columns: repeat(8, 1fr);
-  }
-}
-
-@media (min-width: 1400px) {
-  .amorph-grid.view-compact {
-    grid-template-columns: repeat(10, 1fr);
   }
 }
 
@@ -2341,9 +2336,37 @@
   display: none;
 }
 
-/* Hide body/fields in compact view */
+/* Show only description field in compact view */
 .amorph-grid.view-compact .item-body {
+  display: block;
+  padding: 0.5rem;
+  max-height: 4.5rem;
+  overflow: hidden;
+}
+
+/* Hide all fields except description */
+.amorph-grid.view-compact .item-body .amorph-field {
   display: none;
+}
+
+/* Show description field */
+.amorph-grid.view-compact .item-body .amorph-field[data-field="description"] {
+  display: block;
+}
+
+/* Style description as simple text */
+.amorph-grid.view-compact .item-body .amorph-field[data-field="description"] .field-label {
+  display: none;
+}
+
+.amorph-grid.view-compact .item-body .amorph-field[data-field="description"] .field-value {
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.65);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 /* Species-select button hidden - whole card is now clickable in compact view */

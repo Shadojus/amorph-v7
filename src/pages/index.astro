@@ -44,6 +44,11 @@ await loadConfig();
  */
 const HIGH_VALUE_FIELDS = [
   // ═══════════════════════════════════════════════════════════════════════════
+  // 📝 DESCRIPTION - Immer zeigen für Compact View
+  // ═══════════════════════════════════════════════════════════════════════════
+  'description',                  // Kurzbeschreibung der Art
+  
+  // ═══════════════════════════════════════════════════════════════════════════
   // 🌟 TIER 1: WOW-FAKTOR - Was User fasziniert & überrascht
   // ═══════════════════════════════════════════════════════════════════════════
   'special_feature',              // ⭐ DAS Besondere an dieser Art
@@ -314,8 +319,11 @@ const gridContext: RenderContext = {
     // Track selected species
     const selectedSpecies = new Set<string>();
     
+    // Storage key - MUST match app.ts
+    const SPECIES_STORAGE_KEY = 'amorph:selected-species';
+    
     // Load previously selected species from localStorage
-    const savedSpecies = localStorage.getItem('amorph-selected-species');
+    const savedSpecies = localStorage.getItem(SPECIES_STORAGE_KEY);
     if (savedSpecies) {
       try {
         const parsed = JSON.parse(savedSpecies);
@@ -329,8 +337,42 @@ const gridContext: RenderContext = {
     }
     
     function saveSelectedSpecies() {
-      localStorage.setItem('amorph-selected-species', JSON.stringify([...selectedSpecies]));
+      localStorage.setItem(SPECIES_STORAGE_KEY, JSON.stringify([...selectedSpecies]));
     }
+    
+    // Sync selectedSpecies Set when localStorage changes (from pill removal)
+    function syncFromStorage() {
+      const stored = localStorage.getItem(SPECIES_STORAGE_KEY);
+      selectedSpecies.clear();
+      if (stored) {
+        try {
+          const parsed = JSON.parse(stored);
+          parsed.forEach((slug: string) => selectedSpecies.add(slug));
+        } catch (e) {}
+      }
+      // Update UI
+      document.querySelectorAll('.amorph-item').forEach(item => {
+        const slug = (item as HTMLElement).dataset.slug || '';
+        item.classList.toggle('species-selected', selectedSpecies.has(slug));
+      });
+    }
+    
+    // Listen for storage changes from other scripts
+    window.addEventListener('storage', (e) => {
+      if (e.key === SPECIES_STORAGE_KEY) {
+        syncFromStorage();
+      }
+    });
+    
+    // Also listen for custom event from app.ts pill removal
+    window.addEventListener('species-deselected', (e: Event) => {
+      const slug = (e as CustomEvent).detail?.slug;
+      if (slug) {
+        selectedSpecies.delete(slug);
+        const item = document.querySelector(`.amorph-item[data-slug="${slug}"]`);
+        item?.classList.remove('species-selected');
+      }
+    });
     
     // Lädt ALLE Felder einer Spezies via API
     async function selectSpeciesFields(item: HTMLElement, slug: string, name: string) {

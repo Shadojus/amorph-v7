@@ -129,7 +129,7 @@ export interface ItemData {
   _perspectives?: Record<string, unknown>;
   /** Kingdom */
   _kingdom?: string;
-  /** Quellenangaben pro Feld (Bifroest System) */
+  /** GOATn pro Feld (Bifroest System) */
   _sources?: FieldSourceMap;
   [key: string]: unknown;
 }

@@ -94,7 +94,7 @@ function createPopupContainer(): void {
       <div class="bifroest-popup-header">
         <div class="bifroest-popup-title">
           <span class="bifroest-symbol">©</span>
-          <span>Quellenangabe</span>
+          <span>GOAT</span>
         </div>
         <button class="bifroest-popup-close" aria-label="Schließen">✕</button>
       </div>
@@ -133,7 +133,7 @@ function showPopup(sources: FieldSource[], type: 'copyright' | 'expert' = 'copyr
   if (titleElement) {
     titleElement.innerHTML = `
       <span class="bifroest-symbol">©</span>
-      <span>Quellenangabe</span>
+      <span>GOAT</span>
     `;
   }
   
@@ -268,7 +268,7 @@ function showExpertPopup(expert: Expert): void {
   if (titleElement) {
     titleElement.innerHTML = `
       <span class="bifroest-symbol">🎓</span>
-      <span>Bifröst Experte</span>
+      <span>GOAT</span>
     `;
   }
   

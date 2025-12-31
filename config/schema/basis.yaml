@@ -22,7 +22,7 @@ meta:
 # Dies gilt für: Felder, Perspektiven, Semantik-Regeln, etc.
 
 schema_attribute:
-  # Citation - Quellenangabe für diesen Schema-Eintrag
+  # Citation - GOAT für diesen Schema-Eintrag
   citation:
     beschreibung: "Woher stammen die Daten für dieses Feld/diese Definition?"
     felder:

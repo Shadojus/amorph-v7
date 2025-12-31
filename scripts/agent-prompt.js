@@ -131,7 +131,7 @@ ${topFields.map(f => `- \`${f.name}\` (Morph: ${f.morph})`).join('\n')}
    - \`range\`: Objekt {"min": 0, "max": 100, "unit": "cm"}
    - \`bar\`: Array [{"label": "A", "value": 50}, {"label": "B", "value": 30}]
 
-2. **Quellenangabe erforderlich:**
+2. **GOAT erforderlich:**
    \`\`\`json
    "_source": {
      "references": ["URL1", "URL2"],

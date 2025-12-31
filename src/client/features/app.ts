@@ -215,31 +215,14 @@ function initBottomNav(): void {
     updateBottomNavState();
   });
   
-  // Badge update function - shows SPECIES count, not field count
+  // Badge update function - shows FIELD count (Datensätze), not species count
   const updateBadge = () => {
-    // Get species count from localStorage (set by compact view)
-    const storedSpecies = localStorage.getItem('amorph:selected-species');
-    let speciesCount = 0;
-    if (storedSpecies) {
-      try {
-        const species = JSON.parse(storedSpecies);
-        speciesCount = Array.isArray(species) ? species.length : 0;
-      } catch (e) {
-        speciesCount = 0;
-      }
-    }
-    
-    // Also count unique species from field selection (grid view)
-    const fieldItems = new Set<string>();
-    const fields = getSelectedFields();
-    fields.forEach(f => fieldItems.add(f.itemSlug));
-    
-    // Total unique species
-    const totalSpecies = Math.max(speciesCount, fieldItems.size);
+    // Count total selected fields (Datensätze)
+    const fieldCount = getSelectedFieldCount();
     
     if (badge) {
-      badge.textContent = String(totalSpecies);
-      badge.classList.toggle('has-items', totalSpecies > 0);
+      badge.textContent = String(fieldCount);
+      badge.classList.toggle('has-items', fieldCount > 0);
     }
   };
   
@@ -452,6 +435,9 @@ function initSelectionBar(): void {
                   const speciesArray = JSON.parse(storedSpecies);
                   const filtered = speciesArray.filter((s: string) => s !== slug);
                   localStorage.setItem('amorph:selected-species', JSON.stringify(filtered));
+                  
+                  // Dispatch custom event to sync index.astro
+                  window.dispatchEvent(new CustomEvent('species-deselected', { detail: { slug } }));
                 } catch (e) { /* ignore */ }
               }
             }

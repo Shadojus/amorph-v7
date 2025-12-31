@@ -157,10 +157,10 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
           _perspectives: {},
           _loadedPerspectives: [] as string[],
           _fieldPerspective: {} as Record<string, string>,
-          _sources: {}  // Bifroest: Quellenangaben pro Feld
+          _sources: {}  // Bifroest: GOATn pro Feld
         };
         
-        // Lade Quellenangaben (_sources.json) für Bifroest-System
+        // Lade GOATn (_sources.json) für Bifroest-System
         const sourcesPath = join(speciesPath, '_sources.json');
         const sourcesResult = safeReadJson<Record<string, unknown[]>>(sourcesPath);
         if (sourcesResult.data) {
@@ -242,7 +242,7 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
               _fieldPerspective: {} as Record<string, string>
             };
             
-            // Lade Quellenangaben (_sources.json) für Bifroest-System
+            // Lade GOATn (_sources.json) für Bifroest-System
             const sourcesPath = join(speciesPath, '_sources.json');
             const sourcesResult = safeReadJson<Record<string, unknown[]>>(sourcesPath);
             if (sourcesResult.data) {
