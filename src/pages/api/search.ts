@@ -169,6 +169,24 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
         }
       }
       const fieldPerspectiveJson = JSON.stringify(fieldPerspectiveMap);
+      
+      // Build perspective counts for compact view filtering
+      const perspectiveCounts: Record<string, number> = {};
+      for (const perspName of Object.values(fieldPerspectiveMap)) {
+        perspectiveCounts[perspName] = (perspectiveCounts[perspName] || 0) + 1;
+      }
+      const perspectiveCountsJson = JSON.stringify(perspectiveCounts);
+      
+      // Dominant perspective (most fields)
+      let dominantPerspective = '';
+      let maxFields = 0;
+      for (const [perspName, count] of Object.entries(perspectiveCounts)) {
+        if (count > maxFields) {
+          maxFields = count;
+          dominantPerspective = perspName;
+        }
+      }
+      const perspectiveStrength = Math.min(maxFields / 5, 1).toFixed(2);
 
       // Build image URL correctly (same logic as index.astro)
       const kingdom = SITE_META[getSiteType()].dataFolder;
@@ -192,7 +210,7 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
       const fieldExperts = (itemSources as any).fields || {};
 
       return `
-        <article class="amorph-item" data-slug="${escapeAttribute(item.slug)}" data-id="${escapeAttribute(item.id)}" data-name="${escapeAttribute(item.name)}" data-field-perspectives="${escapeAttribute(fieldPerspectiveJson)}" data-field-experts="${escapeAttribute(JSON.stringify(fieldExperts))}">
+        <article class="amorph-item" data-slug="${escapeAttribute(item.slug)}" data-id="${escapeAttribute(item.id)}" data-name="${escapeAttribute(item.name)}" data-field-perspectives="${escapeAttribute(fieldPerspectiveJson)}" data-field-experts="${escapeAttribute(JSON.stringify(fieldExperts))}" data-perspective-counts="${escapeAttribute(perspectiveCountsJson)}" data-perspective="${escapeAttribute(dominantPerspective)}" data-perspective-strength="${perspectiveStrength}">
           <div class="item-header">
             ${imageUrl ? `<div class="item-image"><img src="${escapeAttribute(imageUrl)}" alt="${escapeAttribute(item.name)}" loading="lazy" decoding="async" />${imageSource ? `<button type="button" class="bifroest-copyright" data-sources="${escapeAttribute(imageSourcesJson)}"><span class="bifroest-symbol">©</span><span class="bifroest-name">${escapeHtml(imageSource.name || imageSource.author || '')}</span></button>` : ''}</div>` : ''}
             <div class="item-title-row">

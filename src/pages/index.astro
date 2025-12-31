@@ -284,7 +284,6 @@ const gridContext: RenderContext = {
     // Filter elements
     const compactFilters = document.querySelector<HTMLElement>('.compact-filters');
     const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-    const heroCheckbox = document.querySelector<HTMLInputElement>('.filter-checkbox[data-filter="hero"]');
     
     function setView(view: string): void {
       if (!grid) return;
@@ -303,16 +302,16 @@ const gridContext: RenderContext = {
         (searchResultInfo as HTMLElement).style.display = view === 'compact' ? 'none' : '';
       }
       
-      // Hide search navigation in compact view
+      // Hide search navigation in compact view (use class for CSS specificity)
       const searchNav = document.querySelector('.search-nav');
       if (searchNav) {
-        (searchNav as HTMLElement).style.display = view === 'compact' ? 'none !important' : '';
+        searchNav.classList.toggle('compact-hidden', view === 'compact');
       }
       
-      // Hide active perspectives pills in compact view
+      // Hide active perspectives pills in compact view (use class for CSS specificity)
       const activePerspectives = document.querySelector('.active-perspectives');
       if (activePerspectives) {
-        (activePerspectives as HTMLElement).style.display = view === 'compact' ? 'none' : '';
+        activePerspectives.classList.toggle('compact-hidden', view === 'compact');
       }
       
       // Show/hide compact filters
@@ -325,43 +324,69 @@ const gridContext: RenderContext = {
     }
     
     // ═══════════════════════════════════════════════════════════════════════════
-    // FILTER LOGIC - Perspektiven, Clustering, Hero Mode
+    // FILTER LOGIC - Perspektiven Multi-Select mit AND/OR
+    // FIFO Prinzip (max 4 Perspektiven gleichzeitig)
     // ═══════════════════════════════════════════════════════════════════════════
-    let currentPerspectiveFilter = 'all';
+    let activePerspectiveFilters: string[] = []; // FIFO Queue, max 4
+    const MAX_PERSPECTIVES = 4;
+    let filterMode: 'or' | 'and' = 'or'; // Default: OR (mindestens eine Perspektive)
     let currentCluster = 'default';
-    let heroModeEnabled = true;
     
     // Perspektiven-Reihenfolge für Clustering
-    const perspectiveOrder = ['culinary', 'medicine', 'safety', 'ecology', 'cultivation', 'chemistry', 'culture', 'research', 'identification'];
+    const perspectiveOrder = ['culinary', 'medicine', 'safety', 'ecology', 'cultivation', 'chemistry', 'statistics', 'geography', 'temporal', 'economy', 'conservation', 'culture', 'research', 'interactions', 'identification'];
+    
+    // Perspektiven-Farben für Sortierungs-Divider (von Server übernommen)
+    const perspColors = (window as any).AMORPH_PERSPECTIVE_COLORS || {};
     
     function applyFilters(): void {
       if (!grid) return;
       
       const items = grid.querySelectorAll<HTMLElement>('.amorph-item');
       
-      // Perspektiven Filter
+      // Perspektiven Filter (Multi-Select mit AND/OR)
       items.forEach(item => {
         const perspectiveCounts = JSON.parse(item.dataset.perspectiveCounts || '{}');
-        const hasPerspective = currentPerspectiveFilter === 'all' || 
-                               (perspectiveCounts[currentPerspectiveFilter] && perspectiveCounts[currentPerspectiveFilter] > 0);
         
-        if (currentPerspectiveFilter === 'all') {
+        // Keine Filter aktiv = alle zeigen
+        if (activePerspectiveFilters.length === 0) {
           item.style.display = '';
           item.style.opacity = '1';
-        } else if (hasPerspective) {
+          return;
+        }
+        
+        // Prüfe Matches je nach Modus
+        let matchCount = 0;
+        let totalMatchingFields = 0;
+        for (const persp of activePerspectiveFilters) {
+          const count = perspectiveCounts[persp] || 0;
+          if (count > 0) {
+            matchCount++;
+            totalMatchingFields += count;
+          }
+        }
+        
+        const passesFilter = filterMode === 'or' 
+          ? matchCount > 0  // OR: mindestens eine Perspektive
+          : matchCount === activePerspectiveFilters.length; // AND: alle Perspektiven
+        
+        if (passesFilter) {
           item.style.display = '';
-          // Stärke basierend auf Feldanzahl in dieser Perspektive
-          const fieldCount = perspectiveCounts[currentPerspectiveFilter] || 0;
-          const opacity = Math.min(0.4 + (fieldCount / 8) * 0.6, 1);
+          // Stärke basierend auf Matches und Feldanzahl
+          const matchRatio = matchCount / activePerspectiveFilters.length;
+          const fieldBonus = Math.min(totalMatchingFields / 15, 0.3);
+          const opacity = Math.min(0.6 + matchRatio * 0.3 + fieldBonus, 1);
           item.style.opacity = String(opacity);
         } else {
-          // Keine Daten in dieser Perspektive → stark dimmen
+          // Keine/unvollständige Matches → stark dimmen
           item.style.display = '';
-          item.style.opacity = '0.15';
+          item.style.opacity = '0.12';
         }
       });
       
       // Clustering (Sortierung)
+      // Entferne alte Perspektiven-Divider
+      grid.querySelectorAll('.perspective-divider').forEach(d => d.remove());
+      
       if (currentCluster !== 'default') {
         const itemsArray = Array.from(items);
         
@@ -372,16 +397,28 @@ const gridContext: RenderContext = {
             return nameA.localeCompare(nameB);
           });
         } else if (currentCluster === 'perspective') {
-          // Nach dominanter Perspektive gruppieren
+          // Nach Perspektive sortieren - aktive Perspektiven zuerst!
           itemsArray.sort((a, b) => {
             const perspA = a.dataset.perspective || 'zzz';
             const perspB = b.dataset.perspective || 'zzz';
+            const countsA = JSON.parse(a.dataset.perspectiveCounts || '{}');
+            const countsB = JSON.parse(b.dataset.perspectiveCounts || '{}');
+            
+            // Aktive Filter-Perspektiven haben Priorität
+            const aHasActive = activePerspectiveFilters.some(p => countsA[p] > 0);
+            const bHasActive = activePerspectiveFilters.some(p => countsB[p] > 0);
+            
+            if (aHasActive !== bHasActive) {
+              return aHasActive ? -1 : 1; // Items mit aktiver Perspektive zuerst
+            }
+            
+            // Dann nach dominanter Perspektive
             const indexA = perspectiveOrder.indexOf(perspA);
             const indexB = perspectiveOrder.indexOf(perspB);
-            // Sortiere nach Perspektiv-Reihenfolge, dann nach Stärke
             if (indexA !== indexB) {
               return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
             }
+            
             // Bei gleicher Perspektive: Stärkere zuerst
             const strengthA = parseFloat(a.dataset.perspectiveStrength || '0');
             const strengthB = parseFloat(b.dataset.perspectiveStrength || '0');
@@ -389,12 +426,46 @@ const gridContext: RenderContext = {
           });
         }
         
-        // Re-append in sorted order
+        // Erst alle Items in sortierter Reihenfolge anhängen
         itemsArray.forEach(item => grid.appendChild(item));
+        
+        // DANN Perspektiven-Divider einfügen (nur bei perspective-Sortierung)
+        if (currentCluster === 'perspective') {
+          let lastPersp = '';
+          itemsArray.forEach(item => {
+            const persp = item.dataset.perspective || '';
+            if (persp && persp !== lastPersp) {
+              const divider = document.createElement('div');
+              divider.className = 'perspective-divider';
+              divider.dataset.perspective = persp;
+              
+              // Farbe aus perspColors extrahieren
+              const colorArr = perspColors[persp];
+              if (colorArr && colorArr[0]) {
+                // rgba(180, 140, 120, 0.2) → rgba(180, 140, 120, 0.7) für sichtbarere Farbe
+                const solidColor = colorArr[0].replace('0.2)', '0.7)');
+                divider.style.setProperty('--persp-color', solidColor);
+              }
+              
+              // Deutsche Übersetzung der Perspektiven
+              const perspNames: Record<string, string> = {
+                culinary: 'Kulinarisch', medicine: 'Medizin', safety: 'Sicherheit',
+                ecology: 'Ökologie', cultivation: 'Anbau', chemistry: 'Chemie',
+                statistics: 'Statistik', geography: 'Geografie', temporal: 'Zeitlich',
+                economy: 'Wirtschaft', conservation: 'Naturschutz', culture: 'Kultur',
+                research: 'Forschung', interactions: 'Interaktionen', identification: 'Bestimmung'
+              };
+              const perspLabel = perspNames[persp] || persp.charAt(0).toUpperCase() + persp.slice(1);
+              
+              divider.innerHTML = `<span class="perspective-divider-line"></span><span class="perspective-divider-label">${perspLabel}</span><span class="perspective-divider-line"></span>`;
+              
+              // Divider VOR dem Item einfügen
+              item.parentNode?.insertBefore(divider, item);
+              lastPersp = persp;
+            }
+          });
+        }
       }
-      
-      // Hero Mode
-      grid.classList.toggle('hero-disabled', !heroModeEnabled);
     }
     
     // Filter button click handlers
@@ -404,30 +475,100 @@ const gridContext: RenderContext = {
         const value = btn.dataset.value || '';
         
         if (filterType === 'perspective') {
-          currentPerspectiveFilter = value;
-          // Update active state for perspective buttons
+          if (value === 'all') {
+            // "Alle" button = clear all filters
+            activePerspectiveFilters = [];
+          } else {
+            const idx = activePerspectiveFilters.indexOf(value);
+            if (idx !== -1) {
+              // Already active → remove (toggle off)
+              activePerspectiveFilters.splice(idx, 1);
+            } else {
+              // Not active → add with FIFO
+              activePerspectiveFilters.push(value);
+              // FIFO: Remove oldest if over limit
+              if (activePerspectiveFilters.length > MAX_PERSPECTIVES) {
+                activePerspectiveFilters.shift();
+              }
+            }
+          }
+          // Update button states
           document.querySelectorAll('.filter-btn[data-filter="perspective"]').forEach(b => {
-            b.classList.toggle('is-active', b.getAttribute('data-value') === value);
+            const btnValue = b.getAttribute('data-value') || '';
+            if (btnValue === 'all') {
+              b.classList.toggle('is-active', activePerspectiveFilters.length === 0);
+            } else {
+              b.classList.toggle('is-active', activePerspectiveFilters.includes(btnValue));
+            }
           });
+          // Update button colors
+          updatePerspectiveButtonColors();
+          // Show/hide AND/OR toggle based on filter count
+          const modeToggle = document.querySelector('.filter-mode-toggle') as HTMLElement;
+          if (modeToggle) {
+            modeToggle.style.display = activePerspectiveFilters.length >= 2 ? 'flex' : 'none';
+          }
         } else if (filterType === 'cluster') {
           currentCluster = value;
           // Update active state for cluster buttons
           document.querySelectorAll('.filter-btn[data-filter="cluster"]').forEach(b => {
             b.classList.toggle('is-active', b.getAttribute('data-value') === value);
           });
+        } else if (filterType === 'mode') {
+          // AND/OR Toggle
+          filterMode = filterMode === 'or' ? 'and' : 'or';
+          const modeBtn = document.querySelector('.filter-mode-btn') as HTMLElement;
+          if (modeBtn) {
+            modeBtn.textContent = filterMode.toUpperCase();
+            modeBtn.classList.toggle('is-and', filterMode === 'and');
+          }
         }
+        
+        // Update filter count display
+        updateFilterCount();
         
         applyFilters();
       });
     });
     
-    // Hero mode toggle
-    if (heroCheckbox) {
-      heroCheckbox.addEventListener('change', () => {
-        heroModeEnabled = heroCheckbox.checked;
-        applyFilters();
+    // Filter collapse/expand toggle
+    const filterToggle = document.querySelector('.filter-header-toggle');
+    const filterContent = document.querySelector('.filter-content');
+    if (filterToggle && filterContent) {
+      filterToggle.addEventListener('click', () => {
+        const isExpanded = filterToggle.getAttribute('aria-expanded') === 'true';
+        filterToggle.setAttribute('aria-expanded', String(!isExpanded));
+        filterContent.classList.toggle('is-collapsed', isExpanded);
       });
     }
+    
+    // Update filter count in header
+    function updateFilterCount(): void {
+      const countEl = document.querySelector('.filter-header-count');
+      if (countEl) {
+        if (activePerspectiveFilters.length > 0) {
+          countEl.textContent = `(${activePerspectiveFilters.length})`;
+        } else {
+          countEl.textContent = '';
+        }
+      }
+    }
+    
+    // Apply perspective colors to active buttons
+    function updatePerspectiveButtonColors(): void {
+      document.querySelectorAll('.filter-btn[data-filter="perspective"]').forEach(btn => {
+        const color = btn.getAttribute('data-color');
+        const isActive = btn.classList.contains('is-active');
+        if (color && isActive && btn.getAttribute('data-value') !== 'all') {
+          (btn as HTMLElement).style.setProperty('--btn-active-color', color);
+        } else {
+          (btn as HTMLElement).style.removeProperty('--btn-active-color');
+        }
+      });
+    }
+    
+    // Initial color update
+    updatePerspectiveButtonColors();
     
     // Initialize with saved view
     setView(savedView);
@@ -579,80 +720,98 @@ const gridContext: RenderContext = {
       
       <!-- ═══════════════════════════════════════════════════════════════════════
            COMPACT VIEW FILTER - Perspektiven & Clustering Controls
-           Nur sichtbar im Compact View
+           Nur sichtbar im Compact View - Collapsible
            ═══════════════════════════════════════════════════════════════════════ -->
       <div class="compact-filters" style="display: none;">
-        <div class="filter-group filter-perspective">
-          <span class="filter-label">Perspektive</span>
-          <button type="button" class="filter-btn is-active" data-filter="perspective" data-value="all" title="Alle anzeigen">
-            <span class="filter-icon">✨</span>
-            <span class="filter-text">Alle</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="perspective" data-value="culinary" title="Kulinarische Daten">
-            <span class="filter-icon">🍳</span>
-            <span class="filter-text">Kulinarisch</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="perspective" data-value="medicine" title="Medizinische Daten">
-            <span class="filter-icon">💊</span>
-            <span class="filter-text">Medizin</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="perspective" data-value="safety" title="Sicherheitsdaten">
-            <span class="filter-icon">⚠️</span>
-            <span class="filter-text">Sicherheit</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="perspective" data-value="ecology" title="Ökologische Daten">
-            <span class="filter-icon">🌿</span>
-            <span class="filter-text">Ökologie</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="perspective" data-value="cultivation" title="Anbau-Daten">
-            <span class="filter-icon">🌱</span>
-            <span class="filter-text">Anbau</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="perspective" data-value="chemistry" title="Chemische Zusammensetzung">
-            <span class="filter-icon">⚗️</span>
-            <span class="filter-text">Chemie</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="perspective" data-value="statistics" title="Statistische Daten">
-            <span class="filter-icon">📊</span>
-            <span class="filter-text">Statistik</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="perspective" data-value="geography" title="Geografische Verbreitung">
-            <span class="filter-icon">🗺️</span>
-            <span class="filter-text">Geografie</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="perspective" data-value="temporal" title="Zeitliche Daten">
-            <span class="filter-icon">📅</span>
-            <span class="filter-text">Zeitlich</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="perspective" data-value="economy" title="Wirtschaftliche Daten">
-            <span class="filter-icon">💰</span>
-            <span class="filter-text">Wirtschaft</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="perspective" data-value="conservation" title="Naturschutz">
-            <span class="filter-icon">🛡️</span>
-            <span class="filter-text">Naturschutz</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="perspective" data-value="culture" title="Kulturelle Bedeutung">
-            <span class="filter-icon">🎭</span>
-            <span class="filter-text">Kultur</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="perspective" data-value="research" title="Forschungsdaten">
-            <span class="filter-icon">🔬</span>
-            <span class="filter-text">Forschung</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="perspective" data-value="interactions" title="Interaktionen">
-            <span class="filter-icon">🔗</span>
-            <span class="filter-text">Interaktionen</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="perspective" data-value="identification" title="Bestimmungsmerkmale">
-            <span class="filter-icon">🔍</span>
-            <span class="filter-text">Bestimmung</span>
-          </button>
-        </div>
+        <!-- Filter Header mit Toggle -->
+        <button type="button" class="filter-header-toggle" aria-expanded="true">
+          <span class="filter-header-label">Filter</span>
+          <span class="filter-header-count"></span>
+          <svg class="filter-header-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
         
-        <div class="filter-group filter-cluster">
-          <span class="filter-label">Sortierung</span>
-          <button type="button" class="filter-btn is-active" data-filter="cluster" data-value="default" title="Standard-Reihenfolge">
+        <div class="filter-content">
+          <div class="filter-group filter-perspective">
+            <span class="filter-label">Perspektive</span>
+            <button type="button" class="filter-btn is-active" data-filter="perspective" data-value="all" title="Alle anzeigen">
+              <span class="filter-icon">✨</span>
+              <span class="filter-text">Alle</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="perspective" data-value="culinary" data-color="rgba(180, 140, 120, 0.6)" title="Kulinarische Daten">
+              <span class="filter-icon">🍳</span>
+              <span class="filter-text">Kulinarisch</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="perspective" data-value="medicine" data-color="rgba(150, 140, 170, 0.6)" title="Medizinische Daten">
+              <span class="filter-icon">💊</span>
+              <span class="filter-text">Medizin</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="perspective" data-value="safety" data-color="rgba(170, 130, 140, 0.6)" title="Sicherheitsdaten">
+              <span class="filter-icon">⚠️</span>
+              <span class="filter-text">Sicherheit</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="perspective" data-value="ecology" data-color="rgba(130, 150, 120, 0.6)" title="Ökologische Daten">
+              <span class="filter-icon">🌿</span>
+              <span class="filter-text">Ökologie</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="perspective" data-value="cultivation" data-color="rgba(120, 150, 130, 0.6)" title="Anbau-Daten">
+              <span class="filter-icon">🌱</span>
+              <span class="filter-text">Anbau</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="perspective" data-value="chemistry" data-color="rgba(160, 140, 160, 0.6)" title="Chemische Zusammensetzung">
+              <span class="filter-icon">⚗️</span>
+              <span class="filter-text">Chemie</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="perspective" data-value="statistics" data-color="rgba(165, 155, 140, 0.6)" title="Statistische Daten">
+              <span class="filter-icon">📊</span>
+              <span class="filter-text">Statistik</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="perspective" data-value="geography" data-color="rgba(160, 135, 120, 0.6)" title="Geografische Verbreitung">
+              <span class="filter-icon">🗺️</span>
+              <span class="filter-text">Geografie</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="perspective" data-value="temporal" data-color="rgba(170, 160, 130, 0.6)" title="Zeitliche Daten">
+              <span class="filter-icon">📅</span>
+              <span class="filter-text">Zeitlich</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="perspective" data-value="economy" data-color="rgba(165, 150, 115, 0.6)" title="Wirtschaftliche Daten">
+              <span class="filter-icon">💰</span>
+              <span class="filter-text">Wirtschaft</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="perspective" data-value="conservation" data-color="rgba(115, 150, 145, 0.6)" title="Naturschutz">
+              <span class="filter-icon">🛡️</span>
+              <span class="filter-text">Naturschutz</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="perspective" data-value="culture" data-color="rgba(155, 140, 160, 0.6)" title="Kulturelle Bedeutung">
+              <span class="filter-icon">🎭</span>
+              <span class="filter-text">Kultur</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="perspective" data-value="research" data-color="rgba(140, 145, 160, 0.6)" title="Forschungsdaten">
+              <span class="filter-icon">🔬</span>
+              <span class="filter-text">Forschung</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="perspective" data-value="interactions" data-color="rgba(175, 145, 135, 0.6)" title="Interaktionen">
+              <span class="filter-icon">🔗</span>
+              <span class="filter-text">Interaktionen</span>
+            </button>
+            <button type="button" class="filter-btn" data-filter="perspective" data-value="identification" data-color="rgba(145, 155, 125, 0.6)" title="Bestimmungsmerkmale">
+              <span class="filter-icon">🔍</span>
+              <span class="filter-text">Bestimmung</span>
+            </button>
+          </div>
+          
+          <!-- AND/OR Mode Toggle (nur sichtbar bei 2+ aktiven Perspektiven) -->
+          <div class="filter-group filter-mode-toggle" style="display: none;">
+            <span class="filter-label">Modus</span>
+            <button type="button" class="filter-btn filter-mode-btn" data-filter="mode" title="OR = mindestens eine, AND = alle Perspektiven">
+              OR
+            </button>
+          </div>
+          
+          <div class="filter-group filter-cluster">
+            <span class="filter-label">Sortierung</span>
+            <button type="button" class="filter-btn is-active" data-filter="cluster" data-value="default" title="Standard-Reihenfolge">
             <span class="filter-text">Standard</span>
           </button>
           <button type="button" class="filter-btn" data-filter="cluster" data-value="alphabetical" title="Alphabetisch sortieren">
@@ -661,15 +820,8 @@ const gridContext: RenderContext = {
           <button type="button" class="filter-btn" data-filter="cluster" data-value="perspective" title="Nach Perspektive gruppieren">
             <span class="filter-text">Nach Perspektive</span>
           </button>
-        </div>
-        
-        <div class="filter-group filter-hero">
-          <label class="filter-toggle">
-            <input type="checkbox" class="filter-checkbox" data-filter="hero" checked />
-            <span class="filter-toggle-slider"></span>
-            <span class="filter-text">Hero-Modus</span>
-          </label>
-        </div>
+          </div>
+        </div><!-- /filter-content -->
       </div>
     </div>
     <!-- Aktive Perspektiven unter Suche -->

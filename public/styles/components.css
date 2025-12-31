@@ -143,6 +143,12 @@
   border-left: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Hidden in Compact View (toggled via JS) */
+.search-nav.compact-hidden,
+.active-perspectives.compact-hidden {
+  display: none !important;
+}
+
 .search-bar-container .search-nav-count {
   font-size: 0.6875rem;
   font-weight: 600;
@@ -2643,109 +2649,78 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   HERO-MODUS - Dynamisches Grid mit Akzenten
-   Zufällige Karten erhalten mehr Platz (2x2)
-   ═══════════════════════════════════════════════════════════════════════════════ */
-
-/* Hero cards via nth-child pattern for visual interest */
-/* Every 7th card starting from 3rd is a hero */
-.amorph-grid.view-compact .amorph-item:nth-child(7n + 3) {
-  grid-column: span 2;
-  grid-row: span 2;
-}
-
-/* Hero card specific styling */
-.amorph-grid.view-compact .amorph-item:nth-child(7n + 3) .item-image {
-  aspect-ratio: 1/1;
-}
-
-.amorph-grid.view-compact .amorph-item:nth-child(7n + 3) .item-name {
-  font-size: 1rem;
-}
-
-.amorph-grid.view-compact .amorph-item:nth-child(7n + 3) .item-detail-link {
-  width: 28px;
-  height: 28px;
-  font-size: 0.875rem;
-}
-
-/* Auf kleinen Screens: Keine Hero-Cards (zu dominant) */
-@media (max-width: 500px) {
-  .amorph-grid.view-compact .amorph-item:nth-child(7n + 3) {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  
-  .amorph-grid.view-compact .amorph-item:nth-child(7n + 3) .item-image {
-    aspect-ratio: 4/3;
-  }
-  
-  .amorph-grid.view-compact .amorph-item:nth-child(7n + 3) .item-name {
-    font-size: 0.8125rem;
-  }
-}
-
-/* Zwischen-Größe: Nur jeden 11. als Hero */
-@media (min-width: 501px) and (max-width: 900px) {
-  .amorph-grid.view-compact .amorph-item:nth-child(7n + 3) {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  
-  .amorph-grid.view-compact .amorph-item:nth-child(11n + 4) {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-  
-  .amorph-grid.view-compact .amorph-item:nth-child(11n + 4) .item-image {
-    aspect-ratio: 1/1;
-  }
-}
-
-/* Desktop: Original 7n + 3 pattern */
-@media (min-width: 901px) {
-  .amorph-grid.view-compact .amorph-item:nth-child(11n + 4) {
-    grid-column: span 1;
-    grid-row: span 1;
-  }
-  
-  .amorph-grid.view-compact .amorph-item:nth-child(11n + 4) .item-image {
-    aspect-ratio: 4/3;
-  }
-}
-
-/* Hero Mode Disabled - Alle Karten gleich groß */
-.amorph-grid.view-compact.hero-disabled .amorph-item:nth-child(7n + 3),
-.amorph-grid.view-compact.hero-disabled .amorph-item:nth-child(11n + 4) {
-  grid-column: span 1 !important;
-  grid-row: span 1 !important;
-}
-
-.amorph-grid.view-compact.hero-disabled .amorph-item:nth-child(7n + 3) .item-image,
-.amorph-grid.view-compact.hero-disabled .amorph-item:nth-child(11n + 4) .item-image {
-  aspect-ratio: 4/3 !important;
-}
-
-.amorph-grid.view-compact.hero-disabled .amorph-item:nth-child(7n + 3) .item-name,
-.amorph-grid.view-compact.hero-disabled .amorph-item:nth-child(11n + 4) .item-name {
-  font-size: 0.8125rem !important;
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════════
    COMPACT FILTERS - Mood & Clustering Controls
-   Floating bar unter der Suchleiste im Compact View
+   Floating bar unter der Suchleiste im Compact View - Collapsible
    ═══════════════════════════════════════════════════════════════════════════════ */
 .compact-filters {
   display: none;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  padding: 0.75rem 1rem;
+  flex-direction: column;
+  gap: 0;
   margin-top: 0.5rem;
   background: rgba(8, 12, 20, 0.85);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Filter Header Toggle */
+.filter-header-toggle {
+  display: flex;
   align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  transition: background 0.2s ease;
+}
+
+.filter-header-toggle:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.filter-header-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.filter-header-count {
+  font-size: 0.65rem;
+  color: var(--system, #6ba3be);
+  font-weight: 600;
+}
+
+.filter-header-chevron {
+  width: 16px;
+  height: 16px;
+  margin-left: auto;
+  transition: transform 0.2s ease;
+}
+
+.filter-header-toggle[aria-expanded="false"] .filter-header-chevron {
+  transform: rotate(-90deg);
+}
+
+/* Filter Content - Collapsible */
+.filter-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0 1rem 0.75rem;
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.filter-content.is-collapsed {
+  max-height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  opacity: 0;
 }
 
 .filter-group {
@@ -2788,6 +2763,12 @@
   background: rgba(var(--system-rgb, 107, 163, 190), 0.2);
   border-color: rgba(var(--system-rgb, 107, 163, 190), 0.4);
   color: var(--system, #6ba3be);
+}
+
+/* Perspektiven-Buttons: Farben aus data-color */
+.filter-btn[data-filter="perspective"].is-active {
+  background: var(--btn-active-color, rgba(var(--system-rgb, 107, 163, 190), 0.2));
+  border-color: var(--btn-active-color, rgba(var(--system-rgb, 107, 163, 190), 0.4));
 }
 
 .filter-icon {
@@ -2849,16 +2830,90 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* Mobile: Stack filters */
+/* AND/OR Mode Toggle Button */
+.filter-mode-btn {
+  min-width: 3rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.filter-mode-btn.is-and {
+  background: rgba(107, 163, 190, 0.25);
+  border-color: rgba(107, 163, 190, 0.5);
+  color: #6ba3be;
+}
+
+/* Perspektiven-Divider (bei Sortierung nach Perspektive) */
+.perspective-divider {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.perspective-divider-line {
+  flex: 1;
+  height: 1px;
+  background: var(--persp-color, rgba(255, 255, 255, 0.15));
+}
+
+.perspective-divider-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 0.25rem 0.75rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--persp-color, rgba(255, 255, 255, 0.15));
+  border-radius: 4px;
+}
+
+/* Mobile: Kompakteres Layout mit Text */
 @media (max-width: 600px) {
   .compact-filters {
     padding: 0.5rem 0.75rem;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
   
   .filter-group {
     width: 100%;
     justify-content: flex-start;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+  }
+  
+  /* Perspektiven: Kompakte Buttons MIT Text */
+  .filter-group.filter-perspective {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+  
+  .filter-group.filter-perspective .filter-label {
+    width: 100%;
+    margin-bottom: 0.15rem;
+  }
+  
+  .filter-group.filter-perspective .filter-btn {
+    padding: 0.3rem 0.4rem;
+    font-size: 0.6rem;
+  }
+  
+  /* Icons kleiner auf Mobile */
+  .filter-group.filter-perspective .filter-btn .filter-icon {
+    font-size: 0.75rem;
+  }
+  
+  /* Text immer sichtbar, nur kürzer */
+  .filter-group.filter-perspective .filter-btn .filter-text {
+    display: inline;
+    font-size: 0.55rem;
+    max-width: 4rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   
   .filter-btn {
@@ -2870,6 +2925,15 @@
     font-size: 0.6rem;
     width: 100%;
     margin-bottom: 0.25rem;
+  }
+  
+  /* Sortierung kompakter */
+  .filter-group.filter-cluster {
+    gap: 0.2rem;
+  }
+  
+  .filter-group.filter-hero {
+    margin-top: 0.25rem;
   }
 }
 
