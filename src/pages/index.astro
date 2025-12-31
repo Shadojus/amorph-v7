@@ -281,6 +281,11 @@ const gridContext: RenderContext = {
     // Load saved preference
     const savedView = localStorage.getItem('amorph-view') || 'grid';
     
+    // Filter elements
+    const compactFilters = document.querySelector<HTMLElement>('.compact-filters');
+    const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+    const heroCheckbox = document.querySelector<HTMLInputElement>('.filter-checkbox[data-filter="hero"]');
+    
     function setView(view: string): void {
       if (!grid) return;
       
@@ -292,8 +297,136 @@ const gridContext: RenderContext = {
         btn.classList.toggle('is-active', btn.dataset.view === view);
       });
       
+      // Hide/show search result count in compact view
+      const searchResultInfo = document.querySelector('.search-result-info');
+      if (searchResultInfo) {
+        (searchResultInfo as HTMLElement).style.display = view === 'compact' ? 'none' : '';
+      }
+      
+      // Hide search navigation in compact view
+      const searchNav = document.querySelector('.search-nav');
+      if (searchNav) {
+        (searchNav as HTMLElement).style.display = view === 'compact' ? 'none !important' : '';
+      }
+      
+      // Hide active perspectives pills in compact view
+      const activePerspectives = document.querySelector('.active-perspectives');
+      if (activePerspectives) {
+        (activePerspectives as HTMLElement).style.display = view === 'compact' ? 'none' : '';
+      }
+      
+      // Show/hide compact filters
+      if (compactFilters) {
+        compactFilters.style.display = view === 'compact' ? 'flex' : 'none';
+      }
+      
       // Save preference
       localStorage.setItem('amorph-view', view);
+    }
+    
+    // ═══════════════════════════════════════════════════════════════════════════
+    // FILTER LOGIC - Perspektiven, Clustering, Hero Mode
+    // ═══════════════════════════════════════════════════════════════════════════
+    let currentPerspectiveFilter = 'all';
+    let currentCluster = 'default';
+    let heroModeEnabled = true;
+    
+    // Perspektiven-Reihenfolge für Clustering
+    const perspectiveOrder = ['culinary', 'medicine', 'safety', 'ecology', 'cultivation', 'chemistry', 'culture', 'research', 'identification'];
+    
+    function applyFilters(): void {
+      if (!grid) return;
+      
+      const items = grid.querySelectorAll<HTMLElement>('.amorph-item');
+      
+      // Perspektiven Filter
+      items.forEach(item => {
+        const perspectiveCounts = JSON.parse(item.dataset.perspectiveCounts || '{}');
+        const hasPerspective = currentPerspectiveFilter === 'all' || 
+                               (perspectiveCounts[currentPerspectiveFilter] && perspectiveCounts[currentPerspectiveFilter] > 0);
+        
+        if (currentPerspectiveFilter === 'all') {
+          item.style.display = '';
+          item.style.opacity = '1';
+        } else if (hasPerspective) {
+          item.style.display = '';
+          // Stärke basierend auf Feldanzahl in dieser Perspektive
+          const fieldCount = perspectiveCounts[currentPerspectiveFilter] || 0;
+          const opacity = Math.min(0.4 + (fieldCount / 8) * 0.6, 1);
+          item.style.opacity = String(opacity);
+        } else {
+          // Keine Daten in dieser Perspektive → stark dimmen
+          item.style.display = '';
+          item.style.opacity = '0.15';
+        }
+      });
+      
+      // Clustering (Sortierung)
+      if (currentCluster !== 'default') {
+        const itemsArray = Array.from(items);
+        
+        if (currentCluster === 'alphabetical') {
+          itemsArray.sort((a, b) => {
+            const nameA = a.dataset.name || '';
+            const nameB = b.dataset.name || '';
+            return nameA.localeCompare(nameB);
+          });
+        } else if (currentCluster === 'perspective') {
+          // Nach dominanter Perspektive gruppieren
+          itemsArray.sort((a, b) => {
+            const perspA = a.dataset.perspective || 'zzz';
+            const perspB = b.dataset.perspective || 'zzz';
+            const indexA = perspectiveOrder.indexOf(perspA);
+            const indexB = perspectiveOrder.indexOf(perspB);
+            // Sortiere nach Perspektiv-Reihenfolge, dann nach Stärke
+            if (indexA !== indexB) {
+              return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
+            }
+            // Bei gleicher Perspektive: Stärkere zuerst
+            const strengthA = parseFloat(a.dataset.perspectiveStrength || '0');
+            const strengthB = parseFloat(b.dataset.perspectiveStrength || '0');
+            return strengthB - strengthA;
+          });
+        }
+        
+        // Re-append in sorted order
+        itemsArray.forEach(item => grid.appendChild(item));
+      }
+      
+      // Hero Mode
+      grid.classList.toggle('hero-disabled', !heroModeEnabled);
+    }
+    
+    // Filter button click handlers
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filterType = btn.dataset.filter;
+        const value = btn.dataset.value || '';
+        
+        if (filterType === 'perspective') {
+          currentPerspectiveFilter = value;
+          // Update active state for perspective buttons
+          document.querySelectorAll('.filter-btn[data-filter="perspective"]').forEach(b => {
+            b.classList.toggle('is-active', b.getAttribute('data-value') === value);
+          });
+        } else if (filterType === 'cluster') {
+          currentCluster = value;
+          // Update active state for cluster buttons
+          document.querySelectorAll('.filter-btn[data-filter="cluster"]').forEach(b => {
+            b.classList.toggle('is-active', b.getAttribute('data-value') === value);
+          });
+        }
+        
+        applyFilters();
+      });
+    });
+    
+    // Hero mode toggle
+    if (heroCheckbox) {
+      heroCheckbox.addEventListener('change', () => {
+        heroModeEnabled = heroCheckbox.checked;
+        applyFilters();
+      });
     }
     
     // Initialize with saved view
@@ -307,184 +440,10 @@ const gridContext: RenderContext = {
       });
     });
     
-    // ═══════════════════════════════════════════════════════════════════════════
-    // SPECIES SELECTION - Compact View Mode
-    // Wählt komplette Spezies mit allen Feldern für My Species
-    // ═══════════════════════════════════════════════════════════════════════════
-    
-    import { selectField, deselectField, getSelectedFields, clearSelection } from '../client/features';
-    
-    const speciesSelectBtns = document.querySelectorAll<HTMLButtonElement>('.species-select');
-    
-    // Track selected species
-    const selectedSpecies = new Set<string>();
-    
-    // Storage key - MUST match app.ts
-    const SPECIES_STORAGE_KEY = 'amorph:selected-species';
-    
-    // Load previously selected species from localStorage
-    const savedSpecies = localStorage.getItem(SPECIES_STORAGE_KEY);
-    if (savedSpecies) {
-      try {
-        const parsed = JSON.parse(savedSpecies);
-        parsed.forEach((slug: string) => selectedSpecies.add(slug));
-        // Restore UI state
-        selectedSpecies.forEach(slug => {
-          const item = document.querySelector(`.amorph-item[data-slug="${slug}"]`);
-          item?.classList.add('species-selected');
-        });
-      } catch (e) {}
-    }
-    
-    function saveSelectedSpecies() {
-      localStorage.setItem(SPECIES_STORAGE_KEY, JSON.stringify([...selectedSpecies]));
-    }
-    
-    // Sync selectedSpecies Set when localStorage changes (from pill removal)
-    function syncFromStorage() {
-      const stored = localStorage.getItem(SPECIES_STORAGE_KEY);
-      selectedSpecies.clear();
-      if (stored) {
-        try {
-          const parsed = JSON.parse(stored);
-          parsed.forEach((slug: string) => selectedSpecies.add(slug));
-        } catch (e) {}
-      }
-      // Update UI
-      document.querySelectorAll('.amorph-item').forEach(item => {
-        const slug = (item as HTMLElement).dataset.slug || '';
-        item.classList.toggle('species-selected', selectedSpecies.has(slug));
-      });
-    }
-    
-    // Listen for storage changes from other scripts
-    window.addEventListener('storage', (e) => {
-      if (e.key === SPECIES_STORAGE_KEY) {
-        syncFromStorage();
-      }
-    });
-    
-    // Also listen for custom event from app.ts pill removal
-    window.addEventListener('species-deselected', (e: Event) => {
-      const slug = (e as CustomEvent).detail?.slug;
-      if (slug) {
-        selectedSpecies.delete(slug);
-        const item = document.querySelector(`.amorph-item[data-slug="${slug}"]`);
-        item?.classList.remove('species-selected');
-      }
-    });
-    
-    // Lädt ALLE Felder einer Spezies via API
-    async function selectSpeciesFields(item: HTMLElement, slug: string, name: string) {
-      try {
-        // Lade komplette Spezies-Daten via API
-        const response = await fetch(`/api/search?q=${encodeURIComponent(slug)}&limit=1`);
-        const data = await response.json();
-        
-        if (data.items && data.items.length > 0) {
-          const speciesData = data.items[0];
-          
-          // Get perspective mapping
-          let fieldPerspectives: Record<string, string> = {};
-          try {
-            fieldPerspectives = JSON.parse(item.dataset.fieldPerspectives || '{}');
-          } catch (e) {}
-          
-          // Alle Felder der Spezies hinzufügen (außer interne)
-          Object.entries(speciesData).forEach(([fieldName, value]) => {
-            // Skip interne Felder und Basis-Felder
-            if (fieldName.startsWith('_') || 
-                ['id', 'slug', 'name', 'bild', 'wissenschaftlich', 'image', 'scientific_name'].includes(fieldName)) {
-              return;
-            }
-            
-            const perspective = fieldPerspectives[fieldName];
-            selectField(slug, name, fieldName, value, perspective);
-          });
-          
-          console.log(`[Species] Selected ${name} with all fields`);
-        }
-      } catch (e) {
-        console.error('[Species] Failed to load species data:', e);
-        // Fallback: Nur sichtbare Felder
-        const fields = item.querySelectorAll('.amorph-field');
-        fields.forEach((field, index) => {
-          const fieldEl = field as HTMLElement;
-          const fieldName = fieldEl.dataset.field || `field_${index}`;
-          const valueEl = fieldEl.querySelector('.amorph-field-value');
-          const value = valueEl?.textContent?.trim() || '';
-          
-          let perspective: string | undefined;
-          try {
-            const fieldPerspectives = JSON.parse(item.dataset.fieldPerspectives || '{}');
-            perspective = fieldPerspectives[fieldName];
-          } catch (e) {}
-          
-          selectField(slug, name, fieldName, value, perspective);
-        });
-      }
-    }
-    
-    function deselectSpeciesFields(slug: string) {
-      // Alle Felder dieser Spezies abwählen
-      const currentFields = getSelectedFields();
-      currentFields.forEach(field => {
-        if (field.itemSlug === slug) {
-          deselectField(slug, field.fieldName);
-        }
-      });
-    }
-    
-    speciesSelectBtns.forEach(btn => {
-      btn.addEventListener('click', async (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        const item = btn.closest('.amorph-item') as HTMLElement;
-        if (!item) return;
-        
-        const slug = item.dataset.slug || '';
-        const name = item.dataset.name || '';
-        
-        // Show loading state
-        btn.classList.add('is-loading');
-        
-        if (selectedSpecies.has(slug)) {
-          // Deselect
-          selectedSpecies.delete(slug);
-          item.classList.remove('species-selected');
-          deselectSpeciesFields(slug);
-        } else {
-          // Select - lädt alle Daten async
-          selectedSpecies.add(slug);
-          item.classList.add('species-selected');
-          await selectSpeciesFields(item, slug, name);
-        }
-        
-        btn.classList.remove('is-loading');
-        saveSelectedSpecies();
-        
-        // Update badge
-        const badge = document.querySelector('.bottom-nav-badge');
-        if (badge) {
-          const count = selectedSpecies.size;
-          badge.textContent = String(count);
-          badge.classList.toggle('has-items', count > 0);
-        }
-      });
-    });
-    
-    // Initial badge update
-    const badge = document.querySelector('.bottom-nav-badge');
-    if (badge && selectedSpecies.size > 0) {
-      badge.textContent = String(selectedSpecies.size);
-      badge.classList.add('has-items');
-    }
-    
-    // Compact view: tap on card SELECTS species (not navigates)
-    // Only the arrow button navigates to detail page
+    // Compact view: Click on card navigates to detail page
+    // Simple gallery view - no selection
     if (grid) {
-      grid.addEventListener('click', async (e) => {
+      grid.addEventListener('click', (e) => {
         // Only in compact view
         if (!grid.classList.contains('view-compact')) return;
         
@@ -500,37 +459,12 @@ const gridContext: RenderContext = {
           return;
         }
         
-        // Click anywhere on card = select/deselect species
+        // Click anywhere on card = navigate to detail page
         const item = target.closest('.amorph-item') as HTMLElement;
         if (item) {
-          e.preventDefault();
-          const slug = item.dataset.slug || '';
-          const name = item.dataset.name || '';
-          
-          // Visual feedback
-          item.style.transform = 'scale(0.96)';
-          setTimeout(() => item.style.transform = '', 150);
-          
-          if (selectedSpecies.has(slug)) {
-            // Deselect
-            selectedSpecies.delete(slug);
-            item.classList.remove('species-selected');
-            deselectSpeciesFields(slug);
-          } else {
-            // Select - load all data async
-            selectedSpecies.add(slug);
-            item.classList.add('species-selected');
-            await selectSpeciesFields(item, slug, name);
-          }
-          
-          saveSelectedSpecies();
-          
-          // Update badge
-          const badge = document.querySelector('.bottom-nav-badge');
-          if (badge) {
-            const count = selectedSpecies.size;
-            badge.textContent = String(count);
-            badge.classList.toggle('has-items', count > 0);
+          const slug = item.dataset.slug;
+          if (slug) {
+            window.location.href = '/' + slug;
           }
         }
       });
@@ -642,6 +576,101 @@ const gridContext: RenderContext = {
           </button>
         </div>
       </div>
+      
+      <!-- ═══════════════════════════════════════════════════════════════════════
+           COMPACT VIEW FILTER - Perspektiven & Clustering Controls
+           Nur sichtbar im Compact View
+           ═══════════════════════════════════════════════════════════════════════ -->
+      <div class="compact-filters" style="display: none;">
+        <div class="filter-group filter-perspective">
+          <span class="filter-label">Perspektive</span>
+          <button type="button" class="filter-btn is-active" data-filter="perspective" data-value="all" title="Alle anzeigen">
+            <span class="filter-icon">✨</span>
+            <span class="filter-text">Alle</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="perspective" data-value="culinary" title="Kulinarische Daten">
+            <span class="filter-icon">🍳</span>
+            <span class="filter-text">Kulinarisch</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="perspective" data-value="medicine" title="Medizinische Daten">
+            <span class="filter-icon">💊</span>
+            <span class="filter-text">Medizin</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="perspective" data-value="safety" title="Sicherheitsdaten">
+            <span class="filter-icon">⚠️</span>
+            <span class="filter-text">Sicherheit</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="perspective" data-value="ecology" title="Ökologische Daten">
+            <span class="filter-icon">🌿</span>
+            <span class="filter-text">Ökologie</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="perspective" data-value="cultivation" title="Anbau-Daten">
+            <span class="filter-icon">🌱</span>
+            <span class="filter-text">Anbau</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="perspective" data-value="chemistry" title="Chemische Zusammensetzung">
+            <span class="filter-icon">⚗️</span>
+            <span class="filter-text">Chemie</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="perspective" data-value="statistics" title="Statistische Daten">
+            <span class="filter-icon">📊</span>
+            <span class="filter-text">Statistik</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="perspective" data-value="geography" title="Geografische Verbreitung">
+            <span class="filter-icon">🗺️</span>
+            <span class="filter-text">Geografie</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="perspective" data-value="temporal" title="Zeitliche Daten">
+            <span class="filter-icon">📅</span>
+            <span class="filter-text">Zeitlich</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="perspective" data-value="economy" title="Wirtschaftliche Daten">
+            <span class="filter-icon">💰</span>
+            <span class="filter-text">Wirtschaft</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="perspective" data-value="conservation" title="Naturschutz">
+            <span class="filter-icon">🛡️</span>
+            <span class="filter-text">Naturschutz</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="perspective" data-value="culture" title="Kulturelle Bedeutung">
+            <span class="filter-icon">🎭</span>
+            <span class="filter-text">Kultur</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="perspective" data-value="research" title="Forschungsdaten">
+            <span class="filter-icon">🔬</span>
+            <span class="filter-text">Forschung</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="perspective" data-value="interactions" title="Interaktionen">
+            <span class="filter-icon">🔗</span>
+            <span class="filter-text">Interaktionen</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="perspective" data-value="identification" title="Bestimmungsmerkmale">
+            <span class="filter-icon">🔍</span>
+            <span class="filter-text">Bestimmung</span>
+          </button>
+        </div>
+        
+        <div class="filter-group filter-cluster">
+          <span class="filter-label">Sortierung</span>
+          <button type="button" class="filter-btn is-active" data-filter="cluster" data-value="default" title="Standard-Reihenfolge">
+            <span class="filter-text">Standard</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="cluster" data-value="alphabetical" title="Alphabetisch sortieren">
+            <span class="filter-text">A-Z</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="cluster" data-value="perspective" title="Nach Perspektive gruppieren">
+            <span class="filter-text">Nach Perspektive</span>
+          </button>
+        </div>
+        
+        <div class="filter-group filter-hero">
+          <label class="filter-toggle">
+            <input type="checkbox" class="filter-checkbox" data-filter="hero" checked />
+            <span class="filter-toggle-slider"></span>
+            <span class="filter-text">Hero-Modus</span>
+          </label>
+        </div>
+      </div>
     </div>
     <!-- Aktive Perspektiven unter Suche -->
     <div class="active-perspectives"></div>
@@ -682,15 +711,73 @@ const gridContext: RenderContext = {
         const fieldExperts = (itemSources as any).fields || {};
         const fieldExpertsJson = Object.keys(fieldExperts).length > 0 ? JSON.stringify(fieldExperts) : '';
         
+        // ═══════════════════════════════════════════════════════════════════════════
+        // PERSPEKTIVEN-ANALYSE - Dominante Perspektive bestimmen
+        // Je mehr Felder einer Perspektive, desto stärker der visuelle Akzent
+        // ═══════════════════════════════════════════════════════════════════════════
+        const perspectiveCounts = {};
+        const fieldPerspectives = item._fieldPerspective || {};
+        
+        // Zähle Felder pro Perspektive
+        for (const [_, perspName] of Object.entries(fieldPerspectives)) {
+          perspectiveCounts[perspName] = (perspectiveCounts[perspName] || 0) + 1;
+        }
+        
+        // Finde dominante Perspektive (die mit den meisten Feldern)
+        let dominantPerspective = null;
+        let maxFields = 0;
+        for (const [perspName, count] of Object.entries(perspectiveCounts)) {
+          if (count > maxFields) {
+            maxFields = count;
+            dominantPerspective = perspName;
+          }
+        }
+        
+        // Stärke des Effekts: 0-1 basierend auf Feldanzahl (5+ Felder = volle Stärke)
+        const perspectiveStrength = Math.min(maxFields / 5, 1);
+        
+        // Alle Perspektiven des Items als JSON für Client
+        const perspectiveCountsJson = JSON.stringify(perspectiveCounts);
+        
+        // ═══════════════════════════════════════════════════════════════════════════
+        // HOVER-PEEK - Quick Facts
+        // ═══════════════════════════════════════════════════════════════════════════
+        const scientificName = item.scientific_name || item.wissenschaftlich || '';
+        
+        // Kernfakten extrahieren
+        const peekFacts = [];
+        if (item.edibility_status || item.safety_edibility_status) {
+          peekFacts.push(String(item.edibility_status || item.safety_edibility_status));
+        }
+        if (item.size_range) {
+          peekFacts.push('📏 ' + String(item.size_range));
+        }
+        if (item.season) {
+          peekFacts.push('🗓️ ' + String(item.season));
+        }
+        
         return (
           <article 
             class="amorph-item"
             data-slug={item.slug}
             data-id={item.id}
             data-name={item.name}
+            data-perspective={dominantPerspective}
+            data-perspective-strength={perspectiveStrength.toFixed(2)}
+            data-perspective-counts={perspectiveCountsJson}
             data-field-perspectives={fieldPerspectiveJson}
             data-field-experts={fieldExpertsJson}
           >
+            {/* Hover-Peek Info Bubble */}
+            {scientificName && (
+              <div class="item-peek">
+                <span class="peek-scientific">{scientificName}</span>
+                {peekFacts.slice(0, 2).map(fact => (
+                  <span class="peek-fact peek-edibility">{fact}</span>
+                ))}
+              </div>
+            )}
+            
             <div class="item-header">
               {imageUrl && (
                 <div class="item-image">

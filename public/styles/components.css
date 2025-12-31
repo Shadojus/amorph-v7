@@ -2236,18 +2236,18 @@
   box-shadow: 
     0 4px 12px rgba(0, 0, 0, 0.4),
     0 1px 3px rgba(0, 0, 0, 0.3);
-  overflow: visible; /* Allow copyright to overflow */
+  overflow: hidden; /* Clean edges */
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   list-style: none !important;
 }
 
-.amorph-grid.view-compact .amorph-item::before {
+/* Allow mood pseudo-elements, hide list markers */
+.amorph-grid.view-compact .amorph-item::marker {
   display: none !important;
   content: none !important;
 }
 
-/* Hide ALL pseudo elements */
-.amorph-grid.view-compact .amorph-item::after,
+/* Hide header pseudo elements only */
 .amorph-grid.view-compact .item-header::before,
 .amorph-grid.view-compact .item-header::after {
   content: none !important;
@@ -2273,7 +2273,7 @@
   border-bottom: none;
   background: transparent;
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Allow peek tooltip and copyright to overflow */
   border-radius: 12px;
 }
 
@@ -2401,33 +2401,476 @@
   display: none !important;
 }
 
-/* Copyright - Pure floating text, no background */
+/* Copyright - Elegant am oberen Rand außerhalb des Bildes */
 .amorph-grid.view-compact .bifroest-copyright {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
-  bottom: auto;
+  top: -1.4rem;
+  right: 0;
   left: auto;
+  bottom: auto;
   padding: 0;
-  font-size: 0.55rem;
-  font-weight: 500;
+  font-size: 0.6rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
   background: transparent;
   border: none;
-  color: rgba(255, 255, 255, 0.5);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  color: var(--system, #6ba3be);
   box-shadow: none;
   opacity: 0;
-  transition: opacity 0.2s ease;
-  z-index: 10;
+  transform: translateY(4px);
+  transition: opacity 0.25s ease, transform 0.25s ease, color 0.2s ease;
+  z-index: 50;
+  white-space: nowrap;
+  text-align: right;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.amorph-grid.view-compact .bifroest-copyright .bifroest-symbol {
+  opacity: 0.8;
+  margin-right: 0.2rem;
 }
 
 .amorph-grid.view-compact .amorph-item:hover .bifroest-copyright {
+  opacity: 0.7;
+  transform: translateY(0);
+}
+
+.amorph-grid.view-compact .bifroest-copyright:hover {
+  color: rgba(255, 255, 255, 0.95);
   opacity: 1;
 }
 
-/* Selected state - copyright visible */
-.amorph-grid.view-compact .amorph-item.species-selected .bifroest-copyright {
-  opacity: 0.7;
+/* ═══════════════════════════════════════════════════════════════════════════════
+   HOVER-PEEK - Sanfte Info-Blase bei Hover
+   Erscheint oberhalb der Karte, nicht innerhalb
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.amorph-grid.view-compact .item-peek {
+  position: absolute;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(8, 12, 20, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+  z-index: 100;
+  pointer-events: none;
+  max-width: 200px;
+  text-align: center;
+}
+
+/* Arrow for tooltip */
+.amorph-grid.view-compact .item-peek::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(8, 12, 20, 0.95);
+}
+
+.amorph-grid.view-compact .amorph-item:hover .item-peek {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-100%);
+}
+
+.amorph-grid.view-compact .peek-scientific {
+  font-size: 0.7rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.02em;
+}
+
+.amorph-grid.view-compact .peek-fact {
+  font-size: 0.6rem;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.amorph-grid.view-compact .peek-edibility {
+  background: rgba(var(--system-rgb), 0.2);
+  color: var(--system);
+}
+
+/* Mobile: Touch-optimiert - Peek beim Long-Press */
+@media (max-width: 768px) and (hover: none) {
+  .amorph-grid.view-compact .item-peek {
+    /* Auf Touch nur bei Focus sichtbar */
+    display: none;
+  }
+  
+  .amorph-grid.view-compact .amorph-item:focus .item-peek,
+  .amorph-grid.view-compact .amorph-item:active .item-peek {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   PERSPEKTIVEN-FILTER - Visuelle Magie basierend auf dominanter Perspektive
+   Farben passend zu den Perspektiven-Farben aus index.astro
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Kulinarisch - Warmer Pastell-Braun */
+.amorph-grid.view-compact .amorph-item[data-perspective="culinary"] {
+  --perspective-color: 180, 140, 120;
+}
+
+/* Sicherheit - Warnendes Rosa */
+.amorph-grid.view-compact .amorph-item[data-perspective="safety"] {
+  --perspective-color: 170, 130, 140;
+}
+
+/* Anbau - Frisches Grün */
+.amorph-grid.view-compact .amorph-item[data-perspective="cultivation"] {
+  --perspective-color: 120, 150, 130;
+}
+
+/* Medizin - Sanftes Violett */
+.amorph-grid.view-compact .amorph-item[data-perspective="medicine"] {
+  --perspective-color: 150, 140, 170;
+}
+
+/* Chemie - Lavendel */
+.amorph-grid.view-compact .amorph-item[data-perspective="chemistry"] {
+  --perspective-color: 160, 140, 160;
+}
+
+/* Ökologie - Naturgrün */
+.amorph-grid.view-compact .amorph-item[data-perspective="ecology"] {
+  --perspective-color: 130, 150, 120;
+}
+
+/* Statistik - Neutrales Beige */
+.amorph-grid.view-compact .amorph-item[data-perspective="statistics"] {
+  --perspective-color: 165, 155, 140;
+}
+
+/* Geografie - Erdiges Braun */
+.amorph-grid.view-compact .amorph-item[data-perspective="geography"] {
+  --perspective-color: 160, 135, 120;
+}
+
+/* Zeitlich - Sanftes Gold */
+.amorph-grid.view-compact .amorph-item[data-perspective="temporal"] {
+  --perspective-color: 170, 160, 130;
+}
+
+/* Wirtschaft - Warmes Gelb */
+.amorph-grid.view-compact .amorph-item[data-perspective="economy"] {
+  --perspective-color: 165, 150, 115;
+}
+
+/* Naturschutz - Türkis */
+.amorph-grid.view-compact .amorph-item[data-perspective="conservation"] {
+  --perspective-color: 115, 150, 145;
+}
+
+/* Kultur - Mystisches Lila */
+.amorph-grid.view-compact .amorph-item[data-perspective="culture"] {
+  --perspective-color: 155, 140, 160;
+}
+
+/* Forschung - Kühles Blau */
+.amorph-grid.view-compact .amorph-item[data-perspective="research"] {
+  --perspective-color: 140, 145, 160;
+}
+
+/* Interaktionen - Warmes Orange */
+.amorph-grid.view-compact .amorph-item[data-perspective="interactions"] {
+  --perspective-color: 175, 145, 135;
+}
+
+/* Bestimmung - Frisches Hellgrün */
+.amorph-grid.view-compact .amorph-item[data-perspective="identification"] {
+  --perspective-color: 145, 155, 125;
+}
+
+/* Perspektiven-Effekt für alle mit dominanter Perspektive */
+.amorph-grid.view-compact .amorph-item[data-perspective]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at top right,
+    rgba(var(--perspective-color, 150, 150, 150), 0.15) 0%,
+    rgba(var(--perspective-color, 150, 150, 150), 0.05) 40%,
+    transparent 70%
+  );
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.amorph-grid.view-compact .amorph-item[data-perspective]:hover::before {
+  opacity: 1;
+  background: radial-gradient(
+    ellipse at top right,
+    rgba(var(--perspective-color, 150, 150, 150), 0.25) 0%,
+    rgba(var(--perspective-color, 150, 150, 150), 0.1) 40%,
+    transparent 70%
+  );
+}
+
+/* Perspektiven-Badge im Peek */
+.amorph-grid.view-compact .amorph-item[data-perspective] .peek-edibility {
+  background: rgba(var(--perspective-color, 150, 150, 150), 0.25);
+  color: rgb(
+    calc(180 + var(--perspective-color, 150) * 0.1),
+    calc(180 + var(--perspective-color, 150) * 0.1),
+    calc(180 + var(--perspective-color, 150) * 0.1)
+  );
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   HERO-MODUS - Dynamisches Grid mit Akzenten
+   Zufällige Karten erhalten mehr Platz (2x2)
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+/* Hero cards via nth-child pattern for visual interest */
+/* Every 7th card starting from 3rd is a hero */
+.amorph-grid.view-compact .amorph-item:nth-child(7n + 3) {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Hero card specific styling */
+.amorph-grid.view-compact .amorph-item:nth-child(7n + 3) .item-image {
+  aspect-ratio: 1/1;
+}
+
+.amorph-grid.view-compact .amorph-item:nth-child(7n + 3) .item-name {
+  font-size: 1rem;
+}
+
+.amorph-grid.view-compact .amorph-item:nth-child(7n + 3) .item-detail-link {
+  width: 28px;
+  height: 28px;
+  font-size: 0.875rem;
+}
+
+/* Auf kleinen Screens: Keine Hero-Cards (zu dominant) */
+@media (max-width: 500px) {
+  .amorph-grid.view-compact .amorph-item:nth-child(7n + 3) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  
+  .amorph-grid.view-compact .amorph-item:nth-child(7n + 3) .item-image {
+    aspect-ratio: 4/3;
+  }
+  
+  .amorph-grid.view-compact .amorph-item:nth-child(7n + 3) .item-name {
+    font-size: 0.8125rem;
+  }
+}
+
+/* Zwischen-Größe: Nur jeden 11. als Hero */
+@media (min-width: 501px) and (max-width: 900px) {
+  .amorph-grid.view-compact .amorph-item:nth-child(7n + 3) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  
+  .amorph-grid.view-compact .amorph-item:nth-child(11n + 4) {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  
+  .amorph-grid.view-compact .amorph-item:nth-child(11n + 4) .item-image {
+    aspect-ratio: 1/1;
+  }
+}
+
+/* Desktop: Original 7n + 3 pattern */
+@media (min-width: 901px) {
+  .amorph-grid.view-compact .amorph-item:nth-child(11n + 4) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  
+  .amorph-grid.view-compact .amorph-item:nth-child(11n + 4) .item-image {
+    aspect-ratio: 4/3;
+  }
+}
+
+/* Hero Mode Disabled - Alle Karten gleich groß */
+.amorph-grid.view-compact.hero-disabled .amorph-item:nth-child(7n + 3),
+.amorph-grid.view-compact.hero-disabled .amorph-item:nth-child(11n + 4) {
+  grid-column: span 1 !important;
+  grid-row: span 1 !important;
+}
+
+.amorph-grid.view-compact.hero-disabled .amorph-item:nth-child(7n + 3) .item-image,
+.amorph-grid.view-compact.hero-disabled .amorph-item:nth-child(11n + 4) .item-image {
+  aspect-ratio: 4/3 !important;
+}
+
+.amorph-grid.view-compact.hero-disabled .amorph-item:nth-child(7n + 3) .item-name,
+.amorph-grid.view-compact.hero-disabled .amorph-item:nth-child(11n + 4) .item-name {
+  font-size: 0.8125rem !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   COMPACT FILTERS - Mood & Clustering Controls
+   Floating bar unter der Suchleiste im Compact View
+   ═══════════════════════════════════════════════════════════════════════════════ */
+.compact-filters {
+  display: none;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  margin-top: 0.5rem;
+  background: rgba(8, 12, 20, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.4);
+  margin-right: 0.25rem;
+}
+
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.35rem 0.6rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.filter-btn.is-active {
+  background: rgba(var(--system-rgb, 107, 163, 190), 0.2);
+  border-color: rgba(var(--system-rgb, 107, 163, 190), 0.4);
+  color: var(--system, #6ba3be);
+}
+
+.filter-icon {
+  font-size: 0.85em;
+}
+
+.filter-text {
+  white-space: nowrap;
+}
+
+/* Toggle Switch für Hero Mode */
+.filter-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.filter-checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.filter-toggle-slider {
+  position: relative;
+  width: 32px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 9px;
+  transition: background 0.2s ease;
+}
+
+.filter-toggle-slider::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.filter-checkbox:checked + .filter-toggle-slider {
+  background: rgba(var(--system-rgb, 107, 163, 190), 0.4);
+}
+
+.filter-checkbox:checked + .filter-toggle-slider::after {
+  transform: translateX(14px);
+  background: var(--system, #6ba3be);
+}
+
+.filter-toggle .filter-text {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Mobile: Stack filters */
+@media (max-width: 600px) {
+  .compact-filters {
+    padding: 0.5rem 0.75rem;
+    gap: 0.5rem;
+  }
+  
+  .filter-group {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .filter-btn {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.65rem;
+  }
+  
+  .filter-label {
+    font-size: 0.6rem;
+    width: 100%;
+    margin-bottom: 0.25rem;
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -2487,6 +2930,11 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   background: rgba(0, 0, 0, 0.2);
   z-index: 2;
+}
+
+/* Hide peek tooltip in normal grid view */
+.item-peek {
+  display: none;
 }
 
 /* Item Image - Mobile-First Responsive */
