@@ -10,5 +10,66 @@
       "url": "https://mushroomobserver.org"
     }
   ],
-  "fields": {}
+  "fields": {
+    "processing_preservation_antioxidants": [
+      {
+        "name": "Dr. Lillian Barros",
+        "title": "Centro de Investigação de Montanha (CIMO), Instituto Politécnico de Bragança, Portugal",
+        "url": "https://cimo.ipb.pt/index.php?r=olderresearcher/view&id=37",
+        "contact": "lillian@ipb.pt - +351-273-303-903 - Processing technologies, chemical composition, antioxidant properties"
+      },
+      {
+        "name": "Dr. Isabel C.F.R. Ferreira",
+        "title": "Centro de Investigação de Montanha (CIMO), Instituto Politécnico de Bragança, Portugal",
+        "url": "https://www.researchgate.net/profile/Isabel-Ferreira-3",
+        "contact": "iferreira@ipb.pt - +351-273-303-219 - Gamma irradiation, freezing/drying effects, phenolic compounds"
+      }
+    ],
+    "cultivation_mycelial_growth": [
+      {
+        "name": "Prof. Dr. Aysun Pekşen",
+        "title": "Ondokuz Mayıs University, Faculty of Agriculture, Department of Horticulture, Samsun, Turkey",
+        "url": "https://personel.omu.edu.tr/tr/aysunp",
+        "contact": "aysunp@omu.edu.tr - +90 312 191 9 ext.1367 - Optimum culture conditions, mycelial growth (2020)"
+      }
+    ],
+    "macrolepiota_comparative_study": [
+      {
+        "name": "Dr. Jasmina Glamočlija",
+        "title": "University of Belgrade, Institute for Biological Research \"Siniša Stanković\", Serbia",
+        "url": "https://pubs.rsc.org/en/content/articlelanding/2019/fo/c9fo01900f",
+        "contact": "jasna@ibiss.bg.ac.rs - +381-11-2078419 - M. mastoidea, M. rhacodes, M. procera comparative study (2019)"
+      }
+    ],
+    "bioactive_compounds_morocco_portugal": [
+      {
+        "name": "El Hadi Erbiai, Luís Pinto da Silva, Rabah Saidi, Zouhaire Lamrani, Joaquim C G Esteves da Silva, Abdelfettah Maouni",
+        "title": "University of Porto (Portugal) & Abdelmalek Essaâdi University (Morocco)",
+        "url": "https://www.mdpi.com/2218-273X/11/4/575",
+        "contact": "Protocatechuic acid 92.52-125.50 µg/g, ascorbic acid, tannin, phenolic, flavonoid, β-carotene, lycopene (2021)"
+      },
+      {
+        "name": "Dr. Anabela Martins",
+        "title": "School of Agriculture, Instituto Politécnico de Bragança, Portugal",
+        "url": "https://www.researchgate.net/profile/Anabela-Martins-2",
+        "contact": "amartins@ipb.pt - Campus de Santa Apolónia, 5301-855 Bragança - Wild mushrooms research"
+      }
+    ],
+    "prohealth_food_medicine_review": [
+      {
+        "name": "Iwona Adamska",
+        "title": "Prohealth Food & Medicine Review Author",
+        "url": "https://onlinelibrary.wiley.com/doi/abs/10.1155/2022/5773275",
+        "contact": "Int J Food Science 2022: Chemical composition, antioxidant properties, health-promoting properties (2015-2021 review)"
+      }
+    ],
+    "mineral_composition_heavy_metals": [
+      {
+        "name": "Prof. Mirosław Mleczek",
+        "title": "University of Life Sciences in Poznań, Department of Chemistry, Poland",
+        "url": "https://www.researchgate.net/profile/Miroslaw-Mleczek",
+        "contact": "Road traffic & soil parameters: mineral composition, nutritive value, rare earth elements (2022)"
+      }
+    ]
+  }
 }
