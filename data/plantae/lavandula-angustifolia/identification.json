@@ -1,0 +1,149 @@
+{
+  "scientific_name": "Lavandula angustifolia",
+  "author_citation": "Mill. 1768",
+  "accepted_name": "Lavandula angustifolia Mill.",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Magnoliopsida",
+  "taxonomy_order": "Lamiales",
+  "taxonomy_family": "Lamiaceae",
+  "taxonomy_genus": "Lavandula",
+  "taxonomy_species": "angustifolia",
+  "synonyms": [
+    "Lavandula officinalis Chaix",
+    "Lavandula vera DC.",
+    "Lavandula spica L. var. angustifolia"
+  ],
+  "common_names": [
+    "English Lavender",
+    "True Lavender",
+    "Common Lavender",
+    "Garden Lavender"
+  ],
+  "international_names": [
+    "Echter Lavendel (DE)",
+    "Lavande vraie (FR)",
+    "Lavanda (ES/IT)",
+    "Xun Yi Cao (CN)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Strongly aromatic shrub", "status": "pending"},
+    {"step": 2, "label": "Narrow grey-green leaves", "status": "pending"},
+    {"step": 3, "label": "Square stems (Lamiaceae characteristic)", "status": "pending"},
+    {"step": 4, "label": "Violet-blue flower spikes", "status": "pending"},
+    {"step": 5, "label": "Flowers in whorls along spike", "status": "pending"},
+    {"step": 6, "label": "Woody base with herbaceous upper growth", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 3,
+  "minimum_equipment_needed": [
+    "No equipment required"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Lavandula x intermedia (Lavandin)",
+    "Lavandula stoechas (French Lavender)",
+    "Lavandula latifolia (Spike Lavender)",
+    "Rosmarinus officinalis (Rosemary) - at distance"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "none", "typ": "Lavandula x intermedia", "beschreibung": "Hybrid with similar properties"},
+    {"level": "low", "typ": "Lavandula stoechas", "beschreibung": "Different flower structure, also aromatic"}
+  ],
+  "key_differentiating_features": [
+    "Characteristic strong lavender fragrance",
+    "Narrow linear leaves (2-6 mm wide)",
+    "Compact flower spikes (3-8 cm)",
+    "No sterile bracts at top of spike (unlike L. stoechas)",
+    "Grey-green foliage color"
+  ],
+  "habit": "Evergreen subshrub",
+  "growth_form": "Compact, rounded mound",
+  "symmetry": "radial",
+  "size_range": {
+    "min": 30,
+    "max": 100,
+    "unit": "cm"
+  },
+  "size_typical_cm": 60,
+  "basic_shape": "Dense, rounded shrub with flower spikes",
+  "height": {
+    "min": 30,
+    "max": 100,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 30,
+    "max": 100,
+    "unit": "cm"
+  },
+  "surface_type": "Leaves with fine grey pubescence",
+  "color_primary": "Grey-green (foliage)",
+  "color_secondary": "Violet-blue (flowers)",
+  "color_variations": [
+    "White flowered cultivars exist",
+    "Pink flowered cultivars exist",
+    "Deep purple cultivars exist"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf",
+  "primary_structure_diameter": {
+    "min": 0.2,
+    "max": 0.6,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Narrow, linear",
+  "primary_structure_shape_mature": "Narrow, linear, edges rolled under",
+  "primary_structure_surface": "Fine grey pubescence",
+  "primary_structure_color": "Grey-green",
+  "support_structure_present": true,
+  "support_structure_type": "Stem (woody at base)",
+  "support_structure_color": "Grey-brown",
+  "flower_present": true,
+  "flower_type": "Tubular, two-lipped, in whorled spikes",
+  "flower_color": "Violet-blue",
+  "flower_size": {
+    "min": 0.8,
+    "max": 1.2,
+    "unit": "cm"
+  },
+  "flowering_period": "June to August",
+  "smell_description": "Intensely aromatic, sweet floral with herbaceous notes",
+  "smell_comparable_to": "Classic lavender scent, calming, slightly camphorous",
+  "taste_safe_to_test": true,
+  "taste_description": "Floral, slightly bitter, aromatic",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "New grey-green growth",
+    "summer": "Peak flowering (June-August)",
+    "autumn": "Flower spikes dry on plant",
+    "winter": "Grey-green foliage persists"
+  },
+  "season_peak_months": [6, 7, 8],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis, adapted to Mediterranean climate",
+  "substrate_species": [
+    "Well-drained, calcareous soils",
+    "Sandy or gravelly soils",
+    "Rocky hillsides"
+  ],
+  "source": {
+    "authors": "Upson, T. & Andrews, S.",
+    "year": 2004,
+    "title": "The Genus Lavandula",
+    "journal": "Royal Botanic Gardens, Kew",
+    "doi": ""
+  }
+}

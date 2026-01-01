@@ -1,11 +1,59 @@
-# AMORPH v7 - Daten-Konfiguration
+# Datenquelle - wähle eine:
 
-# Pfad zu den Spezies-Daten
-dataPath: "data"
+# Option 1: UNIVERSE OPTIMIZED (NEU - empfohlen für Produktion)
+# Lädt nur universe-index.json beim Start (~10KB)
+# Perspektiven werden erst bei Detail-View geladen (Lazy Loading)
+# WICHTIG: npm run build:index vorher ausführen!
+quelle:
+  typ: json-universe-optimized
+  dataPath: ./data/
 
-# Spezies-Index
-species:
-  - slug: steinpilz
-    name: Steinpilz
-    scientificName: Boletus edulis
-    kingdom: fungi
+# Option 2: UNIVERSE MODE (für Entwicklung ohne Index)
+# Durchsucht automatisch ALLE Sammlungen im data/ Ordner
+# Langsamer: Lädt alle Perspektiven bei Suche
+# quelle:
+#   typ: json-universe
+#   dataPath: ./data/
+
+# Option 3: Modulare Perspektiven-Struktur (einzelne Sammlung)
+# Jede Spezies hat eigenen Ordner mit separaten Perspektiven-Dateien
+# quelle:
+#   typ: json-perspektiven
+#   indexUrl: ./data/fungi/index.json
+#   baseUrl: ./data/fungi/
+
+# quelle:
+#   typ: json-perspektiven
+#   indexUrl: ./data/animalia/index.json
+#   baseUrl: ./data/animalia/
+
+# quelle:
+#   typ: json-perspektiven
+#   indexUrl: ./data/plantae/index.json
+#   baseUrl: ./data/plantae/
+
+# quelle:
+#   typ: json-perspektiven
+#   indexUrl: ./data/bacteria/index.json
+#   baseUrl: ./data/bacteria/
+
+# Option 4: Einzelne JSON-Datei (Legacy - alle Items in einer Datei)
+# quelle:
+#   typ: json
+#   url: ./data/fungi.json
+
+# Option 5: PocketBase
+# quelle:
+#   typ: pocketbase
+#   url: https://api.example.com
+#   sammlung: items
+
+# Option 5: REST API
+# quelle:
+#   typ: rest
+#   url: https://api.example.com/items
+#   headers:
+#     Authorization: Bearer ${API_TOKEN}
+
+# Schema für Validierung wird aus schema.yaml geladen!
+# Keine Duplikation mehr nötig

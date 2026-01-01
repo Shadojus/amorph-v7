@@ -1,0 +1,47 @@
+{
+  "image": [
+    {
+      "name": "J-Dar",
+      "author": "J-Dar",
+      "username": "J-Dar",
+      "year": 2010,
+      "copyright": "© 2010 J-Dar",
+      "license": "CC BY-SA 3.0",
+      "url": "https://mushroomobserver.org"
+    }
+  ],
+  "fields": {
+    "antidiabetic_properties": [
+      {
+        "name": "Ratnaningtyas Nuniek Ina, Husen Fajar, Hernayanti H, Ekowati Nuraeni",
+        "title": "Faculty of Biology, Jenderal Soedirman University, Indonesia",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35675226/",
+        "contact": "Ethanol extract: -26.69% FBG (750mg), -4.30% HbA1c, +71.09% GLP-1 (500mg) STZ-rats (2022)"
+      }
+    ],
+    "antitumor_leukemia": [
+      {
+        "name": "University of Florida Y3 Protein Research Team",
+        "title": "Leukemia Cell Apoptosis Researchers",
+        "url": "https://www.drweil.com/health-wellness/body-mind-spirit/hair-skin-nails/coprinus-mushroom-benefits/",
+        "contact": "Y3 protein binds leukemia cells: 90% cell death via enzyme cascade (2017)"
+      }
+    ],
+    "confusion_species_coprine": [
+      {
+        "name": "Coprinopsis atramentaria Safety Researchers",
+        "title": "Disulfiram-like Coprine Toxicity Team",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7754439/",
+        "contact": "C. comatus does NOT contain coprine; Coprinopsis atramentaria causes alcohol intolerance"
+      }
+    ],
+    "antiproliferative_compounds": [
+      {
+        "name": "National Poison Data System Research Team",
+        "title": "Mushroom Toxicity & Confusion Species Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7754439/",
+        "contact": "2024 data: C. comatus safe edible, Coprinopsis confusion cases documented"
+      }
+    ]
+  }
+}

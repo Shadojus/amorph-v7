@@ -1,0 +1,32 @@
+{
+  "edibility": {
+    "status": "edible with restrictions",
+    "variant": "warning"
+  },
+  "toxin_classes": [],
+  "symptoms": [
+    "Gastrointestinal complaints in some individuals",
+    "Allergic reactions possible"
+  ],
+  "symptom_onset_hours": {
+    "min": 0.5,
+    "max": 2
+  },
+  "severity_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "medical_treatment_required": false,
+  "hospitalization_required": false,
+  "special_considerations": [
+    "Sensitive individuals may not tolerate",
+    "Specimens on hardwood are often more bitter and less digestible",
+    "Only young fruiting bodies should be consumed"
+  ],
+  "confusion_species_notes": "Confusion with the Hapalopilus rutilans is possible, which is toxic. This has a more brownish-red color and a cork-like flesh consistency.",
+  "handling_warnings": [
+    "Always cook thoroughly",
+    "Test tolerance with small portions first",
+    "Consider tree substrate"
+  ]
+}

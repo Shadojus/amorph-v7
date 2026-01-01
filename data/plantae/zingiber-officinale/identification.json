@@ -1,0 +1,153 @@
+{
+  "scientific_name": "Zingiber officinale",
+  "author_citation": "Roscoe 1807",
+  "accepted_name": "Zingiber officinale Roscoe",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Liliopsida",
+  "taxonomy_order": "Zingiberales",
+  "taxonomy_family": "Zingiberaceae",
+  "taxonomy_genus": "Zingiber",
+  "taxonomy_species": "officinale",
+  "synonyms": [
+    "Amomum zingiber L.",
+    "Zingiber aromaticum Noronha",
+    "Zingiber sichuanense Z.Y.Zhu"
+  ],
+  "common_names": [
+    "Ginger",
+    "Common Ginger",
+    "Culinary Ginger",
+    "Garden Ginger"
+  ],
+  "international_names": [
+    "Ingwer (DE)",
+    "Gingembre (FR)",
+    "Jengibre (ES)",
+    "Zenzero (IT)",
+    "Jiang (CN)",
+    "Shoga (JP)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Aromatic rhizome with distinctive ginger scent", "status": "pending"},
+    {"step": 2, "label": "Reed-like stems with lance-shaped leaves", "status": "pending"},
+    {"step": 3, "label": "Leaves alternate, clasping stem", "status": "pending"},
+    {"step": 4, "label": "Pale yellow-green flowers on separate spike", "status": "pending"},
+    {"step": 5, "label": "Rhizome knobby, pale yellow inside", "status": "pending"},
+    {"step": 6, "label": "Grows 60-120 cm tall", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "time_to_identify_minutes": 5,
+  "minimum_equipment_needed": [
+    "No equipment required"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Curcuma longa (Turmeric)",
+    "Alpinia galanga (Galangal)",
+    "Zingiber zerumbet (Shampoo Ginger)",
+    "Hedychium species (Ginger Lily)"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "none", "typ": "Curcuma longa", "description": "Related plant, also edible"},
+    {"level": "low", "typ": "Alpinia galanga", "description": "Different flavor, also edible"}
+  ],
+  "key_differentiating_features": [
+    "Characteristic spicy ginger aroma",
+    "Pale yellow rhizome flesh",
+    "Leafy pseudostems from rhizome",
+    "Rarely flowers in cultivation",
+    "Rhizome bark tan to brown"
+  ],
+  "habit": "Herbaceous perennial (from rhizome)",
+  "growth_form": "Clump-forming from rhizomes",
+  "symmetry": "bilateral",
+  "size_range": {
+    "min": 60,
+    "max": 120,
+    "unit": "cm"
+  },
+  "size_typical_cm": 90,
+  "basic_shape": "Reed-like stems emerging from rhizome",
+  "height": {
+    "min": 60,
+    "max": 120,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 30,
+    "max": 60,
+    "unit": "cm"
+  },
+  "surface_type": "Smooth stems and leaves",
+  "color_primary": "Green (leaves/stems)",
+  "color_secondary": "Tan (rhizome)",
+  "color_variations": [
+    "Rhizome flesh pale yellow",
+    "Flowers yellow-green with purple lip"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf",
+  "primary_structure_diameter": {
+    "min": 2,
+    "max": 3,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Lance-shaped, clasping",
+  "primary_structure_shape_mature": "Narrow lance-shaped, 15-30 cm long",
+  "primary_structure_surface": "Smooth, glossy",
+  "primary_structure_color": "Dark green",
+  "support_structure_present": true,
+  "support_structure_type": "Pseudostem from leaf sheaths",
+  "support_structure_color": "Green with reddish sheaths",
+  "rhizome_present": true,
+  "rhizome_type": "Branching, knobby",
+  "rhizome_color": "Tan to brown exterior, pale yellow interior",
+  "flower_present": true,
+  "flower_type": "Dense spike on separate stalk",
+  "flower_color": "Yellow-green with purple lip",
+  "flower_size": {
+    "min": 3,
+    "max": 5,
+    "unit": "cm"
+  },
+  "flowering_period": "Rarely flowers in cultivation",
+  "smell_description": "Warm, spicy, pungent",
+  "smell_comparable_to": "Fresh ginger root, citrusy, peppery",
+  "taste_safe_to_test": true,
+  "taste_description": "Warm, pungent, slightly sweet, spicy",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "New shoots emerge from rhizome",
+    "summer": "Peak growth",
+    "autumn": "Foliage yellows",
+    "winter": "Dies back in temperate climates"
+  },
+  "season_peak_months": [7, 8, 9],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis, tropical",
+  "substrate_species": [
+    "Rich, moist, well-drained soil",
+    "Forest understory",
+    "Tropical and subtropical regions"
+  ],
+  "source": {
+    "authors": "Ravindran, P.N. & Babu, K.N.",
+    "year": 2005,
+    "title": "Ginger: The Genus Zingiber",
+    "journal": "CRC Press",
+    "doi": ""
+  }
+}

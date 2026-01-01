@@ -1,0 +1,57 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine", "Ancient Medicine"],
+    "historical_use": "Already described by Dioscorides; leaves and root used differently",
+    "traditional_indications": ["Rheumatic complaints", "Urinary tract infections", "Prostate complaints", "Blood purification"]
+  },
+  "pharmacopoeia_names": ["Urticae folium", "Urticae radix"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Root: Benign prostatic hyperplasia", "Leaves: Adjuvant for rheumatic complaints, flushing therapy"],
+  "german_commission_e_status": {
+    "status": "Positive monograph",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Root: Urinary disorders in BPH", "Leaves: Rheumatic complaints, flushing therapy"],
+  "active_substances": [
+    "Leaves: Caffeic acid derivatives, flavonoids, minerals",
+    "Root: Lectins, polysaccharides, sterols"
+  ],
+  "effect_profile": [
+    {"axis": "Anti-inflammatory", "value": 75},
+    {"axis": "Diuretic", "value": 80},
+    {"axis": "Anti-prostatic (root)", "value": 70},
+    {"axis": "Anti-rheumatic", "value": 65},
+    {"axis": "Mineral-rich", "value": 85}
+  ],
+  "therapeutic_categories": [
+    "Diuretic",
+    "Anti-rheumatic",
+    "Urological agent"
+  ],
+  "evidence_level": {
+    "status": "2b",
+    "variant": "warning"
+  },
+  "safety_score": {
+    "value": 90,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Occasional", "description": "Gastrointestinal complaints"},
+    {"level": "low", "typ": "External", "description": "Skin irritation from fresh leaves"}
+  ],
+  "contraindications": [
+    "Edema due to cardiac or renal insufficiency (leaves)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Not recommended",
+    "variant": "warning"
+  },
+  "dosage_notes": "Leaf tea: 4-6g daily; Root extract: 600-1200 mg daily for BPH; drink plenty during flushing therapy",
+  "preparation_forms": ["Tea", "Fresh plant juice", "Extract", "Capsules", "Tincture"],
+  "status_by_region": {
+    "eu": "Herbal medicinal product (well-established use)"
+  }
+}

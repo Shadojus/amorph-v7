@@ -1,0 +1,34 @@
+{
+  "safety_edibility_status": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "safety_edibility_confidence": {
+    "value": 98,
+    "max": 100,
+    "unit": "%"
+  },
+  "safety_edibility_notes": "Excellent edible mushroom, one of the most important cultivated mushrooms worldwide. Rarely allergic reactions (shiitake dermatitis) possible.",
+  "safety_potentially_deadly": false,
+  "safety_toxicity_score": {
+    "value": 5,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_warning_level": {
+    "status": "advisory",
+    "variant": "neutral"
+  },
+  "safety_warning_text": "In rare cases, shiitake dermatitis may occur (skin rash from raw or insufficiently cooked mushrooms).",
+  "safety_summary": "Very good edible mushroom. Always cook thoroughly. Rarely skin rashes possible.",
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "confusion_safety_critical": false
+}

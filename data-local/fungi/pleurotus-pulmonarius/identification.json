@@ -1,0 +1,77 @@
+{
+  "scientific_name": "Pleurotus pulmonarius",
+  "author_citation": "(Fr.) Quél.",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Pleurotaceae",
+  "taxonomy_genus": "Pleurotus",
+  "taxonomy_species": "pulmonarius",
+  "synonyms": [
+    "Agaricus pulmonarius",
+    "Pleurotus ostreatus var. pulmonarius"
+  ],
+  "common_names": [
+    "Lung Oyster",
+    "Summer Oyster",
+    "Phoenix Mushroom",
+    "Indian Oyster"
+  ],
+  "size_range": {
+    "min": 5,
+    "max": 20,
+    "unit": "cm"
+  },
+  "color_primary": "grayish-white",
+  "color_secondary": "beige",
+  "smell_description": "Sweet, pleasant, oyster-like",
+  "taste_description": "Mild",
+  "primary_structure_present": true,
+  "primary_structure_type": "Cap",
+  "primary_structure_diameter": {
+    "min": 5,
+    "max": 20,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "convex",
+  "primary_structure_shape_mature": "flat to upturned, wavy",
+  "primary_structure_color": "grayish-white to beige, lilac-gray",
+  "support_structure_present": true,
+  "support_structure_type": "Stem",
+  "support_structure_position": "eccentric",
+  "lamellae_present": true,
+  "lamellae_attachment": "decurrent",
+  "lamellae_color": "whitish to cream-colored",
+  "tissue_consistency": "thin",
+  "propagule_color": "white to lavender-gray",
+  "propagule_length": {
+    "min": 7.5,
+    "max": 11,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 3,
+    "max": 4,
+    "unit": "um"
+  },
+  "propagule_shape": "cylindrical",
+  "confusion_species_list": [
+    "Pleurotus ostreatus",
+    "Pleurotus cornucopiae"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "beginner",
+    "variant": "success"
+  },
+  "key_differentiating_features": [
+    "No cold shock required for fruiting",
+    "Caps usually in small groups (5-6)",
+    "Also grows on coniferous wood"
+  ]
+}

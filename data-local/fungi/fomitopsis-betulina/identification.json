@@ -1,0 +1,78 @@
+{
+  "scientific_name": "Fomitopsis betulina",
+  "author_citation": "(Bull.) B.K. Cui, M.L. Han & Y.C. Dai",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Polyporales",
+  "taxonomy_family": "Fomitopsidaceae",
+  "taxonomy_genus": "Fomitopsis",
+  "taxonomy_species": "betulina",
+  "synonyms": [
+    "Piptoporus betulinus",
+    "Boletus betulinus"
+  ],
+  "common_names": [
+    "Birch Polypore",
+    "Birch Bracket",
+    "Birch Sponge",
+    "Oetzi Mushroom",
+    "Razor Strop Fungus"
+  ],
+  "size_range": {
+    "min": 3,
+    "max": 30,
+    "unit": "cm"
+  },
+  "color_primary": "whitish-cream",
+  "color_secondary": "brown",
+  "smell_description": "Acidic, reminiscent of green apples",
+  "taste_description": "Sour, bitter",
+  "primary_structure_present": true,
+  "primary_structure_type": "Bracket",
+  "primary_structure_diameter": {
+    "min": 3,
+    "max": 30,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "spherical-bulbous",
+  "primary_structure_shape_mature": "cushion-shaped",
+  "primary_structure_surface": "smooth, later cracked",
+  "primary_structure_color": "whitish to brown",
+  "tubes_present": true,
+  "tubes_color": "whitish to pale yellow",
+  "pores_size": "2-4 per mm",
+  "pores_color": "whitish to ochre-brown",
+  "tissue_color": "white",
+  "tissue_consistency": "young soft, old cork-like",
+  "propagule_color": "white",
+  "propagule_length": {
+    "min": 5,
+    "max": 7,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 1.5,
+    "max": 2,
+    "unit": "um"
+  },
+  "propagule_shape": "sausage-shaped, curved",
+  "confusion_species_list": [
+    "Fomitiporia robusta",
+    "Ganoderma adspersum"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "beginner",
+    "variant": "success"
+  },
+  "key_differentiating_features": [
+    "Grows ONLY on birch",
+    "White, cushion-shaped bracket",
+    "Apple-like smell"
+  ]
+}

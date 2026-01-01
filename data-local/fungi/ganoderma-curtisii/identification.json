@@ -1,0 +1,43 @@
+{
+  "scientific_name": "Ganoderma curtisii",
+  "author_citation": "(Berk.) Murrill",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Polyporales",
+  "taxonomy_family": "Ganodermataceae",
+  "taxonomy_genus": "Ganoderma",
+  "taxonomy_species": "curtisii",
+  "synonyms": [
+    "Polyporus curtisii",
+    "Fomes curtisii",
+    "Scindalma curtisii"
+  ],
+  "common_names": [
+    "Golden Reishi",
+    "Yellow Reishi",
+    "Golden Lacquered Bracket"
+  ],
+  "color_primary": "golden yellow",
+  "color_secondary": "reddish-brown",
+  "primary_structure_present": true,
+  "primary_structure_type": "bracket with stem",
+  "primary_structure_surface": "lacquered, shiny",
+  "tubes_present": true,
+  "pores_color": "white, staining brown when touched",
+  "tissue_consistency": "spongy in pores, firm in stem",
+  "propagule_color": "brown",
+  "confusion_species_list": [
+    "Ganoderma lucidum",
+    "Ganoderma sessile"
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "intermediate",
+    "variant": "warning"
+  }
+}

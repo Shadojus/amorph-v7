@@ -1,0 +1,148 @@
+{
+  "scientific_name": "Silybum marianum",
+  "author_citation": "(L.) Gaertn. 1791",
+  "accepted_name": "Silybum marianum (L.) Gaertn.",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Magnoliopsida",
+  "taxonomy_order": "Asterales",
+  "taxonomy_family": "Asteraceae",
+  "taxonomy_genus": "Silybum",
+  "taxonomy_species": "marianum",
+  "synonyms": [
+    "Carduus marianus L.",
+    "Mariana mariana (L.) Hill",
+    "Silybum maculatum Moench"
+  ],
+  "common_names": [
+    "Milk Thistle",
+    "Blessed Milk Thistle",
+    "Marian Thistle",
+    "Holy Thistle",
+    "Variegated Thistle"
+  ],
+  "international_names": [
+    "Mariendistel (DE)",
+    "Chardon-Marie (FR)",
+    "Cardo mariano (ES)",
+    "Cardo mariano (IT)",
+    "Shui Fei Ji (CN)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Large leaves with white marbling/veins", "status": "pending"},
+    {"step": 2, "label": "Spiny leaf margins", "status": "pending"},
+    {"step": 3, "label": "Purple thistle-like flower heads", "status": "pending"},
+    {"step": 4, "label": "Spiny bracts around flower head", "status": "pending"},
+    {"step": 5, "label": "Shiny, spotted leaves", "status": "pending"},
+    {"step": 6, "label": "Grows to 30-200 cm tall", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 3,
+  "minimum_equipment_needed": [
+    "No equipment required",
+    "Gloves recommended due to spines"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Cirsium vulgare (Spear Thistle)",
+    "Carduus species (Plumeless Thistles)",
+    "Onopordum acanthium (Scotch Thistle)"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "none", "typ": "Other thistles", "description": "Other thistles are not toxic, but lack medicinal value of milk thistle"}
+  ],
+  "key_differentiating_features": [
+    "Distinctive white marbling on leaves",
+    "Glossy, shiny leaves (not dull)",
+    "Variegation follows leaf veins",
+    "Legend: marks from Virgin Mary's milk",
+    "Purple flowers with spiny bracts"
+  ],
+  "habit": "Annual or biennial herb",
+  "growth_form": "Rosette in year 1, flowering stem in year 2",
+  "symmetry": "radial",
+  "size_range": {
+    "min": 30,
+    "max": 200,
+    "unit": "cm"
+  },
+  "size_typical_cm": 120,
+  "basic_shape": "Spiny rosette to tall flowering thistle",
+  "height": {
+    "min": 30,
+    "max": 200,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 40,
+    "max": 80,
+    "unit": "cm"
+  },
+  "surface_type": "Glossy, hairless leaves with spiny margins",
+  "color_primary": "Green with white marbling",
+  "color_secondary": "Purple (flowers)",
+  "color_variations": [
+    "White variegation very distinctive"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf",
+  "primary_structure_diameter": {
+    "min": 20,
+    "max": 60,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Rosette, lobed, spiny",
+  "primary_structure_shape_mature": "Deeply lobed, wavy, very spiny",
+  "primary_structure_surface": "Glossy, smooth with white veining",
+  "primary_structure_color": "Green with white marbling",
+  "support_structure_present": true,
+  "support_structure_type": "Stem (branching, ridged)",
+  "support_structure_color": "Green to brown",
+  "flower_present": true,
+  "flower_type": "Composite thistle head",
+  "flower_color": "Purple-pink to white",
+  "flower_size": {
+    "min": 4,
+    "max": 8,
+    "unit": "cm"
+  },
+  "flowering_period": "June to August",
+  "smell_description": "Faint, slightly sweet",
+  "smell_comparable_to": "Typical thistle smell",
+  "taste_safe_to_test": true,
+  "taste_description": "Leaves bitter; seeds mild, slightly nutty",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "Rosette develops",
+    "summer": "Flowering, seed production",
+    "autumn": "Seeds mature",
+    "winter": "First year rosette persists; dies after seeding"
+  },
+  "season_peak_months": [6, 7, 8],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis",
+  "substrate_species": [
+    "Dry, rocky soils",
+    "Roadsides and waste ground",
+    "Mediterranean climates"
+  ],
+  "source": {
+    "authors": "Flora of North America Editorial Committee",
+    "year": 2006,
+    "title": "Silybum marianum in Flora of North America",
+    "journal": "Flora of North America",
+    "doi": ""
+  }
+}

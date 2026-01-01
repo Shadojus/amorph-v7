@@ -1,0 +1,36 @@
+{
+  "safety_edibility_status": {
+    "status": "inedible",
+    "variant": "info"
+  },
+  "safety_edibility_notes": "Protected species. Trade regulated under CITES. Historically hunted for feathers by indigenous peoples.",
+  "safety_potentially_deadly": false,
+  "safety_warning_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "safety_warning_text": "Macaws have powerful beaks capable of crushing nuts and can inflict serious bite wounds. Bites can remove fingers or cause deep lacerations. Most bites occur from captive birds.",
+  "safety_summary": "Wild macaws avoid humans. Captive macaws can bite hard enough to cause serious injury. Their powerful beaks can exert over 500 PSI. Proper handling training is essential for captive birds.",
+  "safety_risk_inherent": {
+    "value": 20,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_contraindications": [
+    "Do not handle unfamiliar macaws",
+    "Never grab at or chase macaws",
+    "Learn proper handling techniques before interacting",
+    "Do not disturb nesting sites"
+  ],
+  "encounter_protocol": "Wild: observe from distance. Captive: move slowly, speak softly, allow bird to approach. Never force interaction.",
+  "bite_force": {
+    "value": 500,
+    "unit": "PSI"
+  },
+  "legal_protection_status": "CITES Appendix II"
+}

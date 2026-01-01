@@ -1,24 +1,21 @@
-# AMORPH v7 - Manifest
-# Basis-Konfiguration für Spezies-Viewer
+name: Funginomi
+beschreibung: Pilz-Wissenssammlung
+version: 1.0.0
+sprache: de
+autor: AMORPH Team
 
-name: "FUNGINOMI"
-version: "7.0.0"
-description: "Pilz-Datenbank mit wissenschaftlichen Informationen"
-
-# Kingdoms die diese Instanz verwaltet
-kingdoms:
-  - fungi
-
-# Default Kingdom
-defaultKingdom: fungi
-
-# Features
-features:
-  compare: true
-  search: true
-  bifroest: true
+# === BRANDING ===
+# App-Branding (Zeile 0 im Header)
+branding:
+  titel: FUNGINOMI                    # App-Name/Logo (links)
+  titelUrl: /                         # Link bei Klick auf Titel
   
-# Theme
-theme:
-  primaryColor: "#667eea"
-  accentColor: "#48bb78"
+  partner:                            # Partner/Netzwerk (rechts)
+    text: Part of the                 # Text vor Partner-Name
+    name: Bifroest                    # Partner-Name
+    url: https://bifroest.io          # Partner-Link
+    
+# === FARBEN (App-Level) ===
+# Standard-Palette wenn nicht spezifisch definiert
+farben:
+  palette: standard                   # Welche Palette aus morphs.yaml nutzen

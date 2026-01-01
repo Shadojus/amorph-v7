@@ -1,0 +1,52 @@
+{
+  "trophic_mode_primary": "carnivorous",
+  "trophic_mode_secondary": "marine predator",
+  "ecological_guild": "diving seabird",
+  "primary_ecosystem_function": "mid-level marine consumer",
+  "secondary_ecosystem_functions": [
+    "nutrient cycling between ocean and ice",
+    "prey for marine mammals"
+  ],
+  "ecosystem_type": "marine",
+  "ecosystem_subtype": "Antarctic Ocean and sea ice",
+  "habitat_types": [
+    "pack ice",
+    "fast ice",
+    "open ocean"
+  ],
+  "microhabitat_primary": "sea ice for breeding",
+  "depth_range": {
+    "min": 0,
+    "max": 565,
+    "unit": "m"
+  },
+  "diet_primary": [
+    "Antarctic silverfish",
+    "Antarctic krill",
+    "squid"
+  ],
+  "diet_specialization": "fish and crustaceans",
+  "foraging_strategy": "deep pursuit diving",
+  "predators": [
+    "Hydrurga leptonyx (Leopard Seal)",
+    "Orcinus orca"
+  ],
+  "climate_zone": "Antarctic",
+  "native_range": "Antarctica",
+  "iucn_global_status": {
+    "status": "NT",
+    "variant": "warning"
+  },
+  "population_trend": "decreasing",
+  "social_structure": "large breeding colonies",
+  "colony_size": {
+    "min": 200,
+    "max": 60000,
+    "unit": "pairs"
+  },
+  "temperature_tolerance": {
+    "min": -60,
+    "max": 5,
+    "unit": "C"
+  }
+}

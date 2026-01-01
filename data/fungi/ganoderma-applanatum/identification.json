@@ -1,0 +1,77 @@
+{
+  "scientific_name": "Ganoderma applanatum",
+  "author_citation": "(Pers.) Pat.",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Polyporales",
+  "taxonomy_family": "Ganodermataceae",
+  "taxonomy_genus": "Ganoderma",
+  "taxonomy_species": "applanatum",
+  "synonyms": [
+    "Ganoderma lipsiense",
+    "Fomes applanatus",
+    "Polyporus applanatus",
+    "Elfvingia applanata"
+  ],
+  "common_names": [
+    "Artist's Bracket",
+    "Artist's Conk",
+    "Flat Lacquered Bracket"
+  ],
+  "size_range": {
+    "min": 6,
+    "max": 30,
+    "unit": "cm"
+  },
+  "color_primary": "brown",
+  "color_secondary": "gray-brown",
+  "smell_description": "neutral",
+  "taste_description": "neutral to bitter",
+  "primary_structure_present": true,
+  "primary_structure_type": "bracket",
+  "primary_structure_diameter": {
+    "min": 6,
+    "max": 30,
+    "unit": "cm"
+  },
+  "primary_structure_shape_mature": "kidney-shaped, flat",
+  "primary_structure_surface": "concentrically furrowed",
+  "primary_structure_color": "brown, gray-brown, margin whitish",
+  "primary_structure_margin": "white in young specimens",
+  "tubes_present": true,
+  "tubes_color": "whitish to cream",
+  "pores_color": "white, staining brown when touched",
+  "tissue_color": "reddish-brown to dark brown",
+  "tissue_consistency": "tough, corky",
+  "propagule_color": "rust-brown",
+  "propagule_length": {
+    "min": 5.5,
+    "max": 8,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 4.5,
+    "max": 6,
+    "unit": "um"
+  },
+  "confusion_species_list": [
+    "Fomes fomentarius",
+    "Ganoderma adspersum",
+    "Ganoderma carnosum"
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "intermediate",
+    "variant": "warning"
+  },
+  "key_differentiating_features": [
+    "Pores stain brown when touched (Artist's Conk)",
+    "Thin, easily dented crust",
+    "Context with white inclusions (partridge trama)"
+  ]
+}

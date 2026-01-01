@@ -1,0 +1,60 @@
+{
+  "trophic_mode_primary": "autotroph",
+  "ecological_guild": "Perennial",
+  "primary_ecosystem_function": "Pioneer plant",
+  "secondary_ecosystem_functions": [
+    "Pollinator magnet",
+    "Erosion control"
+  ],
+  "ecosystem_type": "Grassland",
+  "ecosystem_subtype": "Dry grassland, ruderal areas",
+  "microhabitat_primary": "Dry, sunny locations",
+  "microhabitat_secondary": "Forest edges, roadsides",
+  "light_requirement": "Full sun",
+  "moisture_regime": "Mesic-xeric",
+  "drought_tolerance": {
+    "rating": 7,
+    "max": 10
+  },
+  "soil_ph_optimal_min": 5.5,
+  "soil_ph_optimal_max": 8.0,
+  "soil_nutrient_preference": "Low to moderately nutrient-rich",
+  "climate_zone": "Temperate",
+  "temperature_optimal_min_c": -20,
+  "temperature_optimal_max_c": 30,
+  "frost_tolerance": {
+    "rating": 9,
+    "max": 10
+  },
+  "native_range": "Europe, Western Asia, North Africa",
+  "invasiveness_score": {
+    "value": 80,
+    "min": 0,
+    "max": 100,
+    "unit": ""
+  },
+  "invasive_in_regions": [
+    "Australia",
+    "North America (Western USA)",
+    "South America",
+    "South Africa"
+  ],
+  "impact_on_native_species": [
+    {
+      "level": "high",
+      "typ": "Pastureland",
+      "beschreibung": "Displaces native grasses, toxic to livestock"
+    }
+  ],
+  "control_methods_available": [
+    "Biological control (Chrysolina beetles)",
+    "Herbicides"
+  ],
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "disturbance_response": "Strong spread after disturbance",
+  "dispersal_vector_type": "Anemochory and Zoochory",
+  "dispersal_mechanism": "Wind and animal dispersal"
+}

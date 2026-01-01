@@ -1,0 +1,59 @@
+{
+  "trophic_mode_primary": "carnivorous",
+  "trophic_mode_secondary": "ambush predator",
+  "ecological_guild": "terrestrial arthropod predator",
+  "primary_ecosystem_function": "insect population control",
+  "secondary_ecosystem_functions": [
+    "pest control",
+    "prey for birds and mammals"
+  ],
+  "ecosystem_type": "grassland",
+  "ecosystem_subtype": "meadows and shrubland",
+  "habitat_types": [
+    "meadows",
+    "gardens",
+    "shrubland",
+    "forest edges",
+    "agricultural land"
+  ],
+  "microhabitat_primary": "vegetation and flower heads",
+  "elevation_range": {
+    "min": 0,
+    "max": 2000,
+    "unit": "m"
+  },
+  "diet_primary": [
+    "flies",
+    "moths",
+    "grasshoppers",
+    "crickets",
+    "beetles",
+    "small vertebrates"
+  ],
+  "diet_specialization": "generalist insect predator",
+  "foraging_strategy": "sit-and-wait ambush",
+  "predators": [
+    "birds",
+    "lizards",
+    "frogs",
+    "spiders"
+  ],
+  "climate_zone": "temperate to subtropical",
+  "native_range": "Europe, Africa, Asia",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "population_trend": "stable",
+  "social_structure": "solitary",
+  "lifespan": {
+    "min": 6,
+    "max": 12,
+    "unit": "months"
+  },
+  "strike_speed": {
+    "value": 50,
+    "unit": "ms"
+  },
+  "sexual_cannibalism": true
+}

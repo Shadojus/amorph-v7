@@ -1,0 +1,32 @@
+{
+  "trophic_mode_primary": "parasitic",
+  "trophic_mode_secondary": "saprobiotic",
+  "ecological_guild": "Wood decomposer",
+  "decomposer_type": "Brown rot",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Deciduous forest",
+  "microhabitat_primary": "Living deciduous trees",
+  "microhabitat_secondary": "Dead trunks and stumps",
+  "substrate_type_primary": "Hardwood",
+  "substrate_types_secondary": [
+    "Oak",
+    "Willow",
+    "Cherry",
+    "Beech",
+    "Walnut"
+  ],
+  "substrate_specificity": {
+    "status": "broad",
+    "variant": "success"
+  },
+  "fruiting_season_start": 5,
+  "fruiting_season_end": 10,
+  "fruiting_peak_month": 7,
+  "climate_zone": "temperate",
+  "moisture_regime": "mesic",
+  "native_range": "Northern Hemisphere, cosmopolitan",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "trophic_mode_primary": "autotroph",
+  "ecological_guild": "Climbing plant",
+  "primary_ecosystem_function": "Climbing vine",
+  "secondary_ecosystem_functions": [
+    "Pollinator magnet",
+    "Butterfly food"
+  ],
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Forest edges, hedgerows",
+  "microhabitat_primary": "Sunny forest edges",
+  "microhabitat_secondary": "Fences, ruderal areas",
+  "light_requirement": "Full sun to partial shade",
+  "moisture_regime": "mesic",
+  "drought_tolerance": {
+    "rating": 6,
+    "max": 10
+  },
+  "soil_ph_optimal_min": 6.0,
+  "soil_ph_optimal_max": 7.5,
+  "soil_texture_preference": "Sandy-loamy, well-drained",
+  "climate_zone": "Subtropical to warm-temperate",
+  "temperature_optimal_min_c": -15,
+  "temperature_optimal_max_c": 35,
+  "frost_tolerance": {
+    "rating": 6,
+    "max": 10
+  },
+  "native_range": "Southeastern USA (Virginia to Florida, west to Texas)",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "consumer_insects": [
+    "Agraulis vanillae (Gulf Fritillary)",
+    "Heliconius species"
+  ],
+  "keystone_function": "Food plant for Heliconiidae caterpillars",
+  "dispersal_vector_type": "Zoochory",
+  "dispersal_mechanism": "Bird dispersal (fruits)"
+}

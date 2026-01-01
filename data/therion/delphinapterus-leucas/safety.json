@@ -1,0 +1,32 @@
+{
+  "safety_edibility_status": {
+    "status": "inedible",
+    "variant": "info"
+  },
+  "safety_edibility_notes": "Protected in most jurisdictions. Traditional subsistence hunting by Arctic indigenous peoples is permitted. Muktuk (skin and blubber) is a traditional food. High mercury levels in some populations make consumption risky.",
+  "safety_potentially_deadly": false,
+  "safety_warning_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "safety_warning_text": "Belugas are generally docile and curious toward humans. No known fatal attacks on humans. Main risks are from entering cold Arctic waters.",
+  "safety_summary": "Belugas are not aggressive toward humans and are known for their curiosity and playfulness. Exercise caution in cold Arctic waters. Respect their space for their protection, not yours.",
+  "safety_risk_inherent": {
+    "value": 15,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_contraindications": [
+    "Do not enter frigid Arctic waters",
+    "Maintain approach distances as required",
+    "Do not feed or touch wild belugas",
+    "Avoid separating mothers from calves"
+  ],
+  "encounter_protocol": "Observe from vessels. Allow belugas to approach if curious. Do not chase or pursue. Reduce speed when belugas are nearby.",
+  "legal_protection_status": "MMPA protected, CITES Appendix II"
+}

@@ -1,0 +1,59 @@
+{
+  "edibility": {
+    "status": "medicinal",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Non-toxic",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 3,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Spiny leaves require gloves",
+    "Generally very safe even at high doses",
+    "May lower blood sugar"
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "typ": "Normal use", "description": "Well tolerated; hepatoprotective"},
+    {"level": "low", "typ": "Some individuals", "description": "Mild laxative effect, allergic reactions (rare)"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "risk_groups": [
+    "Those with Asteraceae allergies",
+    "Diabetics (may lower blood sugar)"
+  ],
+  "antidote": "None required",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "allergy_potential": {
+    "status": "Low to Moderate (Asteraceae)",
+    "variant": "warning"
+  },
+  "contraindications": [
+    "Allergies to Asteraceae family"
+  ],
+  "source": {
+    "authors": "Abenavoli, L. et al.",
+    "year": 2010,
+    "title": "Milk thistle in liver diseases: past, present, future",
+    "journal": "Phytotherapy Research",
+    "doi": "10.1002/ptr.3207"
+  }
+}

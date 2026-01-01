@@ -1,0 +1,84 @@
+{
+  "scientific_name": "Grifola frondosa",
+  "author_citation": "(Dicks.) Gray",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Polyporales",
+  "taxonomy_family": "Meripilaceae",
+  "taxonomy_genus": "Grifola",
+  "taxonomy_species": "frondosa",
+  "synonyms": [
+    "Polyporus frondosus",
+    "Polyporus albicans",
+    "Grifola albicans"
+  ],
+  "common_names": [
+    "Hen of the Woods",
+    "Maitake",
+    "Spatulate Polypore",
+    "Leaf Polypore",
+    "Grey Goose",
+    "Hen-of-the-Woods",
+    "Dancing Mushroom"
+  ],
+  "size_range": {
+    "min": 10,
+    "max": 60,
+    "unit": "cm"
+  },
+  "weight_range": {
+    "min": 1,
+    "max": 20,
+    "unit": "kg"
+  },
+  "color_primary": "gray-brown",
+  "color_secondary": "light gray",
+  "smell_description": "Mushroomy, floury, sweet",
+  "taste_description": "Mild, nutty",
+  "primary_structure_present": true,
+  "primary_structure_type": "multi-branched",
+  "primary_structure_diameter": {
+    "min": 2,
+    "max": 10,
+    "unit": "cm"
+  },
+  "primary_structure_shape_mature": "fan-shaped, spatulate",
+  "primary_structure_surface": "finely hairy, fibrous",
+  "primary_structure_color": "gray-brown, lighter with age",
+  "tubes_present": true,
+  "pores_color": "white",
+  "pores_attachment": "decurrent",
+  "tissue_color": "light brown",
+  "propagule_color": "white",
+  "propagule_length": {
+    "min": 6,
+    "max": 7,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 3.5,
+    "max": 5,
+    "unit": "um"
+  },
+  "propagule_shape": "elliptical",
+  "confusion_species_list": [
+    "Polyporus umbellatus",
+    "Meripilus giganteus",
+    "Sparassis crispa"
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "intermediate",
+    "variant": "warning"
+  },
+  "key_differentiating_features": [
+    "Multi-branched fruiting body",
+    "Gray-brown, spatulate caps",
+    "Grows at oak base"
+  ]
+}

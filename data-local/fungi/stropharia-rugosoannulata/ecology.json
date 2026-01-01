@@ -1,0 +1,140 @@
+{
+  "scientific": "Stropharia rugosoannulata",
+  "trophic_mode_primary": "Saprotroph",
+  "trophic_mode_secondary": "",
+  "trophic_flexibility": {
+    "status": "Moderate",
+    "variant": "info"
+  },
+  "trophic_notes": "Primary decomposer on lignocellulosic material such as straw and wood chips. Can also grow in soils with high organic matter content.",
+  "decomposer_type": "Primary decomposer",
+  "lignin_degradation_capability": true,
+  "cellulose_degradation_capability": true,
+  "ecological_guild": "Litter decomposer",
+  "guild_evidence": "Grows on straw, wood chips and organic mulch",
+  "primary_ecosystem_function": "Decomposition of organic materials",
+  "secondary_ecosystem_functions": [
+    "Nutrient release",
+    "Soil improvement",
+    "Mycoremediation"
+  ],
+  "ecosystem_type": "Anthropogenically influenced",
+  "ecosystem_subtype": "Gardens, compost, agricultural areas",
+  "association_strength": {
+    "status": "Moderate",
+    "variant": "info"
+  },
+  "dominant_vegetation_type": "No specific association",
+  "microhabitat_primary": "Straw and wood chip beds",
+  "microhabitat_secondary": "Compost, garden beds, mulched areas",
+  "substrate_specificity": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "substrate_type_primary": "Straw (especially wheat straw)",
+  "substrate_types_secondary": [
+    "Wood chips",
+    "Compost",
+    "Garden waste",
+    "Leaf litter",
+    "Wood chips"
+  ],
+  "light_requirement": "Partial shade",
+  "elevation_minimum_m": 0,
+  "elevation_maximum_m": 1500,
+  "elevation_optimal_min_m": 0,
+  "elevation_optimal_max_m": 800,
+  "moisture_regime": "Mesic to moist",
+  "flooding_tolerance": {
+    "rating": 3,
+    "max": 10
+  },
+  "drought_tolerance": {
+    "rating": 3,
+    "max": 10
+  },
+  "soil_ph_minimum": 5.5,
+  "soil_ph_optimal_min": 6.0,
+  "soil_ph_optimal_max": 7.5,
+  "soil_ph_maximum": 8.0,
+  "soil_nutrient_preference": "Nutrient-rich",
+  "soil_texture_preference": "Well-draining, humus-rich",
+  "organic_matter_preference": "Very High",
+  "climate_zone": "Temperate",
+  "temperature_minimum_mean_c": 5,
+  "temperature_optimal_min_c": 15,
+  "temperature_optimal_max_c": 25,
+  "temperature_maximum_mean_c": 35,
+  "seasonality_preference": "Summer to autumn",
+  "disturbance_response": "Opportunist",
+  "temp_fruiting_minimum_c": 10,
+  "temp_fruiting_optimum_c": 20,
+  "temp_fruiting_maximum_c": 28,
+  "temp_mycelial_optimum_c": 26,
+  "frost_tolerance": {
+    "rating": 2,
+    "max": 10
+  },
+  "fruiting_season_start": 5,
+  "fruiting_season_end": 10,
+  "fruiting_peak_month": 7,
+  "fruiting_duration_weeks": 20,
+  "fruiting_frequency": "Multiple flushes per season",
+  "fruiting_predictability": {
+    "rating": 8,
+    "max": 10
+  },
+  "fruiting_triggers": [
+    "Moist conditions",
+    "Temperatures above 15 degrees C",
+    "Sufficiently colonized substrate"
+  ],
+  "mycelial_activity_season": [
+    {"month": 1, "active": false},
+    {"month": 2, "active": false},
+    {"month": 3, "active": true},
+    {"month": 4, "active": true},
+    {"month": 5, "active": true},
+    {"month": 6, "active": true},
+    {"month": 7, "active": true},
+    {"month": 8, "active": true},
+    {"month": 9, "active": true},
+    {"month": 10, "active": true},
+    {"month": 11, "active": false},
+    {"month": 12, "active": false}
+  ],
+  "rainfall_trigger_mm": 20,
+  "iucn_global_status": {
+    "status": "NE",
+    "variant": "info"
+  },
+  "native_range": "North America (originally), now cultivated worldwide",
+  "consumer_mammals": [
+    "Slugs"
+  ],
+  "consumer_insects": [
+    "Fungus gnats (Mycetophilidae)",
+    "Fungus beetles"
+  ],
+  "dispersal_vector_type": "Wind",
+  "dispersal_mechanism": "Spore release through gills",
+  "bioremediation_potential": true,
+  "bioremediation_targets": [
+    "Heavy metals",
+    "PAHs (Polycyclic aromatic hydrocarbons)",
+    "Pesticides"
+  ],
+  "bioremediation_notes": "Stropharia rugosoannulata has proven mycoremediation capabilities and can absorb various pollutants from the soil.",
+  "citizen_science_suitability": {
+    "rating": 9,
+    "max": 10
+  },
+  "photo_identification_reliable": true,
+  "optimal_survey_method": "Visual search in cultivation beds",
+  "survey_timing_optimal": "June to October after rainfall",
+  "ecology_data_quality_score": {
+    "rating": 8,
+    "max": 10
+  },
+  "ecology_evidence_basis": "Cultivation studies and field observations"
+}

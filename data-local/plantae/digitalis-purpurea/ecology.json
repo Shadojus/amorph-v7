@@ -1,0 +1,44 @@
+{
+  "trophic_mode_primary": "autotroph",
+  "ecological_guild": "Biennial herbaceous plant",
+  "primary_ecosystem_function": "Pioneer plant",
+  "secondary_ecosystem_functions": [
+    "Bumblebee food source",
+    "Clear-cut colonizer"
+  ],
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Forest clearings, clear-cuts",
+  "microhabitat_primary": "Open woodland sites",
+  "microhabitat_secondary": "Roadsides, rocky slopes",
+  "light_requirement": "Partial shade to full sun",
+  "moisture_regime": "Mesic",
+  "drought_tolerance": {
+    "rating": 5,
+    "max": 10
+  },
+  "soil_ph_optimal_min": 4.5,
+  "soil_ph_optimal_max": 6.5,
+  "soil_nutrient_preference": "Nutrient-poor to moderately nutrient-rich",
+  "calcium_requirement": "Low (calcifuge)",
+  "climate_zone": "Atlantic-temperate",
+  "temperature_optimal_min_c": -15,
+  "temperature_optimal_max_c": 25,
+  "frost_tolerance": {
+    "rating": 7,
+    "max": 10
+  },
+  "native_range": "Western Europe (Atlantic influenced)",
+  "invasive_in_regions": [
+    "North America (Pacific coast)",
+    "Australia",
+    "New Zealand"
+  ],
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "disturbance_response": "Abundant after clear-cutting",
+  "logging_response": "Strong spread after timber harvest",
+  "dispersal_vector_type": "Anemochorous",
+  "dispersal_mechanism": "Wind dispersal (very small seeds)"
+}

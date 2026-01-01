@@ -1,0 +1,79 @@
+{
+  "scientific_name": "Panellus stipticus",
+  "author_citation": "(Bull.) P. Karst.",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Mycenaceae",
+  "taxonomy_genus": "Panellus",
+  "taxonomy_species": "stipticus",
+  "synonyms": [
+    "Panus stipticus",
+    "Pleurotus stipticus",
+    "Agaricus stypticus"
+  ],
+  "common_names": [
+    "Bitter Oyster",
+    "Luminescent Panellus",
+    "Astringent Panus"
+  ],
+  "size_range": {
+    "min": 1,
+    "max": 6,
+    "unit": "cm"
+  },
+  "color_primary": "ochre-yellow",
+  "color_secondary": "reddish-brown",
+  "smell_description": "neutral to mushroomy",
+  "taste_description": "bitter, acrid, astringent, peppery",
+  "primary_structure_present": true,
+  "primary_structure_type": "cap",
+  "primary_structure_diameter": {
+    "min": 1,
+    "max": 6,
+    "unit": "cm"
+  },
+  "primary_structure_shape_mature": "shell-shaped, kidney-shaped",
+  "primary_structure_surface": "sticky with rubbery layer",
+  "primary_structure_color": "ochre-yellow, reddish-brown",
+  "support_structure_present": true,
+  "support_structure_type": "stem",
+  "support_structure_position": "lateral",
+  "support_structure_color": "ochre-yellowish like cap",
+  "lamellae_present": true,
+  "lamellae_spacing": "crowded",
+  "lamellae_color": "ochre-yellow",
+  "tissue_color": "light brown",
+  "propagule_color": "white",
+  "propagule_length": {
+    "min": 2.5,
+    "max": 3,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 1,
+    "max": 2,
+    "unit": "um"
+  },
+  "propagule_shape": "ellipsoid",
+  "confusion_species_list": [
+    "Panellus mitis",
+    "Crepidotus mollis"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "intermediate",
+    "variant": "warning"
+  },
+  "key_differentiating_features": [
+    "Bioluminescence (glows in the dark)",
+    "Bitter, acrid taste",
+    "Shell-shaped on hardwood"
+  ],
+  "special_feature": "Bioluminescence - mycelium and fruiting bodies glow greenish in the dark"
+}

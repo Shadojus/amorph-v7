@@ -1,0 +1,48 @@
+{
+  "edibility_category": "edible",
+  "culinary_value": {
+    "rating": 8,
+    "max": 10
+  },
+  "taste_profile": "mild, floury",
+  "texture": "slimy, gelatinous",
+  "aroma": "subtle mushroom-like",
+  "recommended_preparations": [
+    "Miso soup",
+    "Noodle dishes",
+    "Sauces",
+    "Stews"
+  ],
+  "cooking_methods": [
+    "Cooking in soups",
+    "Brief frying"
+  ],
+  "cooking_time_minutes": {
+    "min": 3,
+    "max": 10,
+    "unit": "min"
+  },
+  "storage_fresh_days": {
+    "min": 5,
+    "max": 7,
+    "unit": "days"
+  },
+  "storage_methods": [
+    "Refrigerated",
+    "In brine"
+  ],
+  "cuisine_traditions": [
+    "Japanese cuisine",
+    "Chinese cuisine"
+  ],
+  "commercial_availability": {
+    "status": "medium",
+    "variant": "warning"
+  },
+  "cultivation_scale": "commercial",
+  "nutritional_highlights": [
+    "20.8% Protein",
+    "Niacin (72.9mg/100g)",
+    "Potassium (2083mg/100g)"
+  ]
+}

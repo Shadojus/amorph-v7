@@ -1,0 +1,52 @@
+{
+  "trophic_mode_primary": "carnivorous",
+  "trophic_mode_secondary": "benthic predator",
+  "ecological_guild": "aquatic ambush predator",
+  "primary_ecosystem_function": "invertebrate predation in lake ecosystem",
+  "secondary_ecosystem_functions": [
+    "prey for larger predators",
+    "nutrient cycling in lake sediments"
+  ],
+  "ecosystem_type": "freshwater",
+  "ecosystem_subtype": "high-altitude lake",
+  "habitat_types": [
+    "freshwater canals",
+    "lakes (historic)",
+    "wetlands"
+  ],
+  "microhabitat_primary": "lake bottom and vegetation",
+  "elevation_range": {
+    "min": 2200,
+    "max": 2300,
+    "unit": "m"
+  },
+  "diet_primary": [
+    "aquatic insects",
+    "mollusks",
+    "small fish",
+    "worms",
+    "crustaceans"
+  ],
+  "diet_specialization": "benthic invertebrates",
+  "foraging_strategy": "sit-and-wait suction feeding",
+  "predators": [
+    "Cyprinus carpio (introduced)",
+    "Oreochromis spp. (introduced)",
+    "herons"
+  ],
+  "climate_zone": "subtropical highland",
+  "native_range": "Lake Xochimilco, Mexico",
+  "iucn_global_status": {
+    "status": "CR",
+    "variant": "danger"
+  },
+  "population_trend": "decreasing",
+  "social_structure": "solitary",
+  "temperature_preference": {
+    "min": 14,
+    "max": 20,
+    "unit": "C"
+  },
+  "neoteny": true,
+  "regeneration_capability": "complete limb and organ regeneration"
+}

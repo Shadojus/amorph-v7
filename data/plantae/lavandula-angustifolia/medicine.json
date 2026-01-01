@@ -1,0 +1,71 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine", "Arabic Medicine"],
+    "historical_use": "Used as medicinal plant since antiquity; Hildegard von Bingen recommended lavender",
+    "traditional_indications": ["Nervousness", "Sleep disorders", "Headaches", "Wounds"]
+  },
+  "pharmacopoeia_names": ["Lavandulae flos"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Restlessness", "Insomnia", "Functional upper abdominal complaints"],
+  "german_commission_e_status": {
+    "status": "Positive monograph",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Restlessness", "Insomnia", "Functional circulatory disorders"],
+  "active_substances": [
+    "Linalool",
+    "Linalyl acetate",
+    "Camphor",
+    "Cineole",
+    "Terpinen-4-ol"
+  ],
+  "effect_profile": [
+    {"axis": "Anxiolytic", "value": 85},
+    {"axis": "Sedative", "value": 80},
+    {"axis": "Spasmolytic", "value": 70},
+    {"axis": "Antimicrobial", "value": 65},
+    {"axis": "Wound healing", "value": 60}
+  ],
+  "therapeutic_categories": [
+    "Anxiolytic",
+    "Sedative",
+    "Spasmolytic"
+  ],
+  "evidence_level": {
+    "status": "2a",
+    "variant": "success"
+  },
+  "clinical_studies": [
+    "Silexan (lavender oil capsules) RCTs show efficacy for anxiety disorders",
+    "Kasper et al. 2010: Efficacy comparable to Lorazepam"
+  ],
+  "safety_score": {
+    "value": 90,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Oral", "beschreibung": "Occasional burping, nausea"},
+    {"level": "low", "typ": "External", "beschreibung": "Rare skin irritation"}
+  ],
+  "contraindications": [
+    "Pregnancy in first trimester (caution)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Caution in first trimester",
+    "variant": "warning"
+  },
+  "standard_dose_range": {
+    "min": 80,
+    "max": 160,
+    "unit": "mg"
+  },
+  "dose_frequency": "Once daily",
+  "dosage_notes": "Lavender oil capsules (Silexan): 80-160 mg; Tea: 1-2 tsp per 150 ml; Aromatherapy: 3-4 drops",
+  "preparation_forms": ["Essential oil", "Tea", "Capsules", "Tincture", "Bath"],
+  "status_by_region": {
+    "eu": "Herbal medicinal product (traditional use)",
+    "germany": "Approved medicinal product (Silexan)"
+  }
+}

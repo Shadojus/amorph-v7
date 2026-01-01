@@ -1,0 +1,67 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Non-toxic",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 5,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Safe for culinary use",
+    "Stains skin and surfaces yellow",
+    "High doses may cause GI upset"
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "type": "Normal use", "description": "Safe as spice and supplement"},
+    {"level": "low", "type": "Very high doses", "description": "Nausea, diarrhea, risk of kidney stones"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "risk_groups": [
+    "Those with gallbladder disease",
+    "Those prone to kidney stones",
+    "Those on blood thinners"
+  ],
+  "antidote": "None required",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "contraindications": [
+    "Gallbladder obstruction",
+    "Before surgery",
+    "Bile duct obstruction"
+  ],
+  "drug_interactions": [
+    "Anticoagulants",
+    "Antidiabetic drugs",
+    "Some chemotherapy agents"
+  ],
+  "source": {
+    "authors": "Lao, C.D. et al.",
+    "year": 2006,
+    "title": "Dose escalation of a curcuminoid formulation",
+    "journal": "BMC Complementary and Alternative Medicine",
+    "doi": "10.1186/1472-6882-6-10"
+  }
+}

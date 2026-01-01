@@ -1,0 +1,34 @@
+{
+  "safety_edibility_status": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "safety_edibility_confidence": {
+    "value": 90,
+    "max": 100,
+    "unit": "%"
+  },
+  "safety_edibility_notes": "Good edible mushroom. Contains pleurotolysin (hemolysin), which is destroyed by heating. Always cook thoroughly!",
+  "safety_potentially_deadly": false,
+  "safety_toxicity_score": {
+    "value": 15,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_warning_level": {
+    "status": "caution",
+    "variant": "warning"
+  },
+  "safety_warning_text": "Never eat raw! Contains pleurotolysin (blood-destroying), destroyed by heat.",
+  "safety_summary": "Good edible mushroom, but must always be cooked thoroughly due to pleurotolysin.",
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "confusion_safety_critical": false
+}

@@ -1,0 +1,37 @@
+{
+  "trophic_mode_primary": "saprotrophic",
+  "trophic_mode_secondary": "parasitic",
+  "ecological_guild": "wood decomposer",
+  "decomposer_type": "white rot",
+  "ecosystem_type": "forest",
+  "ecosystem_subtype": "deciduous forest",
+  "microhabitat_primary": "trunks of living trees",
+  "microhabitat_secondary": "dead hardwood",
+  "substrate_type_primary": "hardwood",
+  "substrate_types_secondary": [
+    "beech",
+    "poplar",
+    "alder",
+    "oak",
+    "maple",
+    "willow"
+  ],
+  "substrate_specificity": {
+    "status": "broad",
+    "variant": "success"
+  },
+  "fruiting_season_start": 1,
+  "fruiting_season_end": 12,
+  "fruiting_frequency": "year-round",
+  "climate_zone": "temperate",
+  "moisture_regime": "mesic",
+  "light_requirement": "shady to semi-shady",
+  "spatial_distribution_pattern": "solitary",
+  "native_range": "cosmopolitan",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "perennial": true,
+  "lifespan": "perennial (5-10+ years)"
+}

@@ -1,0 +1,174 @@
+{
+  "scientific_name": "Stropharia rugosoannulata",
+  "author_citation": "Farl. ex Murrill 1922",
+  "accepted_name": "Stropharia rugosoannulata Farl. ex Murrill",
+  "taxonomy_domain": "Eukarya",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Strophariaceae",
+  "taxonomy_genus": "Stropharia",
+  "taxonomy_species": "rugosoannulata",
+  "synonyms": [
+    "Naematoloma rugosoannulatum (Farl. ex Murrill) Kreisel",
+    "Psilocybe rugosoannulata (Farl. ex Murrill) Noordel."
+  ],
+  "common_names": [
+    "Wine Cap",
+    "King Stropharia",
+    "Garden Giant",
+    "Burgundy Mushroom"
+  ],
+  "international_names": [
+    "Wine Cap (EN)",
+    "King Stropharia (EN)",
+    "Garden Giant (EN)",
+    "Strophaire a anneau rugueux (FR)",
+    "Rotbrauner Riesentraeuschling (DE)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Large cap (5-30 cm), reddish-brown to wine-red", "status": "pending"},
+    {"step": 2, "label": "Distinctive ring with grooved upper surface", "status": "pending"},
+    {"step": 3, "label": "Gills gray when young, later violet-brown to purple-black", "status": "pending"},
+    {"step": 4, "label": "Stem whitish, thickened at base", "status": "pending"},
+    {"step": 5, "label": "Spore print purple-black", "status": "pending"},
+    {"step": 6, "label": "Growing on straw, wood chips, compost", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 5,
+  "minimum_equipment_needed": [
+    "No equipment required",
+    "Spore print helpful for confirmation"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Agaricus species (Button mushrooms)",
+    "Other Stropharia species",
+    "Hypholoma sublateritium (Brick Cap)"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "low", "typ": "Agaricus species", "beschreibung": "Edible button mushrooms - no danger"},
+    {"level": "low", "typ": "Hypholoma sublateritium", "beschreibung": "Disputed edibility, bitter taste distinguishes"}
+  ],
+  "key_differentiating_features": [
+    "Characteristic grooved ring",
+    "Reddish-brown to wine-red cap color",
+    "Purple-black spore print",
+    "Grows on straw or wood chips"
+  ],
+  "habit": "Terrestrial, saprotrophic",
+  "growth_form": "Solitary or in groups",
+  "symmetry": "radial",
+  "size_range": {
+    "min": 10,
+    "max": 30,
+    "unit": "cm"
+  },
+  "size_typical_cm": 20,
+  "basic_shape": "Mushroom with central stem and ring",
+  "height": {
+    "min": 10,
+    "max": 20,
+    "unit": "cm"
+  },
+  "primary_structure_present": true,
+  "primary_structure_type": "Cap (Pileus)",
+  "primary_structure_diameter": {
+    "min": 5,
+    "max": 30,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Hemispherical to convex",
+  "primary_structure_shape_mature": "Expanded, often with inrolled margin",
+  "primary_structure_surface": "Smooth to finely fibrous-scaly",
+  "primary_structure_color": "Reddish-brown, wine-red, chestnut-brown",
+  "support_structure_present": true,
+  "support_structure_type": "Stem (Stipe)",
+  "support_structure_length": {
+    "min": 5,
+    "max": 15,
+    "unit": "cm"
+  },
+  "support_structure_thickness": {
+    "min": 1.5,
+    "max": 4,
+    "unit": "cm"
+  },
+  "support_structure_shape": "Cylindrical, thickened toward base",
+  "support_structure_color": "Whitish to cream-colored",
+  "ring_present": true,
+  "ring_type": "Membranous, pendant, with grooved (wrinkled) upper surface",
+  "ring_position": "Upper third of stem",
+  "lamellae_present": true,
+  "lamellae_attachment": "Adnate to slightly decurrent",
+  "lamellae_density": "Crowded",
+  "lamellae_color": "Whitish-gray when young, then gray-violet, finally purple-black",
+  "spore_print_color": "Purple-black to black-violet",
+  "smell_description": "Pleasantly mushroomy, slightly radish-like",
+  "smell_comparable_to": "Button mushroom, slight radish scent",
+  "taste_safe_to_test": true,
+  "taste_description": "Mild, pleasantly nutty",
+  "microscopy_required": false,
+  "microscopy_key_features": [
+    "Spores ellipsoid with germ pore",
+    "Spore size 11-15 x 7-9 um",
+    "Germ pore 1-2 um",
+    "Basidia four-spored"
+  ],
+  "spore_measurement_diagnostic": {
+    "min": 11,
+    "max": 15,
+    "unit": "um"
+  },
+  "reproductive_cell_shape": "Ellipsoid with germ pore",
+  "reproductive_cell_length": {
+    "min": 11,
+    "max": 15,
+    "unit": "um"
+  },
+  "reproductive_cell_width": {
+    "min": 7,
+    "max": 9,
+    "unit": "um"
+  },
+  "reproductive_cell_color": "Purple-black",
+  "appearance_by_season": {
+    "spring": "Possible after wet weather",
+    "summer": "Main fruiting season",
+    "autumn": "Good fruiting",
+    "winter": "No fruiting"
+  },
+  "age_stage_variations": [
+    {"phase": "Young", "duration": "3-5 days"},
+    {"phase": "Mature", "duration": "5-7 days"},
+    {"phase": "Overripe", "duration": "3-5 days"}
+  ],
+  "nutrition_type": "Saprotroph",
+  "nutrition_type_detail": "Primary/secondary decomposer on straw, wood chips and compost",
+  "substrate_species": [
+    "Straw",
+    "Wood chips",
+    "Compost",
+    "Garden waste",
+    "Mulch"
+  ],
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "scientific_name": "Cantharellus cibarius",
+  "author_citation": "Fr. 1821",
+  "accepted_name": "Cantharellus cibarius Fr.",
+  "taxonomy_domain": "Eukarya",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Cantharellales",
+  "taxonomy_family": "Cantharellaceae",
+  "taxonomy_genus": "Cantharellus",
+  "taxonomy_species": "cibarius",
+  "synonyms": [
+    "Agaricus cantharellus L.",
+    "Merulius cantharellus (L.) Scop.",
+    "Cantharellus vulgaris Gray"
+  ],
+  "common_names": [
+    "Chanterelle",
+    "Golden Chanterelle",
+    "True Chanterelle",
+    "Girolle"
+  ],
+  "international_names": [
+    "Chanterelle (EN)",
+    "Girolle (FR)",
+    "Finferlo (IT)",
+    "Rebozuelo (ES)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Egg-yolk yellow color", "status": "pending"},
+    {"step": 2, "label": "Funnel-shaped cap", "status": "pending"},
+    {"step": 3, "label": "Forked ridges instead of gills", "status": "pending"},
+    {"step": 4, "label": "Ridges run down the stem", "status": "pending"},
+    {"step": 5, "label": "Fruity, aromatic smell", "status": "pending"},
+    {"step": 6, "label": "Mycorrhizal with trees", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Hygrophoropsis aurantiaca (False Chanterelle)",
+    "Omphalotus olearius (Jack O'Lantern - poisonous!)"
+  ],
+  "confusion_risk_level": {
+    "status": "Medium",
+    "variant": "warning"
+  },
+  "confusion_consequences": [
+    {"level": "high", "type": "Omphalotus olearius", "description": "Poisonous! Has true gills instead of ridges, grows on wood"},
+    {"level": "low", "type": "Hygrophoropsis aurantiaca", "description": "Has true thin gills, orange-colored"}
+  ],
+  "key_differentiating_features": [
+    "Forked ridges (not true gills)",
+    "Ridges run far down the stem",
+    "Uniformly egg-yolk yellow color",
+    "Fruity smell (apricot)"
+  ],
+  "habit": "Terrestrial, mycorrhizal",
+  "growth_form": "Solitary or in groups",
+  "size_range": {
+    "min": 2,
+    "max": 10,
+    "unit": "cm"
+  },
+  "size_typical_cm": 5,
+  "basic_shape": "Funnel-shaped",
+  "height": {
+    "min": 3,
+    "max": 8,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 2,
+    "max": 8,
+    "unit": "cm"
+  },
+  "color_primary": "Egg-yolk yellow to citrus yellow",
+  "primary_structure_present": true,
+  "primary_structure_type": "Cap (Pileus)",
+  "primary_structure_shape_young": "Convex",
+  "primary_structure_shape_mature": "Funnel-shaped",
+  "support_structure_present": true,
+  "support_structure_type": "Stem (Stipe)",
+  "support_structure_color": "Yellow, solid",
+  "lamellae_present": false,
+  "ridges_present": true,
+  "ridges_description": "Forked ridges, decurrent, cross-connected",
+  "spore_print_color": "Yellow to cream-colored",
+  "smell_description": "Aromatic, fruity, fresh, mushroomy",
+  "smell_comparable_to": "Apricots",
+  "taste_safe_to_test": true,
+  "taste_description": "Aromatic, slightly peppery",
+  "microscopy_key_features": [
+    "Spores yellow to cream, 6-8 x 5-7 um",
+    "Ellipsoid"
+  ],
+  "spore_measurement_diagnostic": {
+    "min": 6,
+    "max": 8,
+    "unit": "um"
+  },
+  "season_peak_months": [7, 8, 9, 10],
+  "nutrition_type": "Mycorrhizal",
+  "substrate_species": [
+    "Fagus (Beech)",
+    "Quercus (Oak)",
+    "Picea (Spruce)",
+    "Betula (Birch)"
+  ],
+  "source": {
+    "authors": "Fries, E.M.",
+    "year": 1821,
+    "title": "Systema Mycologicum",
+    "journal": "Lund",
+    "doi": ""
+  }
+}

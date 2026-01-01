@@ -1,0 +1,34 @@
+{
+  "trophic_mode_primary": "parasitic",
+  "trophic_mode_secondary": "saprobic",
+  "ecological_guild": "Wood Decomposer",
+  "decomposer_type": "Brown Rot",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Birch Forest",
+  "microhabitat_primary": "living birch trees",
+  "microhabitat_secondary": "dead birch trees",
+  "substrate_type_primary": "Birch wood",
+  "substrate_specificity": {
+    "status": "strictly specialized",
+    "variant": "warning"
+  },
+  "associated_plant_species": [
+    "Betula pendula",
+    "Betula pubescens"
+  ],
+  "fruiting_season_start": 1,
+  "fruiting_season_end": 12,
+  "fruiting_peak_month": 10,
+  "fruiting_frequency": "year-round",
+  "climate_zone": "temperate to boreal",
+  "moisture_regime": "mesic",
+  "light_requirement": "shady to semi-shaded",
+  "spatial_distribution_pattern": "solitary",
+  "native_range": "Northern Hemisphere, Europe, Asia, North America",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "perennial": true,
+  "lifespan": "perennial"
+}

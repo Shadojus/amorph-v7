@@ -1,0 +1,145 @@
+{
+  "scientific": "Trametes versicolor",
+  "trophic_mode_primary": "Saprotroph",
+  "trophic_mode_secondary": "Facultatively parasitic",
+  "trophic_flexibility": {
+    "status": "High",
+    "variant": "success"
+  },
+  "trophic_notes": "Primarily a white rot fungus that degrades lignin in deadwood. Can also attack weakened living trees.",
+  "decomposer_type": "Primary decomposer (White rot)",
+  "lignin_degradation_capability": true,
+  "cellulose_degradation_capability": true,
+  "wood_decay_type": "White rot",
+  "ecological_guild": "Wood decomposer",
+  "guild_evidence": "Fruiting bodies grow exclusively on wood, enzymatic studies confirm lignin degradation",
+  "primary_ecosystem_function": "Wood decomposition and nutrient recycling",
+  "secondary_ecosystem_functions": [
+    "Carbon cycling",
+    "Habitat formation for insects"
+  ],
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Deciduous and mixed forest",
+  "association_strength": {
+    "status": "Strong",
+    "variant": "success"
+  },
+  "dominant_vegetation_type": "Deciduous forest",
+  "associated_plant_families": [
+    "Fagaceae (Beech family)",
+    "Betulaceae (Birch family)",
+    "Salicaceae (Willow family)"
+  ],
+  "associated_plant_genera": [
+    "Fagus (Beeches)",
+    "Quercus (Oaks)",
+    "Betula (Birches)",
+    "Salix (Willows)",
+    "Populus (Poplars)"
+  ],
+  "microhabitat_primary": "Dead hardwood",
+  "microhabitat_secondary": "Stumps, fallen trunks, branches",
+  "substrate_specificity": {
+    "status": "Moderate",
+    "variant": "info"
+  },
+  "substrate_type_primary": "Deadwood of deciduous trees",
+  "substrate_types_secondary": [
+    "Stumps",
+    "Fallen trunks",
+    "Large branches",
+    "Rarely coniferous wood"
+  ],
+  "light_requirement": "Shade to partial shade",
+  "elevation_minimum_m": 0,
+  "elevation_maximum_m": 2500,
+  "elevation_optimal_min_m": 0,
+  "elevation_optimal_max_m": 1500,
+  "moisture_regime": "Mesic",
+  "flooding_tolerance": {
+    "rating": 4,
+    "max": 10
+  },
+  "drought_tolerance": {
+    "rating": 6,
+    "max": 10
+  },
+  "soil_ph_minimum": 4.5,
+  "soil_ph_optimal_min": 5.5,
+  "soil_ph_optimal_max": 7.0,
+  "soil_ph_maximum": 8.0,
+  "climate_zone": "Temperate to subtropical",
+  "temperature_minimum_mean_c": -10,
+  "temperature_optimal_min_c": 15,
+  "temperature_optimal_max_c": 25,
+  "temperature_maximum_mean_c": 35,
+  "seasonality_preference": "Year-round",
+  "disturbance_response": "Opportunist",
+  "temp_fruiting_minimum_c": 5,
+  "temp_fruiting_optimum_c": 20,
+  "temp_fruiting_maximum_c": 30,
+  "frost_tolerance": {
+    "rating": 8,
+    "max": 10
+  },
+  "fruiting_season_start": 1,
+  "fruiting_season_end": 12,
+  "fruiting_peak_month": 10,
+  "fruiting_duration_weeks": 52,
+  "fruiting_frequency": "Perennial fruiting bodies",
+  "fruiting_predictability": {
+    "rating": 9,
+    "max": 10
+  },
+  "fruiting_triggers": [
+    "Sufficient moisture",
+    "Presence of suitable substrate"
+  ],
+  "mycelial_activity_season": [
+    {"month": 1, "active": true},
+    {"month": 2, "active": true},
+    {"month": 3, "active": true},
+    {"month": 4, "active": true},
+    {"month": 5, "active": true},
+    {"month": 6, "active": true},
+    {"month": 7, "active": true},
+    {"month": 8, "active": true},
+    {"month": 9, "active": true},
+    {"month": 10, "active": true},
+    {"month": 11, "active": true},
+    {"month": 12, "active": true}
+  ],
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "iucn_population_trend": {
+    "status": "Stable",
+    "variant": "info"
+  },
+  "native_range": "Worldwide in temperate regions",
+  "global_distribution": "Cosmopolitan",
+  "consumer_insects": [
+    "Wood-dwelling beetles",
+    "Fungus gnats"
+  ],
+  "dispersal_vector_type": "Wind",
+  "dispersal_mechanism": "Spore release through pores",
+  "bioremediation_potential": true,
+  "bioremediation_targets": [
+    "Lignin-containing waste",
+    "Wood waste"
+  ],
+  "citizen_science_suitability": {
+    "rating": 8,
+    "max": 10
+  },
+  "photo_identification_reliable": true,
+  "optimal_survey_method": "Visual search on deadwood",
+  "survey_timing_optimal": "Possible year-round",
+  "ecology_data_quality_score": {
+    "rating": 9,
+    "max": 10
+  },
+  "ecology_evidence_basis": "Extensive peer-reviewed literature"
+}

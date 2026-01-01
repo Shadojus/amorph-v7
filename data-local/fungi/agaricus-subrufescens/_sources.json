@@ -1,0 +1,89 @@
+{
+  "image": [],
+  "fields": {
+    "active_substances": [
+      {
+        "name": "Geir Hetland",
+        "title": "Immunology Researcher, Agaricus blazei Expert",
+        "url": "https://onlinelibrary.wiley.com/doi/10.1111/j.1365-3083.2008.02156.x",
+        "contact": "Effects on Immunity, Infection and Cancer (Scandinavian J. Immunology, 2008)"
+      }
+    ],
+    "effect_profile": [
+      {
+        "name": "Paul Stamets",
+        "title": "Mycologist & Medicinal Mushroom Expert",
+        "url": "https://fungi.com",
+        "contact": "Growing Gourmet and Medicinal Mushrooms (2000)"
+      }
+    ],
+    "mechanism_of_action": [
+      {
+        "name": "Geir Hetland",
+        "title": "Beta-Glucan Immunology Researcher",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3168293/",
+        "contact": "Modulation of Innate Immunity & Th1/Th2 Balance"
+      },
+      {
+        "name": "Jon-Magnus Tangen",
+        "title": "Immunomodulation Researcher",
+        "url": "https://ashpublications.org/blood/article/116/21/3904/67732/",
+        "contact": "NF-κB Activation via TLR2 in Monocytic Cells"
+      }
+    ],
+    "clinical_indications": [
+      {
+        "name": "Geir Hetland",
+        "title": "Clinical Cancer Research",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29238712/",
+        "contact": "Cytotoxic Effect on Myeloma & Leukemic Cells"
+      },
+      {
+        "name": "Jan E. Paulsen",
+        "title": "Intestinal Tumorigenesis Researcher",
+        "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0167754",
+        "contact": "Protection against Intestinal Tumorigenesis (PLOS One, 2016)"
+      }
+    ],
+    "traditional_medicine": [
+      {
+        "name": "Mendel Friedman",
+        "title": "Mushroom Bioactivity Researcher",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7285126/",
+        "contact": "Review of Preclinical and Clinical Studies"
+      }
+    ],
+    "clinical_studies": [
+      {
+        "name": "Fujimiya Y.",
+        "title": "Antitumor Activity Researcher",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11456124/",
+        "contact": "Antitumor beta glucan from cultured fruit body (1998)"
+      }
+    ],
+    "safety_in_pregnancy": [
+      {
+        "name": "Memorial Sloan Kettering Cancer Center",
+        "title": "Integrative Medicine Database",
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/agaricus",
+        "contact": "Safety & Drug Interaction Database"
+      }
+    ],
+    "contraindications": [
+      {
+        "name": "Memorial Sloan Kettering Cancer Center",
+        "title": "Clinical Safety Information",
+        "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/agaricus",
+        "contact": "Contraindications & Drug Interactions"
+      }
+    ],
+    "quality_markers": [
+      {
+        "name": "Paul Stamets",
+        "title": "Mushroom Cultivation & Quality Expert",
+        "url": "https://fungi.com",
+        "contact": "Standardization & Quality Control"
+      }
+    ]
+  }
+}

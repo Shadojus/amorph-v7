@@ -1,0 +1,83 @@
+{
+  "traditional_medicine": {
+    "systems": ["Indigenous_North_America"],
+    "historical_use": "Traditional remedy of the Plains Indians for infections and pain",
+    "traditional_indications": ["Colds", "Infections", "Wound healing", "Snake bites"]
+  },
+  "pharmacopoeia_names": ["Echinaceae purpureae herba", "Echinaceae purpureae radix"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Supportive treatment of colds", "Superficial wounds"],
+  "german_commission_e_status": {
+    "status": "Positive monograph",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Supportive for recurrent infections of the respiratory and urinary tract"],
+  "active_substances": [
+    "Alkamides",
+    "Caffeic acid derivatives (Cichoric acid)",
+    "Polysaccharides",
+    "Glycoproteins"
+  ],
+  "effect_profile": [
+    {"axis": "Immunostimulant", "value": 85},
+    {"axis": "Anti-inflammatory", "value": 70},
+    {"axis": "Antiviral", "value": 60},
+    {"axis": "Wound healing", "value": 65},
+    {"axis": "Antibacterial", "value": 55}
+  ],
+  "therapeutic_categories": [
+    "Immunostimulant",
+    "Vulnerary",
+    "Anti-infective"
+  ],
+  "evidence_level": {
+    "status": "1a",
+    "variant": "success"
+  },
+  "evidence_grade_overall": {
+    "status": "B",
+    "variant": "success"
+  },
+  "meta_analyses": [
+    "Shah et al. 2007: Lancet Infect Dis - 58% reduction in cold risk",
+    "Karsch-Voelk et al. Cochrane 2014: Modest benefits for cold prevention"
+  ],
+  "safety_score": {
+    "value": 85,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Occasional", "beschreibung": "Gastrointestinal complaints, skin rash"},
+    {"level": "low", "typ": "Allergy", "beschreibung": "Possible with Asteraceae allergy"}
+  ],
+  "contraindications": [
+    "Allergy to Asteraceae family",
+    "Autoimmune diseases (relative contraindication)",
+    "Progressive systemic diseases (MS, tuberculosis, HIV)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Probably safe",
+    "variant": "success"
+  },
+  "special_populations_children": {
+    "status": "From 12 years",
+    "variant": "warning"
+  },
+  "standard_dose_range": {
+    "min": 900,
+    "max": 1200,
+    "unit": "mg"
+  },
+  "dose_frequency": "Three times daily",
+  "treatment_duration_typical": "Not longer than 8 weeks continuously",
+  "onset_of_action": "For acute infection: start within 24-48 hours",
+  "dosage_notes": "High dose at onset of cold, then reduce; maximum 8 weeks continuous use",
+  "preparation_forms": ["Pressed juice", "Extract", "Tincture", "Capsules", "Tea"],
+  "status_by_region": {
+    "eu": "Herbal medicinal product (traditional use)",
+    "usa": "Dietary Supplement",
+    "germany": "Approved medicinal product"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine", "TCM"],
+    "historical_use": "Known since the Middle Ages as 'pissenlit' (diuretic); folk name 'bed-wetter'",
+    "traditional_indications": ["Gallbladder complaints", "Water retention", "Loss of appetite", "Digestive weakness"]
+  },
+  "pharmacopoeia_names": ["Taraxaci radix cum herba", "Taraxaci folium"],
+  "tcm_herb_name_pinyin": "Pu Gong Ying",
+  "tcm_herb_name_chinese": "蒲公英",
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Restoration of liver/gallbladder function", "Dyspepsia", "Loss of appetite"],
+  "german_commission_e_status": {
+    "status": "Positive monograph",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Bile flow disorders", "Dyspepsia", "Loss of appetite", "Diuresis"],
+  "active_substances": [
+    "Sesquiterpene lactones (Taraxacin)",
+    "Inulin",
+    "Potassium",
+    "Phenolic acids",
+    "Triterpenes"
+  ],
+  "effect_profile": [
+    {"axis": "Diuretic", "value": 80},
+    {"axis": "Cholagogue", "value": 75},
+    {"axis": "Appetite-stimulating", "value": 70},
+    {"axis": "Metabolism-stimulating", "value": 65},
+    {"axis": "Hepatoprotective", "value": 60}
+  ],
+  "therapeutic_categories": [
+    "Diuretic",
+    "Cholagogue",
+    "Bitter tonic"
+  ],
+  "evidence_level": {
+    "status": "3",
+    "variant": "warning"
+  },
+  "safety_score": {
+    "value": 90,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Rare", "description": "Stomach complaints, heartburn"},
+    {"level": "low", "typ": "Contact dermatitis", "description": "Possible from contact with milky sap"}
+  ],
+  "contraindications": [
+    "Gallstones",
+    "Bile duct obstruction",
+    "Intestinal obstruction",
+    "Allergy to Asteraceae (daisy family)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Probably safe in usual amounts",
+    "variant": "success"
+  },
+  "dosage_notes": "Root/herb: 4-10g as tea or fresh juice; leaves as salad; drink plenty when using as diuretic",
+  "preparation_forms": ["Tea", "Fresh plant juice", "Tincture", "Salad (leaves)"],
+  "status_by_region": {
+    "eu": "Herbal medicinal product (traditional use)"
+  }
+}

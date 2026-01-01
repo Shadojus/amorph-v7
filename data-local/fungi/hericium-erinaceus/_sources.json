@@ -1,0 +1,53 @@
+{
+  "image": [
+    {
+      "name": "Martin Livezey",
+      "username": "MLivezey",
+      "year": 2010,
+      "copyright": "© 2010 Martin Livezey (MLivezey)",
+      "license": "CC BY-SA 3.0",
+      "url": "https://mushroomobserver.org"
+    }
+  ],
+  "fields": {
+    "active_compounds": [
+      {
+        "name": "Spangenberg, Moneypenny, Bozzo, Perreault",
+        "title": "Erinacines & Neuroprotection Researchers",
+        "url": "https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2025.1582081/full",
+        "contact": "University of Guelph - Systematic Review 2025"
+      }
+    ],
+    "nerve_growth_factor": [
+      {
+        "name": "Mori et al.",
+        "title": "NGF Biosynthesis Researchers",
+        "url": "https://www.tandfonline.com/doi/full/10.1080/21501201003735556",
+        "contact": "Hericenones and erinacines: stimulators of NGF biosynthesis"
+      }
+    ],
+    "primary_medicinal_uses": [
+      {
+        "name": "Alzheimer's Drug Discovery Foundation",
+        "title": "Cognitive Vitality Research Team",
+        "url": "https://www.alzdiscovery.org/cognitive-vitality/ratings/lions-mane",
+        "contact": "Evidence review for cognitive effects & Alzheimer's"
+      }
+    ],
+    "clinical_evidence_notes": [
+      {
+        "name": "Third People's Hospital of Shanghai",
+        "title": "TCM Clinical Research",
+        "contact": "Gastrointestinal disorders and tumor studies"
+      }
+    ],
+    "safety_profile": [
+      {
+        "name": "Frontiers in Nutrition Research Team",
+        "title": "Safety & Benefits Systematic Review",
+        "url": "https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2025.1641246/full",
+        "contact": "2025 systematic review"
+      }
+    ]
+  }
+}

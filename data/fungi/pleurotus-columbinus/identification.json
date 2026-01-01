@@ -1,0 +1,70 @@
+{
+  "scientific_name": "Pleurotus columbinus",
+  "author_citation": "Quél.",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Pleurotaceae",
+  "taxonomy_genus": "Pleurotus",
+  "taxonomy_species": "columbinus",
+  "synonyms": [
+    "Pleurotus ostreatus var. columbinus"
+  ],
+  "common_names": [
+    "Dove Blue Oyster",
+    "Blue Oyster Mushroom",
+    "Gray Dove Oyster"
+  ],
+  "size_range": {
+    "min": 1,
+    "max": 40,
+    "unit": "cm"
+  },
+  "color_primary": "dove blue",
+  "color_secondary": "greenish gray",
+  "smell_description": "Mushroom-like or polypore-like",
+  "taste_description": "Mild",
+  "primary_structure_present": true,
+  "primary_structure_type": "Cap",
+  "primary_structure_diameter": {
+    "min": 1,
+    "max": 40,
+    "unit": "cm"
+  },
+  "primary_structure_shape_mature": "shell-shaped, irregular",
+  "primary_structure_color": "blue to greenish gray, center reddish brown",
+  "support_structure_present": true,
+  "support_structure_type": "Stem",
+  "support_structure_position": "eccentric to lateral",
+  "support_structure_color": "whitish",
+  "lamellae_present": true,
+  "lamellae_attachment": "decurrent",
+  "lamellae_color": "whitish, grayish blue",
+  "tissue_color": "whitish",
+  "tissue_consistency": "firm, somewhat tough",
+  "propagule_color": "light lilac",
+  "propagule_length": {
+    "min": 8,
+    "max": 11,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 3,
+    "max": 4.5,
+    "unit": "um"
+  },
+  "confusion_species_list": [
+    "Pleurotus ostreatus",
+    "Pleurotus pulmonarius"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "beginner",
+    "variant": "success"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "traditional_medicine_use": true,
+  "traditional_medicine_systems": [
+    "Traditional Chinese Medicine",
+    "Japanese Medicine"
+  ],
+  "medicinal_status": {
+    "status": "Medicinal Mushroom",
+    "variant": "info"
+  },
+  "primary_medicinal_uses": [
+    "Neuroregeneration",
+    "Alzheimer Support",
+    "Gastrointestinal Disorders",
+    "Cognitive Function",
+    "Anxiety and Restlessness"
+  ],
+  "active_compounds": [
+    {
+      "name": "Erinacines",
+      "class": "Diterpenoid",
+      "effects": ["Nerve Growth Factor Stimulation", "neuroprotective"]
+    },
+    {
+      "name": "Hericenones",
+      "class": "Phenolic Compound",
+      "effects": ["Nerve Growth Factor Stimulation"]
+    },
+    {
+      "name": "Beta-Glucans",
+      "class": "Polysaccharide",
+      "effects": ["immunostimulant"]
+    }
+  ],
+  "research_areas": [
+    "Neurology (Alzheimer's, Dementia)",
+    "Gastroenterology",
+    "Oncology",
+    "Psychiatry"
+  ],
+  "clinical_evidence_level": {
+    "status": "clinical studies",
+    "variant": "success"
+  },
+  "clinical_evidence_notes": "Studies at Third People's Hospital of Shanghai showed efficacy for gastrointestinal disorders and tumors. Patented Nerve Growth Factor Stimulation (JP #05391544).",
+  "traditional_preparations": [
+    "Cooked as edible mushroom",
+    "Hot Water Extract",
+    "Alcohol Extract (for Erinacines)",
+    "Dual Extract"
+  ],
+  "dosage_traditional": "1-3 g extract per day",
+  "safety_profile": {
+    "status": "very well tolerated",
+    "variant": "success"
+  },
+  "regulatory_status_eu": "Food and Dietary Supplement"
+}

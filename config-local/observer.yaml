@@ -1,0 +1,38 @@
+# Entwicklung: Alles in Console
+interaktion:
+  ziel:
+    typ: console
+    prefix: "[KLICK]"
+    level: log
+
+rendering:
+  ziel:
+    typ: console
+    prefix: "[RENDER]"
+    level: debug
+
+# Session-Observer (nur wenn User eingeloggt)
+session:
+  ziel:
+    typ: console
+    prefix: "[SESSION]"
+
+# --- PRODUKTION ---
+# Auskommentieren für Produktion:
+
+# interaktion:
+#   ziel:
+#     typ: redis
+#     url: /api/redis-bridge
+#     stream: amorph:klicks
+
+# rendering:
+#   ziel:
+#     typ: http
+#     url: /api/analytics
+#     batch: true
+
+# session:
+#   ziel:
+#     typ: websocket
+#     url: wss://api.example.com/session

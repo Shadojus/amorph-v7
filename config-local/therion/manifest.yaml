@@ -1,0 +1,19 @@
+name: Drakonomi
+beschreibung: Tier-Wissenssammlung
+version: 1.0.0
+sprache: de
+autor: AMORPH Team
+
+# === BRANDING ===
+branding:
+  titel: THERIONOMI
+  titelUrl: /
+  
+  partner:
+    text: Part of the
+    name: Bifroest
+    url: https://bifroest.io
+    
+# === FARBEN ===
+farben:
+  palette: drakonomi  # Magenta Pink

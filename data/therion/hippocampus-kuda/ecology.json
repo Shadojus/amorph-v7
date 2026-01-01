@@ -1,0 +1,51 @@
+{
+  "trophic_mode_primary": "carnivorous",
+  "trophic_mode_secondary": "micropredator",
+  "ecological_guild": "small benthic predator",
+  "primary_ecosystem_function": "zooplankton and small crustacean predation",
+  "secondary_ecosystem_functions": [
+    "prey for larger fish",
+    "indicator of seagrass health"
+  ],
+  "ecosystem_type": "marine",
+  "ecosystem_subtype": "coastal reef and seagrass",
+  "habitat_types": [
+    "seagrass beds",
+    "coral reefs",
+    "mangroves",
+    "estuaries"
+  ],
+  "microhabitat_primary": "attached to seagrass and gorgonians",
+  "depth_range": {
+    "min": 0,
+    "max": 55,
+    "unit": "m"
+  },
+  "diet_primary": [
+    "copepods",
+    "amphipods",
+    "mysid shrimp",
+    "zooplankton"
+  ],
+  "diet_specialization": "small crustaceans",
+  "foraging_strategy": "ambush feeding with rapid suction",
+  "predators": [
+    "crabs",
+    "larger fish",
+    "sea turtles"
+  ],
+  "climate_zone": "tropical to subtropical",
+  "native_range": "Indo-Pacific",
+  "iucn_global_status": {
+    "status": "VU",
+    "variant": "warning"
+  },
+  "population_trend": "decreasing",
+  "social_structure": "monogamous pairs",
+  "pair_bonding": "lifelong pair bonds",
+  "temperature_preference": {
+    "min": 23,
+    "max": 28,
+    "unit": "C"
+  }
+}

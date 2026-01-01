@@ -1,0 +1,148 @@
+{
+  "scientific_name": "Mentha x piperita",
+  "author_citation": "L. 1753",
+  "accepted_name": "Mentha x piperita L.",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Magnoliopsida",
+  "taxonomy_order": "Lamiales",
+  "taxonomy_family": "Lamiaceae",
+  "taxonomy_genus": "Mentha",
+  "taxonomy_species": "x piperita",
+  "synonyms": [
+    "Mentha balsamea Willd.",
+    "Mentha piperita var. officinalis Sole",
+    "Mentha piperita var. vulgaris Sole"
+  ],
+  "common_names": [
+    "Peppermint",
+    "Brandy Mint",
+    "Lamb Mint",
+    "Balm Mint"
+  ],
+  "international_names": [
+    "Pfefferminze (DE)",
+    "Menthe poivree (FR)",
+    "Menta piperita (ES/IT)",
+    "Bo He (CN)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Strong peppermint aroma when crushed", "status": "pending"},
+    {"step": 2, "label": "Square stems (Lamiaceae characteristic)", "status": "pending"},
+    {"step": 3, "label": "Opposite, serrated leaves", "status": "pending"},
+    {"step": 4, "label": "Dark green to purplish leaves", "status": "pending"},
+    {"step": 5, "label": "Reddish-purple stems", "status": "pending"},
+    {"step": 6, "label": "Terminal flower spikes with lilac flowers", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 2,
+  "minimum_equipment_needed": [
+    "No equipment required"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Mentha spicata (Spearmint)",
+    "Mentha aquatica (Water Mint)",
+    "Mentha arvensis (Field Mint)",
+    "Other Mentha hybrids"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "none", "typ": "Mentha spicata", "description": "Parent species, also edible and aromatic"},
+    {"level": "none", "typ": "Mentha aquatica", "description": "Parent species, also edible"}
+  ],
+  "key_differentiating_features": [
+    "Intense menthol cooling sensation",
+    "Darker leaves than spearmint",
+    "Purplish stems",
+    "Sterile hybrid (rarely sets seed)",
+    "Distinct peppermint scent vs. sweeter spearmint"
+  ],
+  "habit": "Herbaceous perennial",
+  "growth_form": "Spreading by rhizomes",
+  "symmetry": "bilateral",
+  "size_range": {
+    "min": 30,
+    "max": 90,
+    "unit": "cm"
+  },
+  "size_typical_cm": 60,
+  "basic_shape": "Upright herbaceous plant with spreading habit",
+  "height": {
+    "min": 30,
+    "max": 90,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 30,
+    "max": 100,
+    "unit": "cm"
+  },
+  "surface_type": "Smooth to slightly hairy stems and leaves",
+  "color_primary": "Dark green",
+  "color_secondary": "Reddish-purple (stems)",
+  "color_variations": [
+    "Leaves may be purplish-tinged",
+    "Stems range from green to purple"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf",
+  "primary_structure_diameter": {
+    "min": 2,
+    "max": 5,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Ovate, pointed",
+  "primary_structure_shape_mature": "Ovate-lanceolate, serrated margins",
+  "primary_structure_surface": "Smooth to slightly pubescent",
+  "primary_structure_color": "Dark green, often purplish",
+  "support_structure_present": true,
+  "support_structure_type": "Stem (square, herbaceous)",
+  "support_structure_color": "Green to reddish-purple",
+  "flower_present": true,
+  "flower_type": "Whorled in terminal spikes",
+  "flower_color": "Lilac to pale purple",
+  "flower_size": {
+    "min": 0.3,
+    "max": 0.5,
+    "unit": "cm"
+  },
+  "flowering_period": "July to September",
+  "smell_description": "Strong, cooling, characteristic peppermint",
+  "smell_comparable_to": "Menthol, cooling, refreshing",
+  "taste_safe_to_test": true,
+  "taste_description": "Strong menthol cooling sensation, slightly sweet then cooling",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "New growth from rhizomes",
+    "summer": "Full growth, flowering",
+    "autumn": "Dies back to ground",
+    "winter": "Dormant, rhizomes survive underground"
+  },
+  "season_peak_months": [6, 7, 8],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis",
+  "substrate_species": [
+    "Moist, fertile soils",
+    "Stream banks",
+    "Garden settings"
+  ],
+  "source": {
+    "authors": "Tucker, A.O. & Naczi, R.F.C.",
+    "year": 2007,
+    "title": "Mentha: An Overview of Its Classification and Relationships",
+    "journal": "Mint: The Genus Mentha, CRC Press",
+    "doi": ""
+  }
+}

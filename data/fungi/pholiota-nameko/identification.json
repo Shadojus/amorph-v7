@@ -1,0 +1,84 @@
+{
+  "scientific_name": "Pholiota nameko",
+  "author_citation": "(T. Ito) S. Ito & S. Imai",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Basidiomycota",
+  "taxonomy_class": "Agaricomycetes",
+  "taxonomy_order": "Agaricales",
+  "taxonomy_family": "Strophariaceae",
+  "taxonomy_genus": "Pholiota",
+  "taxonomy_species": "nameko",
+  "synonyms": [
+    "Pholiota microspora",
+    "Collybia nameko",
+    "Kuehneromyces nameko"
+  ],
+  "common_names": [
+    "Nameko",
+    "Japanese Honey Fungus",
+    "Tuscan Mushroom",
+    "Golden Cap",
+    "Sticky Pholiota"
+  ],
+  "size_range": {
+    "min": 3,
+    "max": 8,
+    "unit": "cm"
+  },
+  "color_primary": "orange",
+  "color_secondary": "amber-colored",
+  "smell_description": "Floury, musty",
+  "taste_description": "Mild, floury",
+  "primary_structure_present": true,
+  "primary_structure_type": "Cap",
+  "primary_structure_diameter": {
+    "min": 3,
+    "max": 8,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "hemispherical",
+  "primary_structure_shape_mature": "convex to flat",
+  "primary_structure_surface": "slimy, sticky",
+  "primary_structure_color": "orange, amber-colored",
+  "support_structure_present": true,
+  "support_structure_type": "Stipe",
+  "support_structure_length": {
+    "min": 5,
+    "max": 8,
+    "unit": "cm"
+  },
+  "veil_present": true,
+  "veil_type": "slimy-membranous",
+  "veil_color": "yellowish",
+  "lamellae_present": true,
+  "lamellae_color": "white to yellow, then brown",
+  "tissue_color": "white",
+  "propagule_color": "cinnamon-brown",
+  "propagule_length": {
+    "min": 4,
+    "max": 7,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 2.5,
+    "max": 3,
+    "unit": "um"
+  },
+  "propagule_shape": "ellipsoid",
+  "confusion_species_list": [
+    "Kuehneromyces mutabilis"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "beginner",
+    "variant": "success"
+  },
+  "key_differentiating_features": [
+    "Characteristic orange slime",
+    "Amber-colored, sticky"
+  ]
+}

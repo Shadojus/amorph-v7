@@ -1,0 +1,60 @@
+{
+  "scientific_name": "Haliaeetus leucocephalus",
+  "author_citation": "(Linnaeus, 1766)",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Chordata",
+  "taxonomy_class": "Aves",
+  "taxonomy_order": "Accipitriformes",
+  "taxonomy_family": "Accipitridae",
+  "taxonomy_genus": "Haliaeetus",
+  "taxonomy_species": "leucocephalus",
+  "common_names": [
+    "Bald Eagle",
+    "American Eagle",
+    "White-headed Sea Eagle",
+    "American Sea Eagle"
+  ],
+  "size_range": {
+    "min": 70,
+    "max": 102,
+    "unit": "cm"
+  },
+  "weight_range": {
+    "min": 3,
+    "max": 6.3,
+    "unit": "kg"
+  },
+  "wingspan_range": {
+    "min": 180,
+    "max": 230,
+    "unit": "cm"
+  },
+  "color_primary": "dark brown",
+  "color_secondary": "white head and tail",
+  "primary_structure_type": "large raptor with hooked beak",
+  "primary_structure_shape_mature": "powerful build with broad wings",
+  "primary_structure_surface": "feathered body with scaled feet",
+  "primary_structure_color": "dark brown body, white head and tail, yellow beak and feet",
+  "key_differentiating_features": [
+    "White head and tail (adults only)",
+    "Large yellow hooked beak",
+    "Yellow eyes and feet",
+    "Dark brown body plumage",
+    "White coloring develops at 4-5 years"
+  ],
+  "identification_difficulty": {
+    "status": "easy",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Aquila chrysaetos (Golden Eagle - uniform dark, golden nape)",
+    "Haliaeetus leucocephalus juvenile (all dark brown)"
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Females approximately 25% larger than males"
+}

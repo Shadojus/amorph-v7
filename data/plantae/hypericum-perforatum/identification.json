@@ -1,0 +1,148 @@
+{
+  "scientific_name": "Hypericum perforatum",
+  "author_citation": "L. 1753",
+  "accepted_name": "Hypericum perforatum L.",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Magnoliopsida",
+  "taxonomy_order": "Malpighiales",
+  "taxonomy_family": "Hypericaceae",
+  "taxonomy_genus": "Hypericum",
+  "taxonomy_species": "perforatum",
+  "synonyms": [
+    "Hypericum officinarum Crantz",
+    "Hypericum vulgare Lam.",
+    "Hypericum noeanum Boiss."
+  ],
+  "common_names": [
+    "St. John's Wort",
+    "Perforate St. John's Wort",
+    "Common St. John's Wort",
+    "Klamath Weed"
+  ],
+  "international_names": [
+    "Echtes Johanniskraut (DE)",
+    "Millepertuis perfore (FR)",
+    "Hierba de San Juan (ES)",
+    "Iperico (IT)",
+    "Guan Ye Lian Qiao (CN)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Yellow 5-petaled flowers with black dots on edges", "status": "pending"},
+    {"step": 2, "label": "Leaves with translucent dots (hold to light)", "status": "pending"},
+    {"step": 3, "label": "Two raised lines on stem", "status": "pending"},
+    {"step": 4, "label": "Opposite, sessile leaves", "status": "pending"},
+    {"step": 5, "label": "Crushed flowers stain fingers red/purple", "status": "pending"},
+    {"step": 6, "label": "Bushy perennial 30-90 cm tall", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 5,
+  "minimum_equipment_needed": [
+    "No equipment required",
+    "Hold leaves to light to see perforations"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Hypericum maculatum (Imperforate St. John's Wort)",
+    "Hypericum androsaemum (Tutsan)",
+    "Other Hypericum species"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "none", "typ": "Other Hypericum species", "beschreibung": "Similar properties, some also used medicinally"}
+  ],
+  "key_differentiating_features": [
+    "Translucent dots in leaves (oil glands)",
+    "Two raised lines on stems (vs. 4 in H. maculatum)",
+    "Black glands on petal edges",
+    "Red stain from crushed flowers",
+    "Flowers in cymes"
+  ],
+  "habit": "Herbaceous perennial",
+  "growth_form": "Upright, branching from woody base",
+  "symmetry": "bilateral",
+  "size_range": {
+    "min": 30,
+    "max": 90,
+    "unit": "cm"
+  },
+  "size_typical_cm": 60,
+  "basic_shape": "Upright, branched herb with yellow flowers",
+  "height": {
+    "min": 30,
+    "max": 90,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 20,
+    "max": 50,
+    "unit": "cm"
+  },
+  "surface_type": "Smooth stems with two raised ridges",
+  "color_primary": "Yellow (flowers)",
+  "color_secondary": "Green (foliage)",
+  "color_variations": [
+    "Black dots on petals",
+    "Red stain from crushed flowers"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf",
+  "primary_structure_diameter": {
+    "min": 0.5,
+    "max": 1,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Ovate, opposite",
+  "primary_structure_shape_mature": "Oblong-elliptic, with translucent glands",
+  "primary_structure_surface": "Smooth with translucent oil glands",
+  "primary_structure_color": "Green",
+  "support_structure_present": true,
+  "support_structure_type": "Stem (herbaceous with woody base)",
+  "support_structure_color": "Green to reddish",
+  "flower_present": true,
+  "flower_type": "5-petaled, in terminal cymes",
+  "flower_color": "Bright yellow with black-dotted margins",
+  "flower_size": {
+    "min": 2,
+    "max": 3,
+    "unit": "cm"
+  },
+  "flowering_period": "June to August",
+  "smell_description": "Faintly aromatic, balsamic",
+  "smell_comparable_to": "Turpentine, balsam",
+  "taste_safe_to_test": true,
+  "taste_description": "Bitter, slightly astringent",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "New shoots from base",
+    "summer": "Full flowering around St. John's Day (June 24)",
+    "autumn": "Seed capsules form",
+    "winter": "Dies back, woody base persists"
+  },
+  "season_peak_months": [6, 7, 8],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis",
+  "substrate_species": [
+    "Dry grasslands",
+    "Roadsides and disturbed areas",
+    "Woodland edges"
+  ],
+  "source": {
+    "authors": "Robson, N.K.B.",
+    "year": 2002,
+    "title": "Studies in the genus Hypericum L.",
+    "journal": "Edinburgh Journal of Botany",
+    "doi": ""
+  }
+}

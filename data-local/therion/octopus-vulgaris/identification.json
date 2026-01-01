@@ -1,0 +1,55 @@
+{
+  "scientific_name": "Octopus vulgaris",
+  "author_citation": "Cuvier, 1797",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Mollusca",
+  "taxonomy_class": "Cephalopoda",
+  "taxonomy_order": "Octopoda",
+  "taxonomy_family": "Octopodidae",
+  "taxonomy_genus": "Octopus",
+  "taxonomy_species": "vulgaris",
+  "common_names": [
+    "Common Octopus",
+    "Atlantic Octopus",
+    "Mediterranean Octopus",
+    "Common Atlantic Octopus"
+  ],
+  "size_range": {
+    "min": 30,
+    "max": 100,
+    "unit": "cm"
+  },
+  "weight_range": {
+    "min": 3,
+    "max": 10,
+    "unit": "kg"
+  },
+  "color_primary": "highly variable",
+  "color_secondary": "brown, grey, white, red",
+  "primary_structure_type": "soft-bodied cephalopod with eight arms",
+  "primary_structure_shape_mature": "bulbous mantle with eight sucker-lined arms",
+  "primary_structure_surface": "soft texturable skin with chromatophores",
+  "primary_structure_color": "highly variable; can change instantly for camouflage",
+  "key_differentiating_features": [
+    "Eight arms with two rows of suckers each",
+    "Large complex eyes",
+    "Siphon for jet propulsion",
+    "Highly flexible boneless body",
+    "Master of color and texture change"
+  ],
+  "identification_difficulty": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Octopus maya (Yucatan Octopus - Mexico only)",
+    "Octopus tetricus (Gloomy Octopus - Australia)"
+  ],
+  "confusion_risk_level": {
+    "status": "high",
+    "variant": "danger"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Males have hectocotylus (modified arm for reproduction)"
+}

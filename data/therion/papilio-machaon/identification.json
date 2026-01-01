@@ -1,0 +1,55 @@
+{
+  "scientific_name": "Papilio machaon",
+  "author_citation": "Linnaeus, 1758",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Arthropoda",
+  "taxonomy_class": "Insecta",
+  "taxonomy_order": "Lepidoptera",
+  "taxonomy_family": "Papilionidae",
+  "taxonomy_genus": "Papilio",
+  "taxonomy_species": "machaon",
+  "common_names": [
+    "Old World Swallowtail",
+    "Common Yellow Swallowtail",
+    "Swallowtail",
+    "Machaon"
+  ],
+  "size_range": {
+    "min": 65,
+    "max": 86,
+    "unit": "mm"
+  },
+  "weight_range": {
+    "min": 300,
+    "max": 600,
+    "unit": "mg"
+  },
+  "color_primary": "yellow",
+  "color_secondary": "black",
+  "primary_structure_type": "large butterfly with tail-like projections",
+  "primary_structure_shape_mature": "broad wings with hindwing tails",
+  "primary_structure_surface": "scaled wings",
+  "primary_structure_color": "yellow with black vein patterns, blue spots, red eyespots on hindwing",
+  "key_differentiating_features": [
+    "Yellow wings with black vein markings",
+    "Tail-like projections on hindwings",
+    "Blue submarginal band on hindwings",
+    "Red eyespot with blue center on hindwing",
+    "Black marginal band on all wings"
+  ],
+  "identification_difficulty": {
+    "status": "easy",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Papilio zelicaon (Anise Swallowtail - North America)",
+    "Iphiclides podalirius (Scarce Swallowtail - striped pattern)"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "sexual_dimorphism": false,
+  "sexual_dimorphism_notes": "Sexes nearly identical; females slightly larger"
+}

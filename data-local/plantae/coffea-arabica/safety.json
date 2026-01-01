@@ -1,0 +1,72 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Non-toxic (caffeine content)",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 5,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Contains caffeine - moderate consumption",
+    "May increase blood pressure acutely",
+    "Can cause dependency with regular use"
+  ],
+  "primary_toxins": [
+    {
+      "name": "Caffeine",
+      "cas": "58-08-2",
+      "mechanism": "CNS stimulant; adenosine receptor antagonist",
+      "lethal_dose": "Approximately 10g (75-100 cups of coffee)"
+    }
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "type": "Moderate consumption", "description": "Safe; associated with health benefits"},
+    {"level": "low", "type": "High consumption", "description": "Insomnia, anxiety, tachycardia, GI upset"},
+    {"level": "medium", "type": "Excessive caffeine", "description": "Severe anxiety, arrhythmias, tremors"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "risk_groups": [
+    "Caffeine-sensitive individuals",
+    "Pregnant women",
+    "Those with anxiety disorders",
+    "People with heart arrhythmias"
+  ],
+  "antidote": "None required; supportive care for caffeine overdose",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "allergy_potential": {
+    "status": "Very Low",
+    "variant": "success"
+  },
+  "contraindications": [
+    "Severe anxiety disorders",
+    "Certain cardiac arrhythmias",
+    "Pregnancy (limit intake)"
+  ],
+  "source": {
+    "authors": "Cano-Marquina, A. et al.",
+    "year": 2013,
+    "title": "The impact of coffee on health",
+    "journal": "Maturitas",
+    "doi": "10.1016/j.maturitas.2013.02.002"
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "habitat_primary": "hardwood, especially elder",
+  "habitat_secondary": [
+    "birch wood",
+    "willow wood",
+    "oak wood",
+    "acacia wood"
+  ],
+  "habitat_description": "The Wood Ear is a cosmopolitan wood-inhabiting fungus that preferentially grows on elder. It is frost-resistant and fruits year-round, but especially in the cool, humid season. The fungus causes white rot.",
+  "elevation_range": {
+    "min": 0,
+    "max": 2000,
+    "unit": "m"
+  },
+  "elevation_optimal": {
+    "min": 0,
+    "max": 800,
+    "unit": "m"
+  },
+  "climate_preferences": {
+    "annual_temp_min": -10,
+    "annual_temp_max": 30,
+    "precipitation_min": 500,
+    "precipitation_max": 2000
+  },
+  "temperature_range": {
+    "min": -5,
+    "max": 30,
+    "unit": "C"
+  },
+  "microhabitat_requirements": [
+    "dead or weakened hardwood",
+    "high humidity",
+    "cool temperatures preferred"
+  ],
+  "substrate_preferences": [
+    "Sambucus nigra (black elder)",
+    "Betula (birch)",
+    "Salix (willow)",
+    "Quercus (oak)"
+  ],
+  "ecological_role": "saprotroph and facultative parasite",
+  "ecological_role_description": "Auricularia auricula-judae is a white rot fungus that degrades lignin. It can decompose dead wood as well as infect weakened living trees.",
+  "ecological_importance": [
+    {"axis": "wood decomposition", "value": 85},
+    {"axis": "medicinal significance", "value": 90},
+    {"axis": "culinary significance", "value": 80},
+    {"axis": "cultivability", "value": 85}
+  ],
+  "trophic_level": 2,
+  "trophic_category": "saprotroph",
+  "host_specificity": {
+    "status": "medium",
+    "variant": "warning"
+  },
+  "co_occurring_species": [
+    "Exidia species",
+    "Tremella species",
+    "Stereum species"
+  ],
+  "dispersal_mechanism": "wind dispersal of spores",
+  "dispersal_range": {
+    "min": 10,
+    "max": 500,
+    "unit": "m"
+  },
+  "spore_production": {
+    "value": 75,
+    "max": 100,
+    "unit": "%"
+  },
+  "phenology_description": "fruiting year-round, especially in winter and spring during wet weather",
+  "activity_months": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "peak_fruiting_month": 2,
+  "indicator_species": false,
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

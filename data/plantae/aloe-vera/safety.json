@@ -1,0 +1,114 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Low (latex contains anthraquinones)",
+    "variant": "warning"
+  },
+  "edibility_rating": {
+    "rating": 3,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Gel is safe for topical use",
+    "Yellow latex (aloin) is a strong laxative",
+    "Remove latex before consuming gel",
+    "Some people may have skin sensitivity"
+  ],
+  "toxin_classes": [
+    "Anthraquinones (in latex)"
+  ],
+  "primary_toxins": [
+    {
+      "name": "Aloin",
+      "cas": "1415-73-2",
+      "mechanism": "Stimulant laxative; irritates intestinal lining",
+      "lethal_dose": "Not typically lethal; chronic use causes electrolyte imbalance"
+    }
+  ],
+  "toxin_distribution": [
+    {"label": "Anthraquinones (latex)", "value": 85},
+    {"label": "Other compounds", "value": 15}
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "type": "gel (topical)", "description": "safe for most people; moisturizing and soothing"},
+    {"level": "low", "type": "gel (oral)", "description": "generally safe in small amounts; may cause mild GI upset"},
+    {"level": "medium", "type": "latex ingestion", "description": "diarrhea, abdominal cramps, electrolyte imbalance"}
+  ],
+  "symptoms_acute": [
+    "Severe diarrhea from latex",
+    "Abdominal cramping",
+    "Nausea"
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "fatality_note": "No fatalities from normal use. Chronic laxative abuse can cause serious health issues.",
+  "affected_systems": [
+    "Gastrointestinal (with latex)"
+  ],
+  "risk_groups": [
+    "Pregnant women (may cause uterine contractions)",
+    "Children (more sensitive to laxative effects)",
+    "People with kidney disease",
+    "Those taking heart medications"
+  ],
+  "first_aid_immediate": [
+    "For skin reaction: wash with water",
+    "For excessive ingestion: drink water, seek medical advice"
+  ],
+  "first_aid_medical": [
+    "Supportive care for diarrhea",
+    "Electrolyte replacement if needed"
+  ],
+  "antidote": "None required; supportive care",
+  "medical_treatment": "Fluid replacement for severe diarrhea",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "long_term_effects": "Chronic latex use can cause dependency and electrolyte problems",
+  "environmental_risks": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "collection_warnings": [
+    "Let yellow latex drain before using gel",
+    "Some people have latex allergies"
+  ],
+  "storage_risks": "Gel degrades quickly; use fresh or refrigerate",
+  "processing_risks": [
+    "Ensure latex is removed for oral consumption",
+    "Commercial products should specify latex-free"
+  ],
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "contraindications": [
+    "Pregnancy (latex)",
+    "Intestinal obstruction",
+    "Acute inflammatory intestinal diseases",
+    "Children under 12 (oral)"
+  ],
+  "safety_studies_available": true,
+  "source": {
+    "authors": "Boudreau, M.D. & Beland, F.A.",
+    "year": 2006,
+    "title": "An evaluation of the biological and toxicological properties of Aloe barbadensis (miller), Aloe vera",
+    "journal": "Journal of Environmental Science and Health",
+    "doi": "10.1080/10590500600614303"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine", "Arabic Medicine"],
+    "historical_use": "Paracelsus called it 'Elixir of Life'; valued since antiquity",
+    "traditional_indications": ["Nervousness", "Sleep disorders", "Digestive complaints", "Heart complaints"]
+  },
+  "pharmacopoeia_names": ["Melissae folium"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Nervous restlessness", "Sleep onset disorders", "Dyspeptic complaints"],
+  "german_commission_e_status": {
+    "status": "Positive Monograph",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Nervous sleep onset disorders", "Functional gastrointestinal complaints"],
+  "active_substances": [
+    "Essential oil (Citral, Citronellal)",
+    "Rosmarinic acid",
+    "Flavonoids",
+    "Triterpenes"
+  ],
+  "effect_profile": [
+    {"axis": "Calming", "value": 80},
+    {"axis": "Spasmolytic", "value": 75},
+    {"axis": "Antiviral", "value": 70},
+    {"axis": "Carminative", "value": 70},
+    {"axis": "Anxiolytic", "value": 75}
+  ],
+  "therapeutic_categories": [
+    "Sedative",
+    "Spasmolytic",
+    "Carminative"
+  ],
+  "evidence_level": {
+    "status": "2b",
+    "variant": "warning"
+  },
+  "clinical_studies": [
+    "Kennedy et al. 2004: Improved mood and cognitive performance",
+    "Koytchev et al. 1999: Efficacy for herpes labialis (topical)"
+  ],
+  "safety_score": {
+    "value": 95,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Rare", "description": "Gastrointestinal complaints"}
+  ],
+  "interactions": [
+    {"level": "low", "typ": "Thyroid", "description": "Theoretical interaction with thyroid medications"}
+  ],
+  "contraindications": [
+    "Thyroid disorders (caution with high doses)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Probably safe as tea",
+    "variant": "success"
+  },
+  "dosage_notes": "Tea: 1.5-4.5g leaves; Often combined with valerian; Topical: Cream for cold sores",
+  "preparation_forms": ["Tea", "Tincture", "Extract", "Cream", "Essential oil"],
+  "status_by_region": {
+    "eu": "Herbal medicinal product (traditional use)"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "scientific_name": "Curcuma longa",
+  "author_citation": "L. 1753",
+  "accepted_name": "Curcuma longa L.",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Liliopsida",
+  "taxonomy_order": "Zingiberales",
+  "taxonomy_family": "Zingiberaceae",
+  "taxonomy_genus": "Curcuma",
+  "taxonomy_species": "longa",
+  "synonyms": [
+    "Curcuma domestica Valeton",
+    "Amomum curcuma Jacq.",
+    "Curcuma tinctoria Guibourt"
+  ],
+  "common_names": [
+    "Turmeric",
+    "Indian Saffron",
+    "Curcuma",
+    "Yellow Ginger"
+  ],
+  "international_names": [
+    "Kurkuma (DE)",
+    "Curcuma (FR)",
+    "Curcuma (ES)",
+    "Curcuma (IT)",
+    "Jiang Huang (CN)",
+    "Ukon (JP)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Rhizome bright orange-yellow inside", "status": "pending"},
+    {"step": 2, "label": "Large, paddle-shaped leaves", "status": "pending"},
+    {"step": 3, "label": "Leaves arise from rhizome", "status": "pending"},
+    {"step": 4, "label": "Distinct earthy, slightly bitter aroma", "status": "pending"},
+    {"step": 5, "label": "Flower spike with pink bracts", "status": "pending"},
+    {"step": 6, "label": "Stains skin and surfaces yellow-orange", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "time_to_identify_minutes": 5,
+  "minimum_equipment_needed": [
+    "No equipment required"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Zingiber officinale (Ginger)",
+    "Curcuma zedoaria (White Turmeric)",
+    "Curcuma aromatica (Wild Turmeric)",
+    "Curcuma xanthorrhiza (Javanese Turmeric)"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "none", "type": "Zingiber officinale", "description": "Related, also edible"},
+    {"level": "low", "type": "Other Curcuma species", "description": "Similar uses, different flavor profiles"}
+  ],
+  "key_differentiating_features": [
+    "Deep orange-yellow rhizome color",
+    "Strong staining properties",
+    "Earthy, slightly bitter, peppery smell",
+    "Larger leaves than ginger",
+    "Pink-white flower bracts"
+  ],
+  "habit": "Herbaceous perennial (from rhizome)",
+  "growth_form": "Clump-forming from rhizomes",
+  "symmetry": "bilateral",
+  "size_range": {
+    "min": 60,
+    "max": 100,
+    "unit": "cm"
+  },
+  "size_typical_cm": 80,
+  "basic_shape": "Upright leaves from underground rhizome",
+  "height": {
+    "min": 60,
+    "max": 100,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 40,
+    "max": 80,
+    "unit": "cm"
+  },
+  "surface_type": "Smooth, glossy leaves",
+  "color_primary": "Green (leaves)",
+  "color_secondary": "Orange-yellow (rhizome)",
+  "color_variations": [
+    "Flower bracts pink to white",
+    "Flowers yellow"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf",
+  "primary_structure_diameter": {
+    "min": 10,
+    "max": 20,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Rolled, emerging",
+  "primary_structure_shape_mature": "Oblong-lanceolate, 30-45 cm long",
+  "primary_structure_surface": "Smooth, glossy",
+  "primary_structure_color": "Bright green",
+  "support_structure_present": true,
+  "support_structure_type": "Pseudostem from leaf bases",
+  "support_structure_color": "Green",
+  "rhizome_present": true,
+  "rhizome_type": "Branching, aromatic",
+  "rhizome_color": "Brown exterior, deep orange interior",
+  "flower_present": true,
+  "flower_type": "Spike with colored bracts",
+  "flower_color": "Yellow flowers, pink bracts",
+  "flower_size": {
+    "min": 10,
+    "max": 20,
+    "unit": "cm"
+  },
+  "flowering_period": "August to October",
+  "smell_description": "Earthy, warm, slightly bitter, musky",
+  "smell_comparable_to": "Mustard, earth, ginger notes",
+  "taste_safe_to_test": true,
+  "taste_description": "Bitter, peppery, warm, slightly musty",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "New shoots emerge",
+    "summer": "Full leaf growth, flowering",
+    "autumn": "Leaves yellow, rhizome harvest",
+    "winter": "Dormant in temperate climates"
+  },
+  "season_peak_months": [8, 9, 10],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis, tropical",
+  "substrate_species": [
+    "Rich, moist, well-drained soil",
+    "Forest floors",
+    "Tropical regions"
+  ],
+  "source": {
+    "authors": "Ravindran, P.N. et al.",
+    "year": 2007,
+    "title": "Turmeric: The Genus Curcuma",
+    "journal": "CRC Press",
+    "doi": ""
+  }
+}

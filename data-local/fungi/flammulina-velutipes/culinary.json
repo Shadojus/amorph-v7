@@ -1,0 +1,61 @@
+{
+  "edibility_category": "edible",
+  "culinary_value": {
+    "rating": 7,
+    "max": 10
+  },
+  "taste_profile": "mild, slightly sweet, mushroomy",
+  "texture": "firm, slightly crispy when cooked quickly",
+  "aroma": "subtle mushroomy",
+  "recommended_preparations": [
+    "Soups",
+    "Wok dishes",
+    "Salads",
+    "Hot Pot"
+  ],
+  "cooking_methods": [
+    "Brief sauteing",
+    "Blanching",
+    "Cooking in soups",
+    "Raw in salads (cultivated form)"
+  ],
+  "cooking_time_minutes": {
+    "min": 2,
+    "max": 5,
+    "unit": "min"
+  },
+  "storage_fresh_days": {
+    "min": 5,
+    "max": 10,
+    "unit": "days"
+  },
+  "storage_methods": [
+    "Refrigerated at 2-4 degrees Celsius",
+    "Drying",
+    "Freezing after blanching"
+  ],
+  "parts_used": [
+    "Whole fruiting body",
+    "Wild specimens often have tough stems"
+  ],
+  "cuisine_traditions": [
+    "Japanese cuisine",
+    "Chinese cuisine",
+    "Korean cuisine"
+  ],
+  "commercial_availability": {
+    "status": "high",
+    "variant": "success"
+  },
+  "cultivation_scale": "industrial",
+  "market_names": [
+    "Enoki",
+    "Enokitake",
+    "Golden Needle Mushroom"
+  ],
+  "nutritional_highlights": [
+    "Rich in vitamins B1, B2, B3",
+    "High protein content (17-31%)",
+    "Low fat content"
+  ]
+}

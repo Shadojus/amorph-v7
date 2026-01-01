@@ -1,0 +1,49 @@
+{
+  "trophic_mode_primary": "autotroph",
+  "ecological_guild": "Perennial herb",
+  "primary_ecosystem_function": "Nitrogen indicator",
+  "secondary_ecosystem_functions": [
+    "Food plant for butterfly caterpillars",
+    "Bank stabilization"
+  ],
+  "ecosystem_type": "Ruderal area",
+  "ecosystem_subtype": "Nitrogen-rich sites",
+  "microhabitat_primary": "Nutrient-rich, disturbed soils",
+  "microhabitat_secondary": "Forest edges, stream banks",
+  "light_requirement": "Partial shade to full sun",
+  "moisture_regime": "Moist-mesic",
+  "drought_tolerance": {
+    "rating": 4,
+    "max": 10
+  },
+  "soil_ph_optimal_min": 5.5,
+  "soil_ph_optimal_max": 8.0,
+  "soil_nutrient_preference": "Nitrogen-rich (nitrophyte)",
+  "is_bioindicator": true,
+  "indicates_conditions": [
+    "High soil nitrogen content",
+    "Anthropogenic disturbance"
+  ],
+  "soil_quality_nutrient_indication": "Nitrogen richness",
+  "climate_zone": "Temperate to subarctic",
+  "temperature_optimal_min_c": -30,
+  "temperature_optimal_max_c": 30,
+  "frost_tolerance": {
+    "rating": 10,
+    "max": 10
+  },
+  "native_range": "Eurasia, North America (circumboreal)",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "keystone_species": true,
+  "keystone_function": "Food plant for 40+ butterfly species",
+  "consumer_insects": [
+    "Vanessa atalanta (Red Admiral)",
+    "Aglais io (Peacock Butterfly)",
+    "Aglais urticae (Small Tortoiseshell)"
+  ],
+  "dispersal_vector_type": "Anemochory",
+  "dispersal_mechanism": "Wind pollination and dispersal"
+}

@@ -1,0 +1,104 @@
+{
+  "habitat_primary": "nutrient-rich soils, compost soils",
+  "habitat_secondary": [
+    "mixed forests",
+    "forest edges",
+    "gardens and beds",
+    "greenhouses"
+  ],
+  "habitat_description": "Agaricus subrufescens is a heat-loving secondary decomposer that prefers well-composted, nitrogen-rich substrates. It naturally occurs in tropical and subtropical regions, especially in Brazil and the Mediterranean region. It thrives on nutrient-rich soils in mixed forests, at forest edges and in well-composted garden beds.",
+  "elevation_range": {
+    "min": 0,
+    "max": 1500,
+    "unit": "m"
+  },
+  "elevation_optimal": {
+    "min": 100,
+    "max": 800,
+    "unit": "m"
+  },
+  "climate_preferences": {
+    "annual_temp_min": 10,
+    "annual_temp_max": 35,
+    "precipitation_min": 800,
+    "precipitation_max": 2500
+  },
+  "temperature_range": {
+    "min": 21,
+    "max": 27,
+    "unit": "C"
+  },
+  "microhabitat_requirements": [
+    "nutrient-rich, well-composted soils",
+    "high nitrogen availability",
+    "good soil moisture",
+    "warmth (21-27 degrees Celsius)"
+  ],
+  "substrate_preferences": [
+    "well-composted soil",
+    "enriched composts",
+    "nitrogen-rich substrates",
+    "pasteurized substrates with nitrogen additives"
+  ],
+  "vegetation_associations": [
+    "tropical and subtropical forests",
+    "Mediterranean vegetation",
+    "cultivated landscapes"
+  ],
+  "ecological_role": "secondary decomposer of organic material",
+  "ecological_role_description": "As a saprotrophic fungus, Agaricus subrufescens decomposes already partially degraded organic material and contributes to humus formation and nutrient recycling. It prefers pre-treated material such as compost.",
+  "ecological_importance": [
+    {"axis": "nutrient recycling", "value": 75},
+    {"axis": "humus formation", "value": 70},
+    {"axis": "medicinal significance", "value": 95},
+    {"axis": "culinary significance", "value": 80}
+  ],
+  "trophic_level": 2,
+  "trophic_category": "saprotroph",
+  "symbiosis_type": "none (saprotroph)",
+  "symbiosis_description": "Agaricus subrufescens does not form symbiotic relationships but lives as a decomposer of dead organic material.",
+  "host_specificity": {
+    "status": "low",
+    "variant": "success"
+  },
+  "co_occurring_species": [
+    "Agaricus bisporus (button mushroom)",
+    "other Agaricus species",
+    "Coprinus species"
+  ],
+  "dispersal_mechanism": "wind dispersal of spores",
+  "dispersal_range": {
+    "min": 10,
+    "max": 500,
+    "unit": "m"
+  },
+  "spore_production": {
+    "value": 75,
+    "max": 100,
+    "unit": "%"
+  },
+  "colonization_strategy": "rapid colonization of nutrient-rich substrates",
+  "life_history": "short-lived fruiting bodies, persistent mycelium",
+  "phenology_description": "fruiting bodies appear from early summer to late autumn with sufficient warmth and moisture",
+  "fruiting_triggers": [
+    "temperatures between 21-24 degrees Celsius",
+    "relative humidity 80-90%",
+    "fresh air supply",
+    "light 1000-2000 lux"
+  ],
+  "activity_months": [5, 6, 7, 8, 9, 10],
+  "peak_fruiting_month": 7,
+  "ecosystem_services": [
+    "decomposition of organic matter",
+    "nutrient release",
+    "soil improvement"
+  ],
+  "indicator_species": false,
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

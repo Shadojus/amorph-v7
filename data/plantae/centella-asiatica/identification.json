@@ -1,0 +1,147 @@
+{
+  "scientific_name": "Centella asiatica",
+  "author_citation": "(L.) Urb. 1879",
+  "accepted_name": "Centella asiatica (L.) Urb.",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Magnoliopsida",
+  "taxonomy_order": "Apiales",
+  "taxonomy_family": "Apiaceae",
+  "taxonomy_genus": "Centella",
+  "taxonomy_species": "asiatica",
+  "synonyms": [
+    "Hydrocotyle asiatica L.",
+    "Hydrocotyle lunata Lam.",
+    "Trisanthus cochinchinensis Lour."
+  ],
+  "common_names": [
+    "Gotu Kola",
+    "Indian Pennywort",
+    "Asiatic Pennywort",
+    "Spadeleaf",
+    "Brahmi"
+  ],
+  "international_names": [
+    "Asiatischer Wassernabel (DE)",
+    "Hydrocotyle (FR)",
+    "Centella asiatica (ES)",
+    "Ji Xue Cao (CN)",
+    "Pegagan (ID)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Kidney or fan-shaped leaves", "status": "pending"},
+    {"step": 2, "label": "Long petioles from creeping stems", "status": "pending"},
+    {"step": 3, "label": "Leaves with rounded teeth on margins", "status": "pending"},
+    {"step": 4, "label": "Creeping, mat-forming habit", "status": "pending"},
+    {"step": 5, "label": "Tiny pink-white flowers in umbels", "status": "pending"},
+    {"step": 6, "label": "Grows in moist, shady areas", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "time_to_identify_minutes": 10,
+  "minimum_equipment_needed": [
+    "No equipment required"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Hydrocotyle species (Water Pennyworts)",
+    "Viola species (Violets - leaf shape)",
+    "Dichondra repens (Kidney Weed)"
+  ],
+  "confusion_risk_level": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "confusion_consequences": [
+    {"level": "low", "type": "Hydrocotyle species", "description": "some Hydrocotyle species are edible, some not recommended"}
+  ],
+  "key_differentiating_features": [
+    "Fan or kidney-shaped leaves",
+    "Leaves with crenate (rounded) margins",
+    "Long petioles (5-15 cm)",
+    "Distinctly palmate leaf venation",
+    "Creeping stoloniferous habit"
+  ],
+  "habit": "Herbaceous perennial",
+  "growth_form": "Creeping, mat-forming via stolons",
+  "symmetry": "radial",
+  "size_range": {
+    "min": 5,
+    "max": 15,
+    "unit": "cm"
+  },
+  "size_typical_cm": 10,
+  "basic_shape": "Low creeping plant with kidney-shaped leaves",
+  "height": {
+    "min": 5,
+    "max": 15,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 30,
+    "max": 100,
+    "unit": "cm"
+  },
+  "surface_type": "Smooth to slightly hairy leaves",
+  "color_primary": "Green (foliage)",
+  "color_secondary": "Pink-white (flowers)",
+  "color_variations": [
+    "Leaves may be reddish in sun"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf",
+  "primary_structure_diameter": {
+    "min": 2,
+    "max": 6,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Kidney-shaped, small",
+  "primary_structure_shape_mature": "Orbicular to reniform (kidney-shaped)",
+  "primary_structure_surface": "Smooth to slightly hairy",
+  "primary_structure_color": "Green",
+  "support_structure_present": true,
+  "support_structure_type": "Stolons (creeping stems)",
+  "support_structure_color": "Green to reddish",
+  "flower_present": true,
+  "flower_type": "Simple umbel, 3-4 flowers",
+  "flower_color": "Pink to white",
+  "flower_size": {
+    "min": 0.2,
+    "max": 0.3,
+    "unit": "cm"
+  },
+  "flowering_period": "Summer (year-round in tropics)",
+  "smell_description": "Faint, grassy, slightly bitter",
+  "smell_comparable_to": "Fresh vegetation, slightly herbal",
+  "taste_safe_to_test": true,
+  "taste_description": "Slightly bitter, mildly aromatic",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "Active growth",
+    "summer": "Flowering, peak growth",
+    "autumn": "Continued growth in mild areas",
+    "winter": "Dormant in cold climates"
+  },
+  "season_peak_months": [5, 6, 7, 8, 9],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis",
+  "substrate_species": [
+    "Moist, shady areas",
+    "Stream banks",
+    "Wet lawns and ditches"
+  ],
+  "source": {
+    "authors": "Brinkhaus, B. et al.",
+    "year": 2000,
+    "title": "Chemical, pharmacological and clinical profile of the East Asian medical plant Centella asiatica",
+    "journal": "Phytomedicine",
+    "doi": "10.1016/S0944-7113(00)80009-9"
+  }
+}

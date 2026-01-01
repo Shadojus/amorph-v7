@@ -1,0 +1,86 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine", "Ancient Medicine"],
+    "historical_use": "Used since antiquity for wound healing and melancholic disorders",
+    "traditional_indications": ["Melancholy", "Wound healing", "Nervous disorders", "Anxiety"]
+  },
+  "pharmacopoeia_names": ["Hyperici herba"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Mild to moderate depression", "Anxiety disorders"],
+  "german_commission_e_status": {
+    "status": "Positive monograph",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Psychovegetative disorders", "Depressive moods", "Anxiety", "Nervous restlessness"],
+  "active_substances": [
+    "Hyperforin",
+    "Hypericin",
+    "Pseudohypericin",
+    "Flavonoids",
+    "Proanthocyanidins"
+  ],
+  "effect_profile": [
+    {"axis": "Antidepressant", "value": 90},
+    {"axis": "Anxiolytic", "value": 70},
+    {"axis": "Anti-inflammatory", "value": 60},
+    {"axis": "Antiviral", "value": 55},
+    {"axis": "Wound healing", "value": 65}
+  ],
+  "therapeutic_categories": [
+    "Antidepressant",
+    "Anxiolytic",
+    "Vulnerary"
+  ],
+  "evidence_level": {
+    "status": "1a",
+    "variant": "success"
+  },
+  "evidence_grade_overall": {
+    "status": "A",
+    "variant": "success"
+  },
+  "meta_analyses_count": 20,
+  "rcts_count": 60,
+  "evidence_summary": "Cochrane reviews confirm efficacy for mild to moderate depression comparable to SSRIs",
+  "safety_score": {
+    "value": 60,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Common", "beschreibung": "Gastrointestinal complaints, fatigue, restlessness"},
+    {"level": "medium", "typ": "Photosensitization", "beschreibung": "Increased sensitivity to sunlight"}
+  ],
+  "interactions": [
+    {"level": "critical", "typ": "CYP3A4 induction", "beschreibung": "Reduces efficacy of cyclosporine, HIV medications, oral contraceptives, warfarin"},
+    {"level": "high", "typ": "Serotonin syndrome", "beschreibung": "Risk with SSRI, SNRI, triptans"}
+  ],
+  "contraindications": [
+    "Concurrent use of SSRI/SNRI",
+    "Cyclosporine therapy",
+    "HIV treatment",
+    "Severe depression",
+    "Bipolar disorder"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Not recommended",
+    "variant": "warning"
+  },
+  "standard_dose_range": {
+    "min": 600,
+    "max": 900,
+    "unit": "mg"
+  },
+  "dose_frequency": "Three times daily",
+  "standardization_marker": "Hyperforin 3-5%, total hypericins 0.1-0.3%",
+  "onset_of_action": "2-4 weeks",
+  "treatment_duration_typical": "At least 4-6 weeks, long-term therapy possible",
+  "dosage_notes": "Standardized extract 300 mg three times daily; avoid sun exposure",
+  "preparation_forms": ["Standardized extract", "Capsules", "Tablets", "Red oil (external)"],
+  "status_by_region": {
+    "eu": "Herbal medicinal product (well-established use)",
+    "usa": "Dietary Supplement",
+    "germany": "Prescription required above certain doses"
+  }
+}

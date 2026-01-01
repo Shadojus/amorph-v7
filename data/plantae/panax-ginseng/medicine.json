@@ -1,0 +1,83 @@
+{
+  "traditional_medicine": {
+    "systems": ["TCM", "Korean Medicine"],
+    "historical_use": "Over 2000 years as a tonic in East Asia; Emperor's plant",
+    "traditional_indications": ["Exhaustion", "Weakness", "Cognitive decline", "Erectile dysfunction", "Diabetes support"]
+  },
+  "tcm_herb_name_pinyin": "Ren Shen",
+  "tcm_herb_name_chinese": "人参",
+  "tcm_nature": "warm",
+  "tcm_flavor": ["sweet", "bitter"],
+  "tcm_meridian_tropism": ["Lung", "Spleen", "Heart"],
+  "tcm_five_element": "Earth",
+  "tcm_therapeutic_actions": ["Tonifies Qi", "Strengthens Spleen and Lung", "Calms Shen"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Asthenia", "Convalescence", "Increased stress demands"],
+  "german_commission_e_status": {
+    "status": "Positive Monograph",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Tonic for fatigue and weakness", "Declining performance and concentration"],
+  "active_substances": [
+    "Ginsenosides (Rb1, Rg1, Rg3)",
+    "Polysaccharides (Panaxans)",
+    "Polyacetylenes",
+    "Peptides"
+  ],
+  "effect_profile": [
+    {"axis": "Adaptogenic", "value": 95},
+    {"axis": "Immunomodulating", "value": 80},
+    {"axis": "Nootropic", "value": 75},
+    {"axis": "Antidiabetic", "value": 65},
+    {"axis": "Energy-boosting", "value": 85}
+  ],
+  "therapeutic_categories": [
+    "Adaptogen",
+    "Tonic",
+    "Immunostimulant"
+  ],
+  "evidence_level": {
+    "status": "2a",
+    "variant": "success"
+  },
+  "safety_score": {
+    "value": 75,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Common", "description": "Insomnia, nervousness, headaches"},
+    {"level": "medium", "typ": "High doses", "description": "Blood pressure increase, tachycardia"}
+  ],
+  "interactions": [
+    {"level": "medium", "typ": "Anticoagulants", "description": "Possible interaction with warfarin"},
+    {"level": "medium", "typ": "Diabetes medications", "description": "Enhanced blood sugar lowering effect"},
+    {"level": "low", "typ": "Stimulants", "description": "Additive effect with caffeine"}
+  ],
+  "contraindications": [
+    "Acute infections",
+    "Severe hypertension",
+    "Pregnancy and breastfeeding"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Not recommended",
+    "variant": "warning"
+  },
+  "standard_dose_range": {
+    "min": 200,
+    "max": 400,
+    "unit": "mg"
+  },
+  "dose_frequency": "Once or twice daily",
+  "standardization_marker": "Ginsenosides 4-7%",
+  "treatment_duration_typical": "Cyclical use for 2-3 months, then break",
+  "dosage_notes": "Standardized extract 200-400 mg/day; take in the morning; not in the evening",
+  "preparation_forms": ["Standardized extract", "Dried root", "Tea", "Tincture", "Capsules"],
+  "status_by_region": {
+    "eu": "Dietary supplement",
+    "usa": "GRAS, Dietary Supplement",
+    "china": "Traditional medicine",
+    "korea": "Traditional medicine"
+  }
+}

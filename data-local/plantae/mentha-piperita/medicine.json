@@ -1,0 +1,77 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine", "Arabic Medicine"],
+    "historical_use": "Cultivated since the 18th century; hybrid originated in England",
+    "traditional_indications": ["Digestive complaints", "Headaches", "Colds", "Nausea"]
+  },
+  "pharmacopoeia_names": ["Menthae piperitae folium", "Menthae piperitae aetheroleum"],
+  "who_monograph_exists": true,
+  "escop_monograph_exists": true,
+  "escop_therapeutic_indication": ["Irritable bowel syndrome", "Dyspepsia", "Tension headache (topical)"],
+  "german_commission_e_status": {
+    "status": "Positive Monograph",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Spasmodic gastrointestinal complaints", "Biliary tract disorders"],
+  "active_substances": [
+    "Menthol",
+    "Menthone",
+    "Menthyl acetate",
+    "Isomenthone",
+    "Menthofuran"
+  ],
+  "effect_profile": [
+    {"axis": "Spasmolytic", "value": 90},
+    {"axis": "Carminative", "value": 85},
+    {"axis": "Cooling", "value": 95},
+    {"axis": "Analgesic", "value": 70},
+    {"axis": "Antimicrobial", "value": 60}
+  ],
+  "therapeutic_categories": [
+    "Spasmolytic",
+    "Carminative",
+    "Local anesthetic"
+  ],
+  "evidence_level": {
+    "status": "1a",
+    "variant": "success"
+  },
+  "evidence_grade_overall": {
+    "status": "A",
+    "variant": "success"
+  },
+  "clinical_studies": [
+    "Khanna et al. 2014 Cochrane: Peppermint oil effective for irritable bowel syndrome",
+    "Goebel et al. 1996: Efficacy for tension headache"
+  ],
+  "safety_score": {
+    "value": 85,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Oral", "description": "Heartburn, belching"},
+    {"level": "low", "typ": "Topical", "description": "Skin irritation in sensitive skin"}
+  ],
+  "contraindications": [
+    "Gallstones",
+    "Gallbladder inflammation",
+    "Severe liver damage",
+    "Children under 2 years (menthol)"
+  ],
+  "special_populations_children": {
+    "status": "Not under 2 years (menthol)",
+    "variant": "warning"
+  },
+  "standard_dose_range": {
+    "min": 0.2,
+    "max": 0.4,
+    "unit": "ml"
+  },
+  "dosage_notes": "Tea: 1.5-3g leaves; Oil capsules (IBS): 0.2-0.4 ml 3x daily; Topical: 10% solution",
+  "preparation_forms": ["Tea", "Essential oil", "Capsules (enteric-coated)", "Rub"],
+  "status_by_region": {
+    "eu": "Herbal medicinal product (well-established use)",
+    "usa": "GRAS"
+  }
+}

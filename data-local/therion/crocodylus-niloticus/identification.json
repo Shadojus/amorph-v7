@@ -1,0 +1,55 @@
+{
+  "scientific_name": "Crocodylus niloticus",
+  "author_citation": "Laurenti, 1768",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Chordata",
+  "taxonomy_class": "Reptilia",
+  "taxonomy_order": "Crocodilia",
+  "taxonomy_family": "Crocodylidae",
+  "taxonomy_genus": "Crocodylus",
+  "taxonomy_species": "niloticus",
+  "common_names": [
+    "Nile Crocodile",
+    "African Crocodile",
+    "Common Crocodile",
+    "Nile River Crocodile"
+  ],
+  "size_range": {
+    "min": 3.5,
+    "max": 5.0,
+    "unit": "m"
+  },
+  "weight_range": {
+    "min": 225,
+    "max": 750,
+    "unit": "kg"
+  },
+  "color_primary": "olive-brown",
+  "color_secondary": "yellowish-tan",
+  "primary_structure_type": "large semi-aquatic reptile with armored scales",
+  "primary_structure_shape_mature": "elongated body with powerful tail",
+  "primary_structure_surface": "keeled dorsal scutes, smooth ventral scales",
+  "primary_structure_color": "dark olive to grey-brown with darker crossbands on tail and body",
+  "key_differentiating_features": [
+    "V-shaped snout (narrower than alligators)",
+    "Fourth lower tooth visible when mouth closed",
+    "Large prominent teeth",
+    "Powerful vertically flattened tail",
+    "Bony dorsal scutes in rows"
+  ],
+  "identification_difficulty": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Crocodylus suchus (West African Crocodile - smaller, different range)",
+    "Mecistops cataphractus (Slender-snouted Crocodile - very narrow snout)"
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Males grow significantly larger than females"
+}

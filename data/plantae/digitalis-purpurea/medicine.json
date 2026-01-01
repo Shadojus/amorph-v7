@@ -1,0 +1,71 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine"],
+    "historical_use": "William Withering described its effect on 'dropsy' in 1785; one of the most important discoveries in pharmacy",
+    "traditional_indications": ["Heart failure", "Edema"]
+  },
+  "pharmacopoeia_names": ["Digitalis purpureae folium"],
+  "description": "WARNING: Highly toxic! Only use pharmaceutical preparations!",
+  "active_substances": [
+    "Digitoxin",
+    "Gitoxin",
+    "Gitaloxin",
+    "Digitalin"
+  ],
+  "effect_profile": [
+    {"axis": "Positive inotropic", "value": 95},
+    {"axis": "Negative chronotropic", "value": 85},
+    {"axis": "Negative dromotropic", "value": 75},
+    {"axis": "Toxicity", "value": 100}
+  ],
+  "therapeutic_categories": [
+    "Cardiac glycoside",
+    "Cardiotonic"
+  ],
+  "evidence_level": {
+    "status": "1a",
+    "variant": "success"
+  },
+  "evidence_summary": "Standard medication for heart failure and atrial fibrillation; well-researched, but now partially replaced by more modern drugs",
+  "safety_score": {
+    "value": 10,
+    "min": 0,
+    "max": 100
+  },
+  "toxicology_therapeutic_index": 2,
+  "side_effects": [
+    {"level": "high", "type": "Toxic", "description": "Nausea, vomiting, cardiac arrhythmias, visual disturbances (yellow vision)"},
+    {"level": "critical", "type": "Overdose", "description": "Life-threatening arrhythmias, death"}
+  ],
+  "overdose": [
+    {"level": "critical", "type": "Poisoning", "description": "Antidote: Digitalis antibodies (Fab fragments). Immediate intensive care treatment required."}
+  ],
+  "contraindications": [
+    "Self-medication ABSOLUTELY FORBIDDEN",
+    "Hypokalemia",
+    "Hypercalcemia",
+    "Certain cardiac arrhythmias"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Only under strict medical supervision",
+    "variant": "danger"
+  },
+  "monitoring_recommended": true,
+  "monitoring_parameters": [
+    "Serum digoxin level",
+    "Potassium",
+    "Kidney function",
+    "ECG"
+  ],
+  "dosage_notes": "ONLY UNDER MEDICAL SUPERVISION! Therapeutic range extremely narrow. NEVER use the plant yourself!",
+  "preparation_forms": ["Pharmaceutical preparations (Digoxin, Digitoxin)"],
+  "patient_counseling_points": [
+    "NEVER use the plant yourself!",
+    "All parts of the plant are highly toxic!",
+    "If poisoning is suspected: Call emergency services!"
+  ],
+  "status_by_region": {
+    "eu": "Prescription medication",
+    "usa": "Prescription Drug"
+  }
+}

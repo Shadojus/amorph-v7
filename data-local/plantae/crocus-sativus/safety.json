@@ -1,0 +1,73 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Low (toxic in very large amounts)",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 5,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Safe in culinary amounts",
+    "CRITICAL: Do not confuse with Colchicum autumnale (DEADLY)",
+    "Large doses (>5g) can be toxic"
+  ],
+  "primary_toxins": [
+    {
+      "name": "Crocin",
+      "cas": "42553-65-1",
+      "mechanism": "Not toxic at culinary doses; very high doses (>5g) cause toxicity",
+      "lethal_dose": "Estimated lethal dose: 20g (impractical due to cost)"
+    }
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "type": "Culinary use", "description": "Completely safe as spice"},
+    {"level": "high", "type": "Massive overdose (>5g)", "description": "Vomiting, bloody diarrhea, bleeding, numbness (theoretical)"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "fatality_note": "Extremely expensive spice makes toxic doses impractical.",
+  "risk_groups": [
+    "Those confusing with meadow saffron (Colchicum)",
+    "Pregnant women (large doses may be abortifacient)"
+  ],
+  "first_aid_immediate": [
+    "CRITICAL: If Colchicum ingested, immediate ER",
+    "For saffron: supportive care only"
+  ],
+  "antidote": "None required for saffron",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "contraindications": [
+    "Pregnancy (large medicinal doses)",
+    "Bipolar disorder (may trigger mania)"
+  ],
+  "source": {
+    "authors": "Melnyk, J.P. et al.",
+    "year": 2010,
+    "title": "Chemical composition and biological activities of saffron",
+    "journal": "Food Research International",
+    "doi": "10.1016/j.foodres.2010.07.019"
+  }
+}

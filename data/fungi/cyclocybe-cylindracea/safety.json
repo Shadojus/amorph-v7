@@ -1,0 +1,82 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Non-toxic",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 5,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Cook thoroughly before consumption",
+    "Like all wild mushrooms, do not eat raw"
+  ],
+  "toxin_classes": [],
+  "symptoms_by_severity": [
+    {"level": "none", "typ": "Normal consumption", "description": "No symptoms with proper preparation"}
+  ],
+  "symptoms_acute": [],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "fatality_note": "No poisoning cases known. Considered an excellent edible mushroom.",
+  "affected_systems": [],
+  "risk_groups": [
+    "Persons with mushroom allergies"
+  ],
+  "first_aid_immediate": [
+    "No specific measures required"
+  ],
+  "first_aid_medical": [
+    "For allergic reactions: symptomatic treatment"
+  ],
+  "antidote": "Not required",
+  "medical_treatment": "Symptomatic for rare allergic reactions",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "long_term_effects": "No negative long-term effects known",
+  "environmental_risks": {
+    "status": "None",
+    "variant": "success"
+  },
+  "environmental_risk_description": "No environmental risks known",
+  "collection_warnings": [
+    "Watch for confusion with other Agrocybe species",
+    "Only collect from clean, uncontaminated wood"
+  ],
+  "storage_risks": "Process fresh mushrooms quickly",
+  "processing_risks": [
+    "Thorough cooking before consumption"
+  ],
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "contraindications": [
+    "Known mushroom allergy"
+  ],
+  "safety_studies_available": true,
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

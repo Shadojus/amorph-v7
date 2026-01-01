@@ -1,0 +1,42 @@
+{
+  "nutrition_mode": "saprobiotic",
+  "nutrition_mode_detail": "Humus decomposer",
+  "primary_substrate": "Humus-rich soil",
+  "secondary_substrates": [
+    "Bark mulch",
+    "Sandy soils",
+    "Garden soils",
+    "Forest clearings"
+  ],
+  "associated_trees": [
+    "Apple",
+    "Ash",
+    "Elm",
+    "Poplar"
+  ],
+  "habitat_types": [
+    "Forest edges",
+    "Parks and gardens",
+    "Old orchards",
+    "Burn sites"
+  ],
+  "geographic_distribution": "Northern Hemisphere, temperate zones",
+  "fruiting_season": {
+    "start": 3,
+    "peak": 4,
+    "end": 5
+  },
+  "climate_preferences": {
+    "temperature_optimal_celsius": {
+      "min": 8,
+      "max": 18
+    },
+    "moisture_level": "moist, not wet"
+  },
+  "indicator_species_for": [
+    "Humus-rich soils",
+    "Recent soil disturbances",
+    "Fire sites"
+  ],
+  "ecological_role": "Nutrient cycling in spring ecosystems"
+}

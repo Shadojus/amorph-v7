@@ -1,0 +1,148 @@
+{
+  "scientific_name": "Thymus vulgaris",
+  "author_citation": "L. 1753",
+  "accepted_name": "Thymus vulgaris L.",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Magnoliopsida",
+  "taxonomy_order": "Lamiales",
+  "taxonomy_family": "Lamiaceae",
+  "taxonomy_genus": "Thymus",
+  "taxonomy_species": "vulgaris",
+  "synonyms": [
+    "Thymus aestivus Reut.",
+    "Thymus ilerdensis F.Gonzalez",
+    "Origanum thymus Kuntze"
+  ],
+  "common_names": [
+    "Common Thyme",
+    "Garden Thyme",
+    "French Thyme",
+    "German Thyme"
+  ],
+  "international_names": [
+    "Echter Thymian (DE)",
+    "Thym commun (FR)",
+    "Tomillo (ES)",
+    "Timo (IT)",
+    "Bai Li Xiang (CN)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Intensely aromatic small shrub", "status": "pending"},
+    {"step": 2, "label": "Tiny grey-green leaves (3-8 mm)", "status": "pending"},
+    {"step": 3, "label": "Leaves with edges rolled under", "status": "pending"},
+    {"step": 4, "label": "Square woody stems", "status": "pending"},
+    {"step": 5, "label": "Small pink-purple flowers", "status": "pending"},
+    {"step": 6, "label": "Low, spreading growth", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 3,
+  "minimum_equipment_needed": [
+    "No equipment required"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Thymus serpyllum (Wild Thyme)",
+    "Thymus pulegioides (Large Thyme)",
+    "Thymus citriodorus (Lemon Thyme)",
+    "Satureja species (Savory)"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "none", "typ": "Other Thymus species", "description": "All thyme species are edible and aromatic"}
+  ],
+  "key_differentiating_features": [
+    "Characteristic thyme/thymol aroma",
+    "Very small leaves (3-8 mm)",
+    "Leaves opposite, edges strongly rolled",
+    "Woody at base, evergreen",
+    "Upright to spreading habit"
+  ],
+  "habit": "Evergreen dwarf shrub",
+  "growth_form": "Low, spreading mound",
+  "symmetry": "bilateral",
+  "size_range": {
+    "min": 10,
+    "max": 40,
+    "unit": "cm"
+  },
+  "size_typical_cm": 25,
+  "basic_shape": "Low, rounded woody subshrub",
+  "height": {
+    "min": 10,
+    "max": 40,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 20,
+    "max": 60,
+    "unit": "cm"
+  },
+  "surface_type": "Fine hairs on leaves and stems",
+  "color_primary": "Grey-green (foliage)",
+  "color_secondary": "Pink-purple (flowers)",
+  "color_variations": [
+    "White flowered forms exist",
+    "Some cultivars more silvery"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf",
+  "primary_structure_diameter": {
+    "min": 0.1,
+    "max": 0.3,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Tiny, elliptical",
+  "primary_structure_shape_mature": "Elliptical, edges rolled under",
+  "primary_structure_surface": "Fine pubescence, glandular",
+  "primary_structure_color": "Grey-green",
+  "support_structure_present": true,
+  "support_structure_type": "Woody stems",
+  "support_structure_color": "Brown to grey",
+  "flower_present": true,
+  "flower_type": "Tubular, two-lipped, in whorls",
+  "flower_color": "Pink to lilac-purple",
+  "flower_size": {
+    "min": 0.3,
+    "max": 0.6,
+    "unit": "cm"
+  },
+  "flowering_period": "May to August",
+  "smell_description": "Strong, warm, medicinal thyme scent",
+  "smell_comparable_to": "Thymol, medicinal, warm herbal",
+  "taste_safe_to_test": true,
+  "taste_description": "Warm, pungent, slightly bitter, aromatic",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "New growth, preparing to flower",
+    "summer": "Full flowering",
+    "autumn": "Seeds mature",
+    "winter": "Evergreen, compact"
+  },
+  "season_peak_months": [5, 6, 7, 8],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis, drought-tolerant",
+  "substrate_species": [
+    "Well-drained, sandy soils",
+    "Rocky limestone",
+    "Mediterranean garrigue"
+  ],
+  "source": {
+    "authors": "Morales, R.",
+    "year": 2002,
+    "title": "The history, botany and taxonomy of the genus Thymus",
+    "journal": "Thyme: The Genus Thymus, Taylor & Francis",
+    "doi": ""
+  }
+}

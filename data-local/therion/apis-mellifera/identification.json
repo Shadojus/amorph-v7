@@ -1,0 +1,56 @@
+{
+  "scientific_name": "Apis mellifera",
+  "author_citation": "Linnaeus, 1758",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Arthropoda",
+  "taxonomy_class": "Insecta",
+  "taxonomy_order": "Hymenoptera",
+  "taxonomy_family": "Apidae",
+  "taxonomy_genus": "Apis",
+  "taxonomy_species": "mellifera",
+  "common_names": [
+    "Western Honey Bee",
+    "European Honey Bee",
+    "Common Honey Bee",
+    "Abeille Europeenne"
+  ],
+  "size_range": {
+    "min": 12,
+    "max": 20,
+    "unit": "mm"
+  },
+  "weight_range": {
+    "min": 80,
+    "max": 120,
+    "unit": "mg"
+  },
+  "color_primary": "golden brown",
+  "color_secondary": "black stripes",
+  "primary_structure_type": "flying insect with stinger",
+  "primary_structure_shape_mature": "robust body with narrow waist",
+  "primary_structure_surface": "fuzzy with branched hairs",
+  "primary_structure_color": "golden brown to dark brown with variable black banding",
+  "key_differentiating_features": [
+    "Golden-brown fuzzy body",
+    "Four membranous wings",
+    "Pollen baskets on hind legs",
+    "Barbed stinger (workers)",
+    "Large compound eyes"
+  ],
+  "identification_difficulty": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Bombus spp. (Bumblebees - larger, rounder)",
+    "Apis cerana (Asian Honey Bee - slightly smaller)",
+    "Vespula spp. (Yellowjackets - less hairy, brighter yellow)"
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Queens larger (20mm); drones larger eyes, no stinger; workers smallest"
+}

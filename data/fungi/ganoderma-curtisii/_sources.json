@@ -1,0 +1,55 @@
+{
+  "image": [
+    {
+      "name": "Alex",
+      "author": "Alex",
+      "username": "Feffy",
+      "year": 2018,
+      "copyright": "© 2018 Alex (Feffy)",
+      "license": "CC BY-SA 3.0",
+      "url": "https://mushroomobserver.org"
+    }
+  ],
+  "fields": {
+    "southeastern_us_laccate_ganoderma": [
+      {
+        "name": "Andrew Loyd",
+        "title": "University of Florida, UF/IFAS Extension",
+        "url": "https://edis.ifas.ufl.edu/publication/PP333",
+        "contact": "~10 laccate Ganoderma species in southeastern US: wood decay fungi comprehensive guide"
+      }
+    ],
+    "commercial_reishi_identification": [
+      {
+        "name": "Commercial Reishi Products Research Team",
+        "title": "Ganoderma Species Composition Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6055023/",
+        "contact": "NIH/PubMed: Identifying Ganoderma species in commercial products, G. curtisii comparison"
+      }
+    ],
+    "global_ganoderma_cultivation_review": [
+      {
+        "name": "Ting-Chi Wen",
+        "title": "Mycosphere Journal - Global Ganoderma Review",
+        "url": "https://www.mycosphere.org/pdf/MYCOSPHERE_9_5_6.pdf",
+        "contact": "tingchiwen@yahoo.com - Current status of global Ganoderma cultivation, products, medicinal compounds"
+      }
+    ],
+    "triterpenoid_metabolomics": [
+      {
+        "name": "Ganoderma Triterpenoid Metabolomics Team",
+        "title": "Frontiers in Nutrition Researchers",
+        "url": "https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2025.1541162/full",
+        "contact": "2025: Triterpenoid superiority, untargeted metabolomics, 1.4-fold increase in total triterpenoids"
+      }
+    ],
+    "antimicrobial_health_benefits": [
+      {
+        "name": "Ganoderma Antimicrobial Research Team",
+        "title": "Frontiers Cellular & Infection Microbiology",
+        "url": "https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2025.1535246/pdf",
+        "contact": "2025: Exploring health benefits of Ganoderma, antimicrobial properties, polysaccharides & triterpenoids"
+      }
+    ]
+  }
+}

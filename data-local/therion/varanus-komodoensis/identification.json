@@ -1,0 +1,55 @@
+{
+  "scientific_name": "Varanus komodoensis",
+  "author_citation": "Ouwens, 1912",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Chordata",
+  "taxonomy_class": "Reptilia",
+  "taxonomy_order": "Squamata",
+  "taxonomy_family": "Varanidae",
+  "taxonomy_genus": "Varanus",
+  "taxonomy_species": "komodoensis",
+  "common_names": [
+    "Komodo Dragon",
+    "Komodo Monitor",
+    "Komodo Island Monitor",
+    "Giant Monitor Lizard"
+  ],
+  "size_range": {
+    "min": 2.0,
+    "max": 3.1,
+    "unit": "m"
+  },
+  "weight_range": {
+    "min": 70,
+    "max": 91,
+    "unit": "kg"
+  },
+  "color_primary": "grey-brown",
+  "color_secondary": "tan",
+  "primary_structure_type": "very large lizard with muscular body and long tail",
+  "primary_structure_shape_mature": "robust body with strong limbs",
+  "primary_structure_surface": "rough reinforced scales with osteoderms",
+  "primary_structure_color": "grey to clay-brown with lighter speckling",
+  "key_differentiating_features": [
+    "Largest living lizard species",
+    "Massive head with rounded snout",
+    "Long deeply forked yellow tongue",
+    "Long muscular tail",
+    "Powerful curved claws"
+  ],
+  "identification_difficulty": {
+    "status": "easy",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Varanus salvator (Water Monitor - semi-aquatic, more slender)",
+    "Varanus salvadorii (Crocodile Monitor - longer tail, Papua New Guinea)"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Males larger and more robustly built than females"
+}

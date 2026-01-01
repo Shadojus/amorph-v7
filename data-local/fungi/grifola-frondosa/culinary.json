@@ -1,0 +1,58 @@
+{
+  "edibility_category": "choice_edible",
+  "culinary_value": {
+    "rating": 9,
+    "max": 10
+  },
+  "taste_profile": "nutty, mushroomy, tender",
+  "texture": "firm, juicy (young), tough (old)",
+  "aroma": "intensely mushroomy, floury",
+  "recommended_preparations": [
+    "Fried",
+    "Grilled",
+    "In soups",
+    "Tempura",
+    "Pasta sauces"
+  ],
+  "cooking_methods": [
+    "Frying in butter or oil",
+    "Grilling",
+    "Braising",
+    "Drying"
+  ],
+  "cooking_time_minutes": {
+    "min": 5,
+    "max": 15,
+    "unit": "min"
+  },
+  "storage_fresh_days": {
+    "min": 5,
+    "max": 10,
+    "unit": "days"
+  },
+  "storage_methods": [
+    "Refrigerated at 2-4 degrees Celsius",
+    "Drying",
+    "Freezing"
+  ],
+  "parts_used": [
+    "Young caps",
+    "Older specimens only as soup seasoning"
+  ],
+  "cuisine_traditions": [
+    "Japanese Cuisine",
+    "Chinese Cuisine",
+    "French Cuisine"
+  ],
+  "commercial_availability": {
+    "status": "medium",
+    "variant": "warning"
+  },
+  "cultivation_scale": "commercial",
+  "nutritional_highlights": [
+    "27% Protein (dry weight)",
+    "Beta-Glucans (14.5%)",
+    "Vitamin D (410 IU)",
+    "Vitamin B Complex"
+  ]
+}

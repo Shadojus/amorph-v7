@@ -1,0 +1,54 @@
+{
+  "scientific_name": "Aptenodytes forsteri",
+  "author_citation": "Gray, 1844",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Chordata",
+  "taxonomy_class": "Aves",
+  "taxonomy_order": "Sphenisciformes",
+  "taxonomy_family": "Spheniscidae",
+  "taxonomy_genus": "Aptenodytes",
+  "taxonomy_species": "forsteri",
+  "common_names": [
+    "Emperor Penguin",
+    "Antarctic Emperor Penguin",
+    "Manchot Empereur",
+    "Pinguino Emperador"
+  ],
+  "size_range": {
+    "min": 110,
+    "max": 130,
+    "unit": "cm"
+  },
+  "weight_range": {
+    "min": 22,
+    "max": 45,
+    "unit": "kg"
+  },
+  "color_primary": "black and white",
+  "color_secondary": "yellow-orange",
+  "primary_structure_type": "large upright flightless seabird",
+  "primary_structure_shape_mature": "tall streamlined body",
+  "primary_structure_surface": "dense waterproof feathers",
+  "primary_structure_color": "black back, white front, yellow-orange ear patches and upper breast",
+  "key_differentiating_features": [
+    "Largest of all penguin species",
+    "Distinctive yellow-orange auricular patches",
+    "Pale yellow upper breast fading to white",
+    "Black head with yellow ear patches",
+    "Long curved bill with pink or orange mandible stripe"
+  ],
+  "identification_difficulty": {
+    "status": "easy",
+    "variant": "success"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Aptenodytes patagonicus (King Penguin - smaller, brighter orange patches)"
+  ],
+  "confusion_risk_level": {
+    "status": "low",
+    "variant": "success"
+  },
+  "sexual_dimorphism": false,
+  "sexual_dimorphism_notes": "Sexes nearly identical in appearance; males slightly larger"
+}

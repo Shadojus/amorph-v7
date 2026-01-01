@@ -1,0 +1,62 @@
+{
+  "traditional_medicine": {
+    "systems": ["Ayurveda", "Arabian folk medicine", "Egyptian medicine"],
+    "historical_use": "Documented for over 3500 years; Cleopatra used it for skin care",
+    "traditional_indications": ["wound healing", "skin conditions", "digestion", "burns"]
+  },
+  "ayurveda_sanskrit_name": "Ghritkumari",
+  "ayurveda_dosha_effect": ["Pitta-reducing", "Vata-balancing"],
+  "who_monograph_exists": true,
+  "german_commission_e_status": {
+    "status": "positive monograph",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["constipation"],
+  "active_substances": [
+    "acemannan (polysaccharide)",
+    "aloin (anthraquinone)",
+    "aloe-emodin",
+    "barbaloin"
+  ],
+  "effect_profile": [
+    {"axis": "wound healing", "value": 85},
+    {"axis": "anti-inflammatory", "value": 80},
+    {"axis": "laxative", "value": 70},
+    {"axis": "moisturizing", "value": 90},
+    {"axis": "antimicrobial", "value": 65}
+  ],
+  "therapeutic_categories": [
+    "dermatological agent",
+    "laxative",
+    "wound healing agent"
+  ],
+  "evidence_level": {
+    "status": "2b",
+    "variant": "warning"
+  },
+  "safety_score": {
+    "value": 75,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "type": "laxative use", "description": "abdominal cramps, diarrhea with oral intake"},
+    {"level": "medium", "type": "long-term use", "description": "electrolyte loss with anthraquinone laxatives"}
+  ],
+  "contraindications": [
+    "pregnancy (oral)",
+    "intestinal obstruction",
+    "inflammatory bowel diseases",
+    "children under 12 years (oral)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "contraindicated orally",
+    "variant": "danger"
+  },
+  "dosage_notes": "gel topically: several times daily; oral (laxative): not recommended",
+  "preparation_forms": ["gel", "juice", "capsules", "powder"],
+  "status_by_region": {
+    "eu": "dietary supplement/cosmetic",
+    "usa": "dietary supplement"
+  }
+}

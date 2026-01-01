@@ -1,0 +1,148 @@
+{
+  "scientific_name": "Matricaria chamomilla",
+  "author_citation": "L. 1753",
+  "accepted_name": "Matricaria chamomilla L.",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Magnoliopsida",
+  "taxonomy_order": "Asterales",
+  "taxonomy_family": "Asteraceae",
+  "taxonomy_genus": "Matricaria",
+  "taxonomy_species": "chamomilla",
+  "synonyms": [
+    "Matricaria recutita L.",
+    "Chamomilla recutita (L.) Rauschert",
+    "Matricaria suaveolens L."
+  ],
+  "common_names": [
+    "German Chamomile",
+    "Wild Chamomile",
+    "Scented Mayweed",
+    "Hungarian Chamomile"
+  ],
+  "international_names": [
+    "Echte Kamille (DE)",
+    "Camomille allemande (FR)",
+    "Manzanilla (ES)",
+    "Camomilla (IT)",
+    "Mu Ju (CN)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Sweet apple-like fragrance", "status": "pending"},
+    {"step": 2, "label": "White ray flowers, yellow conical disc", "status": "pending"},
+    {"step": 3, "label": "Hollow receptacle when cut lengthwise", "status": "pending"},
+    {"step": 4, "label": "Finely divided feathery leaves", "status": "pending"},
+    {"step": 5, "label": "Annual plant 15-60 cm tall", "status": "pending"},
+    {"step": 6, "label": "Conical disc becomes more pointed with age", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "time_to_identify_minutes": 10,
+  "minimum_equipment_needed": [
+    "Knife to check hollow receptacle"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Chamaemelum nobile (Roman Chamomile)",
+    "Anthemis arvensis (Corn Chamomile)",
+    "Tripleurospermum inodorum (Scentless Mayweed)",
+    "Anthemis cotula (Stinking Chamomile)"
+  ],
+  "confusion_risk_level": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "confusion_consequences": [
+    {"level": "low", "typ": "Anthemis cotula", "beschreibung": "Stinking chamomile can cause skin irritation"},
+    {"level": "none", "typ": "Chamaemelum nobile", "beschreibung": "Also chamomile, similar properties"}
+  ],
+  "key_differentiating_features": [
+    "HOLLOW receptacle (key diagnostic)",
+    "Annual plant (Roman chamomile is perennial)",
+    "More upright growth than Roman chamomile",
+    "Conical, not flat, disc",
+    "Sweet apple-like scent"
+  ],
+  "habit": "Annual herb",
+  "growth_form": "Upright, branching",
+  "symmetry": "radial",
+  "size_range": {
+    "min": 15,
+    "max": 60,
+    "unit": "cm"
+  },
+  "size_typical_cm": 40,
+  "basic_shape": "Branching annual with daisy-like flowers",
+  "height": {
+    "min": 15,
+    "max": 60,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 15,
+    "max": 40,
+    "unit": "cm"
+  },
+  "surface_type": "Smooth, hairless",
+  "color_primary": "White (ray flowers)",
+  "color_secondary": "Yellow (disc), green (foliage)",
+  "color_variations": [
+    "Disc becomes more golden with age"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf",
+  "primary_structure_diameter": {
+    "min": 2,
+    "max": 6,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "2-3 pinnate, fine segments",
+  "primary_structure_shape_mature": "2-3 pinnate, thread-like segments",
+  "primary_structure_surface": "Smooth, hairless",
+  "primary_structure_color": "Bright green",
+  "support_structure_present": true,
+  "support_structure_type": "Stem (erect, branched)",
+  "support_structure_color": "Green",
+  "flower_present": true,
+  "flower_type": "Composite head (daisy-like)",
+  "flower_color": "White rays, yellow conical disc",
+  "flower_size": {
+    "min": 1,
+    "max": 2.5,
+    "unit": "cm"
+  },
+  "flowering_period": "May to September",
+  "smell_description": "Sweet, apple-like, aromatic",
+  "smell_comparable_to": "Sweet apples, honey, pleasant herbal",
+  "taste_safe_to_test": true,
+  "taste_description": "Slightly bitter, aromatic, pleasant",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "Germination, early growth",
+    "summer": "Full flowering",
+    "autumn": "Seed dispersal",
+    "winter": "Annual - dies after seeding"
+  },
+  "season_peak_months": [5, 6, 7, 8],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis",
+  "substrate_species": [
+    "Cultivated and fallow fields",
+    "Roadsides and waste ground",
+    "Sandy or loamy soils"
+  ],
+  "source": {
+    "authors": "McKay, D.L. & Blumberg, J.B.",
+    "year": 2006,
+    "title": "A review of the bioactivity and potential health benefits of chamomile tea",
+    "journal": "Phytotherapy Research",
+    "doi": "10.1002/ptr.1900"
+  }
+}

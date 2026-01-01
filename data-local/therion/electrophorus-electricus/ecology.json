@@ -1,0 +1,51 @@
+{
+  "trophic_mode_primary": "carnivorous",
+  "trophic_mode_secondary": "apex predator",
+  "ecological_guild": "electroreceptive predator",
+  "primary_ecosystem_function": "fish and invertebrate predation",
+  "secondary_ecosystem_functions": [
+    "electric signaling for communication",
+    "predator deterrence"
+  ],
+  "ecosystem_type": "freshwater",
+  "ecosystem_subtype": "South American rivers and floodplains",
+  "habitat_types": [
+    "muddy river bottoms",
+    "floodplain pools",
+    "swamps",
+    "streams"
+  ],
+  "microhabitat_primary": "murky slow-moving waters",
+  "depth_range": {
+    "min": 0,
+    "max": 10,
+    "unit": "m"
+  },
+  "diet_primary": [
+    "fish",
+    "crustaceans",
+    "amphibians",
+    "small mammals"
+  ],
+  "diet_specialization": "stunned prey via electric shock",
+  "foraging_strategy": "electrolocation and shock predation",
+  "predators": [],
+  "climate_zone": "tropical",
+  "native_range": "Amazon and Orinoco basins",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "population_trend": "stable",
+  "social_structure": "solitary",
+  "electric_discharge_max": {
+    "value": 860,
+    "unit": "V"
+  },
+  "obligate_air_breather": true,
+  "temperature_preference": {
+    "min": 23,
+    "max": 28,
+    "unit": "C"
+  }
+}

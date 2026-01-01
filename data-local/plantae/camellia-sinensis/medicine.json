@@ -1,0 +1,65 @@
+{
+  "traditional_medicine": {
+    "systems": ["TCM", "Japanese medicine", "Ayurveda"],
+    "historical_use": "over 4700 years in China as healing beverage and stimulant",
+    "traditional_indications": ["fatigue", "headaches", "digestive disorders", "water retention"]
+  },
+  "tcm_herb_name_pinyin": "Cha",
+  "tcm_herb_name_chinese": "茶",
+  "tcm_nature": "cool (green tea) to warm (black tea)",
+  "tcm_flavor": ["bitter", "sweet"],
+  "who_monograph_exists": false,
+  "active_substances": [
+    "catechins (EGCG, EGC, ECG)",
+    "caffeine",
+    "L-theanine",
+    "theaflavins (black tea)",
+    "polyphenols"
+  ],
+  "effect_profile": [
+    {"axis": "antioxidant", "value": 95},
+    {"axis": "stimulating", "value": 80},
+    {"axis": "neuroprotective", "value": 70},
+    {"axis": "thermogenic", "value": 65},
+    {"axis": "cardiovascular", "value": 75}
+  ],
+  "therapeutic_categories": [
+    "antioxidant",
+    "stimulant",
+    "neuroprotective agent"
+  ],
+  "evidence_level": {
+    "status": "1a",
+    "variant": "success"
+  },
+  "evidence_summary": "extensive epidemiological studies show association between tea consumption and reduced cardiovascular risk",
+  "safety_score": {
+    "value": 85,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "type": "caffeine", "description": "insomnia, nervousness, heart palpitations"},
+    {"level": "medium", "type": "high doses green tea extract", "description": "liver toxicity reported in isolated cases"}
+  ],
+  "interactions": [
+    {"level": "medium", "type": "iron absorption", "description": "tannins inhibit iron uptake from plant foods"},
+    {"level": "low", "type": "stimulants", "description": "additive effect with other caffeine sources"}
+  ],
+  "contraindications": [
+    "caffeine sensitivity",
+    "severe heart rhythm disorders",
+    "anxiety disorders (with high consumption)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "moderate consumption (2-3 cups) safe",
+    "variant": "success"
+  },
+  "dosage_notes": "green tea: 2-4 cups daily; EGCG extract: 200-400 mg; consider caffeine content",
+  "preparation_forms": ["infusion (tea)", "matcha", "extract", "capsules"],
+  "status_by_region": {
+    "eu": "food/dietary supplement",
+    "usa": "GRAS",
+    "japan": "food"
+  }
+}

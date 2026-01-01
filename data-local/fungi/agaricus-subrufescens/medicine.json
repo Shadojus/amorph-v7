@@ -1,0 +1,161 @@
+{
+  "scientific": "Agaricus subrufescens",
+  "synonyms": [
+    "Agaricus blazei Murrill",
+    "Agaricus brasiliensis",
+    "ABM"
+  ],
+  "pharmacopoeia_names": [
+    "Himematsutake",
+    "Cogumelo de Deus"
+  ],
+  "description": "Agaricus subrufescens is one of the most intensively researched medicinal mushrooms with the highest known concentration of beta-glucans among medicinal mushrooms. It is traditionally used in Brazil, Japan and the USA for immunostimulating and antitumoral applications.",
+  "traditional_medicine": {
+    "systems": [
+      "Brazilian Folk Medicine",
+      "Japanese Medicine (Kampo)",
+      "Traditional Chinese Medicine"
+    ],
+    "historical_use": "In the Brazilian rainforests, it was observed that the local population who regularly consumed this mushroom had virtually no cancer cases. This led to intensive scientific research.",
+    "traditional_indications": [
+      "Cancer prevention and support",
+      "Immune deficiency",
+      "Diabetes mellitus",
+      "Liver diseases",
+      "Allergies",
+      "Infections"
+    ]
+  },
+  "active_substances": [
+    "Beta-glucans (1-3, 1-6 D-fractions)",
+    "Ergosterol",
+    "Sodium pyroglutamate",
+    "Polysaccharide-protein complexes",
+    "Lectins"
+  ],
+  "effect_profile": [
+    {"axis": "Immunomodulation", "value": 95},
+    {"axis": "Antitumoral", "value": 90},
+    {"axis": "Liver protection", "value": 80},
+    {"axis": "Antidiabetic", "value": 75},
+    {"axis": "Antiallergic", "value": 70},
+    {"axis": "Anti-inflammatory", "value": 75}
+  ],
+  "therapeutic_categories": [
+    "Immunomodulator",
+    "Adjuvant cancer therapy",
+    "Hepatoprotective",
+    "Antidiabetic",
+    "Antiallergic"
+  ],
+  "clinical_indications": [
+    {
+      "condition": "Tumor diseases",
+      "evidence_level": "Moderate",
+      "indication_type": "Adjuvant",
+      "description": "Supportive treatment for leukemia, prostate cancer, lung cancer, liver cancer, sarcomas"
+    },
+    {
+      "condition": "Immune deficiency",
+      "evidence_level": "Good",
+      "indication_type": "Primary",
+      "description": "Stimulation of the immune system, activation of NK cells"
+    },
+    {
+      "condition": "Diabetes mellitus",
+      "evidence_level": "Moderate",
+      "indication_type": "Adjuvant",
+      "description": "Regulation of blood sugar levels"
+    },
+    {
+      "condition": "Liver diseases",
+      "evidence_level": "Moderate",
+      "indication_type": "Adjuvant",
+      "description": "Liver protection, detoxification in toxic liver diseases"
+    },
+    {
+      "condition": "Allergies",
+      "evidence_level": "Low",
+      "indication_type": "Adjuvant",
+      "description": "Modulation of allergic immune response"
+    }
+  ],
+  "mechanism_of_action": [
+    "Beta-glucans bind to Dectin-1 and CR3 receptors on immune cells",
+    "Activation of macrophages and natural killer cells",
+    "Selective cytotoxicity on tumor cells",
+    "Induction of apoptosis in cancer cells",
+    "Inhibition of angiogenesis in tumors (metastasis prevention)",
+    "Promotion of blood formation in bone marrow",
+    "Support of spleen cleansing function"
+  ],
+  "dosage_forms": [
+    "Dried fruiting bodies (powder)",
+    "Capsules",
+    "Extracts",
+    "Tea",
+    "Fresh mushrooms (culinary)"
+  ],
+  "dosage_general": {
+    "min": 3,
+    "max": 9,
+    "unit": "g/day",
+    "description": "Typical daily dose as dry extract or powder"
+  },
+  "contraindications": [
+    "Known allergy to Agaricus species",
+    "Autoimmune diseases (consult physician)",
+    "Discontinue before surgery (immunostimulating effect)"
+  ],
+  "side_effects": [
+    {"level": "low", "typ": "Gastrointestinal", "description": "Rare: mild stomach discomfort, bloating"},
+    {"level": "low", "typ": "Allergic", "description": "Very rare: allergic reactions in sensitive individuals"},
+    {"level": "medium", "typ": "Interactions", "description": "Potential interaction with immunosuppressants"}
+  ],
+  "drug_interactions": [
+    "Immunosuppressants - possible weakening of effect",
+    "Chemotherapeutics - possible enhancement of effect (positive)"
+  ],
+  "safety_in_pregnancy": {
+    "status": "Not recommended",
+    "variant": "warning"
+  },
+  "safety_in_pregnancy_note": "Insufficient data. Use during pregnancy and breastfeeding not recommended.",
+  "clinical_studies": [
+    {
+      "authors": "Fujimiya, Y. et al.",
+      "year": 1998,
+      "title": "Antitumor activity of Agaricus blazei",
+      "journal": "International Journal of Immunopharmacology",
+      "doi": "",
+      "conclusion": "Significant immunostimulating and antitumoral effect demonstrated"
+    },
+    {
+      "authors": "Ito, H. et al.",
+      "year": 1997,
+      "title": "Anti-tumor effects of Agaricus blazei",
+      "journal": "Anticancer Research",
+      "doi": "",
+      "conclusion": "Beta-glucans show selective cytotoxicity on tumor cells"
+    }
+  ],
+  "quality_markers": [
+    "Beta-glucan content > 10%",
+    "Polysaccharide content",
+    "Ergosterol content",
+    "Heavy metal-free"
+  ],
+  "standardization": "Standardization to beta-glucan content common",
+  "regulatory_status": {
+    "status": "Food Supplement",
+    "variant": "success"
+  },
+  "regulatory_note": "Classified as food supplement in most countries",
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

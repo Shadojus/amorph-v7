@@ -1,0 +1,48 @@
+{
+  "edibility_category": "conditionally_edible",
+  "culinary_value": {
+    "rating": 7,
+    "max": 10
+  },
+  "taste_profile": "chicken-like, mildly sour",
+  "texture": "firm, meaty (when young)",
+  "aroma": "mushroomy, fruity",
+  "recommended_preparations": [
+    "Breaded and fried",
+    "As chicken substitute",
+    "Braised",
+    "In soups"
+  ],
+  "cooking_methods": [
+    "Frying (at least 20 minutes)",
+    "Braising",
+    "Breading"
+  ],
+  "cooking_time_minutes": {
+    "min": 20,
+    "max": 30,
+    "unit": "min"
+  },
+  "storage_fresh_days": {
+    "min": 3,
+    "max": 5,
+    "unit": "days"
+  },
+  "storage_methods": [
+    "Refrigerated",
+    "Freezing (blanched)",
+    "Drying"
+  ],
+  "parts_used": [
+    "Only young, soft edge portions",
+    "Discard older parts"
+  ],
+  "preparation_notes": "From willow or birch better flavor than from oak or beech. Always cook thoroughly!",
+  "commercial_availability": {
+    "status": "low",
+    "variant": "warning"
+  },
+  "market_names": [
+    "Chicken of the Woods"
+  ]
+}

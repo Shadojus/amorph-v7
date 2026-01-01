@@ -1,0 +1,147 @@
+{
+  "scientific_name": "Echinacea purpurea",
+  "author_citation": "(L.) Moench 1794",
+  "accepted_name": "Echinacea purpurea (L.) Moench",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Magnoliopsida",
+  "taxonomy_order": "Asterales",
+  "taxonomy_family": "Asteraceae",
+  "taxonomy_genus": "Echinacea",
+  "taxonomy_species": "purpurea",
+  "synonyms": [
+    "Rudbeckia purpurea L.",
+    "Brauneria purpurea (L.) Britton",
+    "Echinacea speciosa Paxton"
+  ],
+  "common_names": [
+    "Purple Coneflower",
+    "Eastern Purple Coneflower",
+    "Echinacea",
+    "Hedgehog Coneflower"
+  ],
+  "international_names": [
+    "Purpur-Sonnenhut (DE)",
+    "Echinacee pourpre (FR)",
+    "Equinacea purpurea (ES)",
+    "Echinacea (IT)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Large purple-pink ray flowers drooping", "status": "pending"},
+    {"step": 2, "label": "Spiny, orange-brown central cone", "status": "pending"},
+    {"step": 3, "label": "Coarse, hairy leaves", "status": "pending"},
+    {"step": 4, "label": "Rough, hairy stems", "status": "pending"},
+    {"step": 5, "label": "Lower leaves broadly ovate with toothed margins", "status": "pending"},
+    {"step": 6, "label": "Flowers on tall stalks 60-150 cm", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 3,
+  "minimum_equipment_needed": [
+    "No equipment required"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Echinacea angustifolia (Narrow-leaf Coneflower)",
+    "Echinacea pallida (Pale Purple Coneflower)",
+    "Rudbeckia species (Black-eyed Susans)"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "none", "typ": "Other Echinacea species", "beschreibung": "All Echinacea species have similar medicinal uses"},
+    {"level": "low", "typ": "Rudbeckia species", "beschreibung": "Not toxic, different genus with yellow flowers"}
+  ],
+  "key_differentiating_features": [
+    "Drooping purple-pink ray flowers",
+    "Spiny central cone (hence 'Echinacea' from Greek 'echinos' = hedgehog)",
+    "Broader leaves than E. angustifolia",
+    "Ray flowers 3-8 cm long",
+    "Perennial with fibrous roots"
+  ],
+  "habit": "Herbaceous perennial",
+  "growth_form": "Upright, clump-forming",
+  "symmetry": "radial",
+  "size_range": {
+    "min": 60,
+    "max": 150,
+    "unit": "cm"
+  },
+  "size_typical_cm": 100,
+  "basic_shape": "Upright herb with large daisy-like flowers",
+  "height": {
+    "min": 60,
+    "max": 150,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 30,
+    "max": 60,
+    "unit": "cm"
+  },
+  "surface_type": "Rough, hairy stems and leaves",
+  "color_primary": "Purple-pink (flowers)",
+  "color_secondary": "Green (foliage)",
+  "color_variations": [
+    "White-flowered forms exist",
+    "Some cultivars have orange or yellow flowers"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf",
+  "primary_structure_diameter": {
+    "min": 5,
+    "max": 10,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Ovate, toothed",
+  "primary_structure_shape_mature": "Ovate to lanceolate, coarsely toothed",
+  "primary_structure_surface": "Rough, hairy",
+  "primary_structure_color": "Dark green",
+  "support_structure_present": true,
+  "support_structure_type": "Stem (herbaceous)",
+  "support_structure_color": "Green, often purplish at base",
+  "flower_present": true,
+  "flower_type": "Composite head with ray and disc florets",
+  "flower_color": "Purple-pink rays, orange-brown disc",
+  "flower_size": {
+    "min": 7,
+    "max": 15,
+    "unit": "cm"
+  },
+  "flowering_period": "June to August",
+  "smell_description": "Faint, slightly sweet floral",
+  "smell_comparable_to": "Mild floral, honey-like",
+  "taste_safe_to_test": true,
+  "taste_description": "Slightly tingling sensation on tongue",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "New basal leaves emerge",
+    "summer": "Full flowering",
+    "autumn": "Seed heads persist",
+    "winter": "Dies back to ground"
+  },
+  "season_peak_months": [6, 7, 8],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis",
+  "substrate_species": [
+    "Well-drained, rich soils",
+    "Prairie and woodland edges",
+    "Open woods"
+  ],
+  "source": {
+    "authors": "McGregor, R.L.",
+    "year": 1968,
+    "title": "The Taxonomy of the Genus Echinacea",
+    "journal": "University of Kansas Science Bulletin",
+    "doi": ""
+  }
+}

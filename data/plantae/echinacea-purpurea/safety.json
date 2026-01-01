@@ -1,0 +1,62 @@
+{
+  "edibility": {
+    "status": "medicinal",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Non-toxic",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 3,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Generally safe for short-term use",
+    "Not recommended for continuous long-term use",
+    "Avoid with autoimmune conditions"
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "typ": "Normal use", "beschreibung": "Safe for 10-day courses"},
+    {"level": "low", "typ": "Sensitive individuals", "beschreibung": "Allergic reactions possible, especially in those allergic to daisies"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "risk_groups": [
+    "Those with Asteraceae allergies",
+    "Those with autoimmune diseases",
+    "Immunosuppressed patients"
+  ],
+  "antidote": "None required",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "allergy_potential": {
+    "status": "Moderate (Asteraceae family)",
+    "variant": "warning"
+  },
+  "contraindications": [
+    "Autoimmune diseases",
+    "Allergies to Asteraceae family",
+    "Immunosuppressive therapy"
+  ],
+  "source": {
+    "authors": "Shah, S.A. et al.",
+    "year": 2007,
+    "title": "Evaluation of echinacea for prevention and treatment of the common cold",
+    "journal": "Lancet Infectious Diseases",
+    "doi": "10.1016/S1473-3099(07)70160-3"
+  }
+}

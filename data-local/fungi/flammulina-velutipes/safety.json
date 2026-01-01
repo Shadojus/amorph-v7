@@ -1,0 +1,63 @@
+{
+  "safety_edibility_status": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "safety_edibility_confidence": {
+    "value": 95,
+    "max": 100,
+    "unit": "%"
+  },
+  "safety_edibility_notes": "Good edible mushroom, cultivated worldwide. Raw mushrooms should be avoided. Slimy cap is a matter of taste.",
+  "safety_potentially_deadly": false,
+  "safety_toxicity_score": {
+    "value": 5,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_warning_level": {
+    "status": "caution",
+    "variant": "warning"
+  },
+  "safety_warning_text": "IMPORTANT: Risk of confusion with the deadly poisonous Funeral Bell (Galerina marginata)! Only collect with certain species knowledge.",
+  "safety_summary": "Good edible mushroom but critical confusion risk with Galerina marginata. Pay attention to velvety hairy stem as key feature.",
+  "safety_risk_inherent": {
+    "value": 5,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "safety_risk_confusion": {
+    "value": 75,
+    "min": 0,
+    "max": 100,
+    "zones": [
+      {"min": 0, "max": 30, "color": "green"},
+      {"min": 30, "max": 70, "color": "yellow"},
+      {"min": 70, "max": 100, "color": "red"}
+    ]
+  },
+  "confusion_partner": [
+    {"name": "Galerina marginata", "type": "deadly poisonous", "intensity": 85},
+    {"name": "Gymnopilus penetrans", "type": "inedible", "intensity": 50}
+  ],
+  "confusion_risk_level": {
+    "status": "high",
+    "variant": "danger"
+  },
+  "confusion_safety_critical": true,
+  "confusion_key_features": [
+    "Velvet Foot has velvety hairy stem",
+    "Galerina has ring or ring zone",
+    "Spore color different (white vs rust-brown)"
+  ]
+}

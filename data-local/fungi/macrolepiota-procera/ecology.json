@@ -1,0 +1,68 @@
+{
+  "habitat_primary": "forest edges, clearings, heathlands",
+  "habitat_secondary": [
+    "mixed forests",
+    "forest paths",
+    "meadows",
+    "parks"
+  ],
+  "habitat_description": "The Parasol is a typical inhabitant of open and semi-open habitats. It prefers nutrient-rich soils at forest edges, in clearings and heathlands. It can be found from early summer to late autumn, often in large groups.",
+  "elevation_range": {
+    "min": 0,
+    "max": 1500,
+    "unit": "m"
+  },
+  "elevation_optimal": {
+    "min": 100,
+    "max": 800,
+    "unit": "m"
+  },
+  "temperature_range": {
+    "min": 10,
+    "max": 25,
+    "unit": "C"
+  },
+  "microhabitat_requirements": [
+    "Nutrient-rich soils",
+    "Open to semi-shaded locations",
+    "Good drainage"
+  ],
+  "substrate_preferences": [
+    "Humus-rich forest soils",
+    "Meadows",
+    "Heathland soils"
+  ],
+  "ecological_role": "Saprotroph (secondary decomposer)",
+  "ecological_role_description": "Macrolepiota procera decomposes organic material in the soil and contributes to humus formation.",
+  "ecological_importance": [
+    {"axis": "Nutrient recycling", "value": 70},
+    {"axis": "Culinary significance", "value": 95},
+    {"axis": "Cultural significance", "value": 80}
+  ],
+  "trophic_level": 2,
+  "trophic_category": "saprotroph",
+  "host_specificity": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "co_occurring_species": [
+    "Other Macrolepiota species",
+    "Agaricus species",
+    "Lycoperdon species"
+  ],
+  "dispersal_mechanism": "Wind dispersal of spores",
+  "dispersal_range": {
+    "min": 10,
+    "max": 1000,
+    "unit": "m"
+  },
+  "activity_months": [6, 7, 8, 9, 10, 11],
+  "peak_fruiting_month": 9,
+  "source": {
+    "authors": "Singer, R.",
+    "year": 1948,
+    "title": "The Agaricales in Modern Taxonomy",
+    "journal": "Lilloa",
+    "doi": ""
+  }
+}

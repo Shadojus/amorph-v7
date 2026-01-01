@@ -1,0 +1,43 @@
+# AMORPH Schema - Index
+# DATA-DRIVEN ARCHITECTURE
+# Field definitions are derived from data + perspectives, no separate felder.yaml needed
+
+# Schema-Version
+version: "3.0"
+
+# === MODULAR STRUCTURE ===
+# The schema is split into multiple files:
+
+module:
+  # Core system (immutable)
+  basis: ./basis.yaml
+  
+  # Semantic search mappings (customizable)
+  semantik: ./semantik.yaml
+  
+  # Perspectives (dynamically loaded from folder)
+  # Each perspective defines its own fields!
+  perspektiven: ./perspektiven/
+
+# === DATA-DRIVEN APPROACH ===
+# Instead of a separate felder.yaml, field configurations are:
+# 1. Defined in perspectives (fields they need)
+# 2. Inferred from actual data (types detected automatically)
+# 3. Core fields defined in basis.yaml
+#
+# Benefits:
+# - No redundancy between felder.yaml and perspective definitions
+# - Perspectives are self-contained and complete
+# - System adapts automatically to new fields in data
+# - Less configuration, more convention
+
+# === LOAD ORDER ===
+# 1. basis.yaml - Core system config
+# 2. semantik.yaml - Search mappings
+# 3. perspektiven/*.yaml - All perspective files (define their own fields)
+
+# === NOTES ===
+# - basis.yaml should not be modified
+# - New perspectives: Simply create new .yaml in perspektiven/
+# - Perspectives can be activated/deactivated via perspektiven/index.yaml
+# - Field types are auto-detected from data and field name patterns

@@ -1,0 +1,89 @@
+{
+  "image": [
+    {
+      "name": "Justin Clark",
+      "author": "Justin Clark",
+      "username": "Justin Clark",
+      "year": 2020,
+      "copyright": "© 2020 Justin Clark (Justin Clark)",
+      "license": "CC BY-SA 3.0",
+      "url": "https://mushroomobserver.org"
+    }
+  ],
+  "fields": {
+    "active_compounds": [
+      {
+        "name": "Hiroaki Nanba",
+        "title": "D-Fraction & MD-Fraction Pioneer",
+        "url": "https://www.researchgate.net/scientific-contributions/Hiroaki-Nanba-40027893",
+        "contact": "Kobe Pharmaceutical University - Pioneering work since 1980s"
+      }
+    ],
+    "d_fraction": [
+      {
+        "name": "Hiroaki Nanba",
+        "title": "Grifola frondosa D-Fraction Researcher",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12499658/",
+        "contact": "NK cell activation research"
+      },
+      {
+        "name": "NK Cell Research Team",
+        "title": "Cancer Patient NK Activation Study",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/14977447/",
+        "contact": "Effect of D-Fraction on NK cell activation in cancer patients"
+      }
+    ],
+    "md_fraction": [
+      {
+        "name": "Clinical Response Team",
+        "title": "MD-Fraction Cancer Regression Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/12126464/",
+        "contact": "58.3% liver, 68.8% breast, 62.5% lung cancer improvement"
+      },
+      {
+        "name": "Masuda et al.",
+        "title": "Oral Beta-Glucan Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/23280601/",
+        "contact": "Systemic antitumor immune response via Peyer's patch (2013)"
+      }
+    ],
+    "phase_trials": [
+      {
+        "name": "Myelodysplastic Syndromes Trial Team",
+        "title": "MDS Phase II Study Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4317517/",
+        "contact": "21 patients, enhanced neutrophil/monocyte function (p=0.005)"
+      },
+      {
+        "name": "Breast Cancer Phase I/II Team",
+        "title": "Breast Cancer Immunology Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3751581/",
+        "contact": "34 postmenopausal patients, immunologic function correlation (p<0.0005)"
+      }
+    ],
+    "bone_marrow_protection": [
+      {
+        "name": "Hematotoxicity Research Team",
+        "title": "Maitake Beta-Glucan Bone Marrow Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3268513/",
+        "contact": "Recovery of leukocytes from paclitaxel hematotoxicity"
+      }
+    ],
+    "immunomodulation": [
+      {
+        "name": "Dendritic Cell Research Team",
+        "title": "DC-Based Immunotherapy Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11030989/",
+        "contact": "Polysaccharide enhances DC-based immunotherapy against colon cancer"
+      }
+    ],
+    "traditional_medicine_systems": [
+      {
+        "name": "Paul Stamets",
+        "title": "Mycologist & Maitake Expert",
+        "url": "https://fungi.com",
+        "contact": "Traditional use documentation"
+      }
+    ]
+  }
+}

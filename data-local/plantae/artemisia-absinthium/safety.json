@@ -1,0 +1,75 @@
+{
+  "edibility": {
+    "status": "medicinal",
+    "variant": "warning"
+  },
+  "toxicity_level": {
+    "status": "Moderate (thujone content)",
+    "variant": "warning"
+  },
+  "edibility_rating": {
+    "rating": 2,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available (thujone limits in beverages)",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Contains thujone - use in moderation",
+    "Not for prolonged use",
+    "Avoid during pregnancy"
+  ],
+  "toxin_classes": [
+    "Monoterpenes (thujone)"
+  ],
+  "primary_toxins": [
+    {
+      "name": "Thujone",
+      "cas": "546-80-5",
+      "mechanism": "GABA antagonist; can cause seizures in high doses",
+      "lethal_dose": "Toxic effects at >12mg/kg body weight"
+    }
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "type": "moderate use", "description": "safe in normal herbal tea amounts"},
+    {"level": "medium", "type": "excessive intake", "description": "restlessness, vomiting, vertigo, tremors"},
+    {"level": "high", "type": "thujone poisoning", "description": "seizures, delirium (rare with normal use)"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "fatality_note": "Historical reports of absinthism now attributed more to alcohol than thujone.",
+  "risk_groups": [
+    "Pregnant women",
+    "Those with seizure disorders",
+    "Children"
+  ],
+  "antidote": "Supportive care; benzodiazepines for seizures",
+  "poison_control_relevant": true,
+  "prognosis": {
+    "status": "Good with proper use",
+    "variant": "success"
+  },
+  "allergy_potential": {
+    "status": "Moderate (Asteraceae)",
+    "variant": "warning"
+  },
+  "contraindications": [
+    "Pregnancy",
+    "Epilepsy",
+    "Porphyria"
+  ],
+  "source": {
+    "authors": "Lachenmeier, D.W. & Uebelacker, M.",
+    "year": 2010,
+    "title": "Risk assessment of thujone in foods and medicines",
+    "journal": "Regulatory Toxicology and Pharmacology",
+    "doi": "10.1016/j.yrtph.2009.12.013"
+  }
+}

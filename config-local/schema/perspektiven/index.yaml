@@ -1,17 +1,19 @@
-# Aktive Perspektiven
+# AMORPH Perspectives Index
+# Defines which perspectives are active and their load order
+
 aktiv:
-  - chemistry
-  - ecology
-  - medicine
   - culinary
   - safety
-  - identification
   - cultivation
+  - medicine
+  - chemistry
+  - ecology
+  - statistics
+  - geography
+  - temporal
+  - economy
   - conservation
   - culture
-  - economy
-  - geography
-  - statistics
-  - temporal
   - research
   - interactions
+  - identification

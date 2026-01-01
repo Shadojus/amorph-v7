@@ -1,0 +1,84 @@
+{
+  "scientific_name": "Morchella esculenta",
+  "author_citation": "(L.) Pers.",
+  "taxonomy_kingdom": "Fungi",
+  "taxonomy_phylum": "Ascomycota",
+  "taxonomy_class": "Pezizomycetes",
+  "taxonomy_order": "Pezizales",
+  "taxonomy_family": "Morchellaceae",
+  "taxonomy_genus": "Morchella",
+  "taxonomy_species": "esculenta",
+  "synonyms": [
+    "Phallus esculentus",
+    "Morchella rotunda"
+  ],
+  "common_names": [
+    "Common Morel",
+    "Yellow Morel",
+    "Edible Morel"
+  ],
+  "size_range": {
+    "min": 5,
+    "max": 15,
+    "unit": "cm"
+  },
+  "color_primary": "yellow-brown",
+  "color_secondary": "cream-colored",
+  "smell_description": "Aromatic, mushroomy, slightly fruity",
+  "taste_description": "Mild, nutty (only cooked)",
+  "cap_present": true,
+  "cap_type": "Honeycomb-like pitted",
+  "cap_height": {
+    "min": 3,
+    "max": 8,
+    "unit": "cm"
+  },
+  "cap_shape_mature": "ovoid to rounded",
+  "cap_surface": "honeycomb-like, pitted",
+  "cap_color": "yellow-brown, ochre, gray-brown",
+  "stem_present": true,
+  "stem_height": {
+    "min": 3,
+    "max": 7,
+    "unit": "cm"
+  },
+  "stem_diameter": {
+    "min": 2,
+    "max": 4,
+    "unit": "cm"
+  },
+  "stem_color": "white to cream-colored",
+  "stem_surface": "grainy, furrowed",
+  "stem_hollow": true,
+  "propagule_color": "cream-colored",
+  "propagule_length": {
+    "min": 18,
+    "max": 25,
+    "unit": "um"
+  },
+  "propagule_width": {
+    "min": 10,
+    "max": 14,
+    "unit": "um"
+  },
+  "propagule_shape": "ellipsoid",
+  "confusion_species_list": [
+    "Gyromitra esculenta",
+    "Verpa bohemica",
+    "Morchella elata"
+  ],
+  "confusion_risk_level": {
+    "status": "high",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "identification_difficulty": {
+    "status": "moderate",
+    "variant": "info"
+  },
+  "key_differentiating_features": [
+    "Honeycomb-like cap structure",
+    "Completely hollow (cap and stem)",
+    "Cap attached to stem at the base"
+  ]
+}

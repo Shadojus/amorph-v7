@@ -1,0 +1,58 @@
+{
+  "edibility_category": "choice_edible",
+  "culinary_value": {
+    "rating": 9,
+    "max": 10
+  },
+  "taste_profile": "intensely mushroomy, umami, leek-like",
+  "texture": "firm, meaty",
+  "aroma": "characteristically savory",
+  "recommended_preparations": [
+    "Fried",
+    "In soups",
+    "Wok dishes",
+    "Dried as seasoning"
+  ],
+  "cooking_methods": [
+    "Frying",
+    "Braising",
+    "Steaming",
+    "Grilling"
+  ],
+  "cooking_time_minutes": {
+    "min": 5,
+    "max": 15,
+    "unit": "min"
+  },
+  "storage_fresh_days": {
+    "min": 7,
+    "max": 14,
+    "unit": "days"
+  },
+  "storage_methods": [
+    "Refrigerated",
+    "Drying (very suitable)",
+    "Freezing"
+  ],
+  "parts_used": [
+    "Cap (preferred)",
+    "Stem (often tough)"
+  ],
+  "cuisine_traditions": [
+    "Chinese Cuisine",
+    "Japanese Cuisine",
+    "Korean Cuisine",
+    "Fusion Cuisine"
+  ],
+  "commercial_availability": {
+    "status": "high",
+    "variant": "success"
+  },
+  "cultivation_scale": "industrial (second most important cultivated mushroom)",
+  "nutritional_highlights": [
+    "13-18% Protein",
+    "Vitamin D",
+    "Niacin (55mg/100g)",
+    "Eritadenine (cholesterol-lowering)"
+  ]
+}

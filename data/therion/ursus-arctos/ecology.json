@@ -1,0 +1,54 @@
+{
+  "trophic_mode_primary": "omnivorous",
+  "trophic_mode_secondary": "apex predator",
+  "ecological_guild": "generalist omnivore",
+  "primary_ecosystem_function": "seed dispersal and nutrient cycling",
+  "secondary_ecosystem_functions": [
+    "salmon nutrient transport to forests",
+    "prey population regulation",
+    "soil disturbance through digging"
+  ],
+  "ecosystem_type": "forest",
+  "ecosystem_subtype": "temperate and boreal forest",
+  "habitat_types": [
+    "alpine meadow",
+    "tundra",
+    "temperate forest",
+    "boreal forest",
+    "coastal areas"
+  ],
+  "microhabitat_primary": "forest edge near water",
+  "elevation_range": {
+    "min": 0,
+    "max": 5000,
+    "unit": "m"
+  },
+  "diet_primary": [
+    "berries",
+    "roots",
+    "fish",
+    "ungulates",
+    "insects"
+  ],
+  "diet_specialization": "opportunistic omnivore",
+  "foraging_strategy": "seasonal diet shifts",
+  "predators": [],
+  "climate_zone": "temperate to subarctic",
+  "native_range": "North America, Europe, Asia",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "population_trend": "stable",
+  "social_structure": "solitary except at food concentrations",
+  "home_range_size": {
+    "min": 50,
+    "max": 2600,
+    "unit": "km2"
+  },
+  "hibernation_duration": {
+    "min": 5,
+    "max": 8,
+    "unit": "months"
+  }
+}

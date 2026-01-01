@@ -1,14 +1,133 @@
-# Basis Schema
-fields:
+# ═══════════════════════════════════════════════════════════════════════════════
+# AMORPH Schema - Basis (unveränderlich)
+# Universal Biological Species Data Architecture
+# ═══════════════════════════════════════════════════════════════════════════════
+# Diese Konfiguration definiert das Kern-System
+# NICHT ÄNDERN ohne System-Update!
+#
+# DESIGN PHILOSOPHY:
+# This schema is universal for all biological species.
+# The data itself determines which taxonomic group applies.
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# === META-KONFIGURATION ===
+# Welche Felder haben spezielle Bedeutung im System?
+meta:
+  nameField: name          # Welches Feld ist der angezeigte Name?
+  idField: id              # Welches Feld ist die eindeutige ID?
+  bildField: bild          # Welches Feld ist das Hauptbild?
+
+# === OPTIONALE SCHEMA-ATTRIBUTE ===
+# Jeder Eintrag im Schema kann diese optionalen Attribute haben.
+# Dies gilt für: Felder, Perspektiven, Semantik-Regeln, etc.
+
+schema_attribute:
+  # Citation - GOAT für diesen Schema-Eintrag
+  citation:
+    beschreibung: "Woher stammen die Daten für dieses Feld/diese Definition?"
+    felder:
+      quelle: "Name der Quelle (Pflicht)"
+      url: "Link zur Quelle"
+      datum: "Datum der Quelle (YYYY-MM)"
+      autor: "Autor oder Organisation"
+      lizenz: "Lizenz der Daten"
+      verifiziert: "Boolean - Wurde verifiziert?"
+  
+  # Advertisement - Werbe-Zuordnung für diesen Schema-Eintrag
+  advertisement:
+    beschreibung: "Ist dieses Feld/diese Definition mit Werbung verknüpft?"
+    felder:
+      sponsor: "Name des Sponsors"
+      typ: "product | affiliate | sponsored | native"
+      url: "Ziel-URL"
+      kampagne: "Kampagnen-ID"
+      kennzeichnung: "Boolean - Als Werbung kennzeichnen?"
+
+# === KERN-FELDER ===
+# Diese Felder sind System-relevant und werden immer benötigt
+kern:
+  id:
+    typ: number
+    versteckt: true
+    beschreibung: Eindeutige ID des Datensatzes
+  
+  slug:
+    typ: string
+    versteckt: true
+    beschreibung: URL-freundlicher Identifier
+  
   name:
-    type: text
+    typ: string
     label: Name
-  scientificName:
-    type: text
-    label: Wissenschaftlicher Name
-  description:
-    type: text
-    label: Beschreibung
-  image:
-    type: image
+    pflicht: true
+    suche: 
+      gewicht: 100
+      exakt: true
+    beschreibung: Anzeigename des Datensatzes
+  
+  bild:
+    typ: image
     label: Bild
+    beschreibung: Hauptbild des Datensatzes
+
+# === STANDARD-REIHENFOLGE ===
+# Default-Reihenfolge wenn nichts anderes definiert
+standard_reihenfolge:
+  - bild
+  - name
+
+# === MORPH-ERKENNUNG ===
+# Regeln zur automatischen Typ-Erkennung aus Datenstruktur
+# Diese werden in pipeline.js verwendet
+erkennung:
+  # Objekt mit nur numerischen Werten → Kreisdiagramm
+  pie:
+    bedingung: "Objekt mit nur Zahlen als Werte"
+    beispiel: "{Protein: 26, Fett: 8, Kohlenhydrate: 52}"
+  
+  # Objekt mit min/max → Bereichsanzeige
+  range:
+    bedingung: "Objekt mit min und max Eigenschaften"
+    beispiel: "{min: 10, max: 25}"
+  
+  # Objekt mit statistics-Feldern → statistics-Box
+  stats:
+    bedingung: "Objekt mit min, max, avg oder ähnlichen statistics-Feldern"
+    beispiel: "{min: 50, max: 200, avg: 125, count: 42}"
+  
+  # Array mit axis/value → Radar-Chart
+  radar:
+    bedingung: "Array von Objekten mit axis und value"
+    beispiel: "[{axis: 'Geschmack', value: 80}, {axis: 'Textur', value: 60}]"
+  
+  # Array mit label/value → Balkendiagramm
+  bar:
+    bedingung: "Array von Objekten mit label und value"
+    beispiel: "[{label: 'Protein', value: 3.2, unit: 'mg'}]"
+  
+  # Array mit date/event → Timeline
+  timeline:
+    bedingung: "Array von Objekten mit date/time und event/label"
+    beispiel: "[{date: '2024-03', event: 'Aussaat'}]"
+  
+  # Zahl 0-100 ganzzahlig → Fortschrittsbalken
+  progress:
+    bedingung: "Ganzzahl zwischen 0 und 100"
+    beispiel: "75"
+  
+  # Zahl 0-10 mit Dezimal → Sterne-Rating
+  rating:
+    bedingung: "Zahl zwischen 0 und 10 (auch Dezimal)"
+    beispiel: "4.5"
+  
+  # Kurzer String mit Status-Wörtern → Badge
+  badge:
+    bedingung: "Kurzer String mit Status-Keywords"
+    beispiel: "verfügbar, saisonal, warnung"
+    keywords:
+      - verfügbar
+      - saisonal
+      - warnung
+      - limitiert
+      - neu
+      - selten

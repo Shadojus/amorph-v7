@@ -1,0 +1,58 @@
+{
+  "scientific_name": "Canis lupus",
+  "author_citation": "Linnaeus, 1758",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Chordata",
+  "taxonomy_class": "Mammalia",
+  "taxonomy_order": "Carnivora",
+  "taxonomy_family": "Canidae",
+  "taxonomy_genus": "Canis",
+  "taxonomy_species": "lupus",
+  "common_names": [
+    "Gray Wolf",
+    "Grey Wolf",
+    "Timber Wolf",
+    "Wolf",
+    "Loup Gris",
+    "Lobo"
+  ],
+  "size_range": {
+    "min": 1.0,
+    "max": 1.6,
+    "unit": "m"
+  },
+  "weight_range": {
+    "min": 25,
+    "max": 80,
+    "unit": "kg"
+  },
+  "color_primary": "grey",
+  "color_secondary": "white, black, brown variants",
+  "primary_structure_type": "large canid with thick fur and bushy tail",
+  "primary_structure_shape_mature": "lean muscular build with deep chest",
+  "primary_structure_surface": "dense double-layered coat",
+  "primary_structure_color": "grey mottled with buff, often with lighter underparts",
+  "key_differentiating_features": [
+    "Large size compared to other canids",
+    "Broad snout with wide nose pad",
+    "Ears relatively short and rounded",
+    "Long legs and large feet",
+    "Bushy tail often carried horizontally"
+  ],
+  "identification_difficulty": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Canis latrans (Coyote - smaller, narrower snout)",
+    "Canis lupus familiaris (Domestic dog - variable)",
+    "Canis rufus (Red Wolf - smaller, reddish)"
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Males 20-25% larger than females"
+}

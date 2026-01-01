@@ -1,0 +1,148 @@
+{
+  "scientific_name": "Cannabis sativa",
+  "author_citation": "L. 1753",
+  "accepted_name": "Cannabis sativa L.",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Magnoliopsida",
+  "taxonomy_order": "Rosales",
+  "taxonomy_family": "Cannabaceae",
+  "taxonomy_genus": "Cannabis",
+  "taxonomy_species": "sativa",
+  "synonyms": [
+    "Cannabis americana Houghton & Hamilton",
+    "Cannabis chinensis Delile",
+    "Cannabis indica Lam.",
+    "Cannabis ruderalis Janisch."
+  ],
+  "common_names": [
+    "Hemp",
+    "Cannabis",
+    "Marijuana",
+    "Industrial Hemp"
+  ],
+  "international_names": [
+    "Hanf (DE)",
+    "Chanvre (FR)",
+    "Canamo (ES)",
+    "Da Ma (CN)",
+    "Taima (JP)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Distinctive palmate compound leaves", "status": "pending"},
+    {"step": 2, "label": "5-11 serrated leaflets per leaf", "status": "pending"},
+    {"step": 3, "label": "Strong characteristic odor", "status": "pending"},
+    {"step": 4, "label": "Tall erect annual herb", "status": "pending"},
+    {"step": 5, "label": "Dioecious (separate male/female plants)", "status": "pending"},
+    {"step": 6, "label": "Fibrous stem with rough texture", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Easy",
+    "variant": "success"
+  },
+  "time_to_identify_minutes": 2,
+  "minimum_equipment_needed": [
+    "No equipment required"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Vitex agnus-castus (Chaste Tree) - similar leaves",
+    "Cleome species (Spider Flower) - similar leaves",
+    "Humulus lupulus (Hops) - related species"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "medium", "type": "Vitex agnus-castus", "description": "different plant entirely, leaves superficially similar"}
+  ],
+  "key_differentiating_features": [
+    "Distinctive serrated palmate leaves",
+    "Characteristic pungent odor",
+    "Opposite lower leaves, alternate upper leaves",
+    "Tall, erect growth habit",
+    "Visible trichomes on female flowers"
+  ],
+  "habit": "Annual herbaceous plant",
+  "growth_form": "Erect, branching",
+  "symmetry": "bilateral",
+  "size_range": {
+    "min": 50,
+    "max": 500,
+    "unit": "cm"
+  },
+  "size_typical_cm": 200,
+  "basic_shape": "Tall, erect herb with palmate leaves",
+  "height": {
+    "min": 50,
+    "max": 500,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 30,
+    "max": 150,
+    "unit": "cm"
+  },
+  "surface_type": "Rough, fibrous stems; leaves with fine hairs",
+  "color_primary": "Green",
+  "color_secondary": "Light green (stems)",
+  "color_variations": [
+    "Some varieties purple-tinged",
+    "Mature plants may yellow"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf (palmate compound)",
+  "primary_structure_diameter": {
+    "min": 5,
+    "max": 15,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "3-5 leaflets",
+  "primary_structure_shape_mature": "7-11 narrow, serrated leaflets",
+  "primary_structure_surface": "Fine pubescence, sticky resin glands",
+  "primary_structure_color": "Dark green",
+  "support_structure_present": true,
+  "support_structure_type": "Stem (erect, fibrous)",
+  "support_structure_color": "Light green to tan",
+  "flower_present": true,
+  "flower_type": "Inconspicuous, dioecious",
+  "flower_color": "Green to yellow-green",
+  "flower_size": {
+    "min": 0.2,
+    "max": 0.5,
+    "unit": "cm"
+  },
+  "flowering_period": "Late summer to autumn",
+  "smell_description": "Strong, characteristic, pungent",
+  "smell_comparable_to": "Skunky, herbal, distinctive terpene profile",
+  "taste_safe_to_test": false,
+  "taste_description": "Not applicable for identification",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "Germination and seedling stage",
+    "summer": "Rapid vegetative growth",
+    "autumn": "Flowering and seed set",
+    "winter": "Annual - dies after fruiting"
+  },
+  "season_peak_months": [8, 9, 10],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis, high nutrient demand",
+  "substrate_species": [
+    "Well-drained, nitrogen-rich soils",
+    "Loamy soils",
+    "Disturbed habitats"
+  ],
+  "source": {
+    "authors": "Small, E.",
+    "year": 2015,
+    "title": "Evolution and Classification of Cannabis sativa",
+    "journal": "The Botanical Review",
+    "doi": "10.1007/s12229-015-9157-3"
+  }
+}

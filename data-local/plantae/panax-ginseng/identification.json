@@ -1,0 +1,159 @@
+{
+  "scientific_name": "Panax ginseng",
+  "author_citation": "C.A.Mey. 1842",
+  "accepted_name": "Panax ginseng C.A.Mey.",
+  "taxonomy_domain": "Eukaryota",
+  "taxonomy_kingdom": "Plantae",
+  "taxonomy_phylum": "Tracheophyta",
+  "taxonomy_class": "Magnoliopsida",
+  "taxonomy_order": "Apiales",
+  "taxonomy_family": "Araliaceae",
+  "taxonomy_genus": "Panax",
+  "taxonomy_species": "ginseng",
+  "synonyms": [
+    "Panax schinseng Nees",
+    "Aralia ginseng (C.A.Mey.) Baill.",
+    "Panax chin-seng Nees"
+  ],
+  "common_names": [
+    "Asian Ginseng",
+    "Korean Ginseng",
+    "Chinese Ginseng",
+    "True Ginseng"
+  ],
+  "international_names": [
+    "Ginseng (DE)",
+    "Ginseng asiatique (FR)",
+    "Ginseng asiatico (ES)",
+    "Ren Shen (CN)",
+    "Insam (KR)"
+  ],
+  "taxonomy_status": {
+    "status": "Accepted",
+    "variant": "success"
+  },
+  "quick_id_checklist": [
+    {"step": 1, "label": "Palmately compound leaves with 5 leaflets", "status": "pending"},
+    {"step": 2, "label": "Leaves in whorl at top of single stem", "status": "pending"},
+    {"step": 3, "label": "Small greenish-white flowers in umbel", "status": "pending"},
+    {"step": 4, "label": "Bright red berries in cluster", "status": "pending"},
+    {"step": 5, "label": "Human-shaped fleshy root", "status": "pending"},
+    {"step": 6, "label": "Slow-growing, 30-60 cm tall", "status": "pending"}
+  ],
+  "identification_difficulty": {
+    "status": "Moderate",
+    "variant": "warning"
+  },
+  "time_to_identify_minutes": 10,
+  "minimum_equipment_needed": [
+    "No equipment required"
+  ],
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Panax quinquefolius (American Ginseng)",
+    "Panax notoginseng (Notoginseng)",
+    "Eleutherococcus senticosus (Siberian Ginseng - different genus)"
+  ],
+  "confusion_risk_level": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "confusion_consequences": [
+    {"level": "none", "typ": "Panax quinquefolius", "description": "Similar properties, also valuable"},
+    {"level": "low", "typ": "Eleutherococcus senticosus", "description": "Different plant, also adaptogenic"}
+  ],
+  "key_differentiating_features": [
+    "Palmately compound leaves with 5 leaflets",
+    "Fleshy, often human-shaped root",
+    "Single stem with leaf whorl at top",
+    "Red berries at maturity",
+    "Very slow growing (4-6 years to harvest)"
+  ],
+  "habit": "Herbaceous perennial",
+  "growth_form": "Single stem from fleshy root",
+  "symmetry": "radial",
+  "size_range": {
+    "min": 30,
+    "max": 60,
+    "unit": "cm"
+  },
+  "size_typical_cm": 45,
+  "basic_shape": "Single stem with whorl of compound leaves at top",
+  "height": {
+    "min": 30,
+    "max": 60,
+    "unit": "cm"
+  },
+  "diameter": {
+    "min": 20,
+    "max": 40,
+    "unit": "cm"
+  },
+  "surface_type": "Smooth leaves and stem",
+  "color_primary": "Green (foliage)",
+  "color_secondary": "Red (berries)",
+  "color_variations": [
+    "Flowers greenish-white",
+    "Root pale tan"
+  ],
+  "primary_structure_present": true,
+  "primary_structure_type": "Leaf (palmately compound)",
+  "primary_structure_diameter": {
+    "min": 8,
+    "max": 15,
+    "unit": "cm"
+  },
+  "primary_structure_shape_young": "Palmately compound, 3 leaflets",
+  "primary_structure_shape_mature": "Palmately compound, 5 leaflets",
+  "primary_structure_surface": "Smooth, thin",
+  "primary_structure_color": "Green",
+  "support_structure_present": true,
+  "support_structure_type": "Stem (single, erect)",
+  "support_structure_color": "Green",
+  "root_present": true,
+  "root_type": "Fleshy taproot",
+  "root_color": "Pale tan, cream inside",
+  "flower_present": true,
+  "flower_type": "Small flowers in terminal umbel",
+  "flower_color": "Greenish-white",
+  "flower_size": {
+    "min": 0.2,
+    "max": 0.3,
+    "unit": "cm"
+  },
+  "flowering_period": "June to July",
+  "fruit_present": true,
+  "fruit_type": "Berry-like drupe",
+  "fruit_color": "Bright red",
+  "fruit_size": {
+    "min": 0.5,
+    "max": 0.8,
+    "unit": "cm"
+  },
+  "smell_description": "Root has distinctive earthy, slightly sweet aroma",
+  "smell_comparable_to": "Earthy, slightly sweet, ginseng-specific",
+  "taste_safe_to_test": true,
+  "taste_description": "Slightly bitter, then sweet, warming",
+  "microscopy_required": false,
+  "appearance_by_season": {
+    "spring": "New growth emerges",
+    "summer": "Flowering, full leaf development",
+    "autumn": "Red berries, leaves yellow",
+    "winter": "Dies back completely"
+  },
+  "season_peak_months": [6, 7, 8],
+  "nutrition_type": "Autotroph",
+  "nutrition_type_detail": "C3 photosynthesis, shade-tolerant",
+  "substrate_species": [
+    "Rich, humus forest soils",
+    "Mountain forests",
+    "Shaded woodland understory"
+  ],
+  "source": {
+    "authors": "Christensen, L.P.",
+    "year": 2009,
+    "title": "Ginsenosides chemistry, biosynthesis, analysis, and potential health effects",
+    "journal": "Advances in Food and Nutrition Research",
+    "doi": "10.1016/S1043-4526(09)55001-0"
+  }
+}

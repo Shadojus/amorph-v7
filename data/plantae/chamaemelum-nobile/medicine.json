@@ -1,0 +1,55 @@
+{
+  "traditional_medicine": {
+    "systems": ["European_Folk_Medicine"],
+    "historical_use": "Since antiquity; Egyptians dedicated it to the sun god Ra",
+    "traditional_indications": ["Digestive complaints", "Inflammation", "Wounds", "Nervousness"]
+  },
+  "pharmacopoeia_names": ["Chamomillae romanae flos"],
+  "german_commission_e_status": {
+    "status": "Positive monograph",
+    "variant": "success"
+  },
+  "german_commission_e_indication": ["Inflammation of skin and mucous membranes", "Gastrointestinal spasms"],
+  "active_substances": [
+    "Essential oil (1-Isobutylangelelicate ester)",
+    "Nobilin",
+    "Flavonoids (Apigenin)",
+    "Sesquiterpene lactones"
+  ],
+  "effect_profile": [
+    {"axis": "Anti-inflammatory", "value": 80},
+    {"axis": "Spasmolytic", "value": 75},
+    {"axis": "Sedative", "value": 70},
+    {"axis": "Wound healing", "value": 65},
+    {"axis": "Carminative", "value": 70}
+  ],
+  "therapeutic_categories": [
+    "Anti-inflammatory",
+    "Spasmolytic",
+    "Sedative"
+  ],
+  "evidence_level": {
+    "status": "3",
+    "variant": "warning"
+  },
+  "safety_score": {
+    "value": 90,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "type": "Allergy", "description": "Possible cross-reaction in Asteraceae allergy"}
+  ],
+  "contraindications": [
+    "Allergy to Asteraceae (daisy family)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Probably safe",
+    "variant": "success"
+  },
+  "dosage_notes": "Tea: 2-3g flowers; External: 3-10% infusion; Bath additive: 50g per full bath",
+  "preparation_forms": ["Tea", "Tincture", "Ointment", "Bath additive", "Essential oil"],
+  "status_by_region": {
+    "eu": "Herbal medicinal product (traditional use)"
+  }
+}

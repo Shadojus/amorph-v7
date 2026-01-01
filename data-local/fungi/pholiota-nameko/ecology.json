@@ -1,0 +1,25 @@
+{
+  "trophic_mode_primary": "saprobic",
+  "ecological_guild": "Wood Decomposer",
+  "ecosystem_type": "Forest",
+  "ecosystem_subtype": "Deciduous Forest",
+  "microhabitat_primary": "Hardwood trunks",
+  "microhabitat_secondary": "Stumps",
+  "substrate_type_primary": "Hardwood",
+  "substrate_types_secondary": [
+    "Oak",
+    "Beech"
+  ],
+  "substrate_specificity": {
+    "status": "broad",
+    "variant": "success"
+  },
+  "fruiting_season_start": 9,
+  "fruiting_season_end": 11,
+  "climate_zone": "temperate",
+  "native_range": "East Asia (Japan, China)",
+  "iucn_global_status": {
+    "status": "NE",
+    "variant": "neutral"
+  }
+}

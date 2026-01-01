@@ -1,0 +1,74 @@
+{
+  "traditional_medicine": {
+    "systems": ["Ayurveda", "Unani"],
+    "historical_use": "Over 3000 years in Ayurveda as Rasayana (rejuvenating tonic)",
+    "traditional_indications": ["Weakness", "Exhaustion", "Stress", "Impotence", "Sleep disorders"]
+  },
+  "ayurveda_sanskrit_name": "Ashwagandha",
+  "ayurveda_rasa": ["tikta", "kashaya"],
+  "ayurveda_guna": ["light", "oily"],
+  "ayurveda_virya": "ushna (warm)",
+  "ayurveda_vipaka": "madhura (sweet)",
+  "ayurveda_dosha_effect": ["Vata-reducing", "Kapha-reducing"],
+  "active_substances": [
+    "Withanolides (Withaferin A, Withanolide D)",
+    "Withanosides",
+    "Alkaloids (isopelletierine)"
+  ],
+  "effect_profile": [
+    {"axis": "Adaptogenic", "value": 95},
+    {"axis": "Anxiolytic", "value": 80},
+    {"axis": "Anti-inflammatory", "value": 70},
+    {"axis": "Neuroprotective", "value": 75},
+    {"axis": "Immunomodulating", "value": 70}
+  ],
+  "therapeutic_categories": [
+    "Adaptogen",
+    "Anxiolytic",
+    "Tonic"
+  ],
+  "evidence_level": {
+    "status": "2a",
+    "variant": "success"
+  },
+  "clinical_studies": [
+    "Chandrasekhar et al. 2012: Significant reduction of stress and cortisol",
+    "Wankhede et al. 2015: Increased muscle strength and recovery"
+  ],
+  "safety_score": {
+    "value": 80,
+    "min": 0,
+    "max": 100
+  },
+  "side_effects": [
+    {"level": "low", "typ": "Occasional", "description": "Gastrointestinal complaints, drowsiness"},
+    {"level": "medium", "typ": "Thyroid", "description": "May affect thyroid hormones"}
+  ],
+  "interactions": [
+    {"level": "medium", "typ": "Sedatives", "description": "Additive sedating effect"},
+    {"level": "medium", "typ": "Thyroid medications", "description": "May affect hormone levels"}
+  ],
+  "contraindications": [
+    "Pregnancy",
+    "Hyperthyroidism",
+    "Autoimmune diseases (caution)"
+  ],
+  "special_populations_pregnancy": {
+    "status": "Contraindicated",
+    "variant": "danger"
+  },
+  "standard_dose_range": {
+    "min": 300,
+    "max": 600,
+    "unit": "mg"
+  },
+  "dose_frequency": "Once to twice daily",
+  "standardization_marker": "Withanolides 5%",
+  "dosage_notes": "Root extract 300-600 mg daily; traditionally with warm milk",
+  "preparation_forms": ["Root powder", "Extract", "Capsules", "Churna"],
+  "status_by_region": {
+    "eu": "Dietary supplement",
+    "usa": "Dietary Supplement",
+    "india": "Traditional medicine"
+  }
+}

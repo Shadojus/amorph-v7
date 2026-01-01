@@ -1,0 +1,67 @@
+{
+  "edibility": {
+    "status": "edible",
+    "variant": "success"
+  },
+  "toxicity_level": {
+    "status": "Non-toxic (low coumarin)",
+    "variant": "success"
+  },
+  "edibility_rating": {
+    "rating": 5,
+    "max": 5
+  },
+  "legal_status": {
+    "status": "Freely available",
+    "variant": "success"
+  },
+  "is_controlled_substance": false,
+  "is_protected_species": false,
+  "handling_precautions": [
+    "Ceylon cinnamon has low coumarin - safer than cassia",
+    "Cassia cinnamon contains higher coumarin levels",
+    "Large amounts may irritate mouth"
+  ],
+  "primary_toxins": [
+    {
+      "name": "Coumarin",
+      "cas": "91-64-5",
+      "mechanism": "Hepatotoxic in large amounts",
+      "lethal_dose": "Ceylon cinnamon contains minimal coumarin (0.004%)"
+    }
+  ],
+  "symptoms_by_severity": [
+    {"level": "none", "type": "Normal use", "description": "Safe for culinary use; Ceylon variety is safest"}
+  ],
+  "fatality_rate": {
+    "value": 0,
+    "max": 100,
+    "unit": "%"
+  },
+  "fatality_documented": false,
+  "risk_groups": [
+    "Those with liver disease",
+    "Those taking blood thinners"
+  ],
+  "antidote": "None required",
+  "poison_control_relevant": false,
+  "prognosis": {
+    "status": "Excellent",
+    "variant": "success"
+  },
+  "allergy_potential": {
+    "status": "Low",
+    "variant": "success"
+  },
+  "contraindications": [
+    "Liver disease (excessive use)",
+    "Pregnancy (large medicinal doses)"
+  ],
+  "source": {
+    "authors": "Abraham, K. et al.",
+    "year": 2010,
+    "title": "Toxicology and risk assessment of coumarin",
+    "journal": "Molecular Nutrition & Food Research",
+    "doi": "10.1002/mnfr.200900281"
+  }
+}

@@ -1,0 +1,19 @@
+name: Phytonomi
+beschreibung: Pflanzen-Wissenssammlung
+version: 1.0.0
+sprache: de
+autor: AMORPH Team
+
+# === BRANDING ===
+branding:
+  titel: PHYTONOMI
+  titelUrl: /
+  
+  partner:
+    text: Part of the
+    name: Bifroest
+    url: https://bifroest.io
+    
+# === FARBEN ===
+farben:
+  palette: phytonomi  # Jade Green

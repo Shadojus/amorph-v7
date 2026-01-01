@@ -1,0 +1,56 @@
+{
+  "scientific_name": "Ursus arctos",
+  "author_citation": "Linnaeus, 1758",
+  "taxonomy_kingdom": "Animalia",
+  "taxonomy_phylum": "Chordata",
+  "taxonomy_class": "Mammalia",
+  "taxonomy_order": "Carnivora",
+  "taxonomy_family": "Ursidae",
+  "taxonomy_genus": "Ursus",
+  "taxonomy_species": "arctos",
+  "common_names": [
+    "Brown Bear",
+    "Grizzly Bear",
+    "Kodiak Bear",
+    "Eurasian Brown Bear",
+    "Silvertip Bear"
+  ],
+  "size_range": {
+    "min": 1.7,
+    "max": 2.8,
+    "unit": "m"
+  },
+  "weight_range": {
+    "min": 180,
+    "max": 680,
+    "unit": "kg"
+  },
+  "color_primary": "brown",
+  "color_secondary": "blonde to dark brown",
+  "primary_structure_type": "large powerful bear with shoulder hump",
+  "primary_structure_shape_mature": "massive body with concave facial profile",
+  "primary_structure_surface": "thick shaggy fur",
+  "primary_structure_color": "light blonde to dark brown, often grizzled",
+  "key_differentiating_features": [
+    "Prominent muscular shoulder hump",
+    "Concave (dished) facial profile",
+    "Long curved claws up to 10 cm",
+    "Small rounded ears",
+    "Coat color varies greatly by region"
+  ],
+  "identification_difficulty": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "field_identifiable": true,
+  "confusion_species_list": [
+    "Ursus americanus (Black Bear - no shoulder hump, straight face)",
+    "Ursus maritimus (Polar Bear - white, marine habitat)"
+  ],
+  "confusion_risk_level": {
+    "status": "moderate",
+    "variant": "warning"
+  },
+  "sexual_dimorphism": true,
+  "sexual_dimorphism_notes": "Males significantly larger, up to 1.5-2 times female weight"
+}

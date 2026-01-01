@@ -1,0 +1,106 @@
+{
+  "habitat_primary": "Hardwood, especially poplar stumps and trunks",
+  "habitat_secondary": [
+    "Willow wood",
+    "Maple wood",
+    "Alder wood",
+    "Elm wood",
+    "Tea oil trees (in China)"
+  ],
+  "habitat_description": "Cyclocybe cylindracea is a heat-loving wood-inhabiting fungus that preferentially grows on stumps and trunks of poplars. It also occurs on other hardwoods, particularly willows, maples and cottonwoods. The fungus prefers wine-growing regions and southern areas.",
+  "elevation_range": {
+    "min": 0,
+    "max": 800,
+    "unit": "m"
+  },
+  "elevation_optimal": {
+    "min": 50,
+    "max": 400,
+    "unit": "m"
+  },
+  "climate_preferences": {
+    "annual_temp_min": 8,
+    "annual_temp_max": 30,
+    "precipitation_min": 500,
+    "precipitation_max": 1500
+  },
+  "temperature_range": {
+    "min": 10,
+    "max": 27,
+    "unit": "C"
+  },
+  "microhabitat_requirements": [
+    "Hardwood substrates",
+    "Especially poplars and willows",
+    "Heat-loving",
+    "Good moisture"
+  ],
+  "substrate_preferences": [
+    "Poplar wood",
+    "Willow wood",
+    "Cottonwood",
+    "Maple wood"
+  ],
+  "vegetation_associations": [
+    "Riparian forests",
+    "Wine-growing regions",
+    "Southern European deciduous forests",
+    "Cultivated landscapes with poplars"
+  ],
+  "ecological_role": "Saprotroph and facultative parasite",
+  "ecological_role_description": "As a wood decomposer, Cyclocybe cylindracea breaks down dead hardwood. However, it can also attack living trees and is thus a facultative parasite. The fungus plays an important role in nutrient cycling of riparian forest ecosystems.",
+  "ecological_importance": [
+    {"axis": "Wood decomposition", "value": 85},
+    {"axis": "Nutrient recycling", "value": 75},
+    {"axis": "Culinary significance", "value": 90},
+    {"axis": "Cultivability", "value": 85}
+  ],
+  "trophic_level": 2,
+  "trophic_category": "saprotroph",
+  "symbiosis_type": "None (Saprotroph/Parasite)",
+  "symbiosis_description": "Cyclocybe cylindracea lives as a wood decomposer and can facultatively infest living trees.",
+  "host_specificity": {
+    "status": "Medium",
+    "variant": "warning"
+  },
+  "co_occurring_species": [
+    "Pleurotus species",
+    "Armillaria mellea",
+    "Other wood-inhabiting fungi"
+  ],
+  "dispersal_mechanism": "Wind dispersal of spores",
+  "dispersal_range": {
+    "min": 10,
+    "max": 500,
+    "unit": "m"
+  },
+  "spore_production": {
+    "value": 80,
+    "max": 100,
+    "unit": "%"
+  },
+  "colonization_strategy": "Rapid colonization of wood substrates",
+  "life_history": "Clustered fruiting bodies, perennial mycelium in wood",
+  "phenology_description": "Fruiting bodies appear mainly in spring and autumn in warm, humid weather",
+  "fruiting_triggers": [
+    "Temperatures between 13-18 degrees Celsius",
+    "High humidity (90-95%)",
+    "After rainfall",
+    "Fresh air"
+  ],
+  "activity_months": [3, 4, 5, 6, 9, 10, 11],
+  "peak_fruiting_month": 10,
+  "ecosystem_services": [
+    "Deadwood decomposition",
+    "Nutrient release",
+    "Food source for insects"
+  ],
+  "indicator_species": false,
+  "source": {
+    "authors": "Stamets, P.",
+    "year": 2000,
+    "title": "Growing Gourmet and Medicinal Mushrooms",
+    "journal": "Ten Speed Press",
+    "doi": ""
+  }
+}

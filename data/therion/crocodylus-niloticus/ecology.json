@@ -1,0 +1,45 @@
+{
+  "trophic_mode_primary": "carnivorous",
+  "trophic_mode_secondary": "apex predator",
+  "ecological_guild": "semi-aquatic apex predator",
+  "primary_ecosystem_function": "top-down ecosystem regulation",
+  "secondary_ecosystem_functions": [
+    "nutrient transfer between aquatic and terrestrial",
+    "prey population control",
+    "carcass creation for scavengers"
+  ],
+  "ecosystem_type": "freshwater",
+  "ecosystem_subtype": "African rivers and lakes",
+  "habitat_types": [
+    "rivers",
+    "lakes",
+    "marshes",
+    "mangroves",
+    "estuaries"
+  ],
+  "microhabitat_primary": "riverbanks and sandbars",
+  "diet_primary": [
+    "fish",
+    "birds",
+    "mammals",
+    "reptiles",
+    "crustaceans"
+  ],
+  "diet_specialization": "opportunistic ambush predator",
+  "foraging_strategy": "ambush predation from water",
+  "predators": [],
+  "climate_zone": "tropical to subtropical",
+  "native_range": "sub-Saharan Africa, Madagascar, Nile basin",
+  "iucn_global_status": {
+    "status": "LC",
+    "variant": "success"
+  },
+  "population_trend": "stable",
+  "social_structure": "hierarchical during breeding",
+  "temperature_dependent_sex_determination": true,
+  "incubation_temperature_male": {
+    "min": 31,
+    "max": 34,
+    "unit": "C"
+  }
+}
