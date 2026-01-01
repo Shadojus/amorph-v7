@@ -7,8 +7,8 @@
 
 import type { ItemData } from '../core/types';
 
-// API Configuration
-const POCKETBASE_URL = import.meta.env.POCKETBASE_URL || 'http://localhost:8090';
+// API Configuration - use process.env for Node.js server context
+const POCKETBASE_URL = process.env.POCKETBASE_URL || 'http://localhost:8090';
 const API_TIMEOUT = 5000;
 
 // 15 Perspectives matching blueprints

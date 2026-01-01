@@ -10,6 +10,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import type { ItemData, Perspective } from '../core/types';
 import { getConfig, getAllPerspectives } from './config';
+import { loadSpeciesByCategory, checkBifroestConnection } from './bifroest';
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // PATHS
@@ -88,8 +89,6 @@ function safeReadJson<T>(filePath: string): { data: T | null; error: string | nu
 // BIFRÖST API INTEGRATION
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import { loadSpeciesByCategory, checkBifroestConnection } from './bifroest';
-
 /**
  * Lädt Daten von BIFRÖST API mit Fallback auf lokale Dateien.
  */
@@ -119,7 +118,7 @@ async function loadFromBifroest(category: string): Promise<ItemData[] | null> {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 // Control data source: 'pocketbase' | 'local' | 'auto' (try pocketbase first, fallback to local)
-const DATA_SOURCE = import.meta.env.DATA_SOURCE || 'pocketbase';
+const DATA_SOURCE = process.env.DATA_SOURCE || 'pocketbase';
 
 /**
  * Lädt alle Items - primär von BIFRÖST Pocketbase.
@@ -351,6 +350,7 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
   } else if (indexResult.error) {
     loadErrors.push({ path: indexPath, error: indexResult.error });
   }
+  } // End of: if (DATA_SOURCE === 'local' || DATA_SOURCE === 'auto')
   
   cachedItems = items;
   
