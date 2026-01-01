@@ -6,14 +6,18 @@
  * Returns system health status including:
  * - Pocketbase connection
  * - Cache statistics
+ * - Rate limiter stats
  * - System info
  */
 
 import type { APIRoute } from 'astro';
 import { checkBifroestConnection, getBifroestStatus } from '../../server/bifroest';
 import { cache } from '../../server/cache';
+import { apiRateLimiter } from '../../server/rate-limiter';
+import { getSecurityHeaders } from '../../server/security';
+import { logger } from '../../server/logger';
 
-export const GET: APIRoute = async () => {
+export const GET: APIRoute = async ({ request }) => {
   const startTime = Date.now();
   
   // Check Pocketbase connection
@@ -22,6 +26,9 @@ export const GET: APIRoute = async () => {
   
   // Get cache stats
   const cacheStats = cache.stats();
+  
+  // Get rate limiter stats
+  const rateLimitStats = apiRateLimiter.getStats();
   
   // Build response
   const health = {
@@ -39,6 +46,11 @@ export const GET: APIRoute = async () => {
         status: 'up',
         entries: cacheStats.size,
         enabled: process.env.ENABLE_CACHE !== 'false'
+      },
+      rateLimiter: {
+        status: 'up',
+        trackedIPs: rateLimitStats.totalTracked,
+        blockedIPs: rateLimitStats.blockedIPs
       }
     },
     environment: {
@@ -48,12 +60,15 @@ export const GET: APIRoute = async () => {
   };
 
   const statusCode = pocketbaseHealthy ? 200 : 503;
+  
+  logger.info('Health check', { status: health.status, responseTime: health.responseTime });
 
   return new Response(JSON.stringify(health, null, 2), {
     status: statusCode,
     headers: {
       'Content-Type': 'application/json',
-      'Cache-Control': 'no-cache, no-store, must-revalidate'
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      ...getSecurityHeaders()
     }
   });
 };
