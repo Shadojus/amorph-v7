@@ -1,14 +1,47 @@
 # AMORPH v7 - Server Module
 
-> SSR-Module für Config und Data Loading mit Perspektiven-Merging.
+> SSR-Module für Config und Data Loading mit **Pocketbase Integration**.
 
 ## 📁 Struktur
 
 ```
 server/
-├── index.ts     # Re-Exports
-├── config.ts    # YAML Config Loader (~200 Zeilen)
-└── data.ts      # JSON Data Loader + Perspective Merging (~757 Zeilen)
+├── index.ts      # Re-Exports
+├── config.ts     # YAML Config Loader (~200 Zeilen)
+├── data.ts       # Data Loader + Pocketbase/Local Fallback (~380 Zeilen)
+└── bifroest.ts   # Pocketbase Client für Species (~150 Zeilen)
+```
+
+## 🔗 Pocketbase Integration (Januar 2026)
+
+**Alle Species-Daten kommen aus Pocketbase!**
+
+```typescript
+// Env vars (in Astro config oder .env)
+POCKETBASE_URL=http://localhost:8090
+DATA_SOURCE=pocketbase  // 'pocketbase' | 'local' | 'auto'
+```
+
+### bifroest.ts - Pocketbase Client
+
+```typescript
+import { loadSpeciesFromBifroest, loadSpeciesBySlug } from './bifroest';
+
+// Load all species for a category
+const species = await loadSpeciesFromBifroest('fungi');
+// Returns ItemData[] with all 15 perspectives merged
+
+// Load single species
+const item = await loadSpeciesBySlug('hericium-erinaceus');
+```
+
+### 15 Perspektiven (aus Pocketbase JSON-Feldern)
+```typescript
+const PERSPECTIVES = [
+  'identification', 'ecology', 'chemistry', 'medicine', 'safety',
+  'culinary', 'cultivation', 'conservation', 'culture', 'economy',
+  'geography', 'interactions', 'research', 'statistics', 'temporal'
+];
 ```
 
 ## 📦 config.ts - Config Loader (200 Zeilen)
@@ -34,49 +67,31 @@ interface Perspective {
 }
 ```
 
-Verfügbare Perspektiven:
-- taxonomy, chemistry, ecology, cultivation, culinary
-- safety, mythology, history, phenotype, medicinal
-- psychoactive, conservation, identification, comparison, climate
+## 📦 data.ts - Data Loader (~380 Zeilen)
 
-## 📦 data.ts - Data Loader (~757 Zeilen)
-
-Lädt JSON-Daten aus `data/` Ordner mit Kingdom/Species/Perspective Struktur.
-**Perspektiven-Felder werden automatisch ins Item gemergt** für Grid-Anzeige.
+Orchestriert Datenladung - **Pocketbase zuerst, lokaler Fallback bei Bedarf**.
 
 ### Daten-Hierarchie
 ```
-data/
-├── fungi/                    # Kingdom (27 Spezies)
-│   └── {species-slug}/      # Species Ordner
-│       ├── index.json       # Core-Daten
-│       ├── medicine.json    # Perspektive (wird gemergt)
-│       ├── safety.json      # Perspektive (wird gemergt)
-│       └── ...              # Weitere Perspektiven
-└── plantae/                  # Weiteres Kingdom
-```
+1. Pocketbase API (http://localhost:8090)
+   └── species collection (91 records)
+       ├── fungi (28)
+       ├── plantae (35)
+       └── therion (28)
 
-### Perspektiven-Merging
-```typescript
-// Beim Laden werden Perspektiven-Felder ins Item gemergt:
-for (const [key, value] of Object.entries(perspData)) {
-  if (!key.startsWith('_') && item[key] === undefined) {
-    item[key] = value;
-    item._fieldPerspective[key] = perspName; // Track origin
-  }
-}
+2. Local Fallback (wenn DATA_SOURCE='auto' und Pocketbase down)
+   └── data/{category}/{species-slug}/
+       ├── index.json
+       └── {perspective}.json
 ```
 
 ### API
 ```typescript
 import { 
-  loadAllItems,
+  loadAllItems,     // Lädt von Pocketbase
   searchItems,
   getItem,          // Einzelnes Item
   getItems,         // Mehrere Items (für Compare)
-  loadPerspective,  // Lädt eine Perspektive lazy
-  loadPerspectives, // Lädt mehrere Perspektiven batch
-  hasPerspective,   // Prüft ob Perspektive existiert
   getLoadErrors,    // Gibt Ladefehler zurück
   invalidateCache   // Cache invalidieren
 } from './server/data';
@@ -91,19 +106,6 @@ const { items, total, perspectivesWithData } = await searchItems({
 });
 ```
 
-### Lazy Loading für Perspektiven
-```typescript
-// On-demand Perspektive laden (mit Caching)
-const chemistry = await loadPerspective('psilocybe-cyanescens', 'chemistry');
-
-// Batch: Mehrere Perspektiven laden
-const perspMap = await loadPerspectives('steinpilz', ['chemistry', 'ecology']);
-perspMap.get('ecology');  // Ecology-Daten oder undefined
-
-// Prüfen ohne zu laden
-const exists = await hasPerspective('steinpilz', 'culinary');
-```
-
 ### Response Types
 ```typescript
 interface SearchResult {
@@ -112,14 +114,6 @@ interface SearchResult {
   perspectivesWithData: string[];
 }
 ```
-
-### Such-Features
-
-- **Text-Suche**: In `name`, `wissenschaftlich`, allen String-Feldern
-- **Perspektiven-Suche**: Suchbegriff wird gegen Perspektiven-Namen/IDs gematcht
-- **Perspektiven-Filter**: Items mit Daten für gewählte Perspektiven
-- **Pagination**: `limit` und `offset` Parameter
-- **perspectivesWithData**: Welche Perspektiven haben Daten
 
 ### Security
 
@@ -140,3 +134,15 @@ const { items } = await searchItems({ query: '', limit: 50 });
 const steinpilz = await getItem('steinpilz');
 ---
 ```
+
+## 🔧 Environment Variables
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `POCKETBASE_URL` | `http://localhost:8090` | Pocketbase API URL |
+| `DATA_SOURCE` | `pocketbase` | `pocketbase`, `local`, or `auto` |
+
+### DATA_SOURCE Options
+- **pocketbase**: Only load from Pocketbase (default, recommended)
+- **local**: Only load from local JSON files (legacy mode)
+- **auto**: Try Pocketbase first, fallback to local if unavailable

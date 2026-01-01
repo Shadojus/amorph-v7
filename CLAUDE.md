@@ -4,8 +4,11 @@
 
 > Unified Morph Architecture für **biologische Daten** (Pilze, Pflanzen, Tiere, Mikroorganismen) mit automatischer Single/Compare-Erkennung.
 
-## Status: ✅ Production Ready (Dezember 2025)
+## Status: ✅ Production Ready (Januar 2026)
 
+- **🔗 BIFRÖST Integration** - Daten aus Pocketbase (nicht mehr lokal!)
+- **91 Species** - 28 Fungi, 35 Plantae, 28 Therion
+- **15 Perspektiven** - identification, ecology, chemistry, medicine, safety, culinary, cultivation, conservation, culture, economy, geography, interactions, research, statistics, temporal
 - **28 Morph Primitives** implementiert (badge, bar, boolean, calendar, citation, currency, date, dosage, gauge, image, lifecycle, link, list, number, object, pie, progress, radar, range, rating, severity, sparkline, stats, steps, tag, text, timeline)
 - **Struktur-basierte Detection** - Typ-Erkennung rein aus Datenstruktur
 - **Field-basierte Selektion** - Einzelne Felder aus beliebigen Spezies auswählen
@@ -13,7 +16,6 @@
 - **Autocomplete Feature** - Fehlende Felder automatisch bei anderen Spezies ergänzen
 - **Bio-Lumineszenz Farbsystem** - 8 leuchtende Farben (Foxfire, Myzel, Sporen, etc.)
 - **HIGH_VALUE_FIELDS Priorisierung** - "Knaller"-Daten zuerst (Healing, WOW-Faktor, Kulinarik)
-- **SEO-optimierte Index-Generierung** - Taglines, Badges, Quick Facts pro Species
 - **Bifröst Attribution System** - © Copyright-Badges + Experten-Buttons mit Popup
 - **Nebel-Drift Animation** - Sanftes Cyan-Glow ohne Blinken (kein Weiß)
 - **English UI Labels** - Search, Compare, Complete, Copy (international)
@@ -83,12 +85,14 @@ npm run optimize:images  # WebP-Konvertierung
 amorph-v7/
 ├── config/              # YAML-Konfiguration
 │   ├── manifest.yaml    # App-Name, Version, Branding
-│   ├── daten.yaml       # Datenquelle (json-universe-optimized)
+│   ├── daten.yaml       # Datenquelle (pocketbase)
 │   ├── features.yaml    # Feature-Flags
 │   └── schema/          # 15 Perspektiven + Blueprints
 │
-├── data/                # JSON-Daten (Kingdom/Species/Perspective)
-│   └── fungi/           # 27 Pilz-Spezies mit 196 JSON-Dateien
+├── data/                # Lokale Hilfsdateien (NICHT Species-Daten!)
+│   ├── universe-index.json    # Index für Navigation
+│   └── bifroest-experts.json  # Experten-Datenbank
+│   # ⚠️ Species-Daten sind in POCKETBASE (http://localhost:8090)
 │
 ├── scripts/             # Build & Validierung
 │   ├── build-index.js   # v2.0 - SEO-optimierte Index-Generierung
@@ -101,30 +105,37 @@ amorph-v7/
 │   ├── core/            # types.ts, detection.ts, security.ts
 │   ├── morphs/          # 28 Primitives + base.ts + debug.ts
 │   ├── observer/        # Debug & Analytics (DYNAMIC IMPORT!)
-│   ├── server/          # config.ts, data.ts (SSR)
+│   ├── server/          # config.ts, data.ts, bifroest.ts (Pocketbase Client)
 │   ├── client/features/ # app, search, grid, compare, selection, bifrost, debug
 │   ├── layouts/         # Base.astro (CSS Bundling)
 │   └── pages/           # index.astro (Pagination), [slug].astro, api/
 │
-├── public/styles/       # CSS mit Bundled Outputs
-│   ├── all.min.css      # Production Bundle (154KB)
-│   ├── base.min.css     # Base Styles
-│   ├── components.min.css # UI Components
-│   └── morphs/          # Morph Styles (inkl. bifroest.css)
+├── public/
+│   ├── styles/          # CSS mit Bundled Outputs
+│   │   ├── all.min.css  # Production Bundle (154KB)
+│   │   └── morphs/      # Morph Styles (inkl. bifroest.css)
+│   └── images/species/  # Lokale Bilder (WebP)
 │
 └── tests/               # 421 Tests - detection, security, morphs, observer, integration
 ```
 
-## 🚀 Quick Start
+## 🔗 Pocketbase Integration
 
+AMORPH lädt alle Species-Daten von der **BIFRÖST Pocketbase**:
+
+```
+http://localhost:8090/api/collections/species/records
+```
+
+### Species Collection Schema (25 Felder)
+- **Core**: name, slug, category, description, scientific_name, image
+- **15 Perspektiven**: identification, ecology, chemistry, medicine, safety, culinary, cultivation, conservation, culture, economy, geography, interactions, research, statistics, temporal (JSON)
+- **Meta**: created, updated, sources, expert_id
+
+### Environment Variables
 ```bash
-cd amorph-v7
-npm install
-npm run dev          # Port 4321 (oder 4322/4323 wenn belegt)
-npm test             # Tests im Watch-Modus
-npm run test:run     # Einmalig ohne Watch (421 Tests)
-npm run build:index  # SEO-Index regenerieren
-npm run validate     # Schema-Validierung (0 Errors expected)
+POCKETBASE_URL=http://localhost:8090   # Pocketbase API
+DATA_SOURCE=pocketbase                  # 'pocketbase' | 'local' | 'auto'
 ```
 1. **z-index: 10001** - Bottom Navigation
 2. **z-index: 10000** - Suchleiste

@@ -1,51 +1,66 @@
 # AMORPH v7 - Data
 
-> JSON data for biological species with perspectives system.
+> ⚠️ **IMPORTANT**: Species data is now stored in **BIFRÖST Pocketbase**, NOT in local files!
 
-## 🚀 Performance Optimizations (December 2025)
-- **WebP Images** - All JPG/PNG converted to WebP (96.65 MB saved!)
-- **Originals kept** - JPG/PNG remain as fallback
-- **~40-80% reduction** per image
+## 🔗 Data Source
 
-## 📁 Structure (current)
+All species data (91 items: 28 fungi, 35 plantae, 28 therion) is loaded from:
 
+```
+http://localhost:8090/api/collections/species/records
+```
+
+### Local Files (kept for reference/fallback)
 ```
 data/
-├── universe-index.json     # Main index of all kingdoms (SEO-optimized)
-├── bifroest-experts.json   # Bifröst experts database
-└── fungi/
-    ├── index.json          # Kingdom index with all species + perspectives
-    └── {species-slug}/     # One folder per species (52 mushrooms)
-        ├── index.json      # Core data (name, slug, description)
-        ├── *.jpg           # Original images
-        ├── *.webp          # WebP versions (auto-generated)
-        ├── identification.json
-        ├── ecology.json
-        ├── safety.json
-        ├── medicine.json
-        ├── culinary.json
-        ├── cultivation.json
-        ├── culture.json
-        └── ... (additional perspectives)
+├── universe-index.json     # Navigation index
+├── bifroest-experts.json   # Experts database
+├── CLAUDE.md               # This file
+└── README.md               # Documentation
 ```
 
-## 📊 Current Data
+### Pocketbase Species Collection (25 fields)
+| Field | Type | Description |
+|-------|------|-------------|
+| name | text | Display name |
+| slug | text | URL slug (unique) |
+| category | select | fungi/plantae/therion |
+| description | text | Short description |
+| scientific_name | text | Latin name |
+| image | text | Image filename |
+| identification | json | Perspective data |
+| ecology | json | Perspective data |
+| chemistry | json | Perspective data |
+| medicine | json | Perspective data |
+| safety | json | Perspective data |
+| culinary | json | Perspective data |
+| cultivation | json | Perspective data |
+| conservation | json | Perspective data |
+| culture | json | Perspective data |
+| economy | json | Perspective data |
+| geography | json | Perspective data |
+| interactions | json | Perspective data |
+| research | json | Perspective data |
+| statistics | json | Perspective data |
+| temporal | json | Perspective data |
+| sources | json | Data sources |
+| expert_id | relation | Link to expert |
 
-- **52 mushroom species** (e.g., hericium-erinaceus, trametes-versicolor, psilocybe-*)
-- **196 JSON files** validated (0 errors)
-- **1763 images** converted to WebP
-- **~12 perspectives** per species on average
+## 🖼️ Images
 
-## 🖼️ Image Conversion
-
-```bash
-# Run WebP conversion:
-npm run optimize:images
-
-# Output:
-# ✅ 1763 images converted
-# 💾 96.65 MB saved
+Species images are stored locally in:
 ```
+public/images/species/{category}/{slug}/
+```
+
+## 📊 Current Data (January 2026)
+
+- **91 species total** in Pocketbase
+  - 28 fungi (mushrooms)
+  - 35 plantae (plants)
+  - 28 therion (animals)
+- **15 perspectives** per species
+- **Admin**: http://localhost:8090/_/
 
 ## 🔗 Bifröst Attribution System
 
