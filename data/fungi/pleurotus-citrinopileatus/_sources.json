@@ -1,0 +1,113 @@
+{
+  "image": [
+    {
+      "name": "Icyurmt2",
+      "author": "Icyurmt2",
+      "username": "Icyurmt2",
+      "year": 2020,
+      "copyright": "© 2020 Icyurmt2",
+      "license": "CC BY-SA 3.0",
+      "url": "https://mushroomobserver.org"
+    }
+  ],
+  "fields": {
+    "medicinal_properties": [
+      {
+        "name": "A549 Lung Cancer Cytotoxicity Team",
+        "title": "Wheat Straw Extract Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/35695587/",
+        "contact": "Methanol extract decreased A-549 lung cancer cell viability remarkably (2022)"
+      },
+      {
+        "name": "Metabolic Syndrome Research Team",
+        "title": "Obesity & Diabetes Ethanolic Extract Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/29345562/",
+        "contact": "Alleviates metabolic syndrome in diet-induced obese mice (2018)"
+      }
+    ],
+    "nutritional_composition": [
+      {
+        "name": "Kenyan Proximate Composition Team",
+        "title": "Amino Acids & Vitamins Profile Researchers",
+        "url": "https://www.researchgate.net/publication/236534149_Yield_performance_and_nutritional_analysis_of_Pleurotus_citrinopileatus_on_different_agrowastes_and_vegetable_wastes",
+        "contact": "Musieba et al. 2013: 30% protein (highest in genus), proximate composition, vitamins"
+      },
+      {
+        "name": "Vitamin D Irradiation Research Team",
+        "title": "UV-B Ergocalciferol Enhancement Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7832515/",
+        "contact": "Vitamin D2 increased 0 → 208.65 mg/g after irradiation"
+      }
+    ],
+    "polysaccharides": [
+      {
+        "name": "PCP Structure & Activity Review Team",
+        "title": "Polysaccharide Isolation & Purification Researchers",
+        "url": "https://www.mdpi.com/1420-3049/30/13/2816",
+        "contact": "→3)-α-D-Glcp-(1→, →6)-α-D-Galp-(1→, 3-O-Me-Galp residues, immunomodulatory, hypoglycemic, antitumor (2025)"
+      },
+      {
+        "name": "Tibetan Strain X21156 Research Team",
+        "title": "Antioxidant & Cytotoxic Activity Researchers",
+        "url": "https://www.mdpi.com/2311-7524/10/4/377",
+        "contact": "First Tibetan P. citrinopileatus study: ABTS+ EC50 0.06 mg/mL, HepG2 IC50 1.69 mg/mL (Apr 2024)"
+      },
+      {
+        "name": "p62/Keap1/Nrf2 Pathway Research Team",
+        "title": "Antioxidant Enzyme Upregulation Researchers",
+        "url": "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/pleurotus-citrinopileatus",
+        "contact": "CMP activates Nrf2, upregulates HO-1 & NQO1 antioxidant enzymes"
+      }
+    ],
+    "phenolic_compounds": [
+      {
+        "name": "8-Phenolic Compound Identification Team",
+        "title": "Xanthine Oxidase & Tyrosinase Inhibition Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/22783067/",
+        "contact": "Gallic, protocatechuic, chlorogenic, ferulic acids; naringenin, hesperetin, formononetin, biochanin-A (2012)"
+      }
+    ],
+    "cultivation_substrate": [
+      {
+        "name": "Tibetan Cultivation Optimization Team",
+        "title": "Wild Strain Culture Condition Researchers",
+        "url": "https://www.mdpi.com/2311-7524/10/4/377",
+        "contact": "pH 7, 25°C, glucose, yeast powder optimal for X21156 strain (2024)"
+      },
+      {
+        "name": "SMS & Hydroponic Root Research Team",
+        "title": "Spent Mushroom Substrate Researchers",
+        "url": "https://www.mdpi.com/2076-2607/12/9/1807",
+        "contact": "SMS 70%-HRL 20%: 61% efficiency, protein 25.60-34.66% vs 24.40% control (Sept 2024)"
+      },
+      {
+        "name": "Sri Lankan Hevea Sawdust Team",
+        "title": "Rubber Sawdust Industrial Cultivation Researchers",
+        "url": "https://www.researchgate.net/publication/382830506_Enhancing_cultivation_conditions_for_Pleurotus_citrinopileatus_introducing_a_novel_mushroom_to_Sri_Lanka",
+        "contact": "63.0-69.7% moisture, 1.5 kg CaCO₃/100 kg sawdust optimal (July 2024)"
+      }
+    ],
+    "antioxidant_activity": [
+      {
+        "name": "3-O-Methylated Galactan Research Team",
+        "title": "Reducing Power & Radical Scavenging Researchers",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S000862151730890X",
+        "contact": "3-O-Me-Galp residues in mannogalactan chains: strong reducing power & radical scavenging (2018)"
+      },
+      {
+        "name": "Ethanolic vs Water Extract Team",
+        "title": "Comparative Antioxidant Activity Researchers",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0023643806001216",
+        "contact": "Ethanolic extracts > water extracts; fruit bodies > mycelia & filtrate"
+      }
+    ],
+    "color_primary": [
+      {
+        "name": "Bioactive Compound Retention Team",
+        "title": "Processing & Pigment Preservation Researchers",
+        "url": "https://www.mdpi.com/2076-3417/15/3/1655",
+        "contact": "Colored varieties (P. citrinopileatus): processing methods & bioactive compound retention (2025)"
+      }
+    ]
+  }
+}

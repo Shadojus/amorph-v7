@@ -1,0 +1,115 @@
+{
+  "image": [
+    {
+      "name": "Dave Ross",
+      "author": "Dave Ross",
+      "username": "earthtodave",
+      "year": 2021,
+      "copyright": "© 2021 Dave Ross (earthtodave)",
+      "license": "CC BY-SA 3.0",
+      "url": "https://mushroomobserver.org"
+    }
+  ],
+  "fields": {
+    "active_compounds": [
+      {
+        "name": "Bao Xiao-Fei",
+        "title": "Polysaccharide & Immunology Researcher",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/?term=Bao+XF+ganoderma",
+        "contact": "Structural features research (Phytochemistry, 2002)"
+      }
+    ],
+    "traditional_medicine_systems": [
+      {
+        "name": "Christopher Hobbs, Ph.D.",
+        "title": "Herbalist, TCM & Medicinal Mushroom Expert",
+        "url": "https://christopherhobbs.com",
+        "contact": "Author: Medicinal Mushrooms"
+      }
+    ],
+    "primary_medicinal_uses": [
+      {
+        "name": "Paul Stamets",
+        "title": "Mycologist, Medicinal Mushroom Pioneer",
+        "url": "https://fungi.com",
+        "contact": "info@fungi.com"
+      },
+      {
+        "name": "Christopher Hobbs, Ph.D.",
+        "title": "Herbalist & Mycologist",
+        "url": "https://christopherhobbs.com"
+      }
+    ],
+    "scientific_name": [
+      {
+        "name": "Sheng-Hua Wu",
+        "title": "Mycologist, Ganoderma Taxonomist",
+        "url": "https://link.springer.com/article/10.1007/s13225-012-0178-5",
+        "contact": "National Museum of Natural Science, Taiwan"
+      }
+    ],
+    "author_citation": [
+      {
+        "name": "Jean-Marc Moncalvo",
+        "title": "Molecular Phylogeneticist",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0953756209807983",
+        "contact": "G. lucidum complex phylogeny pioneer (1995)"
+      }
+    ],
+    "taxonomy_family": [
+      {
+        "name": "Yu-Cheng Dai",
+        "title": "Wood-Decay Fungi Systematicist",
+        "url": "https://mycokeys.pensoft.net/article/22593",
+        "contact": "Beijing Forestry University, Institute of Microbiology"
+      }
+    ],
+    "confusion_species_list": [
+      {
+        "name": "Sheng-Hua Wu",
+        "title": "Ganoderma Species Complex Expert",
+        "url": "https://link.springer.com/article/10.1007/s11557-017-1347-4",
+        "contact": "G. lucidum vs G. lingzhi distinction"
+      }
+    ],
+    "trophic_mode_primary": [
+      {
+        "name": "Adaskaveg & Gilbertson",
+        "title": "Wood Decay Researchers",
+        "url": "https://apsjournals.apsnet.org/doi/10.1094/PDIS-02-18-0338-RE",
+        "contact": "Ganoderma ecology & white rot mechanisms"
+      }
+    ],
+    "decomposer_type": [
+      {
+        "name": "Adaskaveg & Gilbertson",
+        "title": "White Rot Specialists",
+        "contact": "Cultural studies of G. lucidum (Mycologia, 1986)"
+      }
+    ],
+    "substrate_type_primary": [
+      {
+        "name": "Michael Wood",
+        "title": "California Mushrooms & Boletes Expert",
+        "url": "https://www.mykoweb.com",
+        "contact": "MykoWeb founder, MSSF past president"
+      }
+    ],
+    "clinical_evidence_level": [
+      {
+        "name": "Clinical Trials Consortium",
+        "title": "Ganoderma Clinical Research",
+        "url": "https://liebertpub.com/doi/pdf/10.1089/ict.2024.56835.luc",
+        "contact": "Cancer adjuvant therapy studies"
+      }
+    ],
+    "contraindications": [
+      {
+        "name": "Christopher Hobbs, Ph.D.",
+        "title": "Clinical Safety Expert",
+        "url": "https://christopherhobbs.com",
+        "contact": "Medicinal Mushrooms safety profiles"
+      }
+    ]
+  }
+}

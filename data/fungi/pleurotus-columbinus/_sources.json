@@ -1,0 +1,79 @@
+{
+  "image": [
+    {
+      "name": "John F Brey",
+      "author": "John F Brey",
+      "username": "JohnnyB2112",
+      "year": 2014,
+      "copyright": "© 2014 John F Brey (JohnnyB2112)",
+      "license": "CC BY-SA 3.0",
+      "url": "https://mushroomobserver.org"
+    }
+  ],
+  "fields": {
+    "safety_edibility_notes": [
+      {
+        "name": "Pleurotolysin Bioinsecticide Research Team",
+        "title": "Aegerolysin Pore-Forming Protein Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/32971130/",
+        "contact": "Aegerolysins from Pleurotus: bioinsecticidal, target membrane ceramide phosphoethanolamine (2020)"
+      },
+      {
+        "name": "Ostreolysin Cytolytic Complex Team",
+        "title": "Western Corn Rootworm & Colorado Potato Beetle Researchers",
+        "url": "https://www.nature.com/articles/s41598-019-41450-4",
+        "contact": "Pore-forming complexes kill pests, heat-labile toxin destroyed by cooking (2019)"
+      }
+    ],
+    "cholesterol_lowering": [
+      {
+        "name": "Human Triacylglycerol Research Team",
+        "title": "Oyster Mushroom Soup Clinical Trial Researchers",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S1756464610000630",
+        "contact": "21-day, 20 subjects: -0.44 mmol/L TAG (p=0.015), -7.2 U/mL ox-LDL (p=0.013)"
+      },
+      {
+        "name": "Hypercholesterolemic Rat Research Team",
+        "title": "Lipid Profile Improvement Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3385090/",
+        "contact": "5% P. ostreatus powder: -30.18% cholesterol, -59.62% LDL, -50% LDL/HDL ratio"
+      },
+      {
+        "name": "Lovastatin Content Research Team",
+        "title": "Cholesterol-Lowering Molecule Researchers",
+        "url": "https://www.huffpost.com/entry/oyster-mushroom_b_2522084",
+        "contact": "Up to 2.8% lovastatin by dry weight, 30% protein, no cholesterol, rich B vitamins"
+      }
+    ],
+    "immunostimulating": [
+      {
+        "name": "Pleurotus Mycochemical Profile Team",
+        "title": "Immunomodulatory Effects Researchers",
+        "url": "https://www.tandfonline.com/doi/full/10.1080/10942912.2016.1210162",
+        "contact": "Antimicrobial, antiviral, anticancer, hypolipidemic, immunomodulatory (Atherosclerosis review 2016)"
+      },
+      {
+        "name": "HIV Antiretroviral Therapy Research Team",
+        "title": "Antihyperlipidemic Clinical Trial Researchers",
+        "url": "https://bmccomplementmedtherapies.biomedcentral.com/articles/10.1186/1472-6882-11-60",
+        "contact": "P. ostreatus in HIV-infected individuals on ART: antihyperlipidemic effects (2011)"
+      }
+    ],
+    "bioactive_compounds": [
+      {
+        "name": "P. columbinus Metabolomic Profiling Team",
+        "title": "Agri-Food Byproduct Substrate Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8532797/",
+        "contact": "Metabolomic profiling & biological activities on different byproducts (2021)"
+      }
+    ],
+    "color_blue_gray": [
+      {
+        "name": "Blue Oyster Cultivation Research Team",
+        "title": "Conifer Wood Substrate Researchers",
+        "url": "https://www.out-grow.com/blue-oyster-mushroom-pleurotus-columbinus",
+        "contact": "Year-round cultivation on conifer wood, blue-gray cap characteristic"
+      }
+    ]
+  }
+}
