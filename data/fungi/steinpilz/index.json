@@ -1,0 +1,16 @@
+{
+  "name": "Steinpilz",
+  "scientificName": "Boletus edulis",
+  "slug": "steinpilz",
+  "kingdom": "fungi",
+  "description": "Der Steinpilz ist einer der bekanntesten und beliebtesten Speisepilze.",
+  "image": "/images/species/steinpilz.jpg",
+  "_fieldPerspective": {
+    "chemicalComposition": "chemistry",
+    "habitat": "ecology",
+    "medicinalProperties": "medicine",
+    "culinaryUses": "culinary",
+    "toxicity": "safety",
+    "identification": "identification"
+  }
+}
