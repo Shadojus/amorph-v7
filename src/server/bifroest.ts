@@ -1,31 +1,22 @@
 /**
  * AMORPH - BIFRÖST Species Client
  * 
- * Lädt Species-Daten von der BIFRÖST API statt aus lokalen JSON-Dateien.
- * Fallback auf lokale Daten wenn API nicht erreichbar.
+ * Lädt Species-Daten von der BIFRÖST Pocketbase.
+ * Schema: Core fields + 15 Perspective JSON fields (matching blueprints)
  */
 
 import type { ItemData } from '../core/types';
 
 // API Configuration
-const BIFROEST_API_URL = import.meta.env.BIFROEST_API_URL || 'http://localhost:3004';
 const POCKETBASE_URL = import.meta.env.POCKETBASE_URL || 'http://localhost:8090';
 const API_TIMEOUT = 5000;
 
-interface BifroestSpecies {
-  id: string;
-  name: string;
-  scientificName: string;
-  slug: string;
-  category: string;
-  description: string;
-  image: string;
-  fieldPerspective: Record<string, string>;
-  data: Record<string, unknown>;
-  tags: string[];
-  status: string;
-  featured: boolean;
-}
+// 15 Perspectives matching blueprints
+const PERSPECTIVES = [
+  'identification', 'ecology', 'chemistry', 'medicine', 'safety',
+  'culinary', 'cultivation', 'conservation', 'culture', 'economy',
+  'geography', 'interactions', 'research', 'statistics', 'temporal'
+] as const;
 
 interface PocketbaseResponse {
   items: PocketbaseSpecies[];
@@ -39,17 +30,34 @@ interface PocketbaseSpecies {
   id: string;
   collectionId: string;
   collectionName: string;
-  name: string;
-  scientificName: string;
+  // Core fields
   slug: string;
-  category: string;
+  name: string;
+  scientific_name: string;
   description: string;
+  category: string;
   image: string;
-  fieldPerspective: Record<string, string>;
-  data: Record<string, unknown>;
-  tags: string[];
+  // 15 Perspective fields (each is JSON or null)
+  identification: Record<string, unknown> | null;
+  ecology: Record<string, unknown> | null;
+  chemistry: Record<string, unknown> | null;
+  medicine: Record<string, unknown> | null;
+  safety: Record<string, unknown> | null;
+  culinary: Record<string, unknown> | null;
+  cultivation: Record<string, unknown> | null;
+  conservation: Record<string, unknown> | null;
+  culture: Record<string, unknown> | null;
+  economy: Record<string, unknown> | null;
+  geography: Record<string, unknown> | null;
+  interactions: Record<string, unknown> | null;
+  research: Record<string, unknown> | null;
+  statistics: Record<string, unknown> | null;
+  temporal: Record<string, unknown> | null;
+  // Meta fields
+  sources: Record<string, unknown> | null;
   status: string;
   featured: boolean;
+  tags: string[];
 }
 
 /**
@@ -60,30 +68,34 @@ function toItemData(species: PocketbaseSpecies): ItemData {
     id: species.id,
     slug: species.slug,
     name: species.name,
-    scientificName: species.scientificName,
+    scientificName: species.scientific_name,
     description: species.description,
     image: species.image,
     _kingdom: species.category,
-    _fieldPerspective: species.fieldPerspective || {},
+    _fieldPerspective: {} as Record<string, string>,
     _perspectives: {},
     _loadedPerspectives: [],
-    _sources: {}
+    _sources: (species.sources || {}) as ItemData['_sources']
   };
   
-  // Extrahiere Perspektiven-Daten aus dem data-Feld
-  if (species.data) {
-    for (const [key, value] of Object.entries(species.data)) {
+  // Extrahiere alle 15 Perspektiven-Felder
+  for (const perspective of PERSPECTIVES) {
+    const data = species[perspective];
+    if (data && typeof data === 'object') {
       // Speichere in _perspectives
-      if (typeof value === 'object' && value !== null) {
-        item._perspectives![key] = value as Record<string, unknown>;
-        (item._loadedPerspectives as string[]).push(key);
-        
-        // Merge Felder ins Haupt-Item
-        for (const [fieldKey, fieldValue] of Object.entries(value as Record<string, unknown>)) {
-          if (!fieldKey.startsWith('_') && item[fieldKey] === undefined) {
-            item[fieldKey] = fieldValue;
-          }
+      item._perspectives![perspective] = data;
+      (item._loadedPerspectives as string[]).push(perspective);
+      
+      // Merge Felder ins Haupt-Item für direkten Zugriff
+      for (const [fieldKey, fieldValue] of Object.entries(data)) {
+        if (!fieldKey.startsWith('_') && item[fieldKey] === undefined) {
+          item[fieldKey] = fieldValue;
         }
+      }
+      
+      // Map field to perspective
+      for (const fieldKey of Object.keys(data)) {
+        (item._fieldPerspective as Record<string, string>)[fieldKey] = perspective;
       }
     }
   }

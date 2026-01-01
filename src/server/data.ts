@@ -118,13 +118,14 @@ async function loadFromBifroest(category: string): Promise<ItemData[] | null> {
 // DATA LOADER
 // ═══════════════════════════════════════════════════════════════════════════════
 
+// Control data source: 'pocketbase' | 'local' | 'auto' (try pocketbase first, fallback to local)
+const DATA_SOURCE = import.meta.env.DATA_SOURCE || 'pocketbase';
+
 /**
- * Lädt alle Items - zuerst von BIFRÖST API, dann Fallback auf lokale Dateien.
+ * Lädt alle Items - primär von BIFRÖST Pocketbase.
+ * Fallback auf lokale Dateien nur wenn DATA_SOURCE='auto' oder 'local'.
  * 
- * Struktur (lokal):
- *   data/{kingdom}/index.json         -> { species: [{ slug, name, ... }] }
- *   data/{kingdom}/{slug}/index.json  -> Item-Metadaten
- *   data/{kingdom}/{slug}/{perspektive}.json -> Perspektiven-Daten
+ * Schema: Core fields + 15 Perspective JSON fields (matching blueprints)
  */
 export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
   if (cachedItems && !forceReload) {
@@ -137,37 +138,48 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
   // Get current site type for kingdom info
   const siteType = getSiteType();
   const siteMeta = SITE_META[siteType];
-  const currentKingdom = siteMeta.dataFolder; // 'fungi', 'plantae', 'animalia'
+  const currentKingdom = siteMeta.dataFolder; // 'fungi', 'plantae', 'therion'
   
-  // 1. Versuche BIFRÖST API
-  const bifroestItems = await loadFromBifroest(currentKingdom);
-  if (bifroestItems && bifroestItems.length > 0) {
-    cachedItems = bifroestItems;
-    cachedIndex = {};
-    for (const item of bifroestItems) {
-      cachedIndex[item.slug] = item;
+  // 1. BIFRÖST Pocketbase (primary data source)
+  if (DATA_SOURCE === 'pocketbase' || DATA_SOURCE === 'auto') {
+    const bifroestItems = await loadFromBifroest(currentKingdom);
+    if (bifroestItems && bifroestItems.length > 0) {
+      console.log(`[Data] ✅ Loaded ${bifroestItems.length} items from Pocketbase`);
+      cachedItems = bifroestItems;
+      cachedIndex = {};
+      for (const item of bifroestItems) {
+        cachedIndex[item.slug] = item;
+      }
+      return bifroestItems;
     }
-    return bifroestItems;
+    
+    if (DATA_SOURCE === 'pocketbase') {
+      // Strict Pocketbase mode - no fallback
+      console.error('[Data] ❌ Pocketbase not available and DATA_SOURCE=pocketbase (no fallback)');
+      loadErrors.push({ path: 'pocketbase', error: 'BIFRÖST API not available' });
+      return items;
+    }
   }
   
-  // 2. Fallback: Lokale Dateien
-  console.log('[Data] Using local files fallback');
-  
-  if (!existsSync(DATA_PATH)) {
-    loadErrors.push({ path: DATA_PATH, error: 'Data directory not found' });
-    console.error(`[Data] DATA_PATH does not exist: ${DATA_PATH}`);
-    return items;
-  }
-  
-  // DATA_PATH is now site-specific (e.g., data/fungi/)
-  // Load items directly from this path
-  const kingdomPath = DATA_PATH;
-  
-  // Prüfe auf index.json
-  const indexPath = join(kingdomPath, 'index.json');
-  const indexResult = safeReadJson<{ species?: Array<{ slug: string; perspectives?: string[] }>; dateien?: string[]; files?: string[] }>(indexPath);
-  
-  if (indexResult.data) {
+  // 2. Fallback: Lokale Dateien (only if DATA_SOURCE='local' or 'auto')
+  if (DATA_SOURCE === 'local' || DATA_SOURCE === 'auto') {
+    console.log('[Data] Using local files fallback');
+    
+    if (!existsSync(DATA_PATH)) {
+      loadErrors.push({ path: DATA_PATH, error: 'Data directory not found' });
+      console.error(`[Data] DATA_PATH does not exist: ${DATA_PATH}`);
+      return items;
+    }
+    
+    // DATA_PATH is now site-specific (e.g., data/fungi/)
+    // Load items directly from this path
+    const kingdomPath = DATA_PATH;
+    
+    // Prüfe auf index.json
+    const indexPath = join(kingdomPath, 'index.json');
+    const indexResult = safeReadJson<{ species?: Array<{ slug: string; perspectives?: string[] }>; dateien?: string[]; files?: string[] }>(indexPath);
+    
+    if (indexResult.data) {
     const indexData = indexResult.data;
     
     // Neue Struktur: species Array
