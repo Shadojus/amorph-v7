@@ -3,13 +3,24 @@
  * 
  * Lädt Species-Daten von der BIFRÖST Pocketbase.
  * Schema: Core fields + 15 Perspective JSON fields (matching blueprints)
+ * 
+ * Features:
+ * - In-memory caching with configurable TTL
+ * - Health check for connection monitoring
+ * - Graceful error handling
  */
 
 import type { ItemData } from '../core/types';
+import { cachedFetch, invalidateSpeciesCache } from './cache';
 
 // API Configuration - use process.env for Node.js server context
 const POCKETBASE_URL = process.env.POCKETBASE_URL || 'http://localhost:8090';
-const API_TIMEOUT = 5000;
+const API_TIMEOUT = parseInt(process.env.API_TIMEOUT || '5000', 10);
+const CACHE_TTL = parseInt(process.env.CACHE_TTL || '300', 10);
+
+// Connection state
+let lastHealthCheck = 0;
+let isConnected = true;
 
 // 15 Perspectives matching blueprints
 const PERSPECTIVES = [
@@ -152,44 +163,65 @@ export async function fetchSpeciesFromPocketbase(options: {
 }
 
 /**
- * Lädt alle Species für eine Kategorie
+ * Lädt alle Species für eine Kategorie (mit Caching)
  */
 export async function loadSpeciesByCategory(category: string): Promise<ItemData[]> {
   console.log(`[BIFRÖST] Loading species for category: ${category}`);
   
   try {
-    const items = await fetchSpeciesFromPocketbase({ category });
+    const items = await cachedFetch(
+      `species:${category}:all`,
+      () => fetchSpeciesFromPocketbase({ category }),
+      CACHE_TTL
+    );
     console.log(`[BIFRÖST] ✅ Loaded ${items.length} species from API`);
+    isConnected = true;
     return items;
   } catch (error) {
     console.error('[BIFRÖST] ❌ API unavailable, falling back to local data');
+    isConnected = false;
     return []; // Caller should handle fallback
   }
 }
 
 /**
- * Lädt einzelne Species by Slug
+ * Lädt einzelne Species by Slug (mit Caching)
  */
 export async function loadSpeciesBySlug(slug: string): Promise<ItemData | null> {
   console.log(`[BIFRÖST] Loading species: ${slug}`);
   
   try {
-    const items = await fetchSpeciesFromPocketbase({ slug });
+    const items = await cachedFetch(
+      `species:slug:${slug}`,
+      () => fetchSpeciesFromPocketbase({ slug }),
+      CACHE_TTL
+    );
     if (items.length > 0) {
       console.log(`[BIFRÖST] ✅ Loaded ${items[0].name}`);
+      isConnected = true;
       return items[0];
     }
     return null;
   } catch (error) {
     console.error('[BIFRÖST] ❌ API unavailable');
+    isConnected = false;
     return null;
   }
 }
 
 /**
- * Prüft ob BIFRÖST API erreichbar ist
+ * Prüft ob BIFRÖST API erreichbar ist (mit Caching)
  */
 export async function checkBifroestConnection(): Promise<boolean> {
+  const now = Date.now();
+  
+  // Nur alle 10 Sekunden prüfen
+  if (now - lastHealthCheck < 10000) {
+    return isConnected;
+  }
+  
+  lastHealthCheck = now;
+  
   try {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 2000);
@@ -199,8 +231,28 @@ export async function checkBifroestConnection(): Promise<boolean> {
     });
     
     clearTimeout(timeoutId);
-    return response.ok;
+    isConnected = response.ok;
+    return isConnected;
   } catch {
+    isConnected = false;
     return false;
   }
+}
+
+/**
+ * Get connection status without making a request
+ */
+export function getBifroestStatus(): { connected: boolean; url: string; lastCheck: number } {
+  return {
+    connected: isConnected,
+    url: POCKETBASE_URL,
+    lastCheck: lastHealthCheck
+  };
+}
+
+/**
+ * Invalidate cache (for admin operations)
+ */
+export function invalidateBifroestCache(category?: string): void {
+  invalidateSpeciesCache(category);
 }

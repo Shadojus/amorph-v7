@@ -34,15 +34,18 @@ COPY --from=builder --chown=astro:nodejs /app/dist ./dist
 COPY --from=builder --chown=astro:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=astro:nodejs /app/package.json ./package.json
 
-# Copy data and config directories (needed at runtime)
+# Copy config and public directories (data comes from Pocketbase now!)
 COPY --from=builder --chown=astro:nodejs /app/config ./config
-COPY --from=builder --chown=astro:nodejs /app/data ./data
 COPY --from=builder --chown=astro:nodejs /app/public ./public
 
 # Set environment
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV PORT=4321
+ENV POCKETBASE_URL=http://pocketbase:8090
+ENV DATA_SOURCE=pocketbase
+ENV ENABLE_CACHE=true
+ENV CACHE_TTL=300
 
 # Switch to non-root user
 USER astro
@@ -50,9 +53,9 @@ USER astro
 # Expose port
 EXPOSE 4321
 
-# Health check
+# Health check via API endpoint
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:4321/ || exit 1
+  CMD wget --no-verbose --tries=1 --spider http://localhost:4321/api/health || exit 1
 
 # Start the server
 CMD ["node", "dist/server/entry.mjs"]
