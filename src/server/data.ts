@@ -85,13 +85,43 @@ function safeReadJson<T>(filePath: string): { data: T | null; error: string | nu
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
+// BIFRÖST API INTEGRATION
+// ═══════════════════════════════════════════════════════════════════════════════
+
+import { loadSpeciesByCategory, checkBifroestConnection } from './bifroest';
+
+/**
+ * Lädt Daten von BIFRÖST API mit Fallback auf lokale Dateien.
+ */
+async function loadFromBifroest(category: string): Promise<ItemData[] | null> {
+  try {
+    const isConnected = await checkBifroestConnection();
+    if (!isConnected) {
+      console.log('[Data] BIFRÖST API not available, using local files');
+      return null;
+    }
+    
+    const items = await loadSpeciesByCategory(category);
+    if (items.length > 0) {
+      console.log(`[Data] ✅ Loaded ${items.length} items from BIFRÖST API`);
+      return items;
+    }
+    
+    return null; // Fallback to local
+  } catch (error) {
+    console.error('[Data] BIFRÖST API error:', error);
+    return null; // Fallback to local
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
 // DATA LOADER
 // ═══════════════════════════════════════════════════════════════════════════════
 
 /**
- * Lädt alle Items aus dem data/ Verzeichnis.
+ * Lädt alle Items - zuerst von BIFRÖST API, dann Fallback auf lokale Dateien.
  * 
- * Struktur:
+ * Struktur (lokal):
  *   data/{kingdom}/index.json         -> { species: [{ slug, name, ... }] }
  *   data/{kingdom}/{slug}/index.json  -> Item-Metadaten
  *   data/{kingdom}/{slug}/{perspektive}.json -> Perspektiven-Daten
@@ -104,16 +134,30 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
   const items: ItemData[] = [];
   loadErrors = [];
   
+  // Get current site type for kingdom info
+  const siteType = getSiteType();
+  const siteMeta = SITE_META[siteType];
+  const currentKingdom = siteMeta.dataFolder; // 'fungi', 'plantae', 'animalia'
+  
+  // 1. Versuche BIFRÖST API
+  const bifroestItems = await loadFromBifroest(currentKingdom);
+  if (bifroestItems && bifroestItems.length > 0) {
+    cachedItems = bifroestItems;
+    cachedIndex = {};
+    for (const item of bifroestItems) {
+      cachedIndex[item.slug] = item;
+    }
+    return bifroestItems;
+  }
+  
+  // 2. Fallback: Lokale Dateien
+  console.log('[Data] Using local files fallback');
+  
   if (!existsSync(DATA_PATH)) {
     loadErrors.push({ path: DATA_PATH, error: 'Data directory not found' });
     console.error(`[Data] DATA_PATH does not exist: ${DATA_PATH}`);
     return items;
   }
-  
-  // Get current site type for kingdom info
-  const siteType = getSiteType();
-  const siteMeta = SITE_META[siteType];
-  const currentKingdom = siteMeta.dataFolder; // 'fungi', 'plantae', 'animalia'
   
   // DATA_PATH is now site-specific (e.g., data/fungi/)
   // Load items directly from this path
