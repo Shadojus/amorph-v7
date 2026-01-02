@@ -1,0 +1,63 @@
+{
+  "image": [
+    {
+      "name": "Django Grootmyers",
+      "author": "Django Grootmyers",
+      "username": "Heelsplitter",
+      "year": 2016,
+      "copyright": "© 2016 Django Grootmyers (Heelsplitter)",
+      "license": "CC BY-SA 3.0",
+      "url": "https://mushroomobserver.org"
+    }
+  ],
+  "fields": {
+    "medicinal_potential_review": [
+      {
+        "name": "Małgorzata Cicha-Jeleń, Bozena Muszynska, Katarzyna Kala, Katarzyna Sulkowska-Ziaja",
+        "title": "Jagiellonian University Medical College, Poland",
+        "url": "https://www.dl.begellhouse.com/journals/708ae68d64b17c52,3877d59d512cee40,1a5ac85d60fea47c.html",
+        "contact": "Comprehensive 2024 review: bioactive compounds, health-promoting properties, medicinal potential"
+      }
+    ],
+    "calvacin_antitumor": [
+      {
+        "name": "Ki Sung Kang, Ki Hyun Kim",
+        "title": "Gachon University & Kyung Hee University, South Korea",
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC10386113/",
+        "contact": "Nutrients 2023: Calvacin anticancer effects in experimental animals, aqueous extract from fruit bodies"
+      }
+    ],
+    "diabetic_wound_healing_microbiome": [
+      {
+        "name": "CGE Diabetic Wound Research Team",
+        "title": "Traditional Chinese Medicine Wound Treatment Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39224840/",
+        "contact": "2024: CGE accelerates diabetic ulcer healing, re-epithelialization, downregulates IL-1β & TNF-α, reshapes wound microbiome"
+      }
+    ],
+    "bioactive_compounds_turkey": [
+      {
+        "name": "Kivrak I, Kivrak S, Harmandar M",
+        "title": "Turkish Bioactive Compounds Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27279532/",
+        "contact": "PUFA 67.93%, protein 34.37%, carbohydrates 51.97%: phenolic compounds, unsaturated fatty acids (2016)"
+      }
+    ],
+    "lung_cancer_a549": [
+      {
+        "name": "A549 Cell Proliferation Inhibition Team",
+        "title": "Cytotechnology Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5023580/",
+        "contact": "Extract inhibits A549 human lung cancer cell proliferation (2016)"
+      }
+    ],
+    "genome_sequence": [
+      {
+        "name": "Genome Sequencing Team",
+        "title": "Microbiology Resource Announcements",
+        "url": "https://journals.asm.org/doi/10.1128/mra.01036-23",
+        "contact": "Complete genome sequence CGMCC5.9: traditional medicinal edible fungus (2024)"
+      }
+    ]
+  }
+}

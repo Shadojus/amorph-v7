@@ -1,0 +1,61 @@
+{
+  "image": [
+    {
+      "name": "walt sturgeon",
+      "author": "walt sturgeon",
+      "username": "Mycowalt",
+      "year": 2020,
+      "copyright": "© 2020 walt sturgeon (Mycowalt)",
+      "license": "CC BY-SA 3.0",
+      "url": "https://mushroomobserver.org"
+    }
+  ],
+  "fields": {
+    "ps_a_ps_b_luciferin_precursors": [
+      {
+        "name": "Osamu Shimomura, Hideshi Nakamura, Yoshito Kishi",
+        "title": "Marine Biological Laboratory, Woods Hole & Harvard University Chemistry Department",
+        "url": "https://onlinelibrary.wiley.com/doi/10.1002/bio.1170080403",
+        "contact": "12 Oxford Street, Cambridge, MA 02138 - PS-A (1-O-decanoylpanal), PS-B (1-O-dodecanoylpanal) structure determination (1993)"
+      }
+    ],
+    "bioluminescent_nonbioluminescent_genomics": [
+      {
+        "name": "Genomic Phenotypic Analysis Team",
+        "title": "University of Tennessee, Knoxville Collaboration",
+        "url": "https://www.mdpi.com/2309-608X/11/11/774",
+        "contact": "2024: Culture media optimization, oxygen dependency, genetic variation between luminescent & non-luminescent strains"
+      }
+    ],
+    "hispidin_bioluminescence_chemistry": [
+      {
+        "name": "Josef I. Gitelson, Ilia V. Yampolsky",
+        "title": "Institute of Fundamental Biology & Biotechnology, Siberian Federal University, Krasnoyarsk",
+        "url": "https://phys.org/news/2015-06-fungi-green-chemical-basis-bioluminescence.html",
+        "contact": "Russian-Japanese collaboration: hispidin as bioluminescent active compound, antioxidant basis (2015)"
+      },
+      {
+        "name": "Vladimir S. Bondar, Osamu Shimomura, Josef I. Gitelson",
+        "title": "Siberian Federal University",
+        "url": "https://www.researchgate.net/publication/329887848_Luminescence_of_Higher_Mushrooms",
+        "contact": "Luminescence of higher mushrooms comprehensive study"
+      }
+    ],
+    "luminous_fungi_japan_review": [
+      {
+        "name": "Oba Y., Hosaka K.",
+        "title": "The Luminous Fungi of Japan Researchers",
+        "url": "https://www.mdpi.com/2309-608X/11/11/774",
+        "contact": "Journal of Fungi 2023: Japanese bioluminescent fungi review"
+      }
+    ],
+    "genetically_encodable_bioluminescence": [
+      {
+        "name": "Fungal Bioluminescence System Researchers",
+        "title": "PNAS Research Team",
+        "url": "https://www.pnas.org/doi/10.1073/pnas.1803615115",
+        "contact": "Genetically encodable bioluminescent system from fungi: genomes & transcriptomes sequencing"
+      }
+    ]
+  }
+}

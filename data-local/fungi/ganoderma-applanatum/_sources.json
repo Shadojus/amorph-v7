@@ -1,0 +1,115 @@
+{
+  "image": [
+    {
+      "name": "Reslescu Vladimir",
+      "author": "Reslescu Vladimir",
+      "username": "vreslescu",
+      "year": 2013,
+      "copyright": "© 2013 Reslescu Vladimir (vreslescu)",
+      "license": "CC BY-SA 3.0",
+      "url": "https://mushroomobserver.org"
+    }
+  ],
+  "fields": {
+    "polysaccharides": [
+      {
+        "name": "Sarcoma 180 Anti-Tumor Research Team",
+        "title": "β-D-glucan Polysaccharide Researchers",
+        "url": "https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/ganoderma-applanatum",
+        "contact": "β-D-glucan from G. applanatum basidiocarps: anti-tumor activity against Sarcoma 180"
+      },
+      {
+        "name": "Carboxymethylation Enhancement Research Team",
+        "title": "Polysaccharide Modification Researchers",
+        "url": "https://www.mdpi.com/2218-273X/13/1/24",
+        "contact": "Carboxymethylation of G. applanatum polysaccharides: enhanced antitumor activity in vivo"
+      },
+      {
+        "name": "Ganoderma Polysaccharides Review Team",
+        "title": "Immune Modulation & Gut Microbiota Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9856212/",
+        "contact": "Diverse bioactivities: immune modulation, anti-tumor effects, gut microbiota regulation"
+      }
+    ],
+    "triterpenoids": [
+      {
+        "name": "C31 Triterpenoid Research Team",
+        "title": "Ganoderic Acid & Malonate Half-Ester Researchers",
+        "url": "https://journals.innovareacademics.in/index.php/ajpcr/article/download/32124/19758",
+        "contact": "Two C31 triterpenoids from fruiting bodies: inhibit tumor promotion"
+      },
+      {
+        "name": "Ganoderma Triterpene Bioactivity Review Team",
+        "title": "Multi-Target Therapeutic Properties Researchers",
+        "url": "https://www.mdpi.com/2218-273X/13/1/24",
+        "contact": "Antioxidant, antitumor, anti-HIV, anti-inflammation, hepatoprotective, neuroprotective (2023)"
+      }
+    ],
+    "anticancer_activity": [
+      {
+        "name": "HepG2 Cytotoxicity Research Team",
+        "title": "Methanolic Extract & In Silico Evaluation Researchers",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0045206825001130",
+        "contact": "G. applanatum extract IC50 95.65 µg/ml against HepG2 cells (in vitro, in vivo, in silico 2025)"
+      },
+      {
+        "name": "Exopolysaccharide Safety Research Team",
+        "title": "GpEPS Anticancer Therapy Researchers",
+        "url": "https://www.sciencedirect.com/topics/biochemistry-genetics-and-molecular-biology/ganoderma-applanatum",
+        "contact": "Crude GpEPS: safe anticancer therapy without damage to healthy cells"
+      }
+    ],
+    "antimicrobial_activity": [
+      {
+        "name": "Gram-Positive Bacteria Research Team",
+        "title": "Terpenoid & Polysaccharide Fermentation Researchers",
+        "url": "https://www.frontiersin.org/journals/cellular-and-infection-microbiology/articles/10.3389/fcimb.2025.1535246/pdf",
+        "contact": "Peak antibacterial activity after 16 days fermentation, efficacy vs Gram-positive bacteria (2025)"
+      }
+    ],
+    "decomposer_type": [
+      {
+        "name": "Ligninolytic Enzyme System Research Team",
+        "title": "White Rot Biodegradation Researchers",
+        "url": "https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2017.00898/full",
+        "contact": "Ganoderma genus diversity: ligninolytic enzymes for xenobiotic biodegradation (2017)"
+      },
+      {
+        "name": "Oak & Wheat Straw Degradation Team",
+        "title": "Lignocellulosic Substrate Researchers",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0964830516301834",
+        "contact": "G. applanatum: oak sawdust MnP 5545.5 U/L, wheat straw laccase 11007.0 U/L"
+      }
+    ],
+    "ecological_guild": [
+      {
+        "name": "Laccase & Peroxidase Research Consortium",
+        "title": "Extracellular Ligninolytic Enzyme Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5440474/",
+        "contact": "Ganoderma strains produce laccase at higher levels than peroxidases"
+      },
+      {
+        "name": "Mn-Dependent Peroxidase Research Team",
+        "title": "MnP Genetic Sequence Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC91721/",
+        "contact": "G. applanatum MnP sequence AB035734.1 annotated in GenBank"
+      }
+    ],
+    "key_differentiating_features": [
+      {
+        "name": "Artist's Bracket Documentation Team",
+        "title": "Pore Surface Bruising Researchers",
+        "url": "https://www.sciencedirect.com/topics/agricultural-and-biological-sciences/white-rot-fungi",
+        "contact": "White pore surface stains brown when touched - allows drawing pictures"
+      }
+    ],
+    "taxonomy_family": [
+      {
+        "name": "Ganodermataceae Systematics Research Team",
+        "title": "Polyporales Phylogeny Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9856212/",
+        "contact": "Ganodermataceae family: polysaccharides & triterpenoids bioactive diversity"
+      }
+    ]
+  }
+}
