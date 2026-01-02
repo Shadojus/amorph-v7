@@ -55,7 +55,7 @@ const isProd = import.meta.env.PROD;
   )}
 </head>
 <body data-category={siteType === 'fungi' ? 'fungi' : siteType === 'plants' ? 'plants' : 'animals'}>
-  <!-- BIFRÖST API URL für Development -->
+  <!-- BIFROEST API URL für Development -->
   {!isProd && (
     <script is:inline>
       window.__BIFROEST_API_URL = 'http://localhost:3004/api';

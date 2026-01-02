@@ -200,13 +200,13 @@ export const GET: APIRoute = async ({ request, clientAddress }) => {
         }
       }
 
-      // Bifröst: Image copyright sources
+      // Bifroest: Image copyright sources
       const itemSources = item._sources || {};
       const imageSources = (itemSources as any).image || [];
       const imageSource = imageSources.length > 0 ? imageSources[0] : null;
       const imageSourcesJson = imageSources.length > 0 ? JSON.stringify(imageSources) : '';
 
-      // Bifröst: Field experts for this item
+      // Bifroest: Field experts for this item
       const fieldExperts = (itemSources as any).fields || {};
 
       return `

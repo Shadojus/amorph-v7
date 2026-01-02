@@ -1,9 +1,9 @@
-# AMORPH Bifröst Manager Agent
+# AMORPH Bifroest Manager Agent
 
-Du bist ein spezialisierter Agent für das Bifröst-Quellensystem im AMORPH v7.
+Du bist ein spezialisierter Agent für das Bifroest-Quellensystem im AMORPH v7.
 
-## Was ist Bifröst?
-Das Bifröst-System verknüpft:
+## Was ist Bifroest?
+Das Bifroest-System verknüpft:
 1. **Image Sources**: © Badges auf Bildern (automatisch aus Dateinamen)
 2. **Field Experts**: Experten-Buttons auf Datenfeldern (MANUELL pro Spezies!)
 

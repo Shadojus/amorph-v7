@@ -853,13 +853,13 @@ const gridContext: RenderContext = {
           }
         }
         
-        // Bifröst: Image copyright sources
+        // Bifroest: Image copyright sources
         const itemSources = item._sources || {};
         const imageSources = (itemSources as any).image || [];
         const imageSource = imageSources.length > 0 ? imageSources[0] : null;
         const imageSourcesJson = imageSources.length > 0 ? JSON.stringify(imageSources) : '';
         
-        // Bifröst: Field experts
+        // Bifroest: Field experts
         const fieldExperts = (itemSources as any).fields || {};
         const fieldExpertsJson = Object.keys(fieldExperts).length > 0 ? JSON.stringify(fieldExperts) : '';
         
@@ -960,7 +960,7 @@ const gridContext: RenderContext = {
               )
                 .slice(0, 6)
                 .map(([key, value]) => {
-                  // Context für Morphs (ohne Bifröst Sources für Felder)
+                  // Context für Morphs (ohne Bifroest Sources für Felder)
                   return (
                     <Fragment set:html={renderValue(value, key, gridContext)} />
                   );
@@ -1058,7 +1058,7 @@ const gridContext: RenderContext = {
       <span class="bottom-nav-label">My Species</span>
       <span class="bottom-nav-badge">0</span>
     </button>
-    <button type="button" class="bottom-nav-item bifroest-toggle" data-nav="bifroest" aria-label="Bifröst – Quellen anzeigen">
+    <button type="button" class="bottom-nav-item bifroest-toggle" data-nav="bifroest" aria-label="Bifroest – Quellen anzeigen">
       <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 2L2 7l10 5 10-5-10-5z"/>
         <path d="m2 17 10 5 10-5"/>

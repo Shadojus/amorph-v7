@@ -1,7 +1,7 @@
 /**
- * AMORPH - BIFRÖST Species Client
+ * AMORPH - BIFROEST Species Client
  * 
- * Lädt Species-Daten von der BIFRÖST Pocketbase.
+ * Lädt Species-Daten von der BIFROEST Pocketbase.
  * Schema: Core fields + 15 Perspective JSON fields (matching blueprints)
  * 
  * Features:
@@ -157,7 +157,7 @@ export async function fetchSpeciesFromPocketbase(options: {
     return data.items.map(toItemData);
     
   } catch (error) {
-    console.error('[BIFRÖST] Failed to fetch from Pocketbase:', error);
+    console.error('[BIFROEST] Failed to fetch from Pocketbase:', error);
     throw error;
   }
 }
@@ -166,7 +166,7 @@ export async function fetchSpeciesFromPocketbase(options: {
  * Lädt alle Species für eine Kategorie (mit Caching)
  */
 export async function loadSpeciesByCategory(category: string): Promise<ItemData[]> {
-  console.log(`[BIFRÖST] Loading species for category: ${category}`);
+  console.log(`[BIFROEST] Loading species for category: ${category}`);
   
   try {
     const items = await cachedFetch(
@@ -174,11 +174,11 @@ export async function loadSpeciesByCategory(category: string): Promise<ItemData[
       () => fetchSpeciesFromPocketbase({ category }),
       CACHE_TTL
     );
-    console.log(`[BIFRÖST] ✅ Loaded ${items.length} species from API`);
+    console.log(`[BIFROEST] ✅ Loaded ${items.length} species from API`);
     isConnected = true;
     return items;
   } catch (error) {
-    console.error('[BIFRÖST] ❌ API unavailable, falling back to local data');
+    console.error('[BIFROEST] ❌ API unavailable, falling back to local data');
     isConnected = false;
     return []; // Caller should handle fallback
   }
@@ -188,7 +188,7 @@ export async function loadSpeciesByCategory(category: string): Promise<ItemData[
  * Lädt einzelne Species by Slug (mit Caching)
  */
 export async function loadSpeciesBySlug(slug: string): Promise<ItemData | null> {
-  console.log(`[BIFRÖST] Loading species: ${slug}`);
+  console.log(`[BIFROEST] Loading species: ${slug}`);
   
   try {
     const items = await cachedFetch(
@@ -197,20 +197,20 @@ export async function loadSpeciesBySlug(slug: string): Promise<ItemData | null> 
       CACHE_TTL
     );
     if (items.length > 0) {
-      console.log(`[BIFRÖST] ✅ Loaded ${items[0].name}`);
+      console.log(`[BIFROEST] ✅ Loaded ${items[0].name}`);
       isConnected = true;
       return items[0];
     }
     return null;
   } catch (error) {
-    console.error('[BIFRÖST] ❌ API unavailable');
+    console.error('[BIFROEST] ❌ API unavailable');
     isConnected = false;
     return null;
   }
 }
 
 /**
- * Prüft ob BIFRÖST API erreichbar ist (mit Caching)
+ * Prüft ob BIFROEST API erreichbar ist (mit Caching)
  */
 export async function checkBifroestConnection(): Promise<boolean> {
   const now = Date.now();

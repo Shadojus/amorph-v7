@@ -12,7 +12,7 @@
 ```
 data/
 ├── universe-index.json     # Main index of all kingdoms (SEO-optimized)
-├── bifroest-experts.json   # Bifröst experts database
+├── bifroest-experts.json   # Bifroest experts database
 └── fungi/
     ├── index.json          # Kingdom index with all species + perspectives
     └── {species-slug}/     # One folder per species (52 mushrooms)
@@ -47,9 +47,9 @@ npm run optimize:images
 # 💾 96.65 MB saved
 ```
 
-## 🔗 Bifröst Attribution System
+## 🔗 Bifroest Attribution System
 
-The Bifröst system tracks data sources and experts for attribution:
+The Bifroest system tracks data sources and experts for attribution:
 
 ### Data Sources (Images)
 ```json

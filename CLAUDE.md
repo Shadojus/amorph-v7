@@ -6,8 +6,10 @@
 
 ## Status: ✅ Production Ready (Januar 2026)
 
-- **🔗 BIFRÖST Integration** - Daten aus Pocketbase (nicht mehr lokal!)
+- **🔗 BIFROEST Integration** - Daten aus Pocketbase (nicht mehr lokal!)
+- **🌌 Aurora Nebula Animation** - Header-Animation wird in Bifroest als Fullscreen verwendet
 - **91 Species** - 28 Fungi, 35 Plantae, 28 Therion
+- **289 Experts** - In Pocketbase, extrahiert aus AMORPH _sources.json
 - **15 Perspektiven** - identification, ecology, chemistry, medicine, safety, culinary, cultivation, conservation, culture, economy, geography, interactions, research, statistics, temporal
 - **28 Morph Primitives** implementiert (badge, bar, boolean, calendar, citation, currency, date, dosage, gauge, image, lifecycle, link, list, number, object, pie, progress, radar, range, rating, severity, sparkline, stats, steps, tag, text, timeline)
 - **Struktur-basierte Detection** - Typ-Erkennung rein aus Datenstruktur
@@ -16,9 +18,16 @@
 - **Autocomplete Feature** - Fehlende Felder automatisch bei anderen Spezies ergänzen
 - **Bio-Lumineszenz Farbsystem** - 8 leuchtende Farben (Foxfire, Myzel, Sporen, etc.)
 - **HIGH_VALUE_FIELDS Priorisierung** - "Knaller"-Daten zuerst (Healing, WOW-Faktor, Kulinarik)
-- **Bifröst Attribution System** - © Copyright-Badges + Experten-Buttons mit Popup
+- **Bifroest Attribution System** - © Copyright-Badges + Experten-Buttons mit Popup
 - **Nebel-Drift Animation** - Sanftes Cyan-Glow ohne Blinken (kein Weiß)
 - **English UI Labels** - Search, Compare, Complete, Copy (international)
+
+### 🌉 BIFROEST Verbindung
+Das AMORPH-Projekt liefert:
+- **Nebel-Animation** aus dem Header → Bifroest Fullscreen Background
+- **Species-Daten** → Bifroest Pocketbase
+- **Expert-Daten** aus `_sources.json` → 289 Experten in Bifroest
+- **Farbsystem** → Funginomi Blue, Phytonomi Green, Drakonomi Magenta
 
 ### 🚀 Performance-Optimierungen (Dezember 2025)
 - **CSS Bundling** - 60+ CSS → `all.min.css` (154KB, 47% kleiner, 1 HTTP Request)
@@ -43,7 +52,7 @@ Drei Bio-Spezies Sites mit eigenem Farbsystem:
 - **Compare mit Autocomplete** - Fehlende Felder automatisch ergänzen + Copy-Button
 - **Compare-Toggle Footer** - Button wechselt zwischen "Compare" und "Close"
 - **Engagement-optimierte Feld-Anzeige** - WOW-Felder vor technischen Daten
-- **Bifröst-Mode** - Cyan-Nebel-Glow für Copyright/Experten-Attribution (kein Weiß, Drift-Animation)
+- **Bifroest-Mode** - Cyan-Nebel-Glow für Copyright/Experten-Attribution (kein Weiß, Drift-Animation)
 
 ### Technologie
 - **Astro 5.16** mit SSR auf Port 4321-4323
@@ -121,7 +130,7 @@ amorph-v7/
 
 ## 🔗 Pocketbase Integration
 
-AMORPH lädt alle Species-Daten von der **BIFRÖST Pocketbase**:
+AMORPH lädt alle Species-Daten von der **BIFROEST Pocketbase**:
 
 ```
 http://localhost:8090/api/collections/species/records

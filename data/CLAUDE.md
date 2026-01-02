@@ -1,6 +1,6 @@
 # AMORPH v7 - Data
 
-> ⚠️ **IMPORTANT**: Species data is now stored in **BIFRÖST Pocketbase**, NOT in local files!
+> ⚠️ **IMPORTANT**: Species data is now stored in **BIFROEST Pocketbase**, NOT in local files!
 
 ## 🔗 Data Source
 
@@ -62,9 +62,9 @@ public/images/species/{category}/{slug}/
 - **15 perspectives** per species
 - **Admin**: http://localhost:8090/_/
 
-## 🔗 Bifröst Attribution System
+## 🔗 Bifroest Attribution System
 
-The Bifröst system tracks data sources and experts for attribution:
+The Bifroest system tracks data sources and experts for attribution:
 
 ### Data Sources (Images)
 ```json

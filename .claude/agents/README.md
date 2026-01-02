@@ -10,7 +10,7 @@ Verwaltet Spezies-Daten, Perspektiven und die Datenstruktur.
 @data-manager Erstelle neue Spezies: Löwenmähne (Hericium erinaceus) im Kingdom fungi
 ```
 
-### 🌈 [Bifröst Manager](bifroest-manager.md)
+### 🌈 [Bifroest Manager](bifroest-manager.md)
 Verwaltet das Quellen- und Experten-System. Field-Experts sind MANUELL pro Spezies!
 ```
 @bifroest Trage Dr. Kawagishi für active_compounds bei hericium-erinaceus ein

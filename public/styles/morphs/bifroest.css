@@ -1,8 +1,8 @@
 /**
- * BIFRÖST - Copyright/Quellen-System für Bilder
+ * BIFROEST - Copyright/Quellen-System für Bilder
  * 
  * Die Regenbogenbrücke zwischen Bildern und ihren Fotografen.
- * © Symbol auf jedem Bild, leuchtend im Bifröst-Mode.
+ * © Symbol auf jedem Bild, leuchtend im Bifroest-Mode.
  * 
  * DESIGN PHILOSOPHY:
  * - Dunkel & dezent im Normalzustand
@@ -113,7 +113,7 @@
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   BIFRÖST MODE (aktiv)
+   BIFROEST MODE (aktiv)
    GEWITTER - Echte Blitze, nicht nur Pulsieren!
    Schwebend, elektrisch, wild
    ═══════════════════════════════════════════════════════════════════════════════ */
@@ -154,7 +154,7 @@ body.bifroest-active .bifroest-copyright:hover {
   transform: scale(1.1);
 }
 
-/* Name sichtbar im Bifröst-Mode */
+/* Name sichtbar im Bifroest-Mode */
 body.bifroest-active .bifroest-name {
   display: inline;
 }
@@ -316,7 +316,7 @@ body.bifroest-active .bifroest-name {
 
 /* ═══════════════════════════════════════════════════════════════════════════════
    BOTTOM NAV BIFROEST TOGGLE
-   Der Bifröst-Button im Footer - Aktiviert den Copyright-Modus
+   Der Bifroest-Button im Footer - Aktiviert den Copyright-Modus
    Verwendet das normale bottom-nav-item Design, nur aktiver Zustand ist speziell
    ═══════════════════════════════════════════════════════════════════════════════ */
 
@@ -482,7 +482,7 @@ body.bifroest-active .bifroest-name {
   }
 }
 
-/* Bottom Nav Bifröst Button aktiv - verwendet System-Farbe */
+/* Bottom Nav Bifroest Button aktiv - verwendet System-Farbe */
 body.bifroest-active .bottom-nav-item.bifroest-toggle {
   color: var(--system) !important;
   text-shadow: 0 0 8px rgba(var(--system-rgb), 0.9);
@@ -807,10 +807,10 @@ body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-label {
 
 /* ═══════════════════════════════════════════════════════════════════════════════
    GOAT - Schwebende Namen bei Datenfeldern
-   Nur sichtbar wenn Bifröst-Mode aktiv
+   Nur sichtbar wenn Bifroest-Mode aktiv
    ═══════════════════════════════════════════════════════════════════════════════ */
 
-/* Container für Experten - versteckt bis Bifröst aktiv */
+/* Container für Experten - versteckt bis Bifroest aktiv */
 .bifroest-experts {
   /* Position im Feld */
   position: absolute;
@@ -884,7 +884,7 @@ body.bifroest-active .bottom-nav-item.bifroest-toggle .bottom-nav-label {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   BIFRÖST ACTIVE - Experten mit GEWITTER
+   BIFROEST ACTIVE - Experten mit GEWITTER
    Schwebend, elektrisch, wild
    ═══════════════════════════════════════════════════════════════════════════════ */
 

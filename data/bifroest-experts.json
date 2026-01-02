@@ -1,7 +1,7 @@
 {
   "version": "1.0",
   "generated": "2025-12-27",
-  "description": "Bifröst expert database for attribution of mushroom data",
+  "description": "Bifroest expert database for attribution of mushroom data",
   
   "experts": {
     "paul-stamets": {

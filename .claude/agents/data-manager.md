@@ -21,7 +21,7 @@ data/
 │       ├── culinary.json
 │       ├── medicinal.json
 │       ├── safety.json
-│       └── _sources.json     # Bifröst Quellen
+│       └── _sources.json     # Bifroest Quellen
 ├── plantae/
 └── therion/
 ```

@@ -4,7 +4,7 @@
  * Die Regenbogenbrücke zwischen Daten und ihren Quellen.
  * 
  * DYNAMISCHES EXPERTEN-MATCHING:
- * - Lädt Experten von BIFRÖST API basierend auf Perspektiven
+ * - Lädt Experten von BIFROEST API basierend auf Perspektiven
  * - Matcht Experten zu Feldern über _fieldPerspective Map
  * - Fallback auf lokale _sources.json wenn API nicht erreichbar
  */
@@ -13,7 +13,7 @@
 // CONFIG & TYPES
 // ═══════════════════════════════════════════════════════════════════════════════
 
-// BIFRÖST API URL - konfigurierbar via data-Attribut oder Environment
+// BIFROEST API URL - konfigurierbar via data-Attribut oder Environment
 const BIFROEST_API_URL = (window as any).__BIFROEST_API_URL || 'https://bifroest.io/api';
 
 // Cache für API-Responses (sessionStorage)
@@ -137,7 +137,7 @@ export function toggleBifroest(forceState?: boolean): void {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// BIFRÖST API - DYNAMISCHES EXPERTEN-LADEN
+// BIFROEST API - DYNAMISCHES EXPERTEN-LADEN
 // ═══════════════════════════════════════════════════════════════════════════════
 
 /**
@@ -251,7 +251,7 @@ function cacheExperts(category: string, experts: BifroestExpert[]): void {
 }
 
 /**
- * Lädt Experten von BIFRÖST API.
+ * Lädt Experten von BIFROEST API.
  */
 async function fetchExpertsFromAPI(
   category: string,
@@ -315,7 +315,7 @@ async function loadAndDisplayExperts(): Promise<void> {
     loadedExperts = await fetchExpertsFromAPI(category, perspectives, species);
     expertsLoaded = true;
     cacheExperts(category, loadedExperts);
-    console.log(`[Bifroest] ✅ Loaded ${loadedExperts.length} experts from BIFRÖST API:`, 
+    console.log(`[Bifroest] ✅ Loaded ${loadedExperts.length} experts from BIFROEST API:`, 
       loadedExperts.map(e => `${e.name} (${e.perspectives.join(', ')})`));
     applyExpertsToFields();
   } catch (error) {
@@ -409,7 +409,7 @@ function applyExpertsToFields(): void {
 
 /**
  * Fallback: Verwendet lokale data-field-experts Attribute (aus _sources.json).
- * ACHTUNG: Dies wird NUR verwendet wenn die BIFRÖST API nicht erreichbar ist!
+ * ACHTUNG: Dies wird NUR verwendet wenn die BIFROEST API nicht erreichbar ist!
  */
 function addExpertButtonsFromLocalSources(): void {
   console.log('[Bifroest] 📂 FALLBACK: Using local _sources data (API not available)');
@@ -702,7 +702,7 @@ function showExpertPopup(expert: Expert): void {
       </div>
       <div class="bifroest-expert-link">
         <a href="${expert.bifroestUrl || `https://bifroest.io/expert/${encodeURIComponent(expert.name)}`}" target="_blank" rel="noopener">
-          Auf Bifröst ansehen →
+          Auf Bifroest ansehen →
         </a>
       </div>
     </div>

@@ -86,29 +86,29 @@ function safeReadJson<T>(filePath: string): { data: T | null; error: string | nu
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// BIFRÖST API INTEGRATION
+// BIFROEST API INTEGRATION
 // ═══════════════════════════════════════════════════════════════════════════════
 
 /**
- * Lädt Daten von BIFRÖST API mit Fallback auf lokale Dateien.
+ * Lädt Daten von BIFROEST API mit Fallback auf lokale Dateien.
  */
 async function loadFromBifroest(category: string): Promise<ItemData[] | null> {
   try {
     const isConnected = await checkBifroestConnection();
     if (!isConnected) {
-      console.log('[Data] BIFRÖST API not available, using local files');
+      console.log('[Data] BIFROEST API not available, using local files');
       return null;
     }
     
     const items = await loadSpeciesByCategory(category);
     if (items.length > 0) {
-      console.log(`[Data] ✅ Loaded ${items.length} items from BIFRÖST API`);
+      console.log(`[Data] ✅ Loaded ${items.length} items from BIFROEST API`);
       return items;
     }
     
     return null; // Fallback to local
   } catch (error) {
-    console.error('[Data] BIFRÖST API error:', error);
+    console.error('[Data] BIFROEST API error:', error);
     return null; // Fallback to local
   }
 }
@@ -121,7 +121,7 @@ async function loadFromBifroest(category: string): Promise<ItemData[] | null> {
 const DATA_SOURCE = process.env.DATA_SOURCE || 'pocketbase';
 
 /**
- * Lädt alle Items - primär von BIFRÖST Pocketbase.
+ * Lädt alle Items - primär von BIFROEST Pocketbase.
  * Fallback auf lokale Dateien nur wenn DATA_SOURCE='auto' oder 'local'.
  * 
  * Schema: Core fields + 15 Perspective JSON fields (matching blueprints)
@@ -139,7 +139,7 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
   const siteMeta = SITE_META[siteType];
   const currentKingdom = siteMeta.dataFolder; // 'fungi', 'plantae', 'therion'
   
-  // 1. BIFRÖST Pocketbase (primary data source)
+  // 1. BIFROEST Pocketbase (primary data source)
   if (DATA_SOURCE === 'pocketbase' || DATA_SOURCE === 'auto') {
     const bifroestItems = await loadFromBifroest(currentKingdom);
     if (bifroestItems && bifroestItems.length > 0) {
@@ -155,7 +155,7 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
     if (DATA_SOURCE === 'pocketbase') {
       // Strict Pocketbase mode - no fallback
       console.error('[Data] ❌ Pocketbase not available and DATA_SOURCE=pocketbase (no fallback)');
-      loadErrors.push({ path: 'pocketbase', error: 'BIFRÖST API not available' });
+      loadErrors.push({ path: 'pocketbase', error: 'BIFROEST API not available' });
       return items;
     }
   }

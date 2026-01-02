@@ -95,7 +95,7 @@ const perspectiveRgb: Record<string, string> = {
 // Ermittle verfügbare Perspektiven dieser Spezies
 const availablePerspectives = [...new Set(Object.values(fieldPerspectiveMap))].filter(Boolean) as string[];
 
-// Bifröst: Feld-Experten aus _sources.json
+// Bifroest: Feld-Experten aus _sources.json
 const fieldSources = (item._sources as any)?.fields || {};
 
 // Alle Felder mit ihren Perspektiven und Experten
@@ -140,7 +140,7 @@ if (imageField) {
   }
 }
 
-// Bifröst: Image copyright sources
+// Bifroest: Image copyright sources
 const itemSources = item._sources || {};
 const imageSources = (itemSources as any).image || [];
 const imageSource = imageSources.length > 0 ? imageSources[0] : null;

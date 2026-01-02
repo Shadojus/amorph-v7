@@ -19,14 +19,14 @@ client/
     ├── grid.ts         # Grid-Interaktionen + Feld-Selektion
     ├── compare.ts      # Compare-Panel + Diff-Updates (~670 Zeilen)
     ├── selection.ts    # Item + Field State (~317 Zeilen)
-    └── bifrost.ts      # Bifröst Attribution System
+    └── bifrost.ts      # Bifroest Attribution System
 ```
 
 ## 🔧 Features
 
 ### app.ts (~480 Zeilen)
 - Initialisiert alle Module beim DOM Ready
-- Reihenfolge: Search → Grid → Compare → BottomNav → SelectionBar → Bifröst → LoadFromStorage
+- Reihenfolge: Search → Grid → Compare → BottomNav → SelectionBar → Bifroest → LoadFromStorage
 - Guard gegen doppelte Initialisierung (`isInitialized`)
 - **loadMoreItems()** - Pagination via Search API
 - **Observer Dynamic Import** - nur bei `?observe=true` oder localStorage
@@ -42,7 +42,7 @@ client/
 - Grid-Layout Management
 - Feld-Selektion mit Perspektiven-Farben
 - Base64-encoded Raw Values für Compare
-- **Ignoriert Bifröst-Element Clicks** - Copyright/Experten blockieren keine Feld-Selektion
+- **Ignoriert Bifroest-Element Clicks** - Copyright/Experten blockieren keine Feld-Selektion
 
 ### compare.ts (~940 Zeilen)
 - Compare-Panel Visibility (show/hide/toggle)
@@ -60,11 +60,11 @@ client/
 - **Perspektiven-Farben** für Felder
 - Max 8 Items für Compare
 
-### bifrost.ts - Bifröst Attribution System (~350 Zeilen)
+### bifrost.ts - Bifroest Attribution System (~350 Zeilen)
 - **Copyright-Badges**: © auf Bildern mit Quellen-Namen (z.B. "© iNaturalist")
 - **Experten-Buttons**: Datenfeld-Attribution (dynamisch injiziert via `data-field-experts`)
 - **Popup-Overlay**: Zeigt Quellen-Details + Kontaktmöglichkeit + Links
-- **Toggle via Bottom-Nav**: Aktiviert/deaktiviert Bifröst-Mode (`body.bifroest-active`)
+- **Toggle via Bottom-Nav**: Aktiviert/deaktiviert Bifroest-Mode (`body.bifroest-active`)
 - **Nebel-Drift Animation**: Sanftes Cyan-Glow ohne Blinken (`@keyframes bifroest-drift`)
 - **Grid-Integration**: `stopPropagation()` verhindert Feld-Selektion bei Clicks
 - **Index-Page Support**: `addExpertButtonsToGrid()` injiziert Experten-Buttons

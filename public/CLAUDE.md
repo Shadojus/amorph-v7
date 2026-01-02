@@ -15,7 +15,7 @@ public/
 │       ├── _card.css       # Grid-Card Styles
 │       ├── _compare.css    # Compare-Mode Styles
 │       ├── _variables.css  # Morph CSS Variables
-│       ├── bifroest.css    # Bifröst Attribution System (~630 Zeilen)
+│       ├── bifroest.css    # Bifroest Attribution System (~630 Zeilen)
 │       ├── badge.css       # Badge Morph (Essbarkeit, Status)
 │       ├── bar.css         # Bar Chart
 │       ├── boolean.css     # Boolean Display
@@ -53,11 +53,11 @@ public/
 ### Z-Index Hierarchie
 ```css
 z-index: 10001  /* Bottom Navigation - höchste */
-z-index: 10000  /* Suchleiste, Bifröst Overlay - sehr hoch */
+z-index: 10000  /* Suchleiste, Bifroest Overlay - sehr hoch */
 z-index: 9999   /* Compare-Panel */
 z-index: 200    /* Header */
-z-index: 15     /* Bifröst Expert Buttons */
-z-index: 10     /* Bifröst Copyright Badge */
+z-index: 15     /* Bifroest Expert Buttons */
+z-index: 10     /* Bifroest Copyright Badge */
 ```
 
 ### Multi-Site Colors (base.css)
@@ -68,7 +68,7 @@ z-index: 10     /* Bifröst Copyright Badge */
 --system-rgb: var(--site-funginomi-rgb); /* Active Site */
 ```
 
-### Bifröst Colors (Cyan-Töne, kein Weiß)
+### Bifroest Colors (Cyan-Töne, kein Weiß)
 ```css
 /* Active Mode - Nebel-Drift Animation */
 color: rgba(150, 230, 240, 0.95);        /* Sanftes Cyan */
@@ -83,7 +83,7 @@ box-shadow: 0 0 8px rgba(0, 180, 200, 0.4); /* Sanfter Glow */
 
 ### bifroest.css Sections (~630 Zeilen)
 - **Copyright Badge** (Zeilen 1-70): © Symbol auf Bildern
-- **Bifröst Active** (Zeilen 90-140): Nebel-Drift Animation
+- **Bifroest Active** (Zeilen 90-140): Nebel-Drift Animation
 - **Bottom Nav Toggle** (Zeilen 145-180): Aktivierungs-Button
 - **Popup Overlay** (Zeilen 195-440): Quellen-Details Modal
 - **Expert Buttons** (Zeilen 450-580): Datenfeld-Attribution
