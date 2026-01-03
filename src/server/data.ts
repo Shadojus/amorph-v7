@@ -10,7 +10,7 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import type { ItemData, Perspective } from '../core/types';
 import { getConfig, getAllPerspectives } from './config';
-import { loadSpeciesByCategory, checkBifroestConnection } from './bifroest';
+import { loadSiteItems, checkBifroestConnection, getSiteCollection } from './bifroest';
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // PATHS
@@ -90,9 +90,10 @@ function safeReadJson<T>(filePath: string): { data: T | null; error: string | nu
 // ═══════════════════════════════════════════════════════════════════════════════
 
 /**
- * Lädt Daten von BIFROEST API mit Fallback auf lokale Dateien.
+ * Lädt Daten von BIFROEST API für die aktuelle Site.
+ * Jede Site hat ihre eigene Collection (fungi, paleontology, etc.)
  */
-async function loadFromBifroest(category: string): Promise<ItemData[] | null> {
+async function loadFromBifroest(): Promise<ItemData[] | null> {
   try {
     const isConnected = await checkBifroestConnection();
     if (!isConnected) {
@@ -100,9 +101,12 @@ async function loadFromBifroest(category: string): Promise<ItemData[] | null> {
       return null;
     }
     
-    const items = await loadSpeciesByCategory(category);
+    const collection = getSiteCollection();
+    console.log(`[Data] Loading from BIFROEST collection: ${collection}`);
+    
+    const items = await loadSiteItems();
     if (items.length > 0) {
-      console.log(`[Data] ✅ Loaded ${items.length} items from BIFROEST API`);
+      console.log(`[Data] ✅ Loaded ${items.length} items from BIFROEST API (${collection})`);
       return items;
     }
     
@@ -137,13 +141,13 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
   // Get current site type for kingdom info
   const siteType = getSiteType();
   const siteMeta = SITE_META[siteType];
-  const currentKingdom = siteMeta.dataFolder; // 'fungi', 'plantae', 'therion'
+  const currentCollection = siteMeta.collection; // 'fungi', 'paleontology', etc.
   
   // 1. BIFROEST Pocketbase (primary data source)
   if (DATA_SOURCE === 'pocketbase' || DATA_SOURCE === 'auto') {
-    const bifroestItems = await loadFromBifroest(currentKingdom);
+    const bifroestItems = await loadFromBifroest();
     if (bifroestItems && bifroestItems.length > 0) {
-      console.log(`[Data] ✅ Loaded ${bifroestItems.length} items from Pocketbase`);
+      console.log(`[Data] ✅ Loaded ${bifroestItems.length} items from Pocketbase (${currentCollection})`);
       cachedItems = bifroestItems;
       cachedIndex = {};
       for (const item of bifroestItems) {

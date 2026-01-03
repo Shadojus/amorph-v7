@@ -1,0 +1,637 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# CROSS-KINGDOM RELATIONS PERSPECTIVE - LATERAL BLUEPRINT
+# Fungal Interactions Across Biological Kingdoms
+# Version: 1.0.0
+# Domain: FUNGI (Lateral Cross-Domain View)
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# PURPOSE: Captures fungi as BRIDGES between kingdoms
+# - Fungi ↔ Plantae (mycorrhiza, endophytes, pathogens)
+# - Fungi ↔ Animalia (gut symbionts, parasites, food)
+# - Fungi ↔ Bacteria (hyphosphere, endobacteria)
+# - Fungi ↔ Archaea (methanogens, extremophiles)
+# - Fungi ↔ Protista (amoebae, slime molds)
+# - Fungi ↔ Viruses (mycoviruses, hyperparasites)
+#
+# Based on 2025 research:
+# - Cross-kingdom sRNA communication (ckRNAi)
+# - Plant-AMF-Bacteria continuum
+# - Multi-level cooperation models
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: cross_kingdom_relations
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TAXONOMY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+scientific_name:
+  # morph: text
+  ""
+
+genus:
+  # morph: tag
+  ""
+
+family:
+  # morph: tag
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTERACTION NETWORK OVERVIEW
+# ═══════════════════════════════════════════════════════════════════════════════
+
+kingdoms_interacting_with:
+  # morph: list
+  # Plantae | Animalia | Bacteria | Archaea | Protista | Viruses | Chromista
+  - ""
+
+total_interaction_count:
+  # morph: number
+  0
+
+interaction_diversity_index:
+  # morph: gauge
+  # Shannon diversity of interaction types
+  value: 0
+  min: 0
+  max: 5
+
+interaction_network_map:
+  # morph: network
+  # network of cross-kingdom partners
+  - name: ""
+    type: ""
+    intensity: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FUNGI ↔ PLANTAE (Plants)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+plant_interaction_type:
+  # morph: badge
+  # mycorrhizal | endophytic | pathogenic | saprotrophic | parasitic
+  status: ""
+  variant: ""
+
+mycorrhizal_associations:
+  # morph: boolean
+  false
+
+mycorrhizal_type:
+  # morph: badge
+  # ectomycorrhizal | arbuscular | ericoid | orchid | monotropoid
+  status: ""
+  variant: ""
+
+plant_host_range:
+  # morph: stats
+  # number of plant species as partners
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+plant_partners:
+  # morph: list
+  - ""
+
+plant_specificity:
+  # morph: badge
+  # generalist | specialist | family_specific | genus_specific
+  status: ""
+  variant: ""
+
+carbon_for_nutrients_exchange:
+  # morph: flow
+  # bidirectional C-N-P flow
+  - from: "Plant"
+    to: "Fungus"
+    value: 0  # % plant C to fungus
+  - from: "Fungus"
+    to: "Plant"
+    value: 0  # mg N+P to plant
+
+plant_growth_effect:
+  # morph: gauge
+  # % change in plant biomass
+  value: 0
+  min: -100
+  max: 300
+  unit: "%"
+
+plant_stress_tolerance_enhancement:
+  # morph: list
+  # drought | heat | salinity | pathogens | herbivory
+  - ""
+
+endophyte_lifestyle:
+  # morph: boolean
+  # lives inside plant tissues asymptomatically
+  false
+
+endophyte_benefits:
+  # morph: list
+  # alkaloid_production | pathogen_resistance | growth_promotion
+  - ""
+
+plant_pathogenicity:
+  # morph: boolean
+  false
+
+plant_disease_caused:
+  # morph: text
+  ""
+
+economic_impact_on_plants:
+  # morph: severity
+  - level: ""
+    typ: "Agricultural Impact"
+    beschreibung: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FUNGI ↔ ANIMALIA (Animals)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+animal_interactions:
+  # morph: boolean
+  false
+
+animal_interaction_types:
+  # morph: list
+  # symbiont | pathogen | food_source | dispersal_partner | gut_resident
+  - ""
+
+mammal_gut_symbiont:
+  # morph: boolean
+  # lives in mammal digestive systems
+  false
+
+mammal_hosts:
+  # morph: list
+  # ruminants | herbivores | omnivores
+  - ""
+
+gut_function:
+  # morph: list
+  # fiber_digestion | vitamin_synthesis | toxin_degradation
+  - ""
+
+insect_associations:
+  # morph: boolean
+  false
+
+insect_partners:
+  # morph: list
+  # beetles | ants | termites | flies | wasps
+  - ""
+
+insect_farming:
+  # morph: boolean
+  # insects cultivate this fungus (attine ants, termites)
+  false
+
+insect_pathogenicity:
+  # morph: boolean
+  false
+
+insect_pest_control_potential:
+  # morph: gauge
+  # biocontrol efficacy
+  value: 0
+  min: 0
+  max: 100
+
+vertebrate_pathogenicity:
+  # morph: boolean
+  false
+
+zoonotic_potential:
+  # morph: severity
+  - level: ""
+    typ: "Public Health"
+    beschreibung: ""
+
+animal_dispersal_service:
+  # morph: boolean
+  # animals disperse spores
+  false
+
+dispersal_animals:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FUNGI ↔ BACTERIA
+# ═══════================================================================════════════
+
+bacterial_associations:
+  # morph: boolean
+  false
+
+bacterial_association_types:
+  # morph: list
+  # hyphosphere | endobacteria | biofilm | mycosphere
+  - ""
+
+hyphosphere_bacteria:
+  # morph: list
+  # bacteria on hyphal surfaces
+  - ""
+
+endobacteria:
+  # morph: list
+  # bacteria inside fungal cells
+  - ""
+
+bacteria_fungus_synergies:
+  # morph: flow
+  # metabolic exchanges
+  - from: "Bacteria"
+    to: "Fungus"
+    value: 0
+  - from: "Fungus"
+    to: "Bacteria"
+    value: 0
+
+bacterial_helper_functions:
+  # morph: list
+  # nitrogen_fixation | phosphate_solubilization | antibiotic_production
+  - ""
+
+fungal_bacterial_biofilm:
+  # morph: boolean
+  false
+
+nitrogen_fixing_bacteria_partners:
+  # morph: list
+  - ""
+
+nitrogen_fixation_rate:
+  # morph: number
+  # mg N per g fungal biomass per day
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FUNGI ↔ ARCHAEA
+# ═══════════════════════════════════════════════════════════════════════════════
+
+archaeal_associations:
+  # morph: boolean
+  false
+
+archaeal_partners:
+  # morph: list
+  # methanogens | ammonia_oxidizers | extremophiles
+  - ""
+
+methanogen_interactions:
+  # morph: boolean
+  false
+
+methane_production_facilitation:
+  # morph: boolean
+  # provides substrates for methan ogens
+  false
+
+archaeal_function:
+  # morph: text
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FUNGI ↔ PROTISTA
+# ═══════════════════════════════════════════════════════════════════════════════
+
+protist_associations:
+  # morph: boolean
+  false
+
+protist_partners:
+  # morph: list
+  # amoebae | flagellates | ciliates | slime_molds
+  - ""
+
+mycophagy_by_protists:
+  # morph: boolean
+  # protists graze on this fungus
+  false
+
+protist_grazing_rate:
+  # morph: number
+  # % mycelium consumed per day
+  0
+
+protist_dispersal_role:
+  # morph: boolean
+  # protists spread fungal spores
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FUNGI ↔ VIRUSES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+mycovirus_infections:
+  # morph: boolean
+  false
+
+mycovirus_count:
+  # morph: number
+  0
+
+mycovirus_types:
+  # morph: list
+  # dsRNA | ssRNA | DNA
+  - ""
+
+mycovirus_effects:
+  # morph: list
+  # hypovirulence | hypervirulence | phenotype_change | cryptic
+  - ""
+
+mycovirus_horizontal_transfer:
+  # morph: boolean
+  # can transfer viruses to other fungi
+  false
+
+beneficial_mycovirus_traits:
+  # morph: list
+  # stress_tolerance | competitive_advantage
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MOLECULAR COMMUNICATION ACROSS KINGDOMS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cross_kingdom_rna_interference:
+  # morph: boolean
+  # effector sRNAs trigger ckRNAi
+  false
+
+small_rna_transfer:
+  # morph: flow
+  - from: ""
+    to: ""
+    value: 0
+
+srna_functions:
+  # morph: list
+  # gene_silencing | defense_suppression | development_regulation
+  - ""
+
+extracellular_vesicles:
+  # morph: boolean
+  # produces EVs for cross-kingdom communication
+  false
+
+ev_cargo:
+  # morph: list
+  # proteins | RNAs | metabolites
+  - ""
+
+quorum_sensing_molecules:
+  # morph: list
+  # signals for cross-kingdom coordination
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# METABOLITE EXCHANGE NETWORKS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cross_kingdom_metabolite_exchange:
+  # morph: flow
+  # compound flows between kingdoms
+  - from: ""
+    to: ""
+    value: 0
+
+shared_metabolites:
+  # morph: list
+  - ""
+
+specialized_metabolites_for_partners:
+  # morph: list
+  # compounds produced specifically for other kingdoms
+  - ""
+
+metabolic_complementarity:
+  # morph: radar
+  # metabolic integration with partners
+  - axis: "Amino acids"
+    value: 0
+  - axis: "Vitamins"
+    value: 0
+  - axis: "Lipids"
+    value: 0
+  - axis: "Carbohydrates"
+    value: 0
+  - axis: "Nucleotides"
+    value: 0
+  - axis: "Cofactors"
+    value: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MULTI-KINGDOM ASSEMBLAGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+tripartite_interactions:
+  # morph: boolean
+  # 3-way interactions (e.g. Plant-Fungus-Bacterium)
+  false
+
+tripartite_partners:
+  # morph: network
+  - name: ""
+    type: ""
+    intensity: 0
+
+multipartite_interaction_count:
+  # morph: number
+  # interactions involving 3+ kingdoms
+  0
+
+obligate_multipartner_dependency:
+  # morph: boolean
+  # requires partners from 2+ kingdoms
+  false
+
+emergent_multipartner_properties:
+  # morph: list
+  # traits only in multi-kingdom assemblage
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HORIZONTAL GENE TRANSFER ACROSS KINGDOMS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cross_kingdom_hgt:
+  # morph: boolean
+  # genes transferred between kingdoms
+  false
+
+hgt_donor_kingdoms:
+  # morph: list
+  - ""
+
+hgt_recipient_kingdoms:
+  # morph: list
+  - ""
+
+hgt_genes_acquired:
+  # morph: list
+  - ""
+
+hgt_functions_gained:
+  # morph: list
+  # antibiotic_resistance | degradation | biosynthesis
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EVOLUTIONARY CO-DEPENDENCY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+coevolution_evidence:
+  # morph: boolean
+  false
+
+coevolution_partners:
+  # morph: list
+  - ""
+
+coevolution_type:
+  # morph: badge
+  # mutualistic | antagonistic | diffuse | specific
+  status: ""
+  variant: ""
+
+cospeciation:
+  # morph: boolean
+  # phylogenies mirror partner phylogenies
+  false
+
+obligate_dependency:
+  # morph: boolean
+  # cannot survive without cross-kingdom partner
+  false
+
+obligate_partners:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ECOSYSTEM FUNCTION VIA CROSS-KINGDOM LINKS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cross_kingdom_nutrient_transfer:
+  # morph: flow
+  # nutrient flows between kingdoms
+  - from: ""
+    to: ""
+    value: 0
+
+energy_flow_pathways:
+  # morph: flow
+  - from: ""
+    to: ""
+    value: 0
+
+cross_kingdom_information_flow:
+  # morph: flow
+  # signal/warning transfer
+  - from: ""
+    to: ""
+    value: 0
+
+ecosystem_service_mediation:
+  # morph: list
+  # services provided via cross-kingdom links
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ANTAGONISTIC CROSS-KINGDOM RELATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+pathogenic_to_kingdoms:
+  # morph: list
+  # kingdoms this fungus can infect
+  - ""
+
+host_immune_evasion:
+  # morph: boolean
+  false
+
+immune_evasion_mechanisms:
+  # morph: list
+  - ""
+
+cross_kingdom_competition:
+  # morph: boolean
+  false
+
+competitive_mechanisms:
+  # morph: list
+  # antibiosis | resource_preemption | allelopathy
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESEARCH & EVIDENCE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+interaction_detection_methods:
+  # morph: list
+  # co_occurrence | experimental | genomic | isotope_tracing
+  - ""
+
+gnotobiotic_studies:
+  # morph: boolean
+  # studied in defined multi-kingdom systems
+  false
+
+cross_kingdom_omics:
+  # morph: list
+  # metagenomics | metatranscriptomics | metaproteomics
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LITERATURE REFERENCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_research_papers:
+  # morph: list
+  - ""
+
+cross_kingdom_literature:
+  # morph: citation
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+data_source:
+  # morph: badge
+  # experimental | genomic | observational | literature
+  status: ""
+  variant: ""
+
+confidence_level:
+  # morph: badge
+  # high | medium | low | speculative
+  status: ""
+  variant: ""
+
+measurement_date:
+  # morph: text
+  ""
+
+study_location:
+  # morph: map
+  lat: 0
+  lng: 0
+  region: ""

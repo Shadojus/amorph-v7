@@ -12,12 +12,11 @@
  */
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   FARB-VARIABLEN - Dynamische System-Farben
-   Verwendet --system-rgb und --system aus base.css
+   FARB-VARIABLEN - Aliase für --system-rgb aus base.css
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 :root {
-  /* Dynamische Bifroest-Farben basierend auf System-Farbe */
+  /* Bifroest-Aliase basierend auf --system aus base.css */
   --bifroest-primary: var(--system);
   --bifroest-glow: rgba(var(--system-rgb), 0.9);
   --bifroest-glow-soft: rgba(var(--system-rgb), 0.6);

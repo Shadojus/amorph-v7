@@ -1,0 +1,687 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# COGNITIVE ECOLOGY PERSPECTIVE - LATERAL BLUEPRINT
+# Information Processing & Learning Across Kingdoms
+# Version: 1.0.0
+# Domain: ANIMALIA (Lateral Cross-Domain View)
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# PURPOSE: Captures animals as information processors integrating cross-kingdom signals
+# - Multi-kingdom sensory integration
+# - Learning from plant/fungal/bacterial cues
+# - Cross-kingdom memory & anticipation
+# - Decision-making incorporating cross-kingdom info
+# - Cognitive map including all kingdoms
+# - Cultural transmission of cross-kingdom knowledge
+#
+# Concept:
+# - Cognition extends BEYOND the animal
+# - Animals process information from ALL kingdoms
+# - Extended cognitive systems (animal + environment)
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: cognitive_ecology
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TAXONOMY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+scientific_name:
+  # morph: text
+  ""
+
+genus:
+  # morph: tag
+  ""
+
+family:
+  # morph: tag
+  ""
+
+cognitive_complexity:
+  # morph: badge
+  # simple | moderate | complex | advanced
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SENSORY SYSTEMS - Input from all kingdoms
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sensory_modalities:
+  # morph: list
+  # visual | olfactory | gustatory | tactile | auditory | magnetic | electric
+  - ""
+
+cross_kingdom_sensory_integration:
+  # morph: boolean
+  # integrates cues from multiple kingdoms
+  false
+
+kingdoms_sensed:
+  # morph: list
+  # Plantae | Fungi | Bacteria | Animalia | Protista
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PLANT CUE DETECTION
+# ─────────────────────────────────────────────────────────────────────────────
+
+plant_cue_detection:
+  # morph: boolean
+  false
+
+plant_visual_cues:
+  # morph: list
+  # flower_color | leaf_shape | fruit_color
+  - ""
+
+plant_olfactory_cues:
+  # morph: list
+  # floral_scent | fruit_odor | leaf_volatiles
+  - ""
+
+plant_gustatory_cues:
+  # morph: list
+  # nectar_taste | toxin_detection
+  - ""
+
+plant_phenology_tracking:
+  # morph: boolean
+  # tracks flowering/fruiting times
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# FUNGAL CUE DETECTION
+# ─────────────────────────────────────────────────────────────────────────────
+
+fungal_cue_detection:
+  # morph: boolean
+  false
+
+fungal_olfactory_cues:
+  # morph: list
+  # mushroom_odor | mycelium_scent
+  - ""
+
+fungal_spore_detection:
+  # morph: boolean
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BACTERIAL CUE DETECTION
+# ─────────────────────────────────────────────────────────────────────────────
+
+bacterial_cue_detection:
+  # morph: boolean
+  false
+
+bacterial_chemical_detection:
+  # morph: list
+  # quorum_sensing_molecules | bacterial_volatiles
+  - ""
+
+pathogen_recognition:
+  # morph: boolean
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MULTIMODAL INTEGRATION
+# ─────────────────────────────────────────────────────────────────────────────
+
+multimodal_cue_integration:
+  # morph: boolean
+  # combines visual + olfactory + etc.
+  false
+
+integrated_cue_combinations:
+  # morph: list
+  # color + scent | shape + taste
+  - ""
+
+cross_modal_learning:
+  # morph: boolean
+  # learns associations across modalities
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LEARNING & MEMORY - Cross-kingdom
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cross_kingdom_learning:
+  # morph: boolean
+  false
+
+learning_types:
+  # morph: list
+  # associative | spatial | observational | cultural
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PLANT LEARNING
+# ─────────────────────────────────────────────────────────────────────────────
+
+learns_plant_locations:
+  # morph: boolean
+  # trap-lining, spatial memory of plants
+  false
+
+learns_plant_phenology:
+  # morph: boolean
+  # timing of flowering/fruiting
+  false
+
+learns_plant_quality:
+  # morph: boolean
+  # nectar/fruit quality
+  false
+
+flower_constancy:
+  # morph: boolean
+  # pollinators visiting same species
+  false
+
+plant_species_discrimination:
+  # morph: number
+  # number of plant species recognized
+  0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# FUNGAL LEARNING
+# ─────────────────────────────────────────────────────────────────────────────
+
+learns_fungal_quality:
+  # morph: boolean
+  # edible vs poisonous
+  false
+
+fungal_cultivation_knowledge:
+  # morph: boolean
+  # learned farming behavior (ants/termites)
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BACTERIAL LEARNING
+# ─────────────────────────────────────────────────────────────────────────────
+
+pathogen_avoidance_learning:
+  # morph: boolean
+  false
+
+beneficial_bacteria_recognition:
+  # morph: boolean
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MEMORY TYPES
+# ─────────────────────────────────────────────────────────────────────────────
+
+spatial_memory_cross_kingdom:
+  # morph: boolean
+  # remembers locations of plants/fungi
+  false
+
+memory_duration:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "days"
+
+episodic_memory:
+  # morph: boolean
+  # what-where-when memory
+  false
+
+semantic_memory:
+  # morph: boolean
+  # factual knowledge (e.g., flower = food)
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DECISION-MAKING - Cross-kingdom
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cross_kingdom_decisions:
+  # morph: boolean
+  # decisions based on info from multiple kingdoms
+  false
+
+decision_types:
+  # morph: list
+  # foraging | nesting | mating | migration
+  - ""
+
+multi_criterion_decision_making:
+  # morph: boolean
+  # weighs plant quality + risk + distance + etc.
+  false
+
+decision_criteria:
+  # morph: list
+  - ""
+
+optimal_foraging_on_plants:
+  # morph: boolean
+  false
+
+marginal_value_theorem_adherence:
+  # morph: gauge
+  # how well follows MVT
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COGNITIVE MAPS - Mental representations
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cognitive_map:
+  # morph: boolean
+  # mental map of environment
+  false
+
+map_includes:
+  # morph: list
+  # plant_locations | fungal_patches | water_sources | nest_sites
+  - ""
+
+map_resolution:
+  # morph: badge
+  # coarse | moderate | fine
+  status: ""
+  variant: ""
+
+landmark_use:
+  # morph: boolean
+  # uses landmarks for navigation
+  false
+
+landmark_types:
+  # morph: list
+  # plants | rocks | water | nests
+  - ""
+
+path_integration:
+  # morph: boolean
+  # dead reckoning
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ANTICIPATION & PREDICTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+anticipatory_behavior:
+  # morph: boolean
+  false
+
+anticipates:
+  # morph: list
+  # plant_flowering | fruit_ripening | seasonal_changes
+  - ""
+
+circadian_rhythms:
+  # morph: boolean
+  false
+
+circannual_rhythms:
+  # morph: boolean
+  # yearly cycles
+  false
+
+phenology_matching:
+  # morph: boolean
+  # times behavior to plant phenology
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROBLEM-SOLVING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+problem_solving:
+  # morph: boolean
+  false
+
+problems_solved:
+  # morph: list
+  # extracting_nectar | opening_fruits | finding_mushrooms
+  - ""
+
+tool_use_for_plants:
+  # morph: boolean
+  # uses tools to access plant resources
+  false
+
+innovation:
+  # morph: boolean
+  # novel solutions
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOCIAL LEARNING ABOUT OTHER KINGDOMS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+social_learning_cross_kingdom:
+  # morph: boolean
+  # learns from conspecifics about plants/fungi
+  false
+
+socially_transmitted_knowledge:
+  # morph: list
+  # food_sources | toxin_avoidance | tool_use
+  - ""
+
+teaching:
+  # morph: boolean
+  false
+
+cultural_traditions:
+  # morph: boolean
+  # group-specific behaviors re: plants/fungi
+  false
+
+cultural_transmission_fidelity:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CATEGORIZATION & CONCEPTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+categorization:
+  # morph: boolean
+  # groups plants/fungi into categories
+  false
+
+categories_used:
+  # morph: list
+  # edible | toxic | flowering | fruiting
+  - ""
+
+abstract_concepts:
+  # morph: boolean
+  # concepts beyond perceptual similarity
+  false
+
+rule_learning:
+  # morph: boolean
+  # learns rules about cross-kingdom interactions
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMMUNICATION ABOUT OTHER KINGDOMS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+communicates_cross_kingdom_info:
+  # morph: boolean
+  # tells others about plants/fungi/bacteria
+  false
+
+communication_modalities:
+  # morph: list
+  # waggle_dance | calls | pheromones
+  - ""
+
+waggle_dance:
+  # morph: boolean
+  # honeybee-style communication
+  false
+
+recruitment_signals:
+  # morph: boolean
+  # recruits others to resources
+  false
+
+information_content:
+  # morph: list
+  # location | quality | distance | type
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ATTENTION & PERCEPTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+selective_attention:
+  # morph: boolean
+  # focuses on relevant plant/fungal cues
+  false
+
+attention_switching:
+  # morph: boolean
+  # shifts between kingdoms
+  false
+
+perceptual_learning:
+  # morph: boolean
+  # improves discrimination over time
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXTENDED COGNITION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+extended_cognitive_system:
+  # morph: boolean
+  # cognition includes environment
+  false
+
+cognitive_offloading:
+  # morph: boolean
+  # uses environment to store info
+  false
+
+stigmergy:
+  # morph: boolean
+  # coordination via environmental modifications
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# METACOGNITION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+metacognition:
+  # morph: boolean
+  # knows what it knows
+  false
+
+confidence_judgments:
+  # morph: boolean
+  # assesses own knowledge
+  false
+
+information_seeking:
+  # morph: boolean
+  # actively seeks new info when uncertain
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COGNITIVE FLEXIBILITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cognitive_flexibility:
+  # morph: rating
+  # ability to switch strategies
+  rating: 0
+  max: 10
+
+reversal_learning:
+  # morph: boolean
+  # can reverse learned associations
+  false
+
+behavioral_inhibition:
+  # morph: boolean
+  # can suppress prepotent responses
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEVELOPMENT OF CROSS-KINGDOM COGNITION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+innate_vs_learned:
+  # morph: pie
+  - label: "Innate"
+    value: 0
+  - label: "Learned"
+    value: 0
+
+critical_periods:
+  # morph: boolean
+  # sensitive periods for learning
+  false
+
+developmental_trajectory:
+  # morph: timeline
+  - date: "Juvenile"
+    event: ""
+    description: ""
+  - date: "Adult"
+    event: ""
+    description: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BRAIN & NEURAL CORRELATES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+brain_regions_involved:
+  # morph: list
+  # hippocampus | mushroom_bodies | etc.
+  - ""
+
+neuron_count:
+  # morph: number
+  0
+
+encephalization_quotient:
+  # morph: number
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COGNITIVE PERFORMANCE METRICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+learning_rate:
+  # morph: gauge
+  # trials to criterion
+  value: 0
+  min: 0
+  max: 100
+
+memory_accuracy:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+discrimination_accuracy:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ECOLOGICAL COGNITION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+ecological_rationality:
+  # morph: boolean
+  # cognition adapted to ecology
+  false
+
+fast_and_frugal_heuristics:
+  # morph: boolean
+  # simple decision rules
+  false
+
+recognition_heuristic:
+  # morph: boolean
+  # chooses familiar option
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INDIVIDUAL DIFFERENCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+personality_cognition_link:
+  # morph: boolean
+  # personality affects cognition
+  false
+
+individual_learning_styles:
+  # morph: boolean
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# APPLICATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+agricultural_implications:
+  # morph: list
+  # pollinator_management | pest_control
+  - ""
+
+conservation_implications:
+  # morph: list
+  # corridor_design | habitat_management
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESEARCH METHODS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+experimental_paradigms:
+  # morph: list
+  # choice_tests | maze_learning | discrimination | tracking
+  - ""
+
+cognitive_tests:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LITERATURE REFERENCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_research_papers:
+  # morph: list
+  - ""
+
+cognitive_ecology_literature:
+  # morph: citation
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+data_source:
+  # morph: badge
+  # experiment | observation | model | literature
+  status: ""
+  variant: ""
+
+confidence_level:
+  # morph: badge
+  # high | medium | low | speculative
+  status: ""
+  variant: ""
+
+measurement_date:
+  # morph: text
+  ""
+
+study_location:
+  # morph: map
+  lat: 0
+  lng: 0
+  region: ""

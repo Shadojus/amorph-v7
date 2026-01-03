@@ -1,0 +1,705 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHEMICAL ECOLOGY PERSPECTIVE - LATERAL BLUEPRINT
+# Molecular Communication & Chemical Interactions Across Life
+# Version: 1.0.0
+# Domain: FUNGI (Lateral Cross-Domain View)
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# PURPOSE: Captures fungi as chemical communicators across kingdoms
+# - Chemical signaling to plants, animals, bacteria
+# - Defensive & offensive chemistry
+# - Volatile organic compounds (VOCs) as info carriers
+# - Allelopathy & chemotaxis
+# - Chemical mimicry & deception
+# - Infochemicals bridging kingdoms
+#
+# Concept:
+# - Chemistry is the LANGUAGE of cross-kingdom communication
+# - Fungi speak in molecules, not just to themselves but across life
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: chemical_ecology
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TAXONOMY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+scientific_name:
+  # morph: text
+  ""
+
+genus:
+  # morph: tag
+  ""
+
+family:
+  # morph: tag
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHEMICAL COMMUNICATION OVERVIEW
+# ═══════════════════════════════════════════════════════════════════════════════
+
+chemical_communication_kingdoms:
+  # morph: list
+  # kingdoms communicated with chemically
+  - ""
+
+total_signaling_compounds:
+  # morph: number
+  0
+
+signaling_compound_diversity:
+  # morph: stats
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+chemical_communication_modes:
+  # morph: list
+  # volatile | exudate | contact | systemic
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VOLATILE ORGANIC COMPOUNDS (VOCs) - Airborne signals
+# ═══════════════════════════════════════════════════════════════════════════════
+
+voc_production:
+  # morph: boolean
+  false
+
+voc_count:
+  # morph: number
+  0
+
+voc_classes:
+  # morph: pie
+  # chemical class distribution
+  - label: "Terpenes"
+    value: 0
+  - label: "Alcohols"
+    value: 0
+  - label: "Aldehydes"
+    value: 0
+  - label: "Ketones"
+    value: 0
+  - label: "Esters"
+    value: 0
+  - label: "Other"
+    value: 0
+
+dominant_vocs:
+  # morph: list
+  - ""
+
+voc_emission_rate:
+  # morph: number
+  # μg per g fungal biomass per hour
+  0
+
+voc_detection_distance:
+  # morph: range
+  # maximum detection range
+  min: 0
+  max: 0
+  unit: "meters"
+
+voc_functions:
+  # morph: list
+  # attraction | repulsion | defense | communication | growth_regulation
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PLANT COMMUNICATION - Chemical signals to Plantae
+# ═══════════════════════════════════════════════════════════════════════════════
+
+plant_signaling:
+  # morph: boolean
+  false
+
+plant_signal_compounds:
+  # morph: list
+  - ""
+
+mycorrhizal_signals:
+  # morph: list
+  # strigolactones | flavonoids | LCOs
+  - ""
+
+plant_immune_modulation:
+  # morph: boolean
+  # modulates plant immune response
+  false
+
+immune_modulation_compounds:
+  # morph: list
+  - ""
+
+plant_defense_priming:
+  # morph: boolean
+  # primes plant systemic defenses
+  false
+
+priming_compounds:
+  # morph: list
+  - ""
+
+plant_growth_regulation:
+  # morph: boolean
+  # affects plant hormone levels
+  false
+
+plant_hormones_affected:
+  # morph: list
+  # auxin | cytokinin | gibberellin | ethylene | ABA
+  - ""
+
+fungal_auxin_production:
+  # morph: boolean
+  false
+
+fungal_cytokinin_production:
+  # morph: boolean
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BACTERIAL COMMUNICATION - Chemical signals to Bacteria
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bacterial_recruitment:
+  # morph: boolean
+  # attracts specific bacteria
+  false
+
+bacterial_attractants:
+  # morph: list
+  - ""
+
+bacterial_repellents:
+  # morph: list
+  - ""
+
+quorum_sensing_interference:
+  # morph: boolean
+  # interferes with bacterial QS
+  false
+
+qs_interference_compounds:
+  # morph: list
+  # AHL_mimics | AI-2_analogues
+  - ""
+
+bacterial_biofilm_regulation:
+  # morph: boolean
+  false
+
+biofilm_regulation_compounds:
+  # morph: list
+  - ""
+
+bacterial_growth_promotion_compounds:
+  # morph: list
+  - ""
+
+bacterial_growth_inhibition_compounds:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ANIMAL COMMUNICATION - Chemical signals to Animalia
+# ═══════════════════════════════════════════════════════════════════════════════
+
+animal_attraction:
+  # morph: boolean
+  # produces attractants for animals
+  false
+
+animal_attractant_compounds:
+  # morph: list
+  - ""
+
+attracted_animals:
+  # morph: list
+  # insects | mammals | birds | etc.
+  - ""
+
+animal_repellents:
+  # morph: list
+  - ""
+
+repelled_animals:
+  # morph: list
+  - ""
+
+insect_pheromone_mimicry:
+  # morph: boolean
+  # mimics insect pheromones
+  false
+
+pheromone_mimics:
+  # morph: list
+  - ""
+
+taste_modulation:
+  # morph: boolean
+  # affects animal taste perception
+  false
+
+taste_compounds:
+  # morph: list
+  # umami | sweet | bitter
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FUNGAL-FUNGAL COMMUNICATION - Intra-kingdom
+# ═══════════════════════════════════════════════════════════════════════════════
+
+fungal_fungal_signaling:
+  # morph: boolean
+  false
+
+fungal_signal_compounds:
+  # morph: list
+  - ""
+
+self_recognition_compounds:
+  # morph: boolean
+  false
+
+non_self_recognition_compounds:
+  # morph: boolean
+  false
+
+fungal_fungal_antagonism:
+  # morph: boolean
+  false
+
+antagonistic_compounds:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEFENSIVE CHEMISTRY - Chemical weapons
+# ═══════════════════════════════════════════════════════════════════════════════
+
+antimicrobial_compounds:
+  # morph: list
+  - ""
+
+antibiotic_production:
+  # morph: boolean
+  false
+
+antibiotics:
+  # morph: list
+  - ""
+
+antibiotic_potency:
+  # morph: gauge
+  # MIC values (lower = more potent)
+  value: 0
+  min: 0
+  max: 1000
+  unit: "μg/mL"
+
+antifungal_compounds:
+  # morph: list
+  - ""
+
+herbivore_deterrents:
+  # morph: list
+  - ""
+
+deterrent_potency:
+  # morph: rating
+  rating: 0
+  max: 10
+
+toxins:
+  # morph: list
+  - ""
+
+toxicity_to_kingdoms:
+  # morph: list
+  # Plantae | Animalia | Bacteria | Fungi
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ALLELOPATHY - Chemical inhibition of others
+# ═══════════════════════════════════════════════════════════════════════════════
+
+allelopathic:
+  # morph: boolean
+  false
+
+allelopathic_compounds:
+  # morph: list
+  - ""
+
+allelopathy_targets:
+  # morph: list
+  # plants | other_fungi | bacteria
+  - ""
+
+allelopathy_mechanism:
+  # morph: badge
+  # growth_inhibition | germination_block | metabolic_disruption
+  status: ""
+  variant: ""
+
+allelopathic_zone_size:
+  # morph: range
+  # inhibition zone diameter
+  min: 0
+  max: 0
+  unit: "cm"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHEMOTAXIS - Attracting or repelling via chemicals
+# ═══════════════════════════════════════════════════════════════════════════════
+
+chemotactic_signaling:
+  # morph: boolean
+  # induces directed movement in others
+  false
+
+chemotactic_targets:
+  # morph: list
+  # bacteria | protists | nematodes | insects
+  - ""
+
+positive_chemotaxis_compounds:
+  # morph: list
+  # attractants
+  - ""
+
+negative_chemotaxis_compounds:
+  # morph: list
+  # repellents
+  - ""
+
+chemotactic_gradient_range:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "mm"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INFOCHEMICALS - Information-carrying molecules
+# ═══════════════════════════════════════════════════════════════════════════════
+
+infochemical_production:
+  # morph: boolean
+  false
+
+infochemicals:
+  # morph: list
+  - ""
+
+infochemical_recipients:
+  # morph: list
+  # who receives the information
+  - ""
+
+infochemical_messages:
+  # morph: list
+  # presence | stress | resource_availability | danger
+  - ""
+
+infochemical_specificity:
+  # morph: badge
+  # highly_specific | moderately_specific | broad_spectrum
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHEMICAL MIMICRY & DECEPTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+chemical_mimicry:
+  # morph: boolean
+  false
+
+mimicked_compounds:
+  # morph: list
+  - ""
+
+mimicry_targets:
+  # morph: list
+  # insects | plants | bacteria
+  - ""
+
+mimicry_function:
+  # morph: badge
+  # attraction | manipulation | defense | parasitism
+  status: ""
+  variant: ""
+
+chemical_deception:
+  # morph: boolean
+  # sends false signals
+  false
+
+deception_strategy:
+  # morph: text
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SECONDARY METABOLITE ECOLOGY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+secondary_metabolite_count:
+  # morph: number
+  0
+
+metabolite_classes:
+  # morph: pie
+  - label: "Polyketides"
+    value: 0
+  - label: "Terpenes"
+    value: 0
+  - label: "Peptides"
+    value: 0
+  - label: "Alkaloids"
+    value: 0
+  - label: "Phenolics"
+    value: 0
+  - label: "Other"
+    value: 0
+
+ecological_functions_of_metabolites:
+  # morph: list
+  # defense | signaling | competition | cooperation
+  - ""
+
+metabolite_target_organisms:
+  # morph: list
+  - ""
+
+constitutive_vs_induced:
+  # morph: pie
+  - label: "Constitutive"
+    value: 0
+  - label: "Induced"
+    value: 0
+
+induction_triggers:
+  # morph: list
+  # herbivory | competition | stress | elicitors
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NUTRIENT MOBILIZATION CHEMISTRY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+chelating_agents:
+  # morph: list
+  # siderophores | organic_acids
+  - ""
+
+siderophore_production:
+  # morph: boolean
+  false
+
+siderophore_types:
+  # morph: list
+  - ""
+
+iron_chelation_strength:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+organic_acid_secretion:
+  # morph: list
+  # oxalic | citric | malic
+  - ""
+
+acid_weathering_potential:
+  # morph: rating
+  rating: 0
+  max: 10
+
+phosphate_solubilization_compounds:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXUDATES - Secreted compounds
+# ═══════════════════════════════════════════════════════════════════════════════
+
+exudate_production:
+  # morph: boolean
+  false
+
+exudate_composition:
+  # morph: pie
+  - label: "Sugars"
+    value: 0
+  - label: "Amino acids"
+    value: 0
+  - label: "Organic acids"
+    value: 0
+  - label: "Phenolics"
+    value: 0
+  - label: "Enzymes"
+    value: 0
+
+exudate_ecological_functions:
+  # morph: list
+  - ""
+
+exudate_rate:
+  # morph: number
+  # mg C per g fungal biomass per day
+  0
+
+exudate_recipients:
+  # morph: list
+  # bacteria | plants | other_fungi
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENZYME ECOLOGY - Extracellular enzymes
+# ═══════════════════════════════════════════════════════════════════════════════
+
+extracellular_enzymes:
+  # morph: list
+  - ""
+
+enzyme_targets:
+  # morph: list
+  # cellulose | lignin | chitin | proteins | lipids
+  - ""
+
+enzyme_secretion_rate:
+  # morph: number
+  # units per g biomass per hour
+  0
+
+enzyme_ecological_impact:
+  # morph: rating
+  rating: 0
+  max: 10
+
+competitive_enzyme_production:
+  # morph: boolean
+  # produces enzymes to outcompete others
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHEMICAL WARFARE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+chemical_warfare:
+  # morph: boolean
+  false
+
+warfare_compounds:
+  # morph: list
+  - ""
+
+warfare_targets:
+  # morph: list
+  - ""
+
+warfare_strategy:
+  # morph: badge
+  # offensive | defensive | both
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENVIRONMENTAL CHEMISTRY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+soil_chemistry_modification:
+  # morph: boolean
+  false
+
+soil_ph_effect:
+  # morph: gauge
+  # pH change induced
+  value: 0
+  min: -2
+  max: 2
+
+redox_potential_effect:
+  # morph: badge
+  # oxidizing | reducing | neutral
+  status: ""
+  variant: ""
+
+chemical_niche_construction:
+  # morph: boolean
+  # creates chemical microenvironment
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESEARCH METHODS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+chemical_analysis_methods:
+  # morph: list
+  # GC-MS | LC-MS | NMR | HPLC
+  - ""
+
+metabolomics_studies:
+  # morph: boolean
+  false
+
+volatilomics_studies:
+  # morph: boolean
+  false
+
+chemical_imaging:
+  # morph: boolean
+  # MALDI-MSI | nano-DESI | SIMS
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LITERATURE REFERENCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_research_papers:
+  # morph: list
+  - ""
+
+chemical_ecology_literature:
+  # morph: citation
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+data_source:
+  # morph: badge
+  # analytical_chemistry | bioassay | genomic | literature
+  status: ""
+  variant: ""
+
+confidence_level:
+  # morph: badge
+  # high | medium | low | speculative
+  status: ""
+  variant: ""
+
+measurement_date:
+  # morph: text
+  ""
+
+study_location:
+  # morph: map
+  lat: 0
+  lng: 0
+  region: ""

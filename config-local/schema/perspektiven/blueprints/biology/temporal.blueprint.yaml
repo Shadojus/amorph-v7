@@ -1,0 +1,2045 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# TEMPORAL PERSPECTIVE BLUEPRINT
+# Schema mit leeren Datenstrukturen für Morph-Erkennung
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TEMPORAL PROFILE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+temporal_strategie: ""
+
+# morph: tag
+langlebigkeits_klasse: ""
+
+# morph: number
+generationszeit_tage: 0
+
+# morph: progress
+daten_vollstaendigkeit_score:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: number
+beobachtungen_anzahl: 0
+
+# morph: text
+letzte_beobachtung_datum: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# LEBENSZYKLUS - Lifecycle Core
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+lebenszyklus_typ: ""
+
+# morph: tag
+reproduktionsmodus: ""
+
+# morph: tag
+paarungssystem: ""
+
+# morph: tag
+ploidie_zyklus: ""
+
+# morph: number
+zyklus_dauer_tage_gesamt: 0
+
+# morph: number
+zyklus_dauer_min: 0
+
+# morph: number
+zyklus_dauer_max: 0
+
+# morph: number
+zyklus_dauer_optimal: 0
+
+# morph: number
+generationen_pro_jahr: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# FRUCHTUNGSTRIGGER
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+fruchtungs_trigger:
+  - ""
+
+# morph: number
+fruchtungs_trigger_temp_schwelle_c: 0
+
+# morph: number
+fruchtungs_trigger_temp_dauer_h: 0
+
+# morph: number
+fruchtungs_trigger_feuchtigkeit_prozent: 0
+
+# morph: number
+fruchtungs_trigger_photoperiode_h: 0
+
+# morph: list
+dormanz_trigger:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# FORSCHUNGSKONTEXT
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+modellorganismus_status: false
+
+# morph: boolean
+genom_sequenziert: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# UNIVERSAL LIFECYCLE STAGES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+lifecycle_kingdom: ""
+
+# morph: number
+lifecycle_stage_count: 0
+
+# morph: number
+lifecycle_total_duration_days: 0
+
+# morph: number
+lifecycle_generation_time_days: 0
+
+# morph: boolean
+lifecycle_dormancy_capable: false
+
+# morph: tag
+lifecycle_diapause_type: ""
+
+# morph: tag
+lifecycle_metamorphosis_type: ""
+
+# morph: boolean
+lifecycle_alternation_generations: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ENTWICKLUNGSSTADIEN
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: lifecycle
+entwicklungsstadien:
+  - phase: ""
+    duration: ""
+
+# morph: number
+stadien_anzahl: 0
+
+# Stadium 1: Spore
+# morph: text
+stadium_1_name: ""
+
+# morph: text
+stadium_1_name_wissenschaftlich: ""
+
+# morph: tag
+stadium_1_code: ""
+
+# morph: tag
+stadium_1_kategorie: ""
+
+# morph: tag
+stadium_1_ploidie_zustand: ""
+
+# morph: number
+stadium_1_dauer_h_min: 0
+
+# morph: number
+stadium_1_dauer_h_optimal: 0
+
+# morph: number
+stadium_1_dauer_h_max: 0
+
+# morph: tag
+stadium_1_dauer_variabilitaet: ""
+
+# morph: number
+stadium_1_wachstumsrate_optimal: 0
+
+# morph: tag
+stadium_1_wachstumsrate_einheit: ""
+
+# morph: number
+stadium_1_groesse_min_mm: 0
+
+# morph: number
+stadium_1_groesse_max_mm: 0
+
+# morph: number
+stadium_1_groesse_typisch_mm: 0
+
+# morph: number
+stadium_1_temp_min_c: 0
+
+# morph: number
+stadium_1_temp_optimal_c: 0
+
+# morph: number
+stadium_1_temp_max_c: 0
+
+# morph: number
+stadium_1_feuchtigkeit_min: 0
+
+# morph: number
+stadium_1_feuchtigkeit_optimal: 0
+
+# morph: number
+stadium_1_feuchtigkeit_max: 0
+
+# morph: number
+stadium_1_licht_photoperiode_h: 0
+
+# morph: number
+stadium_1_licht_intensitaet_lux: 0
+
+# morph: tag
+stadium_1_licht_spektrum: ""
+
+# morph: tag
+stadium_1_sauerstoff_bedarf: ""
+
+# morph: number
+stadium_1_co2_optimal_ppm: 0
+
+# morph: number
+stadium_1_co2_max_ppm: 0
+
+# morph: text
+stadium_1_morphologie: ""
+
+# morph: list
+stadium_1_identifikationsmerkmale:
+  - ""
+
+# morph: list
+stadium_1_mikroskopische_merkmale:
+  - ""
+
+# morph: list
+stadium_1_uebergang_trigger:
+  - ""
+
+# morph: number
+stadium_1_uebergang_dauer_h: 0
+
+# morph: progress
+stadium_1_uebergang_erfolgsrate:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: boolean
+stadium_1_reversibel: false
+
+# morph: boolean
+stadium_1_erntbar: false
+
+# morph: number
+stadium_1_erntefenster_h: 0
+
+# morph: text
+stadium_1_kultivierungs_hinweise: ""
+
+# Stadium 2: Keimung
+# morph: text
+stadium_2_name: ""
+
+# morph: text
+stadium_2_name_wissenschaftlich: ""
+
+# morph: tag
+stadium_2_code: ""
+
+# morph: tag
+stadium_2_kategorie: ""
+
+# morph: tag
+stadium_2_ploidie_zustand: ""
+
+# morph: number
+stadium_2_dauer_h_min: 0
+
+# morph: number
+stadium_2_dauer_h_optimal: 0
+
+# morph: number
+stadium_2_dauer_h_max: 0
+
+# morph: number
+stadium_2_temp_optimal_c: 0
+
+# morph: number
+stadium_2_feuchtigkeit_optimal: 0
+
+# morph: text
+stadium_2_morphologie: ""
+
+# morph: boolean
+stadium_2_erntbar: false
+
+# Stadium 3: Vegetativ
+# morph: text
+stadium_3_name: ""
+
+# morph: text
+stadium_3_name_wissenschaftlich: ""
+
+# morph: tag
+stadium_3_code: ""
+
+# morph: tag
+stadium_3_kategorie: ""
+
+# morph: tag
+stadium_3_ploidie_zustand: ""
+
+# morph: number
+stadium_3_dauer_h_min: 0
+
+# morph: number
+stadium_3_dauer_h_optimal: 0
+
+# morph: number
+stadium_3_dauer_h_max: 0
+
+# morph: number
+stadium_3_temp_optimal_c: 0
+
+# morph: number
+stadium_3_feuchtigkeit_optimal: 0
+
+# morph: number
+stadium_3_wachstumsrate_optimal: 0
+
+# morph: text
+stadium_3_morphologie: ""
+
+# morph: boolean
+stadium_3_erntbar: false
+
+# Stadium 4: Primordien
+# morph: text
+stadium_4_name: ""
+
+# morph: text
+stadium_4_name_wissenschaftlich: ""
+
+# morph: tag
+stadium_4_code: ""
+
+# morph: tag
+stadium_4_kategorie: ""
+
+# morph: tag
+stadium_4_ploidie_zustand: ""
+
+# morph: number
+stadium_4_dauer_h_min: 0
+
+# morph: number
+stadium_4_dauer_h_optimal: 0
+
+# morph: number
+stadium_4_dauer_h_max: 0
+
+# morph: number
+stadium_4_temp_optimal_c: 0
+
+# morph: number
+stadium_4_feuchtigkeit_optimal: 0
+
+# morph: text
+stadium_4_morphologie: ""
+
+# morph: boolean
+stadium_4_erntbar: false
+
+# Stadium 5: Button
+# morph: text
+stadium_5_name: ""
+
+# morph: text
+stadium_5_name_wissenschaftlich: ""
+
+# morph: tag
+stadium_5_code: ""
+
+# morph: tag
+stadium_5_kategorie: ""
+
+# morph: number
+stadium_5_dauer_h_min: 0
+
+# morph: number
+stadium_5_dauer_h_optimal: 0
+
+# morph: number
+stadium_5_dauer_h_max: 0
+
+# morph: number
+stadium_5_temp_optimal_c: 0
+
+# morph: text
+stadium_5_morphologie: ""
+
+# morph: boolean
+stadium_5_erntbar: false
+
+# morph: number
+stadium_5_erntefenster_h: 0
+
+# Stadium 6: Mature
+# morph: text
+stadium_6_name: ""
+
+# morph: text
+stadium_6_name_wissenschaftlich: ""
+
+# morph: tag
+stadium_6_code: ""
+
+# morph: tag
+stadium_6_kategorie: ""
+
+# morph: number
+stadium_6_dauer_h_min: 0
+
+# morph: number
+stadium_6_dauer_h_optimal: 0
+
+# morph: number
+stadium_6_dauer_h_max: 0
+
+# morph: text
+stadium_6_morphologie: ""
+
+# morph: boolean
+stadium_6_erntbar: false
+
+# morph: number
+stadium_6_erntefenster_h: 0
+
+# Stadium 7: Sporulation
+# morph: text
+stadium_7_name: ""
+
+# morph: tag
+stadium_7_kategorie: ""
+
+# morph: number
+stadium_7_dauer_h_optimal: 0
+
+# morph: text
+stadium_7_morphologie: ""
+
+# Stadium 8: Seneszenz
+# morph: text
+stadium_8_name: ""
+
+# morph: tag
+stadium_8_kategorie: ""
+
+# morph: number
+stadium_8_dauer_h_optimal: 0
+
+# morph: text
+stadium_8_morphologie: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PHÄNOLOGIE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+phenologie:
+  region: ""
+  klimazone: ""
+
+# morph: text
+phenologie_region: ""
+
+# morph: number
+phenologie_breitengrad_min: 0
+
+# morph: number
+phenologie_breitengrad_max: 0
+
+# morph: number
+phenologie_hoehe_min_m: 0
+
+# morph: number
+phenologie_hoehe_max_m: 0
+
+# morph: tag
+phenologie_klimazone: ""
+
+# Saisonalität
+# morph: tag
+saisonalitaet_typ: ""
+
+# morph: tag
+primaere_saison: ""
+
+# morph: tag
+sekundaere_saison: ""
+
+# morph: calendar
+monatliche_aktivitaet:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: number
+monatliche_aktivitaet_jan: 0
+
+# morph: number
+monatliche_aktivitaet_feb: 0
+
+# morph: number
+monatliche_aktivitaet_mar: 0
+
+# morph: number
+monatliche_aktivitaet_apr: 0
+
+# morph: number
+monatliche_aktivitaet_mai: 0
+
+# morph: number
+monatliche_aktivitaet_jun: 0
+
+# morph: number
+monatliche_aktivitaet_jul: 0
+
+# morph: number
+monatliche_aktivitaet_aug: 0
+
+# morph: number
+monatliche_aktivitaet_sep: 0
+
+# morph: number
+monatliche_aktivitaet_okt: 0
+
+# morph: number
+monatliche_aktivitaet_nov: 0
+
+# morph: number
+monatliche_aktivitaet_dez: 0
+
+# Peak-Perioden
+# morph: timeline
+peak_perioden:
+  - date: ""
+    event: ""
+    description: ""
+
+# morph: number
+peak_1_start_monat: 0
+
+# morph: number
+peak_1_start_tag: 0
+
+# morph: number
+peak_1_ende_monat: 0
+
+# morph: number
+peak_1_ende_tag: 0
+
+# morph: gauge
+peak_1_intensitaet:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "red"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "green"
+
+# morph: progress
+peak_1_zuverlaessigkeit:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: number
+peak_2_start_monat: 0
+
+# morph: number
+peak_2_ende_monat: 0
+
+# morph: number
+peak_2_intensitaet: 0
+
+# Erscheinungsdaten
+# morph: number
+erstes_erscheinen_tag_des_jahres: 0
+
+# morph: number
+letztes_erscheinen_tag_des_jahres: 0
+
+# morph: number
+saison_laenge_tage: 0
+
+# Umwelt-Korrelationen
+# morph: number
+temp_korrelation_fruchtung_min_c: 0
+
+# morph: number
+temp_korrelation_fruchtung_max_c: 0
+
+# morph: number
+temp_korrelation_fruchtung_optimal_c: 0
+
+# morph: number
+temp_korrelation_staerke: 0
+
+# morph: number
+niederschlag_korrelation_min_mm_woche: 0
+
+# morph: number
+niederschlag_korrelation_optimal_mm_woche: 0
+
+# morph: number
+niederschlag_korrelation_verzoegerung_tage: 0
+
+# morph: number
+niederschlag_korrelation_staerke: 0
+
+# morph: number
+feuchtigkeit_korrelation: 0
+
+# morph: number
+bodenfeuchtigkeit_korrelation: 0
+
+# morph: boolean
+photoperiode_empfindlichkeit: false
+
+# morph: number
+photoperiode_kritische_stunden: 0
+
+# morph: tag
+photoperiode_reaktionstyp: ""
+
+# Wetter-Reaktionen
+# morph: tag
+frost_empfindlichkeit: ""
+
+# morph: tag
+trockenheits_reaktion: ""
+
+# morph: tag
+sturm_reaktion: ""
+
+# Biotische Korrelationen
+# morph: boolean
+wirt_phenologie_verbindung: false
+
+# morph: text
+wirt_art: ""
+
+# morph: text
+wirt_korrelation_ereignis: ""
+
+# morph: number
+wirt_korrelation_verzoegerung_wochen: 0
+
+# morph: list
+assoziierte_arten:
+  - ""
+
+# Langzeit-Trends
+# morph: boolean
+phenologie_verschiebung_erkannt: false
+
+# morph: tag
+verschiebung_richtung: ""
+
+# morph: number
+verschiebung_groesse_tage: 0
+
+# morph: number
+verschiebung_zeitraum_jahre: 0
+
+# morph: progress
+verschiebung_konfidenz:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: text
+verschiebung_attribution: ""
+
+# morph: text
+historische_baseline: ""
+
+# Datenqualität Phänologie
+# morph: number
+beobachtungsjahre: 0
+
+# morph: number
+beobachtungen_total: 0
+
+# morph: progress
+phenologie_konfidenz:
+  value: 0
+  max: 100
+  unit: "%"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PHÄNOLOGIE-BEOBACHTUNGEN
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: number
+beobachtungen_verifiziert: 0
+
+# morph: number
+beobachtungen_einzigartige_beobachter: 0
+
+# morph: number
+beobachtungen_einzigartige_standorte: 0
+
+# morph: bar
+beobachtungen_monatliche_verteilung:
+  - label: ""
+    value: 0
+
+# morph: sparkline
+beobachtungen_woechentliche_verteilung:
+  - 0
+
+# morph: number
+beobachtungen_erste_tag_des_jahres: 0
+
+# morph: number
+beobachtungen_letzte_tag_des_jahres: 0
+
+# morph: number
+beobachtungen_peak_tag_des_jahres: 0
+
+# morph: number
+mittelwert_erstes_erscheinen_tag: 0
+
+# morph: number
+stdabw_erstes_erscheinen_tag: 0
+
+# morph: number
+mittelwert_peak_tag: 0
+
+# morph: number
+mittelwert_letztes_erscheinen_tag: 0
+
+# morph: number
+jahr_zu_jahr_aenderung_prozent: 0
+
+# morph: tag
+trend_richtung: ""
+
+# morph: number
+phenologie_verschiebung_tage: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CIRCADIAN RHYTHMEN
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+circadian:
+  rhythmus_typ: ""
+  periode: 0
+
+# morph: tag
+rhythmus_typ: ""
+
+# morph: number
+rhythmus_periode_stunden: 0
+
+# morph: tag
+rhythmus_variabilitaet: ""
+
+# morph: list
+entrainment_signale:
+  - ""
+
+# Sporenfreisetzung
+# morph: object
+sporenfreisetzung:
+  peak_zeit: ""
+  muster: ""
+
+# morph: text
+sporenfreisetzung_peak_zeit_utc: ""
+
+# morph: number
+sporenfreisetzung_peak_dauer_h: 0
+
+# morph: text
+sporenfreisetzung_sekundaer_peak: ""
+
+# morph: tag
+sporenfreisetzung_muster: ""
+
+# morph: number
+sporenfreisetzung_intensitaet_00: 0
+
+# morph: number
+sporenfreisetzung_intensitaet_06: 0
+
+# morph: number
+sporenfreisetzung_intensitaet_12: 0
+
+# morph: number
+sporenfreisetzung_intensitaet_18: 0
+
+# morph: boolean
+sporenfreisetzung_trigger_feuchtigkeit: false
+
+# morph: boolean
+sporenfreisetzung_trigger_temp_aenderung: false
+
+# morph: boolean
+sporenfreisetzung_trigger_licht: false
+
+# morph: number
+sporenfreisetzung_trigger_wind_ms: 0
+
+# Wachstumsrate-Muster
+# morph: bar
+wachstumsrate_muster:
+  - label: ""
+    value: 0
+
+# morph: text
+wachstumsrate_peak_zeit: ""
+
+# morph: text
+wachstumsrate_minimum_zeit: ""
+
+# morph: number
+wachstumsrate_peak_zu_tief_verhaeltnis: 0
+
+# morph: number
+wachstumsrate_rhythmus_staerke: 0
+
+# Metabolische Rhythmen
+# morph: object
+metabolischer_rhythmus:
+  typ: ""
+  peak: ""
+
+# morph: text
+respiration_peak: ""
+
+# morph: list
+enzym_aktivitaet_peaks:
+  - ""
+
+# morph: text
+sekundaer_metabolit_produktion_peak: ""
+
+# morph: list
+sekundaer_metabolit_verbindungen:
+  - ""
+
+# morph: tag
+co2_produktion_muster: ""
+
+# morph: tag
+voc_emission_muster: ""
+
+# morph: text
+voc_peak_zeit: ""
+
+# morph: list
+voc_verbindungen:
+  - ""
+
+# morph: number
+voc_variation_prozent: 0
+
+# Lichtreaktion
+# morph: object
+lichtreaktion:
+  empfindlich: false
+  typ: ""
+
+# morph: list
+photorezeptoren:
+  - ""
+
+# morph: number
+aktionsspektrum_peak_nm: 0
+
+# morph: number
+empfindlichkeitsschwelle_lux: 0
+
+# morph: tag
+phototropismus: ""
+
+# morph: tag
+photomorphogenese_hut: ""
+
+# morph: tag
+photomorphogenese_stiel: ""
+
+# morph: tag
+photomorphogenese_pigmentierung: ""
+
+# morph: number
+dunkelperiode_minimum_h: 0
+
+# morph: boolean
+dunkelperiode_kontinuierlich_erforderlich: false
+
+# morph: list
+dunkelperiode_effekte:
+  - ""
+
+# Temperaturrhythmus
+# morph: tag
+temperaturrhythmus_reaktion: ""
+
+# morph: number
+temperaturrhythmus_optimale_amplitude_c: 0
+
+# morph: tag
+temperaturrhythmus_phasenbeziehung: ""
+
+# morph: boolean
+thermoperiodismus: false
+
+# Biolumineszenz
+# morph: boolean
+biolumineszenz_vorhanden: false
+
+# morph: text
+biolumineszenz_peak_zeit: ""
+
+# morph: number
+biolumineszenz_dauer_h: 0
+
+# morph: tag
+biolumineszenz_intensitaet_rhythmus: ""
+
+# morph: tag
+biolumineszenz_farbe: ""
+
+# morph: number
+biolumineszenz_wellenlaenge_nm: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HISTORISCHE ENTDECKUNG
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+entdeckung:
+  jahr: 0
+  ort: ""
+  entdecker: ""
+
+# morph: number
+entdeckung_jahr: 0
+
+# morph: text
+entdeckung_datum: ""
+
+# morph: text
+entdeckung_ort_land: ""
+
+# morph: text
+entdeckung_ort_region: ""
+
+# morph: text
+entdeckung_ort_lokalitaet: ""
+
+# morph: number
+entdeckung_koordinaten_lat: 0
+
+# morph: number
+entdeckung_koordinaten_lon: 0
+
+# morph: text
+entdecker_name: ""
+
+# morph: text
+entdecker_biografie: ""
+
+# morph: text
+entdeckung_kontext: ""
+
+# Originalbeschreibung
+# morph: citation
+erstbeschreibung:
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# morph: text
+original_publikation_titel: ""
+
+# morph: text
+original_publikation_autor: ""
+
+# morph: number
+original_publikation_jahr: 0
+
+# morph: text
+original_publikation_band: ""
+
+# morph: text
+original_publikation_seite: ""
+
+# morph: text
+original_publikation_doi: ""
+
+# morph: link
+original_publikation_url: ""
+
+# morph: text
+original_name: ""
+
+# morph: text
+original_beschreibung_text: ""
+
+# morph: text
+original_beschreibung_uebersetzung: ""
+
+# Typusspezimen
+# morph: text
+typusspezimen_herbarium: ""
+
+# morph: text
+typusspezimen_code: ""
+
+# morph: text
+typusspezimen_id: ""
+
+# morph: tag
+typusspezimen_status: ""
+
+# morph: text
+typusspezimen_designiert_von: ""
+
+# morph: tag
+typusspezimen_zustand: ""
+
+# morph: boolean
+typusspezimen_digitalisiert: false
+
+# morph: link
+typusspezimen_digital_url: ""
+
+# Etymologie
+# morph: object
+etymologie:
+  gattung: ""
+  art: ""
+  sprache: ""
+
+# morph: text
+etymologie_gattung_bedeutung: ""
+
+# morph: text
+etymologie_art_bedeutung: ""
+
+# morph: text
+etymologie_sprachherkunft: ""
+
+# morph: text
+etymologie_anmerkungen: ""
+
+# Vor-wissenschaftliche Geschichte
+# morph: object
+indigenes_wissen:
+  kulturen: []
+  verwendung: []
+
+# morph: list
+indigenes_wissen_kulturen:
+  - ""
+
+# morph: text
+indigenes_wissen_frueheste_aufzeichnung: ""
+
+# morph: list
+indigenes_wissen_traditionelle_namen:
+  - ""
+
+# morph: list
+indigenes_wissen_traditionelle_verwendung:
+  - ""
+
+# morph: list
+indigenes_wissen_dokumentationsquellen:
+  - ""
+
+# morph: list
+antike_referenzen:
+  - ""
+
+# morph: list
+archaeologische_evidenz:
+  - ""
+
+# Taxonomische Geschichte
+# morph: list
+synonyme_historie:
+  - ""
+
+# morph: timeline
+grosse_revisionen:
+  - date: ""
+    event: ""
+    description: ""
+
+# morph: text
+aktuelle_klassifikation_datum: ""
+
+# morph: progress
+dokumentations_vollstaendigkeit:
+  value: 0
+  max: 100
+  unit: "%"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HISTORISCHE MEILENSTEINE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: timeline
+meilensteine:
+  - date: ""
+    event: ""
+    description: ""
+
+# morph: number
+meilenstein_1_jahr: 0
+
+# morph: text
+meilenstein_1_datum: ""
+
+# morph: text
+meilenstein_1_titel: ""
+
+# morph: tag
+meilenstein_1_kategorie: ""
+
+# morph: tag
+meilenstein_1_bedeutung: ""
+
+# morph: text
+meilenstein_1_beschreibung: ""
+
+# morph: list
+meilenstein_1_schluesselpersonen:
+  - ""
+
+# morph: text
+meilenstein_1_ort: ""
+
+# morph: citation
+meilenstein_1_primaerquelle:
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# morph: list
+meilenstein_1_auswirkungsbereiche:
+  - ""
+
+# morph: text
+meilenstein_1_langfristige_effekte: ""
+
+# morph: number
+meilenstein_2_jahr: 0
+
+# morph: text
+meilenstein_2_titel: ""
+
+# morph: tag
+meilenstein_2_kategorie: ""
+
+# morph: text
+meilenstein_2_beschreibung: ""
+
+# morph: number
+meilenstein_3_jahr: 0
+
+# morph: text
+meilenstein_3_titel: ""
+
+# morph: tag
+meilenstein_3_kategorie: ""
+
+# morph: text
+meilenstein_3_beschreibung: ""
+
+# morph: number
+meilenstein_4_jahr: 0
+
+# morph: text
+meilenstein_4_titel: ""
+
+# morph: tag
+meilenstein_4_kategorie: ""
+
+# morph: text
+meilenstein_4_beschreibung: ""
+
+# morph: number
+meilenstein_5_jahr: 0
+
+# morph: text
+meilenstein_5_titel: ""
+
+# morph: tag
+meilenstein_5_kategorie: ""
+
+# morph: text
+meilenstein_5_beschreibung: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# KULTIVIERUNGS-TIMELINE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: timeline
+kultivierungs_timeline:
+  - date: ""
+    event: ""
+    description: ""
+
+# morph: tag
+kultivierungs_status: ""
+
+# morph: tag
+domestizierungs_level: ""
+
+# morph: number
+erste_kultivierung_jahr: 0
+
+# morph: text
+erste_kultivierung_ort: ""
+
+# morph: text
+erste_kultivierung_methode: ""
+
+# morph: list
+kultivierungs_pioniere:
+  - ""
+
+# morph: timeline
+kultivierungs_meilensteine:
+  - date: ""
+    event: ""
+    description: ""
+
+# morph: object
+methoden_evolution:
+  1900er: ""
+  1950er: ""
+  1980er: ""
+  2000er: ""
+  2020er: ""
+
+# morph: text
+methoden_evolution_1900er: ""
+
+# morph: text
+methoden_evolution_1950er: ""
+
+# morph: text
+methoden_evolution_1980er: ""
+
+# morph: text
+methoden_evolution_2000er: ""
+
+# morph: text
+methoden_evolution_2020er: ""
+
+# morph: list
+stamm_entwicklung_historie:
+  - ""
+
+# morph: list
+zuchtprogramme:
+  - ""
+
+# morph: number
+erste_kommerzielle_produktion_jahr: 0
+
+# morph: timeline
+kommerzielle_expansion_timeline:
+  - date: ""
+    event: ""
+    description: ""
+
+# morph: number
+aktuelle_globale_produktion_tonnen: 0
+
+# morph: list
+aktuelle_grossproduzenten:
+  - ""
+
+# morph: currency
+aktueller_marktwert_usd:
+  amount: 0
+  currency: "USD"
+
+# morph: list
+technologie_meilensteine:
+  - ""
+
+# morph: list
+patent_historie:
+  - ""
+
+# morph: list
+aufkommende_methoden:
+  - ""
+
+# morph: list
+projizierte_entwicklungen:
+  - ""
+
+# morph: list
+schluessel_publikationen:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ZUKUNFTSPROJEKTIONEN
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+klima_projektionen:
+  modell: ""
+  szenario: ""
+
+# morph: text
+klima_projektion_modell: ""
+
+# morph: tag
+klima_projektion_szenario: ""
+
+# morph: text
+klima_projektion_zeithorizont: ""
+
+# morph: number
+klima_projektion_basisjahr: 0
+
+# morph: number
+klima_projektion_zieljahr: 0
+
+# morph: progress
+klima_projektion_konfidenz:
+  value: 0
+  max: 100
+  unit: "%"
+
+# Areal-Verschiebungen
+# morph: tag
+areal_verschiebung_richtung: ""
+
+# morph: number
+areal_verschiebung_distanz_km_dekade: 0
+
+# morph: number
+areal_verschiebung_hoehe_m_dekade: 0
+
+# morph: number
+areal_verschiebung_breitengrad_grad_dekade: 0
+
+# morph: text
+areal_projektion_2050: ""
+
+# morph: text
+areal_projektion_2100: ""
+
+# morph: list
+areal_gewinn_regionen:
+  - ""
+
+# morph: list
+areal_verlust_regionen:
+  - ""
+
+# morph: list
+areal_stabil_regionen:
+  - ""
+
+# morph: number
+areal_netto_aenderung_prozent: 0
+
+# Phenologie-Projektionen
+# morph: number
+phenologie_projektion_frueheres_erscheinen_tage: 0
+
+# morph: number
+phenologie_projektion_spaeteres_ende_tage: 0
+
+# morph: number
+phenologie_projektion_saison_aenderung_tage: 0
+
+# morph: number
+phenologie_projektion_peak_verschiebung_tage: 0
+
+# morph: object
+mismatch_risiko:
+  wirt: false
+  bestauber: false
+  verbreiter: false
+
+# morph: boolean
+mismatch_risiko_wirt: false
+
+# morph: boolean
+mismatch_risiko_bestauber: false
+
+# morph: boolean
+mismatch_risiko_verbreiter: false
+
+# morph: badge
+mismatch_risiko_schwere:
+  status: ""
+  variant: ""
+
+# morph: progress
+mismatch_risiko_wahrscheinlichkeit:
+  value: 0
+  max: 100
+  unit: "%"
+
+# Populations-Projektionen
+# morph: tag
+populations_projektion_trend: ""
+
+# morph: number
+populations_projektion_aenderung_prozent: 0
+
+# morph: object
+populations_projektion_konfidenzintervall:
+  lower: 0
+  upper: 0
+
+# morph: tag
+habitateignung_projektion_trend: ""
+
+# morph: number
+habitateignung_projektion_aenderung: 0
+
+# Naturschutz-Prognose
+# morph: object
+naturschutz_prognose:
+  aktuell: ""
+  projiziert: ""
+
+# morph: badge
+naturschutz_prognose_aktueller_status:
+  status: ""
+  variant: ""
+
+# morph: badge
+naturschutz_prognose_projizierter_status:
+  status: ""
+  variant: ""
+
+# morph: badge
+naturschutz_prognose_bedrohungsniveau:
+  status: ""
+  variant: ""
+
+# morph: gauge
+naturschutz_prognose_priorisierungs_score:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# morph: object
+aussterbe_risiko:
+  wahrscheinlichkeit_2050: 0
+  wahrscheinlichkeit_2100: 0
+
+# morph: gauge
+aussterbe_wahrscheinlichkeit_2050:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# morph: gauge
+aussterbe_wahrscheinlichkeit_2100:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# morph: list
+aussterbe_primaere_treiber:
+  - ""
+
+# morph: list
+aussterbe_sekundaere_treiber:
+  - ""
+
+# morph: progress
+aussterbe_konfidenz:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: badge
+naturschutz_handlungsdringlichkeit:
+  status: ""
+  variant: ""
+
+# morph: list
+naturschutz_empfohlene_aktionen:
+  - ""
+
+# morph: progress
+naturschutz_geschuetzte_areal_prozent:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: number
+naturschutz_ziel_prozent: 0
+
+# morph: object
+anpassungspotenzial:
+  genetisch: ""
+  plastizitaet: ""
+  ausbreitung: ""
+
+# morph: tag
+anpassungspotenzial_genetisch: ""
+
+# morph: tag
+anpassungspotenzial_plastizitaet: ""
+
+# morph: tag
+anpassungspotenzial_ausbreitung: ""
+
+# morph: gauge
+anpassungspotenzial_overall_score:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "red"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "green"
+
+# morph: boolean
+climate_refugia_vorhanden: false
+
+# morph: list
+climate_refugia_orte:
+  - ""
+
+# morph: tag
+climate_refugia_qualitaet: ""
+
+# morph: tag
+climate_refugia_konnektivitaet: ""
+
+# morph: boolean
+assisted_migration_kandidat: false
+
+# morph: list
+assisted_migration_zielregionen:
+  - ""
+
+# morph: tag
+assisted_migration_machbarkeit: ""
+
+# Szenarien
+# morph: object
+zukunfts_szenarien:
+  best_case: ""
+  moderate: ""
+  worst_case: ""
+
+# morph: text
+szenario_best_case: ""
+
+# morph: text
+szenario_best_case_beschreibung: ""
+
+# morph: progress
+szenario_best_case_wahrscheinlichkeit:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: list
+szenario_best_case_bedingungen:
+  - ""
+
+# morph: text
+szenario_moderate: ""
+
+# morph: text
+szenario_moderate_beschreibung: ""
+
+# morph: progress
+szenario_moderate_wahrscheinlichkeit:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: text
+szenario_worst_case: ""
+
+# morph: text
+szenario_worst_case_beschreibung: ""
+
+# morph: progress
+szenario_worst_case_wahrscheinlichkeit:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: list
+szenario_worst_case_vermeidungsmassnahmen:
+  - ""
+
+# morph: list
+szenario_unsicherheiten:
+  - ""
+
+# morph: list
+szenario_schluessel_kipppunkte:
+  - ""
+
+# morph: list
+monitoring_empfehlungen:
+  - ""
+
+# morph: list
+forschungs_prioritaeten:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DATENQUALITÄT & VALIDIERUNG
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+temporal_daten_quellen:
+  - ""
+
+# morph: text
+temporal_daten_letzte_validierung: ""
+
+# morph: text
+temporal_daten_naechste_ueberpruefung: ""
+
+# morph: gauge
+temporal_daten_qualitaets_score:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "red"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "green"
+
+# morph: progress
+temporal_daten_vollstaendigkeit:
+  value: 0
+  max: 100
+  unit: "%"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# KLIMAWANDEL-PHÄNOLOGIE-SHIFTS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+phenology_shift_observed: false
+
+# morph: number
+phenology_shift_days_per_decade: 0
+
+# morph: tag
+phenology_shift_direction: ""
+
+# morph: text
+phenology_baseline_period: ""
+
+# morph: text
+phenology_current_vs_baseline: ""
+
+# morph: list
+phenology_drivers:
+  - ""
+
+# morph: boolean
+mismatch_with_partners: false
+
+# morph: list
+mismatch_species_affected:
+  - ""
+
+# morph: text
+mismatch_consequences: ""
+
+# morph: tag
+adaptation_capacity_phenology: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SAISONALER KALENDER
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: number
+calendar_jan: 0
+
+# morph: number
+calendar_feb: 0
+
+# morph: number
+calendar_mar: 0
+
+# morph: number
+calendar_apr: 0
+
+# morph: number
+calendar_may: 0
+
+# morph: number
+calendar_jun: 0
+
+# morph: number
+calendar_jul: 0
+
+# morph: number
+calendar_aug: 0
+
+# morph: number
+calendar_sep: 0
+
+# morph: number
+calendar_oct: 0
+
+# morph: number
+calendar_nov: 0
+
+# morph: number
+calendar_dec: 0
+
+# morph: list
+peak_activity_months:
+  - 0
+
+# morph: list
+dormancy_months:
+  - 0
+
+# morph: text
+optimal_observation_window: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# VORHERSAGBARKEIT & AUSLÖSER
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+phenology_predictability: ""
+
+# morph: tag
+primary_phenology_cue: ""
+
+# morph: list
+secondary_phenology_cues:
+  - ""
+
+# morph: number
+temperature_threshold_celsius: 0
+
+# morph: number
+photoperiod_critical_hours: 0
+
+# morph: number
+rainfall_threshold_mm: 0
+
+# morph: number
+degree_days_required: 0
+
+# morph: number
+chilling_hours_required: 0
+
+# morph: text
+phenology_prediction_model: ""
+
+# morph: progress
+phenology_forecast_accuracy:
+  value: 0
+  max: 100
+  unit: "%"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HISTORISCHE VERÄNDERUNGEN
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+historical_phenology_records:
+  - ""
+
+# morph: text
+earliest_recorded_date: ""
+
+# morph: text
+latest_recorded_date: ""
+
+# morph: text
+historical_average_date: ""
+
+# morph: list
+phenology_long_term_datasets:
+  - ""
+
+# morph: list
+phenology_citizen_science_data:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ENUMERATIONS (Reference values)
+# ─────────────────────────────────────────────────────────────────────────────
+
+_enums:
+  temporal_strategie:
+    - ephemeral
+    - seasonal
+    - perennial
+    - opportunistic
+    - persistent
+
+  langlebigkeits_klasse:
+    - hours
+    - days
+    - weeks
+    - months
+    - years
+    - decades
+    - centuries
+
+  lebenszyklus_typ:
+    - simple
+    - complex
+    - dimorphic
+    - polymorphic
+    - alternating_host
+
+  reproduktionsmodus:
+    - sexual
+    - asexual
+    - both
+    - parasexual
+
+  paarungssystem:
+    - homothallic
+    - heterothallic
+    - pseudohomothallic
+    - unknown
+
+  stadium_kategorie:
+    - spore
+    - germination
+    - vegetative
+    - reproductive_initiation
+    - primordia
+    - development
+    - maturation
+    - sporulation
+    - senescence
+    - dormancy
+    - sclerotia
+    - other
+
+  ploidie_zustand:
+    - haploid
+    - diploid
+    - dikaryotic
+    - polyploid
+    - variable
+
+  dauer_variabilitaet:
+    - fixed
+    - low
+    - moderate
+    - high
+    - extreme
+
+  sauerstoff_bedarf:
+    - aerobic
+    - microaerobic
+    - anaerobic
+    - facultative
+
+  saisonalitaet_typ:
+    - strictly_seasonal
+    - primarily_seasonal
+    - year_round
+    - sporadic
+    - rare
+
+  saison:
+    - spring
+    - summer
+    - autumn
+    - winter
+    - year_round
+    - none
+
+  frost_empfindlichkeit:
+    - very_sensitive
+    - sensitive
+    - moderate
+    - tolerant
+    - frost_required
+
+  trockenheits_reaktion:
+    - dormancy
+    - death
+    - reduced_fruiting
+    - tolerant
+    - adapted
+
+  rhythmus_typ:
+    - circadian
+    - ultradian
+    - infradian
+    - free_running
+    - entrained
+
+  meilenstein_kategorie:
+    - discovery
+    - taxonomic
+    - cultivation
+    - medical
+    - chemical
+    - ecological
+    - cultural
+    - conservation
+    - genomic
+    - commercial
+    - regulatory
+    - other
+
+  meilenstein_bedeutung:
+    - major
+    - moderate
+    - minor
+
+  kultivierungs_status:
+    - wild_only
+    - experimental
+    - small_scale
+    - commercial
+    - industrial
+
+  domestizierungs_level:
+    - wild
+    - semi_domesticated
+    - domesticated
+    - highly_bred
+
+  trend_richtung:
+    - increasing
+    - stable
+    - decreasing
+    - variable
+
+  naturschutz_prognose_status:
+    - improving
+    - stable
+    - declining
+    - critical
+
+  anpassungspotenzial_level:
+    - very_low
+    - low
+    - moderate
+    - high
+    - very_high
+
+  phenology_predictability:
+    - low
+    - moderate
+    - high
+
+  phenology_shift_direction:
+    - earlier
+    - later
+    - variable

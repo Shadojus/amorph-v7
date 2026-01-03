@@ -1,0 +1,29 @@
+{
+  "id": "electron",
+  "slug": "electron",
+  "name": "Elektron",
+  "scientific_name": "Electron",
+  "kingdom": "particle",
+  "kingdom_icon": "⚛️",
+  "image": null,
+  "tagline": "Fundamentales Lepton",
+  "description": "Das Elektron ist ein stabiles, negativ geladenes Elementarteilchen mit Spin 1/2. Es ist eines der fundamentalen Leptonen und trägt die elementare elektrische Ladung. Elektronen umkreisen den Atomkern und sind für chemische Bindungen verantwortlich.",
+  "seo_description": "Elektron - Negativ geladenes Elementarteilchen, Lepton",
+  "quick_facts": [
+    {"icon": "⚖️", "label": "Masse", "value": "9.109×10⁻³¹ kg"},
+    {"icon": "⚡", "label": "Ladung", "value": "-1.602×10⁻¹⁹ C"},
+    {"icon": "🔄", "label": "Spin", "value": "1/2"},
+    {"icon": "📏", "label": "Radius", "value": "<10⁻¹⁸ m"}
+  ],
+  "highlights": ["Elementarladung", "Lepton", "Chemische Bindungen"],
+  "badges": [
+    {"icon": "🔬", "label": "Entdeckung", "status": "1897 (Thomson)", "variant": "info"},
+    {"icon": "⚛️", "label": "Typ", "status": "Fermion", "variant": "success"}
+  ],
+  "categories": ["Leptonen", "Fermionen"],
+  "keywords": ["lepton", "elementarteilchen", "ladung", "standardmodell", "atomhülle"],
+  "perspectives": ["particle", "quantum", "electromagnetism", "applications_phys", "research"],
+  "perspective_count": 5,
+  "engagement_score": 90,
+  "_sources": {"image": [], "fields": {}}
+}

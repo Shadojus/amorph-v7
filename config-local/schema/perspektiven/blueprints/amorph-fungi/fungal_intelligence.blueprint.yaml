@@ -1,0 +1,794 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# FUNGAL INTELLIGENCE PERSPECTIVE - LATERAL BLUEPRINT
+# Cognitive & Computational Abilities of Fungal Networks
+# Version: 1.0.0
+# Domain: FUNGI (Lateral Cross-Domain View)
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# PURPOSE: Captures fungi as INFORMATION PROCESSORS across domains
+# - Problem-solving & optimization
+# - Memory & learning
+# - Decision-making without neurons
+# - Distributed computation in mycelial networks
+# - Sensory integration from multiple kingdoms
+# - Adaptive behavior & plasticity
+#
+# Concept:
+# - Intelligence != brain
+# - Fungi show cognitive-like behaviors: learning, memory, decision-making
+# - Mycelial networks as biological computers processing cross-kingdom info
+#
+# Research basis:
+# - Physarum maze-solving
+# - Mycelial network optimization
+# - Habituation & sensitization in fungi
+# - Electrical signaling in hyphae
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: fungal_intelligence
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TAXONOMY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+scientific_name:
+  # morph: text
+  ""
+
+genus:
+  # morph: tag
+  ""
+
+family:
+  # morph: tag
+  ""
+
+network_complexity:
+  # morph: badge
+  # simple | moderate | complex | hyper_complex
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SENSORY CAPABILITIES - Input from environment
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sensory_modalities:
+  # morph: list
+  # chemosensory | mechanosensory | photosensory | hygrosensory | thermosensory
+  - ""
+
+chemosensory_range:
+  # morph: number
+  # number of distinguishable chemical compounds
+  0
+
+chemical_gradient_detection:
+  # morph: boolean
+  # can sense concentration gradients
+  false
+
+gradient_detection_threshold:
+  # morph: number
+  # minimum detectable change in concentration (%)
+  0
+
+light_sensing:
+  # morph: boolean
+  false
+
+photoreceptor_types:
+  # morph: list
+  # blue_light | red_light | UV | far_red
+  - ""
+
+mechanosensing:
+  # morph: boolean
+  # detects physical contact/pressure
+  false
+
+thigmotropism:
+  # morph: boolean
+  # growth response to touch
+  false
+
+gravity_sensing:
+  # morph: boolean
+  false
+
+humidity_sensing:
+  # morph: boolean
+  false
+
+temperature_sensing:
+  # morph: boolean
+  false
+
+temperature_discrimination_threshold:
+  # morph: number
+  # minimum detectable temperature difference (°C)
+  0
+
+multimodal_integration:
+  # morph: boolean
+  # combines multiple sensory inputs
+  false
+
+integrated_modalities:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SIGNALING & INFORMATION TRANSMISSION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+electrical_signaling:
+  # morph: boolean
+  # action potential-like signals
+  false
+
+electrical_signal_speed:
+  # morph: number
+  # cm per second
+  0
+
+electrical_signal_range:
+  # morph: number
+  # maximum distance (cm)
+  0
+
+electrical_signal_functions:
+  # morph: list
+  # coordination | stress_response | resource_allocation
+  - ""
+
+calcium_signaling:
+  # morph: boolean
+  false
+
+calcium_wave_propagation:
+  # morph: boolean
+  false
+
+hydraulic_signaling:
+  # morph: boolean
+  # pressure waves through network
+  false
+
+signal_integration_points:
+  # morph: number
+  # nodes where signals converge
+  0
+
+signal_processing_speed:
+  # morph: gauge
+  # relative speed 0-100
+  value: 0
+  min: 0
+  max: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MEMORY - Storing information
+# ═══════════════════════════════════════════════════════════════════════════════
+
+memory_capability:
+  # morph: boolean
+  # shows memory-like behavior
+  false
+
+memory_types:
+  # morph: list
+  # short_term | long_term | spatial | temporal
+  - ""
+
+memory_duration:
+  # morph: range
+  # how long information retained
+  min: 0
+  max: 0
+  unit: "hours"
+
+habituation:
+  # morph: boolean
+  # decreased response to repeated stimuli
+  false
+
+habituation_stimuli:
+  # morph: list
+  - ""
+
+sensitization:
+  # morph: boolean
+  # increased response to repeated stimuli
+  false
+
+spatial_memory:
+  # morph: boolean
+  # remembers explored areas
+  false
+
+temporal_memory:
+  # morph: boolean
+  # remembers timing of events
+  false
+
+associative_memory:
+  # morph: boolean
+  # links stimuli together
+  false
+
+memory_substrate:
+  # morph: badge
+  # chemical | structural | electrical | unknown
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LEARNING - Changing behavior with experience
+# ═══════════════════════════════════════════════════════════════════════════════
+
+learning_capability:
+  # morph: boolean
+  false
+
+learning_types:
+  # morph: list
+  # non_associative | associative | spatial | social
+  - ""
+
+adaptation_to_stimuli:
+  # morph: boolean
+  # modifies response over time
+  false
+
+adaptation_rate:
+  # morph: gauge
+  # how quickly learns
+  value: 0
+  min: 0
+  max: 100
+
+learned_behaviors:
+  # morph: list
+  - ""
+
+behavioral_plasticity:
+  # morph: rating
+  # flexibility of behavior
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DECISION-MAKING - Choosing between options
+# ═══════════════════════════════════════════════════════════════════════════════
+
+decision_making:
+  # morph: boolean
+  # shows choice behavior
+  false
+
+decision_types:
+  # morph: list
+  # foraging | growth_direction | resource_allocation | partner_selection
+  - ""
+
+multi_criteria_decisions:
+  # morph: boolean
+  # weighs multiple factors
+  false
+
+decision_criteria:
+  # morph: list
+  # nutrient_quality | risk | distance | competition
+  - ""
+
+risk_assessment:
+  # morph: boolean
+  # evaluates risks vs rewards
+  false
+
+cost_benefit_analysis:
+  # morph: boolean
+  false
+
+decision_speed:
+  # morph: range
+  # time to make decision
+  min: 0
+  max: 0
+  unit: "minutes"
+
+decision_accuracy:
+  # morph: gauge
+  # % optimal choices
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROBLEM-SOLVING - Navigating challenges
+# ═══════════════════════════════════════════════════════════════════════════════
+
+problem_solving:
+  # morph: boolean
+  false
+
+maze_solving:
+  # morph: boolean
+  # can navigate mazes
+  false
+
+maze_solving_efficiency:
+  # morph: gauge
+  # % of optimal path length
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+obstacle_avoidance:
+  # morph: boolean
+  false
+
+route_optimization:
+  # morph: boolean
+  # finds efficient paths
+  false
+
+network_optimization:
+  # morph: boolean
+  # optimizes mycelial architecture
+  false
+
+optimization_algorithm_analog:
+  # morph: badge
+  # shortest_path | steiner_tree | ant_colony | slime_mold
+  status: ""
+  variant: ""
+
+trap_avoidance:
+  # morph: boolean
+  # avoids dead-ends
+  false
+
+exploration_exploitation_balance:
+  # morph: gauge
+  # balance between exploring new areas vs exploiting known resources
+  value: 0
+  min: 0
+  max: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ANTICIPATION & PREDICTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+anticipatory_behavior:
+  # morph: boolean
+  # acts before event occurs
+  false
+
+anticipation_examples:
+  # morph: list
+  - ""
+
+rhythmic_behavior:
+  # morph: boolean
+  # circadian or other rhythms
+  false
+
+rhythm_period:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "hours"
+
+environmental_prediction:
+  # morph: boolean
+  # predicts environmental changes
+  false
+
+predicted_events:
+  # morph: list
+  # seasonal_changes | resource_availability | disturbance
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMMUNICATION & COORDINATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+intra_network_communication:
+  # morph: boolean
+  # different parts of network communicate
+  false
+
+communication_mechanisms:
+  # morph: list
+  # electrical | chemical | hydraulic | cytoplasmic_streaming
+  - ""
+
+coordinated_behavior:
+  # morph: boolean
+  # network acts in coordinated fashion
+  false
+
+coordination_examples:
+  # morph: list
+  - ""
+
+collective_decision_making:
+  # morph: boolean
+  # network reaches consensus
+  false
+
+quorum_sensing_in_fungi:
+  # morph: boolean
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ADAPTIVE BEHAVIOR
+# ═══════════════════════════════════════════════════════════════════════════════
+
+behavioral_flexibility:
+  # morph: gauge
+  # ability to change strategy
+  value: 0
+  min: 0
+  max: 100
+
+context_dependent_behavior:
+  # morph: boolean
+  # behavior changes with context
+  false
+
+strategic_diversity:
+  # morph: number
+  # number of different strategies
+  0
+
+developmental_plasticity:
+  # morph: rating
+  rating: 0
+  max: 10
+
+phenotypic_plasticity:
+  # morph: rating
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DISTRIBUTED COMPUTATION - Network as computer
+# ═══════════════════════════════════════════════════════════════════════════════
+
+distributed_processing:
+  # morph: boolean
+  # computation distributed across network
+  false
+
+parallel_processing:
+  # morph: boolean
+  # multiple processes simultaneously
+  false
+
+information_pooling:
+  # morph: boolean
+  # combines info from multiple sources
+  false
+
+emergent_computation:
+  # morph: boolean
+  # network-level computation emerges from local rules
+  false
+
+computational_power_estimate:
+  # morph: gauge
+  # relative estimate 0-100
+  value: 0
+  min: 0
+  max: 100
+
+biological_algorithm_type:
+  # morph: badge
+  # distributed | parallel | evolutionary | swarm
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CROSS-KINGDOM INFORMATION PROCESSING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cross_kingdom_sensing:
+  # morph: boolean
+  # senses organisms from other kingdoms
+  false
+
+sensed_kingdoms:
+  # morph: list
+  - ""
+
+plant_signal_interpretation:
+  # morph: boolean
+  # interprets plant chemical signals
+  false
+
+plant_signals_interpreted:
+  # morph: list
+  - ""
+
+bacterial_signal_interpretation:
+  # morph: boolean
+  false
+
+animal_signal_interpretation:
+  # morph: boolean
+  false
+
+multi_kingdom_decision_making:
+  # morph: boolean
+  # decisions based on info from multiple kingdoms
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INNOVATION & EXPLORATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+exploratory_behavior:
+  # morph: boolean
+  false
+
+exploration_strategy:
+  # morph: badge
+  # random | directed | systematic | hybrid
+  status: ""
+  variant: ""
+
+novelty_seeking:
+  # morph: boolean
+  # prefers novel environments/resources
+  false
+
+innovation_capability:
+  # morph: rating
+  # ability to find new solutions
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOCIAL-LIKE BEHAVIOR
+# ═══════════════════════════════════════════════════════════════════════════════
+
+kin_discrimination:
+  # morph: boolean
+  # distinguishes kin from non-kin
+  false
+
+altruistic_behavior:
+  # morph: boolean
+  # helps kin at cost to self
+  false
+
+cooperative_behavior:
+  # morph: boolean
+  false
+
+competitive_behavior:
+  # morph: boolean
+  false
+
+cheating_detection:
+  # morph: boolean
+  # detects & responds to cheaters
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# STRESS RESPONSE INTELLIGENCE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+stress_anticipation:
+  # morph: boolean
+  # prepares before stress arrives
+  false
+
+stress_memory:
+  # morph: boolean
+  # remembers past stress events
+  false
+
+stress_priming:
+  # morph: boolean
+  # faster response to repeated stress
+  false
+
+adaptive_stress_response:
+  # morph: rating
+  # sophistication of stress response
+  rating: 0
+  max: 10
+
+cross_stress_tolerance:
+  # morph: boolean
+  # stress A confers tolerance to stress B
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INTELLIGENCE METRICS (Experimental)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cognitive_complexity_index:
+  # morph: gauge
+  # composite measure 0-100
+  value: 0
+  min: 0
+  max: 100
+
+information_processing_capacity:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+behavioral_repertoire_size:
+  # morph: number
+  # number of distinct behaviors
+  0
+
+response_sophistication:
+  # morph: rating
+  rating: 0
+  max: 10
+
+adaptability_index:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMPUTATIONAL MODELS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+modeled_as:
+  # morph: list
+  # neural_network | cellular_automaton | agent_based | graph_theory
+  - ""
+
+model_predictive_accuracy:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+bio_inspired_algorithms:
+  # morph: list
+  # algorithms inspired by this fungus
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EVOLUTIONARY INTELLIGENCE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+evolutionary_age:
+  # morph: number
+  # million years
+  0
+
+intelligence_evolution_driver:
+  # morph: badge
+  # foraging | competition | symbiosis | predation_avoidance
+  status: ""
+  variant: ""
+
+convergent_intelligence:
+  # morph: boolean
+  # similar to intelligence in other kingdoms
+  false
+
+convergence_examples:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PHILOSOPHICAL CONSIDERATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+consciousness_indicators:
+  # morph: list
+  # subjective - markers that might suggest awareness
+  - ""
+
+sentience_debate:
+  # morph: badge
+  # likely | unlikely | unknown | contested
+  status: ""
+  variant: ""
+
+moral_status_consideration:
+  # morph: text
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESEARCH METHODS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+experimental_paradigms:
+  # morph: list
+  # maze_solving | choice_tests | conditioning | habituation
+  - ""
+
+measurement_techniques:
+  # morph: list
+  # video_analysis | electrical_recording | chemical_analysis | imaging
+  - ""
+
+behavioral_assays:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# APPLICATIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bio_computing_applications:
+  # morph: list
+  # optimization | routing | pattern_recognition
+  - ""
+
+biomimetic_potential:
+  # morph: rating
+  # potential for bio-inspired tech
+  rating: 0
+  max: 10
+
+bio_inspired_technologies:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LITERATURE REFERENCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_research_papers:
+  # morph: list
+  - ""
+
+intelligence_literature:
+  # morph: citation
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+landmark_experiments:
+  # morph: list
+  # famous studies demonstrating fungal intelligence
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+data_source:
+  # morph: badge
+  # behavioral_experiment | observation | modeling | literature
+  status: ""
+  variant: ""
+
+confidence_level:
+  # morph: badge
+  # high | medium | low | speculative
+  status: ""
+  variant: ""
+
+measurement_date:
+  # morph: text
+  ""
+
+study_location:
+  # morph: map
+  lat: 0
+  lng: 0
+  region: ""

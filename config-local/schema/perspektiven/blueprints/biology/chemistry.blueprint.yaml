@@ -1,0 +1,2059 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHEMISTRY PERSPECTIVE - DATA BLUEPRINT
+# Empty schema with correct morph data structures
+# Version: 1.0.0
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# USAGE: Copy this blueprint and fill in the data for each species.
+# Each field has the correct morph type and data structure defined.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: chemistry
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TAXONOMY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+scientific_name:
+  # morph: text
+  ""
+
+genus:
+  # morph: tag
+  ""
+
+family:
+  # morph: tag
+  ""
+
+order:
+  # morph: tag
+  ""
+
+class:
+  # morph: tag
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHEMOTYPE & SAMPLE
+# Chemical variants and sample characterization
+# ═══════════════════════════════════════════════════════════════════════════════
+
+chemotype_name:
+  # morph: tag
+  ""
+
+chemotype_strain:
+  # morph: text
+  ""
+
+chemotype_origin:
+  # morph: text
+  ""
+
+chemotype_characteristic_compounds:
+  # morph: list
+  - ""
+
+chemotype_biosynthesis_cluster:
+  # morph: text
+  ""
+
+chemotype_culture_conditions_temp:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "°C"
+
+chemotype_culture_conditions_ph:
+  # morph: range
+  min: 0
+  max: 0
+
+chemotype_culture_conditions_substrate:
+  # morph: text
+  ""
+
+chemotype_culture_conditions_light:
+  # morph: text
+  ""
+
+sample_code:
+  # morph: text
+  ""
+
+sample_type:
+  # morph: badge
+  # whole_organism | fruiting_body | mycelium | spores | leaves | roots | etc.
+  status: ""
+  variant: ""
+
+sample_development_stage:
+  # morph: badge
+  # primordia | juvenile | young | mature | overmature | sporulating | etc.
+  status: ""
+  variant: ""
+
+sample_tissue:
+  # morph: tag
+  # whole | cap | stipe | gills | ring | volva | leaf | stem | root | etc.
+  ""
+
+sample_collection_date:
+  # morph: text
+  ""
+
+sample_storage_method:
+  # morph: badge
+  # fresh | dried | frozen | lyophilized
+  status: ""
+  variant: ""
+
+sample_storage_temp:
+  # morph: number
+  # in °C
+  0
+
+sample_storage_duration:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "days"
+
+sample_dry_mass_percent:
+  # morph: progress
+  value: 0
+  max: 100
+
+sample_extraction_method:
+  # morph: text
+  ""
+
+sample_quality_score:
+  # morph: rating
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NUTRITIONAL VALUES - Basic composition
+# Per 100g dry weight unless otherwise noted
+# ═══════════════════════════════════════════════════════════════════════════════
+
+nutritional_values:
+  # morph: stats
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+energy_kcal:
+  # morph: number
+  0
+
+energy_kj:
+  # morph: number
+  0
+
+water_content:
+  # morph: progress
+  value: 0
+  max: 100
+
+ash_content:
+  # morph: number
+  # in g per 100g
+  0
+
+ph_value:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 14
+  zones:
+    - start: 0
+      end: 6
+      color: "rgba(240, 80, 80, 0.2)"  # acidic
+    - start: 6
+      end: 8
+      color: "rgba(100, 220, 140, 0.2)"  # neutral
+    - start: 8
+      end: 14
+      color: "rgba(90, 160, 240, 0.2)"  # alkaline
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MACRONUTRIENTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+macronutrients:
+  # morph: pie
+  # Distribution of macronutrients (≤6 segments)
+  - label: "Protein"
+    value: 0
+  - label: "Fat"
+    value: 0
+  - label: "Carbohydrates"
+    value: 0
+  - label: "Fiber"
+    value: 0
+  - label: "Water"
+    value: 0
+
+protein_total:
+  # morph: number
+  # in g per 100g
+  0
+
+protein_digestible:
+  # morph: number
+  0
+
+fat_total:
+  # morph: number
+  0
+
+carbohydrates_total:
+  # morph: number
+  0
+
+carbohydrates_available:
+  # morph: number
+  0
+
+fiber_total:
+  # morph: number
+  0
+
+fiber_soluble:
+  # morph: number
+  0
+
+fiber_insoluble:
+  # morph: number
+  0
+
+chitin_content:
+  # morph: number
+  0
+
+beta_glucan_total:
+  # morph: number
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# AMINO ACIDS - Complete profile
+# Values in mg per 100g
+# ═══════════════════════════════════════════════════════════════════════════════
+
+amino_acids:
+  # morph: bar
+  # All amino acids sorted by content
+  - label: ""
+    value: 0
+
+amino_acids_essential:
+  # morph: radar
+  # Essential amino acids profile (9 axes)
+  - axis: "Histidine"
+    value: 0
+  - axis: "Isoleucine"
+    value: 0
+  - axis: "Leucine"
+    value: 0
+  - axis: "Lysine"
+    value: 0
+  - axis: "Methionine"
+    value: 0
+  - axis: "Phenylalanine"
+    value: 0
+  - axis: "Threonine"
+    value: 0
+  - axis: "Tryptophan"
+    value: 0
+  - axis: "Valine"
+    value: 0
+
+# Essential Amino Acids
+histidine:
+  # morph: number
+  0
+
+isoleucine:
+  # morph: number
+  0
+
+leucine:
+  # morph: number
+  0
+
+lysine:
+  # morph: number
+  0
+
+methionine:
+  # morph: number
+  0
+
+phenylalanine:
+  # morph: number
+  0
+
+threonine:
+  # morph: number
+  0
+
+tryptophan:
+  # morph: number
+  0
+
+valine:
+  # morph: number
+  0
+
+# Non-essential Amino Acids
+alanine:
+  # morph: number
+  0
+
+arginine:
+  # morph: number
+  0
+
+aspartic_acid:
+  # morph: number
+  0
+
+cysteine:
+  # morph: number
+  0
+
+glutamic_acid:
+  # morph: number
+  0
+
+glycine:
+  # morph: number
+  0
+
+proline:
+  # morph: number
+  0
+
+serine:
+  # morph: number
+  0
+
+tyrosine:
+  # morph: number
+  0
+
+# Special Amino Acids
+gaba:
+  # morph: number
+  0
+
+ergothioneine:
+  # morph: number
+  0
+
+# Quality Scores
+amino_acid_score:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+pdcaas:
+  # morph: gauge
+  # Protein Digestibility Corrected Amino Acid Score
+  value: 0
+  min: 0
+  max: 1
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FATTY ACIDS - Lipid profile
+# Values in g per 100g fat
+# ═══════════════════════════════════════════════════════════════════════════════
+
+fatty_acids:
+  # morph: pie
+  - label: "SFA"
+    value: 0
+  - label: "MUFA"
+    value: 0
+  - label: "PUFA"
+    value: 0
+
+sfa_total:
+  # morph: number
+  # Saturated fatty acids total
+  0
+
+palmitic_acid_c16_0:
+  # morph: number
+  0
+
+stearic_acid_c18_0:
+  # morph: number
+  0
+
+mufa_total:
+  # morph: number
+  # Monounsaturated fatty acids total
+  0
+
+oleic_acid_c18_1:
+  # morph: number
+  0
+
+pufa_total:
+  # morph: number
+  # Polyunsaturated fatty acids total
+  0
+
+linoleic_acid_c18_2:
+  # morph: number
+  0
+
+alpha_linolenic_acid_c18_3:
+  # morph: number
+  0
+
+omega6_omega3_ratio:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 20
+  zones:
+    - start: 0
+      end: 4
+      color: "rgba(100, 220, 140, 0.2)"  # optimal
+    - start: 4
+      end: 10
+      color: "rgba(255, 200, 100, 0.2)"  # acceptable
+    - start: 10
+      end: 20
+      color: "rgba(240, 80, 80, 0.2)"  # poor
+
+pufa_sfa_ratio:
+  # morph: number
+  0
+
+ergosterol:
+  # morph: number
+  # in mg per 100g
+  0
+
+fungisterol:
+  # morph: number
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CARBOHYDRATES - Detailed
+# Values in g per 100g
+# ═══════════════════════════════════════════════════════════════════════════════
+
+carbohydrates:
+  # morph: bar
+  - label: ""
+    value: 0
+
+glucose:
+  # morph: number
+  0
+
+fructose:
+  # morph: number
+  0
+
+trehalose:
+  # morph: number
+  0
+
+mannitol:
+  # morph: number
+  0
+
+arabitol:
+  # morph: number
+  0
+
+glycogen:
+  # morph: number
+  0
+
+beta_glucan_1_3:
+  # morph: number
+  0
+
+beta_glucan_1_6:
+  # morph: number
+  0
+
+beta_glucan_1_3_1_6:
+  # morph: number
+  0
+
+chitin:
+  # morph: number
+  0
+
+chitosan:
+  # morph: number
+  0
+
+mannans:
+  # morph: number
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VITAMINS
+# Values as percentage of RDI per 100g
+# ═══════════════════════════════════════════════════════════════════════════════
+
+vitamins:
+  # morph: bar
+  - label: ""
+    value: 0
+
+thiamine_b1:
+  # morph: progress
+  value: 0
+  max: 100
+
+riboflavin_b2:
+  # morph: progress
+  value: 0
+  max: 100
+
+niacin_b3:
+  # morph: progress
+  value: 0
+  max: 100
+
+pantothenic_acid_b5:
+  # morph: progress
+  value: 0
+  max: 100
+
+pyridoxine_b6:
+  # morph: progress
+  value: 0
+  max: 100
+
+biotin_b7:
+  # morph: progress
+  value: 0
+  max: 100
+
+folic_acid_b9:
+  # morph: progress
+  value: 0
+  max: 100
+
+cobalamin_b12:
+  # morph: progress
+  value: 0
+  max: 100
+
+vitamin_d2_ergocalciferol:
+  # morph: number
+  # in μg
+  0
+
+vitamin_d3_cholecalciferol:
+  # morph: number
+  # in μg
+  0
+
+vitamin_d_total_iu:
+  # morph: number
+  0
+
+vitamin_c:
+  # morph: progress
+  value: 0
+  max: 100
+
+vitamin_e_tocopherol:
+  # morph: number
+  0
+
+vitamin_k:
+  # morph: number
+  0
+
+uv_treated:
+  # morph: boolean
+  false
+
+uv_dose:
+  # morph: number
+  # in J/cm²
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINERALS
+# Values in mg per 100g (macro) or μg per 100g (trace)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+minerals:
+  # morph: bar
+  - label: ""
+    value: 0
+
+# Macro minerals (mg)
+potassium:
+  # morph: number
+  0
+
+phosphorus:
+  # morph: number
+  0
+
+magnesium:
+  # morph: number
+  0
+
+calcium:
+  # morph: number
+  0
+
+sodium:
+  # morph: number
+  0
+
+sulfur:
+  # morph: number
+  0
+
+# Trace elements (μg)
+iron:
+  # morph: number
+  0
+
+zinc:
+  # morph: number
+  0
+
+copper:
+  # morph: number
+  0
+
+manganese:
+  # morph: number
+  0
+
+selenium:
+  # morph: number
+  0
+
+chromium:
+  # morph: number
+  0
+
+molybdenum:
+  # morph: number
+  0
+
+iodine:
+  # morph: number
+  0
+
+# Potentially toxic elements (μg)
+cadmium:
+  # morph: severity
+  - level: ""
+    typ: "Heavy Metal"
+    beschreibung: ""
+
+lead:
+  # morph: severity
+  - level: ""
+    typ: "Heavy Metal"
+    beschreibung: ""
+
+mercury:
+  # morph: severity
+  - level: ""
+    typ: "Heavy Metal"
+    beschreibung: ""
+
+arsenic:
+  # morph: severity
+  - level: ""
+    typ: "Heavy Metal"
+    beschreibung: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SECONDARY METABOLITES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+secondary_metabolites:
+  # morph: list
+  - ""
+
+secondary_metabolite_name:
+  # morph: text
+  ""
+
+secondary_metabolite_trivial_name:
+  # morph: tag
+  ""
+
+secondary_metabolite_synonyms:
+  # morph: list
+  - ""
+
+secondary_metabolite_cas_number:
+  # morph: text
+  ""
+
+secondary_metabolite_pubchem_cid:
+  # morph: link
+  ""
+
+secondary_metabolite_chemspider_id:
+  # morph: text
+  ""
+
+secondary_metabolite_kegg_id:
+  # morph: text
+  ""
+
+secondary_metabolite_chebi_id:
+  # morph: text
+  ""
+
+secondary_metabolite_smiles:
+  # morph: text
+  ""
+
+secondary_metabolite_inchi:
+  # morph: text
+  ""
+
+secondary_metabolite_inchi_key:
+  # morph: text
+  ""
+
+secondary_metabolite_molecular_formula:
+  # morph: text
+  ""
+
+secondary_metabolite_molecular_weight:
+  # morph: number
+  # in g/mol
+  0
+
+secondary_metabolite_exact_mass:
+  # morph: number
+  0
+
+secondary_metabolite_logp:
+  # morph: number
+  0
+
+secondary_metabolite_pka:
+  # morph: number
+  0
+
+secondary_metabolite_melting_point:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "°C"
+
+secondary_metabolite_boiling_point:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "°C"
+
+secondary_metabolite_solubility:
+  # morph: object
+  water: ""
+  ethanol: ""
+  methanol: ""
+  chloroform: ""
+
+secondary_metabolite_concentration:
+  # morph: number
+  0
+
+secondary_metabolite_concentration_unit:
+  # morph: tag
+  # mg/100g | μg/g | mg/g | % | ppm | ppb
+  ""
+
+secondary_metabolite_concentration_range:
+  # morph: range
+  min: 0
+  max: 0
+  unit: ""
+
+secondary_metabolite_detection_limit:
+  # morph: number
+  0
+
+secondary_metabolite_newly_discovered:
+  # morph: boolean
+  false
+
+secondary_metabolite_first_description_year:
+  # morph: number
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMPOUND CLASSES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+compound_classes:
+  # morph: hierarchy
+  - level: "Kingdom"
+    name: ""
+  - level: "Superclass"
+    name: ""
+  - level: "Class"
+    name: ""
+  - level: "Subclass"
+    name: ""
+
+compound_class_name:
+  # morph: tag
+  ""
+
+compound_class_hierarchy_level:
+  # morph: number
+  0
+
+compound_class_path:
+  # morph: text
+  ""
+
+compound_class_biosynthesis_origin:
+  # morph: badge
+  # MVA | MEP | PKS | NRPS | Hybrid | Shikimate | Amino_acid
+  status: ""
+  variant: ""
+
+compound_class_characteristic_features:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NPCLASSIFIER - Natural Product Classification
+# ═══════════════════════════════════════════════════════════════════════════════
+
+npclassifier_pathway:
+  # morph: badge
+  # Polyketides | Terpenoids | Amino_acids_Peptides | Alkaloids | etc.
+  status: ""
+  variant: ""
+
+npclassifier_superclass:
+  # morph: tag
+  ""
+
+npclassifier_class:
+  # morph: tag
+  ""
+
+npclassifier_confidence:
+  # morph: progress
+  value: 0
+  max: 100
+
+classyfire_kingdom:
+  # morph: tag
+  ""
+
+classyfire_superclass:
+  # morph: tag
+  ""
+
+classyfire_class:
+  # morph: tag
+  ""
+
+classyfire_direct_parent:
+  # morph: tag
+  ""
+
+lotus_id:
+  # morph: link
+  ""
+
+lotus_structure_organism_pairs:
+  # morph: number
+  0
+
+coconut_id:
+  # morph: text
+  ""
+
+npatlas_id:
+  # morph: text
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHEMBL BIOACTIVITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+chembl_id:
+  # morph: link
+  ""
+
+chembl_target_id:
+  # morph: text
+  ""
+
+chembl_assay_type:
+  # morph: badge
+  status: ""
+  variant: ""
+
+chembl_standard_type:
+  # morph: tag
+  # IC50 | EC50 | Ki | Kd | MIC | LD50 | etc.
+  ""
+
+chembl_standard_value:
+  # morph: number
+  0
+
+chembl_standard_units:
+  # morph: tag
+  ""
+
+chembl_pchembl_value:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 12
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CROSS-KINGDOM COMPOUND DATABASES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+lotus_organism_count:
+  # morph: number
+  0
+
+lotus_reference_doi:
+  # morph: link
+  ""
+
+npatlas_origin_type:
+  # morph: badge
+  status: ""
+  variant: ""
+
+npatlas_producing_organism:
+  # morph: text
+  ""
+
+coconut_molecular_framework:
+  # morph: text
+  ""
+
+coconut_np_likeness_score:
+  # morph: gauge
+  value: 0
+  min: -5
+  max: 5
+
+compound_isomeric_smiles:
+  # morph: text
+  ""
+
+compound_kingdom_occurrence:
+  # morph: list
+  - ""
+
+compound_ubiquitous:
+  # morph: boolean
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BIOACTIVE COMPOUNDS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bioactive_compounds:
+  # morph: list
+  - ""
+
+bioactive_effect_type:
+  # morph: badge
+  # antimicrobial | antiviral | antifungal | antitumoral | etc.
+  status: ""
+  variant: ""
+
+bioactive_molecular_target:
+  # morph: text
+  ""
+
+bioactive_mode_of_action:
+  # morph: text
+  ""
+
+bioactive_ic50_value:
+  # morph: number
+  0
+
+bioactive_ic50_unit:
+  # morph: tag
+  ""
+
+bioactive_ic50_cell_type:
+  # morph: text
+  ""
+
+bioactive_ic50_assay:
+  # morph: text
+  ""
+
+bioactive_ec50_value:
+  # morph: number
+  0
+
+bioactive_ec50_unit:
+  # morph: tag
+  ""
+
+bioactive_mic_value:
+  # morph: number
+  0
+
+bioactive_mic_unit:
+  # morph: tag
+  ""
+
+bioactive_mic_organism:
+  # morph: text
+  ""
+
+bioactive_ld50_value:
+  # morph: number
+  0
+
+bioactive_ld50_unit:
+  # morph: tag
+  ""
+
+bioactive_ld50_animal_model:
+  # morph: text
+  ""
+
+bioactive_ld50_administration_route:
+  # morph: tag
+  ""
+
+bioactive_clinical_studies:
+  # morph: list
+  - ""
+
+bioactive_approved_drug:
+  # morph: boolean
+  false
+
+bioactive_drug_name:
+  # morph: text
+  ""
+
+bioactive_patents:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BIOSYNTHESIS PATHWAYS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+biosynthesis_pathways:
+  # morph: flow
+  # Metabolic pathway visualization
+  - from: ""
+    to: ""
+    value: 0
+
+biosynthesis_pathway_name:
+  # morph: text
+  ""
+
+biosynthesis_pathway_type:
+  # morph: badge
+  status: ""
+  variant: ""
+
+biosynthesis_key_enzymes:
+  # morph: list
+  - ""
+
+biosynthesis_precursors:
+  # morph: list
+  - ""
+
+biosynthesis_intermediate_compounds:
+  # morph: list
+  - ""
+
+biosynthesis_gene_cluster_name:
+  # morph: text
+  ""
+
+biosynthesis_gene_cluster_size_kb:
+  # morph: number
+  0
+
+biosynthesis_gene_cluster_gene_count:
+  # morph: number
+  0
+
+biosynthesis_gene_cluster_mibig_id:
+  # morph: link
+  ""
+
+biosynthesis_kegg_pathway:
+  # morph: link
+  ""
+
+biosynthesis_regulation:
+  # morph: text
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VOLATILOME - Volatile compounds
+# ═══════════════════════════════════════════════════════════════════════════════
+
+volatilome:
+  # morph: bar
+  - label: ""
+    value: 0
+
+volatilome_analysis_method:
+  # morph: tag
+  ""
+
+volatilome_extraction_method:
+  # morph: tag
+  ""
+
+volatilome_spme_fiber:
+  # morph: text
+  ""
+
+volatilome_total_volatiles:
+  # morph: number
+  0
+
+volatilome_compound_count:
+  # morph: number
+  0
+
+volatilome_main_components:
+  # morph: list
+  - ""
+
+volatilome_odor_thresholds:
+  # morph: object
+  compound: ""
+  threshold: 0
+  unit: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# AROMA COMPOUNDS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+aroma_compounds:
+  # morph: bar
+  - label: ""
+    value: 0
+
+aroma_compound_name:
+  # morph: text
+  ""
+
+aroma_compound_cas_number:
+  # morph: text
+  ""
+
+aroma_compound_class:
+  # morph: badge
+  # Aldehydes | Alcohols | Ketones | Esters | Terpenes | etc.
+  status: ""
+  variant: ""
+
+aroma_compound_concentration:
+  # morph: number
+  0
+
+aroma_compound_concentration_unit:
+  # morph: tag
+  ""
+
+aroma_compound_retention_index:
+  # morph: number
+  0
+
+aroma_compound_odor_threshold:
+  # morph: number
+  0
+
+aroma_compound_oav:
+  # morph: number
+  # Odor Activity Value
+  0
+
+aroma_compound_odor_quality:
+  # morph: text
+  ""
+
+aroma_compound_identification:
+  # morph: tag
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ODOR PROFILE - Sensory
+# Values 0-10
+# ═══════════════════════════════════════════════════════════════════════════════
+
+odor_profile:
+  # morph: radar
+  - axis: "Earthy"
+    value: 0
+  - axis: "Woody"
+    value: 0
+  - axis: "Nutty"
+    value: 0
+  - axis: "Fruity"
+    value: 0
+  - axis: "Spicy"
+    value: 0
+  - axis: "Sulfurous"
+    value: 0
+  - axis: "Flowery"
+    value: 0
+  - axis: "Umami"
+    value: 0
+  - axis: "Sweet"
+    value: 0
+  - axis: "Smoky"
+    value: 0
+
+odor_method:
+  # morph: tag
+  ""
+
+odor_panel_size:
+  # morph: number
+  0
+
+odor_earthy:
+  # morph: rating
+  rating: 0
+  max: 10
+
+odor_woody:
+  # morph: rating
+  rating: 0
+  max: 10
+
+odor_nutty:
+  # morph: rating
+  rating: 0
+  max: 10
+
+odor_fruity:
+  # morph: rating
+  rating: 0
+  max: 10
+
+odor_spicy:
+  # morph: rating
+  rating: 0
+  max: 10
+
+odor_sulfurous:
+  # morph: rating
+  rating: 0
+  max: 10
+
+odor_flowery:
+  # morph: rating
+  rating: 0
+  max: 10
+
+odor_umami:
+  # morph: rating
+  rating: 0
+  max: 10
+
+odor_sweet:
+  # morph: rating
+  rating: 0
+  max: 10
+
+odor_smoky:
+  # morph: rating
+  rating: 0
+  max: 10
+
+odor_musty:
+  # morph: rating
+  rating: 0
+  max: 10
+
+odor_rancid:
+  # morph: rating
+  rating: 0
+  max: 10
+
+odor_total_intensity:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 10
+
+odor_free_text:
+  # morph: text
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENZYMES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+enzymes:
+  # morph: list
+  - ""
+
+enzyme_name:
+  # morph: text
+  ""
+
+enzyme_name_systematic:
+  # morph: text
+  ""
+
+enzyme_ec_number:
+  # morph: text
+  ""
+
+enzyme_class:
+  # morph: badge
+  # Oxidoreductases | Transferases | Hydrolases | Lyases | Isomerases | Ligases | Translocases
+  status: ""
+  variant: ""
+
+enzyme_uniprot_id:
+  # morph: link
+  ""
+
+enzyme_gene_name:
+  # morph: text
+  ""
+
+enzyme_molecular_weight_kda:
+  # morph: number
+  0
+
+enzyme_subunits:
+  # morph: number
+  0
+
+enzyme_cofactors:
+  # morph: list
+  - ""
+
+enzyme_prosthetic_groups:
+  # morph: list
+  - ""
+
+enzyme_km_value:
+  # morph: number
+  0
+
+enzyme_km_unit:
+  # morph: tag
+  ""
+
+enzyme_km_substrate:
+  # morph: text
+  ""
+
+enzyme_vmax_value:
+  # morph: number
+  0
+
+enzyme_vmax_unit:
+  # morph: tag
+  ""
+
+enzyme_kcat:
+  # morph: number
+  0
+
+enzyme_kcat_km:
+  # morph: number
+  # Catalytic efficiency
+  0
+
+enzyme_ph_optimum:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 14
+
+enzyme_ph_stable_min:
+  # morph: number
+  0
+
+enzyme_ph_stable_max:
+  # morph: number
+  0
+
+enzyme_temperature_optimum:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+  unit: "°C"
+
+enzyme_temperature_stable_min:
+  # morph: number
+  0
+
+enzyme_temperature_stable_max:
+  # morph: number
+  0
+
+enzyme_thermostable:
+  # morph: boolean
+  false
+
+enzyme_specific_activity:
+  # morph: number
+  0
+
+enzyme_activity_unit:
+  # morph: tag
+  ""
+
+enzyme_substrates:
+  # morph: list
+  - ""
+
+enzyme_inhibitors:
+  # morph: list
+  - ""
+
+enzyme_industrial_applications:
+  # morph: list
+  - ""
+
+enzyme_commercially_available:
+  # morph: boolean
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LIGNINOLYTIC ENZYMES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+ligninolytic_enzymes:
+  # morph: list
+  - ""
+
+lignin_enzyme_type:
+  # morph: badge
+  # Laccase | Lignin_Peroxidase | Manganese_Peroxidase | etc.
+  status: ""
+  variant: ""
+
+lignin_laccase_type:
+  # morph: tag
+  ""
+
+lignin_redox_potential:
+  # morph: number
+  # in mV
+  0
+
+lignin_copper_centers_t1:
+  # morph: number
+  0
+
+lignin_copper_centers_t2:
+  # morph: number
+  0
+
+lignin_copper_centers_t3:
+  # morph: number
+  0
+
+lignin_abts_activity:
+  # morph: number
+  0
+
+lignin_guaiacol_activity:
+  # morph: number
+  0
+
+lignin_syringaldazine_activity:
+  # morph: number
+  0
+
+lignin_veratryl_alcohol_activity:
+  # morph: number
+  0
+
+lignin_degradation_rate:
+  # morph: number
+  0
+
+lignin_dye_decolorization:
+  # morph: progress
+  value: 0
+  max: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SPECTROSCOPY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+spectroscopy:
+  # morph: object
+  method: ""
+  device: ""
+  data: ""
+
+spectroscopy_method:
+  # morph: badge
+  # UV-Vis | IR | Raman | Fluorescence | CD | ORD
+  status: ""
+  variant: ""
+
+spectroscopy_device:
+  # morph: text
+  ""
+
+uv_vis_lambda_max:
+  # morph: number
+  # in nm
+  0
+
+uv_vis_extinction_coefficient:
+  # morph: number
+  0
+
+uv_vis_solvent:
+  # morph: tag
+  ""
+
+ir_characteristic_bands:
+  # morph: list
+  # in cm⁻¹
+  - ""
+
+fluorescence_excitation:
+  # morph: number
+  # in nm
+  0
+
+fluorescence_emission:
+  # morph: number
+  # in nm
+  0
+
+fluorescence_quantum_yield:
+  # morph: number
+  0
+
+spectroscopy_raw_data_file:
+  # morph: link
+  ""
+
+spectroscopy_raw_data_format:
+  # morph: tag
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MASS SPECTROMETRY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+mass_spectrometry:
+  # morph: object
+  method: ""
+  device: ""
+  data: ""
+
+ms_method:
+  # morph: badge
+  # EI-MS | ESI-MS | MALDI-MS | CI-MS | FAB-MS | APCI-MS
+  status: ""
+  variant: ""
+
+ms_ionization_mode:
+  # morph: tag
+  # positive | negative
+  ""
+
+ms_type:
+  # morph: tag
+  ""
+
+ms_device:
+  # morph: text
+  ""
+
+ms_molecular_ion_m_z:
+  # morph: number
+  0
+
+ms_molecular_ion_type:
+  # morph: tag
+  ""
+
+ms_molecular_ion_rel_intensity:
+  # morph: progress
+  value: 0
+  max: 100
+
+ms_hrms_measured:
+  # morph: number
+  0
+
+ms_hrms_calculated:
+  # morph: number
+  0
+
+ms_hrms_deviation_ppm:
+  # morph: number
+  0
+
+ms_fragments:
+  # morph: bar
+  # Fragment ions with relative intensity
+  - label: ""
+    value: 0
+
+ms_base_peak_m_z:
+  # morph: number
+  0
+
+ms_collision_energy:
+  # morph: number
+  # in eV
+  0
+
+ms_precursor_ion:
+  # morph: number
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NMR DATA
+# ═══════════════════════════════════════════════════════════════════════════════
+
+nmr_data:
+  # morph: object
+  nucleus: ""
+  frequency: 0
+  solvent: ""
+
+nmr_nucleus:
+  # morph: tag
+  # 1H | 13C | 15N | 31P | etc.
+  ""
+
+nmr_frequency_mhz:
+  # morph: number
+  0
+
+nmr_solvent:
+  # morph: tag
+  ""
+
+nmr_reference:
+  # morph: text
+  ""
+
+nmr_temperature_k:
+  # morph: number
+  0
+
+nmr_h_signals:
+  # morph: list
+  - ""
+
+nmr_c_signals:
+  # morph: list
+  - ""
+
+nmr_cosy_correlations:
+  # morph: list
+  - ""
+
+nmr_hsqc_correlations:
+  # morph: list
+  - ""
+
+nmr_hmbc_correlations:
+  # morph: list
+  - ""
+
+nmr_noesy_correlations:
+  # morph: list
+  - ""
+
+nmr_raw_data_file:
+  # morph: link
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHROMATOGRAPHY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+chromatography:
+  # morph: object
+  method: ""
+  device: ""
+  column: ""
+
+chrom_method:
+  # morph: badge
+  # HPLC | UHPLC | GC | GC-MS | LC-MS | LC-MS/MS | TLC | CE
+  status: ""
+  variant: ""
+
+chrom_device:
+  # morph: text
+  ""
+
+chrom_column_name:
+  # morph: text
+  ""
+
+chrom_column_type:
+  # morph: tag
+  ""
+
+chrom_column_length_mm:
+  # morph: number
+  0
+
+chrom_column_inner_diameter_mm:
+  # morph: number
+  0
+
+chrom_column_particle_size_um:
+  # morph: number
+  0
+
+chrom_mobile_phase_a:
+  # morph: text
+  ""
+
+chrom_mobile_phase_b:
+  # morph: text
+  ""
+
+chrom_gradient:
+  # morph: sparkline
+  # Gradient profile over time
+  - 0
+
+chrom_flow_rate:
+  # morph: number
+  # in mL/min
+  0
+
+chrom_temperature:
+  # morph: number
+  # in °C
+  0
+
+chrom_detector:
+  # morph: tag
+  ""
+
+chrom_detection_wavelength:
+  # morph: number
+  # in nm
+  0
+
+chrom_run_time_min:
+  # morph: number
+  0
+
+chrom_peaks:
+  # morph: bar
+  # Peak areas or heights
+  - label: ""
+    value: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PIGMENTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+pigments:
+  # morph: list
+  - ""
+
+pigment_color:
+  # morph: tag
+  ""
+
+pigment_color_hex:
+  # morph: text
+  ""
+
+pigment_cielab_l:
+  # morph: number
+  0
+
+pigment_cielab_a:
+  # morph: number
+  0
+
+pigment_cielab_b:
+  # morph: number
+  0
+
+pigment_class:
+  # morph: badge
+  # Melanin | Carotenoid | Azaphilone | Anthraquinone | etc.
+  status: ""
+  variant: ""
+
+pigment_lambda_max:
+  # morph: number
+  # in nm
+  0
+
+pigment_lightfastness:
+  # morph: rating
+  rating: 0
+  max: 10
+
+pigment_ph_dependence:
+  # morph: text
+  ""
+
+pigment_industrial_use:
+  # morph: list
+  - ""
+
+pigment_food_approval:
+  # morph: boolean
+  false
+
+pigment_e_number:
+  # morph: tag
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ACTIVE SUBSTANCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+active_substances:
+  # morph: list
+  - ""
+
+active_substance_category:
+  # morph: badge
+  # Antibiotic | Immunomodulator | Antitumoral | Psychoactive | Toxin | etc.
+  status: ""
+  variant: ""
+
+active_substance_main_actives:
+  # morph: list
+  - ""
+
+active_substance_total_content:
+  # morph: number
+  0
+
+active_substance_total_content_unit:
+  # morph: tag
+  ""
+
+active_substance_standardized_to:
+  # morph: text
+  ""
+
+active_substance_therapeutic_dose_min:
+  # morph: number
+  0
+
+active_substance_therapeutic_dose_max:
+  # morph: number
+  0
+
+active_substance_therapeutic_dose_unit:
+  # morph: tag
+  ""
+
+active_substance_therapeutic_dose_form:
+  # morph: tag
+  ""
+
+active_substance_interactions:
+  # morph: severity
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TOXICITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+toxicity:
+  # morph: severity
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+toxic:
+  # morph: boolean
+  false
+
+toxicity_class:
+  # morph: badge
+  # edible | edible_with_caution | mildly_toxic | toxic | highly_toxic | fatally_toxic
+  status: ""
+  variant: ""
+
+toxins:
+  # morph: list
+  - ""
+
+toxin_symptoms:
+  # morph: list
+  - ""
+
+toxin_latency_min:
+  # morph: number
+  # in minutes
+  0
+
+toxin_latency_max:
+  # morph: number
+  # in minutes
+  0
+
+toxin_target_organ:
+  # morph: list
+  - ""
+
+toxin_antidote:
+  # morph: text
+  ""
+
+toxin_treatment:
+  # morph: steps
+  - step: 1
+    label: ""
+    status: "pending"
+
+toxin_misidentification_risk:
+  # morph: severity
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY & PROVENANCE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+data_source:
+  # morph: badge
+  # Own_measurement | Literature | Database | Calculated | Estimated
+  status: ""
+  variant: ""
+
+confidence_level:
+  # morph: badge
+  # high | medium | low | unknown
+  status: ""
+  variant: ""
+
+measurement_method:
+  # morph: tag
+  ""
+
+laboratory:
+  # morph: text
+  ""
+
+accreditation:
+  # morph: badge
+  status: ""
+  variant: ""
+
+measurement_date:
+  # morph: text
+  ""
+
+measurement_count:
+  # morph: number
+  0
+
+standard_deviation:
+  # morph: number
+  0
+
+coefficient_of_variation:
+  # morph: progress
+  value: 0
+  max: 100
+
+detection_limit:
+  # morph: number
+  0
+
+quantification_limit:
+  # morph: number
+  0
+
+validated:
+  # morph: boolean
+  false
+
+validation_method:
+  # morph: text
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LITERATURE REFERENCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+chemistry_literature:
+  # morph: citation
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+literature_doi:
+  # morph: link
+  ""
+
+literature_pubmed_id:
+  # morph: link
+  ""
+
+literature_title:
+  # morph: text
+  ""
+
+literature_authors:
+  # morph: list
+  - ""
+
+literature_journal:
+  # morph: tag
+  ""
+
+literature_year:
+  # morph: number
+  0

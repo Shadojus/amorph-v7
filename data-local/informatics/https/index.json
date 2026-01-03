@@ -1,0 +1,29 @@
+{
+  "id": "https",
+  "slug": "https",
+  "name": "HTTPS",
+  "scientific_name": "Hypertext Transfer Protocol Secure",
+  "kingdom": "protocol",
+  "kingdom_icon": "🔐",
+  "image": null,
+  "tagline": "Sichere Web-Kommunikation",
+  "description": "HTTPS ist die verschlüsselte Version von HTTP und sichert die Kommunikation zwischen Webbrowser und Server mittels TLS/SSL. Es schützt vor Man-in-the-Middle-Angriffen und ist Standard für moderne Websites.",
+  "seo_description": "HTTPS - Sichere Webkommunikation mit TLS-Verschlüsselung",
+  "quick_facts": [
+    {"icon": "🔑", "label": "Verschlüsselung", "value": "TLS 1.3"},
+    {"icon": "🔢", "label": "Port", "value": "443"},
+    {"icon": "🔒", "label": "Zertifikate", "value": "X.509"},
+    {"icon": "📈", "label": "Verbreitung", "value": ">90% des Webs"}
+  ],
+  "highlights": ["Ende-zu-Ende-Verschlüsselung", "Authentifizierung", "Integrität"],
+  "badges": [
+    {"icon": "🔒", "label": "Sicherheit", "status": "Hoch", "variant": "success"},
+    {"icon": "📜", "label": "Pflicht", "status": "DSGVO-relevant", "variant": "warning"}
+  ],
+  "categories": ["Webprotokolle", "Sicherheit"],
+  "keywords": ["tls", "ssl", "verschlüsselung", "zertifikat", "websicherheit", "lets-encrypt"],
+  "perspectives": ["protocols", "security", "standards", "applications_info", "research"],
+  "perspective_count": 5,
+  "engagement_score": 90,
+  "_sources": {"image": [], "fields": {}}
+}

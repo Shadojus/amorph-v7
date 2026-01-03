@@ -1,0 +1,29 @@
+{
+  "id": "hiv-1",
+  "slug": "hiv-1",
+  "name": "HIV-1",
+  "scientific_name": "Human immunodeficiency virus 1",
+  "kingdom": "virus",
+  "kingdom_icon": "🦠",
+  "image": null,
+  "tagline": "AIDS-Erreger",
+  "description": "HIV-1 ist ein Retrovirus, das das erworbene Immunschwächesyndrom (AIDS) verursacht. Es infiziert CD4+-T-Zellen und führt ohne Behandlung zu einer fortschreitenden Zerstörung des Immunsystems.",
+  "seo_description": "HIV-1 - Human Immunodeficiency Virus, AIDS-Erreger",
+  "quick_facts": [
+    {"icon": "📏", "label": "Größe", "value": "120 nm"},
+    {"icon": "🧬", "label": "Genom", "value": "+ssRNA, Retrovirus"},
+    {"icon": "🎯", "label": "Rezeptor", "value": "CD4, CCR5/CXCR4"},
+    {"icon": "📦", "label": "Hülle", "value": "Ja"}
+  ],
+  "highlights": ["AIDS", "Retrovirus", "Antiretrovirale Therapie"],
+  "badges": [
+    {"icon": "⚠️", "label": "Gefährlichkeit", "status": "Chronisch", "variant": "danger"},
+    {"icon": "💊", "label": "Therapie", "status": "ART verfügbar", "variant": "info"}
+  ],
+  "categories": ["Retroviridae", "Lentivirus"],
+  "keywords": ["aids", "retrovirus", "cd4", "art", "antiretroviral", "immunschwäche"],
+  "perspectives": ["taxonomy_viro", "replication", "pathogenesis", "antiviral", "immunity"],
+  "perspective_count": 5,
+  "engagement_score": 95,
+  "_sources": {"image": [], "fields": {}}
+}

@@ -4,19 +4,58 @@
 
 ## 🔗 Data Source
 
-All species data (91 items: 28 fungi, 35 plantae, 28 therion) is loaded from:
+All species data is loaded from PocketBase:
 
 ```
-http://localhost:8090/api/collections/species/records
+http://localhost:8090/api/collections/{collection}/records
 ```
 
-### Local Files (kept for reference/fallback)
+### Collections Overview
+
+| Collection | Items | Port | Domain |
+|------------|-------|------|--------|
+| species | 91 | 4321/4322/4323 | fungi/plantae/therion |
+| paleontology | 91 | 4324 | fossils |
+| mineralogy | 12 | 4325 | minerals |
+| tectonics | 13 | 4326 | geology |
+| microbiology | 3 | 4327 | microbes |
+| virology | 3 | 4328 | viruses |
+| genetics | 3 | 4329 | genes |
+| anatomy | 3 | 4330 | organs |
+| chemistry | 3 | 4331 | compounds |
+| physics | 3 | 4332 | particles |
+| astronomy | 3 | 4333 | celestial |
+| informatics | 3 | 4334 | IT systems |
+| ai | 3 | 4335 | AI models |
+| biotech | 3 | 4336 | biotech |
+| sociology | 3 | 4337 | social |
+
+### Local Files (kept for reference/mockdata)
 ```
 data/
 ├── universe-index.json     # Navigation index
 ├── bifroest-experts.json   # Experts database
 ├── CLAUDE.md               # This file
-└── README.md               # Documentation
+├── README.md               # Documentation
+│
+├── fungi/                  # 28 species (mockdata)
+├── plantae/                # 35 species (mockdata)
+├── therion/                # 28 species (mockdata)
+├── paleontology/           # 91 fossils (mockdata)
+├── mineralogy/             # 12 minerals (mockdata)
+├── tectonics/              # 13 structures (mockdata)
+│
+├── microbiology/           # 3 items (mockdata)
+├── virology/               # 3 items (mockdata)
+├── genetics/               # 3 items (mockdata)
+├── anatomy/                # 3 items (mockdata)
+├── chemistry/              # 3 items (mockdata)
+├── physics/                # 3 items (mockdata)
+├── astronomy/              # 3 items (mockdata)
+├── informatics/            # 3 items (mockdata)
+├── ai/                     # 3 items (mockdata)
+├── biotech/                # 3 items (mockdata)
+└── sociology/              # 3 items (mockdata)
 ```
 
 ### Pocketbase Species Collection (25 fields)
@@ -55,11 +94,32 @@ public/images/species/{category}/{slug}/
 
 ## 📊 Current Data (January 2026)
 
-- **91 species total** in Pocketbase
+### Original Domains (Full Data)
+- **91 species** in `species` collection
   - 28 fungi (mushrooms)
   - 35 plantae (plants)
   - 28 therion (animals)
-- **15 perspectives** per species
+- **91 fossils** in `paleontology` collection
+- **12 minerals** in `mineralogy` collection
+- **13 structures** in `tectonics` collection
+
+### New Domains (Mockdata - 3 items each)
+| Domain | Collection | Items |
+|--------|------------|-------|
+| 🦠 Microbiology | microbiology | E. coli, S. aureus, B. subtilis |
+| 🧬 Virology | virology | Influenza A, SARS-CoV-2, HIV-1 |
+| 🧬 Genetics | genetics | TP53, BRCA1, APOE |
+| 🫀 Anatomy | anatomy | Heart, Brain, Liver |
+| ⚗️ Chemistry | chemistry | Water, Glucose, Aspirin |
+| ⚛️ Physics | physics | Electron, Photon, Higgs Boson |
+| 🌟 Astronomy | astronomy | Sun, Earth, Jupiter |
+| 💻 Informatics | informatics | TCP/IP, HTTP/3, Kubernetes |
+| 🤖 AI | ai | GPT-4, Claude 3, DALL-E 3 |
+| 🧪 Biotech | biotech | CRISPR-Cas9, mRNA Vaccines, Insulin Production |
+| 👥 Sociology | sociology | Family, Corporation, Democracy |
+
+- **15 perspectives** per species (original)
+- **3-10 perspectives** per item (new domains)
 - **Admin**: http://localhost:8090/_/
 
 ## 🔗 Bifroest Attribution System
@@ -425,3 +485,138 @@ const { items, hasMore } = await dataSource.loadMore(offset, limit);
 - `scripts/CLAUDE.md` - Validation and index generation
 - `config/schema/perspektiven/blueprints/` - Perspective schemas
 - `docs/DATEN_ERSTELLEN.md` - Detailed guide
+
+---
+
+## 🚀 How to Add New Data
+
+### A) Neuen Eintrag zu bestehender Domain hinzufügen
+
+1. **Ordner erstellen** in `data/{domain}/{slug}/`
+
+2. **index.json erstellen** mit Basis-Struktur:
+```json
+{
+  "id": "unique-id",
+  "slug": "url-slug",
+  "name": "Display Name",
+  "scientific_name": "Scientific Name",
+  "kingdom": "domain-name",
+  "kingdom_icon": "🔬",
+  "description": "Kurze Beschreibung...",
+  "image": "thumbnail.jpg",
+  "perspectives": ["perspective1", "perspective2"],
+  "quick_facts": [
+    {"icon": "📏", "label": "Size", "value": "10 cm"}
+  ],
+  "badges": [
+    {"icon": "✅", "label": "Status", "status": "Active", "variant": "success"}
+  ]
+}
+```
+
+3. **Perspektiven-Daten hinzufügen** - Felder gemäß Blueprint
+
+4. **In PocketBase importieren** via seed-script oder Admin UI
+
+### B) Neue Domain erstellen (Mockdata)
+
+1. **Domain-Ordner erstellen:**
+```bash
+data/newdomain/
+├── item-1/
+│   └── index.json
+├── item-2/
+│   └── index.json
+└── item-3/
+    └── index.json
+```
+
+2. **Jede index.json mit vollständigen Daten:**
+```json
+{
+  "id": "item-1",
+  "slug": "item-1-slug",
+  "name": "Item 1 Name",
+  "scientific_name": "Itemus primus",
+  "kingdom": "newdomain",
+  "kingdom_icon": "🔬",
+  "description": "Beschreibung des Items...",
+  "image": "thumbnail.jpg",
+  
+  "perspectives": ["perspective1", "perspective2", "perspective3"],
+  
+  "quick_facts": [
+    {"icon": "📊", "label": "Type", "value": "Example"},
+    {"icon": "📍", "label": "Location", "value": "Global"}
+  ],
+  
+  "badges": [
+    {"icon": "✅", "label": "Status", "status": "Active", "variant": "success"},
+    {"icon": "⭐", "label": "Rating", "status": "High", "variant": "primary"}
+  ],
+  
+  "categories": ["Category A", "Category B"],
+  "keywords": ["keyword1", "keyword2", "keyword3"],
+  
+  "engagement_score": 85,
+  
+  "_sources": [
+    {
+      "name": "Source Name",
+      "url": "https://example.com/source",
+      "accessed": "2026-01-01"
+    }
+  ],
+  
+  "perspective1": {
+    "field1": "value1",
+    "field2": {"min": 0, "max": 100, "unit": "units"}
+  },
+  
+  "perspective2": {
+    "field1": ["list", "of", "items"],
+    "field2": {"status": "Active", "variant": "success"}
+  }
+}
+```
+
+3. **Blueprints erstellen** in `config/schema/perspektiven/blueprints/`
+
+4. **Perspektiven registrieren** in `config/schema/perspektiven/index.yaml`
+
+5. **PocketBase Collection erstellen** via setup-script
+
+6. **Daten seeden:**
+```bash
+cd bifroest-platform
+node scripts/seed-new-domains.mjs
+```
+
+### C) Daten validieren
+
+```bash
+# Alle Daten validieren
+npm run validate
+
+# Einzelne Datei prüfen
+npm run validate -- data/newdomain/item-1/index.json
+```
+
+### D) Morph-Strukturen Referenz
+
+| Morph | Struktur | Beispiel |
+|-------|----------|----------|
+| text | `""` | `"Hello World"` |
+| number | `0` | `42` |
+| boolean | `false` | `true` |
+| tag | `""` | `"Category"` |
+| badge | `{status, variant}` | `{"status": "Active", "variant": "success"}` |
+| range | `{min, max, unit}` | `{"min": 0, "max": 100, "unit": "cm"}` |
+| stats | `{total, count, min, max, avg}` | `{"total": 500, "count": 10, "min": 10, "max": 100, "avg": 50}` |
+| list | `[""]` | `["Item1", "Item2", "Item3"]` |
+| bar | `[{label, value}]` | `[{"label": "A", "value": 30}, {"label": "B", "value": 70}]` |
+| radar | `[{axis, value}]` | `[{"axis": "Speed", "value": 80}, {"axis": "Power", "value": 60}]` |
+| timeline | `[{date, event}]` | `[{"date": "2020", "event": "Discovery"}]` |
+| rating | `{rating, max}` | `{"rating": 4, "max": 5}` |
+| progress | `{value, max, unit}` | `{"value": 75, "max": 100, "unit": "%"}` |

@@ -396,13 +396,174 @@ npm test
 
 ## ✅ Test Status
 
-**Stand: Dezember 2025**
+**Stand: Januar 2026**
 
 | Suite | Tests | Status |
 |-------|-------|--------|
-| detection.test.ts | 80 | ✅ Pass |
-| security.test.ts | 49 | ✅ Pass |
+| detection.test.ts | 120 | ✅ Pass |
+| security.test.ts | 50+ | ✅ Pass |
 | morphs.test.ts | 69 | ✅ Pass |
+| morphs/*.test.ts | 81 | ✅ Pass |
 | observer.test.ts | 8 | ✅ Pass |
 | integration.test.ts | 9 | ✅ Pass |
-| **Total** | **215** | ✅ **All Pass** |
+| real-data.test.ts | ~50 | ✅ Pass |
+| api-integration.test.ts | ~20 | ✅ Pass |
+| error-handling.test.ts | ~15 | ✅ Pass |
+| **Total** | **421+** | ✅ **All Pass** |
+
+---
+
+## 🚀 How to Add New Tests
+
+### A) Test für neuen Morph erstellen
+
+1. **Test-Datei erstellen** in `tests/morphs/newmorph.test.ts`:
+
+```typescript
+import { describe, it, expect, beforeEach } from 'vitest';
+import { renderValue } from '../../src/morphs';
+import { singleContext, compareContext, gridContext } from './_setup';
+
+describe('newmorph morph', () => {
+  describe('single mode', () => {
+    it('renders basic value', () => {
+      const value = { /* morph data structure */ };
+      const html = renderValue(value, singleContext);
+      expect(html).toContain('morph-newmorph');
+    });
+
+    it('handles empty value', () => {
+      const html = renderValue(null, singleContext);
+      expect(html).toContain('morph-empty');
+    });
+  });
+
+  describe('compare mode', () => {
+    it('renders multiple values', () => {
+      const value = { /* data */ };
+      const context = {
+        ...compareContext,
+        items: [
+          { name: 'Item 1', value: { /* data 1 */ } },
+          { name: 'Item 2', value: { /* data 2 */ } }
+        ]
+      };
+      const html = renderValue(value, context);
+      expect(html).toContain('morph-compare');
+    });
+  });
+
+  describe('grid mode', () => {
+    it('renders compact version', () => {
+      const value = { /* data */ };
+      const html = renderValue(value, gridContext);
+      expect(html).toContain('morph-compact');
+    });
+  });
+});
+```
+
+2. **_setup.ts erweitern** falls nötig:
+
+```typescript
+// tests/morphs/_setup.ts
+export const newMorphContext = {
+  mode: 'single',
+  fieldName: 'newfield',
+  blueprint: {
+    // Blueprint-spezifische Daten
+  }
+};
+```
+
+### B) Test für neue Domain-Integration erstellen
+
+```typescript
+// tests/domains/newdomain.test.ts
+import { describe, it, expect } from 'vitest';
+import { loadSpeciesData } from '../../src/server/data';
+
+describe('newdomain integration', () => {
+  it('loads all newdomain items', async () => {
+    const items = await loadSpeciesData('newdomain');
+    expect(items.length).toBeGreaterThan(0);
+  });
+
+  it('validates item structure', async () => {
+    const items = await loadSpeciesData('newdomain');
+    for (const item of items) {
+      expect(item).toHaveProperty('slug');
+      expect(item).toHaveProperty('name');
+      expect(item).toHaveProperty('perspectives');
+    }
+  });
+
+  it('has valid perspectives', async () => {
+    const items = await loadSpeciesData('newdomain');
+    const validPerspectives = [
+      'perspective1', 'perspective2', 'perspective3'
+    ];
+    
+    for (const item of items) {
+      for (const p of item.perspectives) {
+        expect(validPerspectives).toContain(p);
+      }
+    }
+  });
+});
+```
+
+### C) API-Test für neue Endpoints
+
+```typescript
+// tests/api/newdomain-api.test.ts
+import { describe, it, expect } from 'vitest';
+
+describe('newdomain API', () => {
+  const baseUrl = 'http://localhost:4338'; // Port für newdomain
+
+  it('returns search results', async () => {
+    const response = await fetch(`${baseUrl}/api/search?q=test`);
+    expect(response.ok).toBe(true);
+    const data = await response.json();
+    expect(Array.isArray(data.results)).toBe(true);
+  });
+
+  it('returns species by slug', async () => {
+    const response = await fetch(`${baseUrl}/api/species/item-slug`);
+    expect(response.ok).toBe(true);
+    const data = await response.json();
+    expect(data).toHaveProperty('name');
+  });
+});
+```
+
+### D) Test-Konventionen
+
+| Aspekt | Konvention |
+|--------|------------|
+| **Dateiname** | `{feature}.test.ts` |
+| **Beschreibung** | Klar, Action-orientiert |
+| **Gruppierung** | `describe` für Funktionen, nested für Modi |
+| **Assertion** | Ein logisches Assert pro Test |
+| **Setup** | Shared in `_setup.ts` |
+| **Cleanup** | Via `beforeEach`/`afterEach` |
+
+### E) Test-Befehle
+
+```bash
+# Alle Tests
+npm test
+
+# Einmalig ohne Watch
+npm run test:run
+
+# Mit Coverage
+npm run test:coverage
+
+# Einzelne Datei
+npm test -- tests/morphs/newmorph.test.ts
+
+# Pattern matching
+npm test -- --grep "newmorph"
+```

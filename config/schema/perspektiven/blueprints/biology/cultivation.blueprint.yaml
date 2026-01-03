@@ -1,0 +1,1735 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# BLUEPRINT: CULTIVATION
+# Leere Datenstruktur mit korrekten Morph-Typen
+# Generiert aus: cultivation.yaml
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: cultivation
+name: Cultivation
+symbol: 🌱
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BASIC
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: text
+scientific: ""
+
+# morph: text
+description: ""
+
+# morph: list
+synonyms:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NATURAL OCCURRENCE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: text
+location: ""
+
+# morph: text
+habitat: ""
+
+# morph: text
+native_range: ""
+
+# morph: tag
+season: ""
+
+# morph: calendar
+seasonality:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: text
+seasonality_details: ""
+
+# morph: range
+temperature:
+  min: 0
+  max: 0
+  unit: "°C"
+
+# morph: range
+temperature_range:
+  min: 0
+  max: 0
+  unit: "°C"
+
+# morph: badge
+availability:
+  status: ""
+  variant: ""
+
+# morph: lifecycle
+lifecycle:
+  - phase: ""
+    duration: ""
+
+# morph: tag (enum: annual, biennial, perennial, continuous, seasonal)
+lifecycle_type: ""
+
+# morph: range
+generation_time:
+  min: 0
+  max: 0
+  unit: "days"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CULTIVATION STATUS & DIFFICULTY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: badge (enum: wild_only, experimental, small_scale, commercial, industrial, domesticated)
+cultivation_status:
+  status: ""
+  variant: ""
+
+# morph: badge (enum: wild, semi_domesticated, domesticated, highly_selected, genetically_modified)
+domestication_level:
+  status: ""
+  variant: ""
+
+# morph: rating
+cultivation_difficulty_overall:
+  rating: 0
+  max: 10
+
+# morph: radar
+cultivation_difficulty_factors:
+  - axis: "Technical Knowledge"
+    value: 0
+  - axis: "Time Investment"
+    value: 0
+  - axis: "Equipment Needed"
+    value: 0
+  - axis: "Space Requirements"
+    value: 0
+  - axis: "Cost"
+    value: 0
+  - axis: "Risk"
+    value: 0
+
+# morph: gauge
+cultivation_success_rate:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+  zones:
+    - min: 0
+      max: 30
+      label: "Low"
+    - min: 30
+      max: 70
+      label: "Medium"
+    - min: 70
+      max: 100
+      label: "High"
+
+# morph: range
+cultivation_time_investment:
+  min: 0
+  max: 0
+  unit: "hours/week"
+
+# morph: list
+cultivation_equipment_needed:
+  - ""
+
+# morph: list
+cultivation_skill_prerequisites:
+  - ""
+
+# morph: range
+cultivation_space_requirements:
+  min: 0
+  max: 0
+  unit: "m²"
+
+# morph: list
+cultivation_scale_options:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GROWTH PARAMETERS - PHASE 1: ESTABLISHMENT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+param_establishment_temp_min: 0
+
+# morph: number
+param_establishment_temp_optimal: 0
+
+# morph: number
+param_establishment_temp_max: 0
+
+# morph: number
+param_establishment_humidity_min: 0
+
+# morph: number
+param_establishment_humidity_optimal: 0
+
+# morph: number
+param_establishment_humidity_max: 0
+
+# morph: number
+param_establishment_co2_ppm: 0
+
+# morph: number
+param_establishment_o2_ppm: 0
+
+# morph: boolean
+param_establishment_light_required: false
+
+# morph: number
+param_establishment_light_hours: 0
+
+# morph: tag
+param_establishment_light_spectrum: ""
+
+# morph: number
+param_establishment_duration_days: 0
+
+# morph: number
+param_establishment_ph_optimal: 0
+
+# morph: number
+param_establishment_salinity: 0
+
+# morph: text
+param_establishment_water_quality: ""
+
+# morph: text
+param_establishment_special_conditions: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GROWTH PARAMETERS - PHASE 2: VEGETATIVE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+param_vegetative_temp_min: 0
+
+# morph: number
+param_vegetative_temp_optimal: 0
+
+# morph: number
+param_vegetative_temp_max: 0
+
+# morph: number
+param_vegetative_humidity_min: 0
+
+# morph: number
+param_vegetative_humidity_optimal: 0
+
+# morph: number
+param_vegetative_humidity_max: 0
+
+# morph: number
+param_vegetative_co2_ppm: 0
+
+# morph: number
+param_vegetative_o2_ppm: 0
+
+# morph: number
+param_vegetative_light_lux: 0
+
+# morph: number
+param_vegetative_light_hours: 0
+
+# morph: tag
+param_vegetative_light_spectrum: ""
+
+# morph: number
+param_vegetative_duration_days: 0
+
+# morph: number
+param_vegetative_ph_optimal: 0
+
+# morph: list
+param_vegetative_nutrients:
+  - ""
+
+# morph: text
+param_vegetative_water_requirements: ""
+
+# morph: text
+param_vegetative_air_exchange: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GROWTH PARAMETERS - PHASE 3: REPRODUCTIVE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+param_reproductive_temp_min: 0
+
+# morph: number
+param_reproductive_temp_optimal: 0
+
+# morph: number
+param_reproductive_temp_max: 0
+
+# morph: number
+param_reproductive_humidity_min: 0
+
+# morph: number
+param_reproductive_humidity_optimal: 0
+
+# morph: number
+param_reproductive_humidity_max: 0
+
+# morph: number
+param_reproductive_co2_ppm: 0
+
+# morph: number
+param_reproductive_o2_ppm: 0
+
+# morph: number
+param_reproductive_light_lux: 0
+
+# morph: number
+param_reproductive_light_hours: 0
+
+# morph: tag
+param_reproductive_light_spectrum: ""
+
+# morph: number
+param_reproductive_duration_days: 0
+
+# morph: list
+param_reproductive_triggers:
+  - ""
+
+# morph: range
+param_reproductive_photoperiod:
+  min: 0
+  max: 0
+  unit: "hours"
+
+# morph: boolean
+param_reproductive_vernalization: false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GROWTH MEDIUM / SUBSTRATE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: text
+cultivation_medium: ""
+
+# morph: tag
+medium_primary: ""
+
+# morph: tag (enum: soil, soilless, hydroponic, aquatic, aerial, synthetic, organic, inert)
+medium_category: ""
+
+# morph: text
+medium_composition: ""
+
+# morph: list
+medium_components:
+  - ""
+
+# morph: boolean
+medium_sterilization_required: false
+
+# morph: tag
+medium_sterilization_method: ""
+
+# morph: number
+medium_sterilization_temp: 0
+
+# morph: range
+medium_sterilization_duration:
+  min: 0
+  max: 0
+  unit: "minutes"
+
+# morph: number
+medium_pasteurization_temp: 0
+
+# morph: range
+medium_pasteurization_duration:
+  min: 0
+  max: 0
+  unit: "minutes"
+
+# morph: number
+medium_moisture_percent: 0
+
+# morph: text
+medium_preparation_method: ""
+
+# morph: rating
+medium_rating:
+  rating: 0
+  max: 10
+
+# morph: gauge
+medium_efficiency:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+  zones:
+    - min: 0
+      max: 40
+      label: "Low"
+    - min: 40
+      max: 70
+      label: "Medium"
+    - min: 70
+      max: 100
+      label: "High"
+
+# morph: number
+medium_colonization_days: 0
+
+# morph: gauge
+medium_contamination_rate:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+  zones:
+    - min: 0
+      max: 10
+      label: "Low Risk"
+    - min: 10
+      max: 30
+      label: "Medium Risk"
+    - min: 30
+      max: 100
+      label: "High Risk"
+
+# morph: currency
+medium_cost_per_unit:
+  amount: 0
+  currency: "EUR"
+
+# morph: list
+medium_advantages:
+  - ""
+
+# morph: list
+medium_disadvantages:
+  - ""
+
+# morph: number
+medium_ph_optimal: 0
+
+# morph: list
+medium_nutrients_added:
+  - ""
+
+# morph: list
+medium_supplements:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VARIETIES / STRAINS / CULTIVARS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+cultivation_varieties:
+  - ""
+
+# morph: text
+variety_name: ""
+
+# morph: tag
+variety_code: ""
+
+# morph: text
+variety_origin: ""
+
+# morph: badge (enum: very_slow, slow, moderate, fast, very_fast)
+variety_growth_rate:
+  status: ""
+  variant: ""
+
+# morph: badge (enum: very_low, low, moderate, high, very_high)
+variety_yield_potential:
+  status: ""
+  variant: ""
+
+# morph: rating
+variety_disease_resistance:
+  rating: 0
+  max: 10
+
+# morph: rating
+variety_pest_resistance:
+  rating: 0
+  max: 10
+
+# morph: rating
+variety_stress_tolerance:
+  rating: 0
+  max: 10
+
+# morph: range
+variety_temperature_tolerance:
+  min: 0
+  max: 0
+  unit: "°C"
+
+# morph: range
+variety_primary_size:
+  min: 0
+  max: 0
+  unit: "cm"
+
+# morph: range
+variety_secondary_size:
+  min: 0
+  max: 0
+  unit: "cm"
+
+# morph: tag
+variety_color: ""
+
+# morph: tag
+variety_texture: ""
+
+# morph: number
+variety_shelf_life_days: 0
+
+# morph: list
+variety_flavor_profile:
+  - ""
+
+# morph: rating
+variety_nutritional_value:
+  rating: 0
+  max: 10
+
+# morph: gauge
+variety_efficiency:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+  zones:
+    - min: 0
+      max: 40
+      label: "Low"
+    - min: 40
+      max: 70
+      label: "Medium"
+    - min: 70
+      max: 100
+      label: "High"
+
+# morph: rating
+variety_commercial_viability:
+  rating: 0
+  max: 10
+
+# morph: badge
+variety_market_demand:
+  status: ""
+  variant: ""
+
+# morph: list
+variety_best_uses:
+  - ""
+
+# morph: list
+variety_suppliers:
+  - ""
+
+# morph: badge
+variety_availability:
+  status: ""
+  variant: ""
+
+# morph: rating
+variety_genetic_stability:
+  rating: 0
+  max: 10
+
+# morph: text
+variety_breeding_history: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PRODUCTION CYCLE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: timeline
+production_timeline:
+  - date: ""
+    event: ""
+    description: ""
+
+# morph: number
+production_total_cycle_days: 0
+
+# morph: number
+production_cycles_per_year: 0
+
+# morph: number
+production_total_harvests: 0
+
+# morph: number
+production_expected_yield: 0
+
+# morph: tag
+production_yield_unit: ""
+
+# morph: gauge
+production_efficiency:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+  zones:
+    - min: 0
+      max: 40
+      label: "Low"
+    - min: 40
+      max: 70
+      label: "Medium"
+    - min: 70
+      max: 100
+      label: "High"
+
+# morph: tag (enum: annual, biennial, perennial, continuous, seasonal)
+production_cycle_type: ""
+
+# morph: steps
+production_phases:
+  - step: 1
+    label: ""
+    status: "pending"
+
+# morph: gauge
+production_success_rate:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+  zones:
+    - min: 0
+      max: 30
+      label: "Low"
+    - min: 30
+      max: 70
+      label: "Medium"
+    - min: 70
+      max: 100
+      label: "High"
+
+# morph: calendar
+production_seasonality:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: boolean
+production_continuous_possible: false
+
+# morph: number
+production_batch_size: 0
+
+# morph: rating
+production_scalability:
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROPAGATION METHODS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+propagation_methods:
+  - ""
+
+# morph: object
+propagation_sexual:
+  method: ""
+  success_rate: 0
+  time_to_germination: ""
+
+# morph: object
+propagation_asexual:
+  method: ""
+  success_rate: 0
+  time_to_root: ""
+
+# morph: object
+propagation_vegetative:
+  method: ""
+  success_rate: 0
+
+# morph: object
+propagation_tissue_culture:
+  method: ""
+  success_rate: 0
+  equipment_needed: ""
+
+# morph: object
+propagation_grafting:
+  method: ""
+  success_rate: 0
+  rootstock: ""
+
+# morph: object
+propagation_division:
+  method: ""
+  success_rate: 0
+
+# morph: object
+propagation_cuttings:
+  method: ""
+  success_rate: 0
+  rooting_hormone: false
+
+# morph: object
+propagation_spores:
+  method: ""
+  success_rate: 0
+  sterile_technique: false
+
+# morph: object
+propagation_seeds:
+  method: ""
+  germination_rate: 0
+  stratification: false
+
+# morph: object
+propagation_eggs:
+  method: ""
+  hatch_rate: 0
+  incubation_days: 0
+
+# morph: object
+propagation_larvae:
+  method: ""
+  survival_rate: 0
+
+# morph: gauge
+propagation_success_rate:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+  zones:
+    - min: 0
+      max: 30
+      label: "Low"
+    - min: 30
+      max: 70
+      label: "Medium"
+    - min: 70
+      max: 100
+      label: "High"
+
+# morph: range
+propagation_time_to_maturity:
+  min: 0
+  max: 0
+  unit: "days"
+
+# morph: list
+propagation_starter_sources:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROBLEMS & TROUBLESHOOTING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+cultivation_problems:
+  - ""
+
+# morph: list
+problem_contaminants:
+  - ""
+
+# morph: list
+problem_pathogens:
+  - ""
+
+# morph: list
+problem_pests:
+  - ""
+
+# morph: list
+problem_predators:
+  - ""
+
+# morph: list
+problem_disorders:
+  - ""
+
+# morph: list
+problem_environmental:
+  - ""
+
+# morph: list
+problem_nutritional:
+  - ""
+
+# morph: badge (enum: rare, occasional, common, very_common)
+problem_frequency:
+  status: ""
+  variant: ""
+
+# morph: severity
+problem_severity:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: list
+problem_symptoms:
+  - ""
+
+# morph: list
+problem_conditions_promoting:
+  - ""
+
+# morph: steps
+problem_prevention:
+  - step: 1
+    label: ""
+    status: "pending"
+
+# morph: steps
+problem_treatment:
+  - step: 1
+    label: ""
+    status: "pending"
+
+# morph: list
+problem_chemical_control:
+  - ""
+
+# morph: list
+problem_biological_control:
+  - ""
+
+# morph: text
+problem_integrated_management: ""
+
+# morph: list
+quarantine_requirements:
+  - ""
+
+# morph: badge
+biosecurity_level:
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HARVEST / COLLECTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: stats
+harvest_stats:
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+# morph: number
+harvest_fresh_weight: 0
+
+# morph: number
+harvest_dry_weight: 0
+
+# morph: tag
+harvest_weight_unit: ""
+
+# morph: gauge
+harvest_efficiency:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+  zones:
+    - min: 0
+      max: 40
+      label: "Low"
+    - min: 40
+      max: 70
+      label: "Medium"
+    - min: 70
+      max: 100
+      label: "High"
+
+# morph: badge (enum: premium, grade_a, grade_b, grade_c, reject)
+harvest_quality_grade:
+  status: ""
+  variant: ""
+
+# morph: range
+harvest_size_average:
+  min: 0
+  max: 0
+  unit: "cm"
+
+# morph: rating
+harvest_uniformity:
+  rating: 0
+  max: 10
+
+# morph: list
+harvest_timing_indicators:
+  - ""
+
+# morph: tag
+harvest_method: ""
+
+# morph: tag
+harvest_frequency: ""
+
+# morph: timeline
+harvest_records:
+  - date: ""
+    event: ""
+    description: ""
+
+# morph: steps
+harvest_post_processing:
+  - step: 1
+    label: ""
+    status: "pending"
+
+# morph: object
+harvest_storage_conditions:
+  temperature: 0
+  humidity: 0
+  light: ""
+  ventilation: ""
+
+# morph: range
+harvest_shelf_life:
+  min: 0
+  max: 0
+  unit: "days"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EQUIPMENT & INFRASTRUCTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+equipment_requirements:
+  - ""
+
+# morph: list
+equipment_minimum:
+  - ""
+
+# morph: list
+equipment_recommended:
+  - ""
+
+# morph: list
+equipment_optional:
+  - ""
+
+# morph: list
+equipment_specialized:
+  - ""
+
+# morph: object
+infrastructure_indoor:
+  type: ""
+  size: ""
+  climate_control: false
+
+# morph: object
+infrastructure_outdoor:
+  type: ""
+  size: ""
+  protection: ""
+
+# morph: object
+infrastructure_greenhouse:
+  type: ""
+  size: ""
+  heating: false
+  cooling: false
+
+# morph: object
+infrastructure_controlled_environment:
+  type: ""
+  automation_level: ""
+  sensors: []
+
+# morph: object
+infrastructure_aquaculture:
+  type: ""
+  volume: ""
+  filtration: ""
+
+# morph: currency
+equipment_startup_cost_hobby:
+  amount: 0
+  currency: "EUR"
+
+# morph: currency
+equipment_startup_cost_serious:
+  amount: 0
+  currency: "EUR"
+
+# morph: currency
+equipment_startup_cost_commercial:
+  amount: 0
+  currency: "EUR"
+
+# morph: currency
+equipment_maintenance_cost:
+  amount: 0
+  currency: "EUR"
+
+# morph: text
+equipment_energy_requirements: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ECONOMICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: object
+economics:
+  market_overview: ""
+  profitability: ""
+
+# morph: currency
+economics_market_price_min:
+  amount: 0
+  currency: "EUR"
+
+# morph: currency
+economics_market_price_max:
+  amount: 0
+  currency: "EUR"
+
+# morph: currency
+economics_market_price_avg:
+  amount: 0
+  currency: "EUR"
+
+# morph: tag
+economics_price_unit: ""
+
+# morph: currency
+economics_production_cost:
+  amount: 0
+  currency: "EUR"
+
+# morph: gauge
+economics_profit_margin:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+  zones:
+    - min: 0
+      max: 20
+      label: "Low"
+    - min: 20
+      max: 50
+      label: "Medium"
+    - min: 50
+      max: 100
+      label: "High"
+
+# morph: currency
+economics_break_even_point:
+  amount: 0
+  currency: "EUR"
+
+# morph: badge
+economics_demand_level:
+  status: ""
+  variant: ""
+
+# morph: badge
+economics_competition_level:
+  status: ""
+  variant: ""
+
+# morph: badge
+economics_market_trend:
+  status: ""
+  variant: ""
+
+# morph: list
+economics_sales_channels:
+  - ""
+
+# morph: list
+economics_certifications_helpful:
+  - ""
+
+# morph: boolean
+economics_subsidies_available: false
+
+# morph: rating
+economics_export_potential:
+  rating: 0
+  max: 10
+
+# morph: list
+economics_value_added_products:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SUSTAINABILITY & ENVIRONMENT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: rating
+sustainability_score:
+  rating: 0
+  max: 10
+
+# morph: gauge
+water_usage:
+  value: 0
+  min: 0
+  max: 100
+  unit: "L/kg"
+  zones:
+    - min: 0
+      max: 30
+      label: "Low"
+    - min: 30
+      max: 70
+      label: "Medium"
+    - min: 70
+      max: 100
+      label: "High"
+
+# morph: gauge
+energy_usage:
+  value: 0
+  min: 0
+  max: 100
+  unit: "kWh/kg"
+  zones:
+    - min: 0
+      max: 30
+      label: "Low"
+    - min: 30
+      max: 70
+      label: "Medium"
+    - min: 70
+      max: 100
+      label: "High"
+
+# morph: gauge
+carbon_footprint:
+  value: 0
+  min: 0
+  max: 100
+  unit: "kg CO2/kg"
+  zones:
+    - min: 0
+      max: 30
+      label: "Low"
+    - min: 30
+      max: 70
+      label: "Medium"
+    - min: 70
+      max: 100
+      label: "High"
+
+# morph: list
+waste_products:
+  - ""
+
+# morph: list
+waste_utilization:
+  - ""
+
+# morph: rating
+circular_economy_potential:
+  rating: 0
+  max: 10
+
+# morph: boolean
+organic_certification_possible: false
+
+# morph: text
+environmental_impact: ""
+
+# morph: text
+biodiversity_impact: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FAO PRODUCTION STANDARDS - AQUACULTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+aquaculture_fishbase_id: ""
+
+# morph: tag
+aquaculture_water_type: ""
+
+# morph: number
+aquaculture_trophic_level: 0
+
+# morph: number
+aquaculture_fcr: 0
+
+# morph: gauge
+aquaculture_fillet_yield:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+  zones:
+    - min: 0
+      max: 30
+      label: "Low"
+    - min: 30
+      max: 50
+      label: "Medium"
+    - min: 50
+      max: 100
+      label: "High"
+
+# morph: number
+aquaculture_stocking_density: 0
+
+# morph: number
+aquaculture_growth_rate_day: 0
+
+# morph: number
+aquaculture_harvest_size_kg: 0
+
+# morph: number
+aquaculture_time_to_market_months: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FAO PRODUCTION STANDARDS - INSECT FARMING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+insect_eci: 0
+
+# morph: gauge
+insect_protein_content:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+  zones:
+    - min: 0
+      max: 30
+      label: "Low"
+    - min: 30
+      max: 60
+      label: "Medium"
+    - min: 60
+      max: 100
+      label: "High"
+
+# morph: gauge
+insect_fat_content:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+  zones:
+    - min: 0
+      max: 20
+      label: "Low"
+    - min: 20
+      max: 50
+      label: "Medium"
+    - min: 50
+      max: 100
+      label: "High"
+
+# morph: gauge
+insect_chitin_content:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+  zones:
+    - min: 0
+      max: 10
+      label: "Low"
+    - min: 10
+      max: 25
+      label: "Medium"
+    - min: 25
+      max: 100
+      label: "High"
+
+# morph: number
+insect_cn_ratio: 0
+
+# morph: rating
+insect_frass_quality:
+  rating: 0
+  max: 10
+
+# morph: number
+insect_instar_stages: 0
+
+# morph: text
+insect_pupation_conditions: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FAO PRODUCTION STANDARDS - LIVESTOCK
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+livestock_dadis_breed_id: ""
+
+# morph: tag
+livestock_fao_species_code: ""
+
+# morph: tag
+livestock_production_system: ""
+
+# morph: text
+livestock_feed_requirements: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FAO PRODUCTION STANDARDS - PLANTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+plant_usda_hardiness_zone: ""
+
+# morph: number
+plant_heat_zone: 0
+
+# morph: number
+plant_chill_hours: 0
+
+# morph: number
+plant_growing_degree_days: 0
+
+# morph: number
+plant_nitrogen_fixation: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SUPPLIERS & RESOURCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+suppliers:
+  - ""
+
+# morph: list
+supplier_starter_material:
+  - ""
+
+# morph: list
+supplier_growing_medium:
+  - ""
+
+# morph: list
+supplier_equipment:
+  - ""
+
+# morph: rating
+supplier_rating:
+  rating: 0
+  max: 10
+
+# morph: list
+supplier_ships_to:
+  - ""
+
+# morph: list
+supplier_certifications:
+  - ""
+
+# morph: list
+educational_resources:
+  - ""
+
+# morph: list
+community_resources:
+  - ""
+
+# morph: list
+research_institutions:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WIRTSCHAFTLICHKEITSANALYSE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: currency
+startup_cost_estimate:
+  amount: 0
+  currency: "EUR"
+
+# morph: currency
+startup_cost_per_ha:
+  amount: 0
+  currency: "EUR"
+
+# morph: currency
+annual_operating_cost_per_ha:
+  amount: 0
+  currency: "EUR"
+
+# morph: number
+labor_hours_per_ha_annual: 0
+
+# morph: badge
+labor_intensity:
+  status: ""
+  variant: ""
+
+# morph: number
+break_even_years: 0
+
+# morph: gauge
+roi_typical_percent:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+  zones:
+    - min: 0
+      max: 10
+      label: "Low"
+    - min: 10
+      max: 30
+      label: "Medium"
+    - min: 30
+      max: 100
+      label: "High"
+
+# morph: range
+profit_margin_range:
+  min: 0
+  max: 0
+  unit: "%"
+
+# morph: badge
+price_volatility:
+  status: ""
+  variant: ""
+
+# morph: badge
+market_demand_trend:
+  status: ""
+  variant: ""
+
+# morph: badge
+market_saturation_risk:
+  status: ""
+  variant: ""
+
+# morph: list
+niche_market_opportunities:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SKALIERUNG & AUTOMATISIERUNG
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: text
+minimum_viable_scale: ""
+
+# morph: text
+optimal_scale: ""
+
+# morph: text
+maximum_practical_scale: ""
+
+# morph: list
+scalability_challenges:
+  - ""
+
+# morph: rating
+automation_potential:
+  rating: 0
+  max: 10
+
+# morph: list
+automatable_tasks:
+  - ""
+
+# morph: list
+automation_technology_available:
+  - ""
+
+# morph: text
+automation_cost_benefit: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ANFÄNGER-GUIDE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: boolean
+beginner_friendly: false
+
+# morph: badge (enum: beginner, intermediate, advanced, expert, specialist)
+difficulty_level:
+  status: ""
+  variant: ""
+
+# morph: list
+common_beginner_mistakes:
+  - ""
+
+# morph: list
+success_critical_factors:
+  - ""
+
+# morph: text
+learning_curve_description: ""
+
+# morph: text
+recommended_starting_scale: ""
+
+# morph: list
+starter_kit_essentials:
+  - ""
+
+# morph: list
+mentorship_resources:
+  - ""
+
+# morph: list
+online_communities:
+  - ""
+
+# morph: list
+courses_and_workshops:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RISIKOMANAGEMENT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: badge
+disease_pressure_rating:
+  status: ""
+  variant: ""
+
+# morph: list
+main_diseases:
+  - ""
+
+# morph: list
+disease_prevention_strategies:
+  - ""
+
+# morph: badge
+pest_pressure_rating:
+  status: ""
+  variant: ""
+
+# morph: list
+main_pests:
+  - ""
+
+# morph: list
+ipm_strategies:
+  - ""
+
+# morph: list
+climate_risk_factors:
+  - ""
+
+# morph: badge
+weather_sensitivity:
+  status: ""
+  variant: ""
+
+# morph: boolean
+crop_insurance_available: false
+
+# morph: currency
+crop_insurance_cost_estimate:
+  amount: 0
+  currency: "EUR"
+
+# morph: list
+diversification_recommendations:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ZERTIFIZIERUNGEN
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: rating
+organic_certification_feasibility:
+  rating: 0
+  max: 10
+
+# morph: list
+organic_certification_challenges:
+  - ""
+
+# morph: gauge
+organic_premium_percentage:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+  zones:
+    - min: 0
+      max: 20
+      label: "Low"
+    - min: 20
+      max: 50
+      label: "Medium"
+    - min: 50
+      max: 100
+      label: "High"
+
+# morph: boolean
+fair_trade_certification_available: false
+
+# morph: boolean
+gmo_free_certification: false
+
+# morph: list
+sustainability_certifications:
+  - ""
+
+# morph: list
+local_food_certifications:
+  - ""
+
+# morph: currency
+certification_cost_estimate:
+  amount: 0
+  currency: "EUR"
+
+# morph: range
+certification_time_to_achieve:
+  min: 0
+  max: 0
+  unit: "months"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ERNTE & NACHERNTEBEHANDLUNG
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+harvest_window_days: 0
+
+# morph: tag
+harvest_method_optimal: ""
+
+# morph: list
+harvest_equipment_needed:
+  - ""
+
+# morph: number
+yield_per_harvest: 0
+
+# morph: number
+harvests_per_year: 0
+
+# morph: steps
+post_harvest_handling:
+  - step: 1
+    label: ""
+    status: "pending"
+
+# morph: text
+cooling_requirements: ""
+
+# morph: number
+storage_optimal_temp: 0
+
+# morph: number
+storage_optimal_humidity: 0
+
+# morph: range
+storage_duration_optimal:
+  min: 0
+  max: 0
+  unit: "days"
+
+# morph: list
+quality_loss_factors:
+  - ""
+
+# morph: list
+waste_reduction_tips:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NACHHALTIGKEIT & UMWELTAUSWIRKUNGEN
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+water_footprint_per_kg: 0
+
+# morph: number
+carbon_footprint_per_kg: 0
+
+# morph: rating
+land_use_efficiency:
+  rating: 0
+  max: 10
+
+# morph: text (duplicate clarified)
+biodiversity_impact_detail: ""
+
+# morph: text
+soil_health_impact: ""
+
+# morph: text
+chemical_input_requirements: ""
+
+# morph: list
+organic_input_alternatives:
+  - ""
+
+# morph: list
+regenerative_practices_applicable:
+  - ""

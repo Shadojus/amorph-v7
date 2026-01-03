@@ -65,39 +65,9 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   DESIGN TOKENS - Multi-Site Bio Species Color System
+   DESIGN TOKENS - IMPORT AURORA COLOR SYSTEM
    ───────────────────────────────────────────────────────────────────────────── */
-:root {
-  /* ═══════════════════════════════════════════════════════════════════════════
-     MULTI-SITE COLOR SYSTEM - Bio Species Farben
-     Funginomi: Psychedelic Blue (Pilze/Biolumineszenz)
-     Phytonomi: Jade Green (Pflanzen/Chlorophyll)
-     Drakonomi: Magenta Pink (Tiere/Fauna)
-     ═══════════════════════════════════════════════════════════════════════════ */
-  
-  /* Site: Funginomi - Psychedelic Blue (Pilz-Biolumineszenz) */
-  --site-funginomi-h: 220;
-  --site-funginomi-s: 100%;
-  --site-funginomi-l: 65%;
-  --site-funginomi: hsl(220, 100%, 65%);
-  --site-funginomi-rgb: 77, 136, 255;
-  --site-funginomi-muted: hsl(220, 40%, 50%);
-  
-  /* Site: Phytonomi - Jade Green (Pflanzen-Chlorophyll) */
-  --site-phytonomi-h: 160;
-  --site-phytonomi-s: 60%;
-  --site-phytonomi-l: 50%;
-  --site-phytonomi: hsl(160, 60%, 50%);
-  --site-phytonomi-rgb: 51, 179, 128;
-  --site-phytonomi-muted: hsl(160, 35%, 42%);
-  
-  /* Site: Drakonomi - Magenta Pink (Dritte Bio-Farbe) */
-  --site-drakonomi-h: 320;
-  --site-drakonomi-s: 80%;
-  --site-drakonomi-l: 65%;
-  --site-drakonomi: hsl(320, 80%, 65%);
-  --site-drakonomi-rgb: 235, 77, 180;
-  --site-drakonomi-muted: hsl(320, 40%, 50%);
+@import '_aurora-colors.css';
 
   
   /* ACTIVE SITE - Funginomi (Standard) */
@@ -145,6 +115,190 @@ body {
   --system-dark-rgb: 180, 60, 140;
 }
 
+/* ═══════════════════════════════════════════════════════════════════════════
+   GEOLOGY DOMAIN SITE OVERRIDES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Site: Paleonomi - Kreide/Chalk (Paläontologie/Fossilien) */
+[data-site="paleo"],
+[data-site="paleonomi"] {
+  --system-h: var(--site-paleonomi-h);
+  --system-s: var(--site-paleonomi-s);
+  --system-l: var(--site-paleonomi-l);
+  --system: var(--site-paleonomi);
+  --system-rgb: var(--site-paleonomi-rgb);
+  --system-light-rgb: 230, 215, 195;
+  --system-dark-rgb: 160, 145, 125;
+}
+
+/* Site: Tektonomi - Carminrot (Tektonik/Vulkane) */
+[data-site="tekto"],
+[data-site="tektonomi"] {
+  --system-h: var(--site-tektonomi-h);
+  --system-s: var(--site-tektonomi-s);
+  --system-l: var(--site-tektonomi-l);
+  --system: var(--site-tektonomi);
+  --system-rgb: var(--site-tektonomi-rgb);
+  --system-light-rgb: 235, 100, 115;
+  --system-dark-rgb: 150, 35, 50;
+}
+
+/* Site: Minenomi - Gold/Amber (Mineralogie/Erze) */
+[data-site="mineral"],
+[data-site="minenomi"] {
+  --system-h: var(--site-minenomi-h);
+  --system-s: var(--site-minenomi-s);
+  --system-l: var(--site-minenomi-l);
+  --system: var(--site-minenomi);
+  --system-rgb: var(--site-minenomi-rgb);
+  --system-light-rgb: 245, 210, 100;
+  --system-dark-rgb: 180, 140, 30;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BIOMEDICAL DOMAIN SITE OVERRIDES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Site: Bakterionomi - Petrischalen-Grün (Mikrobiologie) */
+[data-site="bakterio"],
+[data-site="bakterionomi"] {
+  --system-h: var(--site-bakterionomi-h);
+  --system-s: var(--site-bakterionomi-s);
+  --system-l: var(--site-bakterionomi-l);
+  --system: var(--site-bakterionomi);
+  --system-rgb: var(--site-bakterionomi-rgb);
+  --system-light-rgb: 195, 220, 90;
+  --system-dark-rgb: 130, 155, 30;
+}
+
+/* Site: Vironomi - Neon-Grün (Virologie) */
+[data-site="viro"],
+[data-site="vironomi"] {
+  --system-h: var(--site-vironomi-h);
+  --system-s: var(--site-vironomi-s);
+  --system-l: var(--site-vironomi-l);
+  --system: var(--site-vironomi);
+  --system-rgb: var(--site-vironomi-rgb);
+  --system-light-rgb: 80, 230, 80;
+  --system-dark-rgb: 15, 160, 15;
+}
+
+/* Site: Genonomi - DNA-Cyan (Genetik) */
+[data-site="geno"],
+[data-site="genonomi"] {
+  --system-h: var(--site-genonomi-h);
+  --system-s: var(--site-genonomi-s);
+  --system-l: var(--site-genonomi-l);
+  --system: var(--site-genonomi);
+  --system-rgb: var(--site-genonomi-rgb);
+  --system-light-rgb: 90, 210, 235;
+  --system-dark-rgb: 25, 145, 170;
+}
+
+/* Site: Anatonomi - Körper-Rosa (Anatomie) */
+[data-site="anato"],
+[data-site="anatonomi"] {
+  --system-h: var(--site-anatonomi-h);
+  --system-s: var(--site-anatonomi-s);
+  --system-l: var(--site-anatonomi-l);
+  --system: var(--site-anatonomi);
+  --system-rgb: var(--site-anatonomi-rgb);
+  --system-light-rgb: 235, 165, 150;
+  --system-dark-rgb: 170, 100, 85;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PHYSICS & CHEMISTRY DOMAIN SITE OVERRIDES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Site: Chemonomi - Flammen-Orange (Chemie) */
+[data-site="chemo"],
+[data-site="chemonomi"] {
+  --system-h: var(--site-chemonomi-h);
+  --system-s: var(--site-chemonomi-s);
+  --system-l: var(--site-chemonomi-l);
+  --system: var(--site-chemonomi);
+  --system-rgb: var(--site-chemonomi-rgb);
+  --system-light-rgb: 255, 165, 80;
+  --system-dark-rgb: 190, 100, 20;
+}
+
+/* Site: Physinomi - Elektrisches Blau (Physik) */
+[data-site="physi"],
+[data-site="physinomi"] {
+  --system-h: var(--site-physinomi-h);
+  --system-s: var(--site-physinomi-s);
+  --system-l: var(--site-physinomi-l);
+  --system: var(--site-physinomi);
+  --system-rgb: var(--site-physinomi-rgb);
+  --system-light-rgb: 80, 200, 255;
+  --system-dark-rgb: 0, 130, 200;
+}
+
+/* Site: Kosmonomi - Weltraum-Violett (Astronomie) */
+[data-site="kosmo"],
+[data-site="kosmonomi"] {
+  --system-h: var(--site-kosmonomi-h);
+  --system-s: var(--site-kosmonomi-s);
+  --system-l: var(--site-kosmonomi-l);
+  --system: var(--site-kosmonomi);
+  --system-rgb: var(--site-kosmonomi-rgb);
+  --system-light-rgb: 175, 100, 235;
+  --system-dark-rgb: 105, 30, 165;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TECHNOLOGY DOMAIN SITE OVERRIDES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Site: Netzonomi - Matrix-Grün (Informatik/Cyber) */
+[data-site="netzo"],
+[data-site="netzonomi"] {
+  --system-h: var(--site-netzonomi-h);
+  --system-s: var(--site-netzonomi-s);
+  --system-l: var(--site-netzonomi-l);
+  --system: var(--site-netzonomi);
+  --system-rgb: var(--site-netzonomi-rgb);
+  --system-light-rgb: 60, 225, 130;
+  --system-dark-rgb: 0, 160, 75;
+}
+
+/* Site: Cognitonomi - Neon-Violett (KI) */
+[data-site="cognito"],
+[data-site="cognitonomi"] {
+  --system-h: var(--site-cognitonomi-h);
+  --system-s: var(--site-cognitonomi-s);
+  --system-l: var(--site-cognitonomi-l);
+  --system: var(--site-cognitonomi);
+  --system-rgb: var(--site-cognitonomi-rgb);
+  --system-light-rgb: 220, 130, 250;
+  --system-dark-rgb: 155, 50, 185;
+}
+
+/* Site: Bionomi - Bio-Tech Türkis (Biotechnologie) */
+[data-site="biotech"],
+[data-site="bionomi"] {
+  --system-h: var(--site-bionomi-h);
+  --system-s: var(--site-bionomi-s);
+  --system-l: var(--site-bionomi-l);
+  --system: var(--site-bionomi);
+  --system-rgb: var(--site-bionomi-rgb);
+  --system-light-rgb: 85, 215, 200;
+  --system-dark-rgb: 25, 150, 140;
+}
+
+/* Site: Socionomi - Sozial-Warmgelb (Sozialwissenschaften) */
+[data-site="socio"],
+[data-site="socionomi"] {
+  --system-h: var(--site-socionomi-h);
+  --system-s: var(--site-socionomi-s);
+  --system-l: var(--site-socionomi-l);
+  --system: var(--site-socionomi);
+  --system-rgb: var(--site-socionomi-rgb);
+  --system-light-rgb: 240, 200, 110;
+  --system-dark-rgb: 170, 135, 40;
+}
+
 /* Nebel-Hintergrund pro Site anpassen */
 [data-site="phyto"] body,
 [data-site="phytonomi"] body {
@@ -168,6 +322,204 @@ body {
     radial-gradient(ellipse 180% 25% at 40% 50%, rgba(130, 20, 90, 0.12) 0%, transparent 50%),
     radial-gradient(ellipse 55% 50% at 0% 85%, rgba(140, 22, 100, 0.3) 0%, transparent 45%),
     radial-gradient(ellipse 200% 150% at 50% 50%, rgba(100, 15, 70, 0.06) 0%, transparent 60%);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GEOLOGY DOMAIN NEBEL-HINTERGRÜNDE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Site: Paleonomi - Kreide/Chalk Nebel (Fossilien/Sediment) */
+[data-site="paleo"] body,
+[data-site="paleonomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(180, 165, 140, 0.5) 0%, rgba(160, 145, 120, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(175, 160, 135, 0.4) 0%, rgba(150, 135, 110, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(200, 185, 160, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(165, 150, 125, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(180, 165, 140, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(140, 125, 100, 0.06) 0%, transparent 60%);
+}
+
+/* Site: Tektonomi - Carminrot Nebel (Magma/Vulkan) */
+[data-site="tekto"] body,
+[data-site="tektonomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(180, 40, 60, 0.5) 0%, rgba(150, 30, 50, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(170, 35, 55, 0.4) 0%, rgba(140, 28, 45, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(200, 50, 75, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(160, 35, 55, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(175, 40, 60, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(130, 25, 40, 0.06) 0%, transparent 60%);
+}
+
+/* Site: Minenomi - Gold/Amber Nebel (Mineralien/Erze) */
+[data-site="mineral"] body,
+[data-site="minenomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(200, 150, 30, 0.5) 0%, rgba(180, 130, 20, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(190, 140, 40, 0.4) 0%, rgba(160, 120, 30, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(220, 170, 50, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(180, 140, 25, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(200, 155, 35, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(160, 120, 20, 0.06) 0%, transparent 60%);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BIOMEDICAL DOMAIN NEBEL-HINTERGRÜNDE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Site: Bakterionomi - Petrischalen-Grün Nebel (Mikrobiologie) */
+[data-site="bakterio"] body,
+[data-site="bakterionomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(150, 180, 35, 0.5) 0%, rgba(130, 160, 25, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(145, 175, 30, 0.4) 0%, rgba(120, 150, 20, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(170, 200, 45, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(140, 170, 30, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(155, 185, 40, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(120, 145, 20, 0.06) 0%, transparent 60%);
+}
+
+/* Site: Vironomi - Neon-Grün Nebel (Virologie) */
+[data-site="viro"] body,
+[data-site="vironomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(20, 180, 20, 0.5) 0%, rgba(15, 150, 15, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(25, 170, 25, 0.4) 0%, rgba(18, 140, 18, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(30, 200, 30, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(22, 165, 22, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(25, 175, 25, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(15, 130, 15, 0.06) 0%, transparent 60%);
+}
+
+/* Site: Genonomi - DNA-Cyan Nebel (Genetik) */
+[data-site="geno"] body,
+[data-site="genonomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(30, 165, 195, 0.5) 0%, rgba(22, 140, 170, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(35, 160, 190, 0.4) 0%, rgba(25, 135, 160, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(40, 185, 215, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(30, 155, 185, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(35, 170, 200, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(20, 130, 155, 0.06) 0%, transparent 60%);
+}
+
+/* Site: Anatonomi - Körper-Rosa Nebel (Anatomie) */
+[data-site="anato"] body,
+[data-site="anatonomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(190, 115, 100, 0.5) 0%, rgba(165, 95, 82, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(185, 110, 95, 0.4) 0%, rgba(155, 90, 78, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(210, 130, 115, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(175, 105, 90, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(195, 118, 102, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(150, 85, 72, 0.06) 0%, transparent 60%);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PHYSICS & CHEMISTRY DOMAIN NEBEL-HINTERGRÜNDE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Site: Chemonomi - Flammen-Orange Nebel (Chemie) */
+[data-site="chemo"] body,
+[data-site="chemonomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(220, 110, 25, 0.5) 0%, rgba(190, 95, 18, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(210, 105, 30, 0.4) 0%, rgba(180, 90, 22, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(240, 125, 35, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(200, 100, 25, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(215, 108, 28, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(170, 80, 15, 0.06) 0%, transparent 60%);
+}
+
+/* Site: Physinomi - Elektrisches Blau Nebel (Physik) */
+[data-site="physi"] body,
+[data-site="physinomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(0, 150, 230, 0.5) 0%, rgba(0, 125, 195, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(0, 145, 220, 0.4) 0%, rgba(0, 118, 185, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(0, 170, 250, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(0, 140, 215, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(0, 155, 235, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(0, 110, 175, 0.06) 0%, transparent 60%);
+}
+
+/* Site: Kosmonomi - Weltraum-Violett Nebel (Astronomie) */
+[data-site="kosmo"] body,
+[data-site="kosmonomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(125, 35, 190, 0.5) 0%, rgba(105, 28, 160, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(120, 32, 180, 0.4) 0%, rgba(98, 25, 150, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(145, 42, 210, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(115, 30, 175, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(130, 38, 195, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(90, 22, 140, 0.06) 0%, transparent 60%);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TECHNOLOGY DOMAIN NEBEL-HINTERGRÜNDE
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Site: Netzonomi - Matrix-Grün Nebel (Informatik/Cyber) */
+[data-site="netzo"] body,
+[data-site="netzonomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(0, 180, 90, 0.5) 0%, rgba(0, 150, 75, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(0, 170, 85, 0.4) 0%, rgba(0, 140, 70, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(0, 200, 100, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(0, 165, 82, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(0, 175, 88, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(0, 130, 65, 0.06) 0%, transparent 60%);
+}
+
+/* Site: Cognitonomi - Neon-Violett Nebel (KI) */
+[data-site="cognito"] body,
+[data-site="cognitonomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(175, 70, 210, 0.5) 0%, rgba(148, 58, 175, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(170, 65, 200, 0.4) 0%, rgba(140, 52, 165, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(195, 82, 230, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(162, 62, 195, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(180, 72, 215, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(135, 48, 160, 0.06) 0%, transparent 60%);
+}
+
+/* Site: Bionomi - Bio-Tech Türkis Nebel (Biotechnologie) */
+[data-site="biotech"] body,
+[data-site="bionomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(30, 175, 160, 0.5) 0%, rgba(25, 148, 135, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(35, 168, 155, 0.4) 0%, rgba(28, 140, 128, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(40, 195, 180, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(32, 162, 150, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(35, 180, 165, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(22, 135, 122, 0.06) 0%, transparent 60%);
+}
+
+/* Site: Socionomi - Sozial-Warmgelb Nebel (Sozialwissenschaften) */
+[data-site="socio"] body,
+[data-site="socionomi"] body {
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.64), rgba(0, 0, 0, 0.64)),
+    radial-gradient(ellipse 120% 100% at -15% 30%, rgba(195, 155, 52, 0.5) 0%, rgba(168, 132, 42, 0.25) 30%, transparent 55%),
+    radial-gradient(ellipse 100% 90% at 115% 80%, rgba(188, 150, 48, 0.4) 0%, rgba(158, 125, 38, 0.2) 35%, transparent 55%),
+    radial-gradient(ellipse 50% 45% at 85% 5%, rgba(215, 172, 60, 0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 180% 25% at 40% 50%, rgba(182, 145, 45, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 50% at 0% 85%, rgba(200, 160, 55, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse 200% 150% at 50% 50%, rgba(152, 120, 35, 0.06) 0%, transparent 60%);
 }
 
 :root {

@@ -1,0 +1,29 @@
+{
+  "id": "water",
+  "slug": "water",
+  "name": "Wasser",
+  "scientific_name": "Hydrogen oxide",
+  "kingdom": "compound",
+  "kingdom_icon": "💧",
+  "image": null,
+  "tagline": "Universelles Lösungsmittel",
+  "description": "Wasser (H₂O) ist eine chemische Verbindung aus Wasserstoff und Sauerstoff. Es ist das wichtigste Lösungsmittel auf der Erde und essentiell für alles Leben. Seine anomalen Eigenschaften (z.B. Dichteanomalie) sind für das Leben auf der Erde entscheidend.",
+  "seo_description": "Wasser (H2O) - Universelles Lösungsmittel, Dichteanomalie",
+  "quick_facts": [
+    {"icon": "🧪", "label": "Formel", "value": "H₂O"},
+    {"icon": "⚖️", "label": "Molmasse", "value": "18.015 g/mol"},
+    {"icon": "🌡️", "label": "Siedepunkt", "value": "100°C"},
+    {"icon": "❄️", "label": "Gefrierpunkt", "value": "0°C"}
+  ],
+  "highlights": ["Dichteanomalie", "Wasserstoffbrücken", "Universelles Lösungsmittel"],
+  "badges": [
+    {"icon": "🌍", "label": "Vorkommen", "status": "71% Erdoberfläche", "variant": "info"},
+    {"icon": "🧬", "label": "Leben", "status": "Essentiell", "variant": "success"}
+  ],
+  "categories": ["Anorganisch", "Oxide"],
+  "keywords": ["h2o", "lösungsmittel", "dichteanomalie", "wasserstoffbrücken", "hydrologie"],
+  "perspectives": ["bonding", "thermodynamics", "inorganic", "applications", "research"],
+  "perspective_count": 5,
+  "engagement_score": 90,
+  "_sources": {"image": [], "fields": {}}
+}

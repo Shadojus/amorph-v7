@@ -1,0 +1,731 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# ANIMAL ECOSYSTEM ENGINEERING PERSPECTIVE - HOLISTIC BLUEPRINT
+# Animals as Architects & Transformers of Ecosystems
+# Version: 1.0.0
+# Domain: ANIMALIA (Holistic Systems View)
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# PURPOSE: Captures animals as ecosystem engineers - organisms that modify environments
+# - Physical habitat modification (beavers, elephants, etc.)
+# - Nutrient redistribution & cycling
+# - Disturbance regimes & succession
+# - Niche construction for other species
+# - Keystone species effects
+# - Trophic cascades initiated
+# - Landscape-level impacts
+#
+# Based on 2025 research:
+# - Beavers as keystone species & ecosystem engineers
+# - Prairie dogs & gopher tortoises creating habitat for 300+ species
+# - Allogenic vs autogenic engineering
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: ecosystem_engineering
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TAXONOMY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+scientific_name:
+  # morph: text
+  ""
+
+genus:
+  # morph: tag
+  ""
+
+family:
+  # morph: tag
+  ""
+
+engineer_type:
+  # morph: badge
+  # keystone | foundation | modifier | facilitator
+  status: ""
+  variant: ""
+
+engineering_mode:
+  # morph: badge
+  # allogenic | autogenic | both
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PHYSICAL HABITAT MODIFICATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+habitat_modification:
+  # morph: boolean
+  false
+
+modification_types:
+  # morph: list
+  # construction | excavation | trampling | browsing | damming
+  - ""
+
+structures_created:
+  # morph: list
+  # dams | lodges | burrows | mounds | nests | trails
+  - ""
+
+structure_permanence:
+  # morph: range
+  # lifespan of structures
+  min: 0
+  max: 0
+  unit: "years"
+
+structure_size:
+  # morph: range
+  # typical structure dimensions
+  min: 0
+  max: 0
+  unit: "meters"
+
+construction_rate:
+  # morph: number
+  # structures per year
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HYDROLOGICAL ENGINEERING - Water modification
+# ═══════════════════════════════════════════════════════════════════════════════
+
+hydrological_engineering:
+  # morph: boolean
+  false
+
+water_impoundment:
+  # morph: boolean
+  # creates ponds/wetlands (e.g., beavers)
+  false
+
+pond_area_created:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "hectares"
+
+water_table_modification:
+  # morph: boolean
+  false
+
+water_table_elevation_change:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "meters"
+
+wetland_creation:
+  # morph: boolean
+  false
+
+wetland_area:
+  # morph: number
+  # hectares
+  0
+
+stream_flow_modification:
+  # morph: boolean
+  false
+
+flood_attenuation:
+  # morph: boolean
+  # reduces flood peaks
+  false
+
+drought_buffering:
+  # morph: boolean
+  # maintains water during dry periods
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOIL MODIFICATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+soil_modification:
+  # morph: boolean
+  false
+
+soil_disturbance_types:
+  # morph: list
+  # burrowing | wallowing | rooting | trampling
+  - ""
+
+soil_turnover_rate:
+  # morph: number
+  # tons per hectare per year
+  0
+
+soil_aeration:
+  # morph: boolean
+  false
+
+soil_compaction:
+  # morph: boolean
+  false
+
+soil_nutrient_redistribution:
+  # morph: boolean
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VEGETATION MODIFICATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+vegetation_modification:
+  # morph: boolean
+  false
+
+modification_mechanisms:
+  # morph: list
+  # browsing | grazing | trampling | girdling | felling
+  - ""
+
+tree_felling:
+  # morph: boolean
+  false
+
+trees_felled_per_year:
+  # morph: number
+  0
+
+browsing_pressure:
+  # morph: gauge
+  # % of vegetation consumed
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+vegetation_structure_change:
+  # morph: badge
+  # forest_to_savanna | grassland_to_shrubland | etc.
+  status: ""
+  variant: ""
+
+seed_dispersal_engineering:
+  # morph: boolean
+  # disperses seeds creating vegetation patterns
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NICHE CONSTRUCTION - Creating habitat for others
+# ═══════════════════════════════════════════════════════════════════════════════
+
+niche_construction:
+  # morph: boolean
+  false
+
+habitat_created_for_others:
+  # morph: list
+  # burrows | ponds | tree_cavities | dung_piles
+  - ""
+
+dependent_species:
+  # morph: list
+  # species that need this engineer's modifications
+  - ""
+
+dependent_species_count:
+  # morph: number
+  0
+
+commensal_species:
+  # morph: list
+  # species using structures without harming engineer
+  - ""
+
+facilitation_strength:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NUTRIENT CYCLING & REDISTRIBUTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+nutrient_redistribution:
+  # morph: boolean
+  false
+
+nutrient_transport_mechanisms:
+  # morph: list
+  # excretion | carcass_deposition | food_caching | migration
+  - ""
+
+nutrient_hotspot_creation:
+  # morph: boolean
+  # creates areas of high nutrients
+  false
+
+nitrogen_deposition_rate:
+  # morph: number
+  # kg N per hectare per year
+  0
+
+phosphorus_deposition_rate:
+  # morph: number
+  # kg P per hectare per year
+  0
+
+nutrient_transport_distance:
+  # morph: range
+  # how far nutrients moved
+  min: 0
+  max: 0
+  unit: "km"
+
+dung_beetle_facilitation:
+  # morph: boolean
+  # dung supports beetle communities
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DISTURBANCE REGIME
+# ═══════════════════════════════════════════════════════════════════════════════
+
+disturbance_agent:
+  # morph: boolean
+  false
+
+disturbance_types:
+  # morph: list
+  # grazing | browsing | trampling | digging | fire_suppression
+  - ""
+
+disturbance_frequency:
+  # morph: range
+  # events per year
+  min: 0
+  max: 0
+  unit: "events/year"
+
+disturbance_intensity:
+  # morph: badge
+  # low | moderate | high | catastrophic
+  status: ""
+  variant: ""
+
+disturbance_patch_size:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "m²"
+
+succession_driver:
+  # morph: boolean
+  # drives successional transitions
+  false
+
+succession_direction:
+  # morph: badge
+  # progressive | retrogressive | cyclic | no_effect
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TROPHIC CASCADE EFFECTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+trophic_cascade_initiator:
+  # morph: boolean
+  false
+
+cascade_type:
+  # morph: badge
+  # top_down | bottom_up | bidirectional
+  status: ""
+  variant: ""
+
+trophic_levels_affected:
+  # morph: number
+  0
+
+cascade_strength:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+cascade_description:
+  # morph: text
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KEYSTONE SPECIES METRICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+keystone_status:
+  # morph: badge
+  # keystone | non_keystone | debated
+  status: ""
+  variant: ""
+
+keystone_index:
+  # morph: gauge
+  # impact to biomass ratio
+  value: 0
+  min: 0
+  max: 10
+
+removal_impact:
+  # morph: severity
+  # what happens if removed
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+species_richness_effect:
+  # morph: gauge
+  # change in species richness (%)
+  value: 0
+  min: -100
+  max: 300
+  unit: "%"
+
+functional_redundancy:
+  # morph: badge
+  # irreplaceable | low | moderate | high
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BIODIVERSITY EFFECTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+biodiversity_effect:
+  # morph: badge
+  # increases | decreases | neutral | variable
+  status: ""
+  variant: ""
+
+alpha_diversity_change:
+  # morph: gauge
+  # local diversity change (%)
+  value: 0
+  min: -50
+  max: 200
+  unit: "%"
+
+beta_diversity_change:
+  # morph: gauge
+  # spatial turnover change (%)
+  value: 0
+  min: -50
+  max: 200
+  unit: "%"
+
+gamma_diversity_change:
+  # morph: gauge
+  # regional diversity change (%)
+  value: 0
+  min: -50
+  max: 200
+  unit: "%"
+
+habitat_heterogeneity_effect:
+  # morph: badge
+  # increases | decreases | no_effect
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ECOSYSTEM PROCESSES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+primary_productivity_effect:
+  # morph: gauge
+  # change in NPP (%)
+  value: 0
+  min: -50
+  max: 200
+  unit: "%"
+
+decomposition_effect:
+  # morph: badge
+  # accelerates | decelerates | no_effect
+  status: ""
+  variant: ""
+
+carbon_sequestration_effect:
+  # morph: gauge
+  # tons C per hectare per year
+  value: 0
+  min: -10
+  max: 20
+  unit: "t C/ha/yr"
+
+nutrient_cycling_effect:
+  # morph: rating
+  rating: 0
+  max: 10
+
+water_quality_effect:
+  # morph: badge
+  # improves | degrades | neutral
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SPATIAL ENGINEERING - Landscape patterns
+# ═══════════════════════════════════════════════════════════════════════════════
+
+landscape_scale_effects:
+  # morph: boolean
+  false
+
+spatial_scale_of_engineering:
+  # morph: badge
+  # microsite | patch | landscape | regional
+  status: ""
+  variant: ""
+
+area_affected:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "hectares"
+
+patch_creation:
+  # morph: boolean
+  false
+
+patch_size_distribution:
+  # morph: bar
+  - label: "Small (<0.1 ha)"
+    value: 0
+  - label: "Medium (0.1-1 ha)"
+    value: 0
+  - label: "Large (1-10 ha)"
+    value: 0
+  - label: "Very large (>10 ha)"
+    value: 0
+
+corridor_creation:
+  # morph: boolean
+  # creates habitat corridors
+  false
+
+connectivity_modification:
+  # morph: badge
+  # increases | decreases | no_effect
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LEGACY EFFECTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+legacy_effects:
+  # morph: boolean
+  # effects persist after engineer gone
+  false
+
+legacy_duration:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "years"
+
+persistent_modifications:
+  # morph: list
+  - ""
+
+legacy_strength:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TEMPORAL DYNAMICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+engineering_seasonality:
+  # morph: calendar
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+cumulative_effects:
+  # morph: boolean
+  # effects accumulate over time
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ECOSYSTEM SERVICES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+ecosystem_services_provided:
+  # morph: list
+  # water_purification | flood_control | habitat_provision | carbon_storage
+  - ""
+
+provisioning_services:
+  # morph: list
+  - ""
+
+regulating_services:
+  # morph: list
+  - ""
+
+supporting_services:
+  # morph: list
+  - ""
+
+cultural_services:
+  # morph: list
+  - ""
+
+economic_value:
+  # morph: currency
+  # per hectare per year
+  amount: 0
+  currency: "USD"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENGINEERING MECHANISMS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+engineering_mechanisms:
+  # morph: list
+  # physical | chemical | trophic | behavioral
+  - ""
+
+intentionality:
+  # morph: badge
+  # byproduct | adaptive | debated
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESTORATION & REWILDING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+restoration_potential:
+  # morph: rating
+  # potential for use in ecosystem restoration
+  rating: 0
+  max: 10
+
+rewilding_candidate:
+  # morph: boolean
+  false
+
+reintroduction_feasibility:
+  # morph: badge
+  # high | moderate | low | not_applicable
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HUMAN CONFLICTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+human_wildlife_conflict:
+  # morph: boolean
+  false
+
+conflict_types:
+  # morph: list
+  # crop_damage | infrastructure_damage | flooding | disease_transmission
+  - ""
+
+conflict_severity:
+  # morph: severity
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EXAMPLES & CASE STUDIES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+classic_examples:
+  # morph: list
+  # beaver | elephant | prairie_dog | gopher_tortoise | wolf
+  - ""
+
+well_studied_systems:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESEARCH METHODS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+study_approaches:
+  # morph: list
+  # before_after | removal_experiment | gradient_analysis | modeling
+  - ""
+
+experimental_manipulations:
+  # morph: boolean
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LITERATURE REFERENCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_research_papers:
+  # morph: list
+  - ""
+
+engineering_literature:
+  # morph: citation
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+data_source:
+  # morph: badge
+  # field_study | experiment | model | literature
+  status: ""
+  variant: ""
+
+confidence_level:
+  # morph: badge
+  # high | medium | low | speculative
+  status: ""
+  variant: ""
+
+measurement_date:
+  # morph: text
+  ""
+
+study_location:
+  # morph: map
+  lat: 0
+  lng: 0
+  region: ""

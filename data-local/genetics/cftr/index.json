@@ -1,0 +1,29 @@
+{
+  "id": "cftr",
+  "slug": "cftr",
+  "name": "CFTR",
+  "scientific_name": "Cystic fibrosis transmembrane conductance regulator",
+  "kingdom": "gene",
+  "kingdom_icon": "🧬",
+  "image": null,
+  "tagline": "Mukoviszidose-Gen",
+  "description": "Das CFTR-Gen kodiert einen Chloridkanal, der für den Transport von Chloridionen durch Zellmembranen verantwortlich ist. Mutationen führen zur Mukoviszidose (Cystische Fibrose), der häufigsten autosomal-rezessiven Erbkrankheit bei Europäern.",
+  "seo_description": "CFTR - Mukoviszidose-Gen, Chloridkanal",
+  "quick_facts": [
+    {"icon": "📍", "label": "Lokalisation", "value": "7q31.2"},
+    {"icon": "📏", "label": "Größe", "value": "250 kb"},
+    {"icon": "🔢", "label": "Exons", "value": "27"},
+    {"icon": "🧪", "label": "Protein", "value": "1480 AS"}
+  ],
+  "highlights": ["Mukoviszidose", "Chloridkanal", "ΔF508-Mutation"],
+  "badges": [
+    {"icon": "⚠️", "label": "Häufigkeit", "status": "1:2500 Neugeborene", "variant": "warning"},
+    {"icon": "💊", "label": "Therapie", "status": "CFTR-Modulatoren", "variant": "success"}
+  ],
+  "categories": ["Ionenkanal", "ABC-Transporter"],
+  "keywords": ["mukoviszidose", "cystische fibrose", "chloridkanal", "deltaf508", "trikafta"],
+  "perspectives": ["gene_structure", "inheritance", "mutations", "diseases_genetic", "biotechnology"],
+  "perspective_count": 5,
+  "engagement_score": 85,
+  "_sources": {"image": [], "fields": {}}
+}

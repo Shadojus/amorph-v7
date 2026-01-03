@@ -1,0 +1,29 @@
+{
+  "id": "tp53",
+  "slug": "tp53",
+  "name": "TP53",
+  "scientific_name": "Tumor protein p53",
+  "kingdom": "gene",
+  "kingdom_icon": "🧬",
+  "image": null,
+  "tagline": "Wächter des Genoms",
+  "description": "TP53, auch bekannt als p53, ist eines der wichtigsten Tumorsuppressorgene. Es wird als 'Wächter des Genoms' bezeichnet, da es bei DNA-Schäden den Zellzyklus stoppt oder Apoptose einleitet. Mutationen in TP53 finden sich in etwa 50% aller menschlichen Krebsarten.",
+  "seo_description": "TP53 - Wächter des Genoms, wichtigstes Tumorsuppressorgen",
+  "quick_facts": [
+    {"icon": "📍", "label": "Lokalisation", "value": "17p13.1"},
+    {"icon": "📏", "label": "Größe", "value": "20 kb"},
+    {"icon": "🔢", "label": "Exons", "value": "11"},
+    {"icon": "🧪", "label": "Protein", "value": "393 AS"}
+  ],
+  "highlights": ["Wächter des Genoms", "Apoptose", "50% aller Krebsarten"],
+  "badges": [
+    {"icon": "⚠️", "label": "Klinische Relevanz", "status": "Höchste", "variant": "danger"},
+    {"icon": "🔬", "label": "Forschung", "status": "Intensiv", "variant": "info"}
+  ],
+  "categories": ["Tumorsuppressor", "Transkriptionsfaktor"],
+  "keywords": ["p53", "tumorsuppressor", "apoptose", "zellzyklus", "krebs", "li-fraumeni"],
+  "perspectives": ["gene_structure", "regulation", "mutations", "diseases_genetic", "research"],
+  "perspective_count": 5,
+  "engagement_score": 95,
+  "_sources": {"image": [], "fields": {}}
+}

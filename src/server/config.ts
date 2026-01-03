@@ -14,22 +14,117 @@ import type { AppConfig, Perspective, SchemaField } from '../core/types';
 // SITE TYPE - Multi-Site Support
 // ═══════════════════════════════════════════════════════════════════════════════
 
-export type SiteType = 'fungi' | 'phyto' | 'therion';
+// Biology Sites
+export type BiologySiteType = 'fungi' | 'phyto' | 'therion';
+// Geology Sites
+export type GeologySiteType = 'paleo' | 'tekto' | 'mineral';
+// Biomedical Sites
+export type BiomedicalSiteType = 'bakterio' | 'viro' | 'geno' | 'anato';
+// Physics & Chemistry Sites
+export type PhysChemSiteType = 'chemo' | 'physi' | 'kosmo';
+// Technology Sites
+export type TechnologySiteType = 'netzo' | 'cognito' | 'biotech' | 'socio';
+// All Sites
+export type SiteType = BiologySiteType | GeologySiteType | BiomedicalSiteType | PhysChemSiteType | TechnologySiteType;
+
+// Domain mapping
+export type Domain = 'biology' | 'geology' | 'biomedical' | 'physchem' | 'technology';
+
+export const SITE_DOMAIN: Record<SiteType, Domain> = {
+  // Biology
+  fungi: 'biology',
+  phyto: 'biology',
+  therion: 'biology',
+  // Geology
+  paleo: 'geology',
+  tekto: 'geology',
+  mineral: 'geology',
+  // Biomedical
+  bakterio: 'biomedical',
+  viro: 'biomedical',
+  geno: 'biomedical',
+  anato: 'biomedical',
+  // Physics & Chemistry
+  chemo: 'physchem',
+  physi: 'physchem',
+  kosmo: 'physchem',
+  // Technology
+  netzo: 'technology',
+  cognito: 'technology',
+  biotech: 'technology',
+  socio: 'technology'
+};
 
 // Get site type from environment (default: fungi)
 export function getSiteType(): SiteType {
   const siteType = process.env.SITE_TYPE?.toLowerCase();
-  if (siteType === 'phyto' || siteType === 'therion') {
-    return siteType;
+  const validTypes: SiteType[] = [
+    // Biology
+    'fungi', 'phyto', 'therion',
+    // Geology
+    'paleo', 'tekto', 'mineral',
+    // Biomedical
+    'bakterio', 'viro', 'geno', 'anato',
+    // Physics & Chemistry
+    'chemo', 'physi', 'kosmo',
+    // Technology
+    'netzo', 'cognito', 'biotech', 'socio'
+  ];
+  if (validTypes.includes(siteType as SiteType)) {
+    return siteType as SiteType;
   }
   return 'fungi';
 }
 
+// Get domain for current site
+export function getSiteDomain(): Domain {
+  return SITE_DOMAIN[getSiteType()];
+}
+
 // Site metadata for each type
-export const SITE_META: Record<SiteType, { name: string; color: string; dataFolder: string }> = {
-  fungi: { name: 'FUNGINOMI', color: 'funginomi', dataFolder: 'fungi' },
-  phyto: { name: 'PHYTONOMI', color: 'phytonomi', dataFolder: 'plantae' },
-  therion: { name: 'THERIONOMI', color: 'drakonomi', dataFolder: 'therion' }
+export const SITE_META: Record<SiteType, { 
+  name: string; 
+  color: string; 
+  dataFolder: string; 
+  collection: string;
+  domain: Domain;
+}> = {
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Biology Sites
+  // ═══════════════════════════════════════════════════════════════════════════
+  fungi: { name: 'FUNGINOMI', color: 'funginomi', dataFolder: 'fungi', collection: 'fungi', domain: 'biology' },
+  phyto: { name: 'PHYTONOMI', color: 'phytonomi', dataFolder: 'plantae', collection: 'plantae', domain: 'biology' },
+  therion: { name: 'THERIONOMI', color: 'drakonomi', dataFolder: 'therion', collection: 'therion', domain: 'biology' },
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Geology Sites
+  // ═══════════════════════════════════════════════════════════════════════════
+  paleo: { name: 'PALEONOMI', color: 'paleonomi', dataFolder: 'paleontology', collection: 'paleontology', domain: 'geology' },
+  tekto: { name: 'TEKTONOMI', color: 'tektonomi', dataFolder: 'tectonics', collection: 'tectonics', domain: 'geology' },
+  mineral: { name: 'MINENOMI', color: 'minenomi', dataFolder: 'mineralogy', collection: 'mineralogy', domain: 'geology' },
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Biomedical Sites
+  // ═══════════════════════════════════════════════════════════════════════════
+  bakterio: { name: 'BAKTERIONOMI', color: 'bakterionomi', dataFolder: 'microbiology', collection: 'microbiology', domain: 'biomedical' },
+  viro: { name: 'VIRONOMI', color: 'vironomi', dataFolder: 'virology', collection: 'virology', domain: 'biomedical' },
+  geno: { name: 'GENONOMI', color: 'genonomi', dataFolder: 'genetics', collection: 'genetics', domain: 'biomedical' },
+  anato: { name: 'ANATONOMI', color: 'anatonomi', dataFolder: 'anatomy', collection: 'anatomy', domain: 'biomedical' },
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Physics & Chemistry Sites
+  // ═══════════════════════════════════════════════════════════════════════════
+  chemo: { name: 'CHEMONOMI', color: 'chemonomi', dataFolder: 'chemistry', collection: 'chemistry', domain: 'physchem' },
+  physi: { name: 'PHYSINOMI', color: 'physinomi', dataFolder: 'physics', collection: 'physics', domain: 'physchem' },
+  kosmo: { name: 'KOSMONOMI', color: 'kosmonomi', dataFolder: 'astronomy', collection: 'astronomy', domain: 'physchem' },
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Technology Sites
+  // ═══════════════════════════════════════════════════════════════════════════
+  netzo: { name: 'NETZONOMI', color: 'netzonomi', dataFolder: 'informatics', collection: 'informatics', domain: 'technology' },
+  cognito: { name: 'COGNITONOMI', color: 'cognitonomi', dataFolder: 'ai', collection: 'ai', domain: 'technology' },
+  biotech: { name: 'BIONOMI', color: 'bionomi', dataFolder: 'biotech', collection: 'biotech', domain: 'technology' },
+  socio: { name: 'SOCIONOMI', color: 'socionomi', dataFolder: 'sociology', collection: 'sociology', domain: 'technology' }
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════

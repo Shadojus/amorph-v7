@@ -125,10 +125,24 @@ export interface ItemData {
   id: string;
   slug: string;
   name: string;
+  /** Scientific name */
+  scientificName?: string;
+  /** Description */
+  description?: string;
+  /** Main image URL */
+  image?: string;
   /** Perspektiven-Daten (neu in v7) */
   _perspectives?: Record<string, unknown>;
-  /** Kingdom */
+  /** Loaded perspective names */
+  _loadedPerspectives?: string[];
+  /** Field to perspective mapping */
+  _fieldPerspective?: Record<string, string>;
+  /** Kingdom (legacy: Fungi, Plantae, etc.) */
   _kingdom?: string;
+  /** Collection name (fungi, plantae, therion, paleontology, etc.) */
+  _collection?: string;
+  /** Domain (biology or geology) */
+  _domain?: 'biology' | 'geology';
   /** GOATn pro Feld (Bifroest System) */
   _sources?: FieldSourceMap;
   [key: string]: unknown;

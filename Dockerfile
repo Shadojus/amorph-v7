@@ -13,7 +13,11 @@ COPY package*.json ./
 RUN npm ci
 
 # Copy source files
-COPY . .
+COPY src ./src
+COPY public ./public
+COPY config-local ./config
+COPY astro.config.mjs ./
+COPY tsconfig.json ./
 
 # Build the application
 RUN npm run build

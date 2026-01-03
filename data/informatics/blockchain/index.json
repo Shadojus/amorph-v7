@@ -1,0 +1,29 @@
+{
+  "id": "blockchain",
+  "slug": "blockchain",
+  "name": "Blockchain",
+  "scientific_name": "Distributed Ledger Technology",
+  "kingdom": "technology",
+  "kingdom_icon": "⛓️",
+  "image": null,
+  "tagline": "Dezentrales Hauptbuch",
+  "description": "Blockchain ist eine dezentrale, verteilte Datenbank, die Transaktionen in kryptografisch verketteten Blöcken speichert. Sie ist die technologische Basis für Kryptowährungen wie Bitcoin und ermöglicht vertrauenslose Transaktionen.",
+  "seo_description": "Blockchain - Dezentrale Distributed Ledger Technology",
+  "quick_facts": [
+    {"icon": "📅", "label": "Einführung", "value": "2008 (Bitcoin)"},
+    {"icon": "🔗", "label": "Struktur", "value": "Verkettete Blöcke"},
+    {"icon": "🔐", "label": "Konsens", "value": "PoW/PoS"},
+    {"icon": "🌐", "label": "Typ", "value": "Dezentral"}
+  ],
+  "highlights": ["Dezentralisierung", "Unveränderlichkeit", "Smart Contracts"],
+  "badges": [
+    {"icon": "💰", "label": "Bitcoin", "status": "Erste Anwendung", "variant": "success"},
+    {"icon": "📜", "label": "Smart Contracts", "status": "Ethereum", "variant": "info"}
+  ],
+  "categories": ["Distributed Systems", "Kryptografie"],
+  "keywords": ["bitcoin", "ethereum", "dezentral", "smart contracts", "konsens", "kryptowährung"],
+  "perspectives": ["architecture", "security", "distributed", "applications_info", "research"],
+  "perspective_count": 5,
+  "engagement_score": 85,
+  "_sources": {"image": [], "fields": {}}
+}

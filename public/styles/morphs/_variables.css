@@ -17,17 +17,20 @@
    
    ═══════════════════════════════════════════════════════════════════════════════ */
 
+/* Import Aurora Color System - Single Source of Truth */
+@import '../_aurora-colors.css';
+
 /* ═══════════════════════════════════════════════════════════════════════════════
    1. CSS CUSTOM PROPERTIES - Harmonisiert mit Base.css System
    ═══════════════════════════════════════════════════════════════════════════════ */
 :root {
-  /* ─── Systemfarben (von base.css übernommen) ─── */
-  --morph-color: hsl(var(--system-h, 220), var(--system-s, 100%), var(--system-l, 65%));
-  --morph-accent: var(--morph-color);
-  --morph-color-rgb: var(--system-rgb, 77, 136, 255);
-  --morph-success: #00ff88;
-  --morph-warning: #ffaa00;
-  --morph-danger: #ff3366;
+  /* ─── Aurora-basierte Systemfarben (direkt aus base.css) ─── */
+  --morph-color: var(--system);
+  --morph-accent: var(--system);
+  --morph-color-rgb: var(--system-rgb);
+  --morph-success: var(--aurora-green);
+  --morph-warning: var(--aurora-yellow);
+  --morph-danger: var(--aurora-red);
   
   /* ─── Text-Hierarchie (GRAU - nie weiß!) ─── */
   --text-primary: rgba(255, 255, 255, 0.55);   /* Haupttext */

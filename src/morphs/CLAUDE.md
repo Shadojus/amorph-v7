@@ -464,10 +464,198 @@ wrapInField('alkaloid_profile', 'radar', '<svg>...</svg>', radarData);
 - wrapInField: Base64 encoding
 - renderValue: data-raw-value Attribut
 
-## 💡 Neuen Morph hinzufügen
+---
 
-1. Erstelle `src/morphs/primitives/mymorph.ts`
-2. Registriere in `primitives/index.ts`
-3. Füge Detection hinzu in `core/detection.ts`
-4. Füge CSS hinzu in `public/styles/morphs/mymorph.css`
-5. Importiere CSS in `public/styles/morphs/index.css`
+## 🚀 How to Add a New Morph
+
+### Step 1: Morph implementieren
+
+```typescript
+// src/morphs/primitives/mymorph.ts
+import { createUnifiedMorph } from '../base';
+import type { RenderContext, CompareValue } from '../../core/types';
+import { escapeHtml } from '../../core/security';
+
+export const mymorph = createUnifiedMorph(
+  'mymorph',
+  
+  // Single-Render: Ein Wert
+  (value: unknown, ctx: RenderContext): string => {
+    // Type guard
+    if (!isMyMorphData(value)) {
+      return `<span class="morph-empty">-</span>`;
+    }
+    
+    // HTML mit escaping rendern
+    return `
+      <div class="morph-mymorph">
+        <span class="morph-mymorph__label">${escapeHtml(value.label)}</span>
+        <span class="morph-mymorph__value">${escapeHtml(String(value.amount))}</span>
+      </div>
+    `;
+  },
+  
+  // Compare-Render: Mehrere Werte (optional)
+  (values: CompareValue[], ctx: RenderContext): string => {
+    if (!values.length) return '';
+    
+    return `
+      <div class="morph-mymorph-compare">
+        ${values.map(({ item, value, color }) => `
+          <div class="morph-mymorph-compare__item" style="--item-color: ${color}">
+            <span class="morph-mymorph-compare__name">${escapeHtml(item.name)}</span>
+            <span class="morph-mymorph-compare__value">${escapeHtml(String(value?.amount ?? '-'))}</span>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+);
+
+// Type guard
+function isMyMorphData(value: unknown): value is { label: string; amount: number } {
+  return typeof value === 'object' 
+    && value !== null
+    && 'label' in value 
+    && 'amount' in value;
+}
+```
+
+### Step 2: Export hinzufügen
+
+```typescript
+// src/morphs/primitives/index.ts
+export { mymorph } from './mymorph';
+```
+
+### Step 3: Detection hinzufügen
+
+```typescript
+// src/core/detection.ts
+import { mymorph } from '../morphs/primitives';
+
+// In MORPH_REGISTRY:
+const MORPH_REGISTRY: Record<string, MorphFunction> = {
+  // ... existing
+  mymorph,
+};
+
+// In detectMorphType():
+export function detectMorphType(value: unknown, fieldName?: string): string {
+  // Frühe Prüfung für spezielle Strukturen
+  if (isMyMorphData(value)) return 'mymorph';
+  
+  // ... rest of detection
+}
+```
+
+### Step 4: CSS erstellen
+
+```css
+/* public/styles/morphs/mymorph.css */
+
+/* Single Mode */
+.morph-mymorph {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--surface-2);
+  border-radius: 0.25rem;
+}
+
+.morph-mymorph__label {
+  font-weight: 500;
+  color: var(--text-1);
+}
+
+.morph-mymorph__value {
+  font-family: var(--mono);
+  color: var(--text-2);
+}
+
+/* Compare Mode */
+.morph-mymorph-compare {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.morph-mymorph-compare__item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem;
+  border-left: 3px solid var(--item-color, var(--text-3));
+}
+
+/* Grid/Compact Mode */
+.morph-field[data-morph="mymorph"].compact .morph-mymorph {
+  font-size: 0.875rem;
+  padding: 0.125rem 0.25rem;
+}
+```
+
+### Step 5: CSS importieren
+
+```css
+/* public/styles/morphs/index.css */
+@import './mymorph.css';
+```
+
+### Step 6: Tests schreiben
+
+```typescript
+// tests/morphs/mymorph.test.ts
+import { describe, it, expect } from 'vitest';
+import { renderValue } from '../../src/morphs';
+import { singleContext, compareContext } from './_setup';
+
+describe('mymorph morph', () => {
+  describe('single mode', () => {
+    it('renders valid data', () => {
+      const value = { label: 'Score', amount: 42 };
+      const html = renderValue(value, singleContext);
+      expect(html).toContain('morph-mymorph');
+      expect(html).toContain('Score');
+      expect(html).toContain('42');
+    });
+
+    it('handles null value', () => {
+      const html = renderValue(null, singleContext);
+      expect(html).toContain('morph-empty');
+    });
+
+    it('escapes HTML in label', () => {
+      const value = { label: '<script>alert(1)</script>', amount: 0 };
+      const html = renderValue(value, singleContext);
+      expect(html).not.toContain('<script>');
+      expect(html).toContain('&lt;script&gt;');
+    });
+  });
+
+  describe('compare mode', () => {
+    it('renders multiple items', () => {
+      const context = {
+        ...compareContext,
+        items: [
+          { name: 'Item 1', data: { field: { label: 'A', amount: 10 } } },
+          { name: 'Item 2', data: { field: { label: 'B', amount: 20 } } }
+        ]
+      };
+      const html = renderValue({ label: 'A', amount: 10 }, context);
+      expect(html).toContain('morph-mymorph-compare');
+    });
+  });
+});
+```
+
+### Step 7: Blueprint hinzufügen (optional)
+
+```yaml
+# config/schema/perspektiven/blueprints/example.blueprint.yaml
+
+# morph: mymorph
+my_field:
+  label: ""
+  amount: 0
+```

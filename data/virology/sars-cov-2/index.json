@@ -1,0 +1,29 @@
+{
+  "id": "sars-cov-2",
+  "slug": "sars-cov-2",
+  "name": "SARS-CoV-2",
+  "scientific_name": "Severe acute respiratory syndrome coronavirus 2",
+  "kingdom": "virus",
+  "kingdom_icon": "🦠",
+  "image": null,
+  "tagline": "COVID-19 Erreger",
+  "description": "SARS-CoV-2 ist ein behülltes RNA-Virus aus der Familie der Coronaviridae, das die Atemwegserkrankung COVID-19 verursacht. Es wurde erstmals im Dezember 2019 in Wuhan, China identifiziert und löste eine weltweite Pandemie aus.",
+  "seo_description": "SARS-CoV-2 - Coronavirus, Erreger von COVID-19",
+  "quick_facts": [
+    {"icon": "📏", "label": "Größe", "value": "60-140 nm"},
+    {"icon": "🧬", "label": "Genom", "value": "+ssRNA"},
+    {"icon": "🎯", "label": "Rezeptor", "value": "ACE2"},
+    {"icon": "📦", "label": "Hülle", "value": "Ja"}
+  ],
+  "highlights": ["COVID-19", "Pandemie", "mRNA-Impfstoff"],
+  "badges": [
+    {"icon": "⚠️", "label": "Gefährlichkeit", "status": "Hoch", "variant": "danger"},
+    {"icon": "💉", "label": "Impfung", "status": "Verfügbar", "variant": "success"}
+  ],
+  "categories": ["Coronaviridae", "Nidovirales"],
+  "keywords": ["covid-19", "coronavirus", "pandemie", "spike-protein", "mrna-impfstoff", "ace2"],
+  "perspectives": ["taxonomy_viro", "structure_viro", "replication", "pathogenesis", "vaccines"],
+  "perspective_count": 5,
+  "engagement_score": 100,
+  "_sources": {"image": [], "fields": {}}
+}

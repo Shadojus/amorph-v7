@@ -1,0 +1,29 @@
+{
+  "id": "dna",
+  "slug": "dna",
+  "name": "DNA",
+  "scientific_name": "Deoxyribonucleic acid",
+  "kingdom": "compound",
+  "kingdom_icon": "🧬",
+  "image": null,
+  "tagline": "Träger der Erbinformation",
+  "description": "Die Desoxyribonukleinsäure (DNA) ist ein Biomolekül, das die genetische Information aller bekannten Lebewesen speichert. Die Doppelhelix-Struktur wurde 1953 von Watson und Crick entdeckt.",
+  "seo_description": "DNA - Träger der Erbinformation, Doppelhelix",
+  "quick_facts": [
+    {"icon": "🔗", "label": "Struktur", "value": "Doppelhelix"},
+    {"icon": "🧬", "label": "Basen", "value": "A, T, G, C"},
+    {"icon": "📏", "label": "Mensch", "value": "3.2 Mrd. Basenpaare"},
+    {"icon": "📐", "label": "Windung", "value": "10.5 bp"}
+  ],
+  "highlights": ["Doppelhelix", "Genetischer Code", "Replikation"],
+  "badges": [
+    {"icon": "🏆", "label": "Entdeckung", "status": "Nobelpreis 1962", "variant": "success"},
+    {"icon": "🔬", "label": "Sequenzierung", "status": "Routine", "variant": "info"}
+  ],
+  "categories": ["Nukleinsäuren", "Biomoleküle"],
+  "keywords": ["doppelhelix", "genetik", "basen", "replikation", "transkription", "watson-crick"],
+  "perspectives": ["bonding", "organic", "synthesis", "applications", "research"],
+  "perspective_count": 5,
+  "engagement_score": 100,
+  "_sources": {"image": [], "fields": {}}
+}

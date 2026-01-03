@@ -1,0 +1,168 @@
+/* ═══════════════════════════════════════════════════════════════════════════════
+   AURORA BOREALIS SCIENTIFIC COLOR PALETTE
+   Based on actual Northern Lights spectral emissions
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ═══════════════════════════════════════════════════════════════════════════
+     AURORA BASE COLORS - Actual spectral emissions from Northern Lights
+     ═══════════════════════════════════════════════════════════════════════════ */
+  
+  /* Aurora Green - O₂ emission at 557.7nm (most common) */
+  --aurora-green-h: 120;
+  --aurora-green-s: 65%;
+  --aurora-green-l: 55%;
+  --aurora-green: hsl(120, 65%, 55%);
+  --aurora-green-rgb: 63, 207, 142;
+  
+  /* Aurora Red - O₂ emission at 630nm (high altitude) */
+  --aurora-red-h: 350;
+  --aurora-red-s: 70%;
+  --aurora-red-l: 60%;
+  --aurora-red: hsl(350, 70%, 60%);
+  --aurora-red-rgb: 217, 77, 108;
+  
+  /* Aurora Blue - N₂ emission at 427.8nm */
+  --aurora-blue-h: 210;
+  --aurora-blue-s: 80%;
+  --aurora-blue-l: 65%;
+  --aurora-blue: hsl(210, 80%, 65%);
+  --aurora-blue-rgb: 51, 136, 255;
+  
+  /* Aurora Violet - N₂ emission at 470nm */
+  --aurora-violet-h: 270;
+  --aurora-violet-s: 75%;
+  --aurora-violet-l: 65%;
+  --aurora-violet: hsl(270, 75%, 65%);
+  --aurora-violet-rgb: 153, 77, 230;
+  
+  /* Aurora Pink - Mixed emissions (rare) */
+  --aurora-pink-h: 320;
+  --aurora-pink-s: 70%;
+  --aurora-pink-l: 70%;
+  --aurora-pink: hsl(320, 70%, 70%);
+  --aurora-pink-rgb: 230, 102, 179;
+  
+  /* Aurora Cyan - Secondary N₂ (blue-green) */
+  --aurora-cyan-h: 180;
+  --aurora-cyan-s: 75%;
+  --aurora-cyan-l: 60%;
+  --aurora-cyan: hsl(180, 75%, 60%);
+  --aurora-cyan-rgb: 64, 230, 230;
+  
+  /* Aurora Yellow - Na emission at 589nm (very rare) */
+  --aurora-yellow-h: 55;
+  --aurora-yellow-s: 80%;
+  --aurora-yellow-l: 65%;
+  --aurora-yellow: hsl(55, 80%, 65%);
+  --aurora-yellow-rgb: 230, 215, 77;
+  
+  /* ═══════════════════════════════════════════════════════════════════════════
+     AURORA DOMAIN MAPPING - Scientific fields mapped to Aurora colors
+     Based on scientific associations and visual harmony
+     ═══════════════════════════════════════════════════════════════════════════ */
+  
+  /* BIOLOGY DOMAINS - Life Sciences */
+  --biology-primary: var(--aurora-green);      /* Green = Life, Chlorophyll */
+  --biology-secondary: var(--aurora-cyan);     /* Cyan = Water, Photosynthesis */
+  
+  /* GEOLOGY DOMAINS - Earth Sciences */
+  --geology-primary: var(--aurora-red);        /* Red = Earth, Magma */
+  --geology-secondary: var(--aurora-yellow);   /* Yellow = Minerals, Sediment */
+  
+  /* PHYSICS DOMAINS - Physical Sciences */
+  --physics-primary: var(--aurora-blue);       /* Blue = Energy, Plasma */
+  --physics-secondary: var(--aurora-violet);   /* Violet = High Energy */
+  
+  /* MEDICAL DOMAINS - Life & Health */
+  --medical-primary: var(--aurora-pink);       /* Pink = Body, Health */
+  --medical-secondary: var(--aurora-red);      /* Red = Blood, Circulation */
+  
+  /* TECHNOLOGY DOMAINS - Information & AI */
+  --tech-primary: var(--aurora-cyan);          /* Cyan = Data, Digital */
+  --tech-secondary: var(--aurora-violet);      /* Violet = AI, Computing */
+  
+  /* ═══════════════════════════════════════════════════════════════════════════
+     SITE-SPECIFIC AURORA COLORS
+     Each site gets harmonious Aurora color pairs
+     ═══════════════════════════════════════════════════════════════════════════ */
+  
+  /* BIOLOGY SITES - Life Sciences Aurora */
+  --site-fungi: var(--aurora-green);           /* Funginomi: Aurora Green */
+  --site-fungi-rgb: var(--aurora-green-rgb);
+  
+  --site-phyto: var(--aurora-cyan);            /* Phytonomi: Aurora Cyan */
+  --site-phyto-rgb: var(--aurora-cyan-rgb);
+  
+  --site-therion: var(--aurora-pink);          /* Drakonomi: Aurora Pink */
+  --site-therion-rgb: var(--aurora-pink-rgb);
+  
+  /* GEOLOGY SITES - Earth Sciences Aurora */
+  --site-paleo: var(--aurora-yellow);          /* Paleonomi: Aurora Yellow (Fossils/Amber) */
+  --site-paleo-rgb: var(--aurora-yellow-rgb);
+  
+  --site-mineral: var(--aurora-red);           /* Minenomi: Aurora Red (Earth/Minerals) */
+  --site-mineral-rgb: var(--aurora-red-rgb);
+  
+  --site-tekto: var(--aurora-red);             /* Tektonomi: Aurora Red (Magma/Fire) */
+  --site-tekto-rgb: var(--aurora-red-rgb);
+  
+  /* BIOMEDICAL SITES - Medical Aurora */
+  --site-bakterio: var(--aurora-green);        /* Bakterionomi: Aurora Green (Life) */
+  --site-bakterio-rgb: var(--aurora-green-rgb);
+  
+  --site-viro: var(--aurora-cyan);             /* Vironomi: Aurora Cyan (Microscopic) */
+  --site-viro-rgb: var(--aurora-cyan-rgb);
+  
+  --site-geno: var(--aurora-blue);             /* Genonomi: Aurora Blue (DNA) */
+  --site-geno-rgb: var(--aurora-blue-rgb);
+  
+  --site-anato: var(--aurora-pink);            /* Anatonomi: Aurora Pink (Body) */
+  --site-anato-rgb: var(--aurora-pink-rgb);
+  
+  /* PHYSICS & CHEMISTRY SITES - Physical Sciences Aurora */
+  --site-chemo: var(--aurora-yellow);          /* Chemonomi: Aurora Yellow (Reactions) */
+  --site-chemo-rgb: var(--aurora-yellow-rgb);
+  
+  --site-physi: var(--aurora-blue);            /* Physinomi: Aurora Blue (Energy) */
+  --site-physi-rgb: var(--aurora-blue-rgb);
+  
+  --site-kosmo: var(--aurora-violet);          /* Kosmonomi: Aurora Violet (Space) */
+  --site-kosmo-rgb: var(--aurora-violet-rgb);
+  
+  /* TECHNOLOGY SITES - Digital Aurora */
+  --site-netzo: var(--aurora-cyan);            /* Netzonomi: Aurora Cyan (Networks) */
+  --site-netzo-rgb: var(--aurora-cyan-rgb);
+  
+  --site-cognito: var(--aurora-violet);        /* Cognitonomi: Aurora Violet (AI) */
+  --site-cognito-rgb: var(--aurora-violet-rgb);
+  
+  --site-biotech: var(--aurora-green);         /* Bionomi: Aurora Green (Bio+Tech) */
+  --site-biotech-rgb: var(--aurora-green-rgb);
+  
+  --site-socio: var(--aurora-yellow);          /* Socionomi: Aurora Yellow (Human warmth) */
+  --site-socio-rgb: var(--aurora-yellow-rgb);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   AURORA HARMONIC RELATIONSHIPS
+   Color pairs that work well together in the Aurora palette
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Primary + Secondary pairs for gradients and comparisons */
+  --aurora-pair-life: var(--aurora-green), var(--aurora-cyan);       /* Life Sciences */
+  --aurora-pair-earth: var(--aurora-red), var(--aurora-yellow);      /* Earth Sciences */
+  --aurora-pair-physics: var(--aurora-blue), var(--aurora-violet);   /* Physical Sciences */
+  --aurora-pair-medical: var(--aurora-pink), var(--aurora-red);      /* Medical Sciences */
+  --aurora-pair-tech: var(--aurora-cyan), var(--aurora-violet);      /* Technology */
+  
+  /* Muted variants for backgrounds (30% opacity) */
+  --aurora-green-muted: hsla(120, 65%, 55%, 0.3);
+  --aurora-red-muted: hsla(350, 70%, 60%, 0.3);
+  --aurora-blue-muted: hsla(210, 80%, 65%, 0.3);
+  --aurora-violet-muted: hsla(270, 75%, 65%, 0.3);
+  --aurora-pink-muted: hsla(320, 70%, 70%, 0.3);
+  --aurora-cyan-muted: hsla(180, 75%, 60%, 0.3);
+  --aurora-yellow-muted: hsla(55, 80%, 65%, 0.3);
+}

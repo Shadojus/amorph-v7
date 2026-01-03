@@ -1,0 +1,2726 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# IDENTIFICATION PERSPECTIVE BLUEPRINT
+# Schema mit leeren Datenstrukturen für Morph-Erkennung
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 1. SPECIES IDENTIFICATION - BASIC TAXONOMY
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+scientific_name: ""
+
+# morph: text
+author_citation: ""
+
+# morph: text
+accepted_name: ""
+
+# morph: text
+basionym: ""
+
+# morph: text
+protonym: ""
+
+# morph: tag
+taxonomy_domain: ""
+
+# morph: tag
+taxonomy_kingdom: ""
+
+# morph: tag
+taxonomy_phylum: ""
+
+# morph: tag
+taxonomy_class: ""
+
+# morph: tag
+taxonomy_order: ""
+
+# morph: tag
+taxonomy_family: ""
+
+# morph: tag
+taxonomy_genus: ""
+
+# morph: tag
+taxonomy_species: ""
+
+# morph: tag
+taxonomy_subspecies: ""
+
+# morph: tag
+taxonomy_variety: ""
+
+# morph: tag
+taxonomy_form: ""
+
+# morph: tag
+taxonomy_cultivar: ""
+
+# morph: tag
+taxonomy_strain: ""
+
+# morph: tag
+taxonomy_ecotype: ""
+
+# morph: tag
+taxonomy_morph: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SYNONYMS & ALTERNATIVE NAMES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+synonyms:
+  - ""
+
+# morph: list
+nomenclatural_synonyms:
+  - ""
+
+# morph: list
+taxonomic_synonyms:
+  - ""
+
+# morph: list
+homonyms:
+  - ""
+
+# morph: list
+common_names:
+  - ""
+
+# morph: list
+international_names:
+  - ""
+
+# morph: list
+vernacular_names:
+  - ""
+
+# morph: list
+trade_names:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# EXTERNAL DATABASE REFERENCES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: link
+gbif_key: ""
+
+# morph: link
+inaturalist_taxon_id: ""
+
+# morph: link
+bold_taxon_id: ""
+
+# morph: link
+ncbi_taxid: ""
+
+# morph: link
+wikidata_id: ""
+
+# morph: link
+eol_id: ""
+
+# morph: link
+itis_tsn: ""
+
+# morph: link
+col_id: ""
+
+# morph: link
+tropicos_id: ""
+
+# morph: link
+ipni_id: ""
+
+# morph: link
+zoobank_id: ""
+
+# morph: link
+mycobank_id: ""
+
+# morph: link
+index_fungorum_id: ""
+
+# morph: link
+species_fungorum_id: ""
+
+# morph: link
+algaebase_id: ""
+
+# morph: link
+fishbase_id: ""
+
+# morph: link
+amphibiaweb_id: ""
+
+# morph: link
+avibase_id: ""
+
+# morph: link
+mammal_diversity_db_id: ""
+
+# morph: link
+world_flora_online_id: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DNA BARCODING
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+barcode_marker_primary: ""
+
+# morph: tag
+barcode_marker_secondary: ""
+
+# morph: number
+barcode_sequence_length_bp: 0
+
+# morph: text
+barcode_bin_uri: ""
+
+# morph: text
+barcode_genbank_accession: ""
+
+# morph: text
+barcode_bold_process_id: ""
+
+# morph: text
+barcode_unite_sh: ""
+
+# morph: text
+barcode_primers_forward: ""
+
+# morph: text
+barcode_primers_reverse: ""
+
+# morph: badge
+barcode_quality_score:
+  status: ""
+  variant: ""
+
+# morph: text
+barcode_coi: ""
+
+# morph: text
+barcode_16s_rrna: ""
+
+# morph: text
+barcode_12s_rrna: ""
+
+# morph: text
+barcode_its: ""
+
+# morph: text
+barcode_its1: ""
+
+# morph: text
+barcode_its2: ""
+
+# morph: text
+barcode_lsu: ""
+
+# morph: text
+barcode_rpb1: ""
+
+# morph: text
+barcode_rpb2: ""
+
+# morph: text
+barcode_tef1: ""
+
+# morph: text
+barcode_rbcl: ""
+
+# morph: text
+barcode_matk: ""
+
+# morph: text
+barcode_trnl_trnf: ""
+
+# morph: text
+barcode_18s_rrna: ""
+
+# morph: text
+barcode_cpn60: ""
+
+# morph: badge
+taxonomy_status:
+  status: ""
+  variant: ""
+
+# morph: badge
+uncertainty_level:
+  status: ""
+  variant: ""
+
+# morph: badge
+revision_status:
+  status: ""
+  variant: ""
+
+# morph: badge
+type_status:
+  status: ""
+  variant: ""
+
+# morph: tag
+nomenclatural_code: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PRAKTISCHE SCHNELLBESTIMMUNG
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: steps
+quick_id_checklist:
+  - step: 1
+    label: ""
+    status: "pending"
+
+# morph: badge
+identification_difficulty:
+  status: ""
+  variant: ""
+
+# morph: number
+time_to_identify_minutes: 0
+
+# morph: list
+minimum_equipment_needed:
+  - ""
+
+# morph: boolean
+field_identifiable: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# VERWECHSLUNGSGEFAHREN-MATRIX
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+confusion_species_list:
+  - ""
+
+# morph: badge
+confusion_risk_level:
+  status: ""
+  variant: ""
+
+# morph: severity
+confusion_consequences:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: list
+key_differentiating_features:
+  - ""
+
+# morph: comparison
+confusion_comparison_table:
+  items:
+    - name: ""
+      values: {}
+  metrics:
+    - key: ""
+      label: ""
+
+# morph: link
+lookalike_photo_comparison_url: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SAISONALE BESTIMMUNGSMERKMALE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+appearance_by_season:
+  spring: ""
+  summer: ""
+  autumn: ""
+  winter: ""
+
+# morph: text
+spring_identification_notes: ""
+
+# morph: text
+summer_identification_notes: ""
+
+# morph: text
+autumn_identification_notes: ""
+
+# morph: text
+winter_identification_notes: ""
+
+# morph: lifecycle
+age_stage_variations:
+  - phase: ""
+    duration: ""
+
+# morph: text
+weather_dependent_appearance: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CHEMISCHE SCHNELLTESTS (Feldtests)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+chemical_spot_tests:
+  - ""
+
+# morph: tag
+koh_reaction: ""
+
+# morph: tag
+feso4_reaction: ""
+
+# morph: tag
+ammonia_reaction: ""
+
+# morph: tag
+bruising_color_change: ""
+
+# morph: tag
+cut_surface_color_change: ""
+
+# morph: tag
+latex_color: ""
+
+# morph: tag
+spore_print_color: ""
+
+# morph: boolean
+fluorescence_uv: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SENSORISCHE SCHNELLMERKMALE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+smell_description: ""
+
+# morph: text
+smell_comparable_to: ""
+
+# morph: boolean
+taste_safe_to_test: false
+
+# morph: text
+taste_description: ""
+
+# morph: text
+texture_touch_description: ""
+
+# morph: text
+sound_when_handled: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# KI/APP-UNTERSTÜTZUNG
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: gauge
+ai_identification_reliability:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "red"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "green"
+
+# morph: progress
+inaturalist_cv_accuracy:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: list
+common_ai_misidentifications:
+  - ""
+
+# morph: list
+photo_angle_recommendations:
+  - ""
+
+# morph: number
+minimum_photos_for_id: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MIKROSKOPIE-LEITFADEN
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+microscopy_required: false
+
+# morph: list
+microscopy_key_features:
+  - ""
+
+# morph: text
+recommended_magnification: ""
+
+# morph: list
+staining_recommendations:
+  - ""
+
+# morph: range
+spore_measurement_diagnostic:
+  min: 0
+  max: 0
+  unit: "µm"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 2. MACROSCOPIC FEATURES - HABIT & OVERALL IMPRESSION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+habit: ""
+
+# morph: tag
+growth_form: ""
+
+# morph: tag
+body_plan: ""
+
+# morph: tag
+symmetry: ""
+
+# morph: range
+size_range:
+  min: 0
+  max: 0
+  unit: "cm"
+
+# morph: number
+size_min_cm: 0
+
+# morph: number
+size_max_cm: 0
+
+# morph: number
+size_typical_cm: 0
+
+# morph: tag
+basic_shape: ""
+
+# morph: text
+silhouette: ""
+
+# morph: list
+life_stages:
+  - ""
+
+# morph: list
+age_stages:
+  - ""
+
+# morph: boolean
+sexual_dimorphism: false
+
+# morph: boolean
+polymorphism: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# OVERALL DIMENSIONS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: range
+length:
+  min: 0
+  max: 0
+  unit: "cm"
+
+# morph: range
+width:
+  min: 0
+  max: 0
+  unit: "cm"
+
+# morph: range
+height:
+  min: 0
+  max: 0
+  unit: "cm"
+
+# morph: range
+diameter:
+  min: 0
+  max: 0
+  unit: "cm"
+
+# morph: range
+mass:
+  min: 0
+  max: 0
+  unit: "g"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SURFACE & TEXTURE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+surface_type: ""
+
+# morph: text
+surface_detail: ""
+
+# morph: tag
+surface_pattern: ""
+
+# morph: tag
+hairiness: ""
+
+# morph: tag
+pubescence: ""
+
+# morph: tag
+scaling: ""
+
+# morph: boolean
+pruinosity: false
+
+# morph: boolean
+waxiness: false
+
+# morph: list
+structural_elements:
+  - ""
+
+# morph: list
+ornamentation:
+  - ""
+
+# morph: text
+sculpture: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# COLOR (COMPREHENSIVE)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+color_primary: ""
+
+# morph: tag
+color_secondary: ""
+
+# morph: tag
+color_pattern: ""
+
+# morph: tag
+color_fresh: ""
+
+# morph: tag
+color_mature: ""
+
+# morph: tag
+color_old: ""
+
+# morph: tag
+color_wet: ""
+
+# morph: tag
+color_dry: ""
+
+# morph: tag
+color_injury: ""
+
+# morph: list
+color_zones:
+  - ""
+
+# morph: text
+color_distribution: ""
+
+# morph: text
+color_variance_description: ""
+
+# morph: text
+color_sexual_dimorphism: ""
+
+# morph: list
+munsell_codes:
+  - ""
+
+# morph: list
+rgb_hex_values:
+  - ""
+
+# morph: list
+ral_codes:
+  - ""
+
+# morph: list
+pantone_codes:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CONSISTENCY & HAPTICS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+consistency_fresh: ""
+
+# morph: tag
+consistency_mature: ""
+
+# morph: tag
+consistency_old: ""
+
+# morph: tag
+break_behavior: ""
+
+# morph: tag
+elasticity: ""
+
+# morph: tag
+toughness: ""
+
+# morph: tag
+brittleness: ""
+
+# morph: tag
+flexibility: ""
+
+# morph: tag
+moisture_content: ""
+
+# morph: text
+texture_tactile: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SMELL & TASTE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+smell_fresh: ""
+
+# morph: text
+smell_mature: ""
+
+# morph: text
+smell_old: ""
+
+# morph: text
+smell_crushed: ""
+
+# morph: text
+smell_dried: ""
+
+# morph: tag
+smell_intensity: ""
+
+# morph: text
+taste: ""
+
+# morph: severity
+taste_warning:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: text
+aftertaste: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PRIMARY STRUCTURE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+primary_structure_present: false
+
+# morph: tag
+primary_structure_type: ""
+
+# morph: range
+primary_structure_diameter:
+  min: 0
+  max: 0
+  unit: "cm"
+
+# morph: range
+primary_structure_length:
+  min: 0
+  max: 0
+  unit: "cm"
+
+# morph: tag
+primary_structure_shape_young: ""
+
+# morph: tag
+primary_structure_shape_mature: ""
+
+# morph: tag
+primary_structure_shape_old: ""
+
+# morph: tag
+primary_structure_margin: ""
+
+# morph: tag
+primary_structure_apex: ""
+
+# morph: tag
+primary_structure_base: ""
+
+# morph: tag
+primary_structure_surface: ""
+
+# morph: tag
+primary_structure_color: ""
+
+# morph: tag
+primary_structure_pattern: ""
+
+# morph: tag
+primary_structure_texture: ""
+
+# morph: list
+primary_structure_appendages:
+  - ""
+
+# morph: text
+primary_structure_special_features: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SUPPORT STRUCTURE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+support_structure_present: false
+
+# morph: tag
+support_structure_type: ""
+
+# morph: range
+support_structure_length:
+  min: 0
+  max: 0
+  unit: "cm"
+
+# morph: range
+support_structure_thickness:
+  min: 0
+  max: 0
+  unit: "cm"
+
+# morph: tag
+support_structure_shape: ""
+
+# morph: tag
+support_structure_base: ""
+
+# morph: tag
+support_structure_apex: ""
+
+# morph: tag
+support_structure_surface: ""
+
+# morph: tag
+support_structure_color: ""
+
+# morph: tag
+support_structure_consistency: ""
+
+# morph: boolean
+support_structure_hollowness: false
+
+# morph: tag
+support_structure_pattern: ""
+
+# morph: tag
+support_structure_branching: ""
+
+# morph: text
+support_structure_nodes: ""
+
+# morph: text
+support_structure_internodes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BESTÄUBUNG (für Landwirtschaft & Naturschutz)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+pollination_syndrome: ""
+
+# morph: list
+primary_pollinators:
+  - ""
+
+# morph: list
+secondary_pollinators:
+  - ""
+
+# morph: tag
+pollinator_specificity: ""
+
+# morph: progress
+pollinator_dependence_percent:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: progress
+selfing_rate:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: tag
+pollen_reward_quality: ""
+
+# morph: range
+nectar_production_rate:
+  min: 0
+  max: 0
+  unit: "µl/h"
+
+# morph: range
+nectar_sugar_concentration:
+  min: 0
+  max: 0
+  unit: "%"
+
+# morph: range
+nectar_volume_per_flower:
+  min: 0
+  max: 0
+  unit: "µl"
+
+# morph: list
+flowering_overlap_with_crops:
+  - ""
+
+# morph: rating
+pollinator_forage_value:
+  rating: 0
+  max: 10
+
+# morph: text
+pollinator_habitat_provisioning: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BIOLOGISCHE SCHÄDLINGSBEKÄMPFUNG
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+biocontrol_agent_for:
+  - ""
+
+# morph: list
+biocontrol_target_pests:
+  - ""
+
+# morph: progress
+biocontrol_efficacy:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: text
+biocontrol_mechanism: ""
+
+# morph: boolean
+biocontrol_commercial_availability: false
+
+# morph: text
+biocontrol_application_method: ""
+
+# morph: text
+biocontrol_release_rate: ""
+
+# morph: progress
+biocontrol_establishment_success:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: severity
+biocontrol_non_target_effects:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: list
+pest_of_crops:
+  - ""
+
+# morph: tag
+pest_damage_type: ""
+
+# morph: currency
+pest_economic_threshold:
+  amount: 0
+  currency: ""
+
+# morph: network
+natural_enemies:
+  - name: ""
+    type: ""
+    intensity: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# KRANKHEITSÜBERTRAGUNG & VEKTOREN
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+disease_vector: false
+
+# morph: list
+diseases_transmitted:
+  - ""
+
+# morph: boolean
+pathogen_reservoir: false
+
+# morph: badge
+zoonotic_potential:
+  status: ""
+  variant: ""
+
+# morph: text
+transmission_mechanism: ""
+
+# morph: tag
+vector_competence: ""
+
+# morph: boolean
+amplifying_host: false
+
+# morph: boolean
+dead_end_host: false
+
+# morph: tag
+host_specificity: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SYMBIOSEN & MUTUALISMEN
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+mutualism_type: ""
+
+# morph: network
+mutualism_partners:
+  - name: ""
+    type: ""
+    intensity: 0
+
+# morph: boolean
+mutualism_obligate: false
+
+# morph: list
+mutualism_benefits_received:
+  - ""
+
+# morph: list
+mutualism_benefits_provided:
+  - ""
+
+# morph: severity
+mutualism_breakdown_consequences:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: network
+commensalism_partners:
+  - name: ""
+    type: ""
+    intensity: 0
+
+# morph: network
+parasitism_hosts:
+  - name: ""
+    type: ""
+    intensity: 0
+
+# morph: list
+parasitism_effects:
+  - ""
+
+# morph: progress
+parasitism_prevalence:
+  value: 0
+  max: 100
+  unit: "%"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# NAHRUNGSNETZE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: number
+trophic_level: 0
+
+# morph: pie
+diet_composition:
+  - label: ""
+    value: 0
+
+# morph: tag
+diet_breadth: ""
+
+# morph: list
+prey_species:
+  - ""
+
+# morph: list
+prey_preference:
+  - ""
+
+# morph: list
+predator_species:
+  - ""
+
+# morph: gauge
+predation_pressure:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# morph: list
+anti_predator_adaptations:
+  - ""
+
+# morph: hierarchy
+food_web_position:
+  - level: ""
+    name: ""
+
+# morph: progress
+energy_transfer_efficiency:
+  value: 0
+  max: 100
+  unit: "%"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# FERTILE/REPRODUCTIVE SURFACE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+fertile_surface_type: ""
+
+# morph: tag
+fertile_surface_arrangement: ""
+
+# morph: tag
+fertile_surface_attachment: ""
+
+# morph: tag
+fertile_surface_density: ""
+
+# morph: tag
+fertile_surface_color: ""
+
+# morph: tag
+fertile_surface_discoloration: ""
+
+# morph: tag
+fertile_surface_edge: ""
+
+# morph: tag
+fertile_surface_shape: ""
+
+# morph: tag
+fertile_surface_size: ""
+
+# morph: tag
+fertile_surface_branching: ""
+
+# morph: boolean
+lamellae_present: false
+
+# morph: tag
+lamellae_attachment: ""
+
+# morph: tag
+lamellae_density: ""
+
+# morph: tag
+lamellae_width: ""
+
+# morph: tag
+lamellae_color: ""
+
+# morph: tag
+lamellae_discoloration: ""
+
+# morph: tag
+lamellae_edge: ""
+
+# morph: boolean
+lamellae_forking: false
+
+# morph: boolean
+lamellae_crossveins: false
+
+# morph: boolean
+lamellulae_present: false
+
+# morph: boolean
+tubes_present: false
+
+# morph: range
+tubes_length:
+  min: 0
+  max: 0
+  unit: "mm"
+
+# morph: tag
+tubes_color: ""
+
+# morph: tag
+tubes_discoloration: ""
+
+# morph: tag
+pores_shape: ""
+
+# morph: tag
+pores_size: ""
+
+# morph: tag
+pores_color: ""
+
+# morph: tag
+pores_discoloration: ""
+
+# morph: boolean
+spines_present: false
+
+# morph: range
+spines_length:
+  min: 0
+  max: 0
+  unit: "mm"
+
+# morph: tag
+spines_density: ""
+
+# morph: tag
+spines_color: ""
+
+# morph: tag
+spines_attachment: ""
+
+# morph: boolean
+hymenium_smooth: false
+
+# morph: boolean
+hymenium_wrinkled: false
+
+# morph: boolean
+hymenium_veined: false
+
+# morph: boolean
+hymenium_ridged: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PROTECTIVE STRUCTURES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+protective_structure_present: false
+
+# morph: tag
+protective_structure_type: ""
+
+# morph: boolean
+partial_covering: false
+
+# morph: text
+partial_covering_remnants: ""
+
+# morph: boolean
+universal_covering: false
+
+# morph: text
+universal_covering_remnants: ""
+
+# morph: boolean
+ring_present: false
+
+# morph: tag
+ring_position: ""
+
+# morph: tag
+ring_shape: ""
+
+# morph: tag
+ring_consistency: ""
+
+# morph: boolean
+ring_mobility: false
+
+# morph: boolean
+basal_structure_present: false
+
+# morph: tag
+basal_structure_type: ""
+
+# morph: tag
+basal_structure_shape: ""
+
+# morph: tag
+basal_structure_color: ""
+
+# morph: text
+surface_remnants: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# INTERNAL TISSUE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+tissue_color: ""
+
+# morph: tag
+tissue_discoloration: ""
+
+# morph: tag
+tissue_consistency: ""
+
+# morph: range
+tissue_thickness:
+  min: 0
+  max: 0
+  unit: "mm"
+
+# morph: tag
+tissue_structure: ""
+
+# morph: tag
+tissue_break_pattern: ""
+
+# morph: boolean
+tissue_fibers: false
+
+# morph: list
+tissue_layers:
+  - ""
+
+# morph: boolean
+exudate_present: false
+
+# morph: tag
+exudate_type: ""
+
+# morph: tag
+exudate_color: ""
+
+# morph: tag
+exudate_discoloration: ""
+
+# morph: tag
+exudate_taste: ""
+
+# morph: tag
+exudate_consistency: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# APPENDAGES & SPECIALIZED ORGANS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+appendages_type: ""
+
+# morph: number
+appendages_count: 0
+
+# morph: tag
+appendages_arrangement: ""
+
+# morph: tag
+appendages_shape: ""
+
+# morph: tag
+appendages_size: ""
+
+# morph: tag
+appendages_color: ""
+
+# morph: text
+appendages_function: ""
+
+# morph: tag
+locomotor_organs_type: ""
+
+# morph: number
+locomotor_organs_count: 0
+
+# morph: tag
+locomotor_organs_shape: ""
+
+# morph: tag
+sensory_organs_type: ""
+
+# morph: tag
+sensory_organs_position: ""
+
+# morph: boolean
+photosynthetic_organs_present: false
+
+# morph: tag
+photosynthetic_organs_type: ""
+
+# morph: tag
+photosynthetic_organs_arrangement: ""
+
+# morph: tag
+photosynthetic_organs_shape: ""
+
+# morph: tag
+photosynthetic_organs_margin: ""
+
+# morph: tag
+photosynthetic_organs_venation: ""
+
+# morph: tag
+photosynthetic_organs_surface: ""
+
+# morph: tag
+photosynthetic_organs_color: ""
+
+# morph: tag
+anchoring_structure_type: ""
+
+# morph: range
+anchoring_structure_depth:
+  min: 0
+  max: 0
+  unit: "cm"
+
+# morph: range
+anchoring_structure_spread:
+  min: 0
+  max: 0
+  unit: "cm"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# REPRODUCTIVE STRUCTURES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+reproductive_mode: ""
+
+# morph: tag
+reproductive_structure_type: ""
+
+# morph: tag
+reproductive_structure_color: ""
+
+# morph: tag
+reproductive_structure_shape: ""
+
+# morph: tag
+reproductive_structure_size: ""
+
+# morph: tag
+reproductive_structure_ornamentation: ""
+
+# morph: tag
+reproductive_structure_dispersal: ""
+
+# morph: tag
+propagule_shape: ""
+
+# morph: range
+propagule_length:
+  min: 0
+  max: 0
+  unit: "µm"
+
+# morph: range
+propagule_width:
+  min: 0
+  max: 0
+  unit: "µm"
+
+# morph: tag
+propagule_color: ""
+
+# morph: tag
+propagule_wall_thickness: ""
+
+# morph: tag
+propagule_ornamentation: ""
+
+# morph: text
+propagule_ornamentation_detail: ""
+
+# morph: tag
+propagule_surface: ""
+
+# morph: list
+propagule_appendages:
+  - ""
+
+# morph: text
+propagule_germination_structures: ""
+
+# morph: boolean
+propagule_oil_content: false
+
+# morph: text
+propagule_storage_compounds: ""
+
+# morph: tag
+propagule_deposit_color: ""
+
+# morph: tag
+propagule_deposit_amount: ""
+
+# morph: tag
+propagule_deposit_method: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 3. MICROSCOPIC FEATURES - CELL CHARACTERISTICS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+cell_type: ""
+
+# morph: tag
+cell_shape: ""
+
+# morph: range
+cell_size:
+  min: 0
+  max: 0
+  unit: "µm"
+
+# morph: boolean
+cell_wall_present: false
+
+# morph: range
+cell_wall_thickness:
+  min: 0
+  max: 0
+  unit: "µm"
+
+# morph: tag
+cell_wall_composition: ""
+
+# morph: number
+cell_wall_layers: 0
+
+# morph: text
+cell_membrane_features: ""
+
+# morph: text
+cell_content: ""
+
+# morph: list
+cell_inclusions:
+  - ""
+
+# morph: tag
+cell_pigmentation: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# REPRODUCTIVE CELLS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+reproductive_cell_shape: ""
+
+# morph: range
+reproductive_cell_length:
+  min: 0
+  max: 0
+  unit: "µm"
+
+# morph: range
+reproductive_cell_width:
+  min: 0
+  max: 0
+  unit: "µm"
+
+# morph: number
+reproductive_cell_ratio: 0
+
+# morph: tag
+reproductive_cell_ornamentation: ""
+
+# morph: tag
+reproductive_cell_color: ""
+
+# morph: tag
+reproductive_cell_wall: ""
+
+# morph: tag
+reproductive_cell_apertures: ""
+
+# morph: list
+reproductive_cell_appendages:
+  - ""
+
+# morph: text
+reproductive_cell_content: ""
+
+# morph: tag
+reproductive_cell_3d_shape: ""
+
+# morph: tag
+sporangium_type: ""
+
+# morph: tag
+sporangium_shape: ""
+
+# morph: range
+sporangium_size:
+  min: 0
+  max: 0
+  unit: "µm"
+
+# morph: number
+sporangium_count: 0
+
+# morph: tag
+sporangium_wall: ""
+
+# morph: tag
+sporangium_dehiscence: ""
+
+# morph: text
+sporangium_stalk: ""
+
+# morph: tag
+gametangium_type: ""
+
+# morph: tag
+gametangium_shape: ""
+
+# morph: range
+gametangium_size:
+  min: 0
+  max: 0
+  unit: "µm"
+
+# morph: tag
+gametangium_position: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# STERILE CELLS AND STRUCTURES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+sterile_cells_present: false
+
+# morph: tag
+sterile_cells_type: ""
+
+# morph: tag
+sterile_cells_shape: ""
+
+# morph: range
+sterile_cells_size:
+  min: 0
+  max: 0
+  unit: "µm"
+
+# morph: tag
+sterile_cells_position: ""
+
+# morph: text
+sterile_cells_content: ""
+
+# morph: tag
+sterile_cells_wall: ""
+
+# morph: tag
+sterile_cells_apex: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# FILAMENTOUS STRUCTURES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+filaments_present: false
+
+# morph: tag
+filaments_type: ""
+
+# morph: range
+filaments_diameter:
+  min: 0
+  max: 0
+  unit: "µm"
+
+# morph: boolean
+filaments_septation: false
+
+# morph: tag
+filaments_branching: ""
+
+# morph: tag
+filaments_pigmentation: ""
+
+# morph: tag
+filaments_wall: ""
+
+# morph: boolean
+filaments_clamp_connections: false
+
+# morph: text
+filaments_content: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TISSUE ORGANIZATION (MICROSCOPIC)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+tissue_type_micro: ""
+
+# morph: tag
+tissue_arrangement: ""
+
+# morph: tag
+tissue_differentiation: ""
+
+# morph: tag
+surface_layer_type: ""
+
+# morph: text
+surface_layer_structure: ""
+
+# morph: tag
+surface_layer_pigment: ""
+
+# morph: boolean
+crystals_present: false
+
+# morph: tag
+crystals_type: ""
+
+# morph: tag
+crystals_shape: ""
+
+# morph: tag
+crystals_location: ""
+
+# morph: tag
+crystals_composition: ""
+
+# morph: tag
+pigment_type: ""
+
+# morph: tag
+pigment_location: ""
+
+# morph: tag
+pigment_solubility: ""
+
+# morph: tag
+pigment_color_microscopic: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 4. CHEMICAL REACTIONS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+koh_tissue: ""
+
+# morph: tag
+koh_surface: ""
+
+# morph: tag
+naoh_reaction: ""
+
+# morph: tag
+iodine_reaction: ""
+
+# morph: tag
+lugol_reaction: ""
+
+# morph: tag
+melzer_reaction: ""
+
+# morph: tag
+melzer_tissue: ""
+
+# morph: tag
+melzer_reproductive_cells: ""
+
+# morph: tag
+feso4_tissue: ""
+
+# morph: tag
+fecl3_reaction: ""
+
+# morph: tag
+guaiac_reaction: ""
+
+# morph: tag
+phenol_reaction: ""
+
+# morph: tag
+sulfo_vanillin_reaction: ""
+
+# morph: tag
+cresyl_blue_reaction: ""
+
+# morph: tag
+congo_red_reaction: ""
+
+# morph: tag
+phloxin_reaction: ""
+
+# morph: tag
+cotton_blue_reaction: ""
+
+# morph: tag
+safranin_reaction: ""
+
+# morph: tag
+toluidine_blue_reaction: ""
+
+# morph: tag
+hcl_reaction: ""
+
+# morph: tag
+h2so4_reaction: ""
+
+# morph: tag
+nitric_acid_reaction: ""
+
+# morph: tag
+uv_365nm_reaction: ""
+
+# morph: tag
+uv_254nm_reaction: ""
+
+# morph: text
+uv_description: ""
+
+# morph: list
+uv_fluorescent_compounds:
+  - ""
+
+# morph: tag
+alpha_naphthol_reaction: ""
+
+# morph: tag
+schiff_reaction: ""
+
+# morph: tag
+sudan_reaction: ""
+
+# morph: tag
+biuret_reaction: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 5. MOLECULAR DATA - KINGDOM-SPECIFIC BARCODES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Fungi: ITS
+# morph: text
+its_region: ""
+
+# morph: text
+its_accession: ""
+
+# morph: number
+its_length: 0
+
+# morph: badge
+its_quality:
+  status: ""
+  variant: ""
+
+# morph: text
+unite_sh: ""
+
+# morph: text
+unite_doi: ""
+
+# morph: text
+lsu_sequence: ""
+
+# morph: text
+lsu_accession: ""
+
+# morph: text
+ssu_sequence: ""
+
+# morph: text
+ssu_accession: ""
+
+# Animalia: COI
+# morph: text
+coi_sequence: ""
+
+# morph: text
+coi_accession: ""
+
+# morph: text
+bold_bin: ""
+
+# morph: text
+bold_uri: ""
+
+# morph: progress
+bold_similarity:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: text
+cytb_sequence: ""
+
+# morph: text
+cytb_accession: ""
+
+# morph: text
+16s_sequence: ""
+
+# morph: text
+16s_accession: ""
+
+# morph: text
+12s_sequence: ""
+
+# morph: text
+12s_accession: ""
+
+# Plantae
+# morph: text
+rbcl_sequence: ""
+
+# morph: text
+rbcl_accession: ""
+
+# morph: text
+matk_sequence: ""
+
+# morph: text
+matk_accession: ""
+
+# morph: text
+trnl_sequence: ""
+
+# morph: text
+trnl_accession: ""
+
+# morph: text
+its2_sequence: ""
+
+# morph: text
+its2_accession: ""
+
+# Bacteria
+# morph: text
+16s_rrna_sequence: ""
+
+# morph: text
+16s_rrna_accession: ""
+
+# morph: tag
+16s_v_region: ""
+
+# morph: text
+rpob_sequence: ""
+
+# morph: text
+cpn60_sequence: ""
+
+# Protista
+# morph: text
+18s_sequence: ""
+
+# morph: text
+18s_accession: ""
+
+# morph: text
+28s_sequence: ""
+
+# morph: text
+28s_accession: ""
+
+# Fungi protein-coding
+# morph: text
+rpb1_sequence: ""
+
+# morph: text
+rpb2_sequence: ""
+
+# morph: text
+tef1_sequence: ""
+
+# morph: text
+tub2_sequence: ""
+
+# morph: text
+act1_sequence: ""
+
+# morph: text
+gapdh_sequence: ""
+
+# morph: text
+his3_sequence: ""
+
+# morph: text
+cmd_sequence: ""
+
+# Universal database references
+# morph: text
+genbank_accession: ""
+
+# morph: text
+ena_accession: ""
+
+# morph: text
+ddbj_accession: ""
+
+# morph: text
+ncbi_bioproject: ""
+
+# morph: text
+ncbi_biosample: ""
+
+# Phylogenetic position
+# morph: text
+phylogeny_clade: ""
+
+# morph: text
+phylogeny_position: ""
+
+# morph: progress
+phylogeny_support:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: list
+closest_relatives:
+  - ""
+
+# morph: number
+genetic_distance: 0
+
+# morph: text
+molecular_clock_age: ""
+
+# Genome data
+# morph: number
+genome_size_mb: 0
+
+# morph: number
+chromosome_count: 0
+
+# morph: number
+ploidy_level: 0
+
+# morph: progress
+gc_content:
+  value: 0
+  max: 100
+  unit: "%"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 6. ECOLOGICAL CONTEXT
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+nutrition_type: ""
+
+# morph: tag
+nutrition_type_detail: ""
+
+# morph: number
+trophic_position: 0
+
+# morph: tag
+feeding_strategy: ""
+
+# morph: tag
+diet_type: ""
+
+# morph: tag
+diet_specialization: ""
+
+# morph: tag
+habitat_type: ""
+
+# morph: text
+habitat_detail: ""
+
+# morph: text
+biotope: ""
+
+# morph: text
+microhabitat: ""
+
+# morph: tag
+vegetation_type: ""
+
+# morph: tag
+soil_type: ""
+
+# morph: tag
+soil_moisture: ""
+
+# morph: tag
+light_conditions: ""
+
+# morph: tag
+water_body_type: ""
+
+# morph: tag
+substrate_category: ""
+
+# morph: list
+substrate_species:
+  - ""
+
+# morph: tag
+substrate_specificity: ""
+
+# morph: tag
+substrate_condition: ""
+
+# morph: list
+host_species:
+  - ""
+
+# morph: tag
+host_tissue: ""
+
+# morph: tag
+decomposition_stage: ""
+
+# morph: tag
+symbiosis_type: ""
+
+# morph: text
+symbiosis_partner: ""
+
+# morph: tag
+symbiosis_specificity: ""
+
+# morph: boolean
+symbiosis_obligate: false
+
+# morph: tag
+parasitism_type: ""
+
+# morph: tag
+commensalism_type: ""
+
+# morph: list
+associated_species:
+  - ""
+
+# morph: list
+indicator_species:
+  - ""
+
+# morph: list
+co_occurring_species:
+  - ""
+
+# morph: list
+predators:
+  - ""
+
+# morph: list
+prey:
+  - ""
+
+# morph: list
+competitors:
+  - ""
+
+# morph: tag
+altitude_zone: ""
+
+# morph: range
+altitude:
+  min: 0
+  max: 0
+  unit: "m"
+
+# morph: tag
+climate_zone: ""
+
+# morph: range
+precipitation_range:
+  min: 0
+  max: 0
+  unit: "mm"
+
+# morph: range
+temperature_range:
+  min: 0
+  max: 0
+  unit: "°C"
+
+# morph: tag
+continentality: ""
+
+# morph: number
+season_start: 0
+
+# morph: number
+season_end: 0
+
+# morph: number
+season_peak: 0
+
+# morph: text
+activity_trigger: ""
+
+# morph: tag
+diurnal_pattern: ""
+
+# morph: tag
+annual_pattern: ""
+
+# morph: boolean
+perennial: false
+
+# morph: text
+lifespan: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 7. CONFUSION & DIFFERENTIATION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: network
+confusion_species:
+  - name: ""
+    type: ""
+    intensity: 0
+
+# morph: text
+most_dangerous_confusion: ""
+
+# morph: severity
+confusion_consequence:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: comparison
+differentiation_table:
+  items:
+    - name: ""
+      values: {}
+  metrics:
+    - key: ""
+      label: ""
+
+# morph: list
+critical_features:
+  - ""
+
+# morph: list
+reliable_features:
+  - ""
+
+# morph: list
+unreliable_features:
+  - ""
+
+# morph: text
+species_complex: ""
+
+# morph: text
+cryptic_species_complex: ""
+
+# morph: badge
+identification_confidence_level:
+  status: ""
+  variant: ""
+
+# morph: list
+minimum_features_needed:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 8. IDENTIFICATION AIDS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+primary_diagnostic_features:
+  - ""
+
+# morph: list
+secondary_diagnostic_features:
+  - ""
+
+# morph: list
+field_features:
+  - ""
+
+# morph: list
+lab_features:
+  - ""
+
+# morph: list
+beginner_features:
+  - ""
+
+# morph: list
+expert_features:
+  - ""
+
+# morph: list
+minimal_feature_combination:
+  - ""
+
+# morph: text
+seasonal_variation: ""
+
+# morph: text
+geographic_variation: ""
+
+# morph: text
+key_entry: ""
+
+# morph: text
+key_path: ""
+
+# morph: number
+key_position: 0
+
+# morph: list
+alternative_routes:
+  - ""
+
+# morph: number
+dichotomous_key_position: 0
+
+# morph: list
+multi_access_key_traits:
+  - ""
+
+# morph: citation
+identification_literature:
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# morph: list
+monographs:
+  - ""
+
+# morph: list
+field_guides:
+  - ""
+
+# morph: list
+online_keys:
+  - ""
+
+# morph: list
+video_guides:
+  - ""
+
+# morph: list
+apps:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 9. MEDIA & DOCUMENTATION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: image
+primary_image: ""
+
+# morph: text
+primary_image_description: ""
+
+# morph: boolean
+primary_image_typical: false
+
+# morph: list
+image_gallery:
+  - ""
+
+# morph: list
+images_habit:
+  - ""
+
+# morph: list
+images_detail:
+  - ""
+
+# morph: list
+images_cross_section:
+  - ""
+
+# morph: list
+images_habitat:
+  - ""
+
+# morph: image
+image_juvenile: ""
+
+# morph: image
+image_adult: ""
+
+# morph: image
+image_mature: ""
+
+# morph: image
+image_senescent: ""
+
+# morph: list
+development_series:
+  - ""
+
+# morph: image
+image_cells: ""
+
+# morph: image
+image_reproductive_structures: ""
+
+# morph: image
+image_surface_structure: ""
+
+# morph: image
+image_cross_section_micro: ""
+
+# morph: image
+image_tissue: ""
+
+# morph: text
+microscopy_scale_bar: ""
+
+# morph: link
+view_360: ""
+
+# morph: link
+model_3d: ""
+
+# morph: tag
+model_format: ""
+
+# morph: boolean
+model_textured: false
+
+# morph: link
+ct_scan: ""
+
+# morph: text
+visual_signature: ""
+
+# morph: list
+embedding_vector:
+  - 0
+
+# morph: progress
+recognition_confidence:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: list
+similar_images:
+  - ""
+
+# morph: link
+audio_recording: ""
+
+# morph: tag
+vocalization_type: ""
+
+# morph: image
+spectrogram: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 10. COLLECTION DATA
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: badge
+identification_status:
+  status: ""
+  variant: ""
+
+# morph: text
+identified_by: ""
+
+# morph: tag
+identification_method: ""
+
+# morph: badge
+identification_confidence:
+  status: ""
+  variant: ""
+
+# morph: timeline
+revision_history:
+  - date: ""
+    event: ""
+    description: ""
+
+# morph: map
+collection_location:
+  lat: 0
+  lng: 0
+  region: ""
+
+# morph: number
+collection_accuracy_m: 0
+
+# morph: number
+collection_elevation_m: 0
+
+# morph: number
+collection_depth_m: 0
+
+# morph: text
+collection_country: ""
+
+# morph: text
+collection_region: ""
+
+# morph: text
+collection_place: ""
+
+# morph: text
+collection_locality: ""
+
+# morph: text
+collection_habitat_description: ""
+
+# morph: text
+collection_date: ""
+
+# morph: text
+collection_time: ""
+
+# morph: text
+collection_weather: ""
+
+# morph: range
+collection_temperature:
+  min: 0
+  max: 0
+  unit: "°C"
+
+# morph: text
+collector: ""
+
+# morph: text
+collection_number: ""
+
+# morph: text
+collection_institution: ""
+
+# morph: text
+voucher_id: ""
+
+# morph: badge
+voucher_condition:
+  status: ""
+  variant: ""
+
+# morph: tag
+preservation_method: ""
+
+# morph: tag
+exposure: ""
+
+# morph: number
+inclination: 0
+
+# morph: list
+accompanying_species:
+  - ""
+
+# morph: text
+microclimate: ""
+
+# morph: text
+disturbance: ""
+
+# morph: boolean
+specimen_documented: false
+
+# morph: boolean
+preserved_specimen: false
+
+# morph: boolean
+culture_established: false
+
+# morph: boolean
+tissue_sample: false
+
+# morph: boolean
+dna_extracted: false
+
+# morph: boolean
+sequence_available: false
+
+# morph: text
+field_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ENUMERATIONS (Reference values)
+# ─────────────────────────────────────────────────────────────────────────────
+
+_enums:
+  barcode_marker_type:
+    - COI
+    - 16S_rRNA
+    - 12S_rRNA
+    - ITS
+    - ITS1
+    - ITS2
+    - LSU
+    - RPB1
+    - RPB2
+    - TEF1
+    - rbcL
+    - matK
+    - trnL_trnF
+    - 18S_rRNA
+    - cpn60
+    - multiple
+
+  taxonomy_domain:
+    - Bacteria
+    - Archaea
+    - Eukarya
+
+  taxonomy_kingdom:
+    - Animalia
+    - Plantae
+    - Fungi
+    - Protista
+    - Chromista
+    - Bacteria
+    - Archaea
+
+  nomenclatural_code:
+    - ICN
+    - ICZN
+    - ICNP
+    - ICVCN
+
+  taxonomy_status:
+    - accepted
+    - synonym
+    - uncertain
+    - provisional
+    - invalid
+    - illegitimate
+    - nomen_dubium
+    - nomen_nudum
+
+  type_status:
+    - holotype
+    - isotype
+    - lectotype
+    - neotype
+    - epitype
+    - paratype
+    - syntype
+    - topotype
+    - no_type
+
+  symmetry:
+    - bilateral
+    - radial
+    - biradial
+    - spherical
+    - asymmetrical
+
+  growth_form:
+    - erect
+    - prostrate
+    - climbing
+    - floating
+    - sessile
+    - motile
+    - colonial
+    - solitary
+    - encrusting
+    - pendant
+    - rosette
+    - cushion
+    - mat
+    - filamentous
+    - branched
+    - unbranched
+
+  identification_difficulty:
+    - beginner
+    - intermediate
+    - advanced
+    - expert
+    - specialist_only
+    - molecular_required
+
+  confusion_risk_level:
+    - none
+    - low
+    - moderate
+    - high
+    - critical
+
+  minimum_equipment:
+    - none
+    - hand_lens
+    - hand_lens_required
+    - microscope_helpful
+    - microscope_required
+    - chemical_tests
+    - molecular_analysis
+
+  identification_confidence:
+    - certain
+    - very_likely
+    - likely
+    - uncertain
+    - cf
+    - aff
+    - sp
+    - s_l
+    - s_str
+    - agg
+
+  identification_method:
+    - morphological
+    - microscopic
+    - chemical
+    - molecular
+    - acoustic
+    - behavioral
+    - ecological
+    - expert
+    - ai_supported
+    - combined
+
+  preservation_method:
+    - dried
+    - frozen
+    - ethanol
+    - formalin
+    - silica_gel
+    - herbarium_sheet
+    - liquid_nitrogen
+    - living_culture
+    - pinned
+    - mounted
+    - sectioned

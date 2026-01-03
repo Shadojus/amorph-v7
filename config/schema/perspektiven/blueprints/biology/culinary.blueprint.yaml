@@ -1,0 +1,1281 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# CULINARY PERSPECTIVE - DATA BLUEPRINT
+# Empty schema with correct morph data structures
+# Version: 1.0.0
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# USAGE: Copy this blueprint and fill in the data for each species.
+# Each field has the correct morph type and data structure defined.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: culinary
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SAFETY & SUITABILITY
+# "Can I eat this? What should I consider?"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+edibility_status:
+  # morph: badge
+  # Keywords: choice_edible, edible, edible_with_caution, conditionally_edible, 
+  #           not_recommended, inedible, toxic, unknown
+  status: ""
+  variant: ""  # success | danger | warning | info | neutral
+
+edibility_rating:
+  # morph: rating
+  # Scale 0-10 (0 = inedible, 10 = choice delicacy)
+  rating: 0
+  max: 10
+
+edibility_requirements:
+  # morph: steps
+  # Required preparation steps before safe consumption
+  - step: 1
+    label: ""
+    status: "pending"  # done | current | pending
+
+edibility_warnings:
+  # morph: severity
+  # Warnings about consumption
+  - level: ""  # trivial | minor | moderate | severe | critical
+    typ: ""
+    beschreibung: ""
+
+edibility_risk_groups:
+  # morph: list
+  # Groups that should avoid or be cautious
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SENSORY PROFILE
+# "How does it taste/smell/feel?"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sensory:
+  # morph: radar
+  # Multi-dimensional sensory profile (min 3 axes, max 12)
+  - axis: "Umami"
+    value: 0
+  - axis: "Sweetness"
+    value: 0
+  - axis: "Bitterness"
+    value: 0
+  - axis: "Earthiness"
+    value: 0
+  - axis: "Nuttiness"
+    value: 0
+
+taste_primary:
+  # morph: tag
+  # Primary taste descriptor (max 20 chars)
+  ""
+
+taste_secondary:
+  # morph: list
+  # Secondary taste notes
+  - ""
+
+aroma_profile:
+  # morph: radar
+  # Aroma wheel profile
+  - axis: "Woody"
+    value: 0
+  - axis: "Floral"
+    value: 0
+  - axis: "Fruity"
+    value: 0
+  - axis: "Earthy"
+    value: 0
+  - axis: "Spicy"
+    value: 0
+
+texture_raw:
+  # morph: tag
+  # Texture when raw
+  ""
+
+texture_cooked:
+  # morph: tag
+  # Texture when cooked
+  ""
+
+appearance:
+  # morph: object
+  # Visual characteristics
+  color: ""
+  shape: ""
+  size: ""
+  surface: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PREPARATION TECHNIQUES
+# "How do I prepare it optimally?"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+preparation_methods:
+  # morph: bar
+  # Suitability rating per method (sorted by recommendation)
+  - label: ""
+    value: 0  # 0-100 suitability score
+
+preparation_temperatures:
+  # morph: range
+  # Optimal cooking temperature range
+  min: 0
+  max: 0
+  unit: "°C"
+
+preparation_times:
+  # morph: object
+  # Cooking times by method
+  raw: ""
+  sautéed: ""
+  grilled: ""
+  roasted: ""
+  steamed: ""
+  braised: ""
+
+preparation_techniques:
+  # morph: steps
+  # Step-by-step preparation guide
+  - step: 1
+    label: ""
+    status: "pending"
+
+preparation_mistakes:
+  # morph: severity
+  # Common mistakes and their severity
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+prep_work:
+  # morph: steps
+  # Pre-cooking preparation steps
+  - step: 1
+    label: ""
+    status: "pending"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FLAVOR PAIRING & COMBINATIONS
+# "What goes well together?"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+flavor_profile_primary:
+  # morph: tag
+  ""
+
+flavor_profile_secondary:
+  # morph: list
+  - ""
+
+aroma_compounds_key:
+  # morph: list
+  # Key aroma compounds (e.g., "1-octen-3-ol", "linalool")
+  - ""
+
+pairs_well_with_proteins:
+  # morph: list
+  - ""
+
+pairs_well_with_vegetables:
+  # morph: list
+  - ""
+
+pairs_well_with_grains:
+  # morph: list
+  - ""
+
+pairs_well_with_dairy:
+  # morph: list
+  - ""
+
+pairs_well_with_herbs:
+  # morph: list
+  - ""
+
+pairs_well_with_spices:
+  # morph: list
+  - ""
+
+wine_pairing:
+  # morph: list
+  - ""
+
+beer_pairing:
+  # morph: list
+  - ""
+
+flavor_bridges:
+  # morph: network
+  # Shared aroma compounds with other ingredients
+  - name: ""
+    type: ""  # symbiosis | competition | commensalism
+    intensity: 0
+
+avoid_combining_with:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SUBSTITUTIONS & ALTERNATIVES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+substitute_for:
+  # morph: list
+  # Can substitute for these ingredients
+  - ""
+
+can_be_substituted_by:
+  # morph: list
+  # These ingredients can substitute this
+  - ""
+
+substitution_ratio:
+  # morph: text
+  # Ratio when substituting (e.g., "1:1", "2:3")
+  ""
+
+substitution_notes:
+  # morph: text
+  ""
+
+vegan_alternative_for:
+  # morph: list
+  - ""
+
+budget_alternative_for:
+  # morph: list
+  - ""
+
+luxury_upgrade_for:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COOKING TECHNIQUES & TIMING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+best_cooking_methods:
+  # morph: bar
+  # Ranked by suitability
+  - label: ""
+    value: 0
+
+worst_cooking_methods:
+  # morph: list
+  - ""
+
+cooking_time_raw:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "min"
+
+cooking_time_dried:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "min"
+
+cooking_time_frozen:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "min"
+
+internal_temperature_target:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+  unit: "°C"
+  zones:
+    - start: 0
+      end: 50
+      color: "rgba(240, 80, 80, 0.2)"  # underdone
+    - start: 50
+      end: 75
+      color: "rgba(100, 220, 140, 0.2)"  # optimal
+    - start: 75
+      end: 100
+      color: "rgba(90, 160, 240, 0.2)"  # overdone
+
+texture_when_overcooked:
+  # morph: tag
+  ""
+
+texture_when_undercooked:
+  # morph: tag
+  ""
+
+resting_time_recommended:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "min"
+
+reheating_instructions:
+  # morph: steps
+  - step: 1
+    label: ""
+    status: "pending"
+
+reheating_quality_loss:
+  # morph: progress
+  # Percentage of quality retained after reheating
+  value: 0
+  max: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SHELF LIFE BY PREPARATION METHOD
+# ═══════════════════════════════════════════════════════════════════════════════
+
+shelf_life_fresh_room_temp:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "days"
+
+shelf_life_fresh_refrigerated:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "days"
+
+shelf_life_cooked_refrigerated:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "days"
+
+shelf_life_frozen:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "months"
+
+shelf_life_dried:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "months"
+
+shelf_life_pickled:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "months"
+
+shelf_life_canned:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "years"
+
+freezing_instructions:
+  # morph: steps
+  - step: 1
+    label: ""
+    status: "pending"
+
+thawing_instructions:
+  # morph: steps
+  - step: 1
+    label: ""
+    status: "pending"
+
+signs_of_spoilage:
+  # morph: severity
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESTAURANT & PROFESSIONAL KITCHEN
+# ═══════════════════════════════════════════════════════════════════════════════
+
+michelin_restaurant_usage:
+  # morph: list
+  - ""
+
+signature_dishes_famous:
+  # morph: list
+  - ""
+
+trending_preparations:
+  # morph: list
+  - ""
+
+molecular_gastronomy_applications:
+  # morph: list
+  - ""
+
+professional_prep_tips:
+  # morph: list
+  - ""
+
+plate_presentation_ideas:
+  # morph: list
+  - ""
+
+garnish_applications:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PURCHASING & AVAILABILITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+peak_season_months:
+  # morph: calendar
+  # Months when available/optimal
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+availability_year_round:
+  # morph: boolean
+  false
+
+best_sources_fresh:
+  # morph: list
+  - ""
+
+best_sources_dried:
+  # morph: list
+  - ""
+
+price_category:
+  # morph: badge
+  # budget | moderate | premium | luxury | seasonal_variable
+  status: ""
+  variant: ""
+
+price_seasonality:
+  # morph: sparkline
+  # Price trend over 12 months (normalized 0-100)
+  - 0
+
+quality_indicators_buying:
+  # morph: list
+  - ""
+
+avoid_when_buying:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ALLERGENS & INTOLERANCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+allergen_classification:
+  # morph: badge
+  # EU allergen category or "none"
+  status: ""
+  variant: ""
+
+cross_reactivity_allergens:
+  # morph: list
+  - ""
+
+histamine_level:
+  # morph: badge
+  # low | medium | high
+  status: ""
+  variant: ""
+
+fodmap_category:
+  # morph: badge
+  # low_fodmap | moderate_fodmap | high_fodmap | variable_by_portion
+  status: ""
+  variant: ""
+
+oxalate_level:
+  # morph: badge
+  status: ""
+  variant: ""
+
+purine_level:
+  # morph: badge
+  status: ""
+  variant: ""
+
+goitrogen_content:
+  # morph: badge
+  status: ""
+  variant: ""
+
+tyramine_level:
+  # morph: badge
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DIETARY TRENDS & DIETS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+suitable_for_keto:
+  # morph: boolean
+  false
+
+suitable_for_paleo:
+  # morph: boolean
+  false
+
+suitable_for_whole30:
+  # morph: boolean
+  false
+
+suitable_for_mediterranean:
+  # morph: boolean
+  false
+
+suitable_for_dash:
+  # morph: boolean
+  false
+
+suitable_for_fodmap_elimination:
+  # morph: boolean
+  false
+
+insulin_index:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMPOSITION & PAIRINGS (Legacy fields)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+pairings_classic:
+  # morph: list
+  - ""
+
+pairings_modern:
+  # morph: list
+  - ""
+
+pairings_beverages:
+  # morph: list
+  - ""
+
+pairings_science:
+  # morph: text
+  # Explanation of why pairings work (shared compounds)
+  ""
+
+synergies:
+  # morph: network
+  - name: ""
+    type: "symbiosis"
+    intensity: 0
+
+contrasts:
+  # morph: network
+  - name: ""
+    type: "competition"
+    intensity: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# STORAGE & SHELF LIFE (Legacy fields)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+storage_temperature:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "°C"
+
+storage_humidity:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "%"
+
+storage_container:
+  # morph: tag
+  ""
+
+storage_shelf_life_days:
+  # morph: number
+  0
+
+storage_indicators:
+  # morph: list
+  # Signs that storage conditions are met
+  - ""
+
+preservation:
+  # morph: object
+  methods: []
+  optimal: ""
+
+preservation_methods:
+  # morph: bar
+  # Effectiveness of each method
+  - label: ""
+    value: 0
+
+preservation_quality:
+  # morph: rating
+  rating: 0
+  max: 10
+
+preservation_shelf_life:
+  # morph: object
+  dried: ""
+  frozen: ""
+  pickled: ""
+  canned: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NUTRITION - MACRONUTRIENTS
+# Per 100g unless otherwise noted
+# ═══════════════════════════════════════════════════════════════════════════════
+
+nutrition:
+  # morph: stats
+  # Overview statistics
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+energy_kcal:
+  # morph: number
+  0
+
+energy_kj:
+  # morph: number
+  0
+
+protein:
+  # morph: number
+  # in grams per 100g
+  0
+
+protein_quality:
+  # morph: rating
+  rating: 0
+  max: 10
+
+fat:
+  # morph: number
+  0
+
+fat_saturated:
+  # morph: number
+  0
+
+fat_monounsaturated:
+  # morph: number
+  0
+
+fat_polyunsaturated:
+  # morph: number
+  0
+
+omega_3:
+  # morph: number
+  0
+
+omega_6:
+  # morph: number
+  0
+
+carbohydrates:
+  # morph: number
+  0
+
+sugar:
+  # morph: number
+  0
+
+fiber:
+  # morph: number
+  0
+
+fiber_soluble:
+  # morph: number
+  0
+
+fiber_insoluble:
+  # morph: number
+  0
+
+water:
+  # morph: progress
+  value: 0
+  max: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NUTRITION - VITAMINS
+# Values as percentage of RDI (Recommended Daily Intake) per 100g
+# ═══════════════════════════════════════════════════════════════════════════════
+
+vitamins:
+  # morph: bar
+  # Overview of all vitamins as % RDI
+  - label: ""
+    value: 0
+
+vitamin_a:
+  # morph: progress
+  value: 0
+  max: 100
+
+beta_carotene:
+  # morph: number
+  # in μg
+  0
+
+vitamin_b1:
+  # morph: progress
+  value: 0
+  max: 100
+
+vitamin_b2:
+  # morph: progress
+  value: 0
+  max: 100
+
+vitamin_b3:
+  # morph: progress
+  value: 0
+  max: 100
+
+vitamin_b5:
+  # morph: progress
+  value: 0
+  max: 100
+
+vitamin_b6:
+  # morph: progress
+  value: 0
+  max: 100
+
+vitamin_b7:
+  # morph: progress
+  value: 0
+  max: 100
+
+vitamin_b9:
+  # morph: progress
+  value: 0
+  max: 100
+
+vitamin_b12:
+  # morph: progress
+  value: 0
+  max: 100
+
+vitamin_c:
+  # morph: progress
+  value: 0
+  max: 100
+
+vitamin_d:
+  # morph: progress
+  value: 0
+  max: 100
+
+vitamin_d2:
+  # morph: number
+  # in IU
+  0
+
+vitamin_e:
+  # morph: progress
+  value: 0
+  max: 100
+
+vitamin_k:
+  # morph: progress
+  value: 0
+  max: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NUTRITION - MINERALS
+# Values as percentage of RDI per 100g
+# ═══════════════════════════════════════════════════════════════════════════════
+
+minerals:
+  # morph: bar
+  # Overview of all minerals as % RDI
+  - label: ""
+    value: 0
+
+potassium:
+  # morph: progress
+  value: 0
+  max: 100
+
+sodium:
+  # morph: number
+  # in mg
+  0
+
+calcium:
+  # morph: progress
+  value: 0
+  max: 100
+
+magnesium:
+  # morph: progress
+  value: 0
+  max: 100
+
+phosphorus:
+  # morph: progress
+  value: 0
+  max: 100
+
+iron:
+  # morph: progress
+  value: 0
+  max: 100
+
+zinc:
+  # morph: progress
+  value: 0
+  max: 100
+
+copper:
+  # morph: progress
+  value: 0
+  max: 100
+
+manganese:
+  # morph: progress
+  value: 0
+  max: 100
+
+selenium:
+  # morph: progress
+  value: 0
+  max: 100
+
+iodine:
+  # morph: progress
+  value: 0
+  max: 100
+
+chromium:
+  # morph: progress
+  value: 0
+  max: 100
+
+molybdenum:
+  # morph: progress
+  value: 0
+  max: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NUTRITION - AMINO ACIDS
+# Values in mg per 100g
+# ═══════════════════════════════════════════════════════════════════════════════
+
+amino_acids:
+  # morph: bar
+  # Overview of amino acid content
+  - label: ""
+    value: 0
+
+amino_acids_essential:
+  # morph: radar
+  # Essential amino acids profile
+  - axis: "Leucine"
+    value: 0
+  - axis: "Isoleucine"
+    value: 0
+  - axis: "Valine"
+    value: 0
+  - axis: "Lysine"
+    value: 0
+  - axis: "Methionine"
+    value: 0
+  - axis: "Phenylalanine"
+    value: 0
+  - axis: "Threonine"
+    value: 0
+  - axis: "Tryptophan"
+    value: 0
+  - axis: "Histidine"
+    value: 0
+
+leucine:
+  # morph: number
+  0
+
+isoleucine:
+  # morph: number
+  0
+
+valine:
+  # morph: number
+  0
+
+lysine:
+  # morph: number
+  0
+
+methionine:
+  # morph: number
+  0
+
+phenylalanine:
+  # morph: number
+  0
+
+threonine:
+  # morph: number
+  0
+
+tryptophan:
+  # morph: number
+  0
+
+histidine:
+  # morph: number
+  0
+
+amino_acids_semi_essential:
+  # morph: list
+  - ""
+
+arginine:
+  # morph: number
+  0
+
+cysteine:
+  # morph: number
+  0
+
+tyrosine:
+  # morph: number
+  0
+
+glutamic_acid:
+  # morph: number
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NUTRITION - BIOACTIVE SUBSTANCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bioactive_substances:
+  # morph: bar
+  - label: ""
+    value: 0
+
+beta_glucans:
+  # morph: number
+  # in g per 100g
+  0
+
+ergothioneine:
+  # morph: number
+  # in mg per 100g
+  0
+
+ergosterol:
+  # morph: number
+  0
+
+chitin:
+  # morph: number
+  0
+
+chitosan:
+  # morph: number
+  0
+
+polyphenols:
+  # morph: number
+  0
+
+flavonoids:
+  # morph: number
+  0
+
+carotenoids:
+  # morph: number
+  0
+
+phytosterols:
+  # morph: number
+  0
+
+nutrition_highlights:
+  # morph: list
+  # Top 3-5 nutritional highlights
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NUTRITION - INDICES & RATINGS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+glycemic_index:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - start: 0
+      end: 55
+      color: "rgba(100, 220, 140, 0.2)"  # low
+    - start: 55
+      end: 70
+      color: "rgba(255, 200, 100, 0.2)"  # medium
+    - start: 70
+      end: 100
+      color: "rgba(240, 80, 80, 0.2)"  # high
+
+glycemic_load:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 50
+
+nutri_score:
+  # morph: badge
+  # A | B | C | D | E
+  status: ""
+  variant: ""
+
+nutrient_density:
+  # morph: rating
+  rating: 0
+  max: 10
+
+satiety_index:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 200
+
+bioavailability:
+  # morph: object
+  # Bioavailability of key nutrients
+  iron: ""
+  zinc: ""
+  calcium: ""
+  vitamin_d: ""
+
+antinutrients:
+  # morph: list
+  - ""
+
+interactions:
+  # morph: network
+  # Nutrient interactions (positive/negative)
+  - name: ""
+    type: ""
+    intensity: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CULTURAL CONTEXT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+traditions:
+  # morph: object
+  regions: []
+  dishes: []
+  festivals: []
+
+seasonality:
+  # morph: calendar
+  - month: 1
+    active: false
+    intensity: 0
+
+availability:
+  # morph: badge
+  status: ""
+  variant: ""
+
+sustainability:
+  # morph: rating
+  rating: 0
+  max: 10
+
+history:
+  # morph: timeline
+  - date: ""
+    event: ""
+    description: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CROSS-KINGDOM EDIBILITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+edibility_kingdom_specific:
+  # morph: text
+  ""
+
+edibility_novel_food_status:
+  # morph: badge
+  status: ""
+  variant: ""
+
+edibility_fda_gras:
+  # morph: boolean
+  false
+
+edibility_codex_standard:
+  # morph: link
+  ""
+
+# Entomophagy
+entomophagy_suitable:
+  # morph: boolean
+  false
+
+entomophagy_traditional_regions:
+  # morph: list
+  - ""
+
+entomophagy_preparation_essential:
+  # morph: steps
+  - step: 1
+    label: ""
+    status: "pending"
+
+entomophagy_allergen_warning:
+  # morph: severity
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# Marine/Aquatic
+seafood_sustainability_rating:
+  # morph: badge
+  status: ""
+  variant: ""
+
+seafood_mercury_level:
+  # morph: badge
+  status: ""
+  variant: ""
+
+seafood_omega3_content:
+  # morph: number
+  0
+
+algae_edible_species:
+  # morph: list
+  - ""
+
+# Wild plants
+wild_plant_lookalike_warning:
+  # morph: severity
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+wild_plant_harvest_season:
+  # morph: calendar
+  - month: 1
+    active: false
+
+wild_plant_part_edible:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FERMENTATION & BIOTRANSFORMATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+fermentation_suitable:
+  # morph: boolean
+  false
+
+fermentation_traditional_methods:
+  # morph: list
+  - ""
+
+fermented_products_traditional:
+  # morph: list
+  - ""
+
+fermented_products_modern:
+  # morph: list
+  - ""
+
+fermentation_microorganisms:
+  # morph: list
+  - ""
+
+fermentation_time_range:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "days"
+
+fermentation_temperature_optimal:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "°C"
+
+fermentation_flavor_changes:
+  # morph: text
+  ""
+
+fermentation_nutritional_changes:
+  # morph: text
+  ""
+
+fermentation_safety_considerations:
+  # morph: severity
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+fermentation_failure_signs:
+  # morph: list
+  - ""
+
+fermentation_equipment_needed:
+  # morph: list
+  - ""
+
+fermentation_difficulty:
+  # morph: rating
+  rating: 0
+  max: 10
+
+fermentation_starter_culture:
+  # morph: text
+  ""
+
+fermentation_recipes_famous:
+  # morph: list
+  - ""

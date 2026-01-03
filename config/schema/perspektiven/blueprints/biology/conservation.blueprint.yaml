@@ -1,0 +1,812 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONSERVATION PERSPECTIVE - DATA BLUEPRINT
+# Empty schema with correct morph data structures
+# Version: 1.0.0
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# USAGE: Copy this blueprint and fill in the data for each species.
+# Each field has the correct morph type and data structure defined.
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: conservation
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONSERVATION STATUS
+# "How endangered is it?"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+conservation_status:
+  # morph: badge
+  # EX | EW | CR | EN | VU | NT | LC | DD | NE
+  status: ""
+  variant: ""  # danger | warning | success | info | neutral
+
+iucn_status:
+  # morph: badge
+  status: ""
+  variant: ""
+
+national_status:
+  # morph: object
+  # Country-specific status codes
+  country: ""
+  status: ""
+  legislation: ""
+
+regional_status:
+  # morph: object
+  region: ""
+  status: ""
+  authority: ""
+
+trend:
+  # morph: badge
+  # increasing | stable | decreasing | unknown
+  status: ""
+  variant: ""
+
+population_estimate:
+  # morph: stats
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+assessment_date:
+  # morph: text
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LEGAL PROTECTION
+# "What legal protections exist?"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+legal_protection:
+  # morph: list
+  - ""
+
+protected_status:
+  # morph: boolean
+  false
+
+# CITES - Convention on International Trade in Endangered Species
+cites_listing:
+  # morph: badge
+  # Appendix I | II | III | not_listed | under_review
+  status: ""
+  variant: ""
+
+cites_appendix:
+  # morph: badge
+  status: ""
+  variant: ""
+
+cites_annotation:
+  # morph: text
+  ""
+
+cites_quota:
+  # morph: number
+  # Annual export quota
+  0
+
+cites_source_code:
+  # morph: badge
+  # W | R | D | A | C | F | U | I | O
+  status: ""
+  variant: ""
+
+cites_purpose_code:
+  # morph: badge
+  # T | Z | G | Q | S | H | P | M | E | N | B | L
+  status: ""
+  variant: ""
+
+cites_reservation:
+  # morph: list
+  # Countries with reservations
+  - ""
+
+cites_review_status:
+  # morph: badge
+  status: ""
+  variant: ""
+
+# IUCN Assessment Criteria
+iucn_criteria_met:
+  # morph: list
+  # Criteria codes: A1, A2, A3, A4, B1, B2, C1, C2, D, D1, D2, E
+  - ""
+
+iucn_criterion_a_decline:
+  # morph: progress
+  # Population reduction percentage
+  value: 0
+  max: 100
+
+iucn_criterion_b_eoo:
+  # morph: number
+  # Extent of Occurrence in km²
+  0
+
+iucn_criterion_b_aoo:
+  # morph: number
+  # Area of Occupancy in km²
+  0
+
+iucn_criterion_c_population:
+  # morph: number
+  # Estimated mature individuals
+  0
+
+iucn_criterion_d_restricted:
+  # morph: boolean
+  false
+
+iucn_criterion_e_probability:
+  # morph: progress
+  # Extinction probability from PVA
+  value: 0
+  max: 100
+
+iucn_generation_length_years:
+  # morph: number
+  0
+
+iucn_assessment_authority:
+  # morph: text
+  ""
+
+national_legislation:
+  # morph: list
+  - ""
+
+international_agreements:
+  # morph: list
+  - ""
+
+collection_restrictions:
+  # morph: severity
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+trade_restrictions:
+  # morph: severity
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EX-SITU CONSERVATION - Kingdom-specific repositories
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# Animalia (ZIMS)
+zims_accession_id:
+  # morph: text
+  ""
+
+zims_global_population:
+  # morph: number
+  0
+
+zims_studbook_exists:
+  # morph: boolean
+  false
+
+zims_breeding_recommendation:
+  # morph: text
+  ""
+
+# Plantae (GENESYS)
+genesys_accession_id:
+  # morph: text
+  ""
+
+genesys_holding_institutions:
+  # morph: list
+  - ""
+
+genesys_mcpd_passport:
+  # morph: text
+  ""
+
+genesys_mls_status:
+  # morph: boolean
+  false
+
+bgci_garden_count:
+  # morph: number
+  0
+
+# Fungi/Bacteria (WDCM)
+wdcm_strain_count:
+  # morph: number
+  0
+
+wdcm_collection_ids:
+  # morph: list
+  - ""
+
+wdcm_preservation_method:
+  # morph: tag
+  ""
+
+wdcm_biosafety_level:
+  # morph: badge
+  # BSL-1 | BSL-2 | BSL-3 | BSL-4
+  status: ""
+  variant: ""
+
+strain_type_status:
+  # morph: boolean
+  false
+
+# Cryo/DNA banking
+frozen_zoo_status:
+  # morph: boolean
+  false
+
+dna_bank_accession:
+  # morph: text
+  ""
+
+seed_bank_accession:
+  # morph: text
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THREATS
+# "What endangers this species?"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+threats:
+  # morph: bar
+  # Threat types ranked by severity
+  - label: ""
+    value: 0
+
+habitat_loss:
+  # morph: severity
+  - level: ""
+    typ: "Habitat Loss"
+    beschreibung: ""
+
+climate_change_impact:
+  # morph: severity
+  - level: ""
+    typ: "Climate Change"
+    beschreibung: ""
+
+pollution_impact:
+  # morph: severity
+  - level: ""
+    typ: "Pollution"
+    beschreibung: ""
+
+overexploitation:
+  # morph: severity
+  - level: ""
+    typ: "Overexploitation"
+    beschreibung: ""
+
+invasive_species:
+  # morph: severity
+  - level: ""
+    typ: "Invasive Species"
+    beschreibung: ""
+
+disease_pressure:
+  # morph: severity
+  - level: ""
+    typ: "Disease"
+    beschreibung: ""
+
+threat_severity:
+  # morph: gauge
+  # Overall threat severity score
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - start: 0
+      end: 33
+      color: "rgba(100, 220, 140, 0.2)"  # low
+    - start: 33
+      end: 66
+      color: "rgba(255, 200, 100, 0.2)"  # medium
+    - start: 66
+      end: 100
+      color: "rgba(240, 80, 80, 0.2)"  # high
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HABITAT REQUIREMENTS
+# "What habitat does it need?"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+habitat_requirements:
+  # morph: list
+  - ""
+
+critical_habitat:
+  # morph: text
+  ""
+
+habitat_quality:
+  # morph: rating
+  rating: 0
+  max: 10
+
+habitat_fragmentation:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+connectivity_needs:
+  # morph: text
+  ""
+
+microhabitat_requirements:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DISTRIBUTION
+# "Where does it occur?"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+distribution:
+  # morph: map
+  lat: 0
+  lng: 0
+  region: ""
+
+range_map:
+  # morph: image
+  ""
+
+historical_range:
+  # morph: text
+  ""
+
+current_range:
+  # morph: text
+  ""
+
+range_change:
+  # morph: slopegraph
+  vorher:
+    area_km2: 0
+  nachher:
+    area_km2: 0
+
+key_populations:
+  # morph: list
+  - ""
+
+protected_area_coverage:
+  # morph: progress
+  # Percentage of range in protected areas
+  value: 0
+  max: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONSERVATION ACTIONS
+# "What is being done?"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+conservation_actions:
+  # morph: list
+  - ""
+
+habitat_management:
+  # morph: steps
+  - step: 1
+    label: ""
+    status: "pending"
+
+population_management:
+  # morph: text
+  ""
+
+ex_situ_conservation:
+  # morph: list
+  - ""
+
+reintroduction_programs:
+  # morph: list
+  - ""
+
+monitoring_programs:
+  # morph: list
+  - ""
+
+research_priorities:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ECOSYSTEM ROLE
+# "Why is conservation important?"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+ecosystem_role:
+  # morph: text
+  ""
+
+ecological_importance:
+  # morph: radar
+  - axis: "Decomposition"
+    value: 0
+  - axis: "Nutrient Cycling"
+    value: 0
+  - axis: "Food Web"
+    value: 0
+  - axis: "Pollination"
+    value: 0
+  - axis: "Seed Dispersal"
+    value: 0
+
+keystone_status:
+  # morph: boolean
+  false
+
+indicator_species:
+  # morph: boolean
+  false
+
+ecosystem_services:
+  # morph: list
+  - ""
+
+trophic_importance:
+  # morph: network
+  - name: ""
+    type: ""
+    intensity: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SUSTAINABLE USE
+# "How can it be used sustainably?"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sustainable_use:
+  # morph: text
+  ""
+
+harvesting_guidelines:
+  # morph: steps
+  - step: 1
+    label: ""
+    status: "pending"
+
+sustainable_harvest_level:
+  # morph: range
+  min: 0
+  max: 0
+  unit: ""
+
+certification_schemes:
+  # morph: list
+  - ""
+
+community_management:
+  # morph: text
+  ""
+
+traditional_management:
+  # morph: text
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ADDITIONAL FIELDS - Conservation Details
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# CONSERVATION PRIORITY
+conservation_priority_score:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+conservation_priority_rank:
+  # morph: number
+  0
+
+edge_score:
+  # morph: gauge
+  # Evolutionarily Distinct and Globally Endangered
+  value: 0
+  min: 0
+  max: 100
+
+action_urgency:
+  # morph: badge
+  status: ""
+  variant: ""
+
+time_to_extinction_estimate:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "years"
+
+conservation_attention_needed:
+  # morph: badge
+  # underprotected | adequate | flagship
+  status: ""
+  variant: ""
+
+funding_gap_estimated:
+  # morph: currency
+  amount: 0
+  currency: "USD"
+
+# DETAILED THREAT ANALYSIS
+threat_severity_scores:
+  # morph: radar
+  - axis: "Habitat Loss"
+    value: 0
+  - axis: "Overexploitation"
+    value: 0
+  - axis: "Invasives"
+    value: 0
+  - axis: "Pollution"
+    value: 0
+  - axis: "Climate"
+    value: 0
+  - axis: "Disease"
+    value: 0
+
+threat_habitat_loss_score:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+threat_overexploitation_score:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+threat_invasives_score:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+threat_pollution_score:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+threat_climate_score:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+threat_disease_score:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+threat_trends:
+  # morph: sparkline
+  - 0
+
+emerging_threats:
+  # morph: list
+  - ""
+
+threat_interactions:
+  # morph: network
+  - name: ""
+    type: ""
+    intensity: 0
+
+# PROTECTED AREAS & EFFECTIVENESS
+protected_area_coverage_percent:
+  # morph: progress
+  value: 0
+  max: 100
+
+protected_area_adequacy:
+  # morph: badge
+  status: ""
+  variant: ""
+
+protected_areas_list:
+  # morph: list
+  - ""
+
+protection_gaps_geographic:
+  # morph: list
+  - ""
+
+iucn_category_needed:
+  # morph: badge
+  status: ""
+  variant: ""
+
+connectivity_between_areas:
+  # morph: rating
+  rating: 0
+  max: 10
+
+management_effectiveness:
+  # morph: gauge
+  # METT Score
+  value: 0
+  min: 0
+  max: 100
+
+enforcement_quality:
+  # morph: rating
+  rating: 0
+  max: 10
+
+# ACTIVE CONSERVATION MEASURES
+conservation_programs_active:
+  # morph: list
+  - ""
+
+conservation_program_success_rate:
+  # morph: progress
+  value: 0
+  max: 100
+
+conservation_actions_recommended:
+  # morph: list
+  - ""
+
+conservation_actions_priority:
+  # morph: bar
+  - label: ""
+    value: 0
+
+habitat_restoration_feasibility:
+  # morph: rating
+  rating: 0
+  max: 10
+
+habitat_restoration_cost_ha:
+  # morph: currency
+  amount: 0
+  currency: "USD"
+
+reintroduction_attempts:
+  # morph: number
+  0
+
+reintroduction_success_rate:
+  # morph: progress
+  value: 0
+  max: 100
+
+reintroduction_sites_potential:
+  # morph: list
+  - ""
+
+captive_breeding_program:
+  # morph: boolean
+  false
+
+captive_breeding_success:
+  # morph: progress
+  value: 0
+  max: 100
+
+genetic_management_needed:
+  # morph: boolean
+  false
+
+# MONITORING & ASSESSMENT
+monitoring_protocol_exists:
+  # morph: boolean
+  false
+
+monitoring_frequency:
+  # morph: tag
+  ""
+
+population_trend_data_quality:
+  # morph: rating
+  rating: 0
+  max: 10
+
+last_assessment_date:
+  # morph: text
+  ""
+
+next_assessment_due:
+  # morph: text
+  ""
+
+monitoring_gaps:
+  # morph: list
+  - ""
+
+research_priorities_conservation:
+  # morph: list
+  - ""
+
+knowledge_gaps_critical:
+  # morph: list
+  - ""
+
+# CITIZEN SCIENCE & ENGAGEMENT
+citizen_science_projects:
+  # morph: list
+  - ""
+
+citizen_science_contribution_value:
+  # morph: text
+  ""
+
+how_public_can_help:
+  # morph: list
+  - ""
+
+volunteer_opportunities:
+  # morph: list
+  - ""
+
+reporting_sightings_where:
+  # morph: link
+  ""
+
+education_programs_available:
+  # morph: list
+  - ""
+
+adopt_a_species_program:
+  # morph: link
+  ""
+
+donation_impact_description:
+  # morph: text
+  ""
+
+conservation_organizations_active:
+  # morph: list
+  - ""
+
+# LANDOWNER LEGAL ASPECTS
+landowner_obligations:
+  # morph: list
+  - ""
+
+landowner_incentives:
+  # morph: list
+  - ""
+
+conservation_easement_value:
+  # morph: currency
+  amount: 0
+  currency: "USD"
+
+stewardship_programs_available:
+  # morph: list
+  - ""
+
+compensation_schemes:
+  # morph: list
+  - ""
+
+habitat_management_guidelines:
+  # morph: steps
+  - step: 1
+    label: ""
+    status: "pending"
+
+best_practices_landowners:
+  # morph: list
+  - ""

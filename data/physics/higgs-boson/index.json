@@ -1,0 +1,29 @@
+{
+  "id": "higgs-boson",
+  "slug": "higgs-boson",
+  "name": "Higgs-Boson",
+  "scientific_name": "Higgs boson",
+  "kingdom": "particle",
+  "kingdom_icon": "⚛️",
+  "image": null,
+  "tagline": "Gottesteilchen",
+  "description": "Das Higgs-Boson ist ein Elementarteilchen des Standardmodells, das 2012 am CERN entdeckt wurde. Es ist das Anregungsquant des Higgs-Feldes, das anderen Teilchen ihre Masse verleiht.",
+  "seo_description": "Higgs-Boson - Gottesteilchen, verleiht Masse",
+  "quick_facts": [
+    {"icon": "⚖️", "label": "Masse", "value": "125.25 GeV/c²"},
+    {"icon": "⚡", "label": "Ladung", "value": "0"},
+    {"icon": "🔄", "label": "Spin", "value": "0"},
+    {"icon": "⏱️", "label": "Lebensdauer", "value": "1.56×10⁻²² s"}
+  ],
+  "highlights": ["Massenerzeugung", "Standardmodell", "CERN 2012"],
+  "badges": [
+    {"icon": "🏆", "label": "Nobelpreis", "status": "2013", "variant": "success"},
+    {"icon": "🔬", "label": "Entdeckung", "status": "LHC/CERN", "variant": "info"}
+  ],
+  "categories": ["Bosonen", "Skalare"],
+  "keywords": ["higgs-feld", "massenerzeugung", "standardmodell", "lhc", "cern", "gottesteilchen"],
+  "perspectives": ["particle", "quantum", "mechanics", "research"],
+  "perspective_count": 4,
+  "engagement_score": 100,
+  "_sources": {"image": [], "fields": {}}
+}

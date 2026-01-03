@@ -1,19 +1,26 @@
 /**
- * AMORPH - BIFROEST Species Client
+ * AMORPH - BIFROEST Species Client v3
  * 
  * Lädt Species-Daten von der BIFROEST Pocketbase.
- * Schema: Core fields + 15 Perspective JSON fields (matching blueprints)
+ * Unterstützt separate Biology- und Geology-Collections.
+ * 
+ * Collections:
+ * - Biology: fungi, plantae, therion
+ * - Geology: paleontology, mineralogy, tectonics
  * 
  * Features:
+ * - Multi-domain support (biology/geology)
+ * - Site-specific loading (FUNGINOMI, PALEONOMI, etc.)
+ * - Domain-specific perspectives
  * - In-memory caching with configurable TTL
  * - Health check for connection monitoring
- * - Graceful error handling
  */
 
 import type { ItemData } from '../core/types';
 import { cachedFetch, invalidateSpeciesCache } from './cache';
+import { getSiteType, getSiteDomain, SITE_META, SITE_DOMAIN, type SiteType, type Domain } from './config';
 
-// API Configuration - use process.env for Node.js server context
+// API Configuration
 const POCKETBASE_URL = process.env.POCKETBASE_URL || 'http://localhost:8090';
 const API_TIMEOUT = parseInt(process.env.API_TIMEOUT || '5000', 10);
 const CACHE_TTL = parseInt(process.env.CACHE_TTL || '300', 10);
@@ -22,12 +29,84 @@ const CACHE_TTL = parseInt(process.env.CACHE_TTL || '300', 10);
 let lastHealthCheck = 0;
 let isConnected = true;
 
-// 15 Perspectives matching blueprints
-const PERSPECTIVES = [
+// ============================================================================
+// COLLECTION CONFIGURATION
+// ============================================================================
+
+// Collection types (map to Pocketbase collection names)
+type BiologyCollection = 'fungi' | 'plantae' | 'therion';
+type GeologyCollection = 'paleontology' | 'mineralogy' | 'tectonics';
+type Collection = BiologyCollection | GeologyCollection;
+
+const BIOLOGY_COLLECTIONS: BiologyCollection[] = ['fungi', 'plantae', 'therion'];
+const GEOLOGY_COLLECTIONS: GeologyCollection[] = ['paleontology', 'mineralogy', 'tectonics'];
+const ALL_COLLECTIONS: Collection[] = [...BIOLOGY_COLLECTIONS, ...GEOLOGY_COLLECTIONS];
+
+// Map collection to domain (uses SITE_DOMAIN from config for consistency)
+function getCollectionDomain(collection: Collection): Domain {
+  // Find site type by collection
+  for (const [siteType, meta] of Object.entries(SITE_META)) {
+    if (meta.collection === collection) {
+      return SITE_DOMAIN[siteType as SiteType];
+    }
+  }
+  return 'biology'; // default
+}
+
+// Map legacy category names to collections
+const CATEGORY_TO_COLLECTION: Record<string, Collection> = {
+  'Fungi': 'fungi',
+  'Plantae': 'plantae',
+  'Therion': 'therion',
+  'fungi': 'fungi',
+  'plantae': 'plantae',
+  'therion': 'therion'
+};
+
+// ============================================================================
+// PERSPECTIVES PER DOMAIN
+// ============================================================================
+
+// Biology: 15 perspectives
+const BIOLOGY_PERSPECTIVES = [
   'identification', 'ecology', 'chemistry', 'medicine', 'safety',
   'culinary', 'cultivation', 'conservation', 'culture', 'economy',
   'geography', 'interactions', 'research', 'statistics', 'temporal'
 ] as const;
+
+// Paleontology: 11 perspectives
+const PALEONTOLOGY_PERSPECTIVES = [
+  'taxonomy_paleo', 'morphology', 'chronology', 'paleoecology', 'taphonomy',
+  'biogeography', 'extinction', 'discoveries', 'reconstruction', 'museum', 'research'
+] as const;
+
+// Mineralogy: 11 perspectives
+const MINERALOGY_PERSPECTIVES = [
+  'classification', 'chemistry', 'crystallography', 'physical', 'optical',
+  'formation', 'occurrence', 'economic_mineral', 'collecting', 'gemology', 'research'
+] as const;
+
+// Tectonics: 6 perspectives
+const TECTONICS_PERSPECTIVES = [
+  'chronology', 'stratigraphy', 'plate_tectonics', 'structural', 'deformation', 'research'
+] as const;
+
+function getPerspectivesForCollection(collection: Collection): readonly string[] {
+  switch (collection) {
+    case 'fungi':
+    case 'plantae':
+    case 'therion':
+      return BIOLOGY_PERSPECTIVES;
+    case 'paleontology':
+      return PALEONTOLOGY_PERSPECTIVES;
+    case 'mineralogy':
+      return MINERALOGY_PERSPECTIVES;
+    case 'tectonics':
+      return TECTONICS_PERSPECTIVES;
+    default:
+      return BIOLOGY_PERSPECTIVES;
+  }
+}
 
 interface PocketbaseResponse {
   items: PocketbaseSpecies[];
@@ -37,6 +116,7 @@ interface PocketbaseResponse {
   totalPages: number;
 }
 
+// Generic record with any perspective field
 interface PocketbaseSpecies {
   id: string;
   collectionId: string;
@@ -46,51 +126,43 @@ interface PocketbaseSpecies {
   name: string;
   scientific_name: string;
   description: string;
-  category: string;
+  category?: string; // Optional, inferred from collection
   image: string;
-  // 15 Perspective fields (each is JSON or null)
-  identification: Record<string, unknown> | null;
-  ecology: Record<string, unknown> | null;
-  chemistry: Record<string, unknown> | null;
-  medicine: Record<string, unknown> | null;
-  safety: Record<string, unknown> | null;
-  culinary: Record<string, unknown> | null;
-  cultivation: Record<string, unknown> | null;
-  conservation: Record<string, unknown> | null;
-  culture: Record<string, unknown> | null;
-  economy: Record<string, unknown> | null;
-  geography: Record<string, unknown> | null;
-  interactions: Record<string, unknown> | null;
-  research: Record<string, unknown> | null;
-  statistics: Record<string, unknown> | null;
-  temporal: Record<string, unknown> | null;
-  // Meta fields
-  sources: Record<string, unknown> | null;
-  status: string;
-  featured: boolean;
-  tags: string[];
+  // All possible perspective fields as dynamic
+  [key: string]: unknown;
 }
 
 /**
  * Konvertiert Pocketbase Species zu AMORPH ItemData Format
+ * @param species - Raw species record from Pocketbase
+ * @param collectionName - Name of the collection (for perspective detection)
  */
-function toItemData(species: PocketbaseSpecies): ItemData {
+function toItemData(species: PocketbaseSpecies, collectionName: Collection): ItemData {
+  const domain = getCollectionDomain(collectionName);
+  const perspectives = getPerspectivesForCollection(collectionName);
+  
+  // Derive kingdom from collection name (capitalize first letter)
+  const kingdom = species.category || 
+    collectionName.charAt(0).toUpperCase() + collectionName.slice(1);
+  
   const item: ItemData = {
     id: species.id,
     slug: species.slug,
     name: species.name,
     scientificName: species.scientific_name,
     description: species.description,
-    image: species.image,
-    _kingdom: species.category,
+    image: species.image as string,
+    _kingdom: kingdom,
+    _collection: collectionName,
+    _domain: domain,
     _fieldPerspective: {} as Record<string, string>,
     _perspectives: {},
     _loadedPerspectives: [],
     _sources: (species.sources || {}) as ItemData['_sources']
   };
   
-  // Extrahiere alle 15 Perspektiven-Felder
-  for (const perspective of PERSPECTIVES) {
+  // Extract perspective fields based on collection type
+  for (const perspective of perspectives) {
     const data = species[perspective];
     if (data && typeof data === 'object') {
       // Speichere in _perspectives
@@ -114,30 +186,25 @@ function toItemData(species: PocketbaseSpecies): ItemData {
   return item;
 }
 
+// ============================================================================
+// DATA FETCHING
+// ============================================================================
+
 /**
- * Lädt Species-Daten direkt von Pocketbase
+ * Fetch records from a specific collection
  */
-export async function fetchSpeciesFromPocketbase(options: {
-  category?: string;
-  slug?: string;
-  perPage?: number;
-}): Promise<ItemData[]> {
-  const { category, slug, perPage = 100 } = options;
+async function fetchFromCollection(
+  collection: Collection,
+  options: { slug?: string; perPage?: number } = {}
+): Promise<ItemData[]> {
+  const { slug, perPage = 100 } = options;
   
   try {
-    const url = new URL(`${POCKETBASE_URL}/api/collections/species/records`);
+    const url = new URL(`${POCKETBASE_URL}/api/collections/${collection}/records`);
     url.searchParams.set('perPage', perPage.toString());
     
-    const filters: string[] = [];
-    if (category) {
-      filters.push(`category="${category}"`);
-    }
     if (slug) {
-      filters.push(`slug="${slug}"`);
-    }
-    
-    if (filters.length > 0) {
-      url.searchParams.set('filter', filters.join(' && '));
+      url.searchParams.set('filter', `slug="${slug}"`);
     }
     
     const controller = new AbortController();
@@ -154,46 +221,122 @@ export async function fetchSpeciesFromPocketbase(options: {
     }
     
     const data: PocketbaseResponse = await response.json();
-    return data.items.map(toItemData);
+    return data.items.map(item => toItemData(item, collection));
     
   } catch (error) {
-    console.error('[BIFROEST] Failed to fetch from Pocketbase:', error);
+    console.error(`[BIFROEST] Failed to fetch from ${collection}:`, error);
     throw error;
   }
 }
 
 /**
- * Lädt alle Species für eine Kategorie (mit Caching)
+ * Lädt alle Records aus einer Collection (mit Caching)
  */
-export async function loadSpeciesByCategory(category: string): Promise<ItemData[]> {
-  console.log(`[BIFROEST] Loading species for category: ${category}`);
+export async function loadByCollection(collection: Collection): Promise<ItemData[]> {
+  console.log(`[BIFROEST] Loading collection: ${collection}`);
   
   try {
     const items = await cachedFetch(
-      `species:${category}:all`,
-      () => fetchSpeciesFromPocketbase({ category }),
+      `collection:${collection}:all`,
+      () => fetchFromCollection(collection),
       CACHE_TTL
     );
-    console.log(`[BIFROEST] ✅ Loaded ${items.length} species from API`);
+    console.log(`[BIFROEST] ✅ Loaded ${items.length} items from ${collection}`);
     isConnected = true;
     return items;
   } catch (error) {
-    console.error('[BIFROEST] ❌ API unavailable, falling back to local data');
+    console.error(`[BIFROEST] ❌ Failed to load ${collection}`);
     isConnected = false;
-    return []; // Caller should handle fallback
+    return [];
   }
 }
 
 /**
- * Lädt einzelne Species by Slug (mit Caching)
+ * Lädt alle Records für eine Domain (biology/geology)
+ */
+export async function loadByDomain(domain: Domain): Promise<ItemData[]> {
+  console.log(`[BIFROEST] Loading domain: ${domain}`);
+  
+  const collections = domain === 'biology' ? BIOLOGY_COLLECTIONS : GEOLOGY_COLLECTIONS;
+  const results: ItemData[] = [];
+  
+  for (const collection of collections) {
+    try {
+      const items = await loadByCollection(collection);
+      results.push(...items);
+    } catch (error) {
+      console.error(`[BIFROEST] Failed to load ${collection}`);
+    }
+  }
+  
+  console.log(`[BIFROEST] ✅ Loaded ${results.length} total items from ${domain}`);
+  return results;
+}
+
+/**
+ * Lädt alle Biology-Species (fungi, plantae, therion)
+ * Backward compatible with old loadSpeciesByCategory
+ */
+export async function loadSpeciesByCategory(category: string): Promise<ItemData[]> {
+  console.log(`[BIFROEST] Loading by category: ${category}`);
+  
+  // Map legacy category to collection
+  const collection = CATEGORY_TO_COLLECTION[category];
+  
+  if (collection) {
+    return loadByCollection(collection);
+  }
+  
+  // If no mapping found, try as collection name
+  if (ALL_COLLECTIONS.includes(category as Collection)) {
+    return loadByCollection(category as Collection);
+  }
+  
+  console.warn(`[BIFROEST] Unknown category: ${category}`);
+  return [];
+}
+
+/**
+ * Lädt einzelne Species/Item by Slug (sucht in allen Collections)
  */
 export async function loadSpeciesBySlug(slug: string): Promise<ItemData | null> {
-  console.log(`[BIFROEST] Loading species: ${slug}`);
+  console.log(`[BIFROEST] Loading by slug: ${slug}`);
+  
+  // Search in all collections
+  for (const collection of ALL_COLLECTIONS) {
+    try {
+      const items = await cachedFetch(
+        `${collection}:slug:${slug}`,
+        () => fetchFromCollection(collection, { slug }),
+        CACHE_TTL
+      );
+      if (items.length > 0) {
+        console.log(`[BIFROEST] ✅ Found ${items[0].name} in ${collection}`);
+        isConnected = true;
+        return items[0];
+      }
+    } catch {
+      // Continue searching other collections
+    }
+  }
+  
+  console.log(`[BIFROEST] ❌ Not found: ${slug}`);
+  return null;
+}
+
+/**
+ * Lädt einzelnes Item by Slug aus einer bestimmten Collection
+ */
+export async function loadItemBySlug(
+  collection: Collection, 
+  slug: string
+): Promise<ItemData | null> {
+  console.log(`[BIFROEST] Loading ${collection}/${slug}`);
   
   try {
     const items = await cachedFetch(
-      `species:slug:${slug}`,
-      () => fetchSpeciesFromPocketbase({ slug }),
+      `${collection}:slug:${slug}`,
+      () => fetchFromCollection(collection, { slug }),
       CACHE_TTL
     );
     if (items.length > 0) {
@@ -202,11 +345,38 @@ export async function loadSpeciesBySlug(slug: string): Promise<ItemData | null> 
       return items[0];
     }
     return null;
-  } catch (error) {
-    console.error('[BIFROEST] ❌ API unavailable');
+  } catch {
+    console.error(`[BIFROEST] ❌ Failed to load ${collection}/${slug}`);
     isConnected = false;
     return null;
   }
+}
+
+// ============================================================================
+// LEGACY COMPATIBILITY
+// ============================================================================
+
+/**
+ * @deprecated Use loadByCollection or loadByDomain instead
+ */
+export async function fetchSpeciesFromPocketbase(options: {
+  category?: string;
+  slug?: string;
+  perPage?: number;
+}): Promise<ItemData[]> {
+  const { category, slug } = options;
+  
+  if (slug) {
+    const item = await loadSpeciesBySlug(slug);
+    return item ? [item] : [];
+  }
+  
+  if (category) {
+    return loadSpeciesByCategory(category);
+  }
+  
+  // Load all biology items by default
+  return loadByDomain('biology');
 }
 
 /**
@@ -255,4 +425,36 @@ export function getBifroestStatus(): { connected: boolean; url: string; lastChec
  */
 export function invalidateBifroestCache(category?: string): void {
   invalidateSpeciesCache(category);
+}
+
+// ============================================================================
+// SITE-SPECIFIC LOADING
+// ============================================================================
+
+/**
+ * Lädt alle Items für die aktuelle Site (basierend auf SITE_TYPE env)
+ * Jede Site hat ihre eigene Collection:
+ * - fungi → FUNGINOMI
+ * - plantae → PHYTONOMI
+ * - therion → THERIONOMI
+ * - paleontology → PALEONOMI
+ * - tectonics → TEKTONOMI
+ * - mineralogy → MINENOMI
+ */
+export async function loadSiteItems(): Promise<ItemData[]> {
+  const siteType = getSiteType();
+  const siteMeta = SITE_META[siteType];
+  const collection = siteMeta.collection as Collection;
+  
+  console.log(`[BIFROEST] Loading items for site: ${siteMeta.name} (collection: ${collection})`);
+  
+  return loadByCollection(collection);
+}
+
+/**
+ * Get the collection name for the current site
+ */
+export function getSiteCollection(): Collection {
+  const siteType = getSiteType();
+  return SITE_META[siteType].collection as Collection;
 }

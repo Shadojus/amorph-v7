@@ -1,0 +1,29 @@
+{
+  "id": "carbon",
+  "slug": "carbon",
+  "name": "Kohlenstoff",
+  "scientific_name": "Carbon",
+  "kingdom": "element",
+  "kingdom_icon": "⚗️",
+  "image": null,
+  "tagline": "Grundlage des Lebens",
+  "description": "Kohlenstoff ist ein Nichtmetall mit der Ordnungszahl 6 und bildet die Grundlage aller organischen Verbindungen. Es existiert in verschiedenen Allotropen wie Graphit, Diamant, Fulleren und Graphen.",
+  "seo_description": "Kohlenstoff (C) - Element der organischen Chemie, Allotrope",
+  "quick_facts": [
+    {"icon": "🔢", "label": "Ordnungszahl", "value": "6"},
+    {"icon": "⚖️", "label": "Atommasse", "value": "12.011 u"},
+    {"icon": "🔥", "label": "Schmelzpunkt", "value": "3550°C"},
+    {"icon": "⚡", "label": "Elektronegativität", "value": "2.55"}
+  ],
+  "highlights": ["Organische Chemie", "Allotrope", "Kohlenstoffkreislauf"],
+  "badges": [
+    {"icon": "🌍", "label": "Häufigkeit", "status": "4. häufigstes Element", "variant": "info"},
+    {"icon": "🔬", "label": "Bindungen", "status": "4 kovalent", "variant": "success"}
+  ],
+  "categories": ["Nichtmetalle", "Kohlenstoffgruppe"],
+  "keywords": ["diamant", "graphit", "graphen", "fulleren", "organisch", "kohlenstoffkreislauf"],
+  "perspectives": ["atomic_structure", "bonding", "organic", "applications", "research"],
+  "perspective_count": 5,
+  "engagement_score": 95,
+  "_sources": {"image": [], "fields": {}}
+}

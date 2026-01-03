@@ -1,0 +1,1273 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# GEOGRAPHY PERSPECTIVE BLUEPRINT
+# Schema mit leeren Datenstrukturen für Morph-Erkennung
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DARWIN CORE LOCATION TERMS (DWC STANDARD)
+# Standard-Felder für Biodiversitätsdaten nach Darwin Core
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+dwc_location_id: ""
+
+# morph: text
+dwc_higher_geography_id: ""
+
+# morph: text
+dwc_higher_geography: ""
+
+# morph: text
+dwc_continent: ""
+
+# morph: text
+dwc_water_body: ""
+
+# morph: text
+dwc_island_group: ""
+
+# morph: text
+dwc_island: ""
+
+# morph: text
+dwc_country: ""
+
+# morph: tag
+dwc_country_code: ""
+
+# morph: text
+dwc_state_province: ""
+
+# morph: text
+dwc_county: ""
+
+# morph: text
+dwc_municipality: ""
+
+# morph: text
+dwc_locality: ""
+
+# morph: range
+dwc_verbatim_elevation:
+  min: 0
+  max: 0
+  unit: "m"
+
+# morph: number
+dwc_minimum_elevation_in_meters: 0
+
+# morph: number
+dwc_maximum_elevation_in_meters: 0
+
+# morph: range
+dwc_verbatim_depth:
+  min: 0
+  max: 0
+  unit: "m"
+
+# morph: number
+dwc_minimum_depth_in_meters: 0
+
+# morph: number
+dwc_maximum_depth_in_meters: 0
+
+# morph: range
+dwc_minimum_distance_above_surface_in_meters:
+  min: 0
+  max: 0
+  unit: "m"
+
+# morph: range
+dwc_maximum_distance_above_surface_in_meters:
+  min: 0
+  max: 0
+  unit: "m"
+
+# morph: text
+dwc_location_according_to: ""
+
+# morph: text
+dwc_location_remarks: ""
+
+# morph: number
+dwc_decimal_latitude: 0
+
+# morph: number
+dwc_decimal_longitude: 0
+
+# morph: text
+dwc_geodetic_datum: ""
+
+# morph: number
+dwc_coordinate_uncertainty_in_meters: 0
+
+# morph: number
+dwc_coordinate_precision: 0
+
+# morph: number
+dwc_point_radius_spatial_fit: 0
+
+# morph: text
+dwc_verbatim_coordinates: ""
+
+# morph: text
+dwc_verbatim_latitude: ""
+
+# morph: text
+dwc_verbatim_longitude: ""
+
+# morph: text
+dwc_verbatim_coordinate_system: ""
+
+# morph: text
+dwc_verbatim_srs: ""
+
+# morph: text
+dwc_footprint_wkt: ""
+
+# morph: text
+dwc_footprint_srs: ""
+
+# morph: number
+dwc_footprint_spatial_fit: 0
+
+# morph: text
+dwc_georeferenced_by: ""
+
+# morph: text
+dwc_georeferenced_date: ""
+
+# morph: text
+dwc_georeference_protocol: ""
+
+# morph: text
+dwc_georeference_sources: ""
+
+# morph: text
+dwc_georeference_verification_status: ""
+
+# morph: text
+dwc_georeference_remarks: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DARWIN CORE GEOLOGICAL CONTEXT
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+dwc_geological_context_id: ""
+
+# morph: text
+dwc_earliest_eon_or_lowest_eonothem: ""
+
+# morph: text
+dwc_latest_eon_or_highest_eonothem: ""
+
+# morph: text
+dwc_earliest_era_or_lowest_erathem: ""
+
+# morph: text
+dwc_latest_era_or_highest_erathem: ""
+
+# morph: text
+dwc_earliest_period_or_lowest_system: ""
+
+# morph: text
+dwc_latest_period_or_highest_system: ""
+
+# morph: text
+dwc_earliest_epoch_or_lowest_series: ""
+
+# morph: text
+dwc_latest_epoch_or_highest_series: ""
+
+# morph: text
+dwc_earliest_age_or_lowest_stage: ""
+
+# morph: text
+dwc_latest_age_or_highest_stage: ""
+
+# morph: text
+dwc_lowest_biostratigraphic_zone: ""
+
+# morph: text
+dwc_highest_biostratigraphic_zone: ""
+
+# morph: text
+dwc_lithostratigraphic_terms: ""
+
+# morph: text
+dwc_group: ""
+
+# morph: text
+dwc_formation: ""
+
+# morph: text
+dwc_member: ""
+
+# morph: text
+dwc_bed: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GBIF OCCURRENCE STATISTICS
+# Global Biodiversity Information Facility Daten
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+gbif_taxon_key: ""
+
+# morph: stats
+gbif_occurrence_count:
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+# morph: stats
+gbif_georeferenced_count:
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+# morph: progress
+gbif_georeferenced_percentage:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: number
+gbif_countries_count: 0
+
+# morph: list
+gbif_top_countries:
+  - ""
+
+# morph: number
+gbif_institutions_count: 0
+
+# morph: list
+gbif_top_institutions:
+  - ""
+
+# morph: number
+gbif_datasets_count: 0
+
+# morph: list
+gbif_top_datasets:
+  - ""
+
+# morph: text
+gbif_last_updated: ""
+
+# morph: link
+gbif_species_page: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GLOBAL DISTRIBUTION
+# Weltweite Verbreitung und Status
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+distribution: ""
+
+# morph: list
+native_range:
+  - ""
+
+# morph: list
+introduced_range:
+  - ""
+
+# morph: list
+invasive_range:
+  - ""
+
+# morph: boolean
+cosmopolitan: false
+
+# morph: boolean
+endemic: false
+
+# morph: text
+endemic_to: ""
+
+# morph: text
+distribution_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CONTINENTAL DISTRIBUTION
+# Präsenz nach Kontinenten
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+continental_distribution:
+  # morph: boolean
+  europe: false
+  # morph: boolean
+  asia: false
+  # morph: boolean
+  africa: false
+  # morph: boolean
+  north_america: false
+  # morph: boolean
+  south_america: false
+  # morph: boolean
+  oceania: false
+  # morph: boolean
+  antarctica: false
+
+# morph: pie
+continental_occurrence:
+  - label: ""
+    value: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# EUROPE DISTRIBUTION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+europe:
+  # morph: boolean
+  present: false
+  # morph: list
+  countries:
+    - ""
+  # morph: list
+  regions:
+    - ""
+  # morph: list
+  hotspots:
+    - ""
+  # morph: text
+  distribution_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ASIA DISTRIBUTION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+asia:
+  # morph: boolean
+  present: false
+  # morph: list
+  countries:
+    - ""
+  # morph: list
+  regions:
+    - ""
+  # morph: list
+  hotspots:
+    - ""
+  # morph: text
+  distribution_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# AFRICA DISTRIBUTION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+africa:
+  # morph: boolean
+  present: false
+  # morph: list
+  countries:
+    - ""
+  # morph: list
+  regions:
+    - ""
+  # morph: list
+  hotspots:
+    - ""
+  # morph: text
+  distribution_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# NORTH AMERICA DISTRIBUTION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+north_america:
+  # morph: boolean
+  present: false
+  # morph: list
+  countries:
+    - ""
+  # morph: list
+  regions:
+    - ""
+  # morph: list
+  hotspots:
+    - ""
+  # morph: text
+  distribution_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SOUTH AMERICA DISTRIBUTION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+south_america:
+  # morph: boolean
+  present: false
+  # morph: list
+  countries:
+    - ""
+  # morph: list
+  regions:
+    - ""
+  # morph: list
+  hotspots:
+    - ""
+  # morph: text
+  distribution_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# OCEANIA DISTRIBUTION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+oceania:
+  # morph: boolean
+  present: false
+  # morph: list
+  countries:
+    - ""
+  # morph: list
+  regions:
+    - ""
+  # morph: list
+  hotspots:
+    - ""
+  # morph: text
+  distribution_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ANTARCTICA DISTRIBUTION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+antarctica:
+  # morph: boolean
+  present: false
+  # morph: list
+  regions:
+    - ""
+  # morph: text
+  distribution_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BIOGEOGRAPHIC REALMS
+# Biogeographische Regionen nach Wallace
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+biogeographic_realm:
+  - ""
+
+# morph: object
+palearctic:
+  # morph: boolean
+  present: false
+  # morph: list
+  subregions:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+nearctic:
+  # morph: boolean
+  present: false
+  # morph: list
+  subregions:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+neotropical:
+  # morph: boolean
+  present: false
+  # morph: list
+  subregions:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+afrotropical:
+  # morph: boolean
+  present: false
+  # morph: list
+  subregions:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+indomalayan:
+  # morph: boolean
+  present: false
+  # morph: list
+  subregions:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+australasian:
+  # morph: boolean
+  present: false
+  # morph: list
+  subregions:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+oceanian:
+  # morph: boolean
+  present: false
+  # morph: list
+  subregions:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+antarctic:
+  # morph: boolean
+  present: false
+  # morph: list
+  subregions:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: radar
+realm_distribution:
+  - axis: ""
+    value: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CLIMATE ZONES
+# Klimatische Verbreitung
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+climate_zones:
+  - ""
+
+# morph: object
+tropical:
+  # morph: boolean
+  present: false
+  # morph: list
+  subtypes:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+subtropical:
+  # morph: boolean
+  present: false
+  # morph: list
+  subtypes:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+temperate:
+  # morph: boolean
+  present: false
+  # morph: list
+  subtypes:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+boreal:
+  # morph: boolean
+  present: false
+  # morph: list
+  subtypes:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+arctic_zone:
+  # morph: boolean
+  present: false
+  # morph: list
+  subtypes:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+mediterranean:
+  # morph: boolean
+  present: false
+  # morph: list
+  regions:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+alpine:
+  # morph: boolean
+  present: false
+  # morph: range
+  elevation_range:
+    min: 0
+    max: 0
+    unit: "m"
+  # morph: text
+  notes: ""
+
+# morph: object
+arid:
+  # morph: boolean
+  present: false
+  # morph: list
+  regions:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: pie
+climate_zone_distribution:
+  - label: ""
+    value: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ELEVATION
+# Höhenverbreitung
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: range
+elevation_range:
+  min: 0
+  max: 0
+  unit: "m"
+
+# morph: number
+elevation_min: 0
+
+# morph: number
+elevation_max: 0
+
+# morph: number
+elevation_optimal: 0
+
+# morph: list
+elevation_zones:
+  - ""
+
+# morph: object
+lowland:
+  # morph: boolean
+  present: false
+  # morph: range
+  range:
+    min: 0
+    max: 0
+    unit: "m"
+  # morph: text
+  notes: ""
+
+# morph: object
+montane:
+  # morph: boolean
+  present: false
+  # morph: range
+  range:
+    min: 0
+    max: 0
+    unit: "m"
+  # morph: text
+  notes: ""
+
+# morph: object
+subalpine:
+  # morph: boolean
+  present: false
+  # morph: range
+  range:
+    min: 0
+    max: 0
+    unit: "m"
+  # morph: text
+  notes: ""
+
+# morph: object
+alpine_zone:
+  # morph: boolean
+  present: false
+  # morph: range
+  range:
+    min: 0
+    max: 0
+    unit: "m"
+  # morph: text
+  notes: ""
+
+# morph: object
+nival:
+  # morph: boolean
+  present: false
+  # morph: range
+  range:
+    min: 0
+    max: 0
+    unit: "m"
+  # morph: text
+  notes: ""
+
+# morph: bar
+elevation_distribution:
+  - label: ""
+    value: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HOTSPOTS
+# Biodiversitäts-Hotspots und besondere Fundorte
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+global_hotspots:
+  - ""
+
+# morph: list
+regional_hotspots:
+  - ""
+
+# morph: hierarchy
+best_observation_sites:
+  - level: ""
+    name: ""
+
+# morph: map
+type_locality:
+  lat: 0
+  lng: 0
+  region: ""
+
+# morph: list
+notable_localities:
+  - ""
+
+# morph: text
+hotspot_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SEASONAL DISTRIBUTION
+# Saisonale Verbreitungsmuster
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: flow
+migration_routes:
+  - from: ""
+    to: ""
+    value: 0
+
+# morph: list
+breeding_range:
+  - ""
+
+# morph: list
+wintering_sites:
+  - ""
+
+# morph: calendar
+seasonal_presence:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: text
+seasonal_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MICROHABITAT PREFERENCES
+# Feinräumige Habitatpräferenzen
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+microhabitat_preferences:
+  - ""
+
+# morph: list
+substrate_preferences:
+  - ""
+
+# morph: list
+associated_vegetation:
+  - ""
+
+# morph: object
+light_preference:
+  # morph: tag
+  category: ""
+  # morph: range
+  lux_range:
+    min: 0
+    max: 0
+    unit: "lux"
+  # morph: text
+  notes: ""
+
+# morph: object
+moisture_preference:
+  # morph: tag
+  category: ""
+  # morph: range
+  humidity_range:
+    min: 0
+    max: 0
+    unit: "%"
+  # morph: text
+  notes: ""
+
+# morph: object
+temperature_preference:
+  # morph: tag
+  category: ""
+  # morph: range
+  range:
+    min: 0
+    max: 0
+    unit: "°C"
+  # morph: text
+  notes: ""
+
+# morph: object
+wind_exposure:
+  # morph: tag
+  category: ""
+  # morph: text
+  notes: ""
+
+# morph: text
+microhabitat_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HABITAT TYPES
+# Übergeordnete Habitattypen
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+habitats:
+  - ""
+
+# morph: list
+primary_habitats:
+  - ""
+
+# morph: list
+secondary_habitats:
+  - ""
+
+# morph: object
+forest_types:
+  # morph: list
+  deciduous:
+    - ""
+  # morph: list
+  coniferous:
+    - ""
+  # morph: list
+  mixed:
+    - ""
+  # morph: list
+  tropical:
+    - ""
+  # morph: list
+  plantation:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+grassland_types:
+  # morph: list
+  meadow:
+    - ""
+  # morph: list
+  steppe:
+    - ""
+  # morph: list
+  savanna:
+    - ""
+  # morph: list
+  alpine_meadow:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+wetland_types:
+  # morph: list
+  marsh:
+    - ""
+  # morph: list
+  swamp:
+    - ""
+  # morph: list
+  bog:
+    - ""
+  # morph: list
+  fen:
+    - ""
+  # morph: list
+  riparian:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+aquatic_habitats:
+  # morph: list
+  freshwater:
+    - ""
+  # morph: list
+  marine:
+    - ""
+  # morph: list
+  brackish:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: object
+urban_habitats:
+  # morph: list
+  types:
+    - ""
+  # morph: text
+  notes: ""
+
+# morph: pie
+habitat_distribution:
+  - label: ""
+    value: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SOIL AND SUBSTRATE
+# Boden- und Substratpräferenzen
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+soil_types:
+  - ""
+
+# morph: object
+soil_ph:
+  # morph: range
+  range:
+    min: 0
+    max: 0
+    unit: "pH"
+  # morph: number
+  optimal: 0
+  # morph: tag
+  preference: ""
+
+# morph: object
+soil_texture:
+  # morph: list
+  types:
+    - ""
+  # morph: tag
+  preference: ""
+
+# morph: object
+soil_moisture:
+  # morph: tag
+  category: ""
+  # morph: text
+  notes: ""
+
+# morph: object
+soil_nutrients:
+  # morph: tag
+  nitrogen: ""
+  # morph: tag
+  phosphorus: ""
+  # morph: tag
+  potassium: ""
+  # morph: text
+  notes: ""
+
+# morph: list
+special_substrates:
+  - ""
+
+# morph: text
+substrate_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# RANGE DYNAMICS
+# Arealdynamik und Veränderungen
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+range_expansion:
+  # morph: boolean
+  occurring: false
+  # morph: list
+  regions:
+    - ""
+  # morph: text
+  rate: ""
+  # morph: text
+  causes: ""
+  # morph: text
+  notes: ""
+
+# morph: object
+range_contraction:
+  # morph: boolean
+  occurring: false
+  # morph: list
+  regions:
+    - ""
+  # morph: text
+  rate: ""
+  # morph: text
+  causes: ""
+  # morph: text
+  notes: ""
+
+# morph: object
+climate_change_response:
+  # morph: tag
+  trend: ""
+  # morph: list
+  predicted_shifts:
+    - ""
+  # morph: text
+  evidence: ""
+  # morph: text
+  notes: ""
+
+# morph: list
+predicted_distribution:
+  - ""
+
+# morph: timeline
+range_history:
+  - date: ""
+    event: ""
+    description: ""
+
+# morph: text
+range_dynamics_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# OCCURRENCE DATA
+# Fundmeldungen und Beobachtungen
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: stats
+total_occurrences:
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+# morph: stats
+verified_occurrences:
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+# morph: sparkline
+occurrence_trend:
+  - 0
+
+# morph: bar
+occurrences_by_year:
+  - label: ""
+    value: 0
+
+# morph: bar
+occurrences_by_country:
+  - label: ""
+    value: 0
+
+# morph: bar
+occurrences_by_source:
+  - label: ""
+    value: 0
+
+# morph: text
+first_record: ""
+
+# morph: text
+last_record: ""
+
+# morph: progress
+data_completeness:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: text
+occurrence_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MAPS AND COORDINATES
+# Kartendaten und Koordinaten
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: map
+center_of_distribution:
+  lat: 0
+  lng: 0
+  region: ""
+
+# morph: map
+northernmost_occurrence:
+  lat: 0
+  lng: 0
+  region: ""
+
+# morph: map
+southernmost_occurrence:
+  lat: 0
+  lng: 0
+  region: ""
+
+# morph: map
+easternmost_occurrence:
+  lat: 0
+  lng: 0
+  region: ""
+
+# morph: map
+westernmost_occurrence:
+  lat: 0
+  lng: 0
+  region: ""
+
+# morph: number
+range_area_km2: 0
+
+# morph: number
+extent_of_occurrence_km2: 0
+
+# morph: number
+area_of_occupancy_km2: 0
+
+# morph: text
+map_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ENUMERATIONS (Reference values)
+# ─────────────────────────────────────────────────────────────────────────────
+
+_enums:
+  biogeographic_realm:
+    - palearctic
+    - nearctic
+    - neotropical
+    - afrotropical
+    - indomalayan
+    - australasian
+    - oceanian
+    - antarctic
+  
+  climate_zone:
+    - tropical
+    - subtropical
+    - temperate
+    - boreal
+    - arctic
+    - subarctic
+    - alpine
+    - mediterranean
+    - continental
+    - oceanic
+    - arid
+    - semi-arid
+    - humid
+  
+  elevation_zone:
+    - lowland
+    - colline
+    - montane
+    - subalpine
+    - alpine
+    - nival
+  
+  habitat_type:
+    - forest
+    - woodland
+    - grassland
+    - savanna
+    - wetland
+    - desert
+    - tundra
+    - aquatic
+    - marine
+    - freshwater
+    - coastal
+    - urban
+    - agricultural
+  
+  soil_type:
+    - sandy
+    - clay
+    - loam
+    - peat
+    - chalk
+    - siliceous
+    - calcareous
+  
+  moisture_category:
+    - xeric
+    - mesic
+    - hydric
+  
+  light_category:
+    - full_sun
+    - partial_shade
+    - full_shade
+  
+  range_trend:
+    - expanding
+    - stable
+    - contracting
+    - unknown

@@ -1,0 +1,592 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# FUNGAL HOLOBIONT PERSPECTIVE - HOLISTIC BLUEPRINT
+# Fungus + Microbiome + Endosymbionts as Functional Unity
+# Version: 1.0.0
+# Domain: FUNGI (Holistic Systems View)
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# PURPOSE: Captures fungi as holobiont - host + all symbionts as one superorganism
+# - Fungal microbiome composition
+# - Endosymbiont diversity & function
+# - Host-symbiont metabolic integration
+# - Hologenome & horizontal gene transfer
+# - Emergent holobiont properties
+#
+# Based on concept:
+# - Holobiont = Fungus + Bacteria + Archaea + Viruses as evolutionary unit
+# - Fungal-bacterial continuum research (2025)
+# - Endobacteria in fungal cells
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: fungal_holobiont
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HOST TAXONOMY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+scientific_name:
+  # morph: text
+  ""
+
+genus:
+  # morph: tag
+  ""
+
+family:
+  # morph: tag
+  ""
+
+fungal_lifestyle:
+  # morph: badge
+  # saprotrophic | mycorrhizal | parasitic | endophytic | lichen
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HOLOBIONT COMPOSITION - Who makes up this superorganism?
+# ═══════════════════════════════════════════════════════════════════════════════
+
+holobiont_complexity:
+  # morph: badge
+  # simple | moderate | complex | hyper_complex
+  status: ""
+  variant: ""
+
+bacterial_diversity:
+  # morph: stats
+  # species/OTU counts
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+archaeal_diversity:
+  # morph: stats
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+viral_diversity:
+  # morph: stats
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+microbiome_phyla:
+  # morph: pie
+  # relative abundance of bacterial phyla
+  - label: "Proteobacteria"
+    value: 0
+  - label: "Actinobacteria"
+    value: 0
+  - label: "Bacteroidetes"
+    value: 0
+  - label: "Firmicutes"
+    value: 0
+  - label: "Other"
+    value: 0
+
+dominant_bacterial_genera:
+  # morph: list
+  - ""
+
+core_microbiome:
+  # morph: list
+  # bacteria always present
+  - ""
+
+variable_microbiome:
+  # morph: list
+  # bacteria sometimes present
+  - ""
+
+transient_microbiome:
+  # morph: list
+  # bacteria rarely present
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENDOBACTERIA - Bacteria living INSIDE fungal cells
+# ═══════════════════════════════════════════════════════════════════════════════
+
+endobacteria_present:
+  # morph: boolean
+  false
+
+endobacteria_types:
+  # morph: list
+  - ""
+
+endobacteria_location:
+  # morph: list
+  # cytoplasm | vacuole | spore | all_cells | specific_cells
+  - ""
+
+endobacteria_transmission:
+  # morph: badge
+  # vertical | horizontal | both
+  status: ""
+  variant: ""
+
+endobacteria_function:
+  # morph: list
+  # nitrogen_fixation | toxin_production | defense | nutrient_provisioning
+  - ""
+
+endobacteria_dependency:
+  # morph: badge
+  # obligate | facultative | commensal | parasitic
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HYPHOSPHERE MICROBIOME - Bacteria on hyphal surfaces
+# ═══════════════════════════════════════════════════════════════════════════════
+
+hyphosphere_bacterial_density:
+  # morph: gauge
+  # cells per cm² hyphal surface
+  value: 0
+  min: 0
+  max: 1000000
+  unit: "cells/cm²"
+
+biofilm_formation:
+  # morph: boolean
+  false
+
+biofilm_structure:
+  # morph: badge
+  # monolayer | multilayer | complex_matrix
+  status: ""
+  variant: ""
+
+hyphosphere_specialists:
+  # morph: list
+  # bacteria specialized for hyphal surface
+  - ""
+
+hyphosphere_functions:
+  # morph: list
+  # nutrient_mobilization | protection | signaling | degradation
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MYCOVIRUS COMMUNITY - Viral partners
+# ═══════════════════════════════════════════════════════════════════════════════
+
+mycovirus_count:
+  # morph: number
+  0
+
+mycovirus_types:
+  # morph: list
+  # dsRNA | ssRNA | DNA
+  - ""
+
+mycovirus_effects:
+  # morph: list
+  # hypovirulence | hypervirulence | neutral | beneficial_traits
+  - ""
+
+mycovirus_transmission:
+  # morph: badge
+  # hyphal_anastomosis | spores | vectors | horizontal
+  status: ""
+  variant: ""
+
+beneficial_mycovirus:
+  # morph: boolean
+  # virus provides fitness advantage
+  false
+
+mycovirus_mediated_traits:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# METABOLIC INTEGRATION - Shared metabolism
+# ═══════════════════════════════════════════════════════════════════════════════
+
+metabolic_complementarity:
+  # morph: radar
+  # degree of metabolic pathway sharing
+  - axis: "Carbon metabolism"
+    value: 0
+  - axis: "Nitrogen metabolism"
+    value: 0
+  - axis: "Phosphorus acquisition"
+    value: 0
+  - axis: "Sulfur metabolism"
+    value: 0
+  - axis: "Iron acquisition"
+    value: 0
+  - axis: "Secondary metabolites"
+    value: 0
+  - axis: "Vitamin synthesis"
+    value: 0
+  - axis: "Stress response"
+    value: 0
+
+shared_metabolic_pathways:
+  # morph: list
+  - ""
+
+metabolite_exchange:
+  # morph: flow
+  # what moves between partners
+  - from: ""
+    to: ""
+    value: 0
+
+cross_feeding_networks:
+  # morph: network
+  # metabolite dependencies
+  - name: ""
+    type: ""
+    intensity: 0
+
+fungal_exudates_for_bacteria:
+  # morph: list
+  # compounds fungus releases for bacteria
+  - ""
+
+bacterial_metabolites_for_fungus:
+  # morph: list
+  # compounds bacteria provide to fungus
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FUNCTIONAL CONTRIBUTIONS - What does each partner do?
+# ═══════════════════════════════════════════════════════════════════════════════
+
+bacterial_nitrogen_fixation:
+  # morph: boolean
+  false
+
+nitrogen_fixation_rate:
+  # morph: number
+  # mg N per g fungal biomass per day
+  0
+
+bacterial_phosphate_solubilization:
+  # morph: boolean
+  false
+
+bacterial_siderophore_production:
+  # morph: boolean
+  false
+
+bacterial_antibiotic_production:
+  # morph: list
+  - ""
+
+bacterial_biocontrol_activity:
+  # morph: boolean
+  false
+
+bacterial_growth_promotion:
+  # morph: gauge
+  # % increase in fungal growth with bacteria
+  value: 0
+  min: 0
+  max: 200
+  unit: "%"
+
+fungal_niche_provision:
+  # morph: list
+  # what fungus provides for bacteria
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HOLOGENOME - Combined genetic material
+# ═══════════════════════════════════════════════════════════════════════════════
+
+hologenome_size:
+  # morph: number
+  # Mb total DNA
+  0
+
+fungal_genome_size:
+  # morph: number
+  # Mb
+  0
+
+bacterial_metagenome_size:
+  # morph: number
+  # Mb
+  0
+
+horizontal_gene_transfer:
+  # morph: boolean
+  # evidence of HGT between partners
+  false
+
+hgt_genes_identified:
+  # morph: list
+  - ""
+
+hgt_functions_acquired:
+  # morph: list
+  # antibiotic_resistance | degradation | biosynthesis
+  - ""
+
+plasmid_sharing:
+  # morph: boolean
+  false
+
+mobile_genetic_elements:
+  # morph: list
+  - ""
+
+hologenome_functional_diversity:
+  # morph: gauge
+  # functional gene diversity 0-100
+  value: 0
+  min: 0
+  max: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHEMICAL COMMUNICATION - How partners talk
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quorum_sensing:
+  # morph: boolean
+  false
+
+quorum_sensing_molecules:
+  # morph: list
+  # AHL | AI-2 | peptides
+  - ""
+
+fungal_bacterial_signaling:
+  # morph: boolean
+  false
+
+signal_molecules:
+  # morph: list
+  - ""
+
+biofilm_regulation_signals:
+  # morph: list
+  - ""
+
+chemotaxis_to_hyphae:
+  # morph: boolean
+  # bacteria chemotactically attracted to hyphae
+  false
+
+chemotactic_attractants:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EMERGENT PROPERTIES - Holobiont-level traits
+# ═══════════════════════════════════════════════════════════════════════════════
+
+emergent_stress_tolerance:
+  # morph: list
+  # stress tolerances only present in holobiont
+  - ""
+
+emergent_metabolic_capabilities:
+  # morph: list
+  # compound degradation only in holobiont
+  - ""
+
+holobiont_fitness_advantage:
+  # morph: gauge
+  # fitness increase vs axenic fungus
+  value: 0
+  min: 0
+  max: 200
+  unit: "%"
+
+synergistic_effects:
+  # morph: list
+  - ""
+
+holobiont_specificity:
+  # morph: badge
+  # highly_specific | moderately_specific | promiscuous
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# STABILITY & DYNAMICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+microbiome_stability:
+  # morph: badge
+  # stable | dynamic | highly_variable
+  status: ""
+  variant: ""
+
+microbiome_succession:
+  # morph: timeline
+  # developmental stages
+  - date: "Spore germination"
+    event: ""
+    description: ""
+  - date: "Early mycelium"
+    event: ""
+    description: ""
+  - date: "Mature mycelium"
+    event: ""
+    description: ""
+  - date: "Fruiting"
+    event: ""
+    description: ""
+
+environmental_modulation:
+  # morph: boolean
+  # microbiome changes with environment
+  false
+
+factors_affecting_microbiome:
+  # morph: list
+  # soil_type | season | host_plant | pH | moisture
+  - ""
+
+microbiome_resilience:
+  # morph: rating
+  # ability to recover after disturbance
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ASSEMBLY & RECRUITMENT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+microbiome_assembly_mechanism:
+  # morph: badge
+  # active_selection | passive_filtering | stochastic | hybrid
+  status: ""
+  variant: ""
+
+bacterial_recruitment_signals:
+  # morph: list
+  - ""
+
+selective_factors:
+  # morph: list
+  # antimicrobial_compounds | nutrient_availability | pH | oxygen
+  - ""
+
+microbiome_heritability:
+  # morph: gauge
+  # % of microbiome vertically transmitted
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# APPLICATIONS & BIOTECHNOLOGY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+probiotic_potential:
+  # morph: boolean
+  # microbiome members useful for agriculture
+  false
+
+biocontrol_applications:
+  # morph: list
+  - ""
+
+bioremediation_capacity:
+  # morph: boolean
+  false
+
+bioremediation_targets:
+  # morph: list
+  # heavy_metals | pesticides | hydrocarbons | plastics
+  - ""
+
+synthetic_holobiont_engineering:
+  # morph: boolean
+  # can holobiont be engineered?
+  false
+
+holobiont_optimization_strategies:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESEARCH METHODS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+microbiome_characterization_method:
+  # morph: list
+  # 16S_rRNA | metagenomics | metatranscriptomics | metabolomics
+  - ""
+
+cultivation_status:
+  # morph: badge
+  # cultured | uncultured | partially_cultured
+  status: ""
+  variant: ""
+
+axenic_culture_available:
+  # morph: boolean
+  # fungus can be grown without bacteria
+  false
+
+gnotobiotic_system_established:
+  # morph: boolean
+  # defined synthetic community
+  false
+
+imaging_methods:
+  # morph: list
+  # FISH | confocal | TEM | SEM
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LITERATURE REFERENCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_research_papers:
+  # morph: list
+  - ""
+
+holobiont_literature:
+  # morph: citation
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+data_source:
+  # morph: badge
+  # metagenomics | culture | microscopy | literature | inferred
+  status: ""
+  variant: ""
+
+confidence_level:
+  # morph: badge
+  # high | medium | low | speculative
+  status: ""
+  variant: ""
+
+measurement_date:
+  # morph: text
+  ""
+
+study_location:
+  # morph: map
+  lat: 0
+  lng: 0
+  region: ""

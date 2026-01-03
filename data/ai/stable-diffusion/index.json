@@ -1,0 +1,29 @@
+{
+  "id": "stable-diffusion",
+  "slug": "stable-diffusion",
+  "name": "Stable Diffusion",
+  "scientific_name": "Latent Diffusion Model",
+  "kingdom": "image-model",
+  "kingdom_icon": "🎨",
+  "image": null,
+  "tagline": "Text-zu-Bild-Generation",
+  "description": "Stable Diffusion ist ein Deep Learning Text-zu-Bild-Modell, das fotorealistische Bilder aus Textbeschreibungen generiert. Als Open-Source-Modell hat es die Bildgenerierung demokratisiert und eine Vielzahl kreativer Anwendungen ermöglicht.",
+  "seo_description": "Stable Diffusion - Open Source Text-to-Image KI-Modell",
+  "quick_facts": [
+    {"icon": "📅", "label": "Release", "value": "August 2022"},
+    {"icon": "🏢", "label": "Entwickler", "value": "Stability AI"},
+    {"icon": "📊", "label": "Parameter", "value": "~890 Mio."},
+    {"icon": "📜", "label": "Lizenz", "value": "Open Source"}
+  ],
+  "highlights": ["Open Source", "Text-to-Image", "Inpainting", "ControlNet"],
+  "badges": [
+    {"icon": "🎨", "label": "Typ", "status": "Bildgenerierung", "variant": "primary"},
+    {"icon": "📜", "label": "Zugang", "status": "Open Source", "variant": "success"}
+  ],
+  "categories": ["Bildgenerierung", "Generative AI"],
+  "keywords": ["bildgenerierung", "diffusion", "text-to-image", "latent", "generativ", "kunst"],
+  "perspectives": ["model_architecture", "training", "capabilities", "applications_ai", "ethics"],
+  "perspective_count": 5,
+  "engagement_score": 92,
+  "_sources": {"image": [], "fields": {}}
+}

@@ -1,0 +1,29 @@
+{
+  "id": "sun",
+  "slug": "sun",
+  "name": "Sonne",
+  "scientific_name": "Sol",
+  "kingdom": "star",
+  "kingdom_icon": "☀️",
+  "image": null,
+  "tagline": "Unser Zentralgestirn",
+  "description": "Die Sonne ist der Stern im Zentrum unseres Sonnensystems. Sie ist ein Hauptreihenstern der Spektralklasse G2V und enthält 99,86% der Masse des Sonnensystems. In ihrem Kern findet Wasserstofffusion statt.",
+  "seo_description": "Sonne (Sol) - Zentralstern des Sonnensystems, G2V-Hauptreihenstern",
+  "quick_facts": [
+    {"icon": "📏", "label": "Durchmesser", "value": "1.392.700 km"},
+    {"icon": "⚖️", "label": "Masse", "value": "1.989×10³⁰ kg"},
+    {"icon": "🌡️", "label": "Oberflächentemp.", "value": "5.778 K"},
+    {"icon": "📍", "label": "Entfernung", "value": "149.6 Mio. km"}
+  ],
+  "highlights": ["Wasserstofffusion", "Sonnenzyklus", "Sonnenwind"],
+  "badges": [
+    {"icon": "⭐", "label": "Spektralklasse", "status": "G2V", "variant": "success"},
+    {"icon": "⏱️", "label": "Alter", "status": "4.6 Mrd. Jahre", "variant": "info"}
+  ],
+  "categories": ["Sterne", "Hauptreihensterne"],
+  "keywords": ["stern", "fusion", "sonnensystem", "heliophysik", "sonnenzyklus", "sonnenflecken"],
+  "perspectives": ["classification_astro", "composition", "lifecycle", "observation", "missions"],
+  "perspective_count": 5,
+  "engagement_score": 100,
+  "_sources": {"image": [], "fields": {}}
+}

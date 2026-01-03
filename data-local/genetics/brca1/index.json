@@ -1,0 +1,29 @@
+{
+  "id": "brca1",
+  "slug": "brca1",
+  "name": "BRCA1",
+  "scientific_name": "BRCA1 DNA repair associated",
+  "kingdom": "gene",
+  "kingdom_icon": "🧬",
+  "image": null,
+  "tagline": "Tumorsuppressorgen",
+  "description": "BRCA1 ist ein Tumorsuppressorgen, das eine wichtige Rolle bei der DNA-Reparatur spielt. Mutationen in diesem Gen erhöhen das Risiko für Brust- und Eierstockkrebs erheblich. Das Gen kodiert ein Protein, das an der Reparatur von DNA-Doppelstrangbrüchen beteiligt ist.",
+  "seo_description": "BRCA1 - Tumorsuppressorgen, DNA-Reparatur, Brustkrebsrisiko",
+  "quick_facts": [
+    {"icon": "📍", "label": "Lokalisation", "value": "17q21.31"},
+    {"icon": "📏", "label": "Größe", "value": "81 kb"},
+    {"icon": "🔢", "label": "Exons", "value": "24"},
+    {"icon": "🧪", "label": "Protein", "value": "1863 AS"}
+  ],
+  "highlights": ["Brustkrebs", "DNA-Reparatur", "Tumorsuppressor"],
+  "badges": [
+    {"icon": "⚠️", "label": "Klinische Relevanz", "status": "Hoch", "variant": "danger"},
+    {"icon": "🧪", "label": "Testbar", "status": "Ja", "variant": "success"}
+  ],
+  "categories": ["DNA-Reparatur", "Tumorsuppressor"],
+  "keywords": ["brustkrebs", "eierstockkrebs", "dna-reparatur", "tumorsuppressor", "homologe rekombination"],
+  "perspectives": ["gene_structure", "inheritance", "mutations", "diseases_genetic", "biotechnology"],
+  "perspective_count": 5,
+  "engagement_score": 90,
+  "_sources": {"image": [], "fields": {}}
+}

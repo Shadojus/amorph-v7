@@ -1,0 +1,29 @@
+{
+  "id": "alphafold",
+  "slug": "alphafold",
+  "name": "AlphaFold",
+  "scientific_name": "AlphaFold 2/3",
+  "kingdom": "scientific-ai",
+  "kingdom_icon": "🧬",
+  "image": null,
+  "tagline": "Proteinstruktur-Vorhersage",
+  "description": "AlphaFold ist ein KI-System von DeepMind, das die 3D-Struktur von Proteinen aus ihrer Aminosäuresequenz vorhersagt. Es löste das 50-jährige Problem der Proteinfaltung und revolutionierte die Strukturbiologie.",
+  "seo_description": "AlphaFold - KI für Proteinstruktur-Vorhersage von DeepMind",
+  "quick_facts": [
+    {"icon": "📅", "label": "Release", "value": "2020 (v2)"},
+    {"icon": "🏢", "label": "Entwickler", "value": "DeepMind"},
+    {"icon": "🎯", "label": "Genauigkeit", "value": ">90 GDT"},
+    {"icon": "🧬", "label": "Datenbank", "value": "200+ Mio. Proteine"}
+  ],
+  "highlights": ["Nobelpreis 2024", "Strukturbiologie-Revolution", "Open Access Datenbank"],
+  "badges": [
+    {"icon": "🏆", "label": "Nobelpreis", "status": "Chemie 2024", "variant": "success"},
+    {"icon": "🧬", "label": "Anwendung", "status": "Drug Discovery", "variant": "info"}
+  ],
+  "categories": ["Scientific AI", "Bioinformatik"],
+  "keywords": ["protein", "faltung", "struktur", "deepmind", "bioinformatik", "strukturbiologie"],
+  "perspectives": ["model_architecture", "capabilities", "applications_ai", "benchmarks", "research"],
+  "perspective_count": 5,
+  "engagement_score": 95,
+  "_sources": {"image": [], "fields": {}}
+}
