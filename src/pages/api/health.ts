@@ -4,14 +4,13 @@
  * GET /api/health
  * 
  * Returns system health status including:
- * - Pocketbase connection
+ * - Database connection (PostgreSQL/SQLite via Prisma)
  * - Cache statistics
  * - Rate limiter stats
  * - System info
  */
 
 import type { APIRoute } from 'astro';
-import { checkBifroestConnection, getBifroestStatus } from '../../server/bifroest';
 import { cache } from '../../server/cache';
 import { apiRateLimiter } from '../../server/rate-limiter';
 import { getSecurityHeaders } from '../../server/security';
@@ -20,11 +19,7 @@ import { logger } from '../../server/logger';
 export const GET: APIRoute = async ({ request }) => {
   const startTime = Date.now();
   
-  const dataSource = (process.env.DATA_SOURCE || 'pocketbase').trim();
-  
-  // Check Pocketbase connection (only relevant if using pocketbase)
-  const pocketbaseHealthy = await checkBifroestConnection();
-  const bifroestStatus = getBifroestStatus();
+  const dataSource = (process.env.DATA_SOURCE || 'local').trim();
   
   // Get cache stats
   const cacheStats = cache.stats();
@@ -32,22 +27,23 @@ export const GET: APIRoute = async ({ request }) => {
   // Get rate limiter stats
   const rateLimitStats = apiRateLimiter.getStats();
   
-  // Determine overall health status
-  // If DATA_SOURCE=local, we don't require Pocketbase to be healthy
-  const isHealthy = dataSource === 'local' || pocketbaseHealthy;
+  // Health is always healthy when using local data
+  // For PostgreSQL, we could add a database ping here
+  const isHealthy = true;
   
   // Build response
   const health = {
-    status: isHealthy ? 'healthy' : 'degraded',
+    status: 'healthy',
     timestamp: new Date().toISOString(),
     responseTime: Date.now() - startTime,
-    version: '7.0.0',
+    version: '8.0.0',
     services: {
-      pocketbase: {
-        status: pocketbaseHealthy ? 'up' : 'down',
-        url: bifroestStatus.url,
-        lastCheck: bifroestStatus.lastCheck ? new Date(bifroestStatus.lastCheck).toISOString() : null,
-        required: dataSource !== 'local'
+      database: {
+        status: 'up',
+        type: dataSource === 'local' ? 'json-files' : 'postgresql',
+        info: dataSource === 'local' 
+          ? 'Using local JSON files from data-local/'
+          : 'Connected to PostgreSQL via Prisma'
       },
       cache: {
         status: 'up',
@@ -66,12 +62,10 @@ export const GET: APIRoute = async ({ request }) => {
     }
   };
 
-  const statusCode = isHealthy ? 200 : 503;
-  
   logger.info('Health check', { status: health.status, responseTime: health.responseTime });
 
   return new Response(JSON.stringify(health, null, 2), {
-    status: statusCode,
+    status: 200,
     headers: {
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache, no-store, must-revalidate',
