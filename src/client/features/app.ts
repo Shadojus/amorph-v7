@@ -16,6 +16,7 @@ import {
   getSelectedCount,
   clearSelection,
   deselectItem,
+  deselectField,
   getSelectedFieldCount,
   getSelectedFieldsGrouped,
   getSelectedFields,
@@ -361,10 +362,27 @@ function initSelectionBar(): void {
     clearFields();
   });
   
+  // Debounce flag for UI updates
+  let updateScheduled = false;
+  
   // Subscribe to selection changes
   subscribe(() => {
+    // Debounce: Only update UI once per animation frame
+    if (updateScheduled) return;
+    updateScheduled = true;
+    
+    requestAnimationFrame(() => {
+      updateScheduled = false;
+      updateSelectionBarUI(selectionBar, pillsContainer);
+    });
+  });
+}
+
+// Extracted UI update logic for cleaner code
+function updateSelectionBarUI(selectionBar: HTMLElement, pillsContainer: Element | null): void {
     const fieldCount = getSelectedFieldCount();
     const grouped = getSelectedFieldsGrouped();
+    const speciesCount = grouped.size;
     
     // Show/hide bar based on field count
     selectionBar.classList.toggle('is-visible', fieldCount > 0);
@@ -373,6 +391,18 @@ function initSelectionBar(): void {
     const compareBtn = document.querySelector('.bottom-nav-item[data-nav="compare"]');
     if (compareBtn) {
       compareBtn.classList.toggle('is-disabled', fieldCount === 0);
+    }
+    
+    // Update counter badge
+    const counterEl = selectionBar.querySelector('.selection-counter');
+    if (counterEl) {
+      counterEl.textContent = String(speciesCount);
+    }
+    
+    // Show clear button when there are selections
+    const clearBtn = selectionBar.querySelector('.selection-clear');
+    if (clearBtn) {
+      (clearBtn as HTMLElement).style.display = speciesCount > 0 ? 'flex' : 'none';
     }
     
     // Update pills - one pill per species that has selected fields
@@ -417,9 +447,10 @@ function initSelectionBar(): void {
           if (target.classList.contains('pill-remove')) {
             // Remove all fields for this species
             if (slug) {
-              const fields = getSelectedFields().filter(f => f.itemSlug === slug);
-              fields.forEach(f => {
-                import('./selection').then(mod => mod.deselectField(f.itemSlug, f.fieldName));
+              // WICHTIG: Synchron alle Felder dieser Spezies deselektieren
+              const fieldsToRemove = getSelectedFields().filter(f => f.itemSlug === slug);
+              fieldsToRemove.forEach(f => {
+                deselectField(f.itemSlug, f.fieldName);
               });
               
               // Also remove species-selected class from grid item
@@ -460,7 +491,6 @@ function initSelectionBar(): void {
         ? `1 Spezies` 
         : `${speciesCount} Spezies`;
     }
-  });
 }
 
 // Update detail link arrow colors based on selection

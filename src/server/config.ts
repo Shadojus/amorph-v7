@@ -2,10 +2,11 @@
  * AMORPH v7 - Server Config
  * 
  * Lädt YAML-Konfigurationen für SSR.
+ * Perspektiven werden DATENGETRIEBEN aus Blueprint-Dateien geladen.
  */
 
-import { readFileSync, existsSync } from 'fs';
-import { join, dirname } from 'path';
+import { readFileSync, existsSync, readdirSync } from 'fs';
+import { join, dirname, basename } from 'path';
 import { fileURLToPath } from 'url';
 import { parse as parseYAML } from 'yaml';
 import type { AppConfig, Perspective, SchemaField } from '../core/types';
@@ -15,9 +16,9 @@ import type { AppConfig, Perspective, SchemaField } from '../core/types';
 // ═══════════════════════════════════════════════════════════════════════════════
 
 // Biology Sites
-export type BiologySiteType = 'fungi' | 'phyto' | 'therion';
+export type BiologySiteType = 'fungi' | 'phyto' | 'drako';
 // Geology Sites
-export type GeologySiteType = 'paleo' | 'tekto' | 'mineral';
+export type GeologySiteType = 'paleo' | 'tekto' | 'mine';
 // Biomedical Sites
 export type BiomedicalSiteType = 'bakterio' | 'viro' | 'geno' | 'anato';
 // Physics & Chemistry Sites
@@ -34,11 +35,11 @@ export const SITE_DOMAIN: Record<SiteType, Domain> = {
   // Biology
   fungi: 'biology',
   phyto: 'biology',
-  therion: 'biology',
+  drako: 'biology',
   // Geology
   paleo: 'geology',
   tekto: 'geology',
-  mineral: 'geology',
+  mine: 'geology',
   // Biomedical
   bakterio: 'biomedical',
   viro: 'biomedical',
@@ -60,9 +61,9 @@ export function getSiteType(): SiteType {
   const siteType = process.env.SITE_TYPE?.toLowerCase();
   const validTypes: SiteType[] = [
     // Biology
-    'fungi', 'phyto', 'therion',
+    'fungi', 'phyto', 'drako',
     // Geology
-    'paleo', 'tekto', 'mineral',
+    'paleo', 'tekto', 'mine',
     // Biomedical
     'bakterio', 'viro', 'geno', 'anato',
     // Physics & Chemistry
@@ -82,6 +83,7 @@ export function getSiteDomain(): Domain {
 }
 
 // Site metadata for each type
+// Collection names match Pocketbase: {domain}_entities
 export const SITE_META: Record<SiteType, { 
   name: string; 
   color: string; 
@@ -92,39 +94,39 @@ export const SITE_META: Record<SiteType, {
   // ═══════════════════════════════════════════════════════════════════════════
   // Biology Sites
   // ═══════════════════════════════════════════════════════════════════════════
-  fungi: { name: 'FUNGINOMI', color: 'funginomi', dataFolder: 'fungi', collection: 'fungi', domain: 'biology' },
-  phyto: { name: 'PHYTONOMI', color: 'phytonomi', dataFolder: 'plantae', collection: 'plantae', domain: 'biology' },
-  therion: { name: 'THERIONOMI', color: 'drakonomi', dataFolder: 'therion', collection: 'therion', domain: 'biology' },
+  fungi: { name: 'FUNGINOMI', color: 'funginomi', dataFolder: 'fungi', collection: 'fungi_entities', domain: 'biology' },
+  phyto: { name: 'PHYTONOMI', color: 'phytonomi', dataFolder: 'phyto', collection: 'phyto_entities', domain: 'biology' },
+  drako: { name: 'DRAKONOMI', color: 'drakonomi', dataFolder: 'drako', collection: 'drako_entities', domain: 'biology' },
   
   // ═══════════════════════════════════════════════════════════════════════════
   // Geology Sites
   // ═══════════════════════════════════════════════════════════════════════════
-  paleo: { name: 'PALEONOMI', color: 'paleonomi', dataFolder: 'paleontology', collection: 'paleontology', domain: 'geology' },
-  tekto: { name: 'TEKTONOMI', color: 'tektonomi', dataFolder: 'tectonics', collection: 'tectonics', domain: 'geology' },
-  mineral: { name: 'MINENOMI', color: 'minenomi', dataFolder: 'mineralogy', collection: 'mineralogy', domain: 'geology' },
+  paleo: { name: 'PALEONOMI', color: 'paleonomi', dataFolder: 'paleo', collection: 'paleo_entities', domain: 'geology' },
+  tekto: { name: 'TEKTONOMI', color: 'tektonomi', dataFolder: 'tekto', collection: 'tekto_entities', domain: 'geology' },
+  mine: { name: 'MINENOMI', color: 'minenomi', dataFolder: 'mine', collection: 'mine_entities', domain: 'geology' },
   
   // ═══════════════════════════════════════════════════════════════════════════
   // Biomedical Sites
   // ═══════════════════════════════════════════════════════════════════════════
-  bakterio: { name: 'BAKTERIONOMI', color: 'bakterionomi', dataFolder: 'microbiology', collection: 'microbiology', domain: 'biomedical' },
-  viro: { name: 'VIRONOMI', color: 'vironomi', dataFolder: 'virology', collection: 'virology', domain: 'biomedical' },
-  geno: { name: 'GENONOMI', color: 'genonomi', dataFolder: 'genetics', collection: 'genetics', domain: 'biomedical' },
-  anato: { name: 'ANATONOMI', color: 'anatonomi', dataFolder: 'anatomy', collection: 'anatomy', domain: 'biomedical' },
+  bakterio: { name: 'BAKTERIONOMI', color: 'bakterionomi', dataFolder: 'bakterio', collection: 'bakterio_entities', domain: 'biomedical' },
+  viro: { name: 'VIRONOMI', color: 'vironomi', dataFolder: 'viro', collection: 'viro_entities', domain: 'biomedical' },
+  geno: { name: 'GENONOMI', color: 'genonomi', dataFolder: 'geno', collection: 'geno_entities', domain: 'biomedical' },
+  anato: { name: 'ANATONOMI', color: 'anatonomi', dataFolder: 'anato', collection: 'anato_entities', domain: 'biomedical' },
   
   // ═══════════════════════════════════════════════════════════════════════════
   // Physics & Chemistry Sites
   // ═══════════════════════════════════════════════════════════════════════════
-  chemo: { name: 'CHEMONOMI', color: 'chemonomi', dataFolder: 'chemistry', collection: 'chemistry', domain: 'physchem' },
-  physi: { name: 'PHYSINOMI', color: 'physinomi', dataFolder: 'physics', collection: 'physics', domain: 'physchem' },
-  kosmo: { name: 'KOSMONOMI', color: 'kosmonomi', dataFolder: 'astronomy', collection: 'astronomy', domain: 'physchem' },
+  chemo: { name: 'CHEMONOMI', color: 'chemonomi', dataFolder: 'chemo', collection: 'chemo_entities', domain: 'physchem' },
+  physi: { name: 'PHYSINOMI', color: 'physinomi', dataFolder: 'physi', collection: 'physi_entities', domain: 'physchem' },
+  kosmo: { name: 'KOSMONOMI', color: 'kosmonomi', dataFolder: 'kosmo', collection: 'kosmo_entities', domain: 'physchem' },
   
   // ═══════════════════════════════════════════════════════════════════════════
   // Technology Sites
   // ═══════════════════════════════════════════════════════════════════════════
-  netzo: { name: 'NETZONOMI', color: 'netzonomi', dataFolder: 'informatics', collection: 'informatics', domain: 'technology' },
-  cognito: { name: 'COGNITONOMI', color: 'cognitonomi', dataFolder: 'ai', collection: 'ai', domain: 'technology' },
-  biotech: { name: 'BIONOMI', color: 'bionomi', dataFolder: 'biotech', collection: 'biotech', domain: 'technology' },
-  socio: { name: 'SOCIONOMI', color: 'socionomi', dataFolder: 'sociology', collection: 'sociology', domain: 'technology' }
+  netzo: { name: 'NETZONOMI', color: 'netzonomi', dataFolder: 'netzo', collection: 'netzo_entities', domain: 'technology' },
+  cognito: { name: 'COGNITONOMI', color: 'cognitonomi', dataFolder: 'cognito', collection: 'cognito_entities', domain: 'technology' },
+  biotech: { name: 'BIONOMI', color: 'bionomi', dataFolder: 'biotech', collection: 'biotech_entities', domain: 'technology' },
+  socio: { name: 'SOCIONOMI', color: 'socionomi', dataFolder: 'socio', collection: 'socio_entities', domain: 'technology' }
 };
 
 // ═══════════════════════════════════════════════════════════════════════════════
@@ -214,6 +216,170 @@ interface ParsedConfig {
   schema: SchemaConfig;
 }
 
+// ═══════════════════════════════════════════════════════════════════════════════
+// SITE TYPE → BLUEPRINT FOLDER MAPPING
+// ═══════════════════════════════════════════════════════════════════════════════
+
+const SITE_TO_BLUEPRINT_FOLDER: Record<SiteType, string> = {
+  fungi: 'amorph-fungi',
+  phyto: 'amorph-phyto',
+  therion: 'amorph-drako',
+  paleo: 'amorph-paleo',
+  tekto: 'amorph-tekto',
+  mineral: 'amorph-mine',
+  bakterio: 'amorph-bakterio',
+  viro: 'amorph-viro',
+  geno: 'amorph-geno',
+  anato: 'amorph-anato',
+  chemo: 'amorph-chemo',
+  physi: 'amorph-physi',
+  kosmo: 'amorph-kosmo',
+  netzo: 'amorph-netzo',
+  cognito: 'amorph-cognito',
+  biotech: 'amorph-biotech',
+  socio: 'amorph-socio'
+};
+
+/**
+ * Generate a nice display name from a perspective ID
+ * e.g. "antibiotic_resistance" → "Antibiotic Resistance"
+ */
+function generateDisplayName(id: string): string {
+  return id
+    .split('_')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+/**
+ * Generate a symbol based on perspective ID (fallback if not in YAML)
+ */
+function generateSymbol(id: string): string {
+  // Common keywords → symbols mapping
+  const symbolMap: Record<string, string> = {
+    resistance: '💊',
+    communication: '📡',
+    network: '🔗',
+    gene: '🧬',
+    metabol: '⚡',
+    biofilm: '🦠',
+    holobiont: '🌐',
+    intelligence: '🧠',
+    ecology: '🌿',
+    chemical: '⚗️',
+    ecosystem: '🌍',
+    mycel: '🍄',
+    cross: '🔀',
+    transfer: '↔️',
+    safety: '⚠️',
+    medicine: '💊',
+    culinary: '🍳',
+    cultivation: '🌱',
+    identification: '🔍',
+    taxonomy: '📚',
+    morphology: '🔬',
+    pathogen: '☣️',
+    vaccine: '💉',
+    virus: '🦠',
+    bacteria: '🦠',
+    anatomy: '🫀',
+    surgery: '🏥',
+    imaging: '📸',
+    physics: '⚛️',
+    quantum: '🔮',
+    astronomy: '🔭',
+    mission: '🚀',
+    cosmos: '🌌',
+    architecture: '🏗️',
+    security: '🔒',
+    ai: '🤖',
+    model: '🧠',
+    training: '📚',
+    ethics: '⚖️',
+    biotech: '🧬',
+    socio: '🏛️',
+    culture: '🎭',
+    economy: '💰',
+    research: '🔬',
+    statistics: '📊',
+    geography: '🗺️',
+    temporal: '📅',
+    conservation: '🛡️',
+    fossil: '🦴',
+    mineral: '💎',
+    crystal: '💎',
+    volcano: '🌋',
+    plate: '🌍',
+    structure: '🏗️'
+  };
+  
+  const lowerID = id.toLowerCase();
+  for (const [keyword, symbol] of Object.entries(symbolMap)) {
+    if (lowerID.includes(keyword)) {
+      return symbol;
+    }
+  }
+  
+  return '●'; // Default symbol
+}
+
+/**
+ * Load perspectives DYNAMICALLY from Blueprint files
+ * 
+ * Data-driven: Scans the blueprint folder for the current SITE_TYPE
+ * and creates perspectives from the filenames.
+ */
+function loadPerspectivesFromBlueprints(siteType: SiteType): Map<string, Perspective> {
+  const perspectives = new Map<string, Perspective>();
+  
+  const blueprintFolder = SITE_TO_BLUEPRINT_FOLDER[siteType];
+  const blueprintPath = join(BASE_CONFIG_PATH, 'schema', 'perspektiven', 'blueprints', blueprintFolder);
+  
+  if (!existsSync(blueprintPath)) {
+    console.warn(`[Config] Blueprint folder not found: ${blueprintPath}`);
+    return perspectives;
+  }
+  
+  try {
+    const files = readdirSync(blueprintPath);
+    const blueprintFiles = files.filter(f => f.endsWith('.blueprint.yaml'));
+    
+    for (const file of blueprintFiles) {
+      // Extract ID from filename: "antibiotic_resistance.blueprint.yaml" → "antibiotic_resistance"
+      const id = basename(file, '.blueprint.yaml');
+      
+      // Try to read perspective metadata from the YAML file
+      let name = generateDisplayName(id);
+      let symbol = generateSymbol(id);
+      
+      try {
+        const filePath = join(blueprintPath, file);
+        const content = readFileSync(filePath, 'utf-8');
+        const yaml = parseYAML(content) as Record<string, unknown>;
+        
+        // Check if YAML has explicit perspective name/symbol
+        if (yaml.perspective_name && typeof yaml.perspective_name === 'string') {
+          name = yaml.perspective_name;
+        }
+        if (yaml.perspective_symbol && typeof yaml.perspective_symbol === 'string') {
+          symbol = yaml.perspective_symbol;
+        }
+      } catch {
+        // Use generated values if YAML parsing fails
+      }
+      
+      perspectives.set(id, { id, name, symbol });
+    }
+    
+    console.log(`[Config] Loaded ${perspectives.size} perspectives from blueprints: ${blueprintFolder}`);
+    
+  } catch (error) {
+    console.error(`[Config] Error reading blueprint folder:`, error);
+  }
+  
+  return perspectives;
+}
+
 function loadSchema(): SchemaConfig {
   const schema: SchemaConfig = {
     meta: {},
@@ -236,38 +402,22 @@ function loadSchema(): SchemaConfig {
     schema.semantik = semantik;
   }
   
-  // Perspektiven-Metadaten (Name, Symbol für Anzeige)
-  const perspektivenMeta: Record<string, { name: string; symbol: string }> = {
-    culinary: { name: 'Kulinarisch', symbol: '🍳' },
-    safety: { name: 'Sicherheit', symbol: '⚠️' },
-    cultivation: { name: 'Anbau', symbol: '🌱' },
-    medicine: { name: 'Medizin', symbol: '💊' },
-    chemistry: { name: 'Chemie', symbol: '⚗️' },
-    ecology: { name: 'Ökologie', symbol: '🌿' },
-    statistics: { name: 'Statistik', symbol: '📊' },
-    geography: { name: 'Geografie', symbol: '🗺️' },
-    temporal: { name: 'Zeitlich', symbol: '📅' },
-    economy: { name: 'Wirtschaft', symbol: '💰' },
-    conservation: { name: 'Naturschutz', symbol: '🛡️' },
-    culture: { name: 'Kultur', symbol: '🎭' },
-    research: { name: 'Forschung', symbol: '🔬' },
-    interactions: { name: 'Interaktionen', symbol: '🔗' },
-    identification: { name: 'Bestimmung', symbol: '🔍' }
-  };
+  // Get current site type
+  const siteType = getSiteType();
+  const siteMeta = SITE_META[siteType];
   
-  // Load perspectives from index.yaml
-  const perspektivenIndex = loadYAML<{ aktiv?: string[] }>('schema/perspektiven/index.yaml');
-  if (perspektivenIndex?.aktiv) {
-    for (const id of perspektivenIndex.aktiv) {
-      const meta = perspektivenMeta[id] || { name: id.charAt(0).toUpperCase() + id.slice(1), symbol: '●' };
-      schema.perspektiven![id] = { 
-        id,
-        name: meta.name,
-        symbol: meta.symbol
-      };
-      schema.reihenfolge!.push(id);
-    }
+  // ═══════════════════════════════════════════════════════════════════════════
+  // DATA-DRIVEN: Load perspectives from Blueprint files
+  // ═══════════════════════════════════════════════════════════════════════════
+  const blueprintPerspectives = loadPerspectivesFromBlueprints(siteType);
+  
+  // Add blueprint perspectives to schema
+  for (const [id, perspective] of blueprintPerspectives) {
+    schema.perspektiven![id] = perspective;
+    schema.reihenfolge!.push(id);
   }
+  
+  console.log(`[Config] Site: ${siteType} (${siteMeta.name}) → ${schema.reihenfolge!.length} perspectives loaded`);
   
   return schema;
 }

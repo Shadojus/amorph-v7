@@ -1,0 +1,839 @@
+# CHEMICAL ECOLOGY - Chemistry
+# Version: 1.0.0 | Domain: CHEMISTRY (Lateral)
+# Based on: Chemical Ecology (MDPI Plants 2025), Biodiversity-Driven Metabolites (2025)
+# PARADIGM SHIFT: From isolated organisms → Chemical-mediated ecological interactions
+
+perspective: chemical_ecology
+version: "1.0.0"
+
+# ============================================================================
+# CORE IDENTITY
+# ============================================================================
+
+ecosystem_type:
+  # morph: badge
+  # terrestrial | marine | freshwater | soil | symbiotic | host_microbiome
+  status: ""
+  variant: ""
+
+interaction_type:
+  # morph: badge
+  # mutualism | competition | predation | parasitism | commensalism | allelopathy
+  status: ""
+  variant: ""
+
+organisms_involved:
+  # morph: list
+  items:
+    - organism: ""
+      role: ""
+      taxonomy: ""
+      chemical_producer: ""
+
+geographical_location:
+  # morph: text
+  ""
+
+# ============================================================================
+# CHEMICAL MEDIATORS - Molecules crossing organism boundaries
+# ============================================================================
+
+semiochemicals_total:
+  # morph: number
+  # Chemical signals mediating interactions
+  0
+
+semiochemical_classes:
+  # morph: distribution
+  categories:
+    - class: "Pheromones"
+      count: 0
+      function: "Intraspecific communication"
+    - class: "Allelochemicals"
+      count: 0
+      function: "Interspecific interactions"
+    - class: "Kairomones"
+      count: 0
+      function: "Benefit receiver, not sender"
+    - class: "Allomones"
+      count: 0
+      function: "Benefit sender, not receiver"
+    - class: "Synomones"
+      count: 0
+      function: "Benefit both parties"
+
+chemical_structures:
+  # morph: list
+  items:
+    - compound: ""
+      structure: ""
+      molecular_weight: 0
+      class: ""
+      function: ""
+
+# ============================================================================
+# PHEROMONES - Intraspecific signals
+# ============================================================================
+
+pheromone_communication:
+  # morph: badge
+  # present | absent
+  status: ""
+  variant: ""
+
+pheromone_types:
+  # morph: distribution
+  categories:
+    - type: "Sex pheromones"
+      compounds: 0
+      function: ""
+    - type: "Aggregation pheromones"
+      compounds: 0
+      function: ""
+    - type: "Alarm pheromones"
+      compounds: 0
+      function: ""
+    - type: "Trail pheromones"
+      compounds: 0
+      function: ""
+    - type: "Territorial pheromones"
+      compounds: 0
+      function: ""
+
+pheromone_blends:
+  # morph: list
+  # Mixtures with specific ratios
+  items:
+    - blend: ""
+      components: ""
+      ratio: ""
+      species_specificity: ""
+
+# ============================================================================
+# PLANT VOLATILES - Airborne signals
+# ============================================================================
+
+volatile_organic_compounds:
+  # morph: number
+  # VOCs emitted
+  0
+
+voc_classes:
+  # morph: distribution
+  categories:
+    - class: "Terpenoids"
+      count: 0
+      percentage: 0
+    - class: "Green leaf volatiles"
+      count: 0
+      percentage: 0
+    - class: "Benzenoids"
+      count: 0
+      percentage: 0
+    - class: "Fatty acid derivatives"
+      count: 0
+      percentage: 0
+
+herbivore_induced_volatiles:
+  # morph: badge
+  # yes | no
+  # HIPVs - induced by herbivore damage
+  status: ""
+  variant: ""
+
+hipv_function:
+  # morph: list
+  items:
+    - function: ""
+      mechanism: ""
+      organisms_affected: ""
+
+plant_plant_communication:
+  # morph: badge
+  # demonstrated | not_demonstrated
+  # Airborne signals between plants
+  status: ""
+  variant: ""
+
+# ============================================================================
+# DEFENSE COMPOUNDS - Chemical weapons
+# ============================================================================
+
+defensive_chemicals:
+  # morph: number
+  0
+
+defense_compound_classes:
+  # morph: distribution
+  categories:
+    - class: "Alkaloids"
+      count: 0
+      toxicity: ""
+    - class: "Terpenoids"
+      count: 0
+      toxicity: ""
+    - class: "Phenolics"
+      count: 0
+      toxicity: ""
+    - class: "Glucosinolates"
+      count: 0
+      toxicity: ""
+    - class: "Cyanogenic glycosides"
+      count: 0
+      toxicity: ""
+
+constitutive_defenses:
+  # morph: number
+  # Always present
+  0
+
+induced_defenses:
+  # morph: number
+  # Produced after attack
+  0
+
+induction_time:
+  # morph: number
+  # Time to upregulate defense (hours)
+  0
+
+systemic_induction:
+  # morph: badge
+  # yes | no
+  # Defense spreads to undamaged tissue
+  status: ""
+  variant: ""
+
+# ============================================================================
+# ALLELOPATHY - Chemical interference
+# ============================================================================
+
+allelopathic_activity:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+allelochemicals:
+  # morph: list
+  items:
+    - compound: ""
+      target_species: ""
+      effect: ""
+      ic50: 0
+
+allelopathic_mechanism:
+  # morph: badge
+  # germination_inhibition | growth_suppression | photosynthesis_inhibition | multiple
+  status: ""
+  variant: ""
+
+release_mechanism:
+  # morph: badge
+  # root_exudation | volatilization | leaching | decomposition
+  status: ""
+  variant: ""
+
+soil_persistence:
+  # morph: number
+  # Half-life in soil (days)
+  0
+
+# ============================================================================
+# PLANT-HERBIVORE INTERACTIONS
+# ============================================================================
+
+herbivore_deterrence:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+deterrent_compounds:
+  # morph: list
+  items:
+    - compound: ""
+      mechanism: ""
+      effective_concentration: 0
+      target_herbivore: ""
+
+feeding_deterrent_activity:
+  # morph: gauge
+  # Reduction in feeding (%)
+  current: 0
+  target: 100
+  unit: "%"
+
+digestibility_reducers:
+  # morph: list
+  # Tannins, protease inhibitors
+  items:
+    - compound: ""
+      mechanism: ""
+      effect: ""
+
+toxins:
+  # morph: list
+  items:
+    - toxin: ""
+      ld50: 0
+      target_organism: ""
+
+# ============================================================================
+# PLANT-POLLINATOR INTERACTIONS
+# ============================================================================
+
+pollinator_attraction:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+floral_volatiles:
+  # morph: list
+  items:
+    - compound: ""
+      emission_rate: 0
+      pollinator: ""
+      behavioral_response: ""
+
+nectar_chemistry:
+  # morph: list
+  items:
+    - compound: ""
+      concentration: 0
+      function: ""
+
+pollinator_reward:
+  # morph: badge
+  # nectar | pollen | oil | fragrance | none
+  status: ""
+  variant: ""
+
+pollinator_specificity:
+  # morph: badge
+  # specialist | generalist
+  status: ""
+  variant: ""
+
+# ============================================================================
+# TRITROPHIC INTERACTIONS - Three-level systems
+# ============================================================================
+
+tritrophic_interaction:
+  # morph: badge
+  # yes | no
+  # Plant → Herbivore → Predator/Parasitoid
+  status: ""
+  variant: ""
+
+indirect_defense:
+  # morph: badge
+  # yes | no
+  # Plant recruits herbivore enemies
+  status: ""
+  variant: ""
+
+carnivore_attractants:
+  # morph: list
+  # Volatiles attracting predators/parasitoids
+  items:
+    - compound: ""
+      carnivore_attracted: ""
+      emission_trigger: ""
+
+enemy_recruitment_efficiency:
+  # morph: gauge
+  # Success rate (%)
+  current: 0
+  target: 80
+  unit: "%"
+
+# ============================================================================
+# MICROBIAL INTERACTIONS
+# ============================================================================
+
+microbial_signaling:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+quorum_sensing:
+  # morph: badge
+  # yes | no
+  # Bacterial density-dependent signaling
+  status: ""
+  variant: ""
+
+quorum_sensing_molecules:
+  # morph: list
+  items:
+    - molecule: ""
+      type: ""
+      threshold_concentration: 0
+      regulated_genes: 0
+
+quorum_quenching:
+  # morph: badge
+  # yes | no
+  # Interference with QS
+  status: ""
+  variant: ""
+
+antibiotic_production:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+antibiotics:
+  # morph: list
+  items:
+    - antibiotic: ""
+      producer: ""
+      target: ""
+      mic: 0
+
+siderophores:
+  # morph: badge
+  # yes | no
+  # Iron-chelating compounds
+  status: ""
+  variant: ""
+
+# ============================================================================
+# SYMBIOTIC INTERACTIONS
+# ============================================================================
+
+symbiosis_chemistry:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+symbiotic_signals:
+  # morph: list
+  items:
+    - signal: ""
+      sender: ""
+      receiver: ""
+      response: ""
+
+mycorrhizal_signals:
+  # morph: badge
+  # strigolactones | lipo_chitooligosaccharides | other | not_applicable
+  status: ""
+  variant: ""
+
+rhizobial_signals:
+  # morph: badge
+  # nod_factors | other | not_applicable
+  status: ""
+  variant: ""
+
+nutritional_exchange:
+  # morph: list
+  items:
+    - compound: ""
+      direction: ""
+      function: ""
+
+# ============================================================================
+# MARINE CHEMICAL ECOLOGY
+# ============================================================================
+
+marine_environment:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+waterborne_signals:
+  # morph: list
+  items:
+    - signal: ""
+      function: ""
+      effective_range: ""
+
+antifouling_compounds:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+spawning_synchronization:
+  # morph: badge
+  # yes | no
+  # Chemical coordination of reproduction
+  status: ""
+  variant: ""
+
+# ============================================================================
+# SOIL CHEMICAL ECOLOGY
+# ============================================================================
+
+rhizosphere_chemistry:
+  # morph: badge
+  # studied | not_studied
+  status: ""
+  variant: ""
+
+root_exudates:
+  # morph: number
+  # Number of compounds exuded
+  0
+
+exudate_functions:
+  # morph: distribution
+  categories:
+    - function: "Nutrient acquisition"
+      compounds: 0
+    - function: "Microbial recruitment"
+      compounds: 0
+    - function: "Allelopathy"
+      compounds: 0
+    - function: "Defense"
+      compounds: 0
+
+soil_microbiome_modulation:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# TEMPORAL DYNAMICS - Time-dependent chemistry
+# ============================================================================
+
+diurnal_variation:
+  # morph: badge
+  # yes | no
+  # Day/night emission patterns
+  status: ""
+  variant: ""
+
+seasonal_variation:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+ontogenetic_changes:
+  # morph: badge
+  # yes | no
+  # Changes during development
+  status: ""
+  variant: ""
+
+emission_timing:
+  # morph: list
+  items:
+    - compound: ""
+      peak_time: ""
+      ecological_relevance: ""
+
+# ============================================================================
+# BIOSYNTHESIS - Production pathways
+# ============================================================================
+
+biosynthetic_origin:
+  # morph: badge
+  # de_novo | diet_derived | microbial_symbiont | mixed
+  status: ""
+  variant: ""
+
+inducible_biosynthesis:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+elicitors:
+  # morph: list
+  # Molecules triggering production
+  items:
+    - elicitor: ""
+      source: ""
+      pathway_induced: ""
+      fold_induction: 0
+
+# ============================================================================
+# RECEPTION & DETECTION - Sensory systems
+# ============================================================================
+
+receptor_type:
+  # morph: badge
+  # olfactory | gustatory | chemoreceptor | not_characterized
+  status: ""
+  variant: ""
+
+detection_threshold:
+  # morph: number
+  # Minimum detectable concentration (ng/L or ppb)
+  0
+
+behavioral_response:
+  # morph: list
+  items:
+    - compound: ""
+      behavior: ""
+      dose_response: ""
+
+# ============================================================================
+# EVOLUTIONARY ECOLOGY - Coevolution
+# ============================================================================
+
+coevolutionary_relationship:
+  # morph: badge
+  # yes | no | suspected
+  status: ""
+  variant: ""
+
+arms_race:
+  # morph: badge
+  # yes | no
+  # Escalating adaptations/counter-adaptations
+  status: ""
+  variant: ""
+
+convergent_evolution:
+  # morph: badge
+  # yes | no
+  # Similar chemicals in unrelated lineages
+  status: ""
+  variant: ""
+
+chemical_mimicry:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# ECOLOGICAL PRESSURES - Selection forces
+# ============================================================================
+
+selection_pressure:
+  # morph: badge
+  # herbivory | competition | predation | pathogen | abiotic_stress
+  status: ""
+  variant: ""
+
+trade_offs:
+  # morph: list
+  # Costs of chemical defense
+  items:
+    - trade_off: ""
+      cost: ""
+      benefit: ""
+
+allocation_costs:
+  # morph: badge
+  # high | moderate | low
+  # Resources diverted to chemical production
+  status: ""
+  variant: ""
+
+# ============================================================================
+# COMMUNITY EFFECTS - Ecosystem-level impacts
+# ============================================================================
+
+community_structuring:
+  # morph: badge
+  # yes | no
+  # Chemicals shape community composition
+  status: ""
+  variant: ""
+
+biodiversity_impact:
+  # morph: badge
+  # increases | decreases | neutral
+  status: ""
+  variant: ""
+
+invasive_species:
+  # morph: badge
+  # relevant | not_relevant
+  # Chemical ecology of invasions
+  status: ""
+  variant: ""
+
+novel_weapons_hypothesis:
+  # morph: badge
+  # supported | not_supported | not_applicable
+  # Invasive species use novel allelochemicals
+  status: ""
+  variant: ""
+
+# ============================================================================
+# ANALYTICAL METHODS - Chemical detection
+# ============================================================================
+
+sampling_methods:
+  # morph: list
+  items:
+    - method: ""
+      target: ""
+      sensitivity: ""
+
+headspace_analysis:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+solid_phase_microextraction:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+gc_ms_analysis:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+lc_ms_analysis:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+# ============================================================================
+# FIELD STUDIES - Natural context
+# ============================================================================
+
+field_observations:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+ecological_relevance:
+  # morph: badge
+  # high | moderate | low
+  # Significance in natural environment
+  status: ""
+  variant: ""
+
+field_experiments:
+  # morph: list
+  items:
+    - experiment: ""
+      result: ""
+      ecological_insight: ""
+
+# ============================================================================
+# APPLICATIONS - AGRICULTURE
+# ============================================================================
+
+agricultural_applications:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+integrated_pest_management:
+  # morph: list
+  items:
+    - application: ""
+      compound: ""
+      effectiveness: ""
+
+push_pull_strategy:
+  # morph: badge
+  # implemented | not_applicable
+  # Repellent + attractant crops
+  status: ""
+  variant: ""
+
+biological_control:
+  # morph: badge
+  # relevant | not_relevant
+  status: ""
+  variant: ""
+
+# ============================================================================
+# APPLICATIONS - MEDICINE
+# ============================================================================
+
+pharmaceutical_potential:
+  # morph: badge
+  # high | moderate | low | none
+  status: ""
+  variant: ""
+
+bioactive_compounds:
+  # morph: list
+  items:
+    - compound: ""
+      activity: ""
+      target: ""
+      development_stage: ""
+
+# ============================================================================
+# CONSERVATION IMPLICATIONS
+# ============================================================================
+
+conservation_relevance:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+threatened_interactions:
+  # morph: list
+  items:
+    - interaction: ""
+      threat: ""
+      consequence: ""
+
+# ============================================================================
+# CLIMATE CHANGE EFFECTS
+# ============================================================================
+
+climate_sensitivity:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+temperature_effects:
+  # morph: text
+  # Impact of warming on chemical production/emission
+  ""
+
+co2_effects:
+  # morph: text
+  # Impact of elevated CO2
+  ""
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""
+
+curator:
+  # morph: text
+  ""
+
+notes:
+  # morph: text
+  ""
+
+references:
+  # morph: list
+  items:
+    - citation: ""
+      doi: ""
+      year: ""

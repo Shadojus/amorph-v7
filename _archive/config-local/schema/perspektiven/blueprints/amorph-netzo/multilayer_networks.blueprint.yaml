@@ -1,0 +1,734 @@
+# MULTILAYER NETWORKS - Networks
+# Version: 1.0.0 | Domain: NETWORK SCIENCE (Holistic)
+# Based on: Multilayer Network Science (arXiv Nov 2025), Complex Networks (CNA 2025)
+# PARADIGM SHIFT: From single networks → Integrated multilayer networks as unified systems
+
+perspective: multilayer_networks
+version: "1.0.0"
+
+# ============================================================================
+# CORE IDENTITY
+# ============================================================================
+
+network_name:
+  # morph: text
+  ""
+
+system_type:
+  # morph: badge
+  # biological | ecological | social | technological | infrastructure | economic | hybrid
+  status: ""
+  variant: ""
+
+application_domain:
+  # morph: badge
+  # systems_biology | neuroscience | epidemiology | transportation | communication | finance
+  status: ""
+  variant: ""
+
+# ============================================================================
+# MULTILAYER ARCHITECTURE - The integrated whole
+# ============================================================================
+
+number_of_layers:
+  # morph: number
+  # Total network layers
+  0
+
+layer_types:
+  # morph: list
+  items:
+    - layer_name: ""
+      node_count: 0
+      edge_count: 0
+      edge_type: ""
+      meaning: ""
+
+layer_coupling:
+  # morph: badge
+  # fully_coupled | partially_coupled | independent | temporal
+  status: ""
+  variant: ""
+
+interlayer_edges:
+  # morph: number
+  # Connections between layers
+  0
+
+network_representation:
+  # morph: badge
+  # multiplex | multilayer | temporal | multislice | interdependent
+  status: ""
+  variant: ""
+
+# ============================================================================
+# MULTIPLEX NETWORKS - Same nodes, different edge types
+# ============================================================================
+
+multiplex_structure:
+  # morph: badge
+  # yes | no
+  # Same node set across layers
+  status: ""
+  variant: ""
+
+multiplex_layers:
+  # morph: list
+  items:
+    - layer: ""
+      interaction_type: ""
+      weight: 0
+      directionality: ""
+
+node_alignment:
+  # morph: badge
+  # perfect | partial | none
+  # Same entities across layers
+  status: ""
+  variant: ""
+
+# ============================================================================
+# INTERDEPENDENT NETWORKS - Infrastructure coupling
+# ============================================================================
+
+interdependent_structure:
+  # morph: badge
+  # yes | no
+  # Networks depend on each other
+  status: ""
+  variant: ""
+
+dependency_links:
+  # morph: network
+  # Cross-network dependencies
+  nodes:
+    - id: ""
+      network: ""
+      type: ""
+      criticality: 0
+  edges:
+    - source: ""
+      target: ""
+      dependency_type: ""
+      strength: 0
+
+cascading_failure_risk:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+infrastructure_networks:
+  # morph: list
+  # Power grid ↔ communication ↔ water ↔ transportation
+  items:
+    - network: ""
+      dependencies: ""
+      criticality: ""
+
+# ============================================================================
+# TEMPORAL NETWORKS - Time-evolving layers
+# ============================================================================
+
+temporal_structure:
+  # morph: badge
+  # static | temporal | dynamic | evolving
+  status: ""
+  variant: ""
+
+time_slices:
+  # morph: number
+  # Number of temporal snapshots
+  0
+
+temporal_resolution:
+  # morph: text
+  # Time between slices
+  ""
+
+temporal_edge_activity:
+  # morph: badge
+  # continuous | bursty | periodic | random
+  status: ""
+  variant: ""
+
+# ============================================================================
+# NODES - Multi-layer entities
+# ============================================================================
+
+total_nodes:
+  # morph: number
+  # Unique entities across all layers
+  0
+
+node_layer_participation:
+  # morph: distribution
+  categories:
+    - participation: "Single layer"
+      count: 0
+      percentage: 0
+    - participation: "2-3 layers"
+      count: 0
+      percentage: 0
+    - participation: "Most layers"
+      count: 0
+      percentage: 0
+    - participation: "All layers"
+      count: 0
+      percentage: 0
+
+overlapping_nodes:
+  # morph: gauge
+  # Percentage of nodes in multiple layers (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+# ============================================================================
+# EDGES - Intra- and inter-layer connections
+# ============================================================================
+
+total_edges:
+  # morph: number
+  # All edges (intra + inter)
+  0
+
+intralayer_edges:
+  # morph: number
+  # Within-layer connections
+  0
+
+interlayer_edges_count:
+  # morph: number
+  # Between-layer connections
+  0
+
+edge_type_distribution:
+  # morph: pie
+  segments:
+    - category: "Intralayer"
+      value: 0
+      percentage: 0
+    - category: "Interlayer coupling"
+      value: 0
+      percentage: 0
+
+coupling_strength:
+  # morph: gauge
+  # Average interlayer edge weight
+  current: 0
+  target: 1
+  unit: "normalized"
+
+# ============================================================================
+# LAYER AGGREGATION - Flattened view
+# ============================================================================
+
+aggregated_network:
+  # morph: badge
+  # computed | not_computed
+  # Single-layer projection
+  status: ""
+  variant: ""
+
+aggregation_method:
+  # morph: badge
+  # union | intersection | weighted_sum | max | min
+  status: ""
+  variant: ""
+
+information_loss:
+  # morph: gauge
+  # Information lost in aggregation (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+# ============================================================================
+# COMMUNITY DETECTION - Multilayer modules
+# ============================================================================
+
+multilayer_communities:
+  # morph: number
+  # Detected communities
+  0
+
+community_detection_algorithm:
+  # morph: badge
+  # louvain_multilayer | infomap_multilayer | label_propagation | genlouvain | none
+  status: ""
+  variant: ""
+
+modularity:
+  # morph: number
+  # Multilayer modularity Q
+  0
+
+community_overlap:
+  # morph: badge
+  # yes | no
+  # Communities span multiple layers
+  status: ""
+  variant: ""
+
+layer_specific_communities:
+  # morph: number
+  # Communities in single layer only
+  0
+
+cross_layer_communities:
+  # morph: number
+  # Communities spanning layers
+  0
+
+# ============================================================================
+# CENTRALITY - Multilayer importance
+# ============================================================================
+
+multilayer_centrality_measures:
+  # morph: list
+  items:
+    - measure: ""
+      description: ""
+      computation: ""
+
+versatility:
+  # morph: badge
+  # computed | not_computed
+  # Node activity across layers
+  status: ""
+  variant: ""
+
+top_versatile_nodes:
+  # morph: list
+  # Nodes active in many layers
+  items:
+    - node: ""
+      layers_active: 0
+      versatility_score: 0
+
+multilayer_pagerank:
+  # morph: badge
+  # computed | not_computed
+  status: ""
+  variant: ""
+
+layer_specific_hubs:
+  # morph: list
+  items:
+    - layer: ""
+      hub_nodes: ""
+      centrality: 0
+
+cross_layer_brokers:
+  # morph: list
+  # Nodes bridging layers
+  items:
+    - node: ""
+      brokerage_score: 0
+      layers_bridged: ""
+
+# ============================================================================
+# SPREADING DYNAMICS - Multilayer contagion
+# ============================================================================
+
+spreading_processes:
+  # morph: badge
+  # modeled | not_modeled
+  status: ""
+  variant: ""
+
+contagion_type:
+  # morph: badge
+  # disease | information | behavior | failure | innovation
+  status: ""
+  variant: ""
+
+multilayer_spreading_model:
+  # morph: badge
+  # sir_multilayer | sis_multilayer | threshold | independent_cascade | none
+  status: ""
+  variant: ""
+
+cross_layer_transmission:
+  # morph: badge
+  # yes | no
+  # Contagion spreads between layers
+  status: ""
+  variant: ""
+
+epidemic_threshold:
+  # morph: number
+  # Critical transmission rate
+  0
+
+layer_coupling_effect:
+  # morph: badge
+  # amplifies_spread | dampens_spread | neutral
+  status: ""
+  variant: ""
+
+# ============================================================================
+# ROBUSTNESS - Multilayer resilience
+# ============================================================================
+
+robustness_analysis:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+attack_strategy:
+  # morph: badge
+  # random | targeted_degree | targeted_betweenness | layer_specific
+  status: ""
+  variant: ""
+
+percolation_threshold:
+  # morph: number
+  # Critical node removal fraction
+  0
+
+layer_redundancy:
+  # morph: badge
+  # high | moderate | low
+  # Backup pathways across layers
+  status: ""
+  variant: ""
+
+single_point_of_failure:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# HIGHER-ORDER STRUCTURES - Beyond pairwise
+# ============================================================================
+
+higher_order_interactions:
+  # morph: badge
+  # present | absent
+  # Hyperedges, simplicial complexes
+  status: ""
+  variant: ""
+
+simplicial_complexes:
+  # morph: badge
+  # yes | no
+  # Triangles, tetrahedra, etc.
+  status: ""
+  variant: ""
+
+hypergraphs:
+  # morph: badge
+  # yes | no
+  # Edges connecting >2 nodes
+  status: ""
+  variant: ""
+
+# ============================================================================
+# TOPOLOGICAL PROPERTIES - Multilayer structure
+# ============================================================================
+
+multilayer_clustering_coefficient:
+  # morph: number
+  0
+
+average_path_length:
+  # morph: number
+  # Across layers
+  0
+
+diameter:
+  # morph: number
+  # Maximum shortest path
+  0
+
+small_world_property:
+  # morph: badge
+  # yes | no
+  # High clustering, short paths
+  status: ""
+  variant: ""
+
+# ============================================================================
+# LAYER CORRELATION - Similarity between layers
+# ============================================================================
+
+layer_correlation:
+  # morph: badge
+  # analyzed | not_analyzed
+  status: ""
+  variant: ""
+
+correlation_coefficient:
+  # morph: number
+  # Pearson/Spearman between layers
+  0
+
+layer_similarity:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+redundant_layers:
+  # morph: list
+  # Highly correlated layers
+  items:
+    - layer1: ""
+      layer2: ""
+      correlation: 0
+
+complementary_layers:
+  # morph: list
+  # Uncorrelated, independent information
+  items:
+    - layer1: ""
+      layer2: ""
+      complementarity: 0
+
+# ============================================================================
+# APPLICATIONS - BIOLOGICAL SYSTEMS
+# ============================================================================
+
+biological_multilayer:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+omics_layers:
+  # morph: list
+  # Genomics, transcriptomics, proteomics, metabolomics
+  items:
+    - layer: ""
+      data_type: ""
+      nodes: 0
+      edges: 0
+
+protein_interaction_layers:
+  # morph: list
+  # Physical, genetic, coexpression, regulatory
+  items:
+    - interaction_type: ""
+      confidence: ""
+      edges: 0
+
+brain_networks:
+  # morph: badge
+  # structural | functional | effective | multiplex
+  status: ""
+  variant: ""
+
+# ============================================================================
+# APPLICATIONS - SOCIAL SYSTEMS
+# ============================================================================
+
+social_multilayer:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+social_platforms:
+  # morph: list
+  # Twitter, Facebook, LinkedIn, etc. as layers
+  items:
+    - platform: ""
+      users: 0
+      relationships: ""
+
+communication_modes:
+  # morph: list
+  # Email, phone, face-to-face, social media as layers
+  items:
+    - mode: ""
+      frequency: ""
+      strength: 0
+
+# ============================================================================
+# APPLICATIONS - INFRASTRUCTURE
+# ============================================================================
+
+infrastructure_multilayer:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+critical_infrastructure_layers:
+  # morph: list
+  items:
+    - infrastructure: ""
+      dependencies: ""
+      failure_impact: ""
+
+transportation_modes:
+  # morph: list
+  # Road, rail, air, water as layers
+  items:
+    - mode: ""
+      connectivity: ""
+      capacity: 0
+
+# ============================================================================
+# APPLICATIONS - ECOLOGICAL
+# ============================================================================
+
+ecological_multilayer:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+ecological_interaction_layers:
+  # morph: list
+  # Predation, mutualism, competition, parasitism
+  items:
+    - interaction: ""
+      species_pairs: 0
+      network_structure: ""
+
+# ============================================================================
+# COMPUTATIONAL METHODS
+# ============================================================================
+
+multilayer_software:
+  # morph: badge
+  # muxviz | pymnet | multinet | igraph_multilayer | custom
+  status: ""
+  variant: ""
+
+computational_complexity:
+  # morph: badge
+  # tractable | expensive | very_expensive
+  status: ""
+  variant: ""
+
+scalability:
+  # morph: badge
+  # scales_well | moderate | poor
+  status: ""
+  variant: ""
+
+# ============================================================================
+# MACHINE LEARNING INTEGRATION
+# ============================================================================
+
+ml_on_multilayer:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+graph_neural_networks:
+  # morph: badge
+  # gnn | gcn | gat | heterogeneous_gnn | none
+  status: ""
+  variant: ""
+
+link_prediction:
+  # morph: badge
+  # intralayer | interlayer | both | not_performed
+  status: ""
+  variant: ""
+
+node_classification:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+# ============================================================================
+# VISUALIZATION
+# ============================================================================
+
+visualization_method:
+  # morph: badge
+  # stacked_layers | hairball_projection | force_directed | matrix | custom
+  status: ""
+  variant: ""
+
+interactive_visualization:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# DATA SOURCES
+# ============================================================================
+
+data_collection:
+  # morph: list
+  items:
+    - layer: ""
+      data_source: ""
+      collection_method: ""
+      time_period: ""
+
+data_quality:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+missing_data:
+  # morph: gauge
+  # Percentage missing (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+# ============================================================================
+# CHALLENGES & LIMITATIONS
+# ============================================================================
+
+challenges:
+  # morph: list
+  items:
+    - challenge: ""
+      impact: ""
+      mitigation: ""
+
+scalability_issues:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+interpretability:
+  # morph: badge
+  # clear | moderate | difficult
+  status: ""
+  variant: ""
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""
+
+curator:
+  # morph: text
+  ""
+
+notes:
+  # morph: text
+  ""
+
+references:
+  # morph: list
+  items:
+    - citation: ""
+      doi: ""
+      year: ""

@@ -1,184 +1,57 @@
-# AMORPH v7 - Observer Module
+# Observer Module
 
-> Debug & Analytics System mit kategorisiertem Logging.
+Debug und Analytics für AMORPH.
 
-## � Performance-Optimierung (Dezember 2025)
+**Tests:** 8 in observer.test.ts
 
-**⚡ DYNAMIC IMPORT - 87KB eingespart!**
+---
 
-Observer wird **nicht mehr statisch importiert**, sondern nur bei Bedarf:
+## Features
+
+- Performance-Monitoring
+- Render-Tracking
+- Error-Logging
+- Feature-Flag Debugging
+
+---
+
+## Verwendung
 
 ```typescript
-// app.ts - NUR wenn aktiviert:
-if (isEnabled) {
-  const { setupObservers } = await import('../../observer');
-  // ...
+// Wird dynamisch importiert (nur wenn debug=true)
+if (config.debug) {
+  const { observer } = await import('@/observer');
+  observer.track('render', { morph: 'badge', duration: 5 });
 }
 ```
 
-### Aktivierung (standardmäßig AUS)
-```javascript
-// Per localStorage:
-localStorage.setItem('amorph:observers', 'true')
+---
 
-// Per URL:
-?observe=true
+## Wichtig
+
+⚠️ **DYNAMIC IMPORT** - Nicht im Production Bundle!
+
+Observer wird nur geladen wenn Debug aktiviert ist,
+um Bundle-Größe zu minimieren.
+
+---
+
+## Konfiguration
+
+In `config-local/features.yaml`:
+```yaml
+debug: false  # true für Entwicklung
 ```
 
-## 📁 Struktur
+---
 
-```
-observer/
-├── index.ts        # setupObservers(), stopObservers() (~160 Zeilen)
-├── debug.ts        # DebugObserver mit History
-├── interaction.ts  # Clicks, Hover, Input
-├── rendering.ts    # Mount, Unmount, DOM
-├── session.ts      # Page Views, Zeit
-└── target.ts       # Console, HTTP, WebSocket Backends
-```
+## 📚 Verwandte Dokumentation
 
-## 🔧 Aktivierung
+| Datei | Inhalt |
+|-------|--------|
+| [../CLAUDE.md](../CLAUDE.md) | src/ Übersicht |
+| [../../CLAUDE.md](../../CLAUDE.md) | AMORPH Root |
 
-**Standardmäßig DEAKTIVIERT** für Production Performance.
+---
 
-### Aktivieren
-```javascript
-localStorage.setItem('amorph:observers', 'true');
-// oder URL: ?observe=true
-```
-
-### Deaktivieren
-```javascript
-localStorage.removeItem('amorph:observers');
-// oder URL: ?observe=false
-```
-
-## 📦 debug.ts - Kategorien
-
-| Kategorie | Farbe | Beschreibung |
-|-----------|-------|--------------|
-| `amorph` | #f472b6 | Haupt-Events |
-| `config` | #34d399 | Config Laden |
-| `data` | #60a5fa | Daten Laden |
-| `security` | #ef4444 | Security |
-| `search` | #38bdf8 | Suche |
-| `grid` | #84cc16 | Grid Events |
-| `compare` | #14b8a6 | Vergleich |
-| `morphs` | #fb7185 | Morph Rendering |
-| `detection` | #e879f9 | Typ-Erkennung |
-| `render` | #fbbf24 | DOM Rendering |
-
-### API
-```typescript
-import { debug } from './observer';
-
-debug.amorph('App initialized');
-debug.search('Query', { q: 'pilz', results: 42 });
-debug.error('Something failed', errorData);
-
-debug.enable();
-debug.disable();
-debug.setVerbose(true);
-debug.mute('scroll');
-debug.getStats();
-debug.getTimeline(20);
-```
-
-## 🌐 window.amorphDebug
-
-Global verfügbar für DevTools (nur wenn Observer geladen):
-```javascript
-amorphDebug.enable()
-amorphDebug.disable()
-amorphDebug.setVerbose(true)
-amorphDebug.getStats()
-amorphDebug.getTimeline(50)
-```
-
-## 📦 interaction.ts - InteractionObserver
-
-Trackt User-Interaktionen:
-- `click`: Element, Position, Morph, Feature
-- `hover`: (verzögert, nur bei Morphs)
-- `input`: Search Input Changes
-- `scroll`: (throttled)
-
-## 📦 rendering.ts - RenderingObserver
-
-Trackt DOM-Events:
-- `amorph:mounted`: Morph wurde gerendert
-- `amorph:unmounted`: Morph wurde entfernt
-- `amorph:rendered`: Render-Zyklus abgeschlossen
-- DOM Mutations via MutationObserver
-
-## 📦 session.ts - SessionObserver
-
-Trackt Session-Daten:
-- Page Views
-- Verweildauer
-- Tab-Wechsel (visibilitychange)
-- Page Leave (beforeunload)
-
-## 📦 target.ts - Output Backends
-
-```typescript
-import { createTarget } from './target';
-
-// Console (via debug.ts)
-const consoleTarget = createTarget({ type: 'console' });
-
-// HTTP POST
-const httpTarget = createTarget({ 
-  type: 'http', 
-  url: '/api/analytics',
-  batch: true 
-});
-
-// WebSocket
-const wsTarget = createTarget({ 
-  type: 'websocket', 
-  url: 'wss://analytics.example.com' 
-});
-```
-
-## 📦 index.ts - Setup
-
-```typescript
-import { setupObservers, stopObservers, getObserverStats } from './observer';
-
-// Aktivieren
-const observers = setupObservers(document.body, {
-  interaction: { enabled: true },
-  rendering: { enabled: true },
-  session: { enabled: true }
-}, sessionId);
-
-// Stats abrufen
-const stats = getObserverStats();
-
-// Deaktivieren
-stopObservers(observers);
-```
-
-## 🌐 Window API
-
-```javascript
-window.amorphDebug.enable()
-window.amorphDebug.getStats()
-window.amorphDebug.getTimeline(20)
-
-window.amorphObservers           // { interaction, rendering, session }
-window.amorphObserverStats()     // Statistiken
-window.getAmorphStats()          // Alias
-window.stopObservers()           // Alle stoppen
-```
-
-## 🧪 Tests
-
-`tests/observer.test.ts` - Tests für:
-- History Logging
-- Category Filtering
-- Muting
-- Stats Tracking
-- Timeline
-- Enable/Disable
+*Letzte Aktualisierung: Januar 2026*

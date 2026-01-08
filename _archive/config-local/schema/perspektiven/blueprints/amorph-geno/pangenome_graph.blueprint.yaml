@@ -1,0 +1,776 @@
+# PANGENOME GRAPH ARCHITECTURE - Genomics
+# Version: 1.0.0 | Domain: GENETICS (Holistic)
+# Based on: Graph Genomes (Nature Methods 2025), Minigraph-Cactus pangenome (Science 2025)
+# PARADIGM SHIFT: From single linear reference → Population graph capturing ALL variation
+
+perspective: pangenome_graph
+version: "1.0.0"
+
+# ============================================================================
+# CORE IDENTITY
+# ============================================================================
+
+organism_species:
+  # morph: text
+  # Species for which pangenome is constructed
+  ""
+
+common_name:
+  # morph: text
+  ""
+
+taxonomy:
+  # morph: hierarchy
+  # Full taxonomic classification
+  - level: ""
+    name: ""
+    rank: ""
+
+pangenome_scope:
+  # morph: badge
+  # species | population | strain | cultivar | ecotype | haplotype
+  status: ""
+  variant: ""
+
+assembly_count:
+  # morph: number
+  # Number of high-quality genomes in pangenome
+  0
+
+population_coverage:
+  # morph: gauge
+  # Percentage of species genetic diversity captured
+  current: 0
+  target: 100
+  unit: "%"
+
+# ============================================================================
+# GRAPH GENOME TOPOLOGY - The WHOLE population as integrated graph
+# ============================================================================
+
+graph_construction_method:
+  # morph: badge
+  # minigraph_cactus | pggb | pangenome_graph | vg_construct | graphaligner
+  status: ""
+  variant: ""
+
+graph_representation:
+  # morph: badge
+  # variation_graph | sequence_graph | de_bruijn_graph | colored_graph | spliced_graph
+  status: ""
+  variant: ""
+
+# NODES - Sequence segments
+node_count:
+  # morph: number
+  # Total nodes in pangenome graph
+  0
+
+node_length_distribution:
+  # morph: histogram
+  bins:
+    - range: "1-100bp"
+      count: 0
+    - range: "101-500bp"
+      count: 0
+    - range: "501-1000bp"
+      count: 0
+    - range: "1001-5000bp"
+      count: 0
+    - range: "5001-10000bp"
+      count: 0
+    - range: ">10000bp"
+      count: 0
+
+# EDGES - Connections between segments
+edge_count:
+  # morph: number
+  # Total edges connecting nodes
+  0
+
+edge_types:
+  # morph: distribution
+  categories:
+    - type: "linear_continuity"
+      count: 0
+      percentage: 0
+    - type: "structural_variation"
+      count: 0
+      percentage: 0
+    - type: "haplotype_threading"
+      count: 0
+      percentage: 0
+    - type: "recombination_breakpoint"
+      count: 0
+      percentage: 0
+
+# PATHS - Individual genome trajectories through graph
+haplotype_paths:
+  # morph: number
+  # Number of complete haplotype paths
+  0
+
+path_coverage:
+  # morph: gauge
+  # Percentage of graph covered by at least one path
+  current: 0
+  target: 100
+  unit: "%"
+
+reference_paths:
+  # morph: list
+  # Reference genomes embedded in graph
+  items:
+    - name: ""
+      version: ""
+      completeness: 0
+      path_id: ""
+
+# ============================================================================
+# STRUCTURAL VARIATION LANDSCAPE - Graph captures ALL SVs
+# ============================================================================
+
+total_structural_variants:
+  # morph: number
+  # Total SVs represented in graph
+  0
+
+sv_types_distribution:
+  # morph: pie
+  segments:
+    - category: "Deletions"
+      value: 0
+      percentage: 0
+    - category: "Insertions"
+      value: 0
+      percentage: 0
+    - category: "Inversions"
+      value: 0
+      percentage: 0
+    - category: "Duplications"
+      value: 0
+      percentage: 0
+    - category: "Translocations"
+      value: 0
+      percentage: 0
+    - category: "Complex"
+      value: 0
+      percentage: 0
+
+sv_size_distribution:
+  # morph: histogram
+  bins:
+    - range: "50-100bp"
+      count: 0
+    - range: "100-1kb"
+      count: 0
+    - range: "1-10kb"
+      count: 0
+    - range: "10-100kb"
+      count: 0
+    - range: "100kb-1Mb"
+      count: 0
+    - range: ">1Mb"
+      count: 0
+
+presence_absence_variants:
+  # morph: number
+  # Genomic segments present in some genomes but absent in others
+  0
+
+novel_sequences:
+  # morph: gauge
+  # Novel sequence not in reference (Mb)
+  current: 0
+  target: 0
+  unit: "Mb"
+
+dispensable_genome_size:
+  # morph: number
+  # Size of variable/accessory genome (Mb)
+  0
+
+core_genome_size:
+  # morph: number
+  # Size of conserved genome present in all (Mb)
+  0
+
+pangenome_openness:
+  # morph: badge
+  # open | semi_open | closed
+  # Open = new genes with each genome; Closed = saturated
+  status: ""
+  variant: ""
+
+# ============================================================================
+# HAPLOTYPE THREADING & PHASING - Individual paths through variation
+# ============================================================================
+
+phasing_method:
+  # morph: badge
+  # trio_phasing | population_phasing | hi_c_phasing | linked_read_phasing | long_read_phasing
+  status: ""
+  variant: ""
+
+phased_haplotypes:
+  # morph: number
+  # Number of fully phased haplotypes
+  0
+
+haplotype_block_n50:
+  # morph: number
+  # N50 of phased blocks (kb)
+  0
+
+haplotype_switching_errors:
+  # morph: gauge
+  # Percentage of switch errors in phasing
+  current: 0
+  target: 0
+  unit: "%"
+
+compound_heterozygosity:
+  # morph: list
+  # Regions with multiple variants in cis/trans
+  items:
+    - locus: ""
+      chromosome: ""
+      start: 0
+      end: 0
+      phase: ""
+      clinical_significance: ""
+
+haplotype_specific_expression:
+  # morph: number
+  # Genes with allele-specific expression
+  0
+
+# ============================================================================
+# GRAPH INDEXING & ALGORITHMS - Computational infrastructure
+# ============================================================================
+
+graph_index_type:
+  # morph: badge
+  # xg_index | gbwt_index | gcsa2_index | minimizer_index | hash_graph
+  status: ""
+  variant: ""
+
+index_size:
+  # morph: number
+  # Size of graph index on disk (GB)
+  0
+
+gbwt_haplotypes:
+  # morph: number
+  # Haplotypes in GBWT index for read mapping
+  0
+
+minimizer_kmer_size:
+  # morph: number
+  # K-mer size for minimizer index
+  0
+
+graph_simplification:
+  # morph: badge
+  # none | pruned | normalized | compacted | snarled
+  status: ""
+  variant: ""
+
+snarl_decomposition:
+  # morph: network
+  # Nested variation bubbles (snarls) in graph
+  nodes:
+    - id: ""
+      type: ""
+      complexity: 0
+      paths: 0
+  edges:
+    - source: ""
+      target: ""
+      support: 0
+
+# ============================================================================
+# POPULATION-SCALE GENOTYPING - Using graph as reference
+# ============================================================================
+
+genotyping_method:
+  # morph: badge
+  # giraffe_mapper | vg_map | graphtyper | pangenie | paragraph
+  status: ""
+  variant: ""
+
+read_mapping_accuracy:
+  # morph: gauge
+  # Mapping accuracy vs linear reference (%)
+  current: 0
+  target: 100
+  unit: "%"
+
+mapping_improvement_sv:
+  # morph: progress
+  # Improvement in mapping reads at SV sites (%)
+  value: 0
+  target: 50
+
+genotyping_concordance:
+  # morph: gauge
+  # Concordance with truth sets (%)
+  current: 0
+  target: 99
+  unit: "%"
+
+false_discovery_rate:
+  # morph: gauge
+  # FDR for variant calls
+  current: 0
+  target: 1
+  unit: "%"
+
+sensitivity_snps:
+  # morph: gauge
+  # Sensitivity for SNP detection (%)
+  current: 0
+  target: 99
+  unit: "%"
+
+sensitivity_indels:
+  # morph: gauge
+  # Sensitivity for indel detection (%)
+  current: 0
+  target: 95
+  unit: "%"
+
+sensitivity_svs:
+  # morph: gauge
+  # Sensitivity for SV detection (%)
+  current: 0
+  target: 90
+  unit: "%"
+
+# ============================================================================
+# COMPUTATIONAL PERFORMANCE
+# ============================================================================
+
+graph_construction_time:
+  # morph: number
+  # Time to build pangenome graph (hours)
+  0
+
+graph_construction_cpus:
+  # morph: number
+  # CPU cores used for construction
+  0
+
+memory_requirement:
+  # morph: number
+  # Peak memory for graph construction (GB)
+  0
+
+read_mapping_speed:
+  # morph: number
+  # Reads mapped per second
+  0
+
+storage_efficiency:
+  # morph: gauge
+  # Storage vs individual assemblies (%)
+  current: 0
+  target: 50
+  unit: "%"
+
+# ============================================================================
+# GRAPH ANNOTATIONS - Functional layers on graph
+# ============================================================================
+
+gene_annotations:
+  # morph: number
+  # Genes annotated on graph paths
+  0
+
+transcriptome_mapping:
+  # morph: badge
+  # rna_seq_mapped | iso_seq_mapped | pacbio_mapped | nanopore_mapped | none
+  status: ""
+  variant: ""
+
+graph_genome_browser:
+  # morph: text
+  # URL to graph genome browser
+  ""
+
+regulatory_elements_graph:
+  # morph: number
+  # Regulatory elements mapped to graph
+  0
+
+repeat_elements:
+  # morph: distribution
+  categories:
+    - type: "LINE"
+      count: 0
+      percentage: 0
+    - type: "SINE"
+      count: 0
+      percentage: 0
+    - type: "LTR"
+      count: 0
+      percentage: 0
+    - type: "DNA_transposon"
+      count: 0
+      percentage: 0
+    - type: "Tandem_repeat"
+      count: 0
+      percentage: 0
+
+# ============================================================================
+# APPLICATIONS - HUMAN GENOMICS
+# ============================================================================
+
+rare_disease_diagnosis:
+  # morph: badge
+  # active | pilot | planned | not_applicable
+  status: ""
+  variant: ""
+
+diagnostic_yield_improvement:
+  # morph: progress
+  # Increase in diagnostic yield vs linear reference (%)
+  value: 0
+  target: 20
+
+pathogenic_svs_detected:
+  # morph: number
+  # Pathogenic SVs missed by linear reference
+  0
+
+pharmacogenomics_haplotypes:
+  # morph: list
+  # PGx haplotypes fully phased in graph
+  items:
+    - gene: ""
+      star_allele: ""
+      frequency: 0
+      phenotype: ""
+
+hla_typing_accuracy:
+  # morph: gauge
+  # HLA typing accuracy from graph (%)
+  current: 0
+  target: 99
+  unit: "%"
+
+cancer_genomics:
+  # morph: badge
+  # somatic_sv | structural_rearrangement | chromothripsis | not_applicable
+  status: ""
+  variant: ""
+
+# ============================================================================
+# APPLICATIONS - PLANT GENOMICS
+# ============================================================================
+
+crop_pangenome:
+  # morph: badge
+  # active | not_applicable
+  status: ""
+  variant: ""
+
+cultivar_count:
+  # morph: number
+  # Cultivars/accessions in plant pangenome
+  0
+
+agronomic_trait_svs:
+  # morph: list
+  # SVs associated with agricultural traits
+  items:
+    - trait: ""
+      sv_type: ""
+      chromosome: ""
+      position: 0
+      effect_size: 0
+      references: ""
+
+presence_absence_genes:
+  # morph: number
+  # Genes present in some cultivars but not others
+  0
+
+resistance_gene_clusters:
+  # morph: network
+  # NLR and R-gene clusters in graph
+  nodes:
+    - id: ""
+      gene_family: ""
+      copy_number_variation: 0
+      presence_frequency: 0
+  edges:
+    - source: ""
+      target: ""
+      synteny: ""
+
+breeding_applications:
+  # morph: list
+  items:
+    - application: ""
+      target_trait: ""
+      graph_guided: ""
+      status: ""
+
+# ============================================================================
+# APPLICATIONS - MICROBIAL GENOMICS
+# ============================================================================
+
+microbial_pangenome:
+  # morph: badge
+  # active | not_applicable
+  status: ""
+  variant: ""
+
+strain_count:
+  # morph: number
+  # Strains in microbial pangenome
+  0
+
+accessory_genome_percent:
+  # morph: gauge
+  # Percentage of pangenome that is accessory (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+mobile_genetic_elements:
+  # morph: number
+  # Plasmids, phages, transposons in graph
+  0
+
+antibiotic_resistance_genes:
+  # morph: list
+  items:
+    - gene: ""
+      mechanism: ""
+      prevalence: 0
+      graph_location: ""
+
+pathogenicity_islands:
+  # morph: number
+  # Pathogenicity islands in accessory genome
+  0
+
+# ============================================================================
+# GRAPH COMPARISON & EVOLUTION
+# ============================================================================
+
+pangenome_versions:
+  # morph: timeline
+  events:
+    - date: ""
+      version: ""
+      genomes_added: 0
+      novel_sequence: 0
+      description: ""
+
+graph_alignment:
+  # morph: badge
+  # cactus | progressive_mauve | mugsy | aligned | not_aligned
+  status: ""
+  variant: ""
+
+synteny_blocks:
+  # morph: number
+  # Conserved syntenic blocks across genomes
+  0
+
+evolutionary_breakpoints:
+  # morph: number
+  # Chromosomal rearrangement breakpoints
+  0
+
+lineage_specific_sequences:
+  # morph: distribution
+  categories:
+    - lineage: ""
+      sequence_kb: 0
+      genes: 0
+      percentage: 0
+
+recombination_hotspots:
+  # morph: list
+  items:
+    - chromosome: ""
+      start: 0
+      end: 0
+      recombination_rate: 0
+      graph_complexity: 0
+
+# ============================================================================
+# GRAPH QUALITY METRICS
+# ============================================================================
+
+graph_completeness:
+  # morph: gauge
+  # Estimated completeness of variation capture (%)
+  current: 0
+  target: 95
+  unit: "%"
+
+graph_connectivity:
+  # morph: badge
+  # fully_connected | fragmented | chromosomal | contig_level
+  status: ""
+  variant: ""
+
+bubble_chains:
+  # morph: number
+  # Number of nested variation bubbles
+  0
+
+ultrabubbles:
+  # morph: number
+  # Maximal acyclic subgraphs
+  0
+
+graph_density:
+  # morph: number
+  # Average edges per node
+  0
+
+path_consistency:
+  # morph: gauge
+  # Percentage of paths with no contradictions (%)
+  current: 0
+  target: 100
+  unit: "%"
+
+# ============================================================================
+# INTEGRATION & INTEROPERABILITY
+# ============================================================================
+
+graph_format:
+  # morph: badge
+  # gfa | vg | pg | odgi | gfab
+  status: ""
+  variant: ""
+
+vg_toolkit_compatible:
+  # morph: badge
+  # yes | no | partial
+  status: ""
+  variant: ""
+
+odgi_compatible:
+  # morph: badge
+  # yes | no | partial
+  status: ""
+  variant: ""
+
+pggb_compatible:
+  # morph: badge
+  # yes | no | partial
+  status: ""
+  variant: ""
+
+api_access:
+  # morph: text
+  # API endpoint for graph queries
+  ""
+
+download_url:
+  # morph: text
+  # Public download URL
+  ""
+
+genome_browser_tracks:
+  # morph: list
+  # Available browser tracks
+  items:
+    - browser: ""
+      url: ""
+      track_types: ""
+
+# ============================================================================
+# COMMUNITY & COLLABORATION
+# ============================================================================
+
+consortium:
+  # morph: text
+  # Consortium building pangenome
+  ""
+
+contributing_institutions:
+  # morph: list
+  items:
+    - institution: ""
+      country: ""
+      genomes_contributed: 0
+
+data_release_policy:
+  # morph: badge
+  # open_access | controlled_access | embargoed | private
+  status: ""
+  variant: ""
+
+preprint_publication:
+  # morph: text
+  # Preprint DOI or URL
+  ""
+
+peer_reviewed_publication:
+  # morph: text
+  # Published paper DOI
+  ""
+
+# ============================================================================
+# FUTURE DIRECTIONS
+# ============================================================================
+
+expansion_plan:
+  # morph: timeline
+  events:
+    - date: ""
+      milestone: ""
+      genomes_target: 0
+      description: ""
+
+graph_improvements:
+  # morph: list
+  items:
+    - improvement: ""
+      priority: ""
+      timeline: ""
+
+population_sampling:
+  # morph: badge
+  # global | continental | regional | local
+  status: ""
+  variant: ""
+
+underrepresented_populations:
+  # morph: list
+  # Populations needing more sampling
+  items:
+    - population: ""
+      current_n: 0
+      target_n: 0
+      geographic_origin: ""
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""
+
+curator:
+  # morph: text
+  ""
+
+notes:
+  # morph: text
+  ""

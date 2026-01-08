@@ -1,0 +1,854 @@
+# GENOMICS-ENVIRONMENT INTERACTIONS - Genomics
+# Version: 1.0.0 | Domain: GENETICS (Lateral)
+# Based on: G×E Interactions (Nature Genetics 2025), Environmental Genomics (Science 2025)
+# PARADIGM SHIFT: From genotype alone → Genotype × Environment as integrated determinant
+
+perspective: genomics_environment_interactions
+version: "1.0.0"
+
+# ============================================================================
+# CORE IDENTITY
+# ============================================================================
+
+organism_species:
+  # morph: text
+  ""
+
+common_name:
+  # morph: text
+  ""
+
+study_system:
+  # morph: badge
+  # field | controlled_environment | laboratory | natural_population | experimental
+  status: ""
+  variant: ""
+
+biological_context:
+  # morph: badge
+  # development | stress_response | adaptation | disease | fitness | phenology
+  status: ""
+  variant: ""
+
+# ============================================================================
+# ENVIRONMENTAL FACTORS - External conditions
+# ============================================================================
+
+environmental_variables:
+  # morph: list
+  items:
+    - variable: ""
+      type: ""
+      range: ""
+      measurement_method: ""
+
+abiotic_factors:
+  # morph: distribution
+  categories:
+    - factor: "Temperature"
+      measured: false
+      range: ""
+      levels: 0
+    - factor: "Light"
+      measured: false
+      range: ""
+      levels: 0
+    - factor: "Water availability"
+      measured: false
+      range: ""
+      levels: 0
+    - factor: "Nutrients"
+      measured: false
+      range: ""
+      levels: 0
+    - factor: "pH"
+      measured: false
+      range: ""
+      levels: 0
+    - factor: "Salinity"
+      measured: false
+      range: ""
+      levels: 0
+    - factor: "CO2"
+      measured: false
+      range: ""
+      levels: 0
+
+biotic_factors:
+  # morph: distribution
+  categories:
+    - factor: "Pathogens"
+      measured: false
+      species: ""
+      levels: 0
+    - factor: "Symbionts"
+      measured: false
+      species: ""
+      levels: 0
+    - factor: "Competition"
+      measured: false
+      species: ""
+      levels: 0
+    - factor: "Predation"
+      measured: false
+      species: ""
+      levels: 0
+
+anthropogenic_factors:
+  # morph: distribution
+  categories:
+    - factor: "Pollution"
+      measured: false
+      type: ""
+      levels: 0
+    - factor: "Land use"
+      measured: false
+      type: ""
+      levels: 0
+    - factor: "Climate change"
+      measured: false
+      aspect: ""
+      levels: 0
+
+environmental_gradients:
+  # morph: list
+  items:
+    - gradient: ""
+      variable: ""
+      min: 0
+      max: 0
+      populations: 0
+
+# ============================================================================
+# G×E INTERACTION DESIGN - Experimental structure
+# ============================================================================
+
+study_design:
+  # morph: badge
+  # factorial | common_garden | reciprocal_transplant | reaction_norm | gwas_gxe | qtl_gxe
+  status: ""
+  variant: ""
+
+genotypes:
+  # morph: number
+  # Number of genotypes tested
+  0
+
+environments:
+  # morph: number
+  # Number of environments
+  0
+
+replicates:
+  # morph: number
+  # Biological replicates per G×E combination
+  0
+
+total_samples:
+  # morph: number
+  # Total G×E×replicate samples
+  0
+
+# ============================================================================
+# REACTION NORMS - Genotype-specific responses
+# ============================================================================
+
+reaction_norm_analysis:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+traits_measured:
+  # morph: list
+  items:
+    - trait: ""
+      type: ""
+      measurement: ""
+      heritability: 0
+
+genotype_slopes:
+  # morph: distribution
+  categories:
+    - genotype: ""
+      slope: 0
+      plasticity: ""
+      fitness: 0
+
+crossing_reaction_norms:
+  # morph: badge
+  # detected | not_detected
+  # Indicates genotype rank changes across environments
+  status: ""
+  variant: ""
+
+phenotypic_plasticity:
+  # morph: gauge
+  # Average plasticity index (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+plasticity_genes:
+  # morph: number
+  # Genes controlling plastic responses
+  0
+
+# ============================================================================
+# G×E GWAS - Genome-wide interaction mapping
+# ============================================================================
+
+gxe_gwas:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+gxe_snps:
+  # morph: number
+  # SNPs with significant G×E interaction
+  0
+
+main_effect_snps:
+  # morph: number
+  # SNPs with environment-independent effects
+  0
+
+environment_specific_snps:
+  # morph: list
+  items:
+    - snp: ""
+      chromosome: ""
+      position: 0
+      environment: ""
+      effect_size: 0
+      pvalue: 0
+
+variance_partitioning:
+  # morph: pie
+  segments:
+    - category: "Genetic (G)"
+      value: 0
+      percentage: 0
+    - category: "Environmental (E)"
+      value: 0
+      percentage: 0
+    - category: "G×E interaction"
+      value: 0
+      percentage: 0
+    - category: "Residual"
+      value: 0
+      percentage: 0
+
+# ============================================================================
+# QTL × ENVIRONMENT - Interaction loci
+# ============================================================================
+
+qtl_mapping:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+qtl_total:
+  # morph: number
+  0
+
+qtl_gxe:
+  # morph: number
+  # QTL with environment interaction
+  0
+
+constitutive_qtl:
+  # morph: number
+  # QTL active in all environments
+  0
+
+environment_specific_qtl:
+  # morph: list
+  items:
+    - qtl: ""
+      chromosome: ""
+      marker: ""
+      environment: ""
+      lod_score: 0
+      variance_explained: 0
+
+conditional_qtl:
+  # morph: list
+  # QTL only detected in specific environment
+  items:
+    - qtl: ""
+      environment_required: ""
+      trait: ""
+      effect: ""
+
+# ============================================================================
+# GENE EXPRESSION × ENVIRONMENT
+# ============================================================================
+
+transcriptomics_environments:
+  # morph: number
+  # Environments with RNA-seq
+  0
+
+differentially_expressed_genes:
+  # morph: number
+  # Genes responding to environment
+  0
+
+gxe_expression:
+  # morph: number
+  # Genes with genotype-by-environment expression
+  0
+
+expression_qtl_gxe:
+  # morph: number
+  # eQTL with environment interaction
+  0
+
+environmental_transcription_factors:
+  # morph: list
+  items:
+    - tf: ""
+      environment: ""
+      targets: 0
+      pathway: ""
+
+stress_response_modules:
+  # morph: network
+  nodes:
+    - id: ""
+      gene: ""
+      fold_change: 0
+      environment: ""
+  edges:
+    - source: ""
+      target: ""
+      correlation: 0
+
+# ============================================================================
+# EPIGENETIC × ENVIRONMENT - Environmental reprogramming
+# ============================================================================
+
+environmentally_induced_epigenetics:
+  # morph: badge
+  # measured | not_measured
+  status: ""
+  variant: ""
+
+dna_methylation_changes:
+  # morph: number
+  # DMRs in response to environment
+  0
+
+histone_modification_changes:
+  # morph: number
+  # DhMRs in response to environment
+  0
+
+transgenerational_epigenetics:
+  # morph: badge
+  # observed | not_observed | not_tested
+  status: ""
+  variant: ""
+
+epigenetic_memory:
+  # morph: list
+  items:
+    - mark: ""
+      environment: ""
+      persistence: ""
+      genes_affected: 0
+
+chromatin_accessibility_gxe:
+  # morph: number
+  # ATAC peaks with G×E
+  0
+
+# ============================================================================
+# METABOLIC × ENVIRONMENT
+# ============================================================================
+
+metabolomics_environments:
+  # morph: number
+  0
+
+environment_responsive_metabolites:
+  # morph: number
+  0
+
+metabolic_plasticity:
+  # morph: list
+  items:
+    - pathway: ""
+      environment: ""
+      metabolites_changed: 0
+      direction: ""
+
+secondary_metabolite_induction:
+  # morph: list
+  items:
+    - compound: ""
+      inducing_factor: ""
+      fold_change: 0
+      function: ""
+
+# ============================================================================
+# LOCAL ADAPTATION - Population differentiation
+# ============================================================================
+
+local_adaptation:
+  # morph: badge
+  # detected | not_detected | not_tested
+  status: ""
+  variant: ""
+
+populations_compared:
+  # morph: number
+  0
+
+population_environments:
+  # morph: list
+  items:
+    - population: ""
+      location: ""
+      climate: ""
+      selective_pressure: ""
+
+fst_outliers:
+  # morph: number
+  # Loci with high differentiation
+  0
+
+adaptive_alleles:
+  # morph: list
+  items:
+    - gene: ""
+      allele: ""
+      population: ""
+      environment: ""
+      frequency: 0
+      fitness_advantage: 0
+
+reciprocal_transplant:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+home_site_advantage:
+  # morph: badge
+  # yes | no | not_applicable
+  status: ""
+  variant: ""
+
+# ============================================================================
+# CLIMATE ADAPTATION - Thermal & precipitation responses
+# ============================================================================
+
+climate_variables:
+  # morph: list
+  items:
+    - variable: "Temperature"
+      measured: false
+      range: ""
+    - variable: "Precipitation"
+      measured: false
+      range: ""
+    - variable: "Seasonality"
+      measured: false
+      metric: ""
+    - variable: "Extremes"
+      measured: false
+      type: ""
+
+temperature_response_genes:
+  # morph: number
+  0
+
+cold_acclimation:
+  # morph: list
+  items:
+    - gene: ""
+      function: ""
+      expression_change: 0
+      genotype_variation: ""
+
+heat_stress_response:
+  # morph: list
+  items:
+    - gene: ""
+      function: ""
+      expression_change: 0
+      genotype_variation: ""
+
+drought_tolerance_loci:
+  # morph: list
+  items:
+    - locus: ""
+      chromosome: ""
+      marker: ""
+      effect_dry: 0
+      effect_wet: 0
+
+# ============================================================================
+# BIOTIC INTERACTIONS × GENOTYPE
+# ============================================================================
+
+genotype_pathogen_interactions:
+  # morph: badge
+  # analyzed | not_analyzed
+  status: ""
+  variant: ""
+
+resistance_genes:
+  # morph: list
+  items:
+    - gene: ""
+      pathogen: ""
+      resistance_type: ""
+      effectiveness: ""
+      environment_dependent: ""
+
+symbiont_compatibility:
+  # morph: list
+  items:
+    - symbiont: ""
+      host_genotype: ""
+      benefit: ""
+      environment: ""
+
+microbiome_gxe:
+  # morph: badge
+  # analyzed | not_analyzed
+  status: ""
+  variant: ""
+
+genotype_microbiome_environment:
+  # morph: network
+  nodes:
+    - id: ""
+      type: ""
+      abundance: 0
+  edges:
+    - source: ""
+      target: ""
+      environment: ""
+      correlation: 0
+
+# ============================================================================
+# NUTRITIONAL GENOMICS - Nutrient interactions
+# ============================================================================
+
+nutrient_response:
+  # morph: badge
+  # analyzed | not_analyzed
+  status: ""
+  variant: ""
+
+nutrient_use_efficiency:
+  # morph: list
+  items:
+    - nutrient: ""
+      genotypes_tested: 0
+      efficiency_range: ""
+      genes: ""
+
+fertilizer_response_qtl:
+  # morph: list
+  items:
+    - qtl: ""
+      nutrient: ""
+      low_input_effect: 0
+      high_input_effect: 0
+
+nitrogen_response_genes:
+  # morph: number
+  0
+
+phosphorus_response_genes:
+  # morph: number
+  0
+
+# ============================================================================
+# DEVELOPMENTAL PLASTICITY - Life history
+# ============================================================================
+
+developmental_timing:
+  # morph: badge
+  # environment_dependent | fixed | not_measured
+  status: ""
+  variant: ""
+
+flowering_time_gxe:
+  # morph: list
+  items:
+    - genotype: ""
+      photoperiod_short: 0
+      photoperiod_long: 0
+      vernalization_effect: 0
+
+germination_plasticity:
+  # morph: list
+  items:
+    - genotype: ""
+      environment: ""
+      germination_rate: 0
+      dormancy: ""
+
+metamorphosis_environment:
+  # morph: badge
+  # relevant | not_relevant
+  status: ""
+  variant: ""
+
+# ============================================================================
+# TOXICOLOGY & POLLUTION
+# ============================================================================
+
+toxicant_exposure:
+  # morph: badge
+  # analyzed | not_analyzed
+  status: ""
+  variant: ""
+
+detoxification_genes:
+  # morph: list
+  items:
+    - gene: ""
+      enzyme_family: ""
+      toxicant: ""
+      genotype_variation: ""
+      induction: 0
+
+heavy_metal_tolerance:
+  # morph: list
+  items:
+    - metal: ""
+      tolerance_loci: ""
+      mechanism: ""
+      population: ""
+
+# ============================================================================
+# PREDICTIVE MODELING - Forecasting responses
+# ============================================================================
+
+prediction_model:
+  # morph: badge
+  # genomic_prediction | environmental_model | gxe_model | none
+  status: ""
+  variant: ""
+
+model_accuracy:
+  # morph: gauge
+  # Prediction accuracy (%)
+  current: 0
+  target: 80
+  unit: "%"
+
+cross_environment_prediction:
+  # morph: gauge
+  # Accuracy predicting novel environments (%)
+  current: 0
+  target: 70
+  unit: "%"
+
+climate_projection:
+  # morph: badge
+  # modeled | not_modeled
+  status: ""
+  variant: ""
+
+future_scenarios:
+  # morph: list
+  items:
+    - scenario: ""
+      temperature_change: 0
+      precipitation_change: 0
+      predicted_response: ""
+
+# ============================================================================
+# BREEDING & SELECTION
+# ============================================================================
+
+environment_specific_breeding:
+  # morph: badge
+  # implemented | planned | not_applicable
+  status: ""
+  variant: ""
+
+target_population_environments:
+  # morph: list
+  items:
+    - environment: ""
+      location: ""
+      key_stressors: ""
+      breeding_targets: ""
+
+stability_analysis:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+stable_genotypes:
+  # morph: list
+  # Low G×E, consistent performance
+  items:
+    - genotype: ""
+      variance_across_env: 0
+      mean_performance: 0
+
+specialists_vs_generalists:
+  # morph: distribution
+  categories:
+    - type: "Specialists"
+      count: 0
+      description: "High performance in specific environment"
+    - type: "Generalists"
+      count: 0
+      description: "Consistent across environments"
+
+# ============================================================================
+# HUMAN HEALTH - Personalized medicine
+# ============================================================================
+
+human_gxe:
+  # morph: badge
+  # relevant | not_relevant
+  status: ""
+  variant: ""
+
+diet_genotype_interactions:
+  # morph: list
+  items:
+    - gene: ""
+      dietary_factor: ""
+      phenotype: ""
+      interaction_effect: 0
+
+drug_response_gxe:
+  # morph: list
+  items:
+    - gene: ""
+      drug: ""
+      environmental_modifier: ""
+      response_variation: ""
+
+lifestyle_genomics:
+  # morph: badge
+  # analyzed | not_analyzed
+  status: ""
+  variant: ""
+
+# ============================================================================
+# TEMPORAL DYNAMICS - Environmental fluctuations
+# ============================================================================
+
+temporal_variation:
+  # morph: badge
+  # seasonal | diurnal | stochastic | constant
+  status: ""
+  variant: ""
+
+time_series_environments:
+  # morph: number
+  # Timepoints sampled
+  0
+
+acclimation_time:
+  # morph: number
+  # Time to reach new expression equilibrium (hours)
+  0
+
+environmental_memory:
+  # morph: badge
+  # detected | not_detected
+  status: ""
+  variant: ""
+
+priming_effects:
+  # morph: list
+  items:
+    - initial_stress: ""
+      subsequent_stress: ""
+      enhanced_tolerance: ""
+      genes: ""
+
+# ============================================================================
+# MULTI-ENVIRONMENT TRIALS
+# ============================================================================
+
+trial_locations:
+  # morph: number
+  # Geographic locations tested
+  0
+
+years:
+  # morph: number
+  # Growing seasons
+  0
+
+location_year_combinations:
+  # morph: number
+  0
+
+environmental_covariates:
+  # morph: list
+  items:
+    - covariate: ""
+      measured: ""
+      correlation_with_trait: 0
+
+# ============================================================================
+# STATISTICAL METHODS
+# ============================================================================
+
+statistical_model:
+  # morph: badge
+  # anova | mixed_model | bayesian | rn_anova | fa_model
+  status: ""
+  variant: ""
+
+variance_components:
+  # morph: badge
+  # estimated | not_estimated
+  status: ""
+  variant: ""
+
+heritability_environment_specific:
+  # morph: list
+  items:
+    - environment: ""
+      h2: 0
+      vg: 0
+      ve: 0
+
+genetic_correlation_across_env:
+  # morph: gauge
+  # Correlation of genetic effects (r)
+  current: 0
+  target: 1
+  unit: "r"
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""
+
+curator:
+  # morph: text
+  ""
+
+notes:
+  # morph: text
+  ""

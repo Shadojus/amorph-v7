@@ -64,20 +64,18 @@ function applySelectionColor(field: HTMLElement, color: string): void {
   // Parse RGBA and create variants with different opacities
   const rgbaMatch = color.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
   
-  // CHROME FLICKER FIX: Batch alle Style-Änderungen in einem requestAnimationFrame
-  requestAnimationFrame(() => {
-    if (rgbaMatch) {
-      const [, r, g, b] = rgbaMatch;
-      field.style.setProperty('--selection-color', `rgba(${r}, ${g}, ${b}, 0.9)`);
-      field.style.setProperty('--selection-bg', `rgba(${r}, ${g}, ${b}, 0.04)`);
-      field.style.setProperty('--selection-border', `rgba(${r}, ${g}, ${b}, 0.64)`);
-    } else {
-      // Fallback for other color formats
-      field.style.setProperty('--selection-color', color);
-      field.style.setProperty('--selection-bg', color);
-      field.style.setProperty('--selection-border', color);
-    }
-  });
+  // Synchron anwenden - das Batching erfolgt jetzt in updateSelectionUI
+  if (rgbaMatch) {
+    const [, r, g, b] = rgbaMatch;
+    field.style.setProperty('--selection-color', `rgba(${r}, ${g}, ${b}, 0.9)`);
+    field.style.setProperty('--selection-bg', `rgba(${r}, ${g}, ${b}, 0.04)`);
+    field.style.setProperty('--selection-border', `rgba(${r}, ${g}, ${b}, 0.64)`);
+  } else {
+    // Fallback for other color formats (hex, hsl, etc.)
+    field.style.setProperty('--selection-color', color);
+    field.style.setProperty('--selection-bg', color);
+    field.style.setProperty('--selection-border', color);
+  }
 }
 
 // Handle field selection for compare
@@ -98,27 +96,22 @@ function handleFieldSelect(field: HTMLElement): void {
     // Ignore parse errors
   }
   
-  // CHROME FLICKER FIX: Batch DOM-Änderungen in requestAnimationFrame
-  requestAnimationFrame(() => {
-    // Toggle field selection
-    if (field.classList.contains('is-selected')) {
-      field.classList.remove('is-selected');
-      field.style.removeProperty('--selection-color');
-      field.style.removeProperty('--selection-bg');
-      field.style.removeProperty('--selection-border');
-      deselectField(itemSlug, fieldName);
-    } else {
-      selectField(itemSlug, itemName, fieldName, getFieldValue(field), perspectiveId);
-      // Get the assigned color and apply it
-      const color = getFieldColor(itemSlug, fieldName);
-      if (color) {
-        applySelectionColor(field, color);
-      }
-      field.classList.add('is-selected');
-    }
-  });
+  // WICHTIG: Prüfe Selection-State SYNCHRON bevor wir etwas ändern
+  // isFieldSelected ist die einzige Wahrheitsquelle!
+  const wasSelected = isFieldSelected(itemSlug, fieldName);
   
-  debug.selection(`Field ${fieldName} on ${itemSlug}`, { selected: field.classList.contains('is-selected'), perspectiveId });
+  debug.selection(`Field ${fieldName} on ${itemSlug}`, { wasSelected, perspectiveId });
+  
+  if (wasSelected) {
+    // DESELECT: Erst State ändern, dann UI
+    deselectField(itemSlug, fieldName);
+    // UI update wird durch Event getriggert (updateSelectionUI)
+  } else {
+    // SELECT: Erst State ändern, dann UI
+    const value = getFieldValue(field);
+    selectField(itemSlug, itemName, fieldName, value, perspectiveId);
+    // UI update wird durch Event getriggert (updateSelectionUI)
+  }
 }
 
 // Get the value from a field element
@@ -190,10 +183,28 @@ function getFieldValue(field: HTMLElement): unknown {
 // UI UPDATES
 // ═══════════════════════════════════════════════════════════════════════════════
 
+// Debounce flag to prevent rapid UI updates
+let updateScheduled = false;
+
 export function updateSelectionUI(): void {
   if (!gridContainer) return;
   
-  // Update field selection states and colors
+  // Debounce: Schedule update for next frame if not already scheduled
+  if (updateScheduled) return;
+  updateScheduled = true;
+  
+  requestAnimationFrame(() => {
+    updateScheduled = false;
+    performSelectionUIUpdate();
+  });
+}
+
+function performSelectionUIUpdate(): void {
+  if (!gridContainer) return;
+  
+  // Batch all DOM reads first
+  const updates: Array<{field: HTMLElement; selected: boolean; color: string | null}> = [];
+  
   gridContainer.querySelectorAll('.amorph-item').forEach(item => {
     const itemSlug = (item as HTMLElement).dataset.slug || (item as HTMLElement).dataset.id || '';
     
@@ -201,21 +212,31 @@ export function updateSelectionUI(): void {
       const field = fieldEl as HTMLElement;
       const fieldName = field.dataset.field || '';
       const selected = isFieldSelected(itemSlug, fieldName);
+      const color = selected ? getFieldColor(itemSlug, fieldName) : null;
       
+      updates.push({ field, selected, color });
+    });
+  });
+  
+  // Then batch all DOM writes
+  updates.forEach(({ field, selected, color }) => {
+    const wasSelected = field.classList.contains('is-selected');
+    
+    // Only update if state actually changed
+    if (wasSelected !== selected) {
       field.classList.toggle('is-selected', selected);
       
-      if (selected) {
-        const color = getFieldColor(itemSlug, fieldName);
-        if (color) {
-          applySelectionColor(field, color);
-        }
-      } else {
+      if (selected && color) {
+        applySelectionColor(field, color);
+      } else if (!selected) {
         field.style.removeProperty('--selection-color');
         field.style.removeProperty('--selection-bg');
         field.style.removeProperty('--selection-border');
       }
-    });
+    }
   });
+  
+  debug.layout('Selection UI updated', { fieldCount: updates.filter(u => u.selected).length });
 }
 
 // Listen for selection changes

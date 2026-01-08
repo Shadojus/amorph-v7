@@ -1,0 +1,635 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# EMBRYOLOGICAL DEVELOPMENT PERSPECTIVE - HOLISTIC BLUEPRINT
+# Morphogenesis, Organogenesis & Developmental Anatomy
+# Version: 1.0.0
+# Domain: ANATOMY (Holistic Systems View)
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# PURPOSE: Captures HOW anatomical structures arise during development
+# - Morphogenesis - shape formation
+# - Organogenesis - organ development
+# - Germ layer derivatives
+# - Developmental sequences & timing
+# - Mechanical forces in development
+# - Developmental patterning & signaling
+# - Critical periods & teratogenic sensitivity
+#
+# Based on 2025 research:
+# - Mechanical regulation in embryogenesis
+# - Conserved developmental sequences across vertebrates
+# - Morphogenesis and organogenesis (Nodal, Brachyury, Pax6, Nkx2.5)
+# - Odontogenesis as model of reciprocal epithelial-mesenchymal interactions
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: embryological_development
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ORGANISM IDENTITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+scientific_name:
+  # morph: text
+  ""
+
+common_name:
+  # morph: text
+  ""
+
+taxonomic_class:
+  # morph: tag
+  ""
+
+developmental_mode:
+  # morph: badge
+  # direct | indirect | metamorphosis
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EARLY DEVELOPMENT - Fertilization to Gastrulation
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cleavage_pattern:
+  # morph: badge
+  # holoblastic | meroblastic | superficial
+  status: ""
+  variant: ""
+
+cleavage_symmetry:
+  # morph: badge
+  # radial | spiral | bilateral | rotational
+  status: ""
+  variant: ""
+
+blastula_type:
+  # morph: badge
+  # coeloblastula | stereoblastula | discoblastula
+  status: ""
+  variant: ""
+
+gastrulation_mode:
+  # morph: badge
+  # invagination | involution | ingression | epiboly | delamination
+  status: ""
+  variant: ""
+
+gastrulation_timing:
+  # morph: range
+  # hours/days post-fertilization
+  min: 0
+  max: 0
+  unit: "hours"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GERM LAYERS - Ectoderm, Mesoderm, Endoderm
+# ═══════════════════════════════════════════════════════════════════════════════
+
+germ_layers:
+  # morph: number
+  # 2 (diploblastic) or 3 (triploblastic)
+  0
+
+ectoderm_derivatives:
+  # morph: list
+  # nervous_system | epidermis | neural_crest | placodes
+  - ""
+
+mesoderm_derivatives:
+  # morph: list
+  # muscle | skeleton | circulatory | kidney | gonads
+  - ""
+
+endoderm_derivatives:
+  # morph: list
+  # digestive_lining | lungs | liver | pancreas | thyroid
+  - ""
+
+neural_crest_present:
+  # morph: boolean
+  # vertebrate-specific
+  false
+
+neural_crest_derivatives:
+  # morph: list
+  # peripheral_neurons | melanocytes | facial_cartilage | adrenal_medulla
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BODY AXIS FORMATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+anterior_posterior_axis:
+  # morph: boolean
+  false
+
+ap_axis_organizer:
+  # morph: text
+  # Spemann organizer, node, etc.
+  ""
+
+dorsal_ventral_axis:
+  # morph: boolean
+  false
+
+left_right_asymmetry:
+  # morph: boolean
+  false
+
+asymmetry_genes:
+  # morph: list
+  # Nodal | Lefty | Pitx2
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NEURULATION - Neural tube formation
+# ═══════════════════════════════════════════════════════════════════════════════
+
+neurulation:
+  # morph: boolean
+  false
+
+neurulation_type:
+  # morph: badge
+  # primary | secondary | both
+  status: ""
+  variant: ""
+
+neural_tube_closure_timing:
+  # morph: timeline
+  - date: "Anterior"
+    event: ""
+    description: ""
+  - date: "Posterior"
+    event: ""
+    description: ""
+
+brain_vesicles:
+  # morph: list
+  # prosencephalon | mesencephalon | rhombencephalon
+  - ""
+
+neural_patterning_genes:
+  # morph: list
+  # Pax6 | Shh | Wnt | BMPs
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOMITOGENESIS - Segmentation
+# ═══════════════════════════════════════════════════════════════════════════════
+
+somitogenesis:
+  # morph: boolean
+  false
+
+somite_count:
+  # morph: number
+  0
+
+somite_formation_rate:
+  # morph: number
+  # somites per hour
+  0
+
+somite_derivatives:
+  # morph: list
+  # dermomyotome | sclerotome | myotome
+  - ""
+
+segmentation_clock_genes:
+  # morph: list
+  # Notch | Wnt | FGF
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ORGANOGENESIS - Organ development
+# ═══════════════════════════════════════════════════════════════════════════════
+
+organogenesis_timing:
+  # morph: timeline
+  - date: "Heart"
+    event: ""
+    description: ""
+  - date: "Lungs"
+    event: ""
+    description: ""
+  - date: "Kidneys"
+    event: ""
+    description: ""
+  - date: "Liver"
+    event: ""
+    description: ""
+
+first_organ_to_form:
+  # morph: text
+  ""
+
+last_organ_to_mature:
+  # morph: text
+  ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HEART DEVELOPMENT
+# ─────────────────────────────────────────────────────────────────────────────
+
+heart_development:
+  # morph: boolean
+  false
+
+heart_tube_formation:
+  # morph: timeline
+  - date: "Bilateral fields"
+    event: ""
+    description: ""
+  - date: "Fusion"
+    event: ""
+    description: ""
+  - date: "Looping"
+    event: ""
+    description: ""
+  - date: "Septation"
+    event: ""
+    description: ""
+
+cardiac_transcription_factors:
+  # morph: list
+  # Nkx2.5 | GATA4 | Tbx5
+  - ""
+
+heart_looping_direction:
+  # morph: badge
+  # dextral | sinistral
+  status: ""
+  variant: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# LIMB DEVELOPMENT
+# ─────────────────────────────────────────────────────────────────────────────
+
+limb_development:
+  # morph: boolean
+  false
+
+limb_bud_initiation:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "days"
+
+proximal_distal_patterning:
+  # morph: list
+  # AER | FGF | Shh
+  - ""
+
+anterior_posterior_patterning_limb:
+  # morph: list
+  # ZPA | Shh
+  - ""
+
+digit_formation_mechanism:
+  # morph: badge
+  # apoptosis | condensation | both
+  status: ""
+  variant: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CRANIOFACIAL DEVELOPMENT
+# ─────────────────────────────────────────────────────────────────────────────
+
+craniofacial_development:
+  # morph: boolean
+  false
+
+pharyngeal_arches:
+  # morph: number
+  0
+
+pharyngeal_arch_derivatives:
+  # morph: list
+  - ""
+
+facial_prominences:
+  # morph: list
+  # frontonasal | maxillary | mandibular
+  - ""
+
+palate_formation_timing:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "weeks"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TOOTH DEVELOPMENT (Odontogenesis - model system)
+# ─────────────────────────────────────────────────────────────────────────────
+
+tooth_development:
+  # morph: boolean
+  false
+
+odontogenesis_stages:
+  # morph: timeline
+  - date: "Initiation"
+    event: ""
+    description: ""
+  - date: "Bud stage"
+    event: ""
+    description: ""
+  - date: "Cap stage"
+    event: ""
+    description: ""
+  - date: "Bell stage"
+    event: ""
+    description: ""
+  - date: "Crown formation"
+    event: ""
+    description: ""
+  - date: "Root formation"
+    event: ""
+    description: ""
+
+epithelial_mesenchymal_interactions:
+  # morph: boolean
+  # reciprocal signaling
+  false
+
+odontogenesis_signaling:
+  # morph: list
+  # Wnt | BMP | FGF | SHH | EDA
+  - ""
+
+odontogenesis_transcription_factors:
+  # morph: list
+  # PAX9 | MSX1 | MSX2 | PITX2
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MECHANICAL FORCES IN DEVELOPMENT (2025 research)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+mechanical_regulation:
+  # morph: boolean
+  # mechanical forces shape development
+  false
+
+mechanical_force_types:
+  # morph: list
+  # tension | compression | shear | hydrostatic_pressure
+  - ""
+
+mechanosensitive_processes:
+  # morph: list
+  # gastrulation | neurulation | heart_looping | somitogenesis
+  - ""
+
+mechanotransduction_pathways:
+  # morph: list
+  # YAP_TAZ | Rho_ROCK | integrins
+  - ""
+
+tissue_tension_patterns:
+  # morph: text
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONSERVED DEVELOPMENTAL SEQUENCES (2025 research)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+conserved_developmental_sequence:
+  # morph: timeline
+  # phylotypic stage across vertebrates
+  - date: "Germ layer formation"
+    event: ""
+    description: ""
+  - date: "Neural tube closure"
+    event: ""
+    description: ""
+  - date: "Somitogenesis"
+    event: ""
+    description: ""
+  - date: "Organogenesis"
+    event: ""
+    description: ""
+
+phylotypic_stage:
+  # morph: boolean
+  # conserved embryonic stage
+  false
+
+phylotypic_stage_timing:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "days"
+
+conserved_regulators:
+  # morph: list
+  # Nodal | Brachyury | Pax6 | Shh | Nkx2.5
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SIGNALING PATHWAYS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+major_developmental_pathways:
+  # morph: list
+  # Wnt | BMP | FGF | Hedgehog | Notch | TGF-beta
+  - ""
+
+pathway_interactions:
+  # morph: network
+  - name: ""
+    type: ""
+    intensity: 0
+
+morphogen_gradients:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CELL DIFFERENTIATION & FATE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cell_lineage_restriction:
+  # morph: badge
+  # early | late | gradual
+  status: ""
+  variant: ""
+
+stem_cell_populations:
+  # morph: list
+  # embryonic | tissue_specific
+  - ""
+
+cell_fate_determination:
+  # morph: badge
+  # autonomous | conditional | mosaic
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GROWTH & SCALING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+developmental_growth_rate:
+  # morph: gauge
+  # fold-increase in size during development
+  value: 0
+  min: 0
+  max: 1000
+  unit: "fold"
+
+allometric_growth:
+  # morph: boolean
+  # differential growth rates
+  false
+
+growth_regulation_mechanisms:
+  # morph: list
+  # IGF | GH | thyroid_hormone
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CRITICAL PERIODS & TERATOGENESIS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+critical_periods:
+  # morph: timeline
+  # windows of sensitivity
+  - date: ""
+    event: ""
+    description: ""
+
+teratogen_sensitivity:
+  # morph: gauge
+  # susceptibility to malformations
+  value: 0
+  min: 0
+  max: 100
+
+common_teratogens:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# METAMORPHOSIS (if applicable)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+metamorphosis:
+  # morph: boolean
+  false
+
+metamorphosis_type:
+  # morph: badge
+  # complete | incomplete | hemimetabolous
+  status: ""
+  variant: ""
+
+larval_structures_lost:
+  # morph: list
+  - ""
+
+adult_structures_gained:
+  # morph: list
+  - ""
+
+metamorphosis_triggers:
+  # morph: list
+  # thyroid_hormone | ecdysone
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEVELOPMENTAL PLASTICITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+developmental_plasticity:
+  # morph: boolean
+  # environmental influence on development
+  false
+
+plasticity_examples:
+  # morph: list
+  - ""
+
+environmental_cues_affecting_development:
+  # morph: list
+  # temperature | nutrition | photoperiod
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EVOLUTIONARY DEVELOPMENTAL BIOLOGY (Evo-Devo)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+developmental_constraint:
+  # morph: boolean
+  # limits on evolutionary change
+  false
+
+developmental_novelties:
+  # morph: list
+  # evolutionary innovations
+  - ""
+
+heterochrony:
+  # morph: boolean
+  # changes in developmental timing
+  false
+
+heterotopy:
+  # morph: boolean
+  # changes in location
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEVELOPMENTAL GENETICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+hox_genes:
+  # morph: boolean
+  false
+
+hox_cluster_organization:
+  # morph: text
+  ""
+
+master_control_genes:
+  # morph: list
+  # Pax6_eye | MyoD_muscle | Nkx2.5_heart
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LITERATURE REFERENCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_research_papers:
+  # morph: list
+  - ""
+
+embryology_literature:
+  # morph: citation
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+data_source:
+  # morph: badge
+  # experimental | textbook | literature
+  status: ""
+  variant: ""
+
+confidence_level:
+  # morph: badge
+  # high | medium | low | speculative
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""

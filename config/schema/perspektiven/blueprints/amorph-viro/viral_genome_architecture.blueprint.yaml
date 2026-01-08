@@ -1,0 +1,122 @@
+# VIRAL GENOME ARCHITECTURE - Structure & Regulation
+# Version: 1.0.0 | Domain: VIRUSES (Lateral)
+
+perspective: viral_genome_architecture
+version: "1.0.0"
+
+virus_name:
+  # morph: text
+  ""
+
+# GENOME STRUCTURE
+genome_type:
+  # morph: badge
+  # DNA | RNA
+  status: ""
+  variant: ""
+
+strandedness:
+  # morph: badge
+  # single_stranded | double_stranded
+  status: ""
+  variant: ""
+
+polarity:
+  # morph: badge
+  # positive_sense | negative_sense | ambisense | NA
+  status: ""
+  variant: ""
+
+segmented_genome:
+  # morph: boolean
+  false
+
+segment_count:
+  # morph: number
+  0
+
+genome_length:
+  # morph: number
+  # nucleotides
+  0
+
+# GENOME ORGANIZATION
+gene_count:
+  # morph: number
+  0
+
+gene_density:
+  # morph: gauge
+  # genes per kb
+  value: 0
+  min: 0
+  max: 10
+
+overlapping_genes:
+  # morph: boolean
+  false
+
+polyprotein_strategy:
+  # morph: boolean
+  false
+
+# REGULATORY ELEMENTS
+promoters:
+  # morph: number
+  0
+
+enhancers:
+  # morph: number
+  0
+
+ires_elements:
+  # morph: boolean
+  # internal ribosome entry sites
+  false
+
+# GENE FUNCTIONS
+structural_genes:
+  # morph: list
+  # capsid | envelope | polymerase
+  - ""
+
+non_structural_genes:
+  # morph: list
+  # proteases | helicases | immune_evasion
+  - ""
+
+auxiliary_metabolic_genes:
+  # morph: list
+  # AMGs
+  - ""
+
+# PACKAGING
+genome_packaging_signal:
+  # morph: boolean
+  false
+
+packaging_efficiency:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# TERMINAL STRUCTURES
+terminal_repeats:
+  # morph: boolean
+  false
+
+circular_genome:
+  # morph: boolean
+  false
+
+# DATA
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""

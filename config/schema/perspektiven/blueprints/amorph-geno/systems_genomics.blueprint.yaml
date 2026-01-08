@@ -1,0 +1,836 @@
+# SYSTEMS GENOMICS - Genomics
+# Version: 1.0.0 | Domain: GENETICS (Holistic)
+# Based on: Gene Regulatory Networks (Nature 2025), Systems Biology (Cell Systems 2025)
+# PARADIGM SHIFT: From isolated genes → Integrated regulatory networks & emergent properties
+
+perspective: systems_genomics
+version: "1.0.0"
+
+# ============================================================================
+# CORE IDENTITY
+# ============================================================================
+
+organism_species:
+  # morph: text
+  ""
+
+common_name:
+  # morph: text
+  ""
+
+biological_context:
+  # morph: badge
+  # development | disease | evolution | stress_response | homeostasis | differentiation
+  status: ""
+  variant: ""
+
+system_level:
+  # morph: badge
+  # molecular | cellular | tissue | organ | organism | population
+  status: ""
+  variant: ""
+
+# ============================================================================
+# GENE REGULATORY NETWORKS - The system as interconnected whole
+# ============================================================================
+
+network_reconstruction_method:
+  # morph: badge
+  # correlation | grn_inference | chip_seq | atac_seq | perturbation | bayesian
+  status: ""
+  variant: ""
+
+total_nodes:
+  # morph: number
+  # Genes/TFs in network
+  0
+
+total_edges:
+  # morph: number
+  # Regulatory interactions
+  0
+
+network_density:
+  # morph: number
+  # Average connections per node
+  0
+
+transcription_factors:
+  # morph: number
+  # TFs in network
+  0
+
+target_genes:
+  # morph: number
+  # Genes regulated by TFs
+  0
+
+regulatory_interactions:
+  # morph: distribution
+  categories:
+    - type: "Activation"
+      count: 0
+      percentage: 0
+    - type: "Repression"
+      count: 0
+      percentage: 0
+    - type: "Dual"
+      count: 0
+      percentage: 0
+    - type: "Unknown"
+      count: 0
+      percentage: 0
+
+# ============================================================================
+# NETWORK TOPOLOGY - Structural properties
+# ============================================================================
+
+network_architecture:
+  # morph: badge
+  # scale_free | small_world | random | modular | hierarchical
+  status: ""
+  variant: ""
+
+degree_distribution:
+  # morph: histogram
+  bins:
+    - range: "1-5"
+      count: 0
+    - range: "6-10"
+      count: 0
+    - range: "11-50"
+      count: 0
+    - range: "51-100"
+      count: 0
+    - range: ">100"
+      count: 0
+
+hub_genes:
+  # morph: list
+  # Highly connected nodes
+  items:
+    - gene: ""
+      degree: 0
+      betweenness: 0
+      function: ""
+      essentiality: ""
+
+master_regulators:
+  # morph: list
+  # Top-level TFs controlling modules
+  items:
+    - tf: ""
+      targets: 0
+      downstream_genes: 0
+      biological_process: ""
+
+clustering_coefficient:
+  # morph: number
+  # Network modularity measure
+  0
+
+average_path_length:
+  # morph: number
+  # Average shortest path between nodes
+  0
+
+# ============================================================================
+# REGULATORY MODULES - Functional subnetworks
+# ============================================================================
+
+gene_modules:
+  # morph: number
+  # Detected co-regulated modules
+  0
+
+module_detection_method:
+  # morph: badge
+  # wgcna | mcode | louvain | leiden | hierarchical_clustering
+  status: ""
+  variant: ""
+
+modules_characterized:
+  # morph: list
+  items:
+    - module_id: ""
+      genes: 0
+      master_regulator: ""
+      function: ""
+      enrichment_pvalue: 0
+
+module_preservation:
+  # morph: gauge
+  # Preservation across conditions (%)
+  current: 0
+  target: 80
+  unit: "%"
+
+cross_module_communication:
+  # morph: network
+  # Connections between modules
+  nodes:
+    - id: ""
+      module: ""
+      genes: 0
+      function: ""
+  edges:
+    - source: ""
+      target: ""
+      shared_regulators: 0
+      correlation: 0
+
+# ============================================================================
+# FEEDBACK LOOPS - Regulatory dynamics
+# ============================================================================
+
+feedback_loops_total:
+  # morph: number
+  0
+
+positive_feedback_loops:
+  # morph: number
+  # Self-amplifying circuits
+  0
+
+negative_feedback_loops:
+  # morph: number
+  # Self-limiting circuits
+  0
+
+autoregulation:
+  # morph: distribution
+  categories:
+    - type: "Positive autoregulation"
+      count: 0
+      genes: ""
+    - type: "Negative autoregulation"
+      count: 0
+      genes: ""
+
+bistable_switches:
+  # morph: list
+  # Circuits with two stable states
+  items:
+    - circuit: ""
+      genes: ""
+      states: ""
+      biological_function: ""
+
+oscillatory_circuits:
+  # morph: list
+  # Periodic gene expression patterns
+  items:
+    - circuit: ""
+      genes: ""
+      period: ""
+      amplitude: ""
+      function: ""
+
+# ============================================================================
+# FEED-FORWARD LOOPS - Network motifs
+# ============================================================================
+
+feedforward_loops:
+  # morph: number
+  # Three-node motifs
+  0
+
+coherent_ffl:
+  # morph: number
+  # C1-FFL (AND gate logic)
+  0
+
+incoherent_ffl:
+  # morph: number
+  # I1-FFL (pulse generator)
+  0
+
+network_motifs:
+  # morph: distribution
+  categories:
+    - motif: "Feed-forward loop"
+      count: 0
+      enrichment: 0
+    - motif: "Bi-fan"
+      count: 0
+      enrichment: 0
+    - motif: "Single-input module"
+      count: 0
+      enrichment: 0
+    - motif: "Dense overlapping regulons"
+      count: 0
+      enrichment: 0
+
+motif_functions:
+  # morph: list
+  items:
+    - motif: ""
+      function: ""
+      example_genes: ""
+
+# ============================================================================
+# PATHWAY INTEGRATION - Biochemical networks
+# ============================================================================
+
+metabolic_pathways:
+  # morph: number
+  # KEGG/Reactome pathways
+  0
+
+signaling_pathways:
+  # morph: number
+  0
+
+pathways_analyzed:
+  # morph: list
+  items:
+    - pathway: ""
+      pathway_id: ""
+      genes: 0
+      coverage: 0
+      activity_score: 0
+
+pathway_crosstalk:
+  # morph: network
+  # Shared genes/metabolites between pathways
+  nodes:
+    - id: ""
+      pathway: ""
+      genes: 0
+  edges:
+    - source: ""
+      target: ""
+      shared_genes: 0
+      shared_metabolites: 0
+
+flux_balance_analysis:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+pathway_bottlenecks:
+  # morph: list
+  # Rate-limiting steps
+  items:
+    - pathway: ""
+      gene: ""
+      flux_control: 0
+      drugability: ""
+
+# ============================================================================
+# EMERGENT PROPERTIES - System-level behavior
+# ============================================================================
+
+robustness_analysis:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+perturbation_experiments:
+  # morph: number
+  # Gene knockouts/knockdowns tested
+  0
+
+essential_genes:
+  # morph: number
+  # Genes required for viability
+  0
+
+redundancy_analysis:
+  # morph: list
+  items:
+    - gene: ""
+      paralogs: 0
+      redundancy_type: ""
+      compensation: ""
+
+network_resilience:
+  # morph: gauge
+  # Resilience to node removal (%)
+  current: 0
+  target: 80
+  unit: "%"
+
+adaptive_capacity:
+  # morph: badge
+  # high | moderate | low | unknown
+  status: ""
+  variant: ""
+
+homeostatic_mechanisms:
+  # morph: list
+  items:
+    - mechanism: ""
+      genes: ""
+      setpoint: ""
+      perturbation_response: ""
+
+# ============================================================================
+# DYNAMICS & TEMPORAL BEHAVIOR
+# ============================================================================
+
+temporal_profiling:
+  # morph: badge
+  # time_series | steady_state | pulsed | circadian
+  status: ""
+  variant: ""
+
+timepoints:
+  # morph: number
+  0
+
+dynamic_range:
+  # morph: text
+  # Time range covered
+  ""
+
+gene_expression_waves:
+  # morph: timeline
+  events:
+    - time: ""
+      genes_activated: 0
+      genes_repressed: 0
+      biological_event: ""
+
+response_time:
+  # morph: number
+  # Time to reach new steady state (hours)
+  0
+
+transient_responses:
+  # morph: list
+  items:
+    - gene: ""
+      peak_time: ""
+      fold_change: 0
+      return_to_baseline: ""
+
+sustained_responses:
+  # morph: list
+  items:
+    - gene: ""
+      stabilization_time: ""
+      steady_state_level: 0
+
+# ============================================================================
+# CHROMATIN ARCHITECTURE - 3D genome organization
+# ============================================================================
+
+chromatin_conformation:
+  # morph: badge
+  # hi_c | micro_c | chia_pet | not_measured
+  status: ""
+  variant: ""
+
+tads_topological_domains:
+  # morph: number
+  0
+
+chromatin_loops:
+  # morph: number
+  # Enhancer-promoter loops
+  0
+
+compartments_a_b:
+  # morph: distribution
+  categories:
+    - compartment: "A (active)"
+      percentage: 0
+      genes: 0
+    - compartment: "B (inactive)"
+      percentage: 0
+      genes: 0
+
+enhancer_promoter_interactions:
+  # morph: number
+  0
+
+long_range_regulation:
+  # morph: list
+  items:
+    - enhancer: ""
+      promoter: ""
+      distance: 0
+      validation: ""
+
+chromatin_state_transitions:
+  # morph: network
+  nodes:
+    - id: ""
+      state: ""
+      histone_marks: ""
+  edges:
+    - source: ""
+      target: ""
+      transition_frequency: 0
+
+# ============================================================================
+# REGULATORY ELEMENTS - Cis-regulatory landscape
+# ============================================================================
+
+promoters:
+  # morph: number
+  0
+
+enhancers:
+  # morph: number
+  0
+
+silencers:
+  # morph: number
+  0
+
+insulators:
+  # morph: number
+  0
+
+super_enhancers:
+  # morph: list
+  items:
+    - gene: ""
+      enhancer_count: 0
+      h3k27ac_signal: 0
+      cell_identity: ""
+
+tf_binding_sites:
+  # morph: number
+  # Total TFBS
+  0
+
+tf_motif_enrichment:
+  # morph: list
+  items:
+    - tf: ""
+      motif: ""
+      sites: 0
+      enrichment_pvalue: 0
+
+cis_regulatory_modules:
+  # morph: number
+  # Clustered TFBS
+  0
+
+# ============================================================================
+# EPIGENETIC REGULATION - Chromatin states
+# ============================================================================
+
+chromatin_states:
+  # morph: distribution
+  categories:
+    - state: "Active promoter"
+      percentage: 0
+      h3k4me3: true
+      h3k27ac: true
+    - state: "Weak promoter"
+      percentage: 0
+      h3k4me3: true
+      h3k27ac: false
+    - state: "Strong enhancer"
+      percentage: 0
+      h3k4me1: true
+      h3k27ac: true
+    - state: "Weak enhancer"
+      percentage: 0
+      h3k4me1: true
+      h3k27ac: false
+    - state: "Polycomb repressed"
+      percentage: 0
+      h3k27me3: true
+    - state: "Heterochromatin"
+      percentage: 0
+      h3k9me3: true
+
+dna_methylation_patterns:
+  # morph: badge
+  # cpg_islands | gene_bodies | intergenic | global
+  status: ""
+  variant: ""
+
+differentially_methylated_regions:
+  # morph: number
+  0
+
+histone_variant_incorporation:
+  # morph: list
+  items:
+    - variant: ""
+      loci: 0
+      function: ""
+
+# ============================================================================
+# NON-CODING RNA REGULATION
+# ============================================================================
+
+mirna_count:
+  # morph: number
+  0
+
+mirna_targets:
+  # morph: number
+  # Predicted/validated targets
+  0
+
+lncrna_count:
+  # morph: number
+  0
+
+lncrna_mechanisms:
+  # morph: distribution
+  categories:
+    - mechanism: "Chromatin remodeling"
+      count: 0
+    - mechanism: "Transcriptional regulation"
+      count: 0
+    - mechanism: "Post-transcriptional"
+      count: 0
+    - mechanism: "Competing endogenous RNA"
+      count: 0
+
+circrna_count:
+  # morph: number
+  0
+
+circrna_functions:
+  # morph: list
+  items:
+    - circrna: ""
+      host_gene: ""
+      function: ""
+      targets: ""
+
+# ============================================================================
+# COMPUTATIONAL MODELING
+# ============================================================================
+
+modeling_approach:
+  # morph: badge
+  # ode | boolean | stochastic | agent_based | constraint_based | none
+  status: ""
+  variant: ""
+
+model_parameters:
+  # morph: number
+  0
+
+model_validation:
+  # morph: badge
+  # experimental | literature | predicted | not_validated
+  status: ""
+  variant: ""
+
+simulation_predictions:
+  # morph: list
+  items:
+    - prediction: ""
+      experimental_validation: ""
+      accuracy: ""
+
+in_silico_perturbations:
+  # morph: number
+  # Simulated knockouts/overexpressions
+  0
+
+model_accuracy:
+  # morph: gauge
+  # Prediction accuracy (%)
+  current: 0
+  target: 80
+  unit: "%"
+
+# ============================================================================
+# MACHINE LEARNING INTEGRATION
+# ============================================================================
+
+ml_methods:
+  # morph: list
+  items:
+    - method: ""
+      purpose: ""
+      performance: ""
+
+network_inference_algorithm:
+  # morph: badge
+  # genie3 | aracne | clr | tigress | dynamo | none
+  status: ""
+  variant: ""
+
+deep_learning:
+  # morph: badge
+  # cnn | rnn | gnn | transformer | none
+  status: ""
+  variant: ""
+
+feature_importance:
+  # morph: list
+  items:
+    - feature: ""
+      importance_score: 0
+      biological_relevance: ""
+
+# ============================================================================
+# DISEASE MECHANISMS - System perturbations
+# ============================================================================
+
+disease_studied:
+  # morph: text
+  ""
+
+disease_genes:
+  # morph: number
+  # Genes implicated in disease
+  0
+
+disease_modules:
+  # morph: list
+  items:
+    - module: ""
+      genes: 0
+      disease: ""
+      mechanism: ""
+
+network_rewiring:
+  # morph: badge
+  # detected | not_detected
+  status: ""
+  variant: ""
+
+differential_connectivity:
+  # morph: number
+  # Edges gained/lost in disease
+  0
+
+drug_targets_network:
+  # morph: list
+  items:
+    - target: ""
+      network_position: ""
+      downstream_effects: 0
+      side_effect_predictions: ""
+
+# ============================================================================
+# EVOLUTIONARY CONSERVATION
+# ============================================================================
+
+network_conservation:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+conserved_modules:
+  # morph: number
+  # Modules preserved across species
+  0
+
+species_compared:
+  # morph: list
+  items:
+    - species: ""
+      network_similarity: 0
+      conserved_interactions: 0
+
+rewiring_events:
+  # morph: number
+  # Regulatory changes between species
+  0
+
+# ============================================================================
+# TECHNOLOGY & DATA SOURCES
+# ============================================================================
+
+data_types_integrated:
+  # morph: list
+  items:
+    - data_type: "RNA-seq"
+      included: false
+      samples: 0
+    - data_type: "ChIP-seq"
+      included: false
+      peaks: 0
+    - data_type: "ATAC-seq"
+      included: false
+      peaks: 0
+    - data_type: "Hi-C"
+      included: false
+      resolution: ""
+    - data_type: "Perturbation"
+      included: false
+      conditions: 0
+
+single_cell_resolution:
+  # morph: badge
+  # yes | no | partial
+  status: ""
+  variant: ""
+
+spatial_resolution:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# VALIDATION & REPRODUCIBILITY
+# ============================================================================
+
+experimental_validation:
+  # morph: number
+  # Predictions tested experimentally
+  0
+
+validation_success_rate:
+  # morph: gauge
+  # Percentage validated (%)
+  current: 0
+  target: 80
+  unit: "%"
+
+orthogonal_methods:
+  # morph: list
+  items:
+    - method: ""
+      validated_interactions: 0
+
+# ============================================================================
+# APPLICATIONS
+# ============================================================================
+
+synthetic_biology:
+  # morph: badge
+  # circuit_design | pathway_engineering | not_applicable
+  status: ""
+  variant: ""
+
+network_based_drug_discovery:
+  # morph: badge
+  # active | not_applicable
+  status: ""
+  variant: ""
+
+biomarker_discovery:
+  # morph: number
+  # Network-based biomarkers
+  0
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""
+
+curator:
+  # morph: text
+  ""
+
+notes:
+  # morph: text
+  ""

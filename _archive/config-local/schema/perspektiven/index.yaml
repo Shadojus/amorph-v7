@@ -1,0 +1,265 @@
+# AMORPH Perspectives Index
+# Defines which perspectives are active and their load order
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BIOLOGY PERSPECTIVES (Original 15)
+# For fungi, plantae, therion
+# ═══════════════════════════════════════════════════════════════════════════════
+biology:
+  - culinary
+  - safety
+  - cultivation
+  - medicine
+  - chemistry
+  - ecology
+  - statistics
+  - geography
+  - temporal
+  - economy
+  - conservation
+  - culture
+  - research
+  - interactions
+  - identification
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PALEONTOLOGY PERSPECTIVES (12)
+# For fossils and extinct organisms
+# ═══════════════════════════════════════════════════════════════════════════════
+paleontology:
+  - taxonomy_paleo
+  - morphology
+  - chronology
+  - paleoecology
+  - taphonomy
+  - biogeography
+  - extinction
+  - discoveries
+  - reconstruction
+  - museum
+  - research
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MINERALOGY PERSPECTIVES (12)
+# For minerals and gemstones
+# ═══════════════════════════════════════════════════════════════════════════════
+mineralogy:
+  - classification
+  - chemistry
+  - crystallography
+  - physical
+  - optical
+  - formation
+  - occurrence
+  - economic_mineral
+  - collecting
+  - gemology
+  - research
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TECTONICS PERSPECTIVES (8)
+# For geological time, structures, plate tectonics
+# ═══════════════════════════════════════════════════════════════════════════════
+tectonics:
+  - chronology
+  - stratigraphy
+  - plate_tectonics
+  - structural
+  - deformation
+  - research
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MICROBIOLOGY PERSPECTIVES (10)
+# For bacteria, archaea, microorganisms
+# ═══════════════════════════════════════════════════════════════════════════════
+microbiology:
+  - taxonomy_micro
+  - morphology_micro
+  - metabolism
+  - pathogenicity
+  - antibiotic_resistance
+  - cultivation_micro
+  - genomics
+  - ecology_micro
+  - industrial
+  - research
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VIROLOGY PERSPECTIVES (10)
+# For viruses, viral diseases, vaccines
+# ═══════════════════════════════════════════════════════════════════════════════
+virology:
+  - taxonomy_viro
+  - structure_viro
+  - replication
+  - pathogenesis
+  - epidemiology
+  - immunity
+  - vaccines
+  - antiviral
+  - evolution_viro
+  - research
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GENETICS PERSPECTIVES (10)
+# For genes, DNA, heredity, genetic engineering
+# ═══════════════════════════════════════════════════════════════════════════════
+genetics:
+  - gene_structure
+  - inheritance
+  - mutations
+  - expression
+  - regulation
+  - epigenetics
+  - genomics
+  - biotechnology
+  - diseases_genetic
+  - research
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ANATOMY PERSPECTIVES (10)
+# For body structures, organs, systems
+# ═══════════════════════════════════════════════════════════════════════════════
+anatomy:
+  - gross_anatomy
+  - histology
+  - physiology
+  - development
+  - pathology
+  - imaging
+  - surgery
+  - comparative
+  - clinical
+  - research
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHEMISTRY PERSPECTIVES (10)
+# For elements, compounds, reactions
+# ═══════════════════════════════════════════════════════════════════════════════
+chemistry_domain:
+  - atomic_structure
+  - bonding
+  - thermodynamics
+  - kinetics
+  - organic
+  - inorganic
+  - analytical
+  - synthesis
+  - applications
+  - research
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PHYSICS PERSPECTIVES (10)
+# For particles, forces, fields, energy
+# ═══════════════════════════════════════════════════════════════════════════════
+physics:
+  - mechanics
+  - electromagnetism
+  - thermodynamics_phys
+  - quantum
+  - relativity
+  - particle
+  - nuclear
+  - optics
+  - applications_phys
+  - research
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ASTRONOMY PERSPECTIVES (10)
+# For stars, planets, galaxies, cosmology
+# ═══════════════════════════════════════════════════════════════════════════════
+astronomy:
+  - classification_astro
+  - orbital
+  - composition
+  - formation_astro
+  - lifecycle
+  - observation
+  - missions
+  - habitability
+  - cosmology
+  - research
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INFORMATICS PERSPECTIVES (10)
+# For networks, protocols, cyber systems
+# ═══════════════════════════════════════════════════════════════════════════════
+informatics:
+  - architecture
+  - protocols
+  - security
+  - networking
+  - data_storage
+  - distributed
+  - performance
+  - standards
+  - applications_info
+  - research
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# AI PERSPECTIVES (10)
+# For artificial intelligence, machine learning
+# ═══════════════════════════════════════════════════════════════════════════════
+ai:
+  - model_architecture
+  - training
+  - capabilities
+  - limitations
+  - applications_ai
+  - ethics
+  - benchmarks
+  - deployment
+  - safety_ai
+  - research
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BIOTECH PERSPECTIVES (10)
+# For biotechnology, synthetic biology
+# ═══════════════════════════════════════════════════════════════════════════════
+biotech:
+  - methodology
+  - applications_biotech
+  - products
+  - organisms
+  - safety_biotech
+  - regulation
+  - economics_biotech
+  - ethics_biotech
+  - future
+  - research
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOCIOLOGY PERSPECTIVES (10)
+# For social structures, institutions, behaviors
+# ═══════════════════════════════════════════════════════════════════════════════
+sociology:
+  - structure
+  - institutions
+  - culture_socio
+  - demographics
+  - inequality
+  - movements
+  - change
+  - methods
+  - theory
+  - research
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LEGACY: Original aktiv list (for backward compatibility)
+# ═══════════════════════════════════════════════════════════════════════════════
+aktiv:
+  - culinary
+  - safety
+  - cultivation
+  - medicine
+  - chemistry
+  - ecology
+  - statistics
+  - geography
+  - temporal
+  - economy
+  - conservation
+  - culture
+  - research
+  - interactions
+  - identification

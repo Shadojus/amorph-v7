@@ -4,8 +4,8 @@
  * Die Regenbogenbrücke zwischen Daten und ihren Quellen.
  * 
  * DYNAMISCHES EXPERTEN-MATCHING:
- * - Lädt Experten von BIFROEST API basierend auf Perspektiven
- * - Matcht Experten zu Feldern über _fieldPerspective Map
+ * - Lädt Experten von PocketBase basierend auf Domain
+ * - Matcht Experten zu Feldern über field_expertise Array
  * - Fallback auf lokale _sources.json wenn API nicht erreichbar
  */
 
@@ -13,8 +13,8 @@
 // CONFIG & TYPES
 // ═══════════════════════════════════════════════════════════════════════════════
 
-// BIFROEST API URL - konfigurierbar via data-Attribut oder Environment
-const BIFROEST_API_URL = (window as any).__BIFROEST_API_URL || 'https://bifroest.io/api';
+// PocketBase URL - konfigurierbar via window object oder default
+const POCKETBASE_URL = (window as any).__POCKETBASE_URL || 'http://127.0.0.1:8090';
 
 // Cache für API-Responses (sessionStorage)
 const CACHE_KEY = 'bifroest-experts-cache';
@@ -27,16 +27,13 @@ interface BifroestExpert {
   title?: string;
   bio?: string;
   image?: string;
-  category: 'fungi' | 'plants' | 'animals';
-  perspectives: string[];  // Welche Perspektiven dieser Experte abdeckt
-  species: string[];       // Spezifische Spezies (leer = alle)
+  domain: string;              // fungi, phyto, drako, etc.
+  field_expertise: string[];   // Array of field names this expert covers
   tags: string[];
-  impactScore: number;
+  impact_score: number;
   verified: boolean;
   contact?: string;
   url?: string;
-  profileUrl: string;
-  bifroestUrl: string;
 }
 
 interface FieldSource {
@@ -55,13 +52,11 @@ interface Expert {
   title?: string;
   url?: string;
   contact?: string;
-  bifroestUrl?: string;
-  perspectives?: string[];
 }
 
 interface CachedExperts {
   timestamp: number;
-  category: string;
+  domain: string;
   experts: BifroestExpert[];
 }
 
@@ -141,93 +136,48 @@ export function toggleBifroest(forceState?: boolean): void {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 /**
- * Ermittelt die Kategorie aus der aktuellen Domain oder data-Attribut.
+ * Ermittelt die Domain aus der aktuellen Site oder data-Attribut.
+ * Domains matchen die Blueprint-Ordner: fungi, phyto, drako, etc.
  */
-function getCurrentCategory(): 'fungi' | 'plants' | 'animals' {
-  // 1. Aus data-Attribut
-  const categoryAttr = document.body.dataset.category;
-  if (categoryAttr === 'fungi' || categoryAttr === 'plants' || categoryAttr === 'animals') {
-    return categoryAttr;
-  }
+function getCurrentDomain(): string {
+  // 1. Aus data-Attribut (neues Format)
+  const domainAttr = document.body.dataset.domain || document.body.dataset.siteType;
+  if (domainAttr) return domainAttr;
   
-  // 2. Aus Domain
+  // 2. Aus Domain-Name
   const hostname = window.location.hostname;
   if (hostname.includes('funginomi')) return 'fungi';
-  if (hostname.includes('phytonomi')) return 'plants';
-  if (hostname.includes('drakonomi')) return 'animals';
+  if (hostname.includes('phytonomi')) return 'phyto';
+  if (hostname.includes('drakonomi')) return 'drako';
+  if (hostname.includes('bakterionomi')) return 'bakterio';
+  if (hostname.includes('vironomi')) return 'viro';
+  if (hostname.includes('genonomi')) return 'geno';
+  if (hostname.includes('anatonomi')) return 'anato';
+  if (hostname.includes('chemonomi')) return 'chemo';
+  if (hostname.includes('biotechnomi')) return 'biotech';
+  if (hostname.includes('paleonomi')) return 'paleo';
+  if (hostname.includes('tektonomi')) return 'tekto';
+  if (hostname.includes('minenomi')) return 'mine';
+  if (hostname.includes('physinomi')) return 'physi';
+  if (hostname.includes('kosmonomi')) return 'kosmo';
+  if (hostname.includes('netzonomi')) return 'netzo';
+  if (hostname.includes('cognitonomi')) return 'cognito';
+  if (hostname.includes('socionomi')) return 'socio';
   
   // 3. Default
   return 'fungi';
 }
 
 /**
- * Sammelt alle genutzten Perspektiven aus _fieldPerspective Map.
- */
-function getUsedPerspectives(): string[] {
-  const perspectives = new Set<string>();
-  
-  // Aus Item-Elementen mit data-field-perspectives (Plural!)
-  document.querySelectorAll('[data-field-perspectives]').forEach(el => {
-    const map = (el as HTMLElement).dataset.fieldPerspectives;
-    if (map) {
-      try {
-        const parsed = JSON.parse(map) as Record<string, string>;
-        Object.values(parsed).forEach(p => perspectives.add(p));
-      } catch { /* ignore */ }
-    }
-  });
-  
-  // Fallback: Singular-Form
-  document.querySelectorAll('[data-field-perspective]').forEach(el => {
-    const map = (el as HTMLElement).dataset.fieldPerspective;
-    if (map) {
-      try {
-        const parsed = JSON.parse(map) as Record<string, string>;
-        Object.values(parsed).forEach(p => perspectives.add(p));
-      } catch { /* ignore */ }
-    }
-  });
-  
-  // Aus Window-Objekt (Detail-Seite)
-  if ((window as any).AMORPH_FIELD_PERSPECTIVE_MAP) {
-    Object.values((window as any).AMORPH_FIELD_PERSPECTIVE_MAP as Record<string, string>)
-      .forEach(p => perspectives.add(p));
-  }
-  
-  // Aus einzelnen Feldern mit data-perspective
-  document.querySelectorAll('.amorph-field[data-perspective]').forEach(el => {
-    const p = (el as HTMLElement).dataset.perspective;
-    if (p) perspectives.add(p);
-  });
-  
-  return Array.from(perspectives);
-}
-
-/**
- * Holt den Spezies-Slug von der aktuellen Seite.
- */
-function getCurrentSpecies(): string | null {
-  // Aus URL: /{slug}
-  const path = window.location.pathname;
-  const match = path.match(/^\/([a-z0-9-]+)\/?$/i);
-  if (match) return match[1];
-  
-  // Aus data-Attribut
-  const speciesAttr = document.body.dataset.species || 
-                      document.querySelector('[data-species]')?.getAttribute('data-species');
-  return speciesAttr || null;
-}
-
-/**
  * Lädt Experten aus dem Cache.
  */
-function getCachedExperts(category: string): BifroestExpert[] | null {
+function getCachedExperts(domain: string): BifroestExpert[] | null {
   try {
     const cached = sessionStorage.getItem(CACHE_KEY);
     if (!cached) return null;
     
     const data: CachedExperts = JSON.parse(cached);
-    if (data.category !== category) return null;
+    if (data.domain !== domain) return null;
     if (Date.now() - data.timestamp > CACHE_TTL) return null;
     
     return data.experts;
@@ -239,11 +189,11 @@ function getCachedExperts(category: string): BifroestExpert[] | null {
 /**
  * Speichert Experten im Cache.
  */
-function cacheExperts(category: string, experts: BifroestExpert[]): void {
+function cacheExperts(domain: string, experts: BifroestExpert[]): void {
   try {
     const data: CachedExperts = {
       timestamp: Date.now(),
-      category,
+      domain,
       experts,
     };
     sessionStorage.setItem(CACHE_KEY, JSON.stringify(data));
@@ -251,125 +201,113 @@ function cacheExperts(category: string, experts: BifroestExpert[]): void {
 }
 
 /**
- * Lädt Experten von BIFROEST API.
+ * Lädt Experten von PocketBase basierend auf Domain.
  */
-async function fetchExpertsFromAPI(
-  category: string,
-  perspectives: string[],
-  species: string | null
-): Promise<BifroestExpert[]> {
-  const params = new URLSearchParams();
-  params.set('category', category);
+async function fetchExpertsFromPocketBase(domain: string): Promise<BifroestExpert[]> {
+  // Build filter for PocketBase
+  const filter = `domain='${domain}'`;
   
-  if (perspectives.length > 0) {
-    params.set('perspectives', perspectives.join(','));
-  }
+  // PocketBase URL with filter
+  const url = `${POCKETBASE_URL}/api/collections/experts/records?perPage=100&filter=${encodeURIComponent(filter)}`;
   
-  if (species) {
-    params.set('species', species);
-  }
-  
-  params.set('limit', '100');
-  
-  const response = await fetch(`${BIFROEST_API_URL}/experts?${params}`, {
+  const response = await fetch(url, {
     method: 'GET',
     headers: { 'Accept': 'application/json' },
   });
   
   if (!response.ok) {
-    throw new Error(`API error: ${response.status}`);
+    throw new Error(`PocketBase error: ${response.status}`);
   }
   
   const data = await response.json();
-  return data.items || [];
+  
+  // Transform PocketBase records to BifroestExpert format
+  return (data.items || []).map((record: any) => ({
+    id: record.id,
+    name: record.name,
+    slug: record.slug,
+    title: record.title,
+    bio: record.bio,
+    image: record.image ? `${POCKETBASE_URL}/api/files/experts/${record.id}/${record.image}` : undefined,
+    domain: record.domain,
+    field_expertise: record.field_expertise || [],
+    tags: record.tags || [],
+    impact_score: record.impact_score || 50,
+    verified: record.verified || false,
+    contact: record.contact,
+    url: record.url,
+  }));
 }
 
 /**
  * Hauptfunktion: Lädt Experten und zeigt sie an.
  */
 async function loadAndDisplayExperts(): Promise<void> {
-  const category = getCurrentCategory();
-  const perspectives = getUsedPerspectives();
-  const species = getCurrentSpecies();
+  const domain = getCurrentDomain();
   
   console.log('[Bifroest] 🌈 Starting expert load...', { 
-    apiUrl: BIFROEST_API_URL,
-    category, 
-    perspectives, 
-    species 
+    pocketbaseUrl: POCKETBASE_URL,
+    domain
   });
   
   // 1. Versuche aus Cache
-  const cached = getCachedExperts(category);
+  const cached = getCachedExperts(domain);
   if (cached && cached.length > 0) {
-    console.log('[Bifroest] ✅ Using CACHED experts from API:', cached.length);
+    console.log('[Bifroest] ✅ Using CACHED experts:', cached.length);
     loadedExperts = cached;
     expertsLoaded = true;
     applyExpertsToFields();
     return;
   }
   
-  // 2. Lade von API
+  // 2. Lade von PocketBase
   try {
-    console.log('[Bifroest] 📡 Fetching from API:', `${BIFROEST_API_URL}/experts?category=${category}`);
-    loadedExperts = await fetchExpertsFromAPI(category, perspectives, species);
+    console.log('[Bifroest] 📡 Fetching from PocketBase:', `${POCKETBASE_URL}/api/collections/experts/records?domain=${domain}`);
+    loadedExperts = await fetchExpertsFromPocketBase(domain);
     expertsLoaded = true;
-    cacheExperts(category, loadedExperts);
-    console.log(`[Bifroest] ✅ Loaded ${loadedExperts.length} experts from BIFROEST API:`, 
-      loadedExperts.map(e => `${e.name} (${e.perspectives.join(', ')})`));
+    cacheExperts(domain, loadedExperts);
+    console.log(`[Bifroest] ✅ Loaded ${loadedExperts.length} experts from PocketBase:`, 
+      loadedExperts.map(e => `${e.name} (${e.field_expertise?.join(', ') || 'no expertise'})`));
     applyExpertsToFields();
   } catch (error) {
-    console.warn('[Bifroest] ⚠️ API not available, using LOCAL FALLBACK (_sources):', error);
+    console.warn('[Bifroest] ⚠️ PocketBase not available, using LOCAL FALLBACK (_sources):', error);
     // Fallback: Lokale _sources verwenden (alte Methode)
     addExpertButtonsFromLocalSources();
   }
 }
 
 /**
- * Wendet geladene Experten auf Felder an basierend auf Perspektiven-Matching.
+ * Wendet geladene Experten auf Felder an basierend auf field_expertise Matching.
+ * Direkte Feld-zu-Experte Zuordnung über field_expertise Array.
  */
 function applyExpertsToFields(): void {
   if (!expertsLoaded || loadedExperts.length === 0) {
+    console.log('[Bifroest] No experts loaded, using local fallback');
     addExpertButtonsFromLocalSources();
     return;
   }
   
+  console.log('[Bifroest] 🔗 Applying experts to fields...');
+  
   const items = document.querySelectorAll('.amorph-item, .amorph-detail, .detail-perspectives');
+  let totalMatches = 0;
   
   items.forEach(item => {
-    // Hole _fieldPerspective Map (ACHTUNG: Attribut heißt data-field-perspectives - Plural!)
-    const perspectiveMapJson = (item as HTMLElement).dataset.fieldPerspectives || 
-                               (item as HTMLElement).dataset.fieldPerspective;
-    let fieldPerspectiveMap: Record<string, string> = {};
-    
-    if (perspectiveMapJson) {
-      try {
-        fieldPerspectiveMap = JSON.parse(perspectiveMapJson);
-      } catch { /* ignore */ }
-    }
-    
-    // Fallback: Aus Window-Objekt (Detail-Seite)
-    if (Object.keys(fieldPerspectiveMap).length === 0 && (window as any).AMORPH_FIELD_PERSPECTIVE_MAP) {
-      fieldPerspectiveMap = (window as any).AMORPH_FIELD_PERSPECTIVE_MAP;
-    }
-    
-    // Für jedes Feld: Finde passende Experten
+    // Für jedes Feld: Finde passende Experten über field_expertise
     const fields = item.querySelectorAll('.amorph-field');
+    
     fields.forEach(field => {
       const fieldKey = (field as HTMLElement).dataset.field;
       if (!fieldKey) return;
       
-      // Perspektive dieses Feldes
-      const perspective = fieldPerspectiveMap[fieldKey] || 
-                         (field as HTMLElement).dataset.perspective;
-      if (!perspective) return;
-      
-      // Finde Experten die diese Perspektive abdecken
+      // Finde Experten die dieses Feld in ihrer field_expertise haben
       const matchingExperts = loadedExperts.filter(expert => 
-        expert.perspectives.includes(perspective)
+        expert.field_expertise && expert.field_expertise.includes(fieldKey)
       );
       
       if (matchingExperts.length === 0) return;
+      
+      totalMatches++;
       
       // Container bereits vorhanden?
       if (field.querySelector('.bifroest-experts')) return;
@@ -380,7 +318,7 @@ function applyExpertsToFields(): void {
       
       // Max 3 Experten pro Feld anzeigen (nach Impact-Score sortiert)
       const topExperts = matchingExperts
-        .sort((a, b) => b.impactScore - a.impactScore)
+        .sort((a, b) => (b.impact_score || 0) - (a.impact_score || 0))
         .slice(0, 3);
       
       topExperts.forEach(expert => {
@@ -394,8 +332,6 @@ function applyExpertsToFields(): void {
           title: expert.title,
           url: expert.url,
           contact: expert.contact,
-          bifroestUrl: expert.bifroestUrl,
-          perspectives: expert.perspectives,
         };
         btn.dataset.expert = JSON.stringify(expertData);
         btn.innerHTML = `<span class="bifroest-expert-name">${escapeHtml(expert.name)}</span>`;
@@ -405,6 +341,8 @@ function applyExpertsToFields(): void {
       field.appendChild(expertsContainer);
     });
   });
+  
+  console.log(`[Bifroest] ✅ Applied experts to ${totalMatches} fields`);
 }
 
 /**
@@ -659,11 +597,6 @@ function showExpertPopup(expert: Expert): void {
   const sourcesContainer = popupContainer.querySelector('.bifroest-sources');
   if (!sourcesContainer) return;
   
-  // Perspektiven als Tags anzeigen
-  const perspectiveTags = (expert.perspectives || [])
-    .map(p => `<span class="bifroest-tag">${escapeHtml(p)}</span>`)
-    .join('');
-  
   sourcesContainer.innerHTML = `
     <div class="bifroest-source bifroest-expert-card">
       <div class="bifroest-source-name">${escapeHtml(expert.name)}</div>
@@ -672,12 +605,6 @@ function showExpertPopup(expert: Expert): void {
           <div class="bifroest-source-row">
             <span class="bifroest-source-label">Position:</span>
             <span class="bifroest-source-value">${escapeHtml(expert.title)}</span>
-          </div>
-        ` : ''}
-        ${perspectiveTags ? `
-          <div class="bifroest-source-row">
-            <span class="bifroest-source-label">Expertise:</span>
-            <span class="bifroest-source-value bifroest-tags">${perspectiveTags}</span>
           </div>
         ` : ''}
         ${expert.url ? `
@@ -699,11 +626,6 @@ function showExpertPopup(expert: Expert): void {
             </span>
           </div>
         ` : ''}
-      </div>
-      <div class="bifroest-expert-link">
-        <a href="${expert.bifroestUrl || `https://bifroest.io/expert/${encodeURIComponent(expert.name)}`}" target="_blank" rel="noopener">
-          Auf Bifroest ansehen →
-        </a>
       </div>
     </div>
   `;

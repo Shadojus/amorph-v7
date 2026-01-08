@@ -1,0 +1,1746 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# SAFETY PERSPECTIVE BLUEPRINT
+# Schema mit leeren Datenstrukturen für Morph-Erkennung
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CORE SAFETY PROFILE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: badge
+safety_edibility_status:
+  status: ""
+  variant: ""
+
+# morph: progress
+safety_edibility_confidence:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: text
+safety_edibility_notes: ""
+
+# morph: boolean
+safety_potentially_deadly: false
+
+# morph: tag
+safety_deadliness_frequency: ""
+
+# morph: gauge
+safety_toxicity_score:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# morph: list
+safety_toxicity_components:
+  - ""
+
+# morph: number
+safety_ld50_kg: 0
+
+# morph: number
+safety_min_toxic_dose_g: 0
+
+# morph: number
+safety_lethal_dose_g: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# WARNINGS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: badge
+safety_warning_level:
+  status: ""
+  variant: ""
+
+# morph: text
+safety_warning_text: ""
+
+# morph: text
+safety_warning_text_short: ""
+
+# morph: list
+safety_warning_symbols:
+  - ""
+
+# morph: text
+safety_summary: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# RISK FACTORS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: gauge
+safety_risk_inherent:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# morph: gauge
+safety_risk_confusion:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# morph: gauge
+safety_risk_preparation:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# morph: gauge
+safety_risk_individual:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# morph: boolean
+safety_risk_cumulative: false
+
+# morph: list
+safety_risk_environment:
+  - ""
+
+# morph: list
+safety_risk_groups:
+  - ""
+
+# morph: list
+safety_contraindications:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GEOGRAPHY & TIME
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+safety_regions:
+  - ""
+
+# morph: text
+safety_regional_variations: ""
+
+# morph: calendar
+safety_season_risk:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: list
+safety_main_risk_months:
+  - 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# IDENTIFICATION REQUIREMENTS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: badge
+safety_id_difficulty:
+  status: ""
+  variant: ""
+
+# morph: list
+safety_id_requirements:
+  - ""
+
+# morph: boolean
+safety_microscopy_needed: false
+
+# morph: boolean
+safety_chemtests_needed: false
+
+# morph: boolean
+safety_sporeprint_needed: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DATA QUALITY
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+safety_expert_reviewed: false
+
+# morph: text
+safety_reviewer_credentials: ""
+
+# morph: text
+safety_last_review: ""
+
+# morph: text
+safety_next_review: ""
+
+# morph: badge
+safety_confidence_level:
+  status: ""
+  variant: ""
+
+# morph: progress
+safety_completeness:
+  value: 0
+  max: 100
+  unit: "%"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TOXIN PROFILE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+toxin_class_primary: ""
+
+# morph: list
+toxin_classes_secondary:
+  - ""
+
+# morph: list
+toxin_names:
+  - ""
+
+# morph: bar
+toxin_concentrations:
+  - label: ""
+    value: 0
+
+# morph: tag
+toxidrome_primary: ""
+
+# morph: list
+toxidrome_secondary:
+  - ""
+
+# morph: text
+toxidrome_mnemonic: ""
+
+# morph: list
+toxidrome_key_findings:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TOXICOLOGY DATABASES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+tox_database_id: ""
+
+# morph: text
+tox_prot_id: ""
+
+# morph: text
+tppt_id: ""
+
+# morph: text
+cmnpd_id: ""
+
+# morph: text
+t3db_id: ""
+
+# morph: tag
+toxin_kingdom_origin: ""
+
+# morph: tag
+toxin_biosynthetic_class: ""
+
+# morph: tag
+toxin_protein_family: ""
+
+# morph: text
+toxin_uniprot_id: ""
+
+# morph: tag
+marine_biotoxin_class: ""
+
+# morph: tag
+marine_biotoxin_source: ""
+
+# morph: tag
+marine_biotoxin_vector: ""
+
+# morph: tag
+venom_delivery_method: ""
+
+# morph: list
+venom_protein_components:
+  - ""
+
+# morph: boolean
+antivenom_available: false
+
+# morph: tag
+antivenom_type: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TARGET ORGANS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+toxin_target_organs_primary:
+  - ""
+
+# morph: list
+toxin_target_organs_secondary:
+  - ""
+
+# morph: severity
+toxin_organ_damage_severity:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: boolean
+toxin_organ_damage_reversible: false
+
+# morph: text
+toxin_mechanism: ""
+
+# morph: text
+toxin_mechanism_short: ""
+
+# morph: list
+toxin_cellular_targets:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ONSET & DURATION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: number
+toxin_onset_min_hours: 0
+
+# morph: number
+toxin_onset_max_hours: 0
+
+# morph: number
+toxin_onset_typical_hours: 0
+
+# morph: tag
+toxin_onset_classification: ""
+
+# morph: number
+toxin_duration_min_hours: 0
+
+# morph: number
+toxin_duration_max_hours: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TOXIN STABILITY
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+toxin_heat_stable: false
+
+# morph: number
+toxin_degradation_temp_c: 0
+
+# morph: number
+toxin_degradation_time_min: 0
+
+# morph: boolean
+toxin_drying_stable: false
+
+# morph: boolean
+toxin_frost_stable: false
+
+# morph: boolean
+toxin_water_soluble: false
+
+# morph: boolean
+toxin_alcohol_soluble: false
+
+# morph: text
+toxin_stability_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PREPARATION SAFETY
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+toxin_preparation_reduces: false
+
+# morph: list
+toxin_safe_methods:
+  - ""
+
+# morph: list
+toxin_unsafe_methods:
+  - ""
+
+# morph: severity
+toxin_preparation_warnings:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CUMULATIVE & CHRONIC EFFECTS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+toxin_cumulative: false
+
+# morph: text
+toxin_cumulative_threshold: ""
+
+# morph: list
+toxin_chronic_effects:
+  - ""
+
+# morph: boolean
+toxin_carcinogenic: false
+
+# morph: boolean
+toxin_mutagenic: false
+
+# morph: boolean
+toxin_teratogenic: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# INTERACTIONS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: severity
+toxin_drug_interactions:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: boolean
+toxin_alcohol_interaction: false
+
+# morph: badge
+toxin_alcohol_severity:
+  status: ""
+  variant: ""
+
+# morph: number
+toxin_alcohol_time_window_h: 0
+
+# morph: list
+toxin_food_interactions:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DETECTION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+toxin_detection_sample: ""
+
+# morph: text
+toxin_detection_patient: ""
+
+# morph: number
+toxin_detection_window_h: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ERSTE-HILFE-PROTOKOLL
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: steps
+first_aid_immediate_steps:
+  - step: 1
+    label: ""
+    status: "pending"
+
+# morph: list
+first_aid_what_not_to_do:
+  - ""
+
+# morph: badge
+induce_vomiting_recommended:
+  status: ""
+  variant: ""
+
+# morph: badge
+activated_charcoal_useful:
+  status: ""
+  variant: ""
+
+# morph: boolean
+milk_or_water_helpful: false
+
+# morph: text
+when_to_call_emergency: ""
+
+# morph: list
+information_for_emergency_call:
+  - ""
+
+# morph: badge
+hospital_transport_urgency:
+  status: ""
+  variant: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SYMPTOM-TIMELINE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: range
+symptom_onset_minutes:
+  min: 0
+  max: 0
+  unit: "min"
+
+# morph: text
+symptom_onset_range: ""
+
+# morph: number
+symptom_peak_hours: 0
+
+# morph: number
+symptom_duration_hours: 0
+
+# morph: lifecycle
+symptom_phases:
+  - phase: ""
+    duration: ""
+
+# morph: boolean
+delayed_symptoms_possible: false
+
+# morph: number
+delayed_symptom_onset_hours: 0
+
+# morph: boolean
+biphasic_reaction_risk: false
+
+# morph: text
+symptom_resolution_timeline: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DOSIS-WIRKUNGS-BEZIEHUNG
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: number
+toxic_dose_threshold: 0
+
+# morph: tag
+toxic_dose_unit: ""
+
+# morph: number
+lethal_dose_human_estimated: 0
+
+# morph: boolean
+one_bite_dangerous: false
+
+# morph: boolean
+cumulative_toxicity: false
+
+# morph: boolean
+bioaccumulation_risk: false
+
+# morph: text
+dose_response_notes: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# VULNERABLE GRUPPEN
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+children_risk_modifier: ""
+
+# morph: text
+children_specific_concerns: ""
+
+# morph: tag
+elderly_risk_modifier: ""
+
+# morph: badge
+pregnancy_risk_category:
+  status: ""
+  variant: ""
+
+# morph: text
+pregnancy_specific_effects: ""
+
+# morph: text
+breastfeeding_concerns: ""
+
+# morph: boolean
+pets_toxicity: false
+
+# morph: list
+pets_species_affected:
+  - ""
+
+# morph: text
+pets_toxic_dose: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MEDIKAMENTEN-INTERAKTIONEN
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: severity
+drug_interactions_dangerous:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: list
+drug_interactions_moderate:
+  - ""
+
+# morph: boolean
+alcohol_interaction: false
+
+# morph: boolean
+maoi_interaction: false
+
+# morph: boolean
+anticoagulant_interaction: false
+
+# morph: boolean
+immunosuppressant_interaction: false
+
+# morph: list
+cyp450_interactions:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# EXPOSITIONSWEGE & DEKONTAMINATION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+exposure_routes:
+  - ""
+
+# morph: text
+dermal_exposure_protocol: ""
+
+# morph: text
+eye_exposure_protocol: ""
+
+# morph: text
+inhalation_exposure_protocol: ""
+
+# morph: steps
+decontamination_steps:
+  - step: 1
+    label: ""
+    status: "pending"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# LANGZEITFOLGEN
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+chronic_exposure_effects:
+  - ""
+
+# morph: severity
+organ_damage_potential:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: text
+recovery_prognosis: ""
+
+# morph: gauge
+permanent_damage_risk:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# morph: boolean
+follow_up_recommended: false
+
+# morph: list
+follow_up_tests:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GIFTNOTRUF-INTEGRATION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+poison_control_product_code: ""
+
+# morph: tag
+poison_control_classification: ""
+
+# morph: link
+toxbase_entry: ""
+
+# morph: link
+poisindex_entry: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CONFUSION PARTNERS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: network
+confusion_partner:
+  - name: ""
+    type: ""
+    intensity: 0
+
+# morph: badge
+confusion_risk_level:
+  status: ""
+  variant: ""
+
+# morph: tag
+confusion_frequency: ""
+
+# morph: boolean
+confusion_safety_critical: false
+
+# morph: comparison
+confusion_edibility_contrast:
+  items:
+    - name: ""
+      values: {}
+  metrics:
+    - key: ""
+      label: ""
+
+# morph: progress
+confusion_visual_similarity:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: text
+confusion_similarity_details: ""
+
+# morph: list
+confusion_key_features:
+  - ""
+
+# morph: text
+confusion_best_feature: ""
+
+# morph: list
+confusion_secondary_features:
+  - ""
+
+# morph: list
+confusion_unreliable_features:
+  - ""
+
+# morph: boolean
+confusion_habitat_overlap: false
+
+# morph: boolean
+confusion_time_overlap: false
+
+# morph: boolean
+confusion_geo_overlap: false
+
+# morph: tag
+confusion_joint_frequency: ""
+
+# morph: tag
+confusion_critical_stage: ""
+
+# morph: list
+confusion_condition_factors:
+  - ""
+
+# morph: text
+confusion_sporeprint_diff: ""
+
+# morph: text
+confusion_chemtest_diff: ""
+
+# morph: text
+confusion_smell_diff: ""
+
+# morph: text
+confusion_taste_diff: ""
+
+# morph: text
+confusion_microscopy_diff: ""
+
+# morph: text
+confusion_id_instructions: ""
+
+# morph: list
+confusion_common_errors:
+  - ""
+
+# morph: list
+confusion_expert_tips:
+  - ""
+
+# morph: text
+confusion_if_in_doubt: ""
+
+# morph: number
+confusion_incidents_count: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SYMPTOM PROFILE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+symptom_onset_category: ""
+
+# morph: number
+symptom_onset_min_min: 0
+
+# morph: number
+symptom_onset_max_min: 0
+
+# morph: number
+symptom_onset_typical_min: 0
+
+# morph: text
+symptom_onset_warning: ""
+
+# morph: boolean
+symptom_delay_danger: false
+
+# morph: list
+symptom_organs_primary:
+  - ""
+
+# morph: list
+symptom_organs_secondary:
+  - ""
+
+# morph: badge
+symptom_max_severity:
+  status: ""
+  variant: ""
+
+# morph: badge
+symptom_typical_severity:
+  status: ""
+  variant: ""
+
+# morph: list
+symptom_severity_factors:
+  - ""
+
+# morph: text
+symptom_description: ""
+
+# morph: text
+symptom_summary: ""
+
+# morph: text
+symptom_course_text: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GI SYMPTOMS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+symptom_gi_nausea: false
+
+# morph: boolean
+symptom_gi_vomiting: false
+
+# morph: boolean
+symptom_gi_diarrhea: false
+
+# morph: boolean
+symptom_gi_abdominal_pain: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# NEUROLOGICAL SYMPTOMS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+symptom_neuro_confusion: false
+
+# morph: boolean
+symptom_neuro_hallucinations: false
+
+# morph: boolean
+symptom_neuro_ataxia: false
+
+# morph: boolean
+symptom_neuro_seizures: false
+
+# morph: boolean
+symptom_neuro_coma: false
+
+# morph: boolean
+symptom_neuro_mydriasis: false
+
+# morph: boolean
+symptom_neuro_miosis: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# AUTONOMIC SYMPTOMS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+symptom_auto_salivation: false
+
+# morph: boolean
+symptom_auto_lacrimation: false
+
+# morph: boolean
+symptom_auto_sweating: false
+
+# morph: boolean
+symptom_auto_bradycardia: false
+
+# morph: boolean
+symptom_auto_tachycardia: false
+
+# morph: boolean
+symptom_auto_hypotension: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HEPATIC SYMPTOMS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+symptom_liver_jaundice: false
+
+# morph: boolean
+symptom_liver_hepatomegaly: false
+
+# morph: boolean
+symptom_liver_coagulopathy: false
+
+# morph: boolean
+symptom_liver_encephalopathy: false
+
+# morph: boolean
+symptom_liver_transaminases: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# RENAL SYMPTOMS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+symptom_kidney_oliguria: false
+
+# morph: boolean
+symptom_kidney_anuria: false
+
+# morph: boolean
+symptom_kidney_hematuria: false
+
+# morph: boolean
+symptom_kidney_creatinine: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# OTHER SYSTEM SYMPTOMS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+symptom_cardio:
+  - ""
+
+# morph: list
+symptom_respiratory:
+  - ""
+
+# morph: list
+symptom_dermatological:
+  - ""
+
+# morph: list
+symptom_musculoskeletal:
+  - ""
+
+# morph: list
+symptom_hematological:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# WARNING SIGNS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: severity
+symptom_red_flags:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: text
+symptom_apparent_improvement_warning: ""
+
+# morph: list
+symptom_differential_diagnoses:
+  - ""
+
+# morph: text
+symptom_distinction: ""
+
+# morph: number
+symptom_duration_min_h: 0
+
+# morph: number
+symptom_duration_max_h: 0
+
+# morph: text
+symptom_recovery_timeline: ""
+
+# morph: list
+symptom_late_effects:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# POISONING SYNDROME
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+syndrome_code: ""
+
+# morph: text
+syndrome_name: ""
+
+# morph: list
+syndrome_aliases:
+  - ""
+
+# morph: tag
+syndrome_category: ""
+
+# morph: list
+syndrome_icd_codes:
+  - ""
+
+# morph: list
+syndrome_primary_toxins:
+  - ""
+
+# morph: list
+syndrome_causative_genera:
+  - ""
+
+# morph: text
+syndrome_prototype_species: ""
+
+# morph: text
+syndrome_description: ""
+
+# morph: list
+syndrome_clinical_features:
+  - ""
+
+# morph: list
+syndrome_key_symptoms:
+  - ""
+
+# morph: tag
+syndrome_onset_category: ""
+
+# morph: range
+syndrome_onset_range_h:
+  min: 0
+  max: 0
+  unit: "h"
+
+# morph: text
+syndrome_typical_course: ""
+
+# morph: number
+syndrome_phases_count: 0
+
+# morph: lifecycle
+syndrome_phases_details:
+  - phase: ""
+    duration: ""
+
+# morph: boolean
+syndrome_biphasic_warning: false
+
+# morph: badge
+syndrome_max_severity:
+  status: ""
+  variant: ""
+
+# morph: progress
+syndrome_mortality:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: progress
+syndrome_mortality_untreated:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: progress
+syndrome_mortality_treated:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: list
+syndrome_organs_affected:
+  - ""
+
+# morph: boolean
+syndrome_organ_failure_risk: false
+
+# morph: boolean
+syndrome_multiorgan_failure_risk: false
+
+# morph: list
+syndrome_diagnosis_criteria:
+  - ""
+
+# morph: list
+syndrome_lab_findings:
+  - ""
+
+# morph: text
+syndrome_imaging: ""
+
+# morph: text
+syndrome_toxin_detection: ""
+
+# morph: list
+syndrome_differential_diagnosis:
+  - ""
+
+# morph: list
+syndrome_prognosis_indicators:
+  - ""
+
+# morph: text
+syndrome_recovery_expectation: ""
+
+# morph: list
+syndrome_long_term_effects:
+  - ""
+
+# morph: text
+syndrome_pediatrics: ""
+
+# morph: text
+syndrome_geriatrics: ""
+
+# morph: text
+syndrome_pregnancy: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TREATMENT PROTOCOL
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+treatment_code: ""
+
+# morph: text
+treatment_name: ""
+
+# morph: text
+treatment_version: ""
+
+# morph: badge
+treatment_urgency:
+  status: ""
+  variant: ""
+
+# morph: tag
+treatment_setting: ""
+
+# morph: boolean
+treatment_specialist_needed: false
+
+# morph: tag
+treatment_specialist_type: ""
+
+# morph: text
+treatment_summary: ""
+
+# morph: text
+treatment_rationale: ""
+
+# morph: badge
+treatment_evidence_level:
+  status: ""
+  variant: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# INITIAL ASSESSMENT
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+treatment_initial_history:
+  - ""
+
+# morph: list
+treatment_initial_exam:
+  - ""
+
+# morph: list
+treatment_initial_vitals:
+  - ""
+
+# morph: list
+treatment_initial_lab:
+  - ""
+
+# morph: list
+treatment_initial_toxicology:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DECONTAMINATION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+treatment_activated_charcoal_indicated: false
+
+# morph: number
+treatment_activated_charcoal_time_window_h: 0
+
+# morph: text
+treatment_activated_charcoal_dose: ""
+
+# morph: boolean
+treatment_activated_charcoal_repeated: false
+
+# morph: list
+treatment_activated_charcoal_contra:
+  - ""
+
+# morph: boolean
+treatment_gastric_lavage_indicated: false
+
+# morph: number
+treatment_gastric_lavage_time_window_h: 0
+
+# morph: boolean
+treatment_bowel_lavage: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ANTIDOTES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+treatment_antidotes:
+  - ""
+
+# morph: badge
+treatment_antidote_availability:
+  status: ""
+  variant: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SUPPORTIVE THERAPY
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+treatment_fluids: ""
+
+# morph: text
+treatment_electrolytes: ""
+
+# morph: text
+treatment_antiemetics: ""
+
+# morph: text
+treatment_pain: ""
+
+# morph: text
+treatment_nutrition: ""
+
+# morph: text
+treatment_glucose: ""
+
+# morph: text
+treatment_vitamins: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ORGAN SUPPORT
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+treatment_liver_nac: ""
+
+# morph: text
+treatment_liver_silibinin: ""
+
+# morph: text
+treatment_liver_penicillin_g: ""
+
+# morph: boolean
+treatment_liver_dialysis: false
+
+# morph: list
+treatment_liver_transplant_criteria:
+  - ""
+
+# morph: boolean
+treatment_kidney_dialysis_indicated: false
+
+# morph: tag
+treatment_kidney_dialysis_type: ""
+
+# morph: text
+treatment_neuro_support: ""
+
+# morph: text
+treatment_respiratory_support: ""
+
+# morph: text
+treatment_cardio_support: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ENHANCED ELIMINATION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: boolean
+treatment_hemodialysis: false
+
+# morph: boolean
+treatment_hemoperfusion: false
+
+# morph: boolean
+treatment_plasmapheresis: false
+
+# morph: boolean
+treatment_mars: false
+
+# morph: boolean
+treatment_forced_diuresis: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MONITORING
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+treatment_monitoring_vitals:
+  - ""
+
+# morph: list
+treatment_monitoring_lab:
+  - ""
+
+# morph: list
+treatment_monitoring_imaging:
+  - ""
+
+# morph: list
+treatment_escalation_criteria:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TRANSPLANTATION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+treatment_transplant_organ: ""
+
+# morph: list
+treatment_transplant_indication:
+  - ""
+
+# morph: list
+treatment_transplant_contra:
+  - ""
+
+# morph: badge
+treatment_transplant_urgency:
+  status: ""
+  variant: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DISCHARGE & FOLLOW-UP
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+treatment_discharge_criteria:
+  - ""
+
+# morph: list
+treatment_followup:
+  - ""
+
+# morph: list
+treatment_longterm_monitoring:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SPECIAL POPULATIONS (Treatment Modifications)
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+treatment_mod_pediatrics: ""
+
+# morph: text
+treatment_mod_geriatrics: ""
+
+# morph: text
+treatment_mod_pregnancy: ""
+
+# morph: text
+treatment_mod_renal_insufficiency: ""
+
+# morph: text
+treatment_mod_hepatic_insufficiency: ""
+
+# morph: list
+treatment_contraindicated:
+  - ""
+
+# morph: list
+treatment_warnings:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SPECIES-SYNDROME MAPPING
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+mapping_primary_syndrome: ""
+
+# morph: list
+mapping_secondary_syndromes:
+  - ""
+
+# morph: progress
+mapping_probability:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: tag
+mapping_severity_modifier: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# EMERGENCY RESPONSE
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+emergency_contact_poison_control: ""
+
+# morph: text
+emergency_contact_ems: ""
+
+# morph: text
+emergency_contact_transplant: ""
+
+# morph: badge
+emergency_transport_priority:
+  status: ""
+  variant: ""
+
+# morph: text
+emergency_communication_patient: ""
+
+# morph: text
+emergency_communication_family: ""
+
+# morph: text
+emergency_sample_preservation: ""
+
+# morph: text
+emergency_documentation: ""
+
+# morph: steps
+first_aid_immediate_actions:
+  - step: 1
+    label: ""
+    status: "pending"
+
+# morph: list
+first_aid_do_not_do:
+  - ""
+
+# morph: text
+first_aid_layperson_instructions: ""
+
+# morph: boolean
+first_aid_time_critical: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# INCIDENT DOCUMENTATION
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+incident_type: ""
+
+# morph: badge
+incident_severity:
+  status: ""
+  variant: ""
+
+# morph: tag
+incident_outcome: ""
+
+# morph: text
+incident_region: ""
+
+# morph: tag
+incident_season: ""
+
+# morph: list
+incident_risk_factors:
+  - ""
+
+# morph: list
+incident_lessons_learned:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# REGIONAL DATA
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: gauge
+regional_prevalence:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# morph: calendar
+regional_seasonality:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: list
+regional_hotspots:
+  - ""
+
+# morph: sparkline
+regional_trends:
+  - 0
+
+# morph: list
+regional_resources:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ENUMERATIONS (Reference values)
+# ─────────────────────────────────────────────────────────────────────────────
+
+_enums:
+  edibility_status:
+    - deadly
+    - highly_toxic
+    - toxic
+    - mildly_toxic
+    - conditionally_edible
+    - edible_caution
+    - edible
+    - choice_edible
+    - unknown
+
+  toxin_class:
+    - amatoxins
+    - phallotoxins
+    - orellanine
+    - gyromitrin
+    - muscarine
+    - ibotenic_acid
+    - psilocybin
+    - coprine
+    - alkaloids
+    - glycosides
+    - lectins
+    - saponins
+    - oxalates
+    - cyanogenic
+    - gastrointestinal
+    - unknown
+
+  poisoning_syndrome:
+    - phalloides_syndrome
+    - orellanine_syndrome
+    - gyromitra_syndrome
+    - muscarinic_syndrome
+    - pantherina_syndrome
+    - psilocybin_syndrome
+    - coprine_syndrome
+    - gi_syndrome
+    - rhabdomyolysis_syndrome
+    - erythromelalgia_syndrome
+    - alkaloid_syndrome
+    - glycoside_syndrome
+
+  toxidrome:
+    - anticholinergic
+    - cholinergic
+    - sympathomimetic
+    - sedative_hypnotic
+    - opioid
+    - serotonin_syndrome
+    - cardiac_glycoside
+    - neurotoxic
+    - hepatotoxic
+    - nephrotoxic
+    - cytotoxic
+    - hemolytic
+    - gastrointestinal
+    - hallucinogenic
+    - disulfiram_like
+
+  confusion_risk:
+    - critical
+    - high
+    - moderate
+    - low
+    - minimal
+
+  onset_category:
+    - immediate
+    - fast
+    - medium
+    - delayed
+    - very_delayed
+
+  severity:
+    - mild
+    - moderate
+    - severe
+    - critical
+    - fatal
+
+  warning_level:
+    - none
+    - advisory
+    - caution
+    - warning
+    - danger
+    - extreme_danger
+
+  urgency:
+    - immediate
+    - urgent
+    - standard
+    - supportive
+
+  treatment_setting:
+    - field
+    - emergency_room
+    - icu
+    - transplant_center
+    - poison_center_guidance
+
+  hospital_transport_urgency:
+    - immediate_life_threat
+    - urgent_within_1h
+    - soon_within_6h
+    - routine_monitoring
+    - home_monitoring_ok
+
+  pregnancy_risk_category:
+    - A
+    - B
+    - C
+    - D
+    - X
+    - unknown
+
+  exposure_route:
+    - oral
+    - dermal
+    - inhalation
+    - ocular
+    - parenteral
+    - bite_sting

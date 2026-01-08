@@ -1,0 +1,21 @@
+# LEARNING - Cognitive Science
+# Version: 1.0.0 | Domain: COGNITION
+perspective: learning
+version: "1.0.0"
+organism:
+  # morph: text
+  ""
+cognitive_capacity:
+  # morph: rating
+  rating: 0
+  max: 10
+neural_basis:
+  # morph: text
+  ""
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+last_updated:
+  # morph: text
+  ""

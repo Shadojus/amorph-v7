@@ -1,0 +1,599 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# BLUEPRINT: CULTURE
+# Leere Datenstruktur mit korrekten Morph-Typen
+# Generiert aus: culture.yaml
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: culture
+name: Culture
+symbol: 🏛️
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ETHNOBIOLOGY OVERVIEW
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: text
+ethnobiology: ""
+
+# morph: badge (enum: high, moderate, low, none, unknown)
+cultural_significance:
+  status: ""
+  variant: ""
+
+# morph: rating
+historical_importance:
+  rating: 0
+  max: 10
+
+# morph: text
+symbolic_meaning: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TRADITIONAL KNOWLEDGE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: text
+traditional_knowledge: ""
+
+# morph: list
+indigenous_names:
+  - ""
+
+# morph: list
+indigenous_uses:
+  - ""
+
+# morph: list
+oral_traditions:
+  - ""
+
+# morph: list
+folk_classifications:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TRADITIONAL KNOWLEDGE DOCUMENTATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: text
+tk_community_source: ""
+
+# morph: link
+tk_biocultural_protocol: ""
+
+# morph: badge
+tk_intellectual_property:
+  status: ""
+  variant: ""
+
+# morph: text
+tk_traditional_resource_rights: ""
+
+# morph: boolean
+tk_icnp_compliance: false
+
+# morph: boolean
+tk_oral_history_archived: false
+
+# morph: tag
+tk_language_of_record: ""
+
+# morph: tag
+tk_ethnobotany_voucher: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MYTHOLOGY & RELIGION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: text
+mythology: ""
+
+# morph: text
+religious_significance: ""
+
+# morph: list
+sacred_uses:
+  - ""
+
+# morph: list
+ritual_practices:
+  - ""
+
+# morph: text
+spiritual_symbolism: ""
+
+# morph: text
+cosmological_role: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FOLKLORE & LEGENDS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: text
+folklore: ""
+
+# morph: list
+legends:
+  - ""
+
+# morph: list
+fairy_tales:
+  - ""
+
+# morph: list
+superstitions:
+  - ""
+
+# morph: list
+omens:
+  - ""
+
+# morph: list
+folk_beliefs:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ART & LITERATURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+art_representations:
+  - ""
+
+# morph: list
+literary_references:
+  - ""
+
+# morph: list
+music_references:
+  - ""
+
+# morph: list
+film_references:
+  - ""
+
+# morph: list
+visual_arts:
+  - ""
+
+# morph: list
+poetry:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LANGUAGE & ETYMOLOGY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: text
+etymology: ""
+
+# morph: list
+common_names:
+  - ""
+
+# morph: object
+regional_names:
+  de: ""
+  en: ""
+  fr: ""
+  es: ""
+  it: ""
+  ja: ""
+  zh: ""
+
+# morph: list
+historical_names:
+  - ""
+
+# morph: text
+linguistic_analysis: ""
+
+# morph: object
+name_origins:
+  scientific: ""
+  common: ""
+  folk: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TRADITIONAL USES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+traditional_food_uses:
+  - ""
+
+# morph: list
+traditional_medicine_uses:
+  - ""
+
+# morph: list
+traditional_crafts:
+  - ""
+
+# morph: list
+traditional_dyes:
+  - ""
+
+# morph: list
+traditional_tools:
+  - ""
+
+# morph: list
+ceremonial_uses:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# REGIONAL CULTURES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: object
+european_traditions:
+  celtic: ""
+  germanic: ""
+  slavic: ""
+  mediterranean: ""
+  nordic: ""
+
+# morph: object
+asian_traditions:
+  chinese: ""
+  japanese: ""
+  indian: ""
+  southeast_asian: ""
+
+# morph: object
+african_traditions:
+  north_african: ""
+  sub_saharan: ""
+  east_african: ""
+
+# morph: object
+american_traditions:
+  native_american: ""
+  mesoamerican: ""
+  south_american: ""
+
+# morph: object
+oceanian_traditions:
+  australian: ""
+  polynesian: ""
+  melanesian: ""
+
+# morph: object
+circumpolar_traditions:
+  inuit: ""
+  sami: ""
+  siberian: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HISTORICAL TIMELINE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: timeline
+historical_timeline:
+  - date: ""
+    event: ""
+    description: ""
+
+# morph: text
+ancient_uses: ""
+
+# morph: text
+medieval_uses: ""
+
+# morph: text
+early_modern_uses: ""
+
+# morph: text
+modern_perception: ""
+
+# morph: text
+contemporary_revival: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FESTIVALS & EVENTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+festivals:
+  - ""
+
+# morph: calendar
+seasonal_celebrations:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: list
+harvest_traditions:
+  - ""
+
+# morph: list
+cultural_events:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MODERNE KULTURELLE RELEVANZ
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+pop_culture_references:
+  - ""
+
+# morph: list
+movies_featured_in:
+  - ""
+
+# morph: list
+tv_series_featured_in:
+  - ""
+
+# morph: list
+books_featured_in:
+  - ""
+
+# morph: list
+video_games_featured_in:
+  - ""
+
+# morph: list
+memes_and_internet_culture:
+  - ""
+
+# morph: list
+brand_mascot_usage:
+  - ""
+
+# morph: list
+logo_appearances:
+  - ""
+
+# morph: list
+advertising_usage:
+  - ""
+
+# morph: tag
+emoji_representation: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOCIAL MEDIA & TRENDS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+instagram_hashtag_popularity: 0
+
+# morph: badge
+tiktok_trend_involvement:
+  status: ""
+  variant: ""
+
+# morph: number
+youtube_content_volume: 0
+
+# morph: number
+pinterest_board_frequency: 0
+
+# morph: badge
+social_media_sentiment:
+  status: ""
+  variant: ""
+
+# morph: list
+viral_moments:
+  - ""
+
+# morph: list
+influencer_mentions:
+  - ""
+
+# morph: list
+trending_keywords:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KUNST & DESIGN
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+art_historical_depictions:
+  - ""
+
+# morph: list
+famous_artworks_featuring:
+  - ""
+
+# morph: list
+artists_known_for_depicting:
+  - ""
+
+# morph: list
+art_movement_associations:
+  - ""
+
+# morph: list
+decorative_arts_usage:
+  - ""
+
+# morph: list
+textile_pattern_usage:
+  - ""
+
+# morph: list
+architectural_motifs:
+  - ""
+
+# morph: list
+jewelry_design_usage:
+  - ""
+
+# morph: rating
+tattoo_popularity:
+  rating: 0
+  max: 10
+
+# morph: list
+tattoo_meanings:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SPRACHE & REDEWENDUNGEN
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+idioms_featuring:
+  - ""
+
+# morph: list
+metaphors_common:
+  - ""
+
+# morph: list
+proverbs_featuring:
+  - ""
+
+# morph: list
+slang_terms_derived:
+  - ""
+
+# morph: text
+scientific_name_etymology: ""
+
+# morph: text
+common_name_origins: ""
+
+# morph: object
+name_variations_by_region:
+  europe: ""
+  asia: ""
+  americas: ""
+  africa: ""
+  oceania: ""
+
+# morph: list
+humorous_names:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FESTIVALS & EVENTS (DETAILED)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+dedicated_festivals:
+  - ""
+
+# morph: list
+festival_locations:
+  - ""
+
+# morph: calendar
+festival_dates:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: list
+festival_activities:
+  - ""
+
+# morph: list
+competitive_events:
+  - ""
+
+# morph: list
+record_breaking_specimens:
+  - ""
+
+# morph: list
+world_records:
+  - ""
+
+# morph: list
+annual_celebrations:
+  - ""
+
+# morph: list
+awareness_days:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TOURISMUS & ERLEBNIS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+ecotourism_opportunities:
+  - ""
+
+# morph: list
+wildlife_watching_tours:
+  - ""
+
+# morph: list
+educational_tours:
+  - ""
+
+# morph: list
+tourist_attractions_featuring:
+  - ""
+
+# morph: list
+museums_featuring:
+  - ""
+
+# morph: list
+botanical_gardens_featuring:
+  - ""
+
+# morph: list
+zoos_aquariums_featuring:
+  - ""
+
+# morph: list
+visitor_centers:
+  - ""
+
+# morph: currency
+economic_value_tourism:
+  amount: 0
+  currency: "EUR"

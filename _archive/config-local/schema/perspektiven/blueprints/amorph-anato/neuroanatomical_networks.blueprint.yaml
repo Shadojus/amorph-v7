@@ -1,0 +1,930 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# NEUROANATOMICAL NETWORKS PERSPECTIVE - LATERAL BLUEPRINT
+# Connectomics, Neural Circuits & Information Architecture
+# Version: 1.0.0
+# Domain: ANATOMY (Lateral Structure-Function View)
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# PURPOSE: Captures nervous system as information processing network
+# - Bridges anatomical structure and cognitive function
+# - Connectomics - neural wiring diagrams
+# - Circuit architecture & topology
+# - Information flow pathways
+# - Network hubs & modules
+# - Neural oscillations & dynamics
+# - Structure-function relationships
+# - Distributed processing systems
+#
+# Based on 2025 research:
+# - Human Connectome Project
+# - C. elegans connectome
+# - Drosophila hemibrain
+# - Graph theory in neuroscience
+# - Network neuroscience
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: neuroanatomical_networks
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ORGANISM IDENTITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+scientific_name:
+  # morph: text
+  ""
+
+common_name:
+  # morph: text
+  ""
+
+nervous_system_type:
+  # morph: badge
+  # centralized | distributed | ganglionated | nerve_net
+  status: ""
+  variant: ""
+
+brain_present:
+  # morph: boolean
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NETWORK TOPOLOGY - Overall Architecture
+# ═══════════════════════════════════════════════════════════════════════════════
+
+network_architecture:
+  # morph: badge
+  # hierarchical | small_world | scale_free | random | modular
+  status: ""
+  variant: ""
+
+total_neuron_count:
+  # morph: number
+  0
+
+total_synapse_count:
+  # morph: number
+  0
+
+synapses_per_neuron:
+  # morph: stats
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+network_density:
+  # morph: gauge
+  # actual connections / possible connections
+  value: 0
+  min: 0
+  max: 1
+  unit: "ratio"
+
+clustering_coefficient:
+  # morph: gauge
+  # local clustering
+  value: 0
+  min: 0
+  max: 1
+
+average_path_length:
+  # morph: number
+  # average shortest path between nodes
+  0
+
+small_world_index:
+  # morph: gauge
+  # sigma = (C/C_random) / (L/L_random)
+  value: 0
+  min: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NEURON TYPES & CLASSES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+neuron_types:
+  # morph: pie
+  - label: "Sensory"
+    value: 0
+  - label: "Motor"
+    value: 0
+  - label: "Interneurons"
+    value: 0
+
+morphological_classes:
+  # morph: list
+  # pyramidal | stellate | Purkinje | granule | bipolar | unipolar
+  - ""
+
+neurotransmitter_classes:
+  # morph: pie
+  - label: "Glutamatergic (excitatory)"
+    value: 0
+  - label: "GABAergic (inhibitory)"
+    value: 0
+  - label: "Dopaminergic"
+    value: 0
+  - label: "Serotonergic"
+    value: 0
+  - label: "Cholinergic"
+    value: 0
+  - label: "Other"
+    value: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BRAIN REGIONS & MODULES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+brain_regions:
+  # morph: list
+  - ""
+
+cortical_areas:
+  # morph: number
+  0
+
+functional_modules:
+  # morph: list
+  # sensory | motor | association | limbic
+  - ""
+
+modularity_index:
+  # morph: gauge
+  # Q score (0-1)
+  value: 0
+  min: 0
+  max: 1
+
+number_of_modules:
+  # morph: number
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HUB NODES - Critical Network Nodes
+# ═══════════════════════════════════════════════════════════════════════════════
+
+network_hubs:
+  # morph: list
+  # high-degree, high-betweenness nodes
+  - ""
+
+hub_vulnerability:
+  # morph: rating
+  # susceptibility to damage
+  rating: 0
+  max: 10
+
+rich_club_organization:
+  # morph: boolean
+  # hubs preferentially connected to each other
+  false
+
+rich_club_coefficient:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 1
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONNECTIVITY PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+connection_types:
+  # morph: list
+  # feedforward | feedback | recurrent | lateral
+  - ""
+
+feedforward_connections:
+  # morph: gauge
+  # % of connections
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+feedback_connections:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+recurrent_connections:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+reciprocal_connections:
+  # morph: boolean
+  # bidirectional connections
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WHITE MATTER TRACTS - Long-Range Connections
+# ═══════════════════════════════════════════════════════════════════════════════
+
+white_matter_tracts:
+  # morph: list
+  - ""
+
+commissural_fibers:
+  # morph: list
+  # corpus_callosum | anterior_commissure
+  - ""
+
+association_fibers:
+  # morph: list
+  # arcuate_fasciculus | uncinate_fasciculus
+  - ""
+
+projection_fibers:
+  # morph: list
+  # corticospinal | thalamocortical
+  - ""
+
+tract_density:
+  # morph: gauge
+  # fibers per mm²
+  value: 0
+  min: 0
+  max: 100000
+  unit: "fibers/mm²"
+
+myelination_percentage:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SENSORY PATHWAYS - Input Streams
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sensory_modalities:
+  # morph: list
+  # visual | auditory | somatosensory | olfactory | gustatory
+  - ""
+
+visual_pathway:
+  # morph: flow
+  - from: "Retina"
+    to: "LGN"
+    value: 0
+  - from: "LGN"
+    to: "V1"
+    value: 0
+  - from: "V1"
+    to: "Higher visual areas"
+    value: 0
+
+auditory_pathway:
+  # morph: flow
+  - from: "Cochlea"
+    to: "Cochlear nucleus"
+    value: 0
+  - from: "Cochlear nucleus"
+    to: "Superior olive"
+    value: 0
+  - from: "Inferior colliculus"
+    to: "MGN"
+    value: 0
+  - from: "MGN"
+    to: "A1"
+    value: 0
+
+somatosensory_pathway:
+  # morph: flow
+  - from: "Receptors"
+    to: "Dorsal column nuclei"
+    value: 0
+  - from: "Dorsal column nuclei"
+    to: "VPL thalamus"
+    value: 0
+  - from: "VPL"
+    to: "S1"
+    value: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MOTOR PATHWAYS - Output Streams
+# ═══════════════════════════════════════════════════════════════════════════════
+
+motor_pathways:
+  # morph: list
+  # pyramidal | extrapyramidal
+  - ""
+
+pyramidal_tract:
+  # morph: flow
+  - from: "Motor cortex"
+    to: "Brainstem"
+    value: 0
+  - from: "Brainstem"
+    to: "Spinal cord"
+    value: 0
+  - from: "Spinal cord"
+    to: "Motor neurons"
+    value: 0
+
+basal_ganglia_loop:
+  # morph: flow
+  - from: "Cortex"
+    to: "Striatum"
+    value: 0
+  - from: "Striatum"
+    to: "GPi/SNr"
+    value: 0
+  - from: "GPi/SNr"
+    to: "Thalamus"
+    value: 0
+  - from: "Thalamus"
+    to: "Cortex"
+    value: 0
+
+cerebellar_loop:
+  # morph: flow
+  - from: "Cortex"
+    to: "Pons"
+    value: 0
+  - from: "Pons"
+    to: "Cerebellum"
+    value: 0
+  - from: "Cerebellum"
+    to: "Thalamus"
+    value: 0
+  - from: "Thalamus"
+    to: "Cortex"
+    value: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LIMBIC CIRCUITS - Emotion & Memory
+# ═══════════════════════════════════════════════════════════════════════════════
+
+limbic_system:
+  # morph: boolean
+  false
+
+limbic_structures:
+  # morph: list
+  # hippocampus | amygdala | cingulate | hypothalamus
+  - ""
+
+papez_circuit:
+  # morph: flow
+  - from: "Hippocampus"
+    to: "Fornix"
+    value: 0
+  - from: "Fornix"
+    to: "Mammillary bodies"
+    value: 0
+  - from: "Mammillary bodies"
+    to: "Anterior thalamus"
+    value: 0
+  - from: "Anterior thalamus"
+    to: "Cingulate cortex"
+    value: 0
+  - from: "Cingulate cortex"
+    to: "Hippocampus"
+    value: 0
+
+amygdala_connections:
+  # morph: network
+  - name: ""
+    type: ""
+    intensity: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CORTICAL ORGANIZATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cortical_layers:
+  # morph: number
+  # typically 6 in mammals
+  0
+
+cortical_columns:
+  # morph: boolean
+  false
+
+column_width:
+  # morph: gauge
+  # μm
+  value: 0
+  min: 0
+  max: 1000
+  unit: "μm"
+
+minicolumns:
+  # morph: boolean
+  false
+
+cortical_surface_area:
+  # morph: gauge
+  # cm²
+  value: 0
+  min: 0
+  max: 3000
+  unit: "cm²"
+
+cortical_thickness:
+  # morph: range
+  # mm
+  min: 0
+  max: 5
+  unit: "mm"
+
+gyrification_index:
+  # morph: gauge
+  # folding complexity
+  value: 0
+  min: 1
+  max: 4
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SYNAPTIC PROPERTIES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+synapse_types:
+  # morph: pie
+  - label: "Excitatory (asymmetric)"
+    value: 0
+  - label: "Inhibitory (symmetric)"
+    value: 0
+
+excitatory_inhibitory_ratio:
+  # morph: gauge
+  # E/I balance
+  value: 0
+  min: 0
+  max: 10
+
+synaptic_density:
+  # morph: gauge
+  # synapses per μm³
+  value: 0
+  min: 0
+  max: 10
+  unit: "per μm³"
+
+synaptic_plasticity:
+  # morph: boolean
+  false
+
+plasticity_mechanisms:
+  # morph: list
+  # LTP | LTD | STDP | homeostatic
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NEURAL OSCILLATIONS - Network Dynamics
+# ═══════════════════════════════════════════════════════════════════════════════
+
+oscillatory_activity:
+  # morph: boolean
+  false
+
+oscillation_bands:
+  # morph: list
+  # delta | theta | alpha | beta | gamma
+  - ""
+
+dominant_frequency:
+  # morph: range
+  # Hz
+  min: 0
+  max: 100
+  unit: "Hz"
+
+phase_synchronization:
+  # morph: boolean
+  false
+
+cross_frequency_coupling:
+  # morph: boolean
+  # phase-amplitude coupling
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INFORMATION FLOW
+# ═══════════════════════════════════════════════════════════════════════════════
+
+information_transmission_speed:
+  # morph: range
+  # m/s
+  min: 0
+  max: 120
+  unit: "m/s"
+
+conduction_velocity_distribution:
+  # morph: stats
+  total: 0
+  count: 0
+  min: 0
+  max: 120
+  avg: 0
+
+signal_integration_time:
+  # morph: gauge
+  # milliseconds
+  value: 0
+  min: 0
+  max: 1000
+  unit: "ms"
+
+temporal_resolution:
+  # morph: gauge
+  # milliseconds
+  value: 0
+  min: 0
+  max: 100
+  unit: "ms"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NEUROTRANSMITTER SYSTEMS - Modulatory Networks
+# ═══════════════════════════════════════════════════════════════════════════════
+
+dopaminergic_projections:
+  # morph: network
+  # VTA/SNc projections
+  - name: ""
+    type: ""
+    intensity: 0
+
+serotonergic_projections:
+  # morph: network
+  # raphe nuclei projections
+  - name: ""
+    type: ""
+    intensity: 0
+
+noradrenergic_projections:
+  # morph: network
+  # locus coeruleus projections
+  - name: ""
+    type: ""
+    intensity: 0
+
+cholinergic_projections:
+  # morph: network
+  # basal forebrain projections
+  - name: ""
+    type: ""
+    intensity: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DISTRIBUTED PROCESSING SYSTEMS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+parallel_processing_streams:
+  # morph: list
+  # dorsal/ventral visual streams, etc.
+  - ""
+
+hierarchical_levels:
+  # morph: number
+  0
+
+convergence_zones:
+  # morph: list
+  # areas where streams converge
+  - ""
+
+divergence_zones:
+  # morph: list
+  # areas where processing splits
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONNECTOME - Complete Wiring Diagram
+# ═══════════════════════════════════════════════════════════════════════════════
+
+connectome_mapped:
+  # morph: boolean
+  false
+
+connectome_completeness:
+  # morph: gauge
+  # % of connections mapped
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+connectome_resolution:
+  # morph: badge
+  # neuron_level | region_level | tract_level
+  status: ""
+  variant: ""
+
+edge_weight_type:
+  # morph: badge
+  # binary | weighted | probabilistic
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GRAPH THEORETICAL MEASURES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+degree_distribution:
+  # morph: stats
+  # node degree statistics
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+betweenness_centrality:
+  # morph: list
+  # top hub nodes by betweenness
+  - ""
+
+eigenvector_centrality:
+  # morph: list
+  # top influential nodes
+  - ""
+
+participation_coefficient:
+  # morph: gauge
+  # inter-module connectivity
+  value: 0
+  min: 0
+  max: 1
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NETWORK EFFICIENCY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+global_efficiency:
+  # morph: gauge
+  # inverse of average path length
+  value: 0
+  min: 0
+  max: 1
+
+local_efficiency:
+  # morph: gauge
+  # clustering
+  value: 0
+  min: 0
+  max: 1
+
+cost_efficiency_trade_off:
+  # morph: gauge
+  # wiring cost vs efficiency
+  value: 0
+  min: 0
+  max: 1
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEVELOPMENTAL NETWORK CHANGES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+network_development:
+  # morph: timeline
+  - date: "Embryonic"
+    event: ""
+    description: ""
+  - date: "Juvenile"
+    event: ""
+    description: ""
+  - date: "Adult"
+    event: ""
+    description: ""
+
+synaptogenesis_peak:
+  # morph: range
+  # age
+  min: 0
+  max: 0
+  unit: "years"
+
+synaptic_pruning:
+  # morph: boolean
+  false
+
+pruning_percentage:
+  # morph: gauge
+  # % synapses eliminated
+  value: 0
+  min: 0
+  max: 70
+  unit: "%"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FUNCTIONAL NETWORKS - Task-Based
+# ═══════════════════════════════════════════════════════════════════════════════
+
+default_mode_network:
+  # morph: boolean
+  false
+
+dmn_regions:
+  # morph: list
+  # mPFC | PCC | angular_gyrus | hippocampus
+  - ""
+
+salience_network:
+  # morph: boolean
+  false
+
+executive_control_network:
+  # morph: boolean
+  false
+
+sensorimotor_network:
+  # morph: boolean
+  false
+
+network_switching:
+  # morph: boolean
+  # ability to switch between networks
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NEUROVASCULAR COUPLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+neurovascular_units:
+  # morph: boolean
+  false
+
+blood_brain_barrier:
+  # morph: boolean
+  false
+
+neurovascular_coupling_strength:
+  # morph: rating
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NEUROGLIAL NETWORKS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+glial_cell_types:
+  # morph: list
+  # astrocytes | oligodendrocytes | microglia
+  - ""
+
+neuron_glia_ratio:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 10
+
+tripartite_synapse:
+  # morph: boolean
+  # neuron-neuron-astrocyte
+  false
+
+glial_networks:
+  # morph: boolean
+  # gap junction coupled astrocytes
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NETWORK RESILIENCE & ROBUSTNESS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+network_resilience:
+  # morph: rating
+  # resistance to damage
+  rating: 0
+  max: 10
+
+fault_tolerance:
+  # morph: gauge
+  # % nodes that can fail before network collapse
+  value: 0
+  min: 0
+  max: 50
+  unit: "%"
+
+degeneracy:
+  # morph: boolean
+  # multiple pathways for same function
+  false
+
+compensatory_mechanisms:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NEURAL CODE - Information Representation
+# ═══════════════════════════════════════════════════════════════════════════════
+
+coding_strategy:
+  # morph: badge
+  # rate | temporal | population | sparse
+  status: ""
+  variant: ""
+
+spike_timing_precision:
+  # morph: gauge
+  # milliseconds
+  value: 0
+  min: 0
+  max: 10
+  unit: "ms"
+
+population_coding:
+  # morph: boolean
+  false
+
+sparse_coding:
+  # morph: boolean
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENERGY METABOLISM
+# ═══════════════════════════════════════════════════════════════════════════════
+
+metabolic_demand:
+  # morph: gauge
+  # % of total body metabolism
+  value: 0
+  min: 0
+  max: 25
+  unit: "%"
+
+glucose_consumption_rate:
+  # morph: gauge
+  # mg/100g/min
+  value: 0
+  min: 0
+  max: 10
+  unit: "mg/100g/min"
+
+oxygen_consumption_rate:
+  # morph: gauge
+  # mL O2/100g/min
+  value: 0
+  min: 0
+  max: 5
+  unit: "mL/100g/min"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMPARATIVE NETWORK FEATURES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+conserved_network_motifs:
+  # morph: list
+  - ""
+
+species_specific_features:
+  # morph: list
+  - ""
+
+evolutionary_expansion_areas:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LITERATURE REFERENCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_research_papers:
+  # morph: list
+  - ""
+
+connectomics_literature:
+  # morph: citation
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+data_source:
+  # morph: badge
+  # connectome | fMRI | DTI | electrophysiology | literature
+  status: ""
+  variant: ""
+
+confidence_level:
+  # morph: badge
+  # high | medium | low | speculative
+  status: ""
+  variant: ""
+
+mapping_resolution:
+  # morph: badge
+  # synaptic | cellular | regional | macroscopic
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""

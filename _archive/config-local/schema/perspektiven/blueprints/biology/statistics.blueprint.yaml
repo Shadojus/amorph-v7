@@ -1,0 +1,690 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# STATISTICS PERSPECTIVE BLUEPRINT
+# Schema mit leeren Datenstrukturen für Morph-Erkennung
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ─────────────────────────────────────────────────────────────────────────────
+# POPULATION STATISTICS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: stats
+population:
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+# morph: range
+population_estimate:
+  min: 0
+  max: 0
+  unit: "individuals"
+
+# morph: range
+population_range:
+  min: 0
+  max: 0
+  unit: "individuals"
+
+# morph: badge
+population_trend:
+  status: ""
+  variant: ""
+
+# morph: number
+population_density: 0
+
+# morph: number
+abundance_index: 0
+
+# morph: range
+generation_time:
+  min: 0
+  max: 0
+  unit: "years"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DISTRIBUTION STATISTICS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: text
+distribution: ""
+
+# morph: range
+range_size:
+  min: 0
+  max: 0
+  unit: "km²"
+
+# morph: number
+area_of_occupancy: 0
+
+# morph: number
+extent_of_occurrence: 0
+
+# morph: tag
+distribution_pattern: ""
+
+# morph: gauge
+fragmentation_index:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# morph: gauge
+endemism_score:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# OCCURRENCE DATA
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: stats
+occurrence:
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+# morph: number
+observation_count: 0
+
+# morph: number
+specimen_count: 0
+
+# morph: text
+first_record: ""
+
+# morph: text
+last_record: ""
+
+# morph: tag
+recording_frequency: ""
+
+# morph: badge
+data_quality:
+  status: ""
+  variant: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TEMPORAL PATTERNS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: calendar
+seasonality:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: list
+peak_occurrence:
+  - 0
+
+# morph: object
+phenology_data:
+  start_month: 0
+  peak_month: 0
+  end_month: 0
+
+# morph: sparkline
+annual_variation:
+  - 0
+
+# morph: sparkline
+long_term_trends:
+  - 0
+
+# morph: number
+climate_correlation: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HABITAT STATISTICS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: bar
+habitat_statistics:
+  - label: ""
+    value: 0
+
+# morph: radar
+habitat_preference:
+  - axis: ""
+    value: 0
+
+# morph: number
+habitat_breadth: 0
+
+# morph: number
+niche_width: 0
+
+# morph: range
+elevation_range:
+  min: 0
+  max: 0
+  unit: "m"
+
+# morph: object
+climate_envelope:
+  temp_min: 0
+  temp_max: 0
+  precip_min: 0
+  precip_max: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MORPHOMETRIC DATA
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+morphometrics:
+  length_mean: 0
+  length_sd: 0
+  width_mean: 0
+  width_sd: 0
+
+# morph: stats
+size_statistics:
+  total: 0
+  count: 0
+  min: 0
+  max: 0
+  avg: 0
+
+# morph: range
+size_range:
+  min: 0
+  max: 0
+  unit: "cm"
+
+# morph: number
+size_mean: 0
+
+# morph: number
+size_variation: 0
+
+# morph: number
+sexual_dimorphism: 0
+
+# morph: text
+geographic_variation: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GENETIC STATISTICS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: object
+genetic_statistics:
+  haplotype_diversity: 0
+  nucleotide_diversity: 0
+  fst: 0
+
+# morph: gauge
+genetic_diversity:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "red"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "green"
+
+# morph: number
+heterozygosity: 0
+
+# morph: bar
+population_structure:
+  - label: ""
+    value: 0
+
+# morph: number
+gene_flow: 0
+
+# morph: number
+effective_population_size: 0
+
+# morph: number
+inbreeding_coefficient: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# COMPARATIVE STATISTICS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: comparison
+comparative:
+  items:
+    - name: ""
+      values: {}
+  metrics:
+    - key: ""
+      label: ""
+
+# morph: gauge
+relative_abundance:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "red"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "green"
+
+# morph: number
+rank_abundance: 0
+
+# morph: bar
+similarity_indices:
+  - label: ""
+    value: 0
+
+# morph: gauge
+diversity_contribution:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "red"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "green"
+
+# morph: gauge
+rarity_score:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DATA SOURCES
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: list
+data_sources:
+  - ""
+
+# morph: list
+survey_methods:
+  - ""
+
+# morph: number
+sample_size: 0
+
+# morph: object
+confidence_intervals:
+  lower: 0
+  upper: 0
+  confidence: 95
+
+# morph: list
+data_gaps:
+  - ""
+
+# morph: badge
+data_reliability:
+  status: ""
+  variant: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GBIF/iNATURALIST OCCURRENCE METRICS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: number
+gbif_total_occurrences: 0
+
+# morph: progress
+gbif_georeferenced_percent:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: progress
+gbif_research_grade_percent:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: number
+gbif_temporal_coverage_start: 0
+
+# morph: number
+gbif_temporal_coverage_end: 0
+
+# morph: number
+gbif_median_coordinate_uncertainty: 0
+
+# morph: number
+inaturalist_observation_count: 0
+
+# morph: number
+inaturalist_observer_count: 0
+
+# morph: number
+inaturalist_identifier_count: 0
+
+# morph: progress
+citizen_science_contribution:
+  value: 0
+  max: 100
+  unit: "%"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TRENDANALYSEN
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: tag
+population_trend_direction: ""
+
+# morph: number
+population_trend_percent_per_year: 0
+
+# morph: progress
+population_trend_confidence:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: number
+population_trend_data_years: 0
+
+# morph: tag
+range_trend_direction: ""
+
+# morph: number
+range_change_percent: 0
+
+# morph: number
+abundance_anomaly_current: 0
+
+# morph: text
+historical_comparison_baseline: ""
+
+# morph: boolean
+trend_reversal_detected: false
+
+# morph: number
+trend_inflection_year: 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PROGNOSEN & SZENARIEN
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: range
+population_forecast_2030:
+  min: 0
+  max: 0
+  unit: "individuals"
+
+# morph: range
+population_forecast_2050:
+  min: 0
+  max: 0
+  unit: "individuals"
+
+# morph: range
+population_forecast_2100:
+  min: 0
+  max: 0
+  unit: "individuals"
+
+# morph: number
+range_forecast_2050: 0
+
+# morph: text
+forecast_model_used: ""
+
+# morph: object
+forecast_confidence_interval:
+  lower: 0
+  upper: 0
+  confidence: 95
+
+# morph: object
+forecast_scenarios:
+  best: 0
+  moderate: 0
+  worst: 0
+
+# morph: gauge
+extinction_probability_2100:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "green"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "red"
+
+# morph: text
+recovery_potential_scenario: ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# DATENQUALITÄT & LÜCKEN
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: badge
+data_quality_overall:
+  status: ""
+  variant: ""
+
+# morph: progress
+data_coverage_spatial:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: progress
+data_coverage_temporal:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: list
+sampling_bias_known:
+  - ""
+
+# morph: bar
+observer_effort_distribution:
+  - label: ""
+    value: 0
+
+# morph: progress
+detection_probability:
+  value: 0
+  max: 100
+  unit: "%"
+
+# morph: object
+occupancy_vs_detection:
+  occupancy: 0
+  detection: 0
+
+# morph: number
+dark_diversity_estimate: 0
+
+# morph: list
+data_gaps_geographic:
+  - ""
+
+# morph: list
+data_gaps_taxonomic:
+  - ""
+
+# morph: list
+recommended_surveys:
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# VERGLEICHENDE STATISTIKEN
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: number
+global_rank_abundance: 0
+
+# morph: number
+global_rank_range_size: 0
+
+# morph: number
+regional_rank_abundance: 0
+
+# morph: number
+family_comparison_abundance: 0
+
+# morph: number
+order_comparison_abundance: 0
+
+# morph: tag
+commonness_category: ""
+
+# morph: gauge
+population_relative_to_historic:
+  value: 0
+  min: 0
+  max: 100
+  zones:
+    - min: 0
+      max: 30
+      color: "red"
+    - min: 30
+      max: 70
+      color: "yellow"
+    - min: 70
+      max: 100
+      color: "green"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# VISUALISIERUNG & DASHBOARDS
+# ─────────────────────────────────────────────────────────────────────────────
+
+# morph: link
+interactive_dashboard_url: ""
+
+# morph: link
+trend_chart_url: ""
+
+# morph: link
+distribution_map_url: ""
+
+# morph: link
+phenology_chart_url: ""
+
+# morph: list
+data_download_formats:
+  - ""
+
+# morph: boolean
+api_endpoint_available: false
+
+# morph: boolean
+real_time_data_available: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ENUMERATIONS (Reference values)
+# ─────────────────────────────────────────────────────────────────────────────
+
+_enums:
+  population_trend:
+    - increasing
+    - stable
+    - decreasing
+    - unknown
+    - fluctuating
+
+  data_quality:
+    - high
+    - moderate
+    - low
+    - insufficient
+    - unknown
+
+  distribution_pattern:
+    - continuous
+    - disjunct
+    - fragmented
+    - patchy
+    - scattered
+    - clustered
+    - linear
+    - random
+
+  commonness_category:
+    - very_rare
+    - rare
+    - uncommon
+    - common
+    - very_common

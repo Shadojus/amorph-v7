@@ -1,0 +1,24 @@
+# PLATE_TECTONICS - Tectonics
+# Version: 1.0.0 | Domain: TECTONICS
+perspective: plate_tectonics
+version: "1.0.0"
+location:
+  # morph: map
+  lat: 0
+  lon: 0
+tectonic_setting:
+  # morph: badge
+  # convergent | divergent | transform | hotspot
+  status: ""
+  variant: ""
+activity_level:
+  # morph: rating
+  rating: 0
+  max: 10
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+last_updated:
+  # morph: text
+  ""

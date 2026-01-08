@@ -1,193 +1,92 @@
-# AMORPH v7 - Core Module
+# Core Module
 
-> Fundamentale Typen, Detection und Security.
+Grundlegende TypeScript-Definitionen und Utilities.
 
-## 📁 Dateien
+## Dateien
 
-```
-core/
-├── types.ts      # TypeScript Interfaces (~273 Zeilen)
-├── detection.ts  # Struktur-basierte Typ-Erkennung (~472 Zeilen)
-├── security.ts   # XSS-Schutz & Validierung (~309 Zeilen)
-└── index.ts      # Re-Exports
-```
+| Datei | Beschreibung |
+|-------|--------------|
+| `types.ts` | TypeScript Interfaces für ItemData, RenderContext, etc. |
+| `detection.ts` | Struktur-basierte Typ-Erkennung (80 Tests) |
+| `security.ts` | Input Sanitization & XSS Prevention (49 Tests) |
 
-## 📦 types.ts - Zentrale Typen
+---
 
-### RenderMode
-```typescript
-type RenderMode = 'single' | 'grid' | 'compare';
-```
+## types.ts
 
-### RenderContext
-```typescript
-interface RenderContext {
-  mode: RenderMode;
-  itemCount: number;
-  items?: ItemData[];
-  itemIndex?: number;
-  colors?: string[];
-  perspectives?: string[];
-  fieldName?: string;
-  fieldConfig?: SchemaField;
-  compact?: boolean;
-}
-```
+### Haupt-Interfaces
 
-### MorphType (28 Primitives)
-```typescript
-type MorphType = 
-  // Primitives
-  | 'null' | 'boolean' | 'text' | 'number' | 'progress'
-  // String-derived
-  | 'link' | 'image' | 'badge' | 'tag' | 'date'
-  // Containers
-  | 'list' | 'object' | 'hierarchy'
-  // Charts
-  | 'bar' | 'pie' | 'radar' | 'sparkline' | 'gauge' | 'heatmap'
-  // Temporal
-  | 'timeline' | 'lifecycle' | 'steps' | 'calendar'
-  // Specialized
-  | 'range' | 'stats' | 'citation' | 'dosage' | 'currency'
-  | 'rating' | 'severity';
-```
-
-### ItemData
 ```typescript
 interface ItemData {
   id: string;
   slug: string;
   name: string;
-  _perspectives?: Record<string, unknown>;
-  _kingdom?: string;
-  [key: string]: unknown;
+  scientific_name?: string;
+  domain: string;              // 17 Domains
+  data: Record<string, any>;
+}
+
+interface Expert {
+  id: string;
+  name: string;
+  domain: string;
+  field_expertise: string[];  // Für Field-Matching!
+  impact_score: number;       // NIEMALS an Client!
+  verified: boolean;
+}
+
+interface RenderContext {
+  mode: 'single' | 'compare' | 'grid';
+  itemCount: number;
+  items: ItemData[];
 }
 ```
 
-## 📦 detection.ts - Automatische Erkennung
+---
 
-**WICHTIG**: Erkennung basiert **nur auf Datenstruktur**, nicht Feldnamen!
+## detection.ts
 
-### String Detection
-| Struktur | → Morph |
-|----------|---------|
-| `.jpg/.png/.webp/.svg` URL | `image` |
-| `http://` oder `https://` | `link` |
-| ISO Date (2024-12-20) | `date` |
-| String ≤20 chars | `tag` |
-| String >20 chars | `text` |
+Erkennt Datentypen aus der Struktur:
 
-### Object Detection (Reihenfolge wichtig!)
-| Struktur | → Morph |
-|----------|---------|
-| `{status, variant}` | `badge` |
-| `{rating, max?}` | `rating` |
-| `{value, max}` | `progress` |
-| `{min, max, avg}` | `stats` |
-| `{min, max}` | `range` |
-| Object mit 3+ numeric values | `radar` |
-| Generic Object | `object` |
-
-### Array Detection
-| Struktur | → Morph |
-|----------|---------|
-| `[{axis, value}]` | `radar` |
-| `[{label, value}]` | `bar` |
-| `[{date, event}]` | `timeline` |
-| `[{step, label}]` | `steps` |
-| `[{phase, duration}]` | `lifecycle` |
-| `[{month, active}]` | `calendar` |
-| `[{level, typ}]` | `severity` |
-| `[{amount, unit, frequency}]` | `dosage` |
-| `[numbers...]` | `sparkline` |
-| `["short strings"]` (≤20 chars) | `tag` |
-| `["longer strings"]` | `list` |
-
-## 📦 security.ts - XSS-Schutz
-
-### Input Validation
 ```typescript
-validateSlug(slug: unknown): string | null
-validateSlugs(slugs: unknown): string[]
-validateQuery(query: unknown): string
-validatePerspectives(perspectives: unknown): string[]
-validateNumber(value: unknown, min, max, default): number
+detectType('hello')           // 'text'
+detectType(42)                // 'number'
+detectType(true)              // 'boolean'
+detectType(['a', 'b'])        // 'list'
+detectType({ value: 50 })     // 'gauge' (wenn min/max)
 ```
 
-### XSS Prevention
+---
+
+## security.ts
+
 ```typescript
-escapeHtml(text: unknown): string    // &lt;script&gt;
-escapeAttribute(text: unknown): string
-validateUrl(url: unknown): string | null  // Blockt javascript:
+validateSlug(slug)            // Path Traversal Prevention
+validateQuery(query)          // XSS & Injection Prevention
+sanitizeForFilter(input)      // PocketBase Filter Sanitization
+logSecurityEvent(event)       // Security Logging
 ```
 
-### Security Features
-- Path Traversal Schutz (`..` wird blockiert)
-- Rate Limiting (`checkRateLimit`)
-- Security Headers (`addSecurityHeaders`)
-| `default` | alles andere |
+---
 
-**Hinweis**: Kurze Keywords (≤2 Zeichen wie "en", "lc") erfordern exakte Übereinstimmung.
+## 📚 Verwandte Dokumentation
 
-### createSingleContext / createCompareContext
-Helper zum Erstellen von RenderContext-Objekten.
+| Datei | Inhalt |
+|-------|--------|
+| [../CLAUDE.md](../CLAUDE.md) | src/ Übersicht |
+| [../../CLAUDE.md](../../CLAUDE.md) | AMORPH Root |
+| [../morphs/CLAUDE.md](../morphs/CLAUDE.md) | 28 Morph Primitives |
 
-## 📦 security.ts
+---
 
-### Funktionen
+*Letzte Aktualisierung: Januar 2026*
 
-| Funktion | Zweck |
-|----------|-------|
-| `validateSlug(slug)` | Prüft auf gültige Slugs (keine Path Traversal) |
-| `validateSlugs(arr)` | Validiert Array von Slugs |
-| `validateQuery(q)` | Sanitized Suchanfragen |
-| `escapeHtml(str)` | XSS-sichere HTML-Ausgabe |
-| `validateUrl(url)` | Blockiert javascript:/data: URLs |
-| `sanitizeFilename(name)` | Entfernt gefährliche Zeichen |
-| `isPathWithin(path, base)` | Prüft ob Pfad innerhalb Base liegt |
-| `validateNumber(n, min, max, default)` | Clamp mit Default |
-
-### Sicherheits-Features
-- ✅ Path Traversal Prevention (`../`, `..\\`)
-- ✅ XSS Protection (HTML Escaping)
-- ✅ URL Scheme Blocking (javascript:, data:)
-- ✅ Input Length Limits
-- ✅ Character Whitelisting
-
-## 🧪 Tests
-
-Tests in `tests/detection.test.ts`:
-- **80 Tests** für struktur-basierte Typ-Erkennung
-- Real Blueprint Structures (chemistry, ecology, culinary, conservation)
-- Badge Variant Detection
-
-Tests in `tests/security.test.ts`:
-- **49 Tests** für Security-Funktionen
-
-## 💡 Usage
+Input-Validierung und Sanitization:
 
 ```typescript
-import { 
-  detectType, 
-  getBadgeVariant,
-  escapeHtml, 
-  validateSlug,
-  type RenderContext,
-  type MorphType 
-} from './core';
+import { sanitizeInput, validateUrl } from '@/core/security';
 
-// Struktur-basierte Erkennung (KEIN Feldname nötig)
-detectType({ status: 'LC', variant: 'success' });  // → 'badge'
-detectType({ min: 800, max: 3200 });               // → 'range'
-detectType([{ axis: 'A', value: 1 }]);             // → 'radar'
-detectType([1, 2, 3, 4, 5]);                       // → 'sparkline'
-detectType('essbar');                              // → 'tag' (≤20 chars)
-
-// Badge-Variante
-getBadgeVariant('Least Concern');                  // → 'success'
-getBadgeVariant('Critically Endangered');          // → 'danger'
-
-// Security
-const safe = escapeHtml('<script>alert(1)</script>');
-const isValid = validateSlug('steinpilz');
+sanitizeInput('<script>alert()</script>');  // escaped
+validateUrl('http://example.com');          // true
+validateUrl('javascript:alert()');          // false
 ```

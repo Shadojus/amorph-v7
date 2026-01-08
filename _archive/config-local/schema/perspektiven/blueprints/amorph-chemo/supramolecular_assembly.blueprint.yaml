@@ -1,0 +1,754 @@
+# SUPRAMOLECULAR SELF-ASSEMBLY - Chemistry
+# Version: 1.0.0 | Domain: CHEMISTRY (Holistic)
+# Based on: Supramolecular Chemistry (Chem Soc Rev 2025), Molecular Recognition (JACS 2025)
+# PARADIGM SHIFT: From covalent molecules → Non-covalent assemblies with emergent properties
+
+perspective: supramolecular_assembly
+version: "1.0.0"
+
+# ============================================================================
+# CORE IDENTITY
+# ============================================================================
+
+system_name:
+  # morph: text
+  ""
+
+assembly_type:
+  # morph: badge
+  # host_guest | molecular_recognition | coordination | hydrogen_bonding | pi_stacking
+  status: ""
+  variant: ""
+
+application_domain:
+  # morph: badge
+  # sensing | catalysis | drug_delivery | materials | molecular_machines | biomedicine
+  status: ""
+  variant: ""
+
+solvent_environment:
+  # morph: badge
+  # aqueous | organic | mixed | solid_state | gas_phase
+  status: ""
+  variant: ""
+
+# ============================================================================
+# MOLECULAR RECOGNITION - Lock-and-key binding
+# ============================================================================
+
+host_molecule:
+  # morph: text
+  # Macrocyclic host (cyclodextrin, crown ether, calixarene, pillar[n]arene, cucurbituril)
+  ""
+
+host_structure:
+  # morph: text
+  # Chemical structure or SMILES
+  ""
+
+host_cavity_size:
+  # morph: number
+  # Cavity diameter (Å)
+  0
+
+guest_molecules:
+  # morph: list
+  items:
+    - guest: ""
+      structure: ""
+      binding_affinity: 0
+      kd: 0
+      selectivity: ""
+
+binding_constant:
+  # morph: number
+  # Association constant Ka (M⁻¹)
+  0
+
+dissociation_constant:
+  # morph: number
+  # Kd (M)
+  0
+
+# ============================================================================
+# NON-COVALENT INTERACTIONS - The glue
+# ============================================================================
+
+interactions_types:
+  # morph: distribution
+  categories:
+    - type: "Hydrogen bonding"
+      contribution: 0
+      strength: ""
+    - type: "π-π stacking"
+      contribution: 0
+      strength: ""
+    - type: "Electrostatic"
+      contribution: 0
+      strength: ""
+    - type: "Van der Waals"
+      contribution: 0
+      strength: ""
+    - type: "Hydrophobic effect"
+      contribution: 0
+      strength: ""
+    - type: "Metal coordination"
+      contribution: 0
+      strength: ""
+    - type: "Halogen bonding"
+      contribution: 0
+      strength: ""
+    - type: "Chalcogen bonding"
+      contribution: 0
+      strength: ""
+
+dominant_interaction:
+  # morph: badge
+  # hydrogen_bond | pi_stacking | metal_coord | electrostatic | hydrophobic
+  status: ""
+  variant: ""
+
+interaction_energy:
+  # morph: number
+  # Total binding energy (kJ/mol)
+  0
+
+cooperativity:
+  # morph: badge
+  # positive | negative | non_cooperative
+  # Multiple binding sites enhance/diminish each other
+  status: ""
+  variant: ""
+
+# ============================================================================
+# SELF-ASSEMBLY ARCHITECTURE - Emergent structures
+# ============================================================================
+
+assembled_structure:
+  # morph: badge
+  # dimer | oligomer | polymer | capsule | cage | vesicle | fiber | sheet | crystal
+  status: ""
+  variant: ""
+
+assembly_dimensionality:
+  # morph: badge
+  # 0d | 1d | 2d | 3d
+  # 0D=discrete, 1D=fiber, 2D=sheet, 3D=network
+  status: ""
+  variant: ""
+
+assembly_size:
+  # morph: number
+  # Size of assembled structure (nm)
+  0
+
+assembly_stoichiometry:
+  # morph: text
+  # E.g., "2:1 host:guest", "8 subunits"
+  ""
+
+assembly_symmetry:
+  # morph: badge
+  # c2 | c3 | c4 | c5 | c6 | d2 | d3 | d4 | icosahedral | helical | asymmetric
+  status: ""
+  variant: ""
+
+# ============================================================================
+# SUPRAMOLECULAR POLYMERS - 1D assemblies
+# ============================================================================
+
+supramolecular_polymer:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+polymerization_mechanism:
+  # morph: badge
+  # isodesmic | cooperative | ring_chain | living | none
+  status: ""
+  variant: ""
+
+degree_of_polymerization:
+  # morph: number
+  # Average DP
+  0
+
+polymer_length:
+  # morph: number
+  # Contour length (nm)
+  0
+
+polymer_flexibility:
+  # morph: badge
+  # rigid | semiflexible | flexible
+  status: ""
+  variant: ""
+
+persistence_length:
+  # morph: number
+  # Persistence length (nm)
+  0
+
+# ============================================================================
+# MACROCYCLES & HOSTS - Molecular containers
+# ============================================================================
+
+macrocycle_type:
+  # morph: badge
+  # cyclodextrin | crown_ether | calixarene | pillararene | cucurbituril | cyclophane | porphyrin | not_applicable
+  status: ""
+  variant: ""
+
+macrocycle_size:
+  # morph: text
+  # E.g., "β-cyclodextrin", "18-crown-6", "pillar[5]arene"
+  ""
+
+encapsulation:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+encapsulated_species:
+  # morph: list
+  items:
+    - species: ""
+      size: ""
+      encapsulation_efficiency: 0
+
+molecular_capsules:
+  # morph: badge
+  # formed | not_formed
+  status: ""
+  variant: ""
+
+# ============================================================================
+# METAL-ORGANIC ASSEMBLIES - Coordination-driven
+# ============================================================================
+
+metal_coordination:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+metal_ions:
+  # morph: list
+  items:
+    - metal: ""
+      oxidation_state: ""
+      coordination_number: 0
+      geometry: ""
+
+ligands:
+  # morph: list
+  items:
+    - ligand: ""
+      denticity: ""
+      donor_atoms: ""
+
+coordination_geometry:
+  # morph: badge
+  # octahedral | tetrahedral | square_planar | trigonal_bipyramidal | linear | none
+  status: ""
+  variant: ""
+
+metallocage:
+  # morph: badge
+  # formed | not_formed
+  status: ""
+  variant: ""
+
+# ============================================================================
+# DYNAMIC BEHAVIOR - Reversibility
+# ============================================================================
+
+dynamic_nature:
+  # morph: badge
+  # dynamic | static | semi_dynamic
+  status: ""
+  variant: ""
+
+exchange_rate:
+  # morph: number
+  # Guest exchange rate (s⁻¹)
+  0
+
+residence_time:
+  # morph: number
+  # Average time guest stays bound (s)
+  0
+
+responsiveness:
+  # morph: badge
+  # stimuli_responsive | non_responsive
+  status: ""
+  variant: ""
+
+stimuli:
+  # morph: list
+  items:
+    - stimulus: ""
+      response: ""
+      reversibility: ""
+
+# ============================================================================
+# CHIRAL RECOGNITION - Enantioselectivity
+# ============================================================================
+
+chiral_host:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+enantiomeric_selectivity:
+  # morph: gauge
+  # Preference for one enantiomer (%)
+  current: 0
+  target: 100
+  unit: "%"
+
+enantioselectivity_ratio:
+  # morph: number
+  # K_R / K_S
+  0
+
+chiral_amplification:
+  # morph: badge
+  # yes | no
+  # Majority rule effect
+  status: ""
+  variant: ""
+
+chiral_fuels:
+  # morph: badge
+  # used | not_used
+  # Different structures from D vs L fuel
+  status: ""
+  variant: ""
+
+# ============================================================================
+# MOLECULAR MACHINES - Function
+# ============================================================================
+
+molecular_machine:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+machine_type:
+  # morph: badge
+  # rotaxane | catenane | molecular_motor | molecular_switch | molecular_elevator | none
+  status: ""
+  variant: ""
+
+mechanical_motion:
+  # morph: badge
+  # rotation | translation | shuttling | switching | none
+  status: ""
+  variant: ""
+
+energy_input:
+  # morph: badge
+  # light | chemical_fuel | ph_change | redox | temperature | none
+  status: ""
+  variant: ""
+
+work_output:
+  # morph: text
+  # Description of work performed
+  ""
+
+# ============================================================================
+# THERMODYNAMICS - Driving forces
+# ============================================================================
+
+assembly_enthalpy:
+  # morph: number
+  # ΔH (kJ/mol)
+  0
+
+assembly_entropy:
+  # morph: number
+  # ΔS (J/mol/K)
+  0
+
+gibbs_free_energy:
+  # morph: number
+  # ΔG (kJ/mol)
+  0
+
+enthalpy_entropy_compensation:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+temperature_dependence:
+  # morph: badge
+  # strong | moderate | weak
+  status: ""
+  variant: ""
+
+# ============================================================================
+# KINETICS - Assembly rates
+# ============================================================================
+
+assembly_kinetics:
+  # morph: badge
+  # fast | moderate | slow
+  status: ""
+  variant: ""
+
+formation_rate:
+  # morph: number
+  # kon (M⁻¹s⁻¹)
+  0
+
+dissociation_rate:
+  # morph: number
+  # koff (s⁻¹)
+  0
+
+nucleation:
+  # morph: badge
+  # nucleation_dependent | spontaneous
+  status: ""
+  variant: ""
+
+lag_phase:
+  # morph: number
+  # Nucleation lag time (s)
+  0
+
+# ============================================================================
+# OUT-OF-EQUILIBRIUM ASSEMBLY - Fuel-driven
+# ============================================================================
+
+fuel_driven_assembly:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+chemical_fuel:
+  # morph: text
+  # E.g., carbodiimide, anhydride, ATP analog
+  ""
+
+fuel_consumption_rate:
+  # morph: number
+  # Rate (mol/L/s)
+  0
+
+transient_assembly:
+  # morph: badge
+  # yes | no
+  # Assembly exists only while fuel present
+  status: ""
+  variant: ""
+
+lifetime_assembled:
+  # morph: number
+  # Lifetime of transient structure (min/h)
+  0
+
+waste_management:
+  # morph: badge
+  # waste_removed | waste_accumulates | waste_recycled
+  status: ""
+  variant: ""
+
+# ============================================================================
+# GELATION - Hydrogels/organogels
+# ============================================================================
+
+gelation:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+gel_type:
+  # morph: badge
+  # hydrogel | organogel | aerogel | none
+  status: ""
+  variant: ""
+
+gelation_mechanism:
+  # morph: badge
+  # fiber_entanglement | crosslinking | crystallization | none
+  status: ""
+  variant: ""
+
+critical_gelation_concentration:
+  # morph: number
+  # CGC (mg/mL)
+  0
+
+gel_strength:
+  # morph: number
+  # Storage modulus G' (Pa)
+  0
+
+gel_stability:
+  # morph: badge
+  # stable | metastable | transient
+  status: ""
+  variant: ""
+
+# ============================================================================
+# CRYSTALLIZATION - Long-range order
+# ============================================================================
+
+crystallization:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+crystal_structure:
+  # morph: text
+  # Space group, unit cell
+  ""
+
+crystal_packing:
+  # morph: badge
+  # dense | porous | layered
+  status: ""
+  variant: ""
+
+porosity:
+  # morph: gauge
+  # Void fraction (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+# ============================================================================
+# FUNCTIONAL PROPERTIES - Emergent capabilities
+# ============================================================================
+
+catalytic_activity:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+catalyzed_reactions:
+  # morph: list
+  items:
+    - reaction: ""
+      rate_enhancement: 0
+      selectivity: ""
+
+molecular_recognition_function:
+  # morph: badge
+  # sensing | separation | transport | none
+  status: ""
+  variant: ""
+
+sensing_target:
+  # morph: list
+  items:
+    - analyte: ""
+      detection_limit: 0
+      response_time: 0
+
+# ============================================================================
+# BIOLOGICAL MIMICRY - Inspired by nature
+# ============================================================================
+
+biomimetic:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+biological_inspiration:
+  # morph: text
+  # E.g., "enzyme active site", "lipid bilayer", "DNA"
+  ""
+
+artificial_enzymes:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+artificial_membranes:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# CHARACTERIZATION METHODS
+# ============================================================================
+
+structural_characterization:
+  # morph: list
+  items:
+    - method: ""
+      resolution: ""
+      information: ""
+
+xray_crystallography:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+nmr_spectroscopy:
+  # morph: badge
+  # 1h | 13c | 2d_noesy | 2d_cosy | diffusion | not_performed
+  status: ""
+  variant: ""
+
+mass_spectrometry:
+  # morph: badge
+  # esi_ms | maldi_tof | ion_mobility | not_performed
+  status: ""
+  variant: ""
+
+microscopy:
+  # morph: list
+  items:
+    - technique: ""
+      resolution: ""
+      sample_state: ""
+
+isothermal_titration_calorimetry:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+# ============================================================================
+# APPLICATIONS - SENSING
+# ============================================================================
+
+chemical_sensing:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+analytes_detected:
+  # morph: list
+  items:
+    - analyte: ""
+      method: ""
+      lod: 0
+      selectivity: ""
+
+fluorescent_sensing:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# APPLICATIONS - DRUG DELIVERY
+# ============================================================================
+
+drug_delivery_system:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+drug_loading:
+  # morph: gauge
+  # Drug loading capacity (%)
+  current: 0
+  target: 50
+  unit: "%"
+
+release_mechanism:
+  # morph: badge
+  # ph_triggered | enzyme_triggered | redox_triggered | light_triggered | none
+  status: ""
+  variant: ""
+
+targeting:
+  # morph: badge
+  # targeted | non_targeted
+  status: ""
+  variant: ""
+
+# ============================================================================
+# APPLICATIONS - MATERIALS
+# ============================================================================
+
+functional_material:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+material_properties:
+  # morph: list
+  items:
+    - property: ""
+      value: 0
+      units: ""
+
+self_healing:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# COMPUTATIONAL MODELING
+# ============================================================================
+
+computational_modeling:
+  # morph: badge
+  # md | dft | monte_carlo | docking | none
+  status: ""
+  variant: ""
+
+binding_energy_calculated:
+  # morph: number
+  # Calculated ΔG (kJ/mol)
+  0
+
+structure_prediction:
+  # morph: badge
+  # accurate | approximate | poor | not_performed
+  status: ""
+  variant: ""
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""
+
+curator:
+  # morph: text
+  ""
+
+notes:
+  # morph: text
+  ""
+
+references:
+  # morph: list
+  items:
+    - citation: ""
+      doi: ""
+      year: ""

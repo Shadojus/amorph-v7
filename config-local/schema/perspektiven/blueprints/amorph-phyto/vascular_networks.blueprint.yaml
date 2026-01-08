@@ -1,0 +1,770 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# VASCULAR NETWORKS PERSPECTIVE - HOLISTIC BLUEPRINT
+# Hydraulic Architecture, Xylem & Phloem Transport Networks
+# Version: 1.0.0
+# Domain: PLANTS (Holistic Systems View)
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# PURPOSE: Captures plant vascular system as INTEGRATED TRANSPORT NETWORK
+# - Hydraulic architecture & water transport
+# - Nutrient distribution networks
+# - Long-distance signaling
+# - Trade-offs between safety & efficiency
+# - Network topology & optimization
+# - Embolism resistance & drought tolerance
+# - Phloem loading & photosynthate allocation
+#
+# Based on 2025 research:
+# - Embolism & drought resistance (AoB PLANTS 2025)
+# - Hydraulic trade-offs & space-filling geometry
+# - Network connectivity & leaf hydraulics
+# - Evolutionary vascular architecture (400+ Mya to present)
+# - Safety-efficiency spectrum across species
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: vascular_networks
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PLANT IDENTITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+scientific_name:
+  # morph: text
+  ""
+
+common_name:
+  # morph: text
+  ""
+
+plant_form:
+  # morph: badge
+  # tree | shrub | herb | vine | grass
+  status: ""
+  variant: ""
+
+life_form:
+  # morph: badge
+  # woody | herbaceous
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VASCULAR SYSTEM ARCHITECTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+vascular_system_type:
+  # morph: badge
+  # primary | secondary | both
+  status: ""
+  variant: ""
+
+cambium_present:
+  # morph: boolean
+  # secondary growth capability
+  false
+
+vascular_tissue_arrangement:
+  # morph: badge
+  # eustele | atactostele | siphonostele | protostele
+  status: ""
+  variant: ""
+
+vascular_bundle_type:
+  # morph: badge
+  # collateral | bicollateral | concentric
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# XYLEM - Water & Mineral Transport
+# ═══════════════════════════════════════════════════════════════════════════════
+
+xylem_present:
+  # morph: boolean
+  true
+
+xylem_cell_types:
+  # morph: list
+  # tracheids | vessels | fibers | parenchyma
+  - ""
+
+conducting_cell_type:
+  # morph: badge
+  # vessels | tracheids | both
+  status: ""
+  variant: ""
+
+vessel_elements_present:
+  # morph: boolean
+  # more efficient than tracheids
+  false
+
+tracheid_length_range:
+  # morph: range
+  # micrometers
+  min: 0
+  max: 0
+  unit: "μm"
+
+vessel_element_length_range:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "μm"
+
+vessel_diameter_range:
+  # morph: range
+  # conduit diameter
+  min: 0
+  max: 0
+  unit: "μm"
+
+hydraulic_diameter:
+  # morph: number
+  # weighted mean conduit diameter
+  0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CONDUIT FREQUENCY & DISTRIBUTION
+# ─────────────────────────────────────────────────────────────────────────────
+
+conduit_density:
+  # morph: gauge
+  # vessels per mm²
+  value: 0
+  min: 0
+  max: 500
+  unit: "vessels/mm²"
+
+conduit_grouping_index:
+  # morph: number
+  # solitary vs grouped vessels
+  0
+
+porosity_pattern:
+  # morph: badge
+  # ring_porous | diffuse_porous | semi_ring_porous
+  status: ""
+  variant: ""
+
+earlywood_latewood_differentiation:
+  # morph: boolean
+  # in woody species
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CONDUIT TAPER & NETWORK GEOMETRY
+# ─────────────────────────────────────────────────────────────────────────────
+
+conduit_taper:
+  # morph: gauge
+  # diameter decrease from trunk to twig
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+space_filling_geometry:
+  # morph: boolean
+  # optimal vascular packing
+  false
+
+fractal_branching:
+  # morph: boolean
+  # self-similar architecture
+  false
+
+branching_ratio:
+  # morph: number
+  # daughter/parent diameter ratio
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HYDRAULIC CONDUCTIVITY - Efficiency
+# ═══════════════════════════════════════════════════════════════════════════════
+
+hydraulic_conductivity:
+  # morph: gauge
+  # kg m-1 MPa-1 s-1
+  value: 0
+  min: 0
+  max: 100
+  unit: "kg m⁻¹ MPa⁻¹ s⁻¹"
+
+specific_conductivity:
+  # morph: gauge
+  # Ks (conductivity per sapwood area)
+  value: 0
+  min: 0
+  max: 50
+  unit: "kg m⁻¹ MPa⁻¹ s⁻¹"
+
+leaf_specific_conductivity:
+  # morph: gauge
+  # LSC (conductivity per leaf area)
+  value: 0
+  min: 0
+  max: 10
+  unit: "mmol m⁻² s⁻¹ MPa⁻¹"
+
+huber_value:
+  # morph: gauge
+  # sapwood area : leaf area
+  value: 0
+  min: 0
+  max: 1
+  unit: "ratio"
+
+hagen_poiseuille_efficiency:
+  # morph: gauge
+  # flow ∝ diameter⁴
+  value: 0
+  min: 0
+  max: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EMBOLISM & HYDRAULIC SAFETY (AoB PLANTS 2025)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+embolism_vulnerability:
+  # morph: gauge
+  # P50 (pressure causing 50% loss of conductivity)
+  value: 0
+  min: -15
+  max: 0
+  unit: "MPa"
+
+p12:
+  # morph: number
+  # pressure at 12% loss (safety threshold)
+  0
+
+p50:
+  # morph: number
+  # pressure at 50% loss
+  0
+
+p88:
+  # morph: number
+  # pressure at 88% loss
+  0
+
+embolism_slope:
+  # morph: number
+  # steepness of vulnerability curve
+  0
+
+embolism_resistance_mechanism:
+  # morph: list
+  # pit_membrane | conduit_diameter | wall_reinforcement
+  - ""
+
+pit_membrane_thickness:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "nm"
+
+pit_aperture_size:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "μm"
+
+bordered_pit_density:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 1000
+  unit: "pits/mm²"
+
+embolism_repair_capability:
+  # morph: boolean
+  # refilling under tension
+  false
+
+embolism_spread_resistance:
+  # morph: rating
+  # inter-conduit connectivity control
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SAFETY-EFFICIENCY TRADE-OFF (2025 research)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+safety_efficiency_strategy:
+  # morph: badge
+  # efficiency_optimized | safety_optimized | balanced
+  status: ""
+  variant: ""
+
+safety_margin:
+  # morph: gauge
+  # P50 - minimum seasonal water potential
+  value: 0
+  min: 0
+  max: 10
+  unit: "MPa"
+
+hydraulic_safety_margin:
+  # morph: gauge
+  # difference between P12 and operational Ψ
+  value: 0
+  min: 0
+  max: 5
+  unit: "MPa"
+
+conduit_reinforcement:
+  # morph: gauge
+  # wall thickness : lumen diameter (t/b)²
+  value: 0
+  min: 0
+  max: 1
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LEAF HYDRAULIC ARCHITECTURE (2025 focus)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+leaf_hydraulic_conductance:
+  # morph: gauge
+  # Kleaf
+  value: 0
+  min: 0
+  max: 50
+  unit: "mmol m⁻² s⁻¹ MPa⁻¹"
+
+leaf_vein_density:
+  # morph: gauge
+  # mm vein per mm² leaf
+  value: 0
+  min: 0
+  max: 50
+  unit: "mm/mm²"
+
+vein_orders:
+  # morph: number
+  # hierarchical vein levels
+  0
+
+major_vein_architecture:
+  # morph: badge
+  # pinnate | palmate | parallel | dichotomous
+  status: ""
+  variant: ""
+
+minor_vein_connectivity:
+  # morph: gauge
+  # network connectivity index
+  value: 0
+  min: 0
+  max: 100
+
+areole_density:
+  # morph: gauge
+  # areoles per mm²
+  value: 0
+  min: 0
+  max: 100
+  unit: "areoles/mm²"
+
+free_ending_veinlet_density:
+  # morph: gauge
+  # FEV per mm²
+  value: 0
+  min: 0
+  max: 20
+  unit: "FEV/mm²"
+
+leaf_vein_embolism_propagation:
+  # morph: boolean
+  # (2025 research)
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# WATER POTENTIAL & TRANSPORT PATHWAY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+water_potential_gradient:
+  # morph: flow
+  - from: "Soil"
+    to: "Root"
+    value: -0.5  # MPa
+  - from: "Root"
+    to: "Stem"
+    value: -1.0
+  - from: "Stem"
+    to: "Leaf"
+    value: -2.0
+  - from: "Leaf"
+    to: "Atmosphere"
+    value: -50.0
+
+minimum_seasonal_water_potential:
+  # morph: number
+  # most negative Ψ experienced
+  0
+
+turgor_loss_point:
+  # morph: number
+  # Ψ at which cells lose turgor
+  0
+
+osmotic_potential_at_full_turgor:
+  # morph: number
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ROOT HYDRAULIC ARCHITECTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+root_hydraulic_conductivity:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 10
+  unit: "kg m⁻¹ MPa⁻¹ s⁻¹"
+
+root_pressure:
+  # morph: boolean
+  # positive pressure from roots
+  false
+
+aquaporin_regulation:
+  # morph: boolean
+  # water channel proteins
+  false
+
+aquaporin_types:
+  # morph: list
+  # PIP | TIP | NIP | SIP
+  - ""
+
+apoplastic_vs_symplastic_pathway:
+  # morph: pie
+  - label: "Apoplastic"
+    value: 0
+  - label: "Symplastic"
+    value: 0
+
+casparian_strip_position:
+  # morph: text
+  # endodermis barrier location
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PHLOEM - Photosynthate Transport
+# ═══════════════════════════════════════════════════════════════════════════════
+
+phloem_present:
+  # morph: boolean
+  true
+
+phloem_cell_types:
+  # morph: list
+  # sieve_tubes | companion_cells | phloem_parenchyma | phloem_fibers
+  - ""
+
+sieve_tube_elements:
+  # morph: boolean
+  true
+
+sieve_plate_type:
+  # morph: badge
+  # simple | compound
+  status: ""
+  variant: ""
+
+sieve_pore_diameter:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "μm"
+
+companion_cell_type:
+  # morph: badge
+  # ordinary | transfer_cell | intermediary_cell
+  status: ""
+  variant: ""
+
+phloem_loading_mechanism:
+  # morph: badge
+  # apoplastic | symplastic | passive
+  status: ""
+  variant: ""
+
+sucrose_concentration_phloem:
+  # morph: gauge
+  # molar concentration
+  value: 0
+  min: 0
+  max: 1.5
+  unit: "M"
+
+phloem_transport_velocity:
+  # morph: gauge
+  # cm/hour
+  value: 0
+  min: 0
+  max: 100
+  unit: "cm/h"
+
+phloem_mass_flow:
+  # morph: boolean
+  # Münch hypothesis
+  true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOURCE-SINK DYNAMICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+photosynthate_allocation:
+  # morph: pie
+  # % distribution
+  - label: "Leaves (growth)"
+    value: 0
+  - label: "Stem"
+    value: 0
+  - label: "Roots"
+    value: 0
+  - label: "Fruits/Seeds"
+    value: 0
+  - label: "Storage"
+    value: 0
+  - label: "Mycorrhizae"
+    value: 0
+
+source_organs:
+  # morph: list
+  # mature_leaves | green_stems
+  - ""
+
+sink_organs:
+  # morph: list
+  # roots | fruits | young_leaves | flowers
+  - ""
+
+sink_strength:
+  # morph: rating
+  # competitive ability for photosynthate
+  rating: 0
+  max: 10
+
+phloem_loading_sites:
+  # morph: list
+  - ""
+
+phloem_unloading_sites:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LONG-DISTANCE SIGNALING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+xylem_sap_signaling:
+  # morph: boolean
+  # hormones, peptides, RNAs in xylem
+  false
+
+xylem_transported_signals:
+  # morph: list
+  # ABA | cytokinins | peptides | mRNA
+  - ""
+
+phloem_sap_signaling:
+  # morph: boolean
+  # systemic signals via phloem
+  false
+
+phloem_transported_signals:
+  # morph: list
+  # sugars | amino_acids | hormones | proteins | RNAs
+  - ""
+
+systemic_rna_movement:
+  # morph: boolean
+  # mobile mRNA/siRNA
+  false
+
+electrical_signaling:
+  # morph: boolean
+  # action potentials, variation potentials
+  false
+
+calcium_wave_propagation:
+  # morph: boolean
+  # long-distance Ca²⁺ signals
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DROUGHT RESPONSE & ADAPTATION (2025 focus)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+drought_tolerance_strategy:
+  # morph: badge
+  # isohydric | anisohydric | intermediate
+  status: ""
+  variant: ""
+
+stomatal_regulation:
+  # morph: badge
+  # tight | loose
+  status: ""
+  variant: ""
+
+aba_signaling_sensitivity:
+  # morph: rating
+  # drought signal response
+  rating: 0
+  max: 10
+
+cavitation_fatigue:
+  # morph: boolean
+  # repeated embolism-refilling cycles
+  false
+
+drought_deciduousness:
+  # morph: boolean
+  # leaf shedding under drought
+  false
+
+hydraulic_redistribution:
+  # morph: boolean
+  # nighttime water movement to dry soil
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NETWORK TOPOLOGY - Graph Theory
+# ═══════════════════════════════════════════════════════════════════════════════
+
+vascular_network_topology:
+  # morph: badge
+  # hierarchical | reticulate | mixed
+  status: ""
+  variant: ""
+
+network_redundancy:
+  # morph: gauge
+  # alternative pathways
+  value: 0
+  min: 0
+  max: 100
+
+vein_anastomoses:
+  # morph: boolean
+  # vein connections/loops
+  false
+
+network_density:
+  # morph: gauge
+  # connections per node
+  value: 0
+  min: 0
+  max: 10
+
+path_length_optimization:
+  # morph: boolean
+  # minimized transport distance
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BIOMECHANICAL FUNCTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+xylem_mechanical_support:
+  # morph: boolean
+  # structural role beyond transport
+  true
+
+fiber_to_vessel_ratio:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 10
+
+wood_density:
+  # morph: gauge
+  # g/cm³
+  value: 0
+  min: 0
+  max: 1.5
+  unit: "g/cm³"
+
+modulus_of_elasticity:
+  # morph: gauge
+  # GPa
+  value: 0
+  min: 0
+  max: 20
+  unit: "GPa"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# EVOLUTIONARY PERSPECTIVE (400+ Mya)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+vascular_evolutionary_stage:
+  # morph: badge
+  # primitive_tracheid | advanced_vessel | transitional
+  status: ""
+  variant: ""
+
+vessel_evolution:
+  # morph: boolean
+  # presence of derived vessels
+  false
+
+vessel_perforation_plate:
+  # morph: badge
+  # scalariform | simple | reticulate
+  status: ""
+  variant: ""
+
+xylem_innovation:
+  # morph: text
+  # evolutionary novelties
+  ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LITERATURE REFERENCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_research_papers:
+  # morph: list
+  - ""
+
+vascular_literature:
+  # morph: citation
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+data_source:
+  # morph: badge
+  # hydraulic_measurement | anatomical_imaging | literature
+  status: ""
+  variant: ""
+
+measurement_method:
+  # morph: badge
+  # cavitron | bench_drying | optical_method
+  status: ""
+  variant: ""
+
+confidence_level:
+  # morph: badge
+  # high | medium | low | speculative
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""

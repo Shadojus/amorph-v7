@@ -1,0 +1,27 @@
+# STELLAR_OBJECTS - Cosmology/Astronomy
+# Version: 1.0.0 | Domain: COSMOLOGY
+perspective: stellar_objects
+version: "1.0.0"
+object_name:
+  # morph: text
+  ""
+object_type:
+  # morph: badge
+  # star | planet | galaxy | nebula | black_hole
+  status: ""
+  variant: ""
+coordinates:
+  # morph: text
+  # RA/Dec
+  ""
+distance:
+  # morph: number
+  # light years
+  0
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+last_updated:
+  # morph: text
+  ""

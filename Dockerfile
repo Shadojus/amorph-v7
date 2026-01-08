@@ -16,6 +16,7 @@ RUN npm ci
 COPY src ./src
 COPY public ./public
 COPY config-local ./config
+COPY data-local ./data
 COPY astro.config.mjs ./
 COPY tsconfig.json ./
 
@@ -38,9 +39,10 @@ COPY --from=builder --chown=astro:nodejs /app/dist ./dist
 COPY --from=builder --chown=astro:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=astro:nodejs /app/package.json ./package.json
 
-# Copy config and public directories (data comes from Pocketbase now!)
+# Copy config and public directories
 COPY --from=builder --chown=astro:nodejs /app/config ./config
 COPY --from=builder --chown=astro:nodejs /app/public ./public
+COPY --from=builder --chown=astro:nodejs /app/data ./data
 
 # Set environment
 ENV NODE_ENV=production

@@ -231,31 +231,20 @@ const { items, total, perspectivesWithData } = await searchItems({
   limit: 12  // Reduziert von 50 → 72% weniger DOM-Nodes
 });
 
-// Get perspectives
+// Get perspectives - DYNAMISCH aus Blueprints
 const perspectives = getAllPerspectives();
 
 // Get current site type for header highlighting
 const currentSiteType = getSiteType();
 const siteMeta = SITE_META[currentSiteType];
 
-// Perspektiven-Farben - Matte Pastell-Töne (nicht leuchtend, klar von Bio-Farben unterscheidbar)
-const perspectiveColors: Record<string, string[]> = {
-  culinary: ['rgba(180, 140, 120, 0.2)'],
-  safety: ['rgba(170, 130, 140, 0.2)'],
-  cultivation: ['rgba(120, 150, 130, 0.2)'],
-  medicine: ['rgba(150, 140, 170, 0.2)'],
-  chemistry: ['rgba(160, 140, 160, 0.2)'],
-  ecology: ['rgba(130, 150, 120, 0.2)'],
-  statistics: ['rgba(165, 155, 140, 0.2)'],
-  geography: ['rgba(160, 135, 120, 0.2)'],
-  temporal: ['rgba(170, 160, 130, 0.2)'],
-  economy: ['rgba(165, 150, 115, 0.2)'],
-  conservation: ['rgba(115, 150, 145, 0.2)'],
-  culture: ['rgba(155, 140, 160, 0.2)'],
-  research: ['rgba(140, 145, 160, 0.2)'],
-  interactions: ['rgba(175, 145, 135, 0.2)'],
-  identification: ['rgba(145, 155, 125, 0.2)']
-};
+// Perspektiven-Farben - DYNAMISCH generiert aus geladenen Perspektiven
+const perspectiveColors: Record<string, string[]> = {};
+perspectives.forEach((p, i) => {
+  // HSL-Farbe basierend auf Index für visuelle Unterscheidung
+  const hue = (i * 37) % 360; // Golden angle für gute Farbverteilung
+  perspectiveColors[p.id] = [`hsla(${hue}, 30%, 50%, 0.2)`];
+});
 
 // Render context for grid items
 const gridContext: RenderContext = {
@@ -443,19 +432,14 @@ const gridContext: RenderContext = {
               const colorArr = perspColors[persp];
               if (colorArr && colorArr[0]) {
                 // rgba(180, 140, 120, 0.2) → rgba(180, 140, 120, 0.7) für sichtbarere Farbe
-                const solidColor = colorArr[0].replace('0.2)', '0.7)');
+                const solidColor = colorArr[0].replace('0.2)', '0.7)').replace(', 0.2)', ', 0.7)');
                 divider.style.setProperty('--persp-color', solidColor);
               }
               
-              // Deutsche Übersetzung der Perspektiven
-              const perspNames: Record<string, string> = {
-                culinary: 'Kulinarisch', medicine: 'Medizin', safety: 'Sicherheit',
-                ecology: 'Ökologie', cultivation: 'Anbau', chemistry: 'Chemie',
-                statistics: 'Statistik', geography: 'Geografie', temporal: 'Zeitlich',
-                economy: 'Wirtschaft', conservation: 'Naturschutz', culture: 'Kultur',
-                research: 'Forschung', interactions: 'Interaktionen', identification: 'Bestimmung'
-              };
-              const perspLabel = perspNames[persp] || persp.charAt(0).toUpperCase() + persp.slice(1);
+              // Perspektiven-Namen aus dynamisch geladenen Perspektiven
+              const loadedPerspectives = (window as any).AMORPH_PERSPECTIVES || [];
+              const perspData = loadedPerspectives.find((p: any) => p.id === persp);
+              const perspLabel = perspData?.name || persp.charAt(0).toUpperCase() + persp.slice(1).replace(/_/g, ' ');
               
               divider.innerHTML = `<span class="perspective-divider-line"></span><span class="perspective-divider-label">${perspLabel}</span><span class="perspective-divider-line"></span>`;
               
@@ -581,16 +565,16 @@ const gridContext: RenderContext = {
       });
     });
     
-    // Compact view: Click on card navigates to detail page
-    // Simple gallery view - no selection
+    // MOBILE-FRIENDLY: Klick auf Item = Selection, NICHT Navigation
+    // Navigation nur über den Pfeil-Button
+    // Detect touch device
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
     if (grid) {
       grid.addEventListener('click', (e) => {
-        // Only in compact view
-        if (!grid.classList.contains('view-compact')) return;
-        
         const target = e.target as HTMLElement;
         
-        // Arrow button navigates to detail
+        // Arrow button navigates to detail - IMMER erlaubt
         if (target.closest('.item-detail-link')) {
           return; // Let the link handle navigation
         }
@@ -600,12 +584,28 @@ const gridContext: RenderContext = {
           return;
         }
         
-        // Click anywhere on card = navigate to detail page
-        const item = target.closest('.amorph-item') as HTMLElement;
-        if (item) {
-          const slug = item.dataset.slug;
-          if (slug) {
-            window.location.href = '/' + slug;
+        // Field clicks werden vom grid.ts handler behandelt
+        if (target.closest('.amorph-field')) {
+          return;
+        }
+        
+        // MOBILE (compact view): Klick auf Card = NICHT navigieren
+        // User muss den Pfeil-Button benutzen
+        // Das erlaubt Field-Selection auch auf Mobile
+        if (grid.classList.contains('view-compact') && isTouchDevice) {
+          // Auf Touch-Geräten: Kein Auto-Navigate bei Klick auf Card
+          // Zeige stattdessen einen Hinweis oder mache nichts
+          return;
+        }
+        
+        // DESKTOP (compact view): Klick auf Card = navigieren (wie bisher)
+        if (grid.classList.contains('view-compact') && !isTouchDevice) {
+          const item = target.closest('.amorph-item') as HTMLElement;
+          if (item) {
+            const slug = item.dataset.slug;
+            if (slug) {
+              window.location.href = '/' + slug;
+            }
           }
         }
       });
@@ -739,66 +739,20 @@ const gridContext: RenderContext = {
               <span class="filter-icon">✨</span>
               <span class="filter-text">Alle</span>
             </button>
-            <button type="button" class="filter-btn" data-filter="perspective" data-value="culinary" data-color="rgba(180, 140, 120, 0.6)" title="Kulinarische Daten">
-              <span class="filter-icon">🍳</span>
-              <span class="filter-text">Kulinarisch</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="perspective" data-value="medicine" data-color="rgba(150, 140, 170, 0.6)" title="Medizinische Daten">
-              <span class="filter-icon">💊</span>
-              <span class="filter-text">Medizin</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="perspective" data-value="safety" data-color="rgba(170, 130, 140, 0.6)" title="Sicherheitsdaten">
-              <span class="filter-icon">⚠️</span>
-              <span class="filter-text">Sicherheit</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="perspective" data-value="ecology" data-color="rgba(130, 150, 120, 0.6)" title="Ökologische Daten">
-              <span class="filter-icon">🌿</span>
-              <span class="filter-text">Ökologie</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="perspective" data-value="cultivation" data-color="rgba(120, 150, 130, 0.6)" title="Anbau-Daten">
-              <span class="filter-icon">🌱</span>
-              <span class="filter-text">Anbau</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="perspective" data-value="chemistry" data-color="rgba(160, 140, 160, 0.6)" title="Chemische Zusammensetzung">
-              <span class="filter-icon">⚗️</span>
-              <span class="filter-text">Chemie</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="perspective" data-value="statistics" data-color="rgba(165, 155, 140, 0.6)" title="Statistische Daten">
-              <span class="filter-icon">📊</span>
-              <span class="filter-text">Statistik</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="perspective" data-value="geography" data-color="rgba(160, 135, 120, 0.6)" title="Geografische Verbreitung">
-              <span class="filter-icon">🗺️</span>
-              <span class="filter-text">Geografie</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="perspective" data-value="temporal" data-color="rgba(170, 160, 130, 0.6)" title="Zeitliche Daten">
-              <span class="filter-icon">📅</span>
-              <span class="filter-text">Zeitlich</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="perspective" data-value="economy" data-color="rgba(165, 150, 115, 0.6)" title="Wirtschaftliche Daten">
-              <span class="filter-icon">💰</span>
-              <span class="filter-text">Wirtschaft</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="perspective" data-value="conservation" data-color="rgba(115, 150, 145, 0.6)" title="Naturschutz">
-              <span class="filter-icon">🛡️</span>
-              <span class="filter-text">Naturschutz</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="perspective" data-value="culture" data-color="rgba(155, 140, 160, 0.6)" title="Kulturelle Bedeutung">
-              <span class="filter-icon">🎭</span>
-              <span class="filter-text">Kultur</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="perspective" data-value="research" data-color="rgba(140, 145, 160, 0.6)" title="Forschungsdaten">
-              <span class="filter-icon">🔬</span>
-              <span class="filter-text">Forschung</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="perspective" data-value="interactions" data-color="rgba(175, 145, 135, 0.6)" title="Interaktionen">
-              <span class="filter-icon">🔗</span>
-              <span class="filter-text">Interaktionen</span>
-            </button>
-            <button type="button" class="filter-btn" data-filter="perspective" data-value="identification" data-color="rgba(145, 155, 125, 0.6)" title="Bestimmungsmerkmale">
-              <span class="filter-icon">🔍</span>
-              <span class="filter-text">Bestimmung</span>
-            </button>
+            {/* Dynamisch aus Blueprint-Perspektiven generiert */}
+            {perspectives.map((p, i) => (
+              <button 
+                type="button" 
+                class="filter-btn" 
+                data-filter="perspective" 
+                data-value={p.id} 
+                data-color={`hsla(${(i * 37) % 360}, 30%, 50%, 0.6)`}
+                title={p.name}
+              >
+                <span class="filter-icon">{p.symbol}</span>
+                <span class="filter-text">{p.name}</span>
+              </button>
+            ))}
           </div>
           
           <!-- AND/OR Mode Toggle (nur sichtbar bei 2+ aktiven Perspektiven) -->
@@ -993,11 +947,11 @@ const gridContext: RenderContext = {
     )}
   </main>
   
-  <!-- Selection Bar -->
+  <!-- Selection Bar - Kompakt mit Counter und Clear -->
   <div class="selection-bar">
+    <span class="selection-counter">0</span>
     <div class="selection-pills"></div>
-    <span class="selection-count">0 selected</span>
-    <button class="selection-clear">Clear all</button>
+    <button class="selection-clear" title="Clear all">×</button>
   </div>
   
   <!-- My Species Panel (Overlay) -->

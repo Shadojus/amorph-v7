@@ -1,251 +1,62 @@
-# AMORPH v7 - Pages
+# Pages
 
-> Astro-Routen und API-Endpoints mit Engagement-optimierter Feld-Priorisierung.
+Astro-Routen für AMORPH.
 
-## � Performance-Optimierungen (Dezember 2025)
-- **Pagination** - Initial 12 Items statt 52, "Mehr laden" Button
-- **WebP Bilder** - `<picture>` mit Fallback für Grid-Items
-- **DOM Reduktion** - ~1290 → ~400 Nodes (69% weniger)
+---
 
-## 📁 Struktur
+## Routen
 
-```
-pages/
-├── index.astro     # Grid + Pagination + WebP (~520 Zeilen)
-├── [slug].astro    # Detail-Seite mit Perspektiven (~699 Zeilen)
-└── api/
-    ├── search.ts      # GET /api/search (mit WebP in HTML)
-    ├── compare.ts     # POST /api/compare (Feld-Modus)
-    └── autocomplete.ts # POST /api/autocomplete (Feld-Ergänzung)
-```
+| Route | Datei | Beschreibung |
+|-------|-------|--------------|
+| `/` | `index.astro` | Startseite mit Pagination |
+| `/[slug]` | `[slug].astro` | Species Detail-Seite |
+| `/api/search` | `api/search.ts` | Such-API |
+| `/api/compare` | `api/compare.ts` | Compare-API |
 
-## 📄 index.astro - Hauptseite (~520 Zeilen)
+---
 
-### Features
-- **Grid-Ansicht** aller Spezies (52 Pilze)
-- **Pagination** - `limit: 12` initial, infinite scroll
-- **WebP Bilder** - `<picture>` Element mit Fallback
-- **HIGH_VALUE_FIELDS Priorisierung** - "Knaller"-Daten zuerst anzeigen
-- **MORPH_PRIORITY** - Badge vor Range, visuell wichtiges zuerst
-- **Sticky Suchleiste** unter Header (z-index: 10000)
-- **Feld-Selektion** mit Perspektiven-Farben
-- **Site-Switcher Header** mit Bifroest-Portal
-- **Bottom Navigation** mit Toggle-Label (Compare/Close)
-- **Compare Panel** mit Autocomplete + Copy-Button
-- **English UI Labels** - Search, Compare, Complete, Copy
+## Datenfluss
 
-### Pagination
 ```astro
-// Initial nur 12 Items laden
-const { items, total } = await searchItems({ limit: 12 });
+---
+// [slug].astro
+import { loadAllItems } from '@/server/data';
 
-// "Mehr laden" Button
-{total > items.length && (
-  <button class="load-more-btn" 
-    onclick="window.loadMoreItems(this)"
-    data-loaded={items.length} 
-    data-total={total}>
-    Mehr laden ({items.length} von {total})
-  </button>
-)}
+const { slug } = Astro.params;
+const items = await loadAllItems();  // → PocketBase!
+const item = items.find(s => s.slug === slug);
+---
+
+<Layout>
+  <SpeciesDetail item={item} />
+</Layout>
 ```
 
-### WebP Bilder
-```astro
-<picture>
-  <source srcset={imageUrl.replace(/\.(jpg|jpeg|png)$/i, '.webp')} type="image/webp" />
-  <img src={imageUrl} alt={item.name} loading="lazy" decoding="async" />
-</picture>
-```
+---
 
-### HIGH_VALUE_FIELDS Tiers
-```
-TIER 1: 🌟 WOW-FAKTOR
-  - special_feature, bioluminescence, bioremediation_potential
-  - effect_profile, historical_significance
-
-TIER 2: 💫 HEALING & TRADITION
-  - primary_medicinal_uses, traditional_medicine_systems
-  - mechanism_of_action, active_compounds
-
-TIER 3: 🍳 KULINARIK & LIFESTYLE
-  - culinary_rating, flavor_profile, signature_dishes_famous
-  - wine_pairing, best_cooking_methods
-
-TIER 4: 🌿 NATUR & ÖKOLOGIE
-  - ecological_role, ecosystem_services, iucn_global_status
-
-TIER 5: ⚠️ SICHERHEIT
-  - edibility_status, toxicity_level, confusion_risk_level
-
-TIER 6: 🔬 IDENTIFIKATION
-  - identification_difficulty, key_differentiating_features
-```
-
-### MORPH_PRIORITY (visueller Impact)
-```typescript
-const MORPH_PRIORITY = {
-  'badge': 1,     // Essbarkeit, Status - HÖCHSTE PRIO
-  'severity': 1,  // Giftigkeit, Warnungen
-  'bar': 2,       // Nährstoffe, Verteilung
-  'radar': 2,     // Compound Profile
-  'range': 5,     // Größen-Ranges (weniger wichtig!)
-  'text': 9,      // Text ganz unten
-};
-```
-
-### sortFieldsByInterest()
-```typescript
-// 1. High-Value Fields haben absolute Priorität
-// 2. Innerhalb: nach Tier-Reihenfolge
-// 3. Keine High-Value: nach Morph-Typ sortieren
-```
-
-## 📄 [slug].astro - Detail-Seite (699 Zeilen)
-
-### Features
-- **Alle Felder** der Spezies mit Morph-Rendering
-- **Perspektiven-Filter** für Felder
-- **Feld-Selektion** mit Perspektiven-Farben
-- **Search durchsucht Compare** wenn aktiv
-- **sessionStorage Persistenz** der Selection
-
-## 📡 API Endpoints
+## API Endpoints
 
 ### GET /api/search
 ```
 /api/search?q=pilz&p=culinary,safety&limit=20
 ```
 
-Response:
-```json
-{
-  "items": [...],
-  "total": 42,
-  "perspectivesWithData": ["culinary", "safety"],
-  "html": "<article>..."
-}
-```
-
 ### POST /api/compare
 ```json
 {
-  "fields": [
-    {"itemSlug": "steinpilz", "fieldName": "toxicity", "value": {...}},
-    ...
-  ],
-  "perspectives": ["culinary"]
+  "fields": [...]
 }
 ```
 
-Response:
-```json
-{
-  "html": "<div class='compare-view'>...",
-  "itemCount": 2,
-  "fieldCount": 15
-}
-```
+---
 
-## 🎨 Z-Index Hierarchie
+## 📚 Verwandte Dokumentation
 
-| Element | Z-Index |
-|---------|---------|
-| Bottom Nav | 10001 |
-| Search | 10000 |
-| Compare Panel | 9999 |
-| Header | 200 |
+| Datei | Inhalt |
+|-------|--------|
+| [../CLAUDE.md](../CLAUDE.md) | src/ Übersicht |
+| [../server/CLAUDE.md](../server/CLAUDE.md) | PocketBase Client |
 
-## 📦 api/search.ts - Such-API
+---
 
-### Request
-```
-GET /api/search?q=pilz&p=culinary,safety&limit=20
-```
-
-### Response
-```json
-{
-  "items": [...],
-  "total": 42,
-  "perspectivesWithData": ["culinary", "safety"],
-  "matchedPerspectives": ["culinary"],
-  "html": "<article class='amorph-item'>..."
-}
-```
-
-### Auto-Perspektiven
-Wenn Suchbegriff eine Perspektive matcht (z.B. "chemie" → "chemistry"), wird diese automatisch aktiviert.
-
-## 📦 api/compare.ts - Compare-API
-
-### Zwei Modi
-
-**Item-Modus** (alle Felder):
-```json
-POST /api/compare
-{ "items": ["steinpilz", "fliegenpilz"], "perspectives": ["safety"] }
-```
-
-**Feld-Modus** (spezifische Felder):
-```json
-POST /api/compare
-{
-  "fields": [
-    { "itemSlug": "steinpilz", "itemName": "Steinpilz", "fieldName": "Essbarkeit", "value": "Essbar" }
-  ]
-}
-```
-
-### Response
-```json
-{
-  "html": "<div class='compare-view'>...",
-  "itemCount": 2,
-  "fieldCount": 15,
-  "mode": "items"
-}
-```
-
-## � api/autocomplete.ts - Autocomplete-API (NEU)
-
-Ergänzt fehlende Felder bei allen Spezies im Vergleich.
-
-### Request
-```json
-POST /api/autocomplete
-{
-  "itemSlugs": ["hericium-erinaceus", "ganoderma-lucidum"],
-  "fieldNames": ["safety_summary", "toxicity_level"]
-}
-```
-
-### Response
-```json
-{
-  "fields": [
-    {
-      "itemSlug": "hericium-erinaceus",
-      "itemName": "Lion's Mane",
-      "fieldName": "safety_summary",
-      "value": "...",
-      "perspectiveId": "safety"
-    }
-  ],
-  "count": 4
-}
-```
-
-### Verwendung
-- Client sammelt alle unique `fieldNames` und `itemSlugs` aus Selection
-- API liefert alle existierenden Feld-Werte zurück
-- Client fügt fehlende Felder via `selectField()` hinzu
-- Visual Feedback: "+X fields" oder "Complete"
-
-## �🔒 Security
-
-Alle Endpoints verwenden `core/security.ts`:
-- `validateQuery()` für Suchbegriffe
-- `validateSlug()` / `validateSlugs()` für Item-IDs
-- `validateNumber()` für Limits
-- `escapeHtml()` für HTML-Output
+*Letzte Aktualisierung: Januar 2026*

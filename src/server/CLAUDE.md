@@ -1,319 +1,147 @@
-# AMORPH v7 - Server Module
+# Server Module
 
-> SSR-Module für Config und Data Loading mit **Pocketbase Integration**.
+PocketBase Client und Datenlade-Logik für AMORPH.
 
-## 📁 Struktur
+## ⚠️ Wichtig: Nur PocketBase!
 
-```
-server/
-├── index.ts      # Re-Exports
-├── config.ts     # YAML Config Loader (~200 Zeilen)
-├── data.ts       # Data Loader + Pocketbase/Local Fallback (~380 Zeilen)
-└── bifroest.ts   # Pocketbase Client v3 (~400 Zeilen)
+```bash
+DATA_SOURCE=pocketbase  # IMMER - kein 'local' oder 'auto' mehr!
 ```
 
-## 🔗 Pocketbase Integration v3 (Januar 2026)
-
-**Multi-Domain Support für Biology, Geology UND 11 neue Wissenschafts-Domains!**
-
-```typescript
-// Env vars (in Astro config oder .env)
-POCKETBASE_URL=http://localhost:8090
-DATA_SOURCE=pocketbase  // 'pocketbase' | 'local' | 'auto'
-```
-
-### bifroest.ts v3 - Pocketbase Client
-
-```typescript
-import { 
-  loadByCollection,
-  loadByDomain,
-  loadSpeciesByCategory,
-  loadSpeciesBySlug,
-  loadItemBySlug
-} from './bifroest';
-
-// Load by collection
-const fungi = await loadByCollection('fungi');
-const minerals = await loadByCollection('mineralogy');
-const bacteria = await loadByCollection('microbiology');
-
-// Load by domain  
-const biology = await loadByDomain('biology');   // fungi + plantae + therion
-const geology = await loadByDomain('geology');   // paleontology + mineralogy + tectonics
-
-// Load single item (searches all collections)
-const item = await loadSpeciesBySlug('hericium-erinaceus');
-const fossil = await loadItemBySlug('paleontology', 'tyrannosaurus-rex');
-const ecoli = await loadItemBySlug('microbiology', 'escherichia-coli');
-```
-
-### Collections (17 Domains)
-
-| Domain | Collection | Port | Items |
-|--------|------------|------|-------|
-| 🍄 Fungi | species | 4321 | 28 |
-| 🌱 Plantae | species | 4322 | 35 |
-| 🦁 Therion | species | 4323 | 28 |
-| 🦕 Paleontology | paleontology | 4324 | 91 |
-| 💎 Mineralogy | mineralogy | 4325 | 12 |
-| ⛰️ Tectonics | tectonics | 4326 | 13 |
-| 🦠 Microbiology | microbiology | 4327 | 3 |
-| 🧬 Virology | virology | 4328 | 3 |
-| 🧬 Genetics | genetics | 4329 | 3 |
-| 🫀 Anatomy | anatomy | 4330 | 3 |
-| ⚗️ Chemistry | chemistry | 4331 | 3 |
-| ⚛️ Physics | physics | 4332 | 3 |
-| 🌟 Astronomy | astronomy | 4333 | 3 |
-| 💻 Informatics | informatics | 4334 | 3 |
-| 🤖 AI | ai | 4335 | 3 |
-| 🧪 Biotech | biotech | 4336 | 3 |
-| 👥 Sociology | sociology | 4337 | 3 |
-
-### Perspectives per Collection
-
-| Collection | Perspectives (count) |
-|------------|---------------------|
-| fungi/plantae/therion | identification, ecology, chemistry, ... (15) |
-| paleontology | taxonomy_paleo, morphology, chronology, ... (11) |
-| mineralogy | classification, chemistry, crystallography, ... (11) |
-| tectonics | chronology, stratigraphy, plate_tectonics, ... (6) |
-| microbiology | taxonomy_micro, metabolism, pathogenicity, ... (9) |
-| virology | taxonomy_viro, replication, epidemiology, ... (9) |
-| genetics | gene_structure, inheritance, mutations, ... (8) |
-| anatomy | gross_anatomy, histology, physiology, ... (9) |
-| chemistry | atomic_structure, bonding, thermodynamics, ... (9) |
-| physics | mechanics, electromagnetism, quantum, ... (9) |
-| astronomy | classification_astro, orbital, composition, ... (9) |
-| informatics | architecture, protocols, security_info, ... (9) |
-| ai | model_architecture, training, capabilities, ... (9) |
-| biotech | methodology, applications_biotech, products, ... (10) |
-| sociology | structure, institutions, demographics, ... (10) |
-
-### ItemData Extensions
-
-```typescript
-interface ItemData {
-  // ... standard fields
-  _kingdom?: string;       // Legacy (Fungi, Plantae)
-  _collection?: string;    // fungi, mineralogy, microbiology, etc.
-  _domain?: 'biology' | 'geology' | 'lifescience' | 'physical' | 'tech' | 'social';
-}
-```
-
-## 📦 config.ts - Config Loader (200 Zeilen)
-
-Lädt YAML-Konfiguration aus `config/` Ordner.
-
-### API
-```typescript
-import { loadConfig, getConfig, getAllPerspectives } from './server';
-
-await loadConfig();  // Einmal beim Start
-const config = getConfig();
-const perspectives = getAllPerspectives();
-```
-
-### Perspektiven (15 Stück)
-```typescript
-interface Perspective {
-  id: string;           // 'culinary'
-  name: string;         // 'Kulinarik'
-  symbol: string;       // '🍳'
-  color?: string;       // '#f59e0b'
-}
-```
-
-## 📦 data.ts - Data Loader (~380 Zeilen)
-
-Orchestriert Datenladung - **Pocketbase zuerst, lokaler Fallback bei Bedarf**.
-
-### Daten-Hierarchie
-```
-1. Pocketbase API (http://localhost:8090)
-   └── species collection (91 records)
-       ├── fungi (28)
-       ├── plantae (35)
-       └── therion (28)
-
-2. Local Fallback (wenn DATA_SOURCE='auto' und Pocketbase down)
-   └── data/{category}/{species-slug}/
-       ├── index.json
-       └── {perspective}.json
-```
-
-### API
-```typescript
-import { 
-  loadAllItems,     // Lädt von Pocketbase
-  searchItems,
-  getItem,          // Einzelnes Item
-  getItems,         // Mehrere Items (für Compare)
-  getLoadErrors,    // Gibt Ladefehler zurück
-  invalidateCache   // Cache invalidieren
-} from './server/data';
-```
-
-### Search API
-```typescript
-const { items, total, perspectivesWithData } = await searchItems({
-  query: 'pilz',
-  perspectives: ['culinary', 'safety'],
-  limit: 20
-});
-```
-
-### Response Types
-```typescript
-interface SearchResult {
-  items: ItemData[];
-  total: number;
-  perspectivesWithData: string[];
-}
-```
-
-### Security
-
-- Path Traversal Prevention bei Slugs
-- Validierung aller Eingaben via `core/security.ts`
-
-## 💡 Usage in Astro Pages
-
-```astro
----
-import { loadConfig, getAllPerspectives } from '../server/config';
-import { searchItems, getItem } from '../server/data';
-
-await loadConfig();  // Einmalig, wird gecacht
-
-const perspectives = getAllPerspectives();
-const { items } = await searchItems({ query: '', limit: 50 });
-const steinpilz = await getItem('steinpilz');
----
-```
-
-## 🔧 Environment Variables
-
-| Variable | Default | Description |
-|----------|---------|-------------|
-| `POCKETBASE_URL` | `http://localhost:8090` | Pocketbase API URL |
-| `DATA_SOURCE` | `pocketbase` | `pocketbase`, `local`, or `auto` |
-
-### DATA_SOURCE Options
-- **pocketbase**: Only load from Pocketbase (default, recommended)
-- **local**: Only load from local JSON files (legacy mode)
-- **auto**: Try Pocketbase first, fallback to local if unavailable
+Alle lokalen JSON-Fallbacks werden entfernt.
 
 ---
 
-## 🚀 How to Add New Server Components
+## Dateien
 
-### A) Neue Collection zu data.ts hinzufügen
+| Datei | Beschreibung |
+|-------|--------------|
+| `bifroest.ts` | ⭐ PocketBase API Client (einzige Datenquelle!) |
+| `config.ts` | Server-Konfiguration, Domain-Farben, Site-Types |
+| `data.ts` | Datenlade-Abstraktion (ruft bifroest.ts auf) |
+| `cache.ts` | In-Memory Caching für PocketBase Responses |
+| `rate-limiter.ts` | Rate Limiting für API Requests |
+| `logger.ts` | Strukturiertes Logging |
 
-1. **Collection-Mapping erweitern** in `data.ts`:
+---
 
-```typescript
-const COLLECTION_MAP: Record<string, string> = {
-  fungi: 'species',
-  plantae: 'species',
-  therion: 'species',
-  paleontology: 'paleontology',
-  mineralogy: 'mineralogy',
-  // Neue Collection hinzufügen:
-  newdomain: 'newdomain',
-};
-```
+## bifroest.ts - PocketBase Client
 
-2. **Domain-Grouping erweitern**:
+### Hauptfunktionen
 
 ```typescript
-const DOMAIN_COLLECTIONS: Record<string, string[]> = {
-  biology: ['fungi', 'plantae', 'therion'],
-  geology: ['paleontology', 'mineralogy', 'tectonics'],
-  // Neue Domain-Gruppe hinzufügen:
-  newgroup: ['newdomain', 'otherdomain'],
-};
+// Entities einer Domain laden
+const entities = await loadSiteItems();
+
+// Experten für ein Feld laden
+const experts = await getExpertsForField('habitat');
+// → Matched via expert.field_expertise.includes('habitat')
+
+// Collection direkt abfragen
+const records = await fetchFromCollection('fungi');
+
+// Health Check
+const isUp = await checkBifroestConnection();
 ```
 
-### B) Neue Perspektiven zu config.ts hinzufügen
+### Collection-Zuordnung
 
-1. **DOMAIN_COLORS erweitern**:
+```typescript
+// Jede Domain hat ihre eigene Collection
+'fungi' → fungi_entities
+'phyto' → phyto_entities
+'drako' → drako_entities
+// etc. (17 Domains)
+```
 
+### Experten-System
+
+```typescript
+// Experten werden geladen und zu Feldern zugeordnet:
+const matchingExperts = loadedExperts.filter(expert => 
+  expert.field_expertise?.includes(fieldKey)
+);
+
+// Experten-Interface:
+interface Expert {
+  name: string;
+  domain: 'fungi' | 'phyto' | 'drako' | ... // 17 Domains
+  field_expertise: string[];  // z.B. ["habitat", "edibility", "genus"]
+  impact_score: number;       // NIEMALS an Client senden!
+  verified: boolean;
+}
+```
+
+---
+
+## data.ts - Datenlade-Abstraktion
+
+### Einziger Modus: PocketBase
+
+```typescript
+// loadAllItems() → ruft loadFromBifroest() auf
+// KEIN Fallback auf lokale Dateien mehr!
+export async function loadAllItems(): Promise<ItemData[]> {
+  return await loadFromBifroest();
+}
+```
+
+### Legacy-Code (wird entfernt)
+
+Der lokale JSON-Loader (`safeReadJson`, `DATA_PATH`, etc.) ist noch vorhanden, wird aber nicht mehr verwendet und in der nächsten Version entfernt.
+
+---
+
+## config.ts
+
+### Domain-Farben
 ```typescript
 export const DOMAIN_COLORS: Record<string, string> = {
-  fungi: '#22c55e',
-  // Neue Farbe hinzufügen:
-  newdomain: '#FF6B35',
+  fungi: 'hsl(220, 100%, 65%)',   // Blue
+  phyto: 'hsl(160, 60%, 50%)',    // Jade
+  drako: 'hsl(320, 80%, 65%)',    // Magenta
+  // ... 17 Domains
 };
 ```
 
-2. **perspektiven/index.yaml erweitern**:
-
-```yaml
-newdomain:
-  - perspective1
-  - perspective2
-  - perspective3
-```
-
-### C) PocketBase Client erweitern (bifroest.ts)
-
-1. **Neue Loader-Funktion**:
-
+### Site Meta
 ```typescript
-export async function loadNewDomainItems(filter?: string): Promise<ItemData[]> {
-  return loadByCollection('newdomain', filter);
-}
-```
-
-2. **Transformation erweitern** falls nötig:
-
-```typescript
-function transformPocketbaseItem(record: any, collection: string): ItemData {
-  const item: ItemData = {
-    // Standard-Felder
-    id: record.id,
-    slug: record.slug,
-    name: record.name,
-    // ...
-    
-    // Collection-spezifische Transformationen:
-    _collection: collection,
-    _domain: getDomainForCollection(collection),
-  };
-  
-  // Spezielle Behandlung für newdomain:
-  if (collection === 'newdomain') {
-    item.specialField = record.special_field;
-  }
-  
-  return item;
-}
-```
-
-### D) API-Endpoint hinzufügen
-
-In `src/pages/api/`:
-
-```typescript
-// src/pages/api/newdomain/[slug].ts
-import type { APIRoute } from 'astro';
-import { loadItemBySlug } from '../../../server/bifroest';
-import { validateSlug } from '../../../core/security';
-
-export const GET: APIRoute = async ({ params }) => {
-  const slug = validateSlug(params.slug || '');
-  if (!slug) {
-    return new Response('Invalid slug', { status: 400 });
-  }
-  
-  const item = await loadItemBySlug('newdomain', slug);
-  if (!item) {
-    return new Response('Not found', { status: 404 });
-  }
-  
-  return new Response(JSON.stringify(item), {
-    headers: { 'Content-Type': 'application/json' }
-  });
+export const SITE_META: Record<SiteType, SiteMeta> = {
+  fungi: { name: 'FUNGINOMI', color: 'funginomi', collection: 'fungi', domain: 'biology' },
+  // ... 17 Sites
 };
 ```
+
+---
+
+## Environment Variables
+
+```bash
+POCKETBASE_URL=http://127.0.0.1:8090   # PocketBase API
+DATA_SOURCE=pocketbase                  # Einziger unterstützter Wert!
+API_TIMEOUT=5000                        # Timeout in ms
+CACHE_TTL=300                           # Cache-Dauer in Sekunden
+```
+
+---
+
+## Wichtig
+
+- ❌ KEINE lokalen JSON-Dateien verwenden
+- ❌ KEINE `DATA_SOURCE=local` oder `DATA_SOURCE=auto`
+- ✅ Immer über bifroest.ts → PocketBase
+- ✅ Fehlerbehandlung für offline PocketBase (Error-State, kein Fallback!)
+
+---
+
+## 📚 Verwandte Dokumentation
+
+| Datei | Inhalt |
+|-------|--------|
+| [../../CLAUDE.md](../../CLAUDE.md) | AMORPH Root |
+| [../../../CLAUDE.md](../../../CLAUDE.md) | Monorepo Root |
+| [../../../bifroest-platform/claude.md](../../../bifroest-platform/claude.md) | Backend |
+
+---
+
+*Letzte Aktualisierung: Januar 2026*

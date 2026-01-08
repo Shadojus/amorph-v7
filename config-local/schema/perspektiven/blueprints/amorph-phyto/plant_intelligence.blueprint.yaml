@@ -1,0 +1,778 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# PLANT INTELLIGENCE PERSPECTIVE - LATERAL BLUEPRINT
+# Cognition, Memory, Learning & Decision-Making Without a Brain
+# Version: 1.0.0
+# Domain: PLANTS (Lateral Cognitive-Functional View)
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# PURPOSE: Captures plants as INFORMATION PROCESSORS without nervous systems
+# - Memory (short-term, long-term, epigenetic)
+# - Learning (habituation, sensitization, associative?)
+# - Decision-making (resource allocation, growth direction)
+# - Sensory integration (multi-modal stimulus perception)
+# - Electrical signaling (action potentials, variation potentials, slow wave potentials)
+# - Problem-solving & optimization
+# - Anticipation & predictive behavior
+# - "Social" behavior & kin recognition
+#
+# Based on 2025 research:
+# - Epigenetic memory mechanisms (J. Integrative Plant Biology 2025)
+# - AI & ML prediction of plant behavior from memory systems (2025)
+# - Electrical signaling in plants (rapid systemic responses)
+# - Calcium waves as long-distance signals
+# - Mimosa pudica habituation (classic example)
+# - Plant neurobiology & distributed intelligence
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: plant_intelligence
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PLANT IDENTITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+scientific_name:
+  # morph: text
+  ""
+
+common_name:
+  # morph: text
+  ""
+
+cognitive_complexity_rating:
+  # morph: rating
+  # subjective assessment
+  rating: 0
+  max: 10
+
+behavioral_plasticity:
+  # morph: rating
+  # ability to modify behavior
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SENSORY SYSTEMS - Multimodal Perception
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ─────────────────────────────────────────────────────────────────────────────
+# PHOTOPERCEPTION
+# ─────────────────────────────────────────────────────────────────────────────
+
+photoreceptors:
+  # morph: list
+  # phytochromes | cryptochromes | phototropins | UVR8 | Zeitlupe
+  - ""
+
+red_far_red_sensing:
+  # morph: boolean
+  # phytochromes
+  false
+
+blue_light_sensing:
+  # morph: boolean
+  # cryptochromes, phototropins
+  false
+
+uv_sensing:
+  # morph: boolean
+  # UVR8
+  false
+
+light_quality_discrimination:
+  # morph: boolean
+  # R:FR ratio, spectral information
+  false
+
+shade_avoidance_response:
+  # morph: boolean
+  false
+
+phototropism:
+  # morph: boolean
+  # directional growth to light
+  false
+
+photoperiodism:
+  # morph: boolean
+  # day length sensing
+  false
+
+circadian_clock:
+  # morph: boolean
+  # internal 24h rhythm
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GRAVITROPISM
+# ─────────────────────────────────────────────────────────────────────────────
+
+gravitropism:
+  # morph: boolean
+  # gravity sensing
+  false
+
+statoliths:
+  # morph: boolean
+  # starch-filled plastids for gravity sensing
+  false
+
+positive_gravitropism:
+  # morph: boolean
+  # roots grow down
+  false
+
+negative_gravitropism:
+  # morph: boolean
+  # shoots grow up
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MECHANOPERCEPTION (Touch, Wind, Vibration)
+# ─────────────────────────────────────────────────────────────────────────────
+
+mechanosensitivity:
+  # morph: boolean
+  false
+
+thigmotropism:
+  # morph: boolean
+  # touch-directed growth (vines, roots)
+  false
+
+thigmonasty:
+  # morph: boolean
+  # touch-induced movement (Mimosa, Venus flytrap)
+  false
+
+seismonasty:
+  # morph: boolean
+  # vibration-induced movement
+  false
+
+mechanosensitive_ion_channels:
+  # morph: list
+  # MCA | MSL | OSCA
+  - ""
+
+wind_sensing:
+  # morph: boolean
+  # thigmomorphogenesis
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CHEMOPERCEPTION
+# ─────────────────────────────────────────────────────────────────────────────
+
+chemosensitivity:
+  # morph: boolean
+  false
+
+voc_perception:
+  # morph: boolean
+  # airborne chemical sensing
+  false
+
+root_exudate_sensing:
+  # morph: boolean
+  # soil chemistry detection
+  false
+
+nutrient_sensing:
+  # morph: boolean
+  # N, P, K availability detection
+  false
+
+pathogen_associated_molecular_pattern_detection:
+  # morph: boolean
+  # PAMP/MAMP recognition
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HYDROTROPISM & WATER SENSING
+# ─────────────────────────────────────────────────────────────────────────────
+
+hydrotropism:
+  # morph: boolean
+  # root growth toward water
+  false
+
+water_potential_sensing:
+  # morph: boolean
+  false
+
+drought_stress_perception:
+  # morph: boolean
+  # ABA signaling
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# THERMOSENSING
+# ─────────────────────────────────────────────────────────────────────────────
+
+thermosensing:
+  # morph: boolean
+  false
+
+temperature_range_tolerance:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "°C"
+
+thermotropism:
+  # morph: boolean
+  # temperature-directed growth
+  false
+
+vernalization_requirement:
+  # morph: boolean
+  # cold-induced flowering
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MULTIMODAL INTEGRATION
+# ─────────────────────────────────────────────────────────────────────────────
+
+multimodal_sensory_integration:
+  # morph: boolean
+  # combining multiple stimuli
+  false
+
+sensory_hierarchy:
+  # morph: text
+  # which stimuli dominate
+  ""
+
+context_dependent_responses:
+  # morph: boolean
+  # same stimulus → different response depending on context
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MEMORY - Cellular to Epigenetic (2025 focus)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+memory_capability:
+  # morph: boolean
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SHORT-TERM MEMORY (Minutes to Hours)
+# ─────────────────────────────────────────────────────────────────────────────
+
+short_term_memory:
+  # morph: boolean
+  false
+
+short_term_memory_duration:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "hours"
+
+short_term_memory_mechanisms:
+  # morph: list
+  # ion_fluxes | metabolite_storage | protein_phosphorylation | RNA_polymerase_stalling
+  - ""
+
+calcium_signal_memory:
+  # morph: boolean
+  # Ca²⁺ signatures encoding information
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# LONG-TERM MEMORY (Days to Weeks)
+# ─────────────────────────────────────────────────────────────────────────────
+
+long_term_memory:
+  # morph: boolean
+  false
+
+long_term_memory_duration:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "days"
+
+long_term_memory_mechanisms:
+  # morph: list
+  # protein_synthesis | transcriptional_changes | metabolic_reprogramming
+  - ""
+
+stress_memory:
+  # morph: boolean
+  # priming from previous stress
+  false
+
+stress_memory_types:
+  # morph: list
+  # drought | heat | cold | herbivore | pathogen
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# EPIGENETIC MEMORY (Transgenerational, 2025)
+# ─────────────────────────────────────────────────────────────────────────────
+
+epigenetic_memory:
+  # morph: boolean
+  # (J. Integrative Plant Biology 2025)
+  false
+
+epigenetic_mechanisms:
+  # morph: list
+  # DNA_methylation | histone_modification | chromatin_remodeling | RNA_interference
+  - ""
+
+dna_methylation:
+  # morph: boolean
+  false
+
+histone_modifications:
+  # morph: list
+  # H3K4me3 | H3K9me2 | H3K27me3 | acetylation
+  - ""
+
+chromatin_remodeling:
+  # morph: boolean
+  # (2025: epigenetic blueprints)
+  false
+
+transgenerational_memory:
+  # morph: boolean
+  # passing memory to offspring
+  false
+
+transgenerational_stress_adaptation:
+  # morph: boolean
+  false
+
+epigenetic_reset_vs_maintenance:
+  # morph: badge
+  # reset_each_generation | maintained | partial
+  status: ""
+  variant: ""
+
+ai_ml_epigenetic_prediction:
+  # morph: boolean
+  # AI predicting plant behavior from epigenetic state (2025)
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LEARNING - Behavioral Modification
+# ═══════════════════════════════════════════════════════════════════════════════
+
+learning_capability:
+  # morph: boolean
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# NON-ASSOCIATIVE LEARNING
+# ─────────────────────────────────────────────────────────────────────────────
+
+habituation:
+  # morph: boolean
+  # decreased response to repeated non-harmful stimulus
+  false
+
+habituation_examples:
+  # morph: list
+  # Mimosa pudica to repeated touch
+  - ""
+
+habituation_duration:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "minutes"
+
+sensitization:
+  # morph: boolean
+  # increased response to repeated harmful stimulus
+  false
+
+sensitization_examples:
+  # morph: list
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ASSOCIATIVE LEARNING (Controversial)
+# ─────────────────────────────────────────────────────────────────────────────
+
+associative_learning:
+  # morph: boolean
+  # linking two stimuli (debated)
+  false
+
+classical_conditioning_evidence:
+  # morph: rating
+  # Pavlovian-like learning
+  rating: 0
+  max: 10
+
+operant_conditioning_evidence:
+  # morph: rating
+  # learning from consequences
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ELECTRICAL SIGNALING - Plant "Nervous System"
+# ═══════════════════════════════════════════════════════════════════════════════
+
+electrical_signaling:
+  # morph: boolean
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ACTION POTENTIALS (APs)
+# ─────────────────────────────────────────────────────────────────────────────
+
+action_potentials:
+  # morph: boolean
+  # rapid all-or-nothing signals
+  false
+
+ap_velocity:
+  # morph: range
+  # cm/s
+  min: 0
+  max: 0
+  unit: "cm/s"
+
+ap_ion_channels:
+  # morph: list
+  # Ca²⁺ | Cl⁻ | K⁺ channels
+  - ""
+
+ap_triggers:
+  # morph: list
+  # wounding | cold | touch | electrical_stimulation
+  - ""
+
+ap_biological_functions:
+  # morph: list
+  # rapid_movement | systemic_wound_response | trap_closure
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# VARIATION POTENTIALS (VPs)
+# ─────────────────────────────────────────────────────────────────────────────
+
+variation_potentials:
+  # morph: boolean
+  # slower, graded hydraulic/chemical wave
+  false
+
+vp_velocity:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "cm/s"
+
+vp_triggers:
+  # morph: list
+  # wounding | burning | herbivory | local_cooling
+  - ""
+
+vp_functions:
+  # morph: list
+  # photosynthesis_downregulation | respiration_increase | defense_activation
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SLOW WAVE POTENTIALS (SWPs)
+# ─────────────────────────────────────────────────────────────────────────────
+
+slow_wave_potentials:
+  # morph: boolean
+  # rhythmic oscillations
+  false
+
+swp_period:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "minutes"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CALCIUM WAVES
+# ─────────────────────────────────────────────────────────────────────────────
+
+calcium_waves:
+  # morph: boolean
+  # long-distance Ca²⁺ signals
+  false
+
+calcium_wave_velocity:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "μm/s"
+
+calcium_signatures:
+  # morph: boolean
+  # stimulus-specific Ca²⁺ patterns
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DECISION-MAKING - Resource Allocation & Growth
+# ═══════════════════════════════════════════════════════════════════════════════
+
+decision_making_capability:
+  # morph: boolean
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ROOT FORAGING DECISIONS
+# ─────────────────────────────────────────────────────────────────────────────
+
+root_foraging_strategy:
+  # morph: badge
+  # exploration | exploitation | mixed
+  status: ""
+  variant: ""
+
+nutrient_patch_exploitation:
+  # morph: boolean
+  # roots proliferate in nutrient-rich patches
+  false
+
+root_segregation:
+  # morph: boolean
+  # avoiding own roots vs. others
+  false
+
+self_other_discrimination:
+  # morph: boolean
+  # kin recognition in roots
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# SHOOT GROWTH DECISIONS
+# ─────────────────────────────────────────────────────────────────────────────
+
+branch_placement_optimization:
+  # morph: boolean
+  # phyllotaxis, light capture optimization
+  false
+
+apical_dominance_regulation:
+  # morph: boolean
+  # auxin-mediated branching control
+  false
+
+shade_intolerance:
+  # morph: rating
+  # competitive growth response
+  rating: 0
+  max: 10
+
+# ─────────────────────────────────────────────────────────────────────────────
+# MULTI-CRITERIA DECISION-MAKING
+# ─────────────────────────────────────────────────────────────────────────────
+
+multi_criteria_trade_offs:
+  # morph: boolean
+  # balancing growth vs defense, light vs water
+  false
+
+cost_benefit_analysis:
+  # morph: boolean
+  # resource allocation optimization
+  false
+
+risk_assessment:
+  # morph: boolean
+  # probability-based decisions
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PROBLEM-SOLVING & OPTIMIZATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+problem_solving_examples:
+  # morph: list
+  # obstacle_avoidance | resource_finding | optimal_growth_form
+  - ""
+
+obstacle_avoidance:
+  # morph: boolean
+  # roots/shoots growing around barriers
+  false
+
+maze_solving_analogy:
+  # morph: boolean
+  # roots finding optimal path to resource
+  false
+
+optimal_foraging_theory_application:
+  # morph: boolean
+  # maximizing resource gain per unit effort
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ANTICIPATION & PREDICTIVE BEHAVIOR
+# ═══════════════════════════════════════════════════════════════════════════════
+
+anticipatory_behavior:
+  # morph: boolean
+  false
+
+circadian_anticipation:
+  # morph: boolean
+  # preparing for dawn before sunrise
+  false
+
+seasonal_anticipation:
+  # morph: boolean
+  # vernalization, photoperiodism
+  false
+
+predictive_stress_response:
+  # morph: boolean
+  # priming before stress arrives
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# "SOCIAL" BEHAVIOR & COMMUNICATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+social_behavior:
+  # morph: boolean
+  # interactions with conspecifics
+  false
+
+kin_recognition:
+  # morph: boolean
+  # discriminating relatives from strangers
+  false
+
+kin_recognition_mechanism:
+  # morph: badge
+  # root_exudate_chemistry | genetic_self_recognition | unknown
+  status: ""
+  variant: ""
+
+competitive_vs_cooperative_strategy:
+  # morph: badge
+  # depends_on_kin | always_competitive | context_dependent
+  status: ""
+  variant: ""
+
+altruistic_behavior:
+  # morph: boolean
+  # helping kin at cost to self (debated)
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DISTRIBUTED INTELLIGENCE - No Central Processor
+# ═══════════════════════════════════════════════════════════════════════════════
+
+distributed_information_processing:
+  # morph: boolean
+  # decentralized cognition
+  true
+
+root_apex_as_computation_unit:
+  # morph: boolean
+  # each root tip processes locally
+  false
+
+modular_cognitive_units:
+  # morph: number
+  # independent decision-making modules
+  0
+
+emergent_plant_level_behavior:
+  # morph: boolean
+  # whole-plant behavior from local rules
+  false
+
+swarm_intelligence_analogy:
+  # morph: boolean
+  # like ant colonies, no central brain
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONSCIOUSNESS DEBATE (Philosophical)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+sentience_debate:
+  # morph: badge
+  # sentient | non_sentient | undefined | irrelevant_question
+  status: ""
+  variant: ""
+
+phenomenal_consciousness_claim:
+  # morph: boolean
+  # subjective experience (highly debated)
+  false
+
+plant_neurobiology_validity:
+  # morph: badge
+  # valid_field | controversial | rejected
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CLASSIC EXAMPLES - Model Systems
+# ═══════════════════════════════════════════════════════════════════════════════
+
+mimosa_pudica_rapid_movement:
+  # morph: boolean
+  # thigmonasty, habituation
+  false
+
+venus_flytrap_counting:
+  # morph: boolean
+  # counts touches before snapping
+  false
+
+dodder_host_selection:
+  # morph: boolean
+  # chooses best host via VOC sensing
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LITERATURE REFERENCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_research_papers:
+  # morph: list
+  - ""
+
+plant_intelligence_literature:
+  # morph: citation
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+data_source:
+  # morph: badge
+  # behavioral_experiment | electrophysiology | molecular | literature
+  status: ""
+  variant: ""
+
+experimental_paradigm:
+  # morph: badge
+  # conditioning | habituation | choice_test | electrophysiology
+  status: ""
+  variant: ""
+
+confidence_level:
+  # morph: badge
+  # high | medium | low | speculative | controversial
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""

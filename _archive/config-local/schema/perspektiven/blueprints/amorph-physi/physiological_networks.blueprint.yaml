@@ -1,0 +1,630 @@
+# PHYSIOLOGICAL NETWORKS - Physiology
+# Version: 1.0.0 | Domain: PHYSIOLOGY (Lateral)
+# Based on: Integrative Physiology 2.0 (AJP 2025), Systems Biology (2025)
+# PARADIGM SHIFT: From isolated organ systems → Integrated cross-system communication networks
+
+perspective: physiological_networks
+version: "1.0.0"
+
+# ============================================================================
+# CORE IDENTITY
+# ============================================================================
+
+organism:
+  # morph: text
+  ""
+
+taxonomy:
+  # morph: hierarchy
+  - level: ""
+    name: ""
+    rank: ""
+
+physiological_state:
+  # morph: badge
+  # resting | exercise | stress | disease | pregnancy | aging | development
+  status: ""
+  variant: ""
+
+integration_level:
+  # morph: badge
+  # organ_system | whole_organism | population
+  status: ""
+  variant: ""
+
+# ============================================================================
+# COMMUNICATION MODES - Cross-system signaling
+# ============================================================================
+
+signaling_modes:
+  # morph: distribution
+  categories:
+    - mode: "Neural"
+      speed: "Fast (ms-s)"
+      range: "Point-to-point"
+      contribution: 0
+    - mode: "Endocrine"
+      speed: "Slow (min-h)"
+      range: "Systemic"
+      contribution: 0
+    - mode: "Paracrine"
+      speed: "Moderate (s-min)"
+      range: "Local"
+      contribution: 0
+    - mode: "Autocrine"
+      speed: "Moderate"
+      range: "Same cell"
+      contribution: 0
+    - mode: "Juxtacrine"
+      speed: "Fast"
+      range: "Adjacent cells"
+      contribution: 0
+
+dominant_signaling:
+  # morph: badge
+  # neural | endocrine | mixed | paracrine
+  status: ""
+  variant: ""
+
+# ============================================================================
+# NEUROENDOCRINE INTEGRATION - CNS-hormonal crosstalk
+# ============================================================================
+
+neuroendocrine_axes:
+  # morph: network
+  nodes:
+    - id: ""
+      component: ""
+      type: ""
+      function: ""
+  edges:
+    - source: ""
+      target: ""
+      signal: ""
+      feedback: ""
+
+hypothalamic_pituitary_axis:
+  # morph: badge
+  # active | inactive
+  status: ""
+  variant: ""
+
+hpa_axis:
+  # morph: network
+  # Hypothalamus-Pituitary-Adrenal
+  nodes:
+    - id: ""
+      organ: ""
+      hormone: ""
+      function: ""
+  edges:
+    - source: ""
+      target: ""
+      regulation: ""
+      feedback_type: ""
+
+hpg_axis:
+  # morph: network
+  # Hypothalamus-Pituitary-Gonadal
+  nodes:
+    - id: ""
+      organ: ""
+      hormone: ""
+  edges:
+    - source: ""
+      target: ""
+      regulation: ""
+
+hpt_axis:
+  # morph: network
+  # Hypothalamus-Pituitary-Thyroid
+  nodes:
+    - id: ""
+      organ: ""
+      hormone: ""
+  edges:
+    - source: ""
+      target: ""
+      regulation: ""
+
+# ============================================================================
+# AUTONOMIC NERVOUS SYSTEM - Visceral control
+# ============================================================================
+
+autonomic_regulation:
+  # morph: badge
+  # balanced | sympathetic_dominant | parasympathetic_dominant
+  status: ""
+  variant: ""
+
+sympathetic_targets:
+  # morph: list
+  items:
+    - organ: ""
+      effect: ""
+      neurotransmitter: ""
+      receptor: ""
+
+parasympathetic_targets:
+  # morph: list
+  items:
+    - organ: ""
+      effect: ""
+      neurotransmitter: ""
+      receptor: ""
+
+autonomic_balance:
+  # morph: gauge
+  # Sympathovagal balance (LF/HF ratio)
+  current: 0
+  target: 0
+  unit: "ratio"
+
+heart_rate_variability:
+  # morph: number
+  # RMSSD (ms)
+  0
+
+# ============================================================================
+# CARDIOVASCULAR-RESPIRATORY COUPLING
+# ============================================================================
+
+cardiorespiratory_integration:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+respiratory_sinus_arrhythmia:
+  # morph: badge
+  # present | absent
+  # HR increases with inspiration
+  status: ""
+  variant: ""
+
+ventilation_perfusion_matching:
+  # morph: gauge
+  # V/Q ratio
+  current: 0
+  target: 1
+  unit: "ratio"
+
+chemoreceptor_reflex:
+  # morph: network
+  # O2/CO2 sensors → brainstem → ventilation/circulation
+  nodes:
+    - id: ""
+      component: ""
+      function: ""
+  edges:
+    - source: ""
+      target: ""
+      effect: ""
+
+# ============================================================================
+# METABOLIC-ENDOCRINE NETWORKS
+# ============================================================================
+
+glucose_regulation_network:
+  # morph: network
+  # Pancreas, liver, muscle, adipose, brain
+  nodes:
+    - id: ""
+      organ: ""
+      role: ""
+      hormone: ""
+  edges:
+    - source: ""
+      target: ""
+      signal: ""
+      effect: ""
+
+insulin_signaling:
+  # morph: badge
+  # normal | impaired | absent
+  status: ""
+  variant: ""
+
+glucagon_counterregulation:
+  # morph: badge
+  # normal | impaired
+  status: ""
+  variant: ""
+
+incretin_effect:
+  # morph: badge
+  # normal | reduced
+  # GLP-1, GIP gut hormones
+  status: ""
+  variant: ""
+
+# ============================================================================
+# GUT-BRAIN AXIS - Bidirectional communication
+# ============================================================================
+
+gut_brain_axis:
+  # morph: badge
+  # active | impaired
+  status: ""
+  variant: ""
+
+gut_hormones:
+  # morph: list
+  items:
+    - hormone: ""
+      source: ""
+      brain_target: ""
+      function: ""
+
+vagal_afferents:
+  # morph: badge
+  # active | impaired
+  # Gut → brain signals
+  status: ""
+  variant: ""
+
+vagal_efferents:
+  # morph: badge
+  # active | impaired
+  # Brain → gut signals
+  status: ""
+  variant: ""
+
+gut_microbiome_signaling:
+  # morph: badge
+  # yes | no
+  # Microbial metabolites → brain
+  status: ""
+  variant: ""
+
+# ============================================================================
+# NEUROIMMUNE COMMUNICATION
+# ============================================================================
+
+neuroimmune_interface:
+  # morph: badge
+  # active | impaired
+  status: ""
+  variant: ""
+
+inflammatory_reflex:
+  # morph: network
+  # Vagus nerve anti-inflammatory pathway
+  nodes:
+    - id: ""
+      component: ""
+      function: ""
+  edges:
+    - source: ""
+      target: ""
+      signal: ""
+
+cytokine_cns_effects:
+  # morph: list
+  items:
+    - cytokine: ""
+      cns_effect: ""
+      behavior: ""
+
+sickness_behavior:
+  # morph: badge
+  # present | absent
+  # Cytokine-induced lethargy, anorexia
+  status: ""
+  variant: ""
+
+hpa_immune_crosstalk:
+  # morph: badge
+  # yes | no
+  # Cortisol immunosuppression
+  status: ""
+  variant: ""
+
+# ============================================================================
+# RENAL-CARDIOVASCULAR AXIS
+# ============================================================================
+
+renal_cardiovascular_integration:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+renin_angiotensin_aldosterone_system:
+  # morph: network
+  # RAAS
+  nodes:
+    - id: ""
+      component: ""
+      function: ""
+  edges:
+    - source: ""
+      target: ""
+      effect: ""
+
+natriuretic_peptides:
+  # morph: badge
+  # active | inactive
+  # ANP, BNP
+  status: ""
+  variant: ""
+
+# ============================================================================
+# CIRCADIAN NETWORKS - Temporal coordination
+# ============================================================================
+
+circadian_synchronization:
+  # morph: badge
+  # synchronized | desynchronized
+  status: ""
+  variant: ""
+
+central_clock:
+  # morph: badge
+  # scn | other | not_applicable
+  # Suprachiasmatic nucleus
+  status: ""
+  variant: ""
+
+peripheral_clocks:
+  # morph: list
+  items:
+    - tissue: ""
+      clock_gene_expression: ""
+      phase: ""
+
+circadian_hormones:
+  # morph: timeline
+  events:
+    - time: ""
+      hormone: ""
+      level: ""
+      function: ""
+
+# ============================================================================
+# REPRODUCTIVE NETWORKS
+# ============================================================================
+
+reproductive_integration:
+  # morph: badge
+  # yes | no | not_applicable
+  status: ""
+  variant: ""
+
+hpg_axis_activity:
+  # morph: badge
+  # prepubertal | active | suppressed | menopausal
+  status: ""
+  variant: ""
+
+sex_hormones:
+  # morph: list
+  items:
+    - hormone: ""
+      source: ""
+      systemic_effects: ""
+
+# ============================================================================
+# SKELETAL-ENDOCRINE AXIS
+# ============================================================================
+
+bone_endocrine_function:
+  # morph: badge
+  # yes | no
+  # Bone as endocrine organ (osteocalcin)
+  status: ""
+  variant: ""
+
+osteocalcin:
+  # morph: badge
+  # active | inactive
+  # Bone → metabolism, reproduction, cognition
+  status: ""
+  variant: ""
+
+# ============================================================================
+# ADIPOSE-ENDOCRINE FUNCTION
+# ============================================================================
+
+adipose_endocrine_function:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+adipokines:
+  # morph: list
+  items:
+    - adipokine: ""
+      function: ""
+      target_organs: ""
+
+leptin_signaling:
+  # morph: badge
+  # normal | leptin_resistant
+  status: ""
+  variant: ""
+
+adiponectin:
+  # morph: badge
+  # normal | low | high
+  status: ""
+  variant: ""
+
+# ============================================================================
+# MUSCLE-ENDOCRINE FUNCTION
+# ============================================================================
+
+myokines:
+  # morph: badge
+  # yes | no
+  # Muscle-secreted cytokines
+  status: ""
+  variant: ""
+
+myokine_list:
+  # morph: list
+  items:
+    - myokine: ""
+      function: ""
+      target_tissue: ""
+
+# ============================================================================
+# LIVER-SYSTEMIC INTEGRATION
+# ============================================================================
+
+hepatic_integration:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+hepatokines:
+  # morph: list
+  items:
+    - hepatokine: ""
+      function: ""
+      target: ""
+
+# ============================================================================
+# FEEDBACK LOOPS - Cross-system regulation
+# ============================================================================
+
+negative_feedback_loops:
+  # morph: number
+  # Cross-system negative feedback
+  0
+
+negative_feedback_examples:
+  # morph: list
+  items:
+    - loop: ""
+      systems_involved: ""
+      variable: ""
+      setpoint: ""
+
+positive_feedback_loops:
+  # morph: number
+  0
+
+positive_feedback_examples:
+  # morph: list
+  items:
+    - loop: ""
+      systems_involved: ""
+      function: ""
+      termination: ""
+
+# ============================================================================
+# REDUNDANCY & COMPENSATION
+# ============================================================================
+
+redundant_pathways:
+  # morph: list
+  # Multiple systems regulating same function
+  items:
+    - function: ""
+      primary_system: ""
+      backup_systems: ""
+
+compensatory_mechanisms:
+  # morph: list
+  items:
+    - primary_failure: ""
+      compensating_system: ""
+      effectiveness: ""
+
+# ============================================================================
+# DISEASE & DYSREGULATION
+# ============================================================================
+
+network_dysregulation:
+  # morph: badge
+  # none | mild | moderate | severe
+  status: ""
+  variant: ""
+
+dysregulated_axes:
+  # morph: list
+  items:
+    - axis: ""
+      dysregulation_type: ""
+      consequence: ""
+
+metabolic_syndrome:
+  # morph: badge
+  # absent | present
+  status: ""
+  variant: ""
+
+# ============================================================================
+# AGING EFFECTS
+# ============================================================================
+
+age_related_network_changes:
+  # morph: list
+  items:
+    - network: ""
+      age_related_change: ""
+      functional_impact: ""
+
+# ============================================================================
+# SEX DIFFERENCES
+# ============================================================================
+
+sex_differences:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+sex_specific_networks:
+  # morph: list
+  items:
+    - network: ""
+      sex_difference: ""
+      mechanism: ""
+
+# ============================================================================
+# COMPUTATIONAL MODELING
+# ============================================================================
+
+network_model:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+model_type:
+  # morph: badge
+  # ode | boolean | agent_based | graph_network | none
+  status: ""
+  variant: ""
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""
+
+curator:
+  # morph: text
+  ""
+
+notes:
+  # morph: text
+  ""
+
+references:
+  # morph: list
+  items:
+    - citation: ""
+      doi: ""
+      year: ""

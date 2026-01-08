@@ -511,7 +511,7 @@ export function getCompareHighlightInfo(): { current: number; total: number } {
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // SPECIES HIGHLIGHT SYSTEM
-// Interaktive Verknüpfung - Hover/Click auf Spezies highlightet alle zugehörigen Daten
+// VEREINFACHT: Nur noch Click-to-Toggle, kein Hover mehr (zu buggy)
 // ═══════════════════════════════════════════════════════════════════════════════
 
 let activeSpecies: string | null = null;
@@ -521,92 +521,49 @@ function initSpeciesHighlight(container: Element): void {
   const speciesElements = container.querySelectorAll('[data-species]');
   
   speciesElements.forEach(el => {
-    // Hover events
-    el.addEventListener('mouseenter', handleSpeciesHover);
-    el.addEventListener('mouseleave', handleSpeciesLeave);
-    
-    // Click for sticky highlight (toggle)
+    // NUR Click - kein Hover mehr (war zu buggy)
     el.addEventListener('click', handleSpeciesClick);
   });
   
-  // Field value items - klickbar machen für Highlight
+  // Helper function to setup interactive items - NUR Click
+  const setupClickableItem = (item: Element, species: string) => {
+    (item as HTMLElement).style.cursor = 'pointer';
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleStickyHighlight(species);
+    });
+  };
+  
+  // Field value items - klickbar für Highlight
   const fieldValueItems = container.querySelectorAll('.field-value-item');
   fieldValueItems.forEach(item => {
     const label = item.querySelector('.item-label');
     if (label) {
       const species = label.textContent?.trim();
-      if (species) {
-        (item as HTMLElement).style.cursor = 'pointer';
-        item.addEventListener('mouseenter', () => {
-          if (!activeSpecies) highlightSpecies(species);
-        });
-        item.addEventListener('mouseleave', () => {
-          if (!activeSpecies) clearHighlight();
-        });
-        item.addEventListener('click', (e) => {
-          e.stopPropagation();
-          toggleStickyHighlight(species);
-        });
-      }
+      if (species) setupClickableItem(item, species);
     }
   });
   
-  // Radar legend items - klickbar machen
+  // Radar legend items
   const radarLegendItems = container.querySelectorAll('.radar-legend-item');
   radarLegendItems.forEach(item => {
     const species = (item as HTMLElement).dataset.species || 
                     item.querySelector('.radar-legend-label')?.textContent?.trim();
-    if (species) {
-      (item as HTMLElement).style.cursor = 'pointer';
-      item.addEventListener('mouseenter', () => {
-        if (!activeSpecies) highlightSpecies(species);
-      });
-      item.addEventListener('mouseleave', () => {
-        if (!activeSpecies) clearHighlight();
-      });
-      item.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleStickyHighlight(species);
-      });
-    }
+    if (species) setupClickableItem(item, species);
   });
   
-  // Sparkline legend items - klickbar machen
+  // Sparkline legend items
   const sparklineLegendItems = container.querySelectorAll('.sparkline-legend-item');
   sparklineLegendItems.forEach(item => {
     const species = (item as HTMLElement).dataset.species || item.textContent?.trim();
-    if (species) {
-      (item as HTMLElement).style.cursor = 'pointer';
-      item.addEventListener('mouseenter', () => {
-        if (!activeSpecies) highlightSpecies(species);
-      });
-      item.addEventListener('mouseleave', () => {
-        if (!activeSpecies) clearHighlight();
-      });
-      item.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleStickyHighlight(species);
-      });
-    }
+    if (species) setupClickableItem(item, species);
   });
   
-  // Timeline legend items - klickbar machen
+  // Timeline legend items
   const timelineLegendItems = container.querySelectorAll('.timeline-legend-item');
   timelineLegendItems.forEach(item => {
     const species = item.textContent?.trim();
-    if (species) {
-      (item as HTMLElement).style.cursor = 'pointer';
-      item.addEventListener('mouseenter', () => {
-        if (!activeSpecies) highlightSpecies(species);
-      });
-      item.addEventListener('mouseleave', () => {
-        if (!activeSpecies) clearHighlight();
-      });
-      item.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleStickyHighlight(species);
-      });
-    }
+    if (species) setupClickableItem(item, species);
   });
   
   // Add remove button handlers for legend items (species-level removal)
@@ -625,20 +582,12 @@ function initSpeciesHighlight(container: Element): void {
     speciesElements: speciesElements.length, 
     fieldValueItems: fieldValueItems.length,
     radarLegendItems: radarLegendItems.length,
-    removeButtons: removeButtons.length 
+    removeButtons: removeButtons.length
   });
 }
 
-function handleSpeciesHover(e: Event): void {
-  if (activeSpecies) return; // Don't override sticky highlight
-  const species = (e.currentTarget as HTMLElement).dataset.species;
-  if (species) highlightSpecies(species);
-}
-
-function handleSpeciesLeave(): void {
-  if (activeSpecies) return; // Keep sticky highlight
-  clearHighlight();
-}
+// ENTFERNT: handleSpeciesHover und handleSpeciesLeave - zu buggy
+// Nur noch Click-basiertes Toggle
 
 function handleSpeciesClick(e: Event): void {
   e.stopPropagation();
@@ -860,19 +809,44 @@ function clearHighlight(): void {
 // Update selection pills dimming based on active species
 function updateSelectionPillsHighlight(activeSpeciesName: string | null): void {
   const pills = document.querySelectorAll('.selection-pill');
+  let activePill: Element | null = null;
+  
   pills.forEach(pill => {
     const pillSpecies = pill.getAttribute('data-species');
     if (activeSpeciesName === null) {
       // Kein Highlight aktiv - alle Pills normal
       pill.classList.remove('is-dimmed');
+      pill.classList.remove('is-active-highlight');
     } else if (pillSpecies === activeSpeciesName) {
-      // Diese Spezies ist aktiv - nicht dimmen
+      // Diese Spezies ist aktiv - nicht dimmen, markieren als aktiv
       pill.classList.remove('is-dimmed');
+      pill.classList.add('is-active-highlight');
+      activePill = pill;
     } else {
       // Andere Spezies - dimmen
       pill.classList.add('is-dimmed');
+      pill.classList.remove('is-active-highlight');
     }
   });
+  
+  // Scroll active pill into view
+  if (activePill) {
+    const pillsContainer = document.querySelector('.selection-pills');
+    if (pillsContainer) {
+      // Calculate scroll position to center the pill
+      const containerRect = pillsContainer.getBoundingClientRect();
+      const pillRect = activePill.getBoundingClientRect();
+      const scrollLeft = pillsContainer.scrollLeft;
+      const pillCenter = pillRect.left - containerRect.left + scrollLeft + pillRect.width / 2;
+      const containerCenter = containerRect.width / 2;
+      const targetScroll = pillCenter - containerCenter;
+      
+      pillsContainer.scrollTo({
+        left: Math.max(0, targetScroll),
+        behavior: 'smooth'
+      });
+    }
+  }
 }
 
 // Clear highlight when clicking outside
@@ -906,6 +880,9 @@ function showError(message: string): void {
 // EVENTS
 // ═══════════════════════════════════════════════════════════════════════════════
 
+// Debounce for live updates to prevent race conditions
+let liveUpdateTimeout: ReturnType<typeof setTimeout> | null = null;
+
 // Listen for selection changes
 document.addEventListener('amorph:selection-changed', (e: Event) => {
   const detail = (e as CustomEvent).detail;
@@ -931,7 +908,14 @@ document.addEventListener('amorph:selection-changed', (e: Event) => {
   }
   
   // Live update: seamlessly refresh compare view if open and selection changed
+  // DEBOUNCED: Wait 100ms for rapid selection changes to settle
   if (isOpen && canShow && !isLoading) {
-    showCompare(true);  // Seamless update without loading indicator
+    if (liveUpdateTimeout) clearTimeout(liveUpdateTimeout);
+    liveUpdateTimeout = setTimeout(() => {
+      liveUpdateTimeout = null;
+      if (isOpen && !isLoading) {
+        showCompare(true);  // Seamless update without loading indicator
+      }
+    }, 100);
   }
 });

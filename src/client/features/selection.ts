@@ -295,9 +295,20 @@ export function subscribe(listener: () => void): () => void {
   return () => listeners.delete(listener);
 }
 
+// Microtask-based debounce to batch rapid selection changes
+let notifyPending = false;
+
 function notifyListeners(): void {
-  listeners.forEach(fn => fn());
-  saveToStorage();
+  // Debounce: Only notify once per microtask
+  // This batches rapid clicks (e.g., double-click, fast selection)
+  if (notifyPending) return;
+  notifyPending = true;
+  
+  queueMicrotask(() => {
+    notifyPending = false;
+    listeners.forEach(fn => fn());
+    saveToStorage();
+  });
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════

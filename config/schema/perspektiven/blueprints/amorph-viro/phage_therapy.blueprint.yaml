@@ -1,0 +1,117 @@
+# PHAGE THERAPY - CRISPR-Armed Phages & Therapeutic Applications
+# Version: 1.0.0 | Domain: VIRUSES (Lateral)
+# Based on: SNIPR001 Phase 1b (2025), LBP-EC01 ELIMINATE trial (2025)
+
+perspective: phage_therapy
+version: "1.0.0"
+
+phage_name:
+  # morph: text
+  ""
+
+# THERAPEUTIC DEVELOPMENT (2025)
+clinical_trial_status:
+  # morph: badge
+  # preclinical | phase_1 | phase_2 | phase_3 | approved
+  status: ""
+  variant: ""
+
+crispr_armed_phage:
+  # morph: boolean
+  # CAP - SNIPR001 approach (2025)
+  false
+
+crispr_system:
+  # morph: badge
+  # Cas9 | Cas3 | Cas12 | none
+  status: ""
+  variant: ""
+
+target_bacteria:
+  # morph: list
+  # E. coli | P. aeruginosa | S. aureus
+  - ""
+
+antibiotic_resistance_target:
+  # morph: list
+  # fluoroquinolone | carbapenem | methicillin
+  - ""
+
+# PRECISION TARGETING
+microbiome_preservation:
+  # morph: boolean
+  # selective vs broad-spectrum
+  false
+
+off_target_effects:
+  # morph: rating
+  # lower = better
+  rating: 0
+  max: 10
+
+# ENGINEERING (2025)
+phage_engineering_methods:
+  # morph: list
+  # CRISPR_editing | phage_display | mutagenesis | retrons | rebooting
+  - ""
+
+synthetic_biology_modifications:
+  # morph: list
+  - ""
+
+# THERAPEUTIC EFFICACY
+bacterial_load_reduction:
+  # morph: gauge
+  # % reduction
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+resistance_evolution_risk:
+  # morph: rating
+  rating: 0
+  max: 10
+
+# DELIVERY & FORMULATION
+administration_route:
+  # morph: badge
+  # oral | topical | IV | inhalation
+  status: ""
+  variant: ""
+
+phage_cocktail:
+  # morph: boolean
+  # multiple phages
+  false
+
+phage_count_in_cocktail:
+  # morph: number
+  0
+
+# CLINICAL APPLICATIONS
+treatment_indication:
+  # morph: list
+  # UTI | wound_infection | sepsis | gut_decolonization
+  - ""
+
+combination_with_antibiotics:
+  # morph: boolean
+  false
+
+# REGULATORY STATUS
+regulatory_pathway:
+  # morph: badge
+  # investigational | compassionate_use | approved
+  status: ""
+  variant: ""
+
+# DATA
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""

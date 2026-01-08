@@ -1,0 +1,873 @@
+# BIOSYNTHETIC PATHWAYS - Chemistry
+# Version: 1.0.0 | Domain: CHEMISTRY (Holistic)
+# Based on: Natural Product Biosynthesis (Nature Comms 2025), Single-Cell Metabolomics (JACS 2025)
+# PARADIGM SHIFT: From isolated enzymes → Integrated biosynthetic pathways as systems
+
+perspective: biosynthetic_pathways
+version: "1.0.0"
+
+# ============================================================================
+# CORE IDENTITY
+# ============================================================================
+
+organism_source:
+  # morph: text
+  # Organism producing the compound
+  ""
+
+taxonomy:
+  # morph: hierarchy
+  - level: ""
+    name: ""
+    rank: ""
+
+compound_class:
+  # morph: badge
+  # terpenoid | polyketide | alkaloid | peptide | phenylpropanoid | fatty_acid | amino_acid
+  status: ""
+  variant: ""
+
+pathway_name:
+  # morph: text
+  # E.g., "Paclitaxel biosynthesis", "Penicillin pathway"
+  ""
+
+biological_function:
+  # morph: badge
+  # defense | signaling | structural | antibiotic | pigment | hormone | toxin
+  status: ""
+  variant: ""
+
+# ============================================================================
+# PATHWAY ARCHITECTURE - The WHOLE synthesis route
+# ============================================================================
+
+pathway_steps:
+  # morph: number
+  # Total enzymatic steps
+  0
+
+pathway_length:
+  # morph: badge
+  # short_1_5 | moderate_6_15 | long_16_30 | very_long_30plus
+  status: ""
+  variant: ""
+
+pathway_topology:
+  # morph: badge
+  # linear | branched | convergent | divergent | cyclic | network
+  status: ""
+  variant: ""
+
+pathway_map:
+  # morph: network
+  # Visual representation of pathway
+  nodes:
+    - id: ""
+      compound: ""
+      step: 0
+      enzyme: ""
+  edges:
+    - source: ""
+      target: ""
+      reaction_type: ""
+      cofactors: ""
+
+starting_substrate:
+  # morph: text
+  # Primary precursor (e.g., "acetyl-CoA", "mevalonate", "chorismate")
+  ""
+
+final_product:
+  # morph: text
+  # End product
+  ""
+
+intermediates:
+  # morph: number
+  # Number of intermediate compounds
+  0
+
+# ============================================================================
+# BIOSYNTHETIC GENE CLUSTERS - Genomic organization
+# ============================================================================
+
+gene_cluster:
+  # morph: badge
+  # yes | no
+  # Genes physically clustered in genome
+  status: ""
+  variant: ""
+
+cluster_size:
+  # morph: number
+  # Size in kb
+  0
+
+genes_in_cluster:
+  # morph: number
+  0
+
+cluster_organization:
+  # morph: badge
+  # contiguous | fragmented | distributed
+  status: ""
+  variant: ""
+
+core_biosynthetic_genes:
+  # morph: number
+  # Essential pathway genes
+  0
+
+tailoring_genes:
+  # morph: number
+  # Modification genes (methylation, hydroxylation, etc.)
+  0
+
+regulatory_genes:
+  # morph: number
+  # Transcription factors, pathway regulation
+  0
+
+transporter_genes:
+  # morph: number
+  # Export/import
+  0
+
+resistance_genes:
+  # morph: number
+  # Self-resistance to toxic product
+  0
+
+# ============================================================================
+# ENZYMES - Catalytic machinery
+# ============================================================================
+
+enzymes_total:
+  # morph: number
+  # Total enzymes in pathway
+  0
+
+enzyme_list:
+  # morph: list
+  items:
+    - enzyme: ""
+      ec_number: ""
+      reaction: ""
+      mechanism: ""
+      cofactors: ""
+      characterized: ""
+
+enzyme_classes:
+  # morph: distribution
+  categories:
+    - class: "Oxidoreductases"
+      count: 0
+      percentage: 0
+    - class: "Transferases"
+      count: 0
+      percentage: 0
+    - class: "Hydrolases"
+      count: 0
+      percentage: 0
+    - class: "Lyases"
+      count: 0
+      percentage: 0
+    - class: "Isomerases"
+      count: 0
+      percentage: 0
+    - class: "Ligases"
+      count: 0
+      percentage: 0
+
+rate_limiting_step:
+  # morph: list
+  # Bottleneck reactions
+  items:
+    - step: ""
+      enzyme: ""
+      vmax: 0
+      km: 0
+
+# ============================================================================
+# KEY ENZYMES - Critical catalysts
+# ============================================================================
+
+prenyltransferases:
+  # morph: number
+  # For terpenoid pathways
+  0
+
+polyketide_synthases:
+  # morph: number
+  # PKS (Type I, II, III)
+  0
+
+nonribosomal_peptide_synthetases:
+  # morph: number
+  # NRPS
+  0
+
+terpene_cyclases:
+  # morph: number
+  # Cyclization enzymes
+  0
+
+cytochrome_p450s:
+  # morph: number
+  # Oxygenation reactions
+  0
+
+methyltransferases:
+  # morph: number
+  0
+
+glycosyltransferases:
+  # morph: number
+  0
+
+acyltransferases:
+  # morph: number
+  0
+
+# ============================================================================
+# NONCANONICAL ENZYMES - Unusual mechanisms
+# ============================================================================
+
+noncanonical_enzymes:
+  # morph: badge
+  # present | absent
+  status: ""
+  variant: ""
+
+unusual_mechanisms:
+  # morph: list
+  items:
+    - enzyme: ""
+      mechanism: ""
+      novelty: ""
+      discovery_year: ""
+
+# ============================================================================
+# COFACTORS & COSUBSTRATES - Required molecules
+# ============================================================================
+
+cofactors_required:
+  # morph: list
+  items:
+    - cofactor: ""
+      role: ""
+      steps_requiring: 0
+
+atp_dependent_steps:
+  # morph: number
+  0
+
+nadph_dependent_steps:
+  # morph: number
+  0
+
+sam_dependent_steps:
+  # morph: number
+  # S-adenosylmethionine for methylations
+  0
+
+metal_cofactors:
+  # morph: list
+  items:
+    - metal: ""
+      enzyme: ""
+      role: ""
+
+# ============================================================================
+# STEREOCHEMISTRY - 3D configuration control
+# ============================================================================
+
+chiral_centers:
+  # morph: number
+  # Stereocenters in product
+  0
+
+stereochemical_control:
+  # morph: badge
+  # absolute | relative | racemic | not_applicable
+  status: ""
+  variant: ""
+
+stereoselective_enzymes:
+  # morph: list
+  items:
+    - enzyme: ""
+      product_configuration: ""
+      enantiomeric_excess: 0
+
+# ============================================================================
+# PRECURSOR SUPPLY - Substrate availability
+# ============================================================================
+
+precursor_pathways:
+  # morph: list
+  # Primary metabolism feeding secondary pathways
+  items:
+    - precursor: ""
+      source_pathway: ""
+      connection_point: ""
+
+mevonate_pathway:
+  # morph: badge
+  # relevant | not_relevant
+  # For terpenoids
+  status: ""
+  variant: ""
+
+shikimate_pathway:
+  # morph: badge
+  # relevant | not_relevant
+  # For aromatics
+  status: ""
+  variant: ""
+
+polyketide_precursors:
+  # morph: badge
+  # malonyl_coa | acetyl_coa | propionyl_coa | not_applicable
+  status: ""
+  variant: ""
+
+# ============================================================================
+# PATHWAY FLUX - Metabolic flow
+# ============================================================================
+
+flux_analysis:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+flux_distribution:
+  # morph: list
+  items:
+    - branch: ""
+      flux_percentage: 0
+      product: ""
+
+metabolic_bottlenecks:
+  # morph: list
+  items:
+    - step: ""
+      limitation: ""
+      strategy_to_overcome: ""
+
+# ============================================================================
+# REGULATION - Pathway control
+# ============================================================================
+
+transcriptional_regulation:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+transcription_factors:
+  # morph: list
+  items:
+    - tf: ""
+      genes_regulated: 0
+      inducer: ""
+      mechanism: ""
+
+feedback_inhibition:
+  # morph: badge
+  # yes | no
+  # End product inhibits early enzyme
+  status: ""
+  variant: ""
+
+allosteric_regulation:
+  # morph: list
+  items:
+    - enzyme: ""
+      effector: ""
+      effect: ""
+
+post_translational_regulation:
+  # morph: badge
+  # phosphorylation | acetylation | proteolysis | none
+  status: ""
+  variant: ""
+
+environmental_induction:
+  # morph: list
+  items:
+    - inducer: ""
+      pathway_response: ""
+      fold_induction: 0
+
+# ============================================================================
+# SUBCELLULAR LOCALIZATION - Spatial organization
+# ============================================================================
+
+compartmentalization:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+organellar_localization:
+  # morph: distribution
+  categories:
+    - organelle: "Cytoplasm"
+      enzymes: 0
+    - organelle: "Chloroplast"
+      enzymes: 0
+    - organelle: "Mitochondria"
+      enzymes: 0
+    - organelle: "Peroxisome"
+      enzymes: 0
+    - organelle: "ER"
+      enzymes: 0
+    - organelle: "Vacuole"
+      enzymes: 0
+
+metabolic_channeling:
+  # morph: badge
+  # yes | no
+  # Direct substrate transfer between enzymes
+  status: ""
+  variant: ""
+
+multienzyme_complexes:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# SINGLE-CELL RESOLUTION - Cellular heterogeneity
+# ============================================================================
+
+single_cell_analysis:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+cell_type_specificity:
+  # morph: list
+  items:
+    - cell_type: ""
+      pathway_activity: ""
+      product_accumulation: ""
+
+isotopic_labeling:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+labeled_precursors:
+  # morph: list
+  items:
+    - precursor: ""
+      isotope: ""
+      incorporation_rate: 0
+
+intercellular_transport:
+  # morph: badge
+  # yes | no
+  # Intermediates move between cells
+  status: ""
+  variant: ""
+
+# ============================================================================
+# PATHWAY EVOLUTION - Evolutionary origin
+# ============================================================================
+
+evolutionary_origin:
+  # morph: badge
+  # ancient | recent | horizontal_transfer | de_novo
+  status: ""
+  variant: ""
+
+phylogenetic_distribution:
+  # morph: text
+  # Which taxa have this pathway
+  ""
+
+horizontal_gene_transfer:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+gene_duplication_events:
+  # morph: number
+  # Paralog expansions
+  0
+
+pathway_plasticity:
+  # morph: badge
+  # high | moderate | low
+  # Variability across species
+  status: ""
+  variant: ""
+
+# ============================================================================
+# PATHWAY DISCOVERY - How it was found
+# ============================================================================
+
+discovery_method:
+  # morph: badge
+  # genome_mining | activity_guided | transcriptomics | metabolomics | serendipity
+  status: ""
+  variant: ""
+
+genome_mining:
+  # morph: badge
+  # antismash | prism | clusterfinder | manual | not_applicable
+  status: ""
+  variant: ""
+
+biosynthetic_gene_cluster_prediction:
+  # morph: number
+  # Predicted BGCs in genome
+  0
+
+experimentally_characterized_bgcs:
+  # morph: number
+  0
+
+silent_gene_clusters:
+  # morph: number
+  # Not expressed under standard conditions
+  0
+
+# ============================================================================
+# HETEROLOGOUS EXPRESSION - Pathway transfer
+# ============================================================================
+
+heterologous_expression:
+  # morph: badge
+  # successful | attempted | not_attempted
+  status: ""
+  variant: ""
+
+heterologous_host:
+  # morph: text
+  # E. coli, S. cerevisiae, N. benthamiana, etc.
+  ""
+
+expression_system:
+  # morph: badge
+  # bacterial | yeast | plant | mammalian | cell_free | not_applicable
+  status: ""
+  variant: ""
+
+production_titer:
+  # morph: number
+  # Product concentration (mg/L)
+  0
+
+production_optimization:
+  # morph: list
+  items:
+    - strategy: ""
+      improvement_fold: 0
+      method: ""
+
+# ============================================================================
+# SYNTHETIC BIOLOGY - Engineering
+# ============================================================================
+
+pathway_engineering:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+engineering_strategies:
+  # morph: list
+  items:
+    - strategy: ""
+      modification: ""
+      result: ""
+
+enzyme_engineering:
+  # morph: number
+  # Engineered variants
+  0
+
+directed_evolution:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+rational_design:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+combinatorial_biosynthesis:
+  # morph: badge
+  # performed | not_performed
+  # Mix-and-match pathway modules
+  status: ""
+  variant: ""
+
+# ============================================================================
+# CELL-FREE BIOSYNTHESIS
+# ============================================================================
+
+cell_free_synthesis:
+  # morph: badge
+  # demonstrated | not_demonstrated
+  status: ""
+  variant: ""
+
+cell_free_system:
+  # morph: badge
+  # pure_enzymes | lysate | hybrid | not_applicable
+  status: ""
+  variant: ""
+
+cell_free_yield:
+  # morph: number
+  # Product concentration (mg/L)
+  0
+
+# ============================================================================
+# YIELD & PRODUCTIVITY
+# ============================================================================
+
+native_yield:
+  # morph: number
+  # Yield in natural producer (mg/L or mg/g)
+  0
+
+engineered_yield:
+  # morph: number
+  # Yield in engineered strain
+  0
+
+yield_improvement:
+  # morph: progress
+  # Fold improvement over native
+  value: 0
+  target: 10
+
+specific_productivity:
+  # morph: number
+  # mg product / g biomass / hour
+  0
+
+volumetric_productivity:
+  # morph: number
+  # mg product / L / hour
+  0
+
+# ============================================================================
+# BIOACTIVITY - Compound function
+# ============================================================================
+
+biological_activity:
+  # morph: badge
+  # antimicrobial | antifungal | anticancer | anti_inflammatory | antioxidant | none
+  status: ""
+  variant: ""
+
+mechanism_of_action:
+  # morph: text
+  ""
+
+molecular_target:
+  # morph: text
+  # Protein/pathway targeted
+  ""
+
+ic50:
+  # morph: number
+  # Half-maximal inhibitory concentration (μM)
+  0
+
+therapeutic_use:
+  # morph: badge
+  # approved_drug | clinical_trial | preclinical | research_tool | not_applicable
+  status: ""
+  variant: ""
+
+# ============================================================================
+# CHEMICAL DIVERSITY - Pathway variants
+# ============================================================================
+
+structural_variants:
+  # morph: number
+  # Different compounds from pathway variants
+  0
+
+promiscuous_enzymes:
+  # morph: list
+  # Enzymes accepting multiple substrates
+  items:
+    - enzyme: ""
+      substrates: ""
+      products: ""
+
+pathway_branches:
+  # morph: number
+  # Divergence points creating different products
+  0
+
+# ============================================================================
+# ANALYTICAL METHODS - Detection
+# ============================================================================
+
+detection_methods:
+  # morph: list
+  items:
+    - method: ""
+      sensitivity: ""
+      specificity: ""
+
+lc_ms:
+  # morph: badge
+  # used | not_used
+  status: ""
+  variant: ""
+
+gc_ms:
+  # morph: badge
+  # used | not_used
+  status: ""
+  variant: ""
+
+nmr_structure_elucidation:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+hplc_purification:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+# ============================================================================
+# COMPUTATIONAL APPROACHES
+# ============================================================================
+
+pathway_modeling:
+  # morph: badge
+  # kinetic_model | constraint_based | not_modeled
+  status: ""
+  variant: ""
+
+flux_balance_analysis:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+machine_learning:
+  # morph: badge
+  # retrosynthesis | yield_prediction | enzyme_function | not_used
+  status: ""
+  variant: ""
+
+# ============================================================================
+# DATABASES & RESOURCES
+# ============================================================================
+
+database_entries:
+  # morph: list
+  items:
+    - database: ""
+      entry_id: ""
+      url: ""
+
+kegg_pathway:
+  # morph: text
+  # KEGG pathway ID
+  ""
+
+mibig_entry:
+  # morph: text
+  # MIBiG accession for BGC
+  ""
+
+# ============================================================================
+# ENVIRONMENTAL IMPACT
+# ============================================================================
+
+green_chemistry:
+  # morph: badge
+  # yes | no | partial
+  status: ""
+  variant: ""
+
+sustainability:
+  # morph: badge
+  # sustainable | moderate | unsustainable
+  status: ""
+  variant: ""
+
+renewable_feedstock:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# INDUSTRIAL PRODUCTION
+# ============================================================================
+
+commercial_production:
+  # morph: badge
+  # yes | no | pilot_scale
+  status: ""
+  variant: ""
+
+production_scale:
+  # morph: badge
+  # lab | pilot | industrial | not_produced
+  status: ""
+  variant: ""
+
+cost_per_gram:
+  # morph: number
+  # Production cost (USD/g)
+  0
+
+market_value:
+  # morph: number
+  # Market price (USD/g)
+  0
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""
+
+curator:
+  # morph: text
+  ""
+
+notes:
+  # morph: text
+  ""
+
+references:
+  # morph: list
+  items:
+    - citation: ""
+      doi: ""
+      year: ""

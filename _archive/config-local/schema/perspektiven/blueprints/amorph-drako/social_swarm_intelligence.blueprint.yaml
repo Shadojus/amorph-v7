@@ -1,0 +1,728 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOCIAL NETWORKS & SWARM INTELLIGENCE PERSPECTIVE - HOLISTIC BLUEPRINT
+# Collective Behavior, Emergent Intelligence, Social Structure
+# Version: 1.0.0
+# Domain: ANIMALIA (Holistic Systems View)
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# PURPOSE: Captures animals as nodes in social networks with emergent intelligence
+# - Social network topology & structure
+# - Collective decision-making & problem-solving
+# - Swarm intelligence & self-organization
+# - Information flow through social links
+# - Division of labor & task allocation
+# - Emergent group-level cognition
+# - Collective sensing & computation
+#
+# Based on 2025 research:
+# - Hidden intelligence of collectives (MPG 2025)
+# - Collective intelligence in animals and robots (Nature Communications 2025)
+# - Information encoded in group architecture
+# - Swarm intelligence algorithms & distributed systems
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: social_swarm_intelligence
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TAXONOMY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+scientific_name:
+  # morph: text
+  ""
+
+genus:
+  # morph: tag
+  ""
+
+family:
+  # morph: tag
+  ""
+
+social_system_type:
+  # morph: badge
+  # solitary | gregarious | social | eusocial | colonial
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOCIAL STRUCTURE - Network topology
+# ═══════════════════════════════════════════════════════════════════════════════
+
+group_size_typical:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "individuals"
+
+group_size_max:
+  # morph: number
+  0
+
+group_stability:
+  # morph: badge
+  # permanent | seasonal | temporary | fission_fusion
+  status: ""
+  variant: ""
+
+social_network_structure:
+  # morph: badge
+  # egalitarian | hierarchical | modular | scale_free | small_world
+  status: ""
+  variant: ""
+
+network_density:
+  # morph: gauge
+  # proportion of possible connections realized
+  value: 0
+  min: 0
+  max: 1
+
+clustering_coefficient:
+  # morph: number
+  # degree of local clustering 0-1
+  0
+
+modularity:
+  # morph: gauge
+  # network subdivision into communities
+  value: 0
+  min: 0
+  max: 1
+
+centrality_distribution:
+  # morph: badge
+  # even | skewed | hub_based
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOCIAL ROLES & CASTES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+caste_system:
+  # morph: boolean
+  # distinct morphological/behavioral castes
+  false
+
+caste_types:
+  # morph: list
+  # queen | worker | soldier | drone | reproductive
+  - ""
+
+caste_determination:
+  # morph: badge
+  # genetic | developmental | environmental | social
+  status: ""
+  variant: ""
+
+reproductive_division:
+  # morph: boolean
+  # reproductive specialization
+  false
+
+dominant_individuals:
+  # morph: boolean
+  false
+
+dominance_hierarchy_type:
+  # morph: badge
+  # linear | despotic | egalitarian | age_based
+  status: ""
+  variant: ""
+
+specialists:
+  # morph: list
+  # forager | scout | guard | nurse | builder
+  - ""
+
+task_allocation_mechanism:
+  # morph: badge
+  # age_polyethism | response_threshold | self_organization
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COLLECTIVE DECISION-MAKING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+collective_decisions:
+  # morph: boolean
+  # group makes decisions together
+  false
+
+decision_types:
+  # morph: list
+  # nest_site | foraging | migration | defense
+  - ""
+
+decision_mechanism:
+  # morph: badge
+  # quorum | consensus | majority | leader_based | distributed
+  status: ""
+  variant: ""
+
+quorum_sensing:
+  # morph: boolean
+  # decisions based on threshold
+  false
+
+quorum_threshold:
+  # morph: gauge
+  # % of group needed
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+voting_behavior:
+  # morph: boolean
+  false
+
+decision_accuracy:
+  # morph: gauge
+  # % optimal decisions
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+wisdom_of_crowds:
+  # morph: boolean
+  # group decisions better than individual
+  false
+
+decision_speed:
+  # morph: rating
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SWARM INTELLIGENCE - Self-organization
+# ═══════════════════════════════════════════════════════════════════════════════
+
+swarm_behavior:
+  # morph: boolean
+  false
+
+swarm_type:
+  # morph: badge
+  # flock | school | herd | swarm | colony
+  status: ""
+  variant: ""
+
+self_organization:
+  # morph: boolean
+  # patterns emerge without central control
+  false
+
+self_organized_patterns:
+  # morph: list
+  # trails | nests | formations | waves
+  - ""
+
+stigmergy:
+  # morph: boolean
+  # indirect coordination via environment
+  false
+
+stigmergic_signals:
+  # morph: list
+  # pheromone_trails | construction_markers
+  - ""
+
+positive_feedback_loops:
+  # morph: list
+  - ""
+
+negative_feedback_loops:
+  # morph: list
+  - ""
+
+emergent_properties:
+  # morph: list
+  # properties at group level not in individuals
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COLLECTIVE PROBLEM-SOLVING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+collective_problem_solving:
+  # morph: boolean
+  false
+
+problems_solved_collectively:
+  # morph: list
+  # nest_construction | food_transport | temperature_regulation
+  - ""
+
+optimization_capability:
+  # morph: boolean
+  # finds optimal solutions
+  false
+
+optimization_algorithm_analog:
+  # morph: badge
+  # ant_colony_optimization | particle_swarm | bee_algorithm
+  status: ""
+  variant: ""
+
+parallel_processing:
+  # morph: boolean
+  # multiple tasks simultaneously
+  false
+
+distributed_computation:
+  # morph: boolean
+  # computation across group
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INFORMATION FLOW - Communication networks
+# ═══════════════════════════════════════════════════════════════════════════════
+
+communication_modalities:
+  # morph: list
+  # visual | acoustic | chemical | tactile | electrical
+  - ""
+
+signal_types:
+  # morph: list
+  - ""
+
+information_transfer_rate:
+  # morph: gauge
+  # bits per second
+  value: 0
+  min: 0
+  max: 1000
+  unit: "bits/s"
+
+information_pooling:
+  # morph: boolean
+  # combines info from multiple individuals
+  false
+
+collective_sensing:
+  # morph: boolean
+  # group senses more than individuals
+  false
+
+sensory_range_multiplier:
+  # morph: number
+  # how much farther group can sense vs individual
+  0
+
+signal_amplification:
+  # morph: boolean
+  # signals get amplified through network
+  false
+
+information_cascades:
+  # morph: boolean
+  # rapid info spread through group
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COOPERATION & ALTRUISM
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cooperative_behaviors:
+  # morph: list
+  # hunting | defense | foraging | parenting
+  - ""
+
+altruistic_acts:
+  # morph: list
+  # alarm_calling | food_sharing | helping
+  - ""
+
+reciprocity:
+  # morph: boolean
+  # tit-for-tat cooperation
+  false
+
+kin_selection:
+  # morph: boolean
+  # helps relatives
+  false
+
+relatedness_coefficient:
+  # morph: number
+  # average r within group
+  0
+
+cooperative_breeding:
+  # morph: boolean
+  false
+
+helpers_at_nest:
+  # morph: number
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COORDINATION & SYNCHRONY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+synchronized_behavior:
+  # morph: boolean
+  false
+
+synchronized_activities:
+  # morph: list
+  # movement | foraging | reproduction | singing
+  - ""
+
+synchronization_mechanism:
+  # morph: badge
+  # local_interactions | leader_follower | global_coupling
+  status: ""
+  variant: ""
+
+coordination_games:
+  # morph: list
+  # activities requiring coordination
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COLLECTIVE MOVEMENT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+collective_movement:
+  # morph: boolean
+  false
+
+movement_patterns:
+  # morph: list
+  # migration | daily_foraging | predator_avoidance
+  - ""
+
+movement_rules:
+  # morph: list
+  # alignment | cohesion | separation | attraction
+  - ""
+
+leadership_in_movement:
+  # morph: badge
+  # leader_based | democratic | self_organized
+  status: ""
+  variant: ""
+
+consensus_achievement:
+  # morph: boolean
+  # group reaches consensus on direction
+  false
+
+polarization:
+  # morph: gauge
+  # alignment of movement directions 0-1
+  value: 0
+  min: 0
+  max: 1
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DIVISION OF LABOR
+# ═══════════════════════════════════════════════════════════════════════════════
+
+division_of_labor:
+  # morph: boolean
+  false
+
+task_specialization:
+  # morph: badge
+  # weak | moderate | strong | obligate
+  status: ""
+  variant: ""
+
+tasks:
+  # morph: list
+  - ""
+
+task_switching:
+  # morph: boolean
+  # individuals switch tasks
+  false
+
+task_allocation_flexibility:
+  # morph: rating
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COLLECTIVE INTELLIGENCE METRICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+collective_intelligence_index:
+  # morph: gauge
+  # composite measure
+  value: 0
+  min: 0
+  max: 100
+
+group_performance_vs_individual:
+  # morph: gauge
+  # % improvement over solo
+  value: 0
+  min: 0
+  max: 500
+  unit: "%"
+
+emergent_cognitive_abilities:
+  # morph: list
+  # abilities only at group level
+  - ""
+
+collective_memory:
+  # morph: boolean
+  # group remembers beyond individuals
+  false
+
+collective_learning:
+  # morph: boolean
+  # group learns
+  false
+
+cultural_transmission:
+  # morph: boolean
+  # behavior passed socially
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOCIAL LEARNING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+social_learning:
+  # morph: boolean
+  false
+
+learning_mechanisms:
+  # morph: list
+  # imitation | emulation | teaching | local_enhancement
+  - ""
+
+teaching_behavior:
+  # morph: boolean
+  false
+
+conformity:
+  # morph: boolean
+  # follows majority
+  false
+
+innovation_spread:
+  # morph: boolean
+  # innovations diffuse through group
+  false
+
+innovation_rate:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONFLICT & COMPETITION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+within_group_conflict:
+  # morph: boolean
+  false
+
+conflict_types:
+  # morph: list
+  # dominance | reproduction | resources
+  - ""
+
+conflict_resolution:
+  # morph: badge
+  # aggression | submission | reconciliation | mediation
+  status: ""
+  variant: ""
+
+policing_behavior:
+  # morph: boolean
+  # individuals enforce cooperation
+  false
+
+cheating:
+  # morph: boolean
+  # some individuals cheat
+  false
+
+cheater_detection:
+  # morph: boolean
+  false
+
+punishment:
+  # morph: boolean
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# GROUP DEFENSE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+collective_defense:
+  # morph: boolean
+  false
+
+defense_strategies:
+  # morph: list
+  # mobbing | alarm_calling | coordinated_attack | dilution
+  - ""
+
+vigilance_sharing:
+  # morph: boolean
+  # individuals take turns watching
+  false
+
+many_eyes_effect:
+  # morph: boolean
+  # group detects threats faster
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COLLECTIVE CONSTRUCTION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+collective_construction:
+  # morph: boolean
+  false
+
+constructed_structures:
+  # morph: list
+  # nests | mounds | webs | dams | lodges
+  - ""
+
+construction_coordination:
+  # morph: badge
+  # stigmergy | blueprints | template_based
+  status: ""
+  variant: ""
+
+thermoregulation_collective:
+  # morph: boolean
+  # group regulates temperature
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SCALE EFFECTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+optimal_group_size:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "individuals"
+
+group_size_performance_relationship:
+  # morph: badge
+  # linear | saturating | optimum | U_shaped
+  status: ""
+  variant: ""
+
+critical_mass:
+  # morph: number
+  # minimum group size for collective behavior
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NETWORK DYNAMICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+network_plasticity:
+  # morph: rating
+  # ability to reorganize
+  rating: 0
+  max: 10
+
+fission_fusion_dynamics:
+  # morph: boolean
+  # group splits and merges
+  false
+
+temporal_networks:
+  # morph: boolean
+  # network changes over time
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BIO-INSPIRED ALGORITHMS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+inspired_algorithms:
+  # morph: list
+  # ant_colony_optimization | particle_swarm | bee_algorithm
+  - ""
+
+algorithm_performance:
+  # morph: gauge
+  # how well bio-inspired algorithm works
+  value: 0
+  min: 0
+  max: 100
+
+robotic_swarm_applications:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESEARCH METHODS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+tracking_methods:
+  # morph: list
+  # video | GPS | RFID | acoustic
+  - ""
+
+network_analysis_conducted:
+  # morph: boolean
+  false
+
+agent_based_models:
+  # morph: boolean
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LITERATURE REFERENCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_research_papers:
+  # morph: list
+  - ""
+
+swarm_literature:
+  # morph: citation
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+data_source:
+  # morph: badge
+  # field_observation | experiment | model | literature
+  status: ""
+  variant: ""
+
+confidence_level:
+  # morph: badge
+  # high | medium | low | speculative
+  status: ""
+  variant: ""
+
+measurement_date:
+  # morph: text
+  ""
+
+study_location:
+  # morph: map
+  lat: 0
+  lng: 0
+  region: ""

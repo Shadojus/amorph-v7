@@ -1,0 +1,671 @@
+# NETWORK DYNAMICS & PROCESSES - Networks
+# Version: 1.0.0 | Domain: NETWORK SCIENCE (Holistic)
+# Based on: Network Dynamics (2025), Spreading Processes on Networks (2025)
+# PARADIGM SHIFT: From static structure → Dynamic processes unfolding on network topology
+
+perspective: network_dynamics_processes
+version: "1.0.0"
+
+# ============================================================================
+# CORE IDENTITY
+# ============================================================================
+
+network_name:
+  # morph: text
+  ""
+
+system_type:
+  # morph: badge
+  # biological | ecological | social | technological | information | disease
+  status: ""
+  variant: ""
+
+dynamical_process:
+  # morph: badge
+  # spreading | synchronization | cascades | diffusion | percolation | game_dynamics
+  status: ""
+  variant: ""
+
+time_scale:
+  # morph: badge
+  # milliseconds | seconds | minutes | hours | days | months | years
+  status: ""
+  variant: ""
+
+# ============================================================================
+# SPREADING DYNAMICS - Contagion processes
+# ============================================================================
+
+spreading_type:
+  # morph: badge
+  # disease | information | behavior | innovation | failure | meme | rumor
+  status: ""
+  variant: ""
+
+spreading_model:
+  # morph: badge
+  # sir | sis | seir | sirs | threshold | independent_cascade | linear_threshold
+  status: ""
+  variant: ""
+
+transmission_mechanism:
+  # morph: badge
+  # simple_contagion | complex_contagion | social_reinforcement
+  status: ""
+  variant: ""
+
+transmission_rate:
+  # morph: number
+  # β (beta)
+  0
+
+recovery_rate:
+  # morph: number
+  # γ (gamma)
+  0
+
+basic_reproduction_number:
+  # morph: number
+  # R0 = β/γ
+  0
+
+epidemic_threshold:
+  # morph: number
+  # Critical β for outbreak
+  0
+
+# ============================================================================
+# SIR MODEL - Susceptible-Infected-Recovered
+# ============================================================================
+
+sir_dynamics:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+susceptible_fraction:
+  # morph: gauge
+  # S(t) (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+infected_fraction:
+  # morph: gauge
+  # I(t) (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+recovered_fraction:
+  # morph: gauge
+  # R(t) (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+peak_prevalence:
+  # morph: number
+  # Maximum infected (%)
+  0
+
+peak_time:
+  # morph: number
+  # Time to peak (days/steps)
+  0
+
+final_epidemic_size:
+  # morph: gauge
+  # Total infected over time (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+# ============================================================================
+# NETWORK STRUCTURE EFFECTS - Topology influences dynamics
+# ============================================================================
+
+degree_distribution_effect:
+  # morph: badge
+  # significant | moderate | minimal
+  # Scale-free vs random impact
+  status: ""
+  variant: ""
+
+heterogeneity_impact:
+  # morph: badge
+  # amplifies_spread | dampens_spread | neutral
+  status: ""
+  variant: ""
+
+hubs_role:
+  # morph: badge
+  # super_spreaders | neutral | protected
+  status: ""
+  variant: ""
+
+clustering_effect:
+  # morph: badge
+  # accelerates | slows | no_effect
+  status: ""
+  variant: ""
+
+community_structure_effect:
+  # morph: badge
+  # compartmentalizes | no_effect
+  status: ""
+  variant: ""
+
+# ============================================================================
+# SYNCHRONIZATION - Coupled oscillators
+# ============================================================================
+
+synchronization_dynamics:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+oscillator_model:
+  # morph: badge
+  # kuramoto | phase_oscillator | coupled_neurons | not_applicable
+  status: ""
+  variant: ""
+
+coupling_strength:
+  # morph: number
+  # K
+  0
+
+critical_coupling:
+  # morph: number
+  # Kc for synchronization transition
+  0
+
+order_parameter:
+  # morph: number
+  # r (0=incoherent, 1=synchronized)
+  0
+
+synchronization_state:
+  # morph: badge
+  # incoherent | partially_synchronized | fully_synchronized
+  status: ""
+  variant: ""
+
+chimera_states:
+  # morph: badge
+  # present | absent
+  # Coexisting coherence and incoherence
+  status: ""
+  variant: ""
+
+# ============================================================================
+# CASCADES - Avalanche phenomena
+# ============================================================================
+
+cascade_dynamics:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+cascade_type:
+  # morph: badge
+  # failure | information | behavioral | financial
+  status: ""
+  variant: ""
+
+threshold_model:
+  # morph: badge
+  # simple_threshold | complex_threshold | granovetter
+  status: ""
+  variant: ""
+
+activation_threshold:
+  # morph: number
+  # Fraction of neighbors needed
+  0
+
+cascade_size_distribution:
+  # morph: badge
+  # power_law | exponential | bimodal
+  status: ""
+  variant: ""
+
+critical_mass:
+  # morph: number
+  # Minimum initial adopters for cascade
+  0
+
+avalanche_size:
+  # morph: number
+  # Total nodes activated
+  0
+
+# ============================================================================
+# DIFFUSION PROCESSES - Gradual spreading
+# ============================================================================
+
+diffusion_dynamics:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+diffusion_type:
+  # morph: badge
+  # innovation | technology | idea | practice
+  status: ""
+  variant: ""
+
+diffusion_curve:
+  # morph: badge
+  # s_curve | linear | exponential
+  status: ""
+  variant: ""
+
+innovators:
+  # morph: gauge
+  # First 2.5% (%)
+  current: 0
+  target: 2.5
+  unit: "%"
+
+early_adopters:
+  # morph: gauge
+  # Next 13.5% (%)
+  current: 0
+  target: 13.5
+  unit: "%"
+
+early_majority:
+  # morph: gauge
+  # Next 34% (%)
+  current: 0
+  target: 34
+  unit: "%"
+
+late_majority:
+  # morph: gauge
+  # Next 34% (%)
+  current: 0
+  target: 34
+  unit: "%"
+
+laggards:
+  # morph: gauge
+  # Last 16% (%)
+  current: 0
+  target: 16
+  unit: "%"
+
+# ============================================================================
+# PERCOLATION - Connectivity transitions
+# ============================================================================
+
+percolation_process:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+percolation_type:
+  # morph: badge
+  # site | bond | k_core | bootstrap
+  status: ""
+  variant: ""
+
+occupation_probability:
+  # morph: number
+  # p (fraction of active nodes/edges)
+  0
+
+percolation_threshold:
+  # morph: number
+  # pc (critical transition point)
+  0
+
+giant_component_size:
+  # morph: gauge
+  # Largest connected cluster (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+phase_transition:
+  # morph: badge
+  # subcritical | critical | supercritical
+  status: ""
+  variant: ""
+
+# ============================================================================
+# OPINION DYNAMICS - Consensus & polarization
+# ============================================================================
+
+opinion_dynamics:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+opinion_model:
+  # morph: badge
+  # voter_model | deffuant | hegselmann_krause | bounded_confidence
+  status: ""
+  variant: ""
+
+opinion_states:
+  # morph: number
+  # Number of distinct opinions (2=binary, continuous=∞)
+  0
+
+consensus_reached:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+polarization:
+  # morph: badge
+  # absent | moderate | extreme
+  status: ""
+  variant: ""
+
+echo_chambers:
+  # morph: badge
+  # present | absent
+  status: ""
+  variant: ""
+
+# ============================================================================
+# GAME DYNAMICS - Strategic interactions
+# ============================================================================
+
+game_theoretic_dynamics:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+game_type:
+  # morph: badge
+  # prisoners_dilemma | public_goods | coordination | snowdrift
+  status: ""
+  variant: ""
+
+strategy_update_rule:
+  # morph: badge
+  # replicator | best_response | imitation | fermi
+  status: ""
+  variant: ""
+
+cooperation_level:
+  # morph: gauge
+  # Fraction of cooperators (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+nash_equilibrium:
+  # morph: badge
+  # reached | not_reached | multiple
+  status: ""
+  variant: ""
+
+# ============================================================================
+# TEMPORAL EVOLUTION - Time-dependent behavior
+# ============================================================================
+
+temporal_dynamics:
+  # morph: badge
+  # static | dynamic | evolving | adaptive
+  status: ""
+  variant: ""
+
+time_steps:
+  # morph: number
+  # Total simulation steps
+  0
+
+steady_state_reached:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+convergence_time:
+  # morph: number
+  # Steps to equilibrium
+  0
+
+oscillatory_behavior:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+period:
+  # morph: number
+  # Oscillation period (steps)
+  0
+
+chaotic_dynamics:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# INTERVENTION STRATEGIES - Control
+# ============================================================================
+
+intervention:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+intervention_type:
+  # morph: badge
+  # vaccination | quarantine | targeted_removal | random_removal | edge_removal
+  status: ""
+  variant: ""
+
+intervention_target:
+  # morph: badge
+  # hubs | random | bridges | communities
+  status: ""
+  variant: ""
+
+intervention_effectiveness:
+  # morph: gauge
+  # Reduction in spread (%)
+  current: 0
+  target: 80
+  unit: "%"
+
+cost_effectiveness:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+# ============================================================================
+# EARLY WARNING SIGNALS - Critical transitions
+# ============================================================================
+
+early_warning_indicators:
+  # morph: badge
+  # monitored | not_monitored
+  status: ""
+  variant: ""
+
+critical_slowing_down:
+  # morph: badge
+  # detected | not_detected
+  status: ""
+  variant: ""
+
+variance_increase:
+  # morph: badge
+  # yes | no
+  # Precursor to transition
+  status: ""
+  variant: ""
+
+autocorrelation_increase:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# STOCHASTIC EFFECTS - Randomness
+# ============================================================================
+
+stochasticity:
+  # morph: badge
+  # deterministic | stochastic | hybrid
+  status: ""
+  variant: ""
+
+noise_level:
+  # morph: badge
+  # low | moderate | high
+  status: ""
+  variant: ""
+
+extinction_probability:
+  # morph: gauge
+  # Stochastic fadeout (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+# ============================================================================
+# BRANCHING PROCESSES
+# ============================================================================
+
+branching_process:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+offspring_distribution:
+  # morph: badge
+  # poisson | negative_binomial | power_law
+  status: ""
+  variant: ""
+
+branching_ratio:
+  # morph: number
+  # Average offspring
+  0
+
+# ============================================================================
+# REAL-WORLD APPLICATIONS
+# ============================================================================
+
+disease_outbreaks:
+  # morph: badge
+  # modeled | not_applicable
+  status: ""
+  variant: ""
+
+information_spread:
+  # morph: badge
+  # modeled | not_applicable
+  status: ""
+  variant: ""
+
+viral_marketing:
+  # morph: badge
+  # modeled | not_applicable
+  status: ""
+  variant: ""
+
+financial_contagion:
+  # morph: badge
+  # modeled | not_applicable
+  status: ""
+  variant: ""
+
+infrastructure_failure:
+  # morph: badge
+  # modeled | not_applicable
+  status: ""
+  variant: ""
+
+# ============================================================================
+# COMPUTATIONAL METHODS
+# ============================================================================
+
+simulation_method:
+  # morph: badge
+  # agent_based | ode | stochastic_simulation | monte_carlo
+  status: ""
+  variant: ""
+
+computational_cost:
+  # morph: badge
+  # low | moderate | high | very_high
+  status: ""
+  variant: ""
+
+parallelizable:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# VALIDATION
+# ============================================================================
+
+empirical_validation:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+real_world_data:
+  # morph: text
+  # Description of validation data
+  ""
+
+model_fit:
+  # morph: badge
+  # excellent | good | moderate | poor
+  status: ""
+  variant: ""
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""
+
+curator:
+  # morph: text
+  ""
+
+notes:
+  # morph: text
+  ""
+
+references:
+  # morph: list
+  items:
+    - citation: ""
+      doi: ""
+      year: ""

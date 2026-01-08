@@ -1,0 +1,980 @@
+# SOCIAL & INFORMATION NETWORKS - Networks
+# Version: 1.0.0 | Domain: NETWORK SCIENCE (Lateral)
+# Based on: Information Diffusion Models (2025), Organizational Networks (2025), Misinformation Spread (2025)
+# PARADIGM SHIFT: From pairwise ties → Higher-order interactions crossing individual/group/platform boundaries
+
+perspective: social_information_networks
+version: "1.0.0"
+
+# ============================================================================
+# CORE IDENTITY
+# ============================================================================
+
+network_name:
+  # morph: text
+  ""
+
+network_type:
+  # morph: badge
+  # social_media | organizational | communication | information_diffusion | multiplex
+  status: ""
+  variant: ""
+
+network_scale:
+  # morph: badge
+  # individual | group | organization | community | society | global
+  status: ""
+  variant: ""
+
+context:
+  # morph: badge
+  # online | offline | hybrid
+  status: ""
+  variant: ""
+
+# ============================================================================
+# NODES - Users/Individuals/Organizations
+# ============================================================================
+
+total_nodes:
+  # morph: number
+  # Users/individuals/organizations
+  0
+
+node_type:
+  # morph: badge
+  # individuals | accounts | organizations | groups | mixed
+  status: ""
+  variant: ""
+
+active_users:
+  # morph: gauge
+  # Percentage active (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+verified_users:
+  # morph: number
+  0
+
+bots:
+  # morph: number
+  # Social bots (automated accounts)
+  0
+
+bot_percentage:
+  # morph: gauge
+  # Percentage bots (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+# ============================================================================
+# EDGES - Connections/Interactions
+# ============================================================================
+
+total_edges:
+  # morph: number
+  # Connections/interactions
+  0
+
+edge_type:
+  # morph: badge
+  # follow | friend | communication | collaboration | influence | information_transfer
+  status: ""
+  variant: ""
+
+directed:
+  # morph: badge
+  # yes | no
+  # Follow (directed) vs Friend (undirected)
+  status: ""
+  variant: ""
+
+weighted:
+  # morph: badge
+  # yes | no
+  # Interaction frequency/strength
+  status: ""
+  variant: ""
+
+reciprocity:
+  # morph: gauge
+  # Bidirectional edges (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+# ============================================================================
+# SOCIAL MEDIA PLATFORMS - Multiplex
+# ============================================================================
+
+social_media_network:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+platforms:
+  # morph: list
+  items:
+    - platform: ""
+      users: 0
+      edges: 0
+      primary_interaction: ""
+  # Twitter/X, Facebook, Instagram, LinkedIn, TikTok, Reddit, etc.
+
+multiplex_structure:
+  # morph: badge
+  # yes | no
+  # Same users across multiple platforms
+  status: ""
+  variant: ""
+
+cross_platform_users:
+  # morph: gauge
+  # Percentage on multiple platforms (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+# ============================================================================
+# ORGANIZATIONAL NETWORKS - 2025
+# ============================================================================
+
+organizational_network:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+organization_type:
+  # morph: badge
+  # corporate | nonprofit | academic | government | healthcare
+  status: ""
+  variant: ""
+
+employees:
+  # morph: number
+  0
+
+departments:
+  # morph: number
+  0
+
+communication_channels:
+  # morph: list
+  items:
+    - channel: ""
+      frequency: ""
+      formality: ""
+  # Email, Slack, Teams, meetings, informal conversations
+
+formal_network:
+  # morph: badge
+  # hierarchical | flat | matrix
+  # Reporting structure
+  status: ""
+  variant: ""
+
+informal_network:
+  # morph: badge
+  # analyzed | not_analyzed
+  # Actual communication patterns
+  status: ""
+  variant: ""
+
+knowledge_hiding:
+  # morph: badge
+  # analyzed | not_analyzed
+  # Diffusion through workplace networks (2025 study)
+  status: ""
+  variant: ""
+
+organizational_velocity:
+  # morph: badge
+  # high | moderate | low
+  # 2025 concept: Speed of adaptation and execution
+  status: ""
+  variant: ""
+
+# ============================================================================
+# HIGHER-ORDER INTERACTIONS - Hypergraphs
+# ============================================================================
+
+higher_order_interactions:
+  # morph: badge
+  # yes | no
+  # Beyond pairwise - group interactions
+  status: ""
+  variant: ""
+
+hypergraph_representation:
+  # morph: badge
+  # yes | no
+  # Hypergraphs capture group interactions (2025)
+  status: ""
+  variant: ""
+
+group_interactions:
+  # morph: number
+  # Hyperedges (groups of 3+ nodes)
+  0
+
+group_size_distribution:
+  # morph: histogram
+  bins:
+    - size: "2 (pairwise)"
+      count: 0
+    - size: "3"
+      count: 0
+    - size: "4-10"
+      count: 0
+    - size: ">10"
+      count: 0
+
+# ============================================================================
+# NETWORK TOPOLOGY
+# ============================================================================
+
+network_density:
+  # morph: gauge
+  # Realized / possible links (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+average_degree:
+  # morph: number
+  # <k>
+  0
+
+degree_distribution:
+  # morph: badge
+  # power_law | scale_free | exponential | poisson
+  status: ""
+  variant: ""
+
+clustering_coefficient:
+  # morph: number
+  # C (0-1)
+  0
+
+average_path_length:
+  # morph: number
+  # <l>
+  0
+
+diameter:
+  # morph: number
+  0
+
+small_world:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# COMMUNITY STRUCTURE - Modularity
+# ============================================================================
+
+communities:
+  # morph: number
+  # Detected modules
+  0
+
+modularity:
+  # morph: number
+  # Q (0-1)
+  0
+
+community_detection_algorithm:
+  # morph: badge
+  # louvain | leiden | infomap | label_propagation
+  status: ""
+  variant: ""
+
+echo_chambers:
+  # morph: badge
+  # yes | no
+  # Isolated ideological communities
+  status: ""
+  variant: ""
+
+filter_bubbles:
+  # morph: badge
+  # yes | no
+  # Algorithmic content filtering
+  status: ""
+  variant: ""
+
+polarization:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+# ============================================================================
+# INFORMATION DIFFUSION - Epidemic models
+# ============================================================================
+
+information_diffusion:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+diffusion_model:
+  # morph: badge
+  # sir | sis | independent_cascade | linear_threshold | time_delay | custom
+  # Time delay models (2025)
+  status: ""
+  variant: ""
+
+information_type:
+  # morph: badge
+  # news | opinion | misinformation | meme | product | idea | behavior
+  status: ""
+  variant: ""
+
+propagation_mechanism:
+  # morph: badge
+  # simple_contagion | complex_contagion | social_reinforcement
+  status: ""
+  variant: ""
+
+transmission_rate:
+  # morph: number
+  # β (spreading probability)
+  0
+
+reach:
+  # morph: gauge
+  # Percentage of network reached (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+cascade_size:
+  # morph: number
+  # Total nodes affected
+  0
+
+cascade_depth:
+  # morph: number
+  # Maximum hops from seed
+  0
+
+# ============================================================================
+# MISINFORMATION SPREAD - 2025
+# ============================================================================
+
+misinformation:
+  # morph: badge
+  # present | absent
+  status: ""
+  variant: ""
+
+misinformation_type:
+  # morph: badge
+  # fake_news | conspiracy_theory | rumor | disinformation | deepfake
+  status: ""
+  variant: ""
+
+misinformation_vs_truth_dynamics:
+  # morph: badge
+  # analyzed | not_analyzed
+  # Network modularity affects spread differently (2025)
+  status: ""
+  variant: ""
+
+fact_checking:
+  # morph: badge
+  # present | absent
+  status: ""
+  variant: ""
+
+correction_effectiveness:
+  # morph: gauge
+  # Percentage corrected (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+# ============================================================================
+# GENERATIVE AI IMPACT - 2025
+# ============================================================================
+
+generative_ai_content:
+  # morph: badge
+  # yes | no
+  # AI-generated text/images/videos
+  status: ""
+  variant: ""
+
+ai_detection:
+  # morph: badge
+  # detectable | undetectable | mixed
+  # Realistic AI content indistinguishable from authentic (2025)
+  status: ""
+  variant: ""
+
+synthetic_media:
+  # morph: number
+  # AI-generated posts/images/videos
+  0
+
+# ============================================================================
+# SOCIAL BOTS - Automated accounts
+# ============================================================================
+
+bot_activity:
+  # morph: badge
+  # high | moderate | low | none
+  status: ""
+  variant: ""
+
+bot_purpose:
+  # morph: badge
+  # misinformation | spam | amplification | automation | benign
+  status: ""
+  variant: ""
+
+bot_hashtag_usage:
+  # morph: badge
+  # analyzed | not_analyzed
+  # Bots vs humans hashtag patterns (2025 study)
+  status: ""
+  variant: ""
+
+bot_detection_method:
+  # morph: badge
+  # behavioral | network_based | ml_classifier | hybrid
+  status: ""
+  variant: ""
+
+# ============================================================================
+# INFLUENCE & CENTRALITY
+# ============================================================================
+
+influential_nodes:
+  # morph: list
+  items:
+    - user: ""
+      degree: 0
+      betweenness: 0
+      followers: 0
+      reach: 0
+
+centrality_measures:
+  # morph: list
+  items:
+    - measure: ""
+      top_node: ""
+      score: 0
+
+influencers:
+  # morph: number
+  # High-influence accounts
+  0
+
+# ============================================================================
+# INFLUENCE MAXIMIZATION
+# ============================================================================
+
+influence_maximization:
+  # morph: badge
+  # analyzed | not_analyzed
+  # Viral marketing, maximize spread
+  status: ""
+  variant: ""
+
+seed_nodes:
+  # morph: number
+  # Initial spreaders
+  0
+
+seed_selection_strategy:
+  # morph: badge
+  # degree | betweenness | pagerank | k_core | random | custom
+  status: ""
+  variant: ""
+
+spread_effectiveness:
+  # morph: gauge
+  # Percentage reached from seeds (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+# ============================================================================
+# COMPETITIVE DIFFUSION - 2025
+# ============================================================================
+
+competitive_diffusion:
+  # morph: badge
+  # yes | no
+  # Multiple competing information/products
+  status: ""
+  variant: ""
+
+competing_information:
+  # morph: number
+  # Number of competing narratives/products
+  0
+
+individual_polarity:
+  # morph: badge
+  # analyzed | not_analyzed
+  # Polarity towards information (2025 research)
+  status: ""
+  variant: ""
+
+trust_networks:
+  # morph: badge
+  # analyzed | not_analyzed
+  # Trust between individuals (2025)
+  status: ""
+  variant: ""
+
+information_freshness:
+  # morph: badge
+  # analyzed | not_analyzed
+  # Decaying freshness over time (2025)
+  status: ""
+  variant: ""
+
+# ============================================================================
+# TEMPORAL DYNAMICS
+# ============================================================================
+
+temporal_data:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+time_span:
+  # morph: text
+  # Days/months/years
+  ""
+
+temporal_resolution:
+  # morph: text
+  # Seconds/minutes/hours/days
+  ""
+
+network_evolution:
+  # morph: badge
+  # static | dynamic | evolving
+  status: ""
+  variant: ""
+
+bursty_activity:
+  # morph: badge
+  # yes | no
+  # Non-uniform temporal patterns
+  status: ""
+  variant: ""
+
+# ============================================================================
+# CONTENT ANALYSIS
+# ============================================================================
+
+content_types:
+  # morph: distribution
+  categories:
+    - type: "Text"
+      percentage: 0
+    - type: "Images"
+      percentage: 0
+    - type: "Videos"
+      percentage: 0
+    - type: "Links"
+      percentage: 0
+
+sentiment_analysis:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+sentiment_distribution:
+  # morph: distribution
+  categories:
+    - sentiment: "Positive"
+      percentage: 0
+    - sentiment: "Neutral"
+      percentage: 0
+    - sentiment: "Negative"
+      percentage: 0
+
+topics:
+  # morph: list
+  items:
+    - topic: ""
+      posts: 0
+      engagement: 0
+
+hashtags:
+  # morph: number
+  # Unique hashtags
+  0
+
+# ============================================================================
+# ENGAGEMENT METRICS
+# ============================================================================
+
+total_posts:
+  # morph: number
+  0
+
+total_likes:
+  # morph: number
+  0
+
+total_shares:
+  # morph: number
+  0
+
+total_comments:
+  # morph: number
+  0
+
+engagement_rate:
+  # morph: gauge
+  # Interactions / impressions (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+viral_content:
+  # morph: number
+  # Posts exceeding threshold
+  0
+
+# ============================================================================
+# HOMOPHILY - Similarity attracts
+# ============================================================================
+
+homophily:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+homophily_type:
+  # morph: list
+  items:
+    - attribute: ""
+      assortativity: 0
+  # Demographics, ideology, interests, behavior
+
+# ============================================================================
+# WEAK TIES & STRUCTURAL HOLES
+# ============================================================================
+
+weak_ties:
+  # morph: badge
+  # analyzed | not_analyzed
+  # Granovetter's strength of weak ties
+  status: ""
+  variant: ""
+
+strong_ties:
+  # morph: number
+  0
+
+weak_ties_count:
+  # morph: number
+  0
+
+bridging_nodes:
+  # morph: number
+  # Spanning structural holes
+  0
+
+structural_holes:
+  # morph: number
+  # Burt's theory
+  0
+
+# ============================================================================
+# PRIVACY & SECURITY
+# ============================================================================
+
+privacy_concerns:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+data_anonymization:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+security_breaches:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# ALGORITHMS & RECOMMENDER SYSTEMS
+# ============================================================================
+
+algorithmic_curation:
+  # morph: badge
+  # yes | no
+  # Platform algorithms
+  status: ""
+  variant: ""
+
+recommendation_system:
+  # modph: badge
+  # collaborative_filtering | content_based | hybrid | none
+  status: ""
+  variant: ""
+
+algorithmic_bias:
+  # morph: badge
+  # detected | not_detected
+  status: ""
+  variant: ""
+
+# ============================================================================
+# COLLECTIVE BEHAVIOR
+# ============================================================================
+
+collective_action:
+  # morph: badge
+  # yes | no
+  # Social movements, protests
+  status: ""
+  variant: ""
+
+coordination:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+# ============================================================================
+# DEMOGRAPHIC ATTRIBUTES
+# ============================================================================
+
+demographics_available:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+age_distribution:
+  # morph: histogram
+  bins:
+    - range: "13-17"
+      count: 0
+    - range: "18-24"
+      count: 0
+    - range: "25-34"
+      count: 0
+    - range: "35-49"
+      count: 0
+    - range: "50+"
+      count: 0
+
+gender_distribution:
+  # morph: distribution
+  categories:
+    - gender: "Male"
+      percentage: 0
+    - gender: "Female"
+      percentage: 0
+    - gender: "Other/Unknown"
+      percentage: 0
+
+geographic_distribution:
+  # morph: badge
+  # global | regional | national | local
+  status: ""
+  variant: ""
+
+# ============================================================================
+# LINGUISTIC ANALYSIS
+# ============================================================================
+
+languages:
+  # morph: list
+  items:
+    - language: ""
+      posts: 0
+      percentage: 0
+
+linguistic_features:
+  # morph: badge
+  # analyzed | not_analyzed
+  # 2025 systematic review on linguistic features influencing diffusion
+  status: ""
+  variant: ""
+
+# ============================================================================
+# NETWORK INTERVENTIONS
+# ============================================================================
+
+intervention:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+intervention_type:
+  # morph: badge
+  # node_removal | edge_removal | information_injection | fact_checking | deplatforming
+  status: ""
+  variant: ""
+
+intervention_effectiveness:
+  # morph: gauge
+  # Reduction in misinformation (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+# ============================================================================
+# NETWORK TOPOLOGY OPTIMIZATION
+# ============================================================================
+
+network_topology_approach:
+  # morph: badge
+  # used | not_used
+  # Minimizing misinformation via topology (2025)
+  status: ""
+  variant: ""
+
+optimal_structure:
+  # morph: badge
+  # identified | not_identified
+  status: ""
+  variant: ""
+
+# ============================================================================
+# COMPUTATIONAL METHODS
+# ============================================================================
+
+data_collection:
+  # morph: badge
+  # api | web_scraping | survey | observation | simulation
+  status: ""
+  variant: ""
+
+network_analysis_software:
+  # morph: list
+  items:
+    - software: ""
+      purpose: ""
+  # NetworkX, igraph, Gephi, NodeXL, etc.
+
+machine_learning:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+ml_tasks:
+  # morph: list
+  items:
+    - task: ""
+      method: ""
+      performance: ""
+  # Bot detection, sentiment analysis, community detection, link prediction
+
+simulation:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+simulation_model:
+  # morph: badge
+  # agent_based | sir | sis | custom
+  status: ""
+  variant: ""
+
+# ============================================================================
+# VALIDATION
+# ============================================================================
+
+ground_truth:
+  # morph: badge
+  # available | partial | unavailable
+  status: ""
+  variant: ""
+
+validation_method:
+  # morph: badge
+  # cross_validation | holdout | comparison_to_known | none
+  status: ""
+  variant: ""
+
+# ============================================================================
+# ETHICAL CONSIDERATIONS
+# ============================================================================
+
+ethical_approval:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+informed_consent:
+  # morph: badge
+  # yes | no | not_applicable
+  status: ""
+  variant: ""
+
+# ============================================================================
+# APPLICATIONS
+# ============================================================================
+
+applications:
+  # morph: list
+  items:
+    - application: ""
+      description: ""
+  # Marketing, public health, politics, crisis communication, cybersecurity
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+collection_period:
+  # morph: text
+  ""
+
+last_updated:
+  # morph: text
+  ""
+
+curator:
+  # morph: text
+  ""
+
+notes:
+  # morph: text
+  ""
+
+references:
+  # morph: list
+  items:
+    - citation: ""
+      doi: ""
+      year: ""

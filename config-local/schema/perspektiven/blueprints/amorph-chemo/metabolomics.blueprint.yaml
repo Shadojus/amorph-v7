@@ -1,0 +1,867 @@
+# METABOLOMICS - Chemistry
+# Version: 1.0.0 | Domain: CHEMISTRY (Lateral)
+# Based on: Metabolomics (Metabolomics 2025), Single-Cell Mass Spec (Analyst 2025)
+# PARADIGM SHIFT: From genotype/transcriptome → Metabolome as phenotype connection
+
+perspective: metabolomics
+version: "1.0.0"
+
+# ============================================================================
+# CORE IDENTITY
+# ============================================================================
+
+study_organism:
+  # morph: text
+  ""
+
+taxonomy:
+  # morph: hierarchy
+  - level: ""
+    name: ""
+    rank: ""
+
+study_type:
+  # morph: badge
+  # targeted | untargeted | semi_targeted | fluxomics | spatial | single_cell
+  status: ""
+  variant: ""
+
+biological_context:
+  # morph: badge
+  # disease | development | stress_response | drug_response | nutrition | toxicology
+  status: ""
+  variant: ""
+
+sample_type:
+  # morph: badge
+  # plasma | serum | urine | tissue | cells | plant_extract | microbial_culture
+  status: ""
+  variant: ""
+
+sample_size:
+  # morph: number
+  # Number of biological samples
+  0
+
+# ============================================================================
+# METABOLOME COVERAGE - Detected molecular landscape
+# ============================================================================
+
+metabolites_detected:
+  # morph: number
+  # Total metabolites identified
+  0
+
+metabolites_annotated:
+  # morph: number
+  # Metabolites with confident identification
+  0
+
+annotation_confidence:
+  # morph: distribution
+  categories:
+    - level: "Level 1: Confirmed structure"
+      count: 0
+      percentage: 0
+    - level: "Level 2: Probable structure"
+      count: 0
+      percentage: 0
+    - level: "Level 3: Putative characterization"
+      count: 0
+      percentage: 0
+    - level: "Level 4: Unknown"
+      count: 0
+      percentage: 0
+
+metabolome_coverage:
+  # morph: gauge
+  # Estimated coverage of total metabolome (%)
+  current: 0
+  target: 100
+  unit: "%"
+
+# ============================================================================
+# CHEMICAL CLASSES - Metabolite diversity
+# ============================================================================
+
+metabolite_classes:
+  # morph: distribution
+  categories:
+    - class: "Amino acids"
+      count: 0
+      percentage: 0
+    - class: "Lipids"
+      count: 0
+      percentage: 0
+    - class: "Carbohydrates"
+      count: 0
+      percentage: 0
+    - class: "Nucleotides"
+      count: 0
+      percentage: 0
+    - class: "Organic acids"
+      count: 0
+      percentage: 0
+    - class: "Vitamins & cofactors"
+      count: 0
+      percentage: 0
+    - class: "Secondary metabolites"
+      count: 0
+      percentage: 0
+    - class: "Xenobiotics"
+      count: 0
+      percentage: 0
+
+lipid_classes:
+  # morph: distribution
+  categories:
+    - class: "Phospholipids"
+      count: 0
+    - class: "Glycerolipids"
+      count: 0
+    - class: "Sphingolipids"
+      count: 0
+    - class: "Sterols"
+      count: 0
+    - class: "Fatty acids"
+      count: 0
+
+# ============================================================================
+# ANALYTICAL PLATFORMS - Detection methods
+# ============================================================================
+
+analytical_platform:
+  # morph: badge
+  # lc_ms | gc_ms | ce_ms | nmr | multiple
+  status: ""
+  variant: ""
+
+mass_spectrometry:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+ms_mode:
+  # morph: badge
+  # positive | negative | both
+  status: ""
+  variant: ""
+
+mass_analyzer:
+  # morph: badge
+  # qtof | orbitrap | triple_quad | ion_trap | tof
+  status: ""
+  variant: ""
+
+chromatography:
+  # morph: badge
+  # rplc | hilic | gc | ce | none
+  status: ""
+  variant: ""
+
+mass_resolution:
+  # morph: number
+  # Resolution (FWHM)
+  0
+
+mass_accuracy:
+  # morph: number
+  # Mass accuracy (ppm)
+  0
+
+# ============================================================================
+# TARGETED METABOLOMICS - Focused quantification
+# ============================================================================
+
+targeted_analysis:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+target_metabolites:
+  # morph: number
+  # Number of targeted compounds
+  0
+
+quantification_method:
+  # morph: badge
+  # external_standard | internal_standard | standard_addition | none
+  status: ""
+  variant: ""
+
+internal_standards:
+  # morph: number
+  # Number of ISs used
+  0
+
+calibration_curves:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+dynamic_range:
+  # morph: number
+  # Orders of magnitude
+  0
+
+limit_of_detection:
+  # morph: number
+  # Average LOD (ng/mL or nM)
+  0
+
+# ============================================================================
+# UNTARGETED METABOLOMICS - Discovery
+# ============================================================================
+
+untargeted_analysis:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+features_detected:
+  # morph: number
+  # Total features (m/z + RT)
+  0
+
+data_processing_pipeline:
+  # morph: badge
+  # xcms | mzmine | compound_discoverer | metaboanalyst | custom
+  status: ""
+  variant: ""
+
+peak_picking:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+alignment:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+gap_filling:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+# ============================================================================
+# METABOLITE IDENTIFICATION - Annotation
+# ============================================================================
+
+identification_strategy:
+  # morph: badge
+  # standards | database_match | ms_ms | nmr | multiple
+  status: ""
+  variant: ""
+
+authentic_standards:
+  # morph: number
+  # Metabolites confirmed with standards
+  0
+
+databases_used:
+  # morph: list
+  items:
+    - database: ""
+      entries_matched: 0
+      url: ""
+
+hmdb:
+  # morph: badge
+  # used | not_used
+  status: ""
+  variant: ""
+
+metlin:
+  # morph: badge
+  # used | not_used
+  status: ""
+  variant: ""
+
+lipidmaps:
+  # morph: badge
+  # used | not_used
+  status: ""
+  variant: ""
+
+ms_ms_fragmentation:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+in_silico_fragmentation:
+  # morph: badge
+  # metfrag | cfm_id | sirius | not_used
+  status: ""
+  variant: ""
+
+# ============================================================================
+# DIFFERENTIAL ANALYSIS - Phenotype associations
+# ============================================================================
+
+differential_metabolites:
+  # morph: number
+  # Significantly changed metabolites
+  0
+
+comparison_groups:
+  # morph: list
+  items:
+    - group1: ""
+      group2: ""
+      differential_metabolites: 0
+
+fold_change_threshold:
+  # morph: number
+  # Minimum FC for significance
+  0
+
+statistical_test:
+  # morph: badge
+  # t_test | anova | wilcoxon | kruskal_wallis | limma | multiple
+  status: ""
+  variant: ""
+
+multiple_testing_correction:
+  # morph: badge
+  # fdr | bonferroni | none
+  status: ""
+  variant: ""
+
+significance_threshold:
+  # morph: number
+  # p-value or FDR cutoff
+  0
+
+# ============================================================================
+# PATHWAY ANALYSIS - Biological interpretation
+# ============================================================================
+
+pathway_enrichment:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+enriched_pathways:
+  # morph: list
+  items:
+    - pathway: ""
+      pathway_id: ""
+      metabolites: 0
+      pvalue: 0
+      fdr: 0
+
+kegg_pathways:
+  # morph: number
+  # Enriched KEGG pathways
+  0
+
+metabolite_sets:
+  # morph: number
+  # Enriched metabolite sets
+  0
+
+pathway_impact:
+  # morph: list
+  items:
+    - pathway: ""
+      impact_score: 0
+      interpretation: ""
+
+# ============================================================================
+# METABOLIC NETWORKS - System-level connections
+# ============================================================================
+
+network_analysis:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+correlation_network:
+  # morph: network
+  nodes:
+    - id: ""
+      metabolite: ""
+      degree: 0
+  edges:
+    - source: ""
+      target: ""
+      correlation: 0
+      pvalue: 0
+
+hub_metabolites:
+  # morph: list
+  # Highly connected metabolites
+  items:
+    - metabolite: ""
+      degree: 0
+      centrality: 0
+      pathways: ""
+
+# ============================================================================
+# FLUXOMICS - Metabolic flux
+# ============================================================================
+
+flux_analysis:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+isotope_labeling:
+  # morph: badge
+  # 13c | 15n | 2h | 18o | none
+  status: ""
+  variant: ""
+
+labeled_substrate:
+  # morph: text
+  # E.g., "[U-13C]-glucose"
+  ""
+
+labeling_time:
+  # morph: number
+  # Incubation time (min/h)
+  0
+
+mass_isotopomer_distribution:
+  # morph: badge
+  # measured | not_measured
+  status: ""
+  variant: ""
+
+flux_calculations:
+  # morph: badge
+  # mfa | 13c_mfa | not_performed
+  status: ""
+  variant: ""
+
+# ============================================================================
+# SPATIAL METABOLOMICS - Localization
+# ============================================================================
+
+spatial_resolution:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+imaging_method:
+  # morph: badge
+  # maldi_imaging | desi | sims | laser_ablation | not_applicable
+  status: ""
+  variant: ""
+
+spatial_resolution_um:
+  # morph: number
+  # Pixel size (μm)
+  0
+
+tissue_regions_analyzed:
+  # morph: number
+  0
+
+metabolite_localization:
+  # morph: list
+  items:
+    - metabolite: ""
+      location: ""
+      abundance: 0
+
+# ============================================================================
+# SINGLE-CELL METABOLOMICS
+# ============================================================================
+
+single_cell_analysis:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+cells_analyzed:
+  # morph: number
+  0
+
+single_cell_method:
+  # morph: badge
+  # live_single_cell_ms | ce_ms | nanoesi_ms | not_applicable
+  status: ""
+  variant: ""
+
+cellular_heterogeneity:
+  # morph: badge
+  # high | moderate | low | not_assessed
+  status: ""
+  variant: ""
+
+metabolite_cell_type_specificity:
+  # morph: list
+  items:
+    - metabolite: ""
+      cell_type: ""
+      specificity: ""
+
+# ============================================================================
+# MULTI-OMICS INTEGRATION
+# ============================================================================
+
+multi_omics:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+integrated_omics:
+  # morph: distribution
+  categories:
+    - omics: "Genomics"
+      integrated: false
+    - omics: "Transcriptomics"
+      integrated: false
+    - omics: "Proteomics"
+      integrated: false
+    - omics: "Lipidomics"
+      integrated: false
+
+integration_method:
+  # morph: badge
+  # correlation | pathway | network | machine_learning | not_applicable
+  status: ""
+  variant: ""
+
+gene_metabolite_correlations:
+  # morph: number
+  # Significant gene-metabolite pairs
+  0
+
+protein_metabolite_correlations:
+  # morph: number
+  0
+
+# ============================================================================
+# BIOMARKER DISCOVERY - Clinical applications
+# ============================================================================
+
+biomarker_discovery:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+candidate_biomarkers:
+  # morph: list
+  items:
+    - metabolite: ""
+      auc: 0
+      sensitivity: 0
+      specificity: 0
+      validation: ""
+
+biomarker_panel:
+  # morph: number
+  # Multimarker signature
+  0
+
+diagnostic_accuracy:
+  # morph: gauge
+  # Classification accuracy (%)
+  current: 0
+  target: 95
+  unit: "%"
+
+validation_cohort:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# DISEASE METABOLOMICS - Clinical
+# ============================================================================
+
+disease_studied:
+  # morph: text
+  ""
+
+disease_classification:
+  # morph: badge
+  # cancer | diabetes | cardiovascular | neurological | metabolic | infectious
+  status: ""
+  variant: ""
+
+patients:
+  # morph: number
+  0
+
+controls:
+  # morph: number
+  0
+
+disease_specific_metabolites:
+  # morph: number
+  0
+
+metabolic_dysregulation:
+  # morph: list
+  items:
+    - pathway: ""
+      direction: ""
+      key_metabolites: ""
+
+# ============================================================================
+# PHARMACOMETABOLOMICS - Drug response
+# ============================================================================
+
+drug_response_study:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+drug_studied:
+  # morph: text
+  ""
+
+drug_metabolites:
+  # morph: number
+  # Drug and metabolites detected
+  0
+
+pharmacokinetics:
+  # morph: badge
+  # characterized | not_characterized
+  status: ""
+  variant: ""
+
+response_predictors:
+  # morph: list
+  # Metabolites predicting drug response
+  items:
+    - metabolite: ""
+      association: ""
+      predictive_value: 0
+
+# ============================================================================
+# NUTRITIONAL METABOLOMICS
+# ============================================================================
+
+dietary_intervention:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+diet_type:
+  # morph: text
+  ""
+
+food_metabolites:
+  # morph: number
+  # Diet-derived metabolites
+  0
+
+microbiome_metabolites:
+  # morph: number
+  # Microbially-derived metabolites
+  0
+
+# ============================================================================
+# PLANT METABOLOMICS
+# ============================================================================
+
+plant_metabolomics:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+plant_tissue:
+  # morph: badge
+  # leaf | root | flower | seed | fruit | whole_plant | not_applicable
+  status: ""
+  variant: ""
+
+specialized_metabolites:
+  # morph: number
+  # Secondary metabolites
+  0
+
+stress_metabolites:
+  # morph: list
+  items:
+    - metabolite: ""
+      stress: ""
+      fold_change: 0
+
+# ============================================================================
+# MICROBIAL METABOLOMICS
+# ============================================================================
+
+microbial_metabolomics:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+growth_phase:
+  # morph: badge
+  # lag | exponential | stationary | death | not_applicable
+  status: ""
+  variant: ""
+
+exometabolome:
+  # morph: badge
+  # analyzed | not_analyzed
+  # Secreted metabolites
+  status: ""
+  variant: ""
+
+# ============================================================================
+# DATA QUALITY
+# ============================================================================
+
+quality_control:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+qc_samples:
+  # morph: number
+  # Pooled QC samples
+  0
+
+batch_correction:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+normalization_method:
+  # morph: badge
+  # median | quantile | internal_standard | total_ion_current | none
+  status: ""
+  variant: ""
+
+missing_values:
+  # morph: gauge
+  # Percentage of missing values (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+cv_qc_samples:
+  # morph: gauge
+  # Coefficient of variation in QCs (%)
+  current: 0
+  target: 20
+  unit: "%"
+
+# ============================================================================
+# MACHINE LEARNING - Predictive modeling
+# ============================================================================
+
+machine_learning:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+ml_method:
+  # morph: badge
+  # random_forest | svm | pls_da | neural_network | gradient_boosting | none
+  status: ""
+  variant: ""
+
+feature_selection:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+cross_validation:
+  # morph: badge
+  # k_fold | loocv | bootstrapping | none
+  status: ""
+  variant: ""
+
+prediction_accuracy:
+  # morph: gauge
+  # Model accuracy (%)
+  current: 0
+  target: 90
+  unit: "%"
+
+# ============================================================================
+# DATA SHARING
+# ============================================================================
+
+data_repository:
+  # morph: text
+  # MetaboLights, Metabolomics Workbench, etc.
+  ""
+
+accession_number:
+  # morph: text
+  ""
+
+raw_data_available:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# COMPUTATIONAL TOOLS
+# ============================================================================
+
+software_used:
+  # morph: list
+  items:
+    - software: ""
+      purpose: ""
+      version: ""
+
+metaboanalyst:
+  # morph: badge
+  # used | not_used
+  status: ""
+  variant: ""
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""
+
+curator:
+  # morph: text
+  ""
+
+notes:
+  # morph: text
+  ""
+
+references:
+  # morph: list
+  items:
+    - citation: ""
+      doi: ""
+      year: ""

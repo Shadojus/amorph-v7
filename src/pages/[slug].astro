@@ -50,47 +50,33 @@ const siteType = getSiteType();
 const siteMeta = SITE_META[siteType];
 const kingdom = siteMeta.dataFolder;
 
-// Get perspectives and field mapping
+// Get perspectives and field mapping - DYNAMISCH aus Blueprints
 const perspectives = getAllPerspectives();
 const fieldPerspectiveMap = item._fieldPerspective || {};
 
-// Perspektiven-Farben - Matte Pastell-Töne (nicht leuchtend, klar von Bio-Farben unterscheidbar)
-const perspectiveColors: Record<string, string[]> = {
-  culinary: ['rgba(180, 140, 120, 0.2)'],
-  safety: ['rgba(170, 130, 140, 0.2)'],
-  cultivation: ['rgba(120, 150, 130, 0.2)'],
-  medicine: ['rgba(150, 140, 170, 0.2)'],
-  chemistry: ['rgba(160, 140, 160, 0.2)'],
-  ecology: ['rgba(130, 150, 120, 0.2)'],
-  statistics: ['rgba(165, 155, 140, 0.2)'],
-  geography: ['rgba(160, 135, 120, 0.2)'],
-  temporal: ['rgba(170, 160, 130, 0.2)'],
-  economy: ['rgba(165, 150, 115, 0.2)'],
-  conservation: ['rgba(115, 150, 145, 0.2)'],
-  culture: ['rgba(155, 140, 160, 0.2)'],
-  research: ['rgba(140, 145, 160, 0.2)'],
-  interactions: ['rgba(175, 145, 135, 0.2)'],
-  identification: ['rgba(145, 155, 125, 0.2)']
-};
-
-// Perspektiven-RGB für stärkere Farben (für Borders etc.)
-const perspectiveRgb: Record<string, string> = {
-  culinary: '180, 140, 120',
-  safety: '170, 130, 140',
-  cultivation: '120, 150, 130',
-  medicine: '150, 140, 170',
-  chemistry: '160, 140, 160',
-  ecology: '130, 150, 120',
-  statistics: '165, 155, 140',
-  geography: '160, 135, 120',
-  temporal: '170, 160, 130',
-  economy: '165, 150, 115',
-  conservation: '115, 150, 145',
-  culture: '155, 140, 160',
-  research: '140, 145, 160',
-  interactions: '175, 145, 135',
-  identification: '145, 155, 125'
-};
+// Perspektiven-Farben - DYNAMISCH generiert aus geladenen Perspektiven
+const perspectiveColors: Record<string, string[]> = {};
+const perspectiveRgb: Record<string, string> = {};
+perspectives.forEach((p, i) => {
+  // HSL-Farbe basierend auf Index für visuelle Unterscheidung
+  const hue = (i * 37) % 360; // Golden angle für gute Farbverteilung
+  perspectiveColors[p.id] = [`hsla(${hue}, 30%, 50%, 0.2)`];
+  // RGB für Border-Farben (konvertiert aus HSL)
+  const h = hue / 360;
+  const s = 0.3;
+  const l = 0.5;
+  const c = (1 - Math.abs(2 * l - 1)) * s;
+  const x = c * (1 - Math.abs((h * 6) % 2 - 1));
+  const m = l - c / 2;
+  let r = 0, g = 0, b = 0;
+  if (h < 1/6) { r = c; g = x; b = 0; }
+  else if (h < 2/6) { r = x; g = c; b = 0; }
+  else if (h < 3/6) { r = 0; g = c; b = x; }
+  else if (h < 4/6) { r = 0; g = x; b = c; }
+  else if (h < 5/6) { r = x; g = 0; b = c; }
+  else { r = c; g = 0; b = x; }
+  perspectiveRgb[p.id] = `${Math.round((r + m) * 255)}, ${Math.round((g + m) * 255)}, ${Math.round((b + m) * 255)}`;
+});
 
 // Ermittle verfügbare Perspektiven dieser Spezies
 const availablePerspectives = [...new Set(Object.values(fieldPerspectiveMap))].filter(Boolean) as string[];
@@ -285,11 +271,11 @@ perspectives.forEach(p => {
     </div>
   </main>
   
-  <!-- Selection Bar (wie index.astro) -->
+  <!-- Selection Bar - Kompakt mit Counter und Clear -->
   <div class="selection-bar">
+    <span class="selection-counter">0</span>
     <div class="selection-pills"></div>
-    <span class="selection-count">0 selected</span>
-    <button class="selection-clear">Clear all</button>
+    <button class="selection-clear" title="Clear all">×</button>
   </div>
   
   <!-- My Species Panel (Overlay) -->

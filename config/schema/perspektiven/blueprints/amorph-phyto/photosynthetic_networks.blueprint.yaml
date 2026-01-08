@@ -1,0 +1,811 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# PHOTOSYNTHETIC NETWORKS PERSPECTIVE - HOLISTIC BLUEPRINT
+# Chloroplast Architecture, Light Harvesting & Energy Conversion Networks
+# Version: 1.0.0
+# Domain: PLANTS (Holistic Systems View)
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# PURPOSE: Captures photosynthesis as INTEGRATED ENERGY CONVERSION NETWORK
+# - Thylakoid membrane architecture
+# - Photosystem complexes & electron transport
+# - Calvin cycle & carbon fixation networks
+# - Photorespiration pathways
+# - Chloroplast-nucleus communication
+# - Light acclimation & photoinhibition
+# - Metabolic integration with mitochondria & peroxisomes
+#
+# Based on 2025 research:
+# - Thylakoid organization & protein localization (2025)
+# - Molecular architecture of PSI/PSII (in situ cryo-ET 2025)
+# - Photosynthetic electron transport chain regulation (2025)
+# - Grana-stroma thylakoid differentiation
+# - Structure-function relationships in photosynthesis
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: photosynthetic_networks
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PLANT IDENTITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+scientific_name:
+  # morph: text
+  ""
+
+common_name:
+  # morph: text
+  ""
+
+photosynthetic_pathway:
+  # morph: badge
+  # C3 | C4 | CAM | C2 | C3-C4_intermediate
+  status: ""
+  variant: ""
+
+leaf_type:
+  # morph: badge
+  # broadleaf | needle | succulent | grass
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHLOROPLAST ARCHITECTURE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+chloroplasts_present:
+  # morph: boolean
+  true
+
+chloroplast_count_per_cell:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "chloroplasts/cell"
+
+chloroplast_size:
+  # morph: range
+  # diameter in μm
+  min: 0
+  max: 0
+  unit: "μm"
+
+chloroplast_shape:
+  # morph: badge
+  # lens | spherical | elliptical | lobed
+  status: ""
+  variant: ""
+
+chloroplast_movement:
+  # morph: boolean
+  # light-dependent repositioning
+  false
+
+chloroplast_envelope:
+  # morph: boolean
+  # double membrane
+  true
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THYLAKOID MEMBRANE ARCHITECTURE (2025 focus)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+thylakoid_system_present:
+  # morph: boolean
+  true
+
+thylakoid_organization:
+  # morph: badge
+  # grana_stroma | non_appressed | cyanobacterial
+  status: ""
+  variant: ""
+
+grana_stacks:
+  # morph: boolean
+  # appressed thylakoids
+  false
+
+grana_stack_count:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "grana/chloroplast"
+
+thylakoid_discs_per_granum:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "discs/granum"
+
+grana_diameter:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "nm"
+
+stroma_thylakoids:
+  # morph: boolean
+  # non-appressed membranes
+  false
+
+grana_margin:
+  # morph: boolean
+  # transition zone (2025)
+  false
+
+thylakoid_network_connectivity:
+  # morph: rating
+  # interconnectedness
+  rating: 0
+  max: 10
+
+thylakoid_membrane_area:
+  # morph: gauge
+  # m²/m² leaf area
+  value: 0
+  min: 0
+  max: 100
+  unit: "m²/m²"
+
+thylakoid_membrane_lipid_composition:
+  # morph: pie
+  - label: "MGDG"
+    value: 0
+  - label: "DGDG"
+    value: 0
+  - label: "SQDG"
+    value: 0
+  - label: "PG"
+    value: 0
+  - label: "Other"
+    value: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PHOTOSYSTEM II - Water Splitting & Oxygen Evolution (2025)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+photosystem_ii_present:
+  # morph: boolean
+  true
+
+psii_location:
+  # morph: badge
+  # grana_core | grana_margin | stroma
+  status: ""
+  variant: ""
+
+psii_density:
+  # morph: gauge
+  # complexes per μm²
+  value: 0
+  min: 0
+  max: 5000
+  unit: "complexes/μm²"
+
+psii_dimer_to_monomer_ratio:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 1
+
+reaction_center_d1_d2:
+  # morph: boolean
+  # core proteins
+  true
+
+oxygen_evolving_complex:
+  # morph: boolean
+  # OEC / water-splitting complex
+  true
+
+manganese_cluster:
+  # morph: boolean
+  # Mn4CaO5 cluster
+  true
+
+psii_antenna_size:
+  # morph: number
+  # chlorophyll molecules per PSII
+  0
+
+light_harvesting_complex_ii:
+  # morph: boolean
+  # LHCII
+  true
+
+lhcii_trimers:
+  # morph: boolean
+  # major LHCII organization
+  false
+
+chlorophyll_a_b_ratio_psii:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 5
+
+psii_repair_cycle:
+  # morph: boolean
+  # D1 protein turnover
+  false
+
+psii_photoinhibition_susceptibility:
+  # morph: rating
+  # damage under excess light
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PHOTOSYSTEM I - NADPH Production (2025)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+photosystem_i_present:
+  # morph: boolean
+  true
+
+psi_location:
+  # morph: badge
+  # stroma_thylakoids | grana_margins | both
+  status: ""
+  variant: ""
+
+psi_density:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 3000
+  unit: "complexes/μm²"
+
+psi_antenna_size:
+  # morph: number
+  # chlorophyll molecules per PSI
+  0
+
+light_harvesting_complex_i:
+  # morph: boolean
+  # LHCI
+  true
+
+lhci_antenna_proteins:
+  # morph: list
+  # Lhca1-4
+  - ""
+
+reaction_center_p700:
+  # morph: boolean
+  true
+
+ferredoxin_nadp_reductase:
+  # morph: boolean
+  # FNR
+  true
+
+cyclic_electron_flow:
+  # morph: boolean
+  # CEF around PSI
+  false
+
+psi_cyclic_electron_flow_rate:
+  # morph: gauge
+  # % of total electron flow
+  value: 0
+  min: 0
+  max: 50
+  unit: "%"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ELECTRON TRANSPORT CHAIN (2025 regulation)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+linear_electron_flow:
+  # morph: boolean
+  # PSII → PSI
+  true
+
+electron_transport_pathway:
+  # morph: flow
+  - from: "H2O (PSII)"
+    to: "Plastoquinone"
+    value: 0
+  - from: "Plastoquinone"
+    to: "Cytochrome b6f"
+    value: 0
+  - from: "Cytochrome b6f"
+    to: "Plastocyanin"
+    value: 0
+  - from: "Plastocyanin"
+    to: "PSI"
+    value: 0
+  - from: "PSI"
+    to: "Ferredoxin"
+    value: 0
+  - from: "Ferredoxin"
+    to: "NADP+"
+    value: 0
+
+cytochrome_b6f_complex:
+  # morph: boolean
+  true
+
+cytochrome_b6f_density:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 2000
+  unit: "complexes/μm²"
+
+plastoquinone_pool_size:
+  # morph: number
+  # molecules per PSII
+  0
+
+plastoquinone_reduction_state:
+  # morph: gauge
+  # % reduced
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+plastocyanin:
+  # morph: boolean
+  # mobile electron carrier
+  true
+
+ferredoxin:
+  # morph: boolean
+  true
+
+nadph_production_rate:
+  # morph: gauge
+  # μmol/m²/s
+  value: 0
+  min: 0
+  max: 500
+  unit: "μmol/m²/s"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ATP SYNTHESIS - Chemiosmotic Coupling
+# ═══════════════════════════════════════════════════════════════════════════════
+
+atp_synthase_present:
+  # morph: boolean
+  true
+
+atp_synthase_location:
+  # morph: badge
+  # stroma_thylakoids | grana_margins
+  status: ""
+  variant: ""
+
+atp_synthase_density:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 1000
+  unit: "complexes/μm²"
+
+proton_gradient:
+  # morph: gauge
+  # ΔpH across thylakoid
+  value: 0
+  min: 0
+  max: 4
+  unit: "pH units"
+
+lumen_ph:
+  # morph: number
+  # pH in thylakoid lumen
+  0
+
+stroma_ph:
+  # morph: number
+  0
+
+proton_motive_force:
+  # morph: gauge
+  # mV
+  value: 0
+  min: 0
+  max: 500
+  unit: "mV"
+
+atp_production_rate:
+  # morph: gauge
+  # μmol/m²/s
+  value: 0
+  min: 0
+  max: 300
+  unit: "μmol/m²/s"
+
+atp_nadph_ratio:
+  # morph: gauge
+  # optimal ~1.5
+  value: 0
+  min: 0
+  max: 3
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LIGHT HARVESTING & ENERGY TRANSFER
+# ═══════════════════════════════════════════════════════════════════════════════
+
+total_chlorophyll_content:
+  # morph: gauge
+  # μmol/m²
+  value: 0
+  min: 0
+  max: 1000
+  unit: "μmol/m²"
+
+chlorophyll_a_b_ratio:
+  # morph: gauge
+  value: 0
+  min: 1
+  max: 5
+
+carotenoid_content:
+  # morph: gauge
+  # μmol/m²
+  value: 0
+  min: 0
+  max: 200
+  unit: "μmol/m²"
+
+carotenoid_types:
+  # morph: list
+  # beta_carotene | lutein | violaxanthin | zeaxanthin
+  - ""
+
+light_absorption_spectrum:
+  # morph: text
+  # peak wavelengths
+  ""
+
+energy_transfer_efficiency:
+  # morph: gauge
+  # antenna → reaction center
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+excitation_energy_quenching:
+  # morph: boolean
+  # NPQ mechanisms
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NON-PHOTOCHEMICAL QUENCHING - Photoprotection
+# ═══════════════════════════════════════════════════════════════════════════════
+
+npq_capacity:
+  # morph: gauge
+  # non-photochemical quenching
+  value: 0
+  min: 0
+  max: 5
+
+xanthophyll_cycle:
+  # morph: boolean
+  # violaxanthin ↔ zeaxanthin
+  false
+
+psbs_protein:
+  # morph: boolean
+  # pH-sensing NPQ trigger
+  false
+
+zeaxanthin_formation:
+  # morph: boolean
+  false
+
+state_transitions:
+  # morph: boolean
+  # LHCII phosphorylation & migration
+  false
+
+photoinhibition_resistance:
+  # morph: rating
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CARBON FIXATION - Calvin Cycle
+# ═══════════════════════════════════════════════════════════════════════════════
+
+calvin_cycle_present:
+  # morph: boolean
+  true
+
+rubisco_present:
+  # morph: boolean
+  # ribulose-1,5-bisphosphate carboxylase/oxygenase
+  true
+
+rubisco_content:
+  # morph: gauge
+  # g/m² leaf
+  value: 0
+  min: 0
+  max: 10
+  unit: "g/m²"
+
+rubisco_carboxylation_rate:
+  # morph: gauge
+  # Vc,max
+  value: 0
+  min: 0
+  max: 200
+  unit: "μmol/m²/s"
+
+rubisco_oxygenation_rate:
+  # morph: gauge
+  # Vo,max
+  value: 0
+  min: 0
+  max: 100
+  unit: "μmol/m²/s"
+
+rubisco_specificity_factor:
+  # morph: gauge
+  # CO2/O2 selectivity
+  value: 0
+  min: 0
+  max: 200
+
+co2_compensation_point:
+  # morph: number
+  # μmol/mol (ppm)
+  0
+
+carboxylation_efficiency:
+  # morph: gauge
+  # initial slope of A-Ci curve
+  value: 0
+  min: 0
+  max: 0.2
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# C4 PHOTOSYNTHESIS (if applicable)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+c4_photosynthesis:
+  # morph: boolean
+  false
+
+c4_subtype:
+  # morph: badge
+  # NADP_ME | NAD_ME | PEPCK | none
+  status: ""
+  variant: ""
+
+kranz_anatomy:
+  # morph: boolean
+  # specialized leaf anatomy
+  false
+
+mesophyll_bundle_sheath_cooperation:
+  # morph: boolean
+  false
+
+pepc_enzyme:
+  # morph: boolean
+  # phosphoenolpyruvate carboxylase
+  false
+
+co2_concentrating_mechanism:
+  # morph: boolean
+  false
+
+c4_co2_compensation_point:
+  # morph: number
+  # near zero for C4
+  0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CAM PHOTOSYNTHESIS (if applicable)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+cam_photosynthesis:
+  # morph: boolean
+  false
+
+cam_type:
+  # morph: badge
+  # obligate | facultative | CAM_cycling
+  status: ""
+  variant: ""
+
+nocturnal_co2_fixation:
+  # morph: boolean
+  false
+
+malic_acid_accumulation:
+  # morph: gauge
+  # nocturnal accumulation
+  value: 0
+  min: 0
+  max: 200
+  unit: "μmol/g FW"
+
+temporal_co2_fixation_separation:
+  # morph: boolean
+  # night (PEPC) vs day (Rubisco)
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PHOTORESPIRATION - The Costly Pathway
+# ═══════════════════════════════════════════════════════════════════════════════
+
+photorespiration_rate:
+  # morph: gauge
+  # % of photosynthesis
+  value: 0
+  min: 0
+  max: 50
+  unit: "%"
+
+photorespiratory_pathway:
+  # morph: flow
+  - from: "Chloroplast (2-PG)"
+    to: "Peroxisome (Gly)"
+    value: 0
+  - from: "Peroxisome (Gly)"
+    to: "Mitochondria (Ser)"
+    value: 0
+  - from: "Mitochondria (Ser)"
+    to: "Peroxisome (Gly)"
+    value: 0
+  - from: "Peroxisome"
+    to: "Chloroplast (3-PGA)"
+    value: 0
+
+glycolate_oxidase:
+  # morph: boolean
+  # peroxisome enzyme
+  false
+
+glycine_decarboxylase:
+  # morph: boolean
+  # mitochondrial GDC
+  false
+
+photorespiratory_co2_loss:
+  # morph: gauge
+  # % of fixed C lost
+  value: 0
+  min: 0
+  max: 50
+  unit: "%"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHLOROPLAST-NUCLEUS COMMUNICATION - Retrograde Signaling
+# ═══════════════════════════════════════════════════════════════════════════════
+
+retrograde_signaling:
+  # morph: boolean
+  # chloroplast → nucleus
+  false
+
+anterograde_signaling:
+  # morph: boolean
+  # nucleus → chloroplast
+  false
+
+chloroplast_gene_expression:
+  # morph: boolean
+  # plastid genome transcription
+  true
+
+nuclear_encoded_chloroplast_proteins:
+  # morph: gauge
+  # % of chloroplast proteome
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+photosynthetic_acclimation:
+  # morph: rating
+  # ability to adjust to light
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# METABOLIC INTEGRATION - Chloroplast-Mitochondria-Peroxisome
+# ═══════════════════════════════════════════════════════════════════════════════
+
+chloroplast_mitochondria_cooperation:
+  # morph: boolean
+  # photorespiration, energy balance
+  false
+
+malate_valve:
+  # morph: boolean
+  # NADPH export from chloroplast
+  false
+
+metabolite_shuttles:
+  # morph: list
+  # malate_oxaloacetate | dihydroxyacetone_phosphate
+  - ""
+
+organellar_redox_balancing:
+  # morph: boolean
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# QUANTUM EFFICIENCY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+quantum_yield_psii:
+  # morph: gauge
+  # ΦPSII
+  value: 0
+  min: 0
+  max: 1
+
+maximum_quantum_yield:
+  # morph: gauge
+  # Fv/Fm (dark-adapted)
+  value: 0
+  min: 0
+  max: 1
+
+effective_quantum_yield:
+  # morph: gauge
+  # light-adapted
+  value: 0
+  min: 0
+  max: 1
+
+electron_transport_rate:
+  # morph: gauge
+  # ETR (μmol e-/m²/s)
+  value: 0
+  min: 0
+  max: 500
+  unit: "μmol e⁻/m²/s"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LITERATURE REFERENCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_research_papers:
+  # morph: list
+  - ""
+
+photosynthesis_literature:
+  # morph: citation
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+data_source:
+  # morph: badge
+  # gas_exchange | fluorescence | biochemical | cryo_ET | literature
+  status: ""
+  variant: ""
+
+measurement_method:
+  # morph: badge
+  # LI6800 | PAM_fluorometry | mass_spec
+  status: ""
+  variant: ""
+
+confidence_level:
+  # morph: badge
+  # high | medium | low | speculative
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""

@@ -2,444 +2,293 @@
 
 **Formlos. Zustandslos. Transformierend.**
 
-> Unified Morph Architecture für **wissenschaftliche Daten** mit automatischer Single/Compare-Erkennung.
+> Unified Morph Architecture für wissenschaftliche Daten mit automatischer Single/Compare-Erkennung.
 
 ## Status: ✅ Production Ready (Januar 2026)
 
-- **🔗 BIFROEST Integration** - Daten aus Pocketbase (nicht mehr lokal!)
-- **🌌 Aurora Nebula Animation** - Header-Animation wird in Bifroest als Fullscreen verwendet
-- **17 Sites** - 6 Bio + 3 Geo + 11 Wissenschaftliche Domains
-- **289 Experts** - In Pocketbase, extrahiert aus AMORPH _sources.json
-- **100+ Perspektiven** - 15 Bio + 12 Paleo + 11 Mineral + 7 Tektonik + ~90 neue Domains
-- **28 Morph Primitives** implementiert (badge, bar, boolean, calendar, citation, currency, date, dosage, gauge, image, lifecycle, link, list, number, object, pie, progress, radar, range, rating, severity, sparkline, stats, steps, tag, text, timeline)
-- **Struktur-basierte Detection** - Typ-Erkennung rein aus Datenstruktur
-- **Field-basierte Selektion** - Einzelne Felder aus beliebigen Spezies auswählen
-- **Live Compare Updates** - Diff-basierte Aktualisierung ohne Reload
-- **Autocomplete Feature** - Fehlende Felder automatisch bei anderen Spezies ergänzen
-- **Bio-Lumineszenz Farbsystem** - 8 leuchtende Farben (Foxfire, Myzel, Sporen, etc.)
-- **HIGH_VALUE_FIELDS Priorisierung** - "Knaller"-Daten zuerst (Healing, WOW-Faktor, Kulinarik)
-- **Bifroest Attribution System** - © Copyright-Badges + Experten-Buttons mit Popup
-- **Nebel-Drift Animation** - Sanftes Cyan-Glow ohne Blinken (kein Weiß)
-- **English UI Labels** - Search, Compare, Complete, Copy (international)
+### Aktuelle Features
+- **🔗 BIFROEST Integration** - Daten ausschließlich aus PocketBase
+- **📊 97 Perspektiven** - Automatisch aus Blueprint YAML generiert
+- **17 Domains** - Wissenschaftliche Multi-Site Architektur
+- **28 Morph Primitives** - Vollständige Komponenten-Bibliothek
+- **475 Tests** - Umfassende Testabdeckung
 
-### 🌐 Multi-Domain System (17 Sites)
-
-| Port | Site | Domain | Farbe |
-|------|------|--------|-------|
-| 4321 | Funginomi | fungi | Psychedelic Blue |
-| 4322 | Phytonomi | plantae | Jade Green |
-| 4323 | Drakonomi | therion | Magenta Pink |
-| 4324 | Paleonomi | paleontology | Amber |
-| 4325 | Tektonomi | tectonics | Slate |
-| 4326 | Minenomi | mineralogy | Crystal |
-| 4327 | Bakterionomi | microbiology | Cyan |
-| 4328 | Vironomi | virology | Red-Orange |
-| 4329 | Genonomi | genetics | Purple |
-| 4330 | Anatonomi | anatomy | Coral |
-| 4331 | Chemonomi | chemistry | Yellow |
-| 4332 | Physikonomi | physics | Electric Blue |
-| 4333 | Kosmonomi | astronomy | Deep Purple |
-| 4334 | Netzonomi | informatics | Teal |
-| 4335 | Cognitonomi | ai | Violet |
-| 4336 | Bionomi | biotech | Lime |
-| 4337 | Socionomi | sociology | Orange |
-
-### Design Features
-- **Black Glass Morphism** - Transparentes Schwarz mit blauen Kanten
-- **Nachthimmel-Prinzip** - Dunkler Hintergrund, leuchtende Datenpunkte
-- **Lichtkugel-Design** - 6px Dots mit Glow-Effekt
-- **Perspektiven: Matte Pastell-Töne** - 15 Kategorien, klar von Bio-Lumineszenz unterscheidbar
-- **Sticky Suchleiste** - z-index 10000, durchsucht auch Compare-View
-- **Compare mit Autocomplete** - Fehlende Felder automatisch ergänzen + Copy-Button
-- **Compare-Toggle Footer** - Button wechselt zwischen "Compare" und "Close"
-- **Engagement-optimierte Feld-Anzeige** - WOW-Felder vor technischen Daten
-- **Bifroest-Mode** - Cyan-Nebel-Glow für Copyright/Experten-Attribution (kein Weiß, Drift-Animation)
-
-### Technologie
-- **Astro 5.16** mit SSR auf Port 4321-4323
+### Technologie-Stack
+- **Astro 5.16** mit SSR
 - **TypeScript** durchgängig
-- **Vitest** für Tests (421 Tests)
-- **sessionStorage** für Selection-Persistenz
-- **Zod** für Schema-Validierung
-- **Sharp** für WebP-Konvertierung
+- **Vitest** für Tests
+- **PocketBase v0.25** als einzige Datenquelle (via Bifroest)
 
-## 🎯 Kernkonzept
+---
 
-**Ein Morph, zwei Modi**: Jeder Morph erkennt automatisch ob er einen Einzelwert oder mehrere Werte zum Vergleich rendern soll - basierend auf dem `RenderContext`.
+## ⚠️ Wichtig: Nur PocketBase!
 
-```typescript
-const context: RenderContext = {
-  mode: 'compare',      // oder 'single', 'grid'
-  itemCount: 3,         // Anzahl der Items
-  items: [...]          // Die Items selbst
-};
-
-badge(value, context);  // Single ODER Compare je nach Context
 ```
+❌ data-local/     → LEGACY (nicht verwenden!)
+❌ data/           → Symlink zu data-local (entfernen!)
+❌ config/         → Symlink zu config-local (entfernen!)
+✅ PocketBase      → Einzige Datenquelle für Species & Experten
+```
+
+**Bilder**: PocketBase unterstützt `file` Felder - alle Bilder dort speichern!
+
+---
+
+## 🌐 Multi-Domain System (17 Sites)
+
+| Port | Site | Domain | Kategorie |
+|------|------|--------|-----------|
+| 4321 | Funginomi | fungi | Biologie |
+| 4322 | Phytonomi | phyto | Biologie |
+| 4323 | Drakonomi | drako | Biologie |
+| 4324 | Bakterionomi | bakterio | Biologie |
+| 4325 | Vironomi | viro | Biologie |
+| 4326 | Genonomi | geno | Biologie |
+| 4327 | Anatonomi | anato | Medizin |
+| 4328 | Chemonomi | chemo | Chemie |
+| 4329 | Physikonomi | physi | Physik |
+| 4330 | Kosmonomi | kosmo | Astronomie |
+| 4331 | Minenomi | mine | Geologie |
+| 4332 | Tektonomi | tekto | Geologie |
+| 4333 | Paleonomi | paleo | Paläontologie |
+| 4334 | Netzonomi | netzo | Informatik |
+| 4335 | Cognitonomi | cognito | KI |
+| 4336 | Bionomi | biotech | Biotechnologie |
+| 4337 | Socionomi | socio | Soziologie |
+
+---
 
 ## 🚀 Quick Start
 
 ```bash
-cd amorph-v7
-npm install
-npm run dev          # Port 4323
-npm test             # Tests im Watch-Modus
-npm run test:run     # Einmalig ohne Watch
-npm run build        # Production Build (inkl. CSS Bundling)
-npm run optimize:images  # WebP-Konvertierung
+# System starten (vom ROOT-Verzeichnis Bifroest/)
+npm start                     # Startet PocketBase + alle 17 AMORPH + Frontend
+npm run start:single          # Nur PocketBase + Fungi (schneller)
+npm run start:test            # Mit Tests nach Start
+
+# Nur AMORPH (PocketBase muss laufen)
+cd amorph
+npm run dev
+
+# Tests
+npm test
+npm run test:run
+
+# Build
+npm run build
 ```
+
+---
 
 ## 📁 Projektstruktur
 
 ```
-amorph-v7/
-├── config/              # YAML-Konfiguration
-│   ├── manifest.yaml    # App-Name, Version, Branding
-│   ├── daten.yaml       # Datenquelle (pocketbase)
-│   ├── features.yaml    # Feature-Flags
-│   └── schema/          # 15 Perspektiven + Blueprints
-│
-├── data/                # Lokale Hilfsdateien (NICHT Species-Daten!)
-│   ├── universe-index.json    # Index für Navigation
-│   └── bifroest-experts.json  # Experten-Datenbank
-│   # ⚠️ Species-Daten sind in POCKETBASE (http://localhost:8090)
-│
-├── scripts/             # Build & Validierung
-│   ├── build-index.js   # v2.0 - SEO-optimierte Index-Generierung
-│   ├── build-css.js     # CSS Bundler (60+ → 1 Datei)
-│   ├── optimize-images.js # WebP-Konvertierung mit Sharp
-│   ├── build-pages.js   # Static Page Generation (optional)
-│   └── validate.js      # Zod-Schema-Validierung
+amorph/
+├── CLAUDE.md                    # ⭐ Diese Datei
+├── config-local/                # Site-Konfiguration
+│   ├── manifest.yaml            # App-Metadaten
+│   ├── daten.yaml               # Datenquelle (pocketbase)
+│   ├── features.yaml            # Feature-Flags
+│   └── schema/                  # Perspektiven-Schema
 │
 ├── src/
-│   ├── core/            # types.ts, detection.ts, security.ts
-│   ├── morphs/          # 28 Primitives + base.ts + debug.ts
-│   ├── observer/        # Debug & Analytics (DYNAMIC IMPORT!)
-│   ├── server/          # config.ts, data.ts, bifroest.ts (Pocketbase Client)
-│   ├── client/features/ # app, search, grid, compare, selection, bifrost, debug
-│   ├── layouts/         # Base.astro (CSS Bundling)
-│   └── pages/           # index.astro (Pagination), [slug].astro, api/
+│   ├── core/                    # types.ts, detection.ts, security.ts
+│   │   └── CLAUDE.md
+│   ├── morphs/                  # 28 Morph Primitives
+│   │   └── CLAUDE.md
+│   ├── observer/                # Debug & Analytics
+│   │   └── CLAUDE.md
+│   ├── server/                  # ⭐ bifroest.ts (PocketBase Client)
+│   │   └── CLAUDE.md
+│   ├── client/                  # Frontend Features
+│   │   └── CLAUDE.md
+│   ├── layouts/                 # Astro Layouts
+│   │   └── CLAUDE.md
+│   └── pages/                   # Routes
+│       └── CLAUDE.md
 │
 ├── public/
-│   ├── styles/          # CSS mit Bundled Outputs
-│   │   ├── all.min.css  # Production Bundle (154KB)
-│   │   └── morphs/      # Morph Styles (inkl. bifroest.css)
-│   └── images/species/  # Lokale Bilder (WebP)
+│   ├── CLAUDE.md
+│   ├── styles/                  # CSS (inkl. all.min.css Bundle)
+│   └── images/                  # Statische Assets (NICHT Species-Bilder!)
 │
-└── tests/               # 421 Tests - detection, security, morphs, observer, integration
+├── tests/                       # 475 Vitest Tests
+│   └── CLAUDE.md
+│
+├── data-local/                  # ⚠️ LEGACY - Wird entfernt!
+│   └── CLAUDE.md                # Warnung vor Nutzung
+│
+└── data, config                 # ❌ Symlinks - Entfernen!
 ```
 
-## 🔗 Pocketbase Integration
+---
 
-AMORPH lädt alle Species-Daten von der **BIFROEST Pocketbase**:
+## 🔗 PocketBase Integration
 
+### Datenfluss
 ```
-http://localhost:8090/api/collections/species/records
+Blueprint YAML → Schema Manager → PocketBase Collections → AMORPH Frontend
 ```
 
-### Species Collection Schema (25 Felder)
-- **Core**: name, slug, category, description, scientific_name, image
-- **15 Perspektiven**: identification, ecology, chemistry, medicine, safety, culinary, cultivation, conservation, culture, economy, geography, interactions, research, statistics, temporal (JSON)
-- **Meta**: created, updated, sources, expert_id
+### Collections (automatisch generiert)
+- **`{domain}_entities`** - 17 Entity-Collections (fungi_entities, phyto_entities, etc.)
+- **`{domain}_*`** - Perspektiv-Tabellen pro Domain
+- **`experts`** - 68 Experten mit field_expertise-Arrays
+
+### Experten-System (BIFROEST)
+```typescript
+// Experten-Feld-Matching in bifroest.ts:
+const matchingExperts = loadedExperts.filter(expert => 
+  expert.field_expertise?.includes(fieldKey)
+);
+
+// Experten-Schema:
+interface Expert {
+  name: string;
+  domain: 'fungi' | 'phyto' | 'drako' | ... // 17 Domains
+  field_expertise: string[];  // z.B. ["habitat", "edibility", "genus"]
+  impact_score: number;       // NIEMALS an Client senden!
+  verified: boolean;
+}
+```
 
 ### Environment Variables
 ```bash
-POCKETBASE_URL=http://localhost:8090   # Pocketbase API
-DATA_SOURCE=pocketbase                  # 'pocketbase' | 'local' | 'auto'
+POCKETBASE_URL=http://127.0.0.1:8090   # PocketBase API
+DATA_SOURCE=pocketbase                  # 'pocketbase' | 'local'
 ```
+
+### API Calls (bifroest.ts)
+```typescript
+// Entities laden
+const entities = await fetchFromCollection('fungi');
+
+// Experten für Feld laden
+const experts = await getExpertsForField('habitat');
+```
+
+---
+
+## 📋 Blueprint System
+
+### Verzeichnisstruktur
+```
+config/schema/perspektiven/blueprints/
+├── amorph-fungi/
+│   ├── chemical_ecology.blueprint.yaml
+│   ├── cross_kingdom_relations.blueprint.yaml
+│   ├── ecosystem_engineering.blueprint.yaml
+│   ├── fungal_holobiont.blueprint.yaml
+│   ├── fungal_intelligence.blueprint.yaml
+│   └── mycelial_networks.blueprint.yaml
+├── amorph-phyto/
+│   └── ... (6 Blueprints)
+└── ... (17 Domains)
+```
+
+### Blueprint Format
+```yaml
+perspective: fungal_intelligence
+version: "1.0.0"
+
+scientific_name:
+  # morph: text
+  ""
+
+network_complexity:
+  # morph: badge
+  status: ""
+
+sensory_modalities:
+  # morph: list
+  - ""
+
+memory_capability:
+  # morph: boolean
+  false
+```
+
+### Morph Types → PocketBase
+| Morph Type | PocketBase Type |
+|------------|-----------------|
+| `text` | `text` |
+| `boolean` | `bool` |
+| `number` | `number` |
+| `list` | `json` |
+| `tag` | `text` |
+| `badge` | `text` |
+| `gauge` | `json` |
+| `range` | `json` |
+| `editor` | `editor` |
+
+---
+
+## 🎨 Design System
+
+### Farben
+| System | Verwendung |
+|--------|------------|
+| **Site Colors** | Pro Domain (Blue für Fungi, Jade für Phyto, etc.) |
+| **Perspektiven** | 15 matte Pastell-Töne |
+| **Bio-Lumineszenz** | 8 leuchtende Farben für Compare-Ansicht |
+
+### CSS Variables
+```css
+--system-rgb: 77, 136, 255;       /* Aktive Site-Farbe */
+--pilz-0-rgb bis --pilz-7-rgb     /* Bio-Lumineszenz Palette */
+```
+
+### Z-Index Hierarchie
 1. **z-index: 10001** - Bottom Navigation
 2. **z-index: 10000** - Suchleiste
 3. **z-index: 9999** - Compare-Panel
 4. **z-index: 200** - Header
 
-### Farb-System
-| System | Verwendung | Farben |
-|--------|------------|--------|
-| **Site Colors** | Multi-Site Branding | Funginomi Blue, Phytonomi Jade, Drakonomi Magenta |
-| **Perspektiven** | Datenkategorien | 15 matte Pastell-Töne |
-| **Bio-Lumineszenz** | Compare-Ansicht | 8 leuchtende Farben |
+---
 
-### CSS Variables
-```css
---system-rgb: 77, 136, 255;           /* Active Site Color */
---pilz-0-rgb bis --pilz-7-rgb         /* Bio-Lumineszenz Palette */
-```
+## 🔧 Scripts
 
-## 📱 Features
-
-### Feld-basierte Selektion
-- Klick auf Feld-Header zum Auswählen (+ Symbol)
-- Farbe basierend auf Perspektive
-- sessionStorage Persistenz (`amorph:selection:fields`)
-- Compare-View mit Diff-basierter Aktualisierung
-
-### Compare-Panel
-- **Species-Highlight**: Hover/Click hebt alle Werte einer Spezies hervor
-- **Remove from Selection**: X-Button in Legend
-- **Search in Compare**: Durchsucht Compare-Content
-- **Copy-Button**: Export mit License-Hinweis
-
-## 🔧 API Endpoints
-
-### GET /api/search
-```
-/api/search?q=pilz&p=culinary,safety&limit=20
-```
-
-### POST /api/compare
-```json
-{
-  "fields": [
-    {"itemSlug": "steinpilz", "itemName": "Steinpilz", "fieldName": "toxicity", "value": {...}}
-  ]
-}
-```
-```json
-{ "fields": [...selectedFields] }
-```
-
-## 🎨 Implementierte Morphs (18)
-
-| Morph | Single | Compare | Auto-Detect |
-|-------|--------|---------|-------------|
-| `text` | ✅ | Side-by-side | String >20 chars |
-| `number` | ✅ | Balken | Number |
-| `boolean` | ✅ | Side-by-side | Boolean |
-| `badge` | ✅ | Highlight-Diff | `{status, variant}` |
-| `tag` | ✅ | Common/Unique | String ≤20 chars |
-| `progress` | ✅ | Stacked bars | `{value, max}` |
-| `rating` | ✅ | Horizontal bars | `{rating, max?}` |
-| `range` | ✅ | Overlap visual | `{min, max}` |
-| `stats` | ✅ | Side-by-side | `{min, avg, max}` |
-| `image` | ✅ | Side-by-side | URL mit Extension |
-| `link` | ✅ | Side-by-side | http/https URL |
-| `list` | ✅ | Side-by-side | `["strings"]` |
-| `bar` | ✅ | Grouped + Stats | `[{label, value}]` |
-| `sparkline` | ✅ | Side-by-side | `[numbers]` |
-| `radar` | ✅ | Overlay + Insights | `[{axis, value}]` |
-| `timeline` | ✅ | Side-by-side | `[{date, event}]` |
-| `date` | ✅ | Side-by-side | ISO date string |
-| `object` | ✅ | Tabelle + Δ | Generic objects |
-
-## 🔑 Architektur-Entscheidungen
-
-1. **Symlinks** - Config/Data aus Root-Projekt verlinkt
-2. **Unified Morphs** - Ein Morph-Typ, eine Datei, beide Modi
-3. **TypeScript** - Typsicherheit durchgängig
-4. **Modulares Layout** - Base.astro ~50 Zeilen
-5. **CSS in public/** - Statisch und cachefreundlich
+| Script | Beschreibung |
+|--------|--------------|
+| `npm run dev` | Entwicklungsserver starten |
+| `npm run build` | Production Build |
+| `npm test` | Tests im Watch-Modus |
+| `npm run test:run` | Einmalige Test-Ausführung |
 
 ---
 
-## 🚀 How to Add New System Parts
+## 📝 Wichtige Hinweise
 
-### A) Neue Perspektive zu existierender Domain
+### ⚠️ Keine lokalen Daten!
+- ❌ Keine Species-JSON in `data-local/` verwenden
+- ❌ Keine Bilder in `public/images/species/`
+- ✅ Alle Daten in PocketBase (`species` + `perspective_*` Collections)
+- ✅ Alle Bilder in PocketBase (file field)
 
-1. **Blueprint erstellen** in `config/schema/perspektiven/blueprints/`
-```yaml
-# newperspective.blueprint.yaml
-id: newperspective
-name: Neue Perspektive
-symbol: 🔬
+### Neue Perspektive hinzufügen
+1. Blueprint YAML in `shared/blueprints/amorph-{domain}/` erstellen
+2. `npm run schema` im ROOT-Verzeichnis ausführen
+3. Collection wird automatisch erstellt (existierende bleiben erhalten!)
 
-# morph: text
-field_name: ""
-
-# morph: tag
-category: ""
-
-_enums:
-  category:
-    - "Option1"
-    - "Option2"
-```
-
-2. **Perspektive registrieren** in `config/schema/perspektiven/index.yaml`
-```yaml
-fungi:
-  - identification
-  - ecology
-  - newperspective  # ← Hinzufügen
-```
-
-3. **Daten ergänzen** in den Species-JSON-Dateien oder PocketBase
-
----
-
-### B) Neuer Morph-Typ
-
-1. **Morph implementieren** in `src/morphs/primitives/`
-```typescript
-// newmorph.ts
-import type { RenderContext, MorphOutput } from '../types';
-
-export function newmorph(value: unknown, context: RenderContext): MorphOutput {
-  // Single mode
-  if (context.mode === 'single') {
-    return { html: `<span class="morph-newmorph">${value}</span>` };
-  }
-  
-  // Compare mode
-  return { html: `<div class="morph-newmorph-compare">...</div>` };
-}
-```
-
-2. **Export hinzufügen** in `src/morphs/index.ts`
-```typescript
-export { newmorph } from './primitives/newmorph';
-```
-
-3. **CSS erstellen** in `public/styles/morphs/`
-```css
-/* newmorph.css */
-.morph-newmorph { /* ... */ }
-.morph-newmorph-compare { /* ... */ }
-```
-
-4. **Detection hinzufügen** in `src/core/detection.ts`
-```typescript
-// In detectMorphType function
-if (isNewMorphStructure(value)) return 'newmorph';
-```
-
-5. **Tests schreiben** in `tests/morphs/newmorph.test.ts`
-
----
-
-### C) Neue Domain (kompletter Guide)
-
-#### Step 1: Farbe definieren
-```typescript
-// src/server/config.ts
-export const DOMAIN_COLORS: Record<string, string> = {
-  newdomain: '#FF6B35',
-};
-```
-
-#### Step 2: Perspektiven definieren
-```yaml
-# config/schema/perspektiven/index.yaml
-newdomain:
-  - perspective1
-  - perspective2
-  - perspective3
-```
-
-#### Step 3: Blueprints erstellen
+### Tests vor Commit
 ```bash
-# Für jede Perspektive eine Datei:
-config/schema/perspektiven/blueprints/perspective1.blueprint.yaml
-config/schema/perspektiven/blueprints/perspective2.blueprint.yaml
-```
-
-#### Step 4: Mockdata erstellen
-```bash
-# Ordnerstruktur:
-data/newdomain/
-├── item-1/
-│   └── index.json
-├── item-2/
-│   └── index.json
-└── item-3/
-    └── index.json
-```
-
-```json
-// data/newdomain/item-1/index.json
-{
-  "id": "item-1",
-  "slug": "item-1",
-  "name": "Item 1",
-  "scientific_name": "Itemus primus",
-  "kingdom": "newdomain",
-  "kingdom_icon": "🔬",
-  "description": "Beschreibung...",
-  "perspectives": ["perspective1", "perspective2"],
-  "quick_facts": [
-    {"icon": "📏", "label": "Size", "value": "10 cm"}
-  ],
-  "badges": [
-    {"icon": "✅", "label": "Status", "status": "Active", "variant": "success"}
-  ]
-}
-```
-
-#### Step 5: Docker Service hinzufügen
-```yaml
-# bifroest-platform/docker-compose.yml
-amorph-newdomain:
-  build:
-    context: ../AMOPRH_funginomi_phytonomi_drakonomi
-    args:
-      - SITE_ID=newdomain
-  container_name: bifroest-newdomain
-  ports:
-    - "4338:4321"
-  environment:
-    - POCKETBASE_URL=http://pocketbase:8090
-  depends_on:
-    pocketbase:
-      condition: service_healthy
-  healthcheck:
-    test: ["CMD", "curl", "-f", "http://localhost:4321/api/search"]
-    interval: 30s
-    timeout: 10s
-    retries: 3
-  networks:
-    - bifroest-network
-```
-
-#### Step 6: PocketBase Collection erstellen
-```javascript
-// In bifroest-platform/scripts/setup-new-domains.mjs
-const DOMAINS = [
-  // ... existing
-  { id: 'newdomain_col', name: 'newdomain', displayName: 'New Domain', icon: '🔬' }
-];
-```
-
-#### Step 7: Seeding
-```javascript
-// In bifroest-platform/scripts/seed-new-domains.mjs
-const DOMAINS = [
-  // ... existing
-  { folder: 'newdomain', collection: 'newdomain', name: 'New Domain' }
-];
-```
-
-#### Step 8: Rebuild & Deploy
-```bash
-cd bifroest-platform
-node scripts/setup-new-domains.mjs
-node scripts/seed-new-domains.mjs
-docker compose up -d --build amorph-newdomain
+npm run test:run   # 475 Tests
+npm run build      # Production Build
 ```
 
 ---
 
-### D) Neues Feature hinzufügen
+## 📚 Verwandte Dokumentation
 
-1. **Feature-Flag** in `config/features.yaml`
-```yaml
-newfeature:
-  enabled: true
-  config:
-    option1: value1
-```
+| Datei | Inhalt |
+|-------|--------|
+| [../CLAUDE.md](../CLAUDE.md) | Root-Dokumentation |
+| [../bifroest-platform/claude.md](../bifroest-platform/claude.md) | Backend & Scripts |
+| [src/server/CLAUDE.md](src/server/CLAUDE.md) | PocketBase Client |
+| [src/morphs/CLAUDE.md](src/morphs/CLAUDE.md) | 28 Morph Primitives |
+| [src/core/CLAUDE.md](src/core/CLAUDE.md) | Types & Detection |
+| [tests/CLAUDE.md](tests/CLAUDE.md) | Test-Dokumentation |
 
-2. **Client-Modul** in `src/client/features/`
-```typescript
-// newfeature.ts
-export function initNewFeature(config: NewFeatureConfig) {
-  // Implementation
-}
-```
+---
 
-3. **Integration** in `src/client/features/app.ts`
-```typescript
-import { initNewFeature } from './newfeature';
-// In initApp():
-if (features.newfeature?.enabled) {
-  initNewFeature(features.newfeature.config);
-}
-```
+*Letzte Aktualisierung: Januar 2026*

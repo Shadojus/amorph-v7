@@ -220,15 +220,50 @@ function detectArrayStructure(arr: unknown[], fieldName?: string): MorphType {
   
   // ─────────────────────────────────────────────────────────────────────────────
   // OBJECT ARRAYS: Check structure of first element
+  // Order matters! More specific types must be checked before generic ones.
   // ─────────────────────────────────────────────────────────────────────────────
   if (typeof first === 'object' && first !== null) {
     const obj = first as Record<string, unknown>;
     
+    // ─────────────────────────────────────────────────────────────────────────
+    // TEMPORAL TYPES (check first - more specific structures)
+    // ─────────────────────────────────────────────────────────────────────────
+    
+    // STEPS: [{step: 1, label: "", status: ""}] - MUST be before badge!
+    // Steps have both 'step' AND 'label', badge has 'status' + 'label' but NO 'step'
+    if (hasKeys(obj, ['step', 'label'])) {
+      return 'steps';
+    }
+    
+    // TIMELINE: [{date: "", event: ""}]
+    if (hasKeys(obj, ['date', 'event'])) {
+      return 'timeline';
+    }
+    
+    // LIFECYCLE: [{phase: "", duration: ""}]
+    if (hasKeys(obj, ['phase', 'duration'])) {
+      return 'lifecycle';
+    }
+    
+    // CALENDAR: [{month: 1, active: false}]
+    if (hasKeys(obj, ['month', 'active']) || hasKeys(obj, ['monat', 'aktiv'])) {
+      return 'calendar';
+    }
+    
+    // ─────────────────────────────────────────────────────────────────────────
+    // STATUS TYPES (after temporal, since they overlap on 'status' key)
+    // ─────────────────────────────────────────────────────────────────────────
+    
     // BADGE ARRAY: [{status: "", variant: ""}] oder [{label: "", status: "", variant: ""}]
     // Aus universe-index.json: [{icon, label, status, variant}]
+    // Note: Steps are already filtered out above (they have 'step' key)
     if (hasKeys(obj, ['status', 'variant']) || hasKeys(obj, ['status', 'label'])) {
       return 'badge';
     }
+    
+    // ─────────────────────────────────────────────────────────────────────────
+    // CHART TYPES
+    // ─────────────────────────────────────────────────────────────────────────
     
     // RADAR: [{axis: "", value: 0}]
     if (hasExactKeys(obj, ['axis', 'value'])) {
@@ -242,30 +277,6 @@ function detectArrayStructure(arr: unknown[], fieldName?: string): MorphType {
         return 'bar'; // Could be pie, but bar is safer default
       }
       return 'bar';
-    }
-    
-    // ─────────────────────────────────────────────────────────────────────────
-    // TEMPORAL TYPES
-    // ─────────────────────────────────────────────────────────────────────────
-    
-    // TIMELINE: [{date: "", event: ""}]
-    if (hasKeys(obj, ['date', 'event'])) {
-      return 'timeline';
-    }
-    
-    // STEPS: [{step: 1, label: "", status: ""}]
-    if (hasKeys(obj, ['step', 'label'])) {
-      return 'steps';
-    }
-    
-    // LIFECYCLE: [{phase: "", duration: ""}]
-    if (hasKeys(obj, ['phase', 'duration'])) {
-      return 'lifecycle';
-    }
-    
-    // CALENDAR: [{month: 1, active: false}]
-    if (hasKeys(obj, ['month', 'active']) || hasKeys(obj, ['monat', 'aktiv'])) {
-      return 'calendar';
     }
     
     // ─────────────────────────────────────────────────────────────────────────

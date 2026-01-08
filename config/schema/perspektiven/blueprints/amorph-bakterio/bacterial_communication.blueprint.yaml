@@ -1,0 +1,88 @@
+# BACTERIAL COMMUNICATION - Signaling Across Domains
+# Version: 1.0.0 | Domain: BACTERIA (Lateral)
+
+perspective: bacterial_communication
+version: "1.0.0"
+
+scientific_name:
+  # morph: text
+  ""
+
+# QUORUM SENSING SIGNALING
+quorum_sensing_molecules:
+  # morph: list
+  # AHL | AI-2 | AIP | CAI-1
+  - ""
+
+intraspecies_signaling:
+  # morph: boolean
+  false
+
+interspecies_signaling:
+  # morph: boolean
+  false
+
+# CROSS-KINGDOM COMMUNICATION
+bacteria_plant_signaling:
+  # morph: boolean
+  false
+
+bacteria_animal_signaling:
+  # morph: boolean
+  false
+
+bacteria_fungi_signaling:
+  # morph: boolean
+  false
+
+# HORMONE MIMICRY
+hormone_production:
+  # morph: list
+  # auxin | cytokinin | ethylene
+  - ""
+
+host_hormone_interference:
+  # morph: boolean
+  false
+
+# SMALL RNAs
+srna_export:
+  # morph: boolean
+  # cross-kingdom RNA interference
+  false
+
+extracellular_vesicles:
+  # morph: boolean
+  false
+
+# CHEMICAL SIGNALS
+siderophore_signaling:
+  # morph: boolean
+  false
+
+indole_signaling:
+  # morph: boolean
+  false
+
+nitric_oxide_signaling:
+  # morph: boolean
+  false
+
+# ELECTRICAL SIGNALING
+ion_channel_mediated_signaling:
+  # morph: boolean
+  false
+
+biofilm_electrical_signals:
+  # morph: boolean
+  false
+
+# DATA
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""

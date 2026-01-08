@@ -1,0 +1,124 @@
+# VIRAL EVOLUTION - Mutation, Recombination & Adaptation
+# Version: 1.0.0 | Domain: VIRUSES (Holistic)
+
+perspective: viral_evolution
+version: "1.0.0"
+
+virus_name:
+  # morph: text
+  ""
+
+# MUTATION RATE
+mutation_rate:
+  # morph: gauge
+  # substitutions per site per replication
+  value: 0
+  min: 0
+  max: 0.01
+  unit: "subs/site/rep"
+
+error_prone_replication:
+  # morph: boolean
+  # RNA viruses typically
+  false
+
+# RECOMBINATION
+recombination:
+  # morph: boolean
+  false
+
+recombination_hotspots:
+  # morph: list
+  - ""
+
+reassortment:
+  # morph: boolean
+  # segmented genomes
+  false
+
+# SELECTION PRESSURES
+host_immune_pressure:
+  # morph: rating
+  rating: 0
+  max: 10
+
+antiviral_drug_pressure:
+  # morph: rating
+  rating: 0
+  max: 10
+
+transmission_selection:
+  # morph: rating
+  rating: 0
+  max: 10
+
+# QUASISPECIES
+quasispecies_dynamics:
+  # morph: boolean
+  false
+
+quasispecies_diversity:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+
+# HOST RANGE EVOLUTION
+host_switching:
+  # morph: boolean
+  false
+
+cross_species_transmission:
+  # morph: list
+  # source → target species
+  - ""
+
+host_adaptation_mutations:
+  # morph: list
+  - ""
+
+# VIRULENCE EVOLUTION
+virulence_trajectory:
+  # morph: badge
+  # increasing | decreasing | stable
+  status: ""
+  variant: ""
+
+transmission_virulence_tradeoff:
+  # morph: text
+  ""
+
+# GENOME EVOLUTION
+genome_size:
+  # morph: number
+  # kb
+  0
+
+genome_streamlining:
+  # morph: boolean
+  false
+
+gene_gain_loss:
+  # morph: list
+  - ""
+
+# MOLECULAR CLOCK
+evolutionary_rate:
+  # morph: number
+  # substitutions/site/year
+  0
+
+time_to_most_recent_common_ancestor:
+  # morph: number
+  # years
+  0
+
+# DATA
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""

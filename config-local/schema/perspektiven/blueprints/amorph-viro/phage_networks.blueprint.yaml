@@ -1,0 +1,107 @@
+# PHAGE NETWORKS - Bacteriophage Ecology & Diversity
+# Version: 1.0.0 | Domain: VIRUSES (Holistic)
+
+perspective: phage_networks
+version: "1.0.0"
+
+phage_name:
+  # morph: text
+  ""
+
+phage_family:
+  # morph: badge
+  # Myoviridae | Siphoviridae | Podoviridae | Microviridae
+  status: ""
+  variant: ""
+
+# INFECTION STRATEGY
+life_cycle:
+  # morph: badge
+  # lytic | lysogenic | chronic | pseudolysogenic
+  status: ""
+  variant: ""
+
+burst_size:
+  # morph: number
+  # phages per infected cell
+  0
+
+latent_period:
+  # morph: number
+  # minutes
+  0
+
+# HOST RANGE
+host_range:
+  # morph: badge
+  # narrow | broad | polyvalent
+  status: ""
+  variant: ""
+
+bacterial_hosts:
+  # morph: list
+  - ""
+
+receptor_binding_protein:
+  # morph: text
+  ""
+
+# CRISPR-CAS INTERACTION
+crispr_targeted:
+  # morph: boolean
+  # phage targeted by bacterial CRISPR
+  false
+
+anti_crispr_genes:
+  # morph: boolean
+  # Acr proteins
+  false
+
+# LYSOGENIC CONVERSION
+lysogenic_conversion_genes:
+  # morph: list
+  # genes beneficial to host
+  - ""
+
+prophage_integration_site:
+  # morph: text
+  ""
+
+# PHAGE-PHAGE INTERACTIONS
+superinfection_exclusion:
+  # morph: boolean
+  false
+
+phage_parasites:
+  # morph: list
+  # virophages, satellite phages
+  - ""
+
+# BIOFILM IMPACT
+biofilm_degradation:
+  # morph: boolean
+  false
+
+polysaccharide_depolymerase:
+  # morph: boolean
+  false
+
+# MICROBIOME REGULATION
+microbiome_shaping_role:
+  # morph: rating
+  rating: 0
+  max: 10
+
+kill_the_winner_dynamics:
+  # morph: boolean
+  false
+
+# DATA
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""

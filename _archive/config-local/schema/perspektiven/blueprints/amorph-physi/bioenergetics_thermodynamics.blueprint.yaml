@@ -1,0 +1,681 @@
+# BIOENERGETICS & THERMODYNAMICS - Physiology
+# Version: 1.0.0 | Domain: PHYSIOLOGY (Holistic)
+# Based on: Non-equilibrium Thermodynamics (AJP Endocrinology 2025), Living Systems Thermodynamics (2025)
+# PARADIGM SHIFT: From equilibrium chemistry → Non-equilibrium dissipative living systems
+
+perspective: bioenergetics_thermodynamics
+version: "1.0.0"
+
+# ============================================================================
+# CORE IDENTITY
+# ============================================================================
+
+organism:
+  # morph: text
+  ""
+
+taxonomy:
+  # morph: hierarchy
+  - level: ""
+    name: ""
+    rank: ""
+
+metabolic_type:
+  # morph: badge
+  # autotroph | heterotroph | mixotroph | chemotroph | phototroph
+  status: ""
+  variant: ""
+
+physiological_state:
+  # morph: badge
+  # resting | active | fasting | fed | hibernation | torpor
+  status: ""
+  variant: ""
+
+# ============================================================================
+# THERMODYNAMIC STATUS - Far-from-equilibrium
+# ============================================================================
+
+thermodynamic_state:
+  # morph: badge
+  # far_from_equilibrium | steady_state | approaching_equilibrium | dead_equilibrium
+  status: ""
+  variant: ""
+
+dissipative_system:
+  # morph: badge
+  # yes | no
+  # Requires continuous energy input
+  status: ""
+  variant: ""
+
+open_system:
+  # morph: badge
+  # yes | no
+  # Exchanges matter and energy with environment
+  status: ""
+  variant: ""
+
+# ============================================================================
+# ENERGY INPUTS - Sources
+# ============================================================================
+
+primary_energy_source:
+  # morph: badge
+  # sunlight | chemical_bonds | inorganic_redox | geothermal
+  status: ""
+  variant: ""
+
+dietary_energy:
+  # morph: number
+  # kcal/day or kJ/day
+  0
+
+macronutrient_composition:
+  # morph: distribution
+  categories:
+    - nutrient: "Carbohydrate"
+      percentage: 0
+      energy_kcal: 0
+    - nutrient: "Fat"
+      percentage: 0
+      energy_kcal: 0
+    - nutrient: "Protein"
+      percentage: 0
+      energy_kcal: 0
+    - nutrient: "Alcohol"
+      percentage: 0
+      energy_kcal: 0
+
+# ============================================================================
+# ATP - Universal energy currency
+# ============================================================================
+
+atp_production_pathways:
+  # morph: distribution
+  categories:
+    - pathway: "Oxidative phosphorylation"
+      atp_yield: 0
+      percentage_contribution: 0
+    - pathway: "Glycolysis"
+      atp_yield: 0
+      percentage_contribution: 0
+    - pathway: "Krebs cycle (substrate-level)"
+      atp_yield: 0
+      percentage_contribution: 0
+    - pathway: "Creatine phosphate"
+      atp_yield: 0
+      percentage_contribution: 0
+
+total_atp_turnover:
+  # morph: number
+  # kg ATP/day in humans
+  0
+
+atp_concentration:
+  # morph: number
+  # mM in cytoplasm
+  0
+
+atp_adp_ratio:
+  # morph: number
+  # Energy charge
+  0
+
+# ============================================================================
+# MITOCHONDRIAL BIOENERGETICS
+# ============================================================================
+
+mitochondrial_function:
+  # morph: badge
+  # normal | impaired | enhanced
+  status: ""
+  variant: ""
+
+oxidative_phosphorylation_efficiency:
+  # morph: gauge
+  # P/O ratio × 100 (%)
+  current: 57
+  target: 60
+  unit: "%"
+
+respiratory_chain_complexes:
+  # morph: list
+  items:
+    - complex: ""
+      function: ""
+      protons_pumped: 0
+      electron_carriers: ""
+
+proton_motive_force:
+  # morph: number
+  # mV across inner membrane
+  0
+
+chemiosmotic_coupling:
+  # morph: badge
+  # tight | loose | uncoupled
+  status: ""
+  variant: ""
+
+atp_synthase_flux:
+  # morph: number
+  # ATP molecules/second
+  0
+
+# ============================================================================
+# METABOLIC RATE - Energy expenditure
+# ============================================================================
+
+basal_metabolic_rate:
+  # morph: number
+  # kcal/day or kJ/day
+  0
+
+resting_metabolic_rate:
+  # morph: number
+  # kcal/day
+  0
+
+total_daily_energy_expenditure:
+  # morph: number
+  # kcal/day
+  0
+
+energy_expenditure_components:
+  # morph: pie
+  segments:
+    - category: "Basal metabolism"
+      value: 0
+      percentage: 0
+    - category: "Thermic effect of food"
+      value: 0
+      percentage: 10
+    - category: "Physical activity"
+      value: 0
+      percentage: 0
+    - category: "Non-exercise activity"
+      value: 0
+      percentage: 0
+
+oxygen_consumption:
+  # morph: number
+  # mL O2/min or L O2/day
+  0
+
+co2_production:
+  # morph: number
+  # mL CO2/min
+  0
+
+respiratory_quotient:
+  # morph: number
+  # VCO2 / VO2
+  0.85
+
+# ============================================================================
+# SUBSTRATE OXIDATION - Fuel utilization
+# ============================================================================
+
+carbohydrate_oxidation:
+  # morph: gauge
+  # Percentage of energy from CHO (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+fat_oxidation:
+  # morph: gauge
+  # Percentage of energy from fat (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+protein_oxidation:
+  # morph: gauge
+  # Percentage of energy from protein (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+substrate_flexibility:
+  # morph: badge
+  # high | moderate | low
+  # Ability to switch between fuels
+  status: ""
+  variant: ""
+
+# ============================================================================
+# THERMODYNAMIC EFFICIENCY
+# ============================================================================
+
+overall_efficiency:
+  # morph: gauge
+  # Work output / Energy input (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+muscular_efficiency:
+  # morph: gauge
+  # Mechanical work / Chemical energy (%)
+  current: 25
+  target: 30
+  unit: "%"
+
+heat_production:
+  # morph: number
+  # kcal/h or W
+  0
+
+entropy_production:
+  # morph: number
+  # Entropy generated (J/K/s)
+  0
+
+# ============================================================================
+# GIBBS FREE ENERGY - Available energy
+# ============================================================================
+
+gibbs_free_energy_coupling:
+  # morph: badge
+  # yes | no
+  # Exergonic reactions drive endergonic
+  status: ""
+  variant: ""
+
+atp_hydrolysis_delta_g:
+  # morph: number
+  # kJ/mol under physiological conditions
+  -50
+
+high_energy_phosphate_compounds:
+  # morph: list
+  items:
+    - compound: ""
+      delta_g_hydrolysis: 0
+      role: ""
+
+# ============================================================================
+# REDOX BALANCE - Electron flow
+# ============================================================================
+
+nadh_nad_ratio:
+  # morph: number
+  0
+
+nadph_nadp_ratio:
+  # morph: number
+  0
+
+redox_potential:
+  # morph: number
+  # mV
+  0
+
+reactive_oxygen_species:
+  # morph: badge
+  # low | moderate | high
+  status: ""
+  variant: ""
+
+antioxidant_systems:
+  # morph: list
+  items:
+    - system: ""
+      capacity: ""
+      location: ""
+
+# ============================================================================
+# METABOLIC PATHWAYS - Energy transduction
+# ============================================================================
+
+glycolysis:
+  # morph: badge
+  # active | suppressed
+  status: ""
+  variant: ""
+
+glycolysis_flux:
+  # morph: number
+  # μmol/min/g tissue
+  0
+
+krebs_cycle:
+  # morph: badge
+  # active | suppressed
+  status: ""
+  variant: ""
+
+beta_oxidation:
+  # morph: badge
+  # active | suppressed
+  status: ""
+  variant: ""
+
+gluconeogenesis:
+  # morph: badge
+  # active | suppressed
+  status: ""
+  variant: ""
+
+ketogenesis:
+  # morph: badge
+  # active | suppressed
+  status: ""
+  variant: ""
+
+pentose_phosphate_pathway:
+  # morph: badge
+  # active | suppressed
+  status: ""
+  variant: ""
+
+# ============================================================================
+# ENERGY STORAGE
+# ============================================================================
+
+glycogen_stores:
+  # morph: number
+  # g in liver + muscle
+  0
+
+adipose_tissue_mass:
+  # morph: number
+  # kg
+  0
+
+stored_energy_fat:
+  # morph: number
+  # kcal in adipose
+  0
+
+protein_as_fuel_reserve:
+  # morph: number
+  # g muscle protein
+  0
+
+# ============================================================================
+# HORMONAL REGULATION - Energy homeostasis
+# ============================================================================
+
+insulin:
+  # morph: badge
+  # high | normal | low
+  # Anabolic hormone
+  status: ""
+  variant: ""
+
+glucagon:
+  # morph: badge
+  # high | normal | low
+  # Catabolic hormone
+  status: ""
+  variant: ""
+
+cortisol:
+  # morph: badge
+  # high | normal | low
+  # Stress, gluconeogenesis
+  status: ""
+  variant: ""
+
+thyroid_hormones:
+  # morph: badge
+  # high | normal | low
+  # Metabolic rate regulator
+  status: ""
+  variant: ""
+
+leptin:
+  # morph: badge
+  # high | normal | low
+  # Satiety signal
+  status: ""
+  variant: ""
+
+ghrelin:
+  # morph: badge
+  # high | normal | low
+  # Hunger signal
+  status: ""
+  variant: ""
+
+# ============================================================================
+# EXERCISE BIOENERGETICS
+# ============================================================================
+
+exercise_intensity:
+  # morph: badge
+  # rest | low | moderate | high | maximal
+  status: ""
+  variant: ""
+
+energy_systems:
+  # morph: distribution
+  categories:
+    - system: "Phosphagen (ATP-PCr)"
+      duration: "0-10s"
+      contribution: 0
+    - system: "Anaerobic glycolysis"
+      duration: "10-120s"
+      contribution: 0
+    - system: "Aerobic"
+      duration: ">120s"
+      contribution: 0
+
+lactate_threshold:
+  # morph: number
+  # % VO2max
+  0
+
+vo2_max:
+  # morph: number
+  # mL/kg/min
+  0
+
+excess_post_exercise_oxygen_consumption:
+  # morph: number
+  # L O2
+  0
+
+# ============================================================================
+# THERMOGENESIS - Heat generation
+# ============================================================================
+
+obligatory_thermogenesis:
+  # morph: number
+  # Heat from metabolic processes (kcal/day)
+  0
+
+facultative_thermogenesis:
+  # morph: number
+  # Adaptive heat production (kcal/day)
+  0
+
+shivering_thermogenesis:
+  # morph: badge
+  # active | inactive
+  status: ""
+  variant: ""
+
+non_shivering_thermogenesis:
+  # morph: badge
+  # active | inactive
+  status: ""
+  variant: ""
+
+brown_adipose_tissue:
+  # morph: badge
+  # present | absent
+  status: ""
+  variant: ""
+
+ucp1_uncoupling:
+  # morph: badge
+  # active | inactive
+  # Uncoupling protein 1 in BAT
+  status: ""
+  variant: ""
+
+diet_induced_thermogenesis:
+  # morph: gauge
+  # TEF as % of intake
+  current: 10
+  target: 15
+  unit: "%"
+
+# ============================================================================
+# METABOLIC FLEXIBILITY
+# ============================================================================
+
+metabolic_flexibility:
+  # morph: badge
+  # high | moderate | low
+  # Ability to switch between glucose/fat oxidation
+  status: ""
+  variant: ""
+
+fasting_adaptation:
+  # morph: badge
+  # well_adapted | moderate | poor
+  status: ""
+  variant: ""
+
+fed_to_fasted_transition:
+  # morph: timeline
+  events:
+    - time: ""
+      metabolic_state: ""
+      primary_fuel: ""
+      hormones: ""
+
+# ============================================================================
+# METABOLIC SYNDROME - Dysregulation
+# ============================================================================
+
+metabolic_health:
+  # morph: badge
+  # healthy | at_risk | metabolic_syndrome | disease
+  status: ""
+  variant: ""
+
+insulin_resistance:
+  # morph: badge
+  # absent | mild | moderate | severe
+  status: ""
+  variant: ""
+
+mitochondrial_dysfunction:
+  # morph: badge
+  # absent | present
+  status: ""
+  variant: ""
+
+# ============================================================================
+# AGING & BIOENERGETICS
+# ============================================================================
+
+age_related_changes:
+  # morph: list
+  items:
+    - change: ""
+      mechanism: ""
+      functional_impact: ""
+
+mitochondrial_aging:
+  # morph: badge
+  # minimal | moderate | severe
+  status: ""
+  variant: ""
+
+# ============================================================================
+# ENTROPY & MAXIMUM ENTROPY PRODUCTION
+# ============================================================================
+
+entropy_production_rate:
+  # morph: number
+  # J/K/s
+  0
+
+maximum_entropy_production_principle:
+  # morph: badge
+  # applicable | not_applicable
+  # Living systems maximize entropy production
+  status: ""
+  variant: ""
+
+internal_entropy:
+  # morph: badge
+  # low | increasing
+  # Order maintenance
+  status: ""
+  variant: ""
+
+external_entropy:
+  # morph: badge
+  # increasing | maximized
+  # Dissipation to environment
+  status: ""
+  variant: ""
+
+# ============================================================================
+# SCHRÖDINGER'S NEGENTROPY
+# ============================================================================
+
+negentropy_import:
+  # morph: badge
+  # yes | no
+  # "Organism feeds on negative entropy"
+  status: ""
+  variant: ""
+
+order_maintenance:
+  # morph: text
+  # How organism maintains low entropy state
+  ""
+
+# ============================================================================
+# NON-EQUILIBRIUM THERMODYNAMICS
+# ============================================================================
+
+onsager_reciprocal_relations:
+  # morph: badge
+  # applicable | not_applicable
+  status: ""
+  variant: ""
+
+prigogine_dissipative_structures:
+  # morph: badge
+  # yes | no
+  # Self-organization far from equilibrium
+  status: ""
+  variant: ""
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""
+
+curator:
+  # morph: text
+  ""
+
+notes:
+  # morph: text
+  ""
+
+references:
+  # morph: list
+  items:
+    - citation: ""
+      doi: ""
+      year: ""

@@ -10,7 +10,9 @@ export default defineConfig({
       include: ['src/**/*.ts'],
       exclude: ['src/**/*.d.ts', 'src/pages/**', 'src/layouts/**']
     },
-    globals: true
+    globals: true,
+    // Setup files run before all tests
+    setupFiles: ['./tests/setup.ts']
   },
   resolve: {
     alias: {

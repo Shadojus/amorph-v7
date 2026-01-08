@@ -1,316 +1,58 @@
-# AMORPH v7 - Client Module
+# Client Features
 
-> Browser-seitige Features und Interaktionen.
+Browser-seitige TypeScript Module.
 
-## � Performance-Optimierungen (Dezember 2025)
-- **Observer Dynamic Import** - 87KB eingespart, nur bei Bedarf geladen
-- **loadMoreItems()** - Pagination statt alle 52 Items laden
-- **Keine statischen Observer-Imports** - `await import()` nur wenn aktiviert
+---
 
-## 📁 Struktur
+## Module
 
-```
-client/
-└── features/           # Alle Client-Features
-    ├── index.ts        # Re-Exports (80+ Exports)
-    ├── app.ts          # Haupt-Initialisierung + loadMore (~420 Zeilen)
-    ├── debug.ts        # Client Debug Logging
-    ├── search.ts       # Suche + Auto-Perspektiven (~508 Zeilen)
-    ├── grid.ts         # Grid-Interaktionen + Feld-Selektion
-    ├── compare.ts      # Compare-Panel + Diff-Updates (~670 Zeilen)
-    ├── selection.ts    # Item + Field State (~317 Zeilen)
-    └── bifrost.ts      # Bifroest Attribution System
-```
+| Datei | Beschreibung |
+|-------|--------------|
+| `app.ts` | Hauptanwendung, Init |
+| `search.ts` | Suchfunktion |
+| `compare.ts` | Vergleichs-Ansicht |
+| `selection.ts` | Feld-Selektion |
+| `grid.ts` | Grid-Layout |
+| `bifroest.ts` | BIFROEST Expert Attribution System |
+| `debug.ts` | Debug-Utilities |
 
-## 🔧 Features
+---
 
-### app.ts (~480 Zeilen)
-- Initialisiert alle Module beim DOM Ready
-- Reihenfolge: Search → Grid → Compare → BottomNav → SelectionBar → Bifroest → LoadFromStorage
-- Guard gegen doppelte Initialisierung (`isInitialized`)
-- **loadMoreItems()** - Pagination via Search API
-- **Observer Dynamic Import** - nur bei `?observe=true` oder localStorage
-- **updateBottomNavState()** - Toggle Compare-Button Label (Compare/Close)
+## Verwendung
 
-### search.ts (508 Zeilen)
-- Suchmaschinen-UX mit Auto-Perspektiven (ab 3 Zeichen)
-- Perspektiven-Pills unter Suchleiste
-- Highlight-Navigation (Prev/Next)
-- URL-State: `?q=pilz&p=culinary,safety`
+Module werden als ES Modules geladen:
 
-### grid.ts
-- Grid-Layout Management
-- Feld-Selektion mit Perspektiven-Farben
-- Base64-encoded Raw Values für Compare
-- **Ignoriert Bifroest-Element Clicks** - Copyright/Experten blockieren keine Feld-Selektion
-
-### compare.ts (~940 Zeilen)
-- Compare-Panel Visibility (show/hide/toggle)
-- **Diff-Based Updates**: `updateFieldsDiff()` für Animation
-- **Search-in-Compare**: Durchsucht Compare-Content
-- **Copy-Button**: Exportiert Daten mit License-Hinweis
-- **Autocomplete-Button**: Fehlende Felder automatisch ergänzen via `/api/autocomplete`
-- **Species-Highlight System** (Hover/Click)
-- CSS-Klassen: `.is-adding`, `.is-removing`
-- **handleAutocomplete()**: Sammelt fieldNames + itemSlugs → API → selectField()
-
-### selection.ts (317 Zeilen)
-- Item + Field Selection State
-- **sessionStorage Persistenz**
-- **Perspektiven-Farben** für Felder
-- Max 8 Items für Compare
-
-### bifrost.ts - Bifroest Attribution System (~350 Zeilen)
-- **Copyright-Badges**: © auf Bildern mit Quellen-Namen (z.B. "© iNaturalist")
-- **Experten-Buttons**: Datenfeld-Attribution (dynamisch injiziert via `data-field-experts`)
-- **Popup-Overlay**: Zeigt Quellen-Details + Kontaktmöglichkeit + Links
-- **Toggle via Bottom-Nav**: Aktiviert/deaktiviert Bifroest-Mode (`body.bifroest-active`)
-- **Nebel-Drift Animation**: Sanftes Cyan-Glow ohne Blinken (`@keyframes bifroest-drift`)
-- **Grid-Integration**: `stopPropagation()` verhindert Feld-Selektion bei Clicks
-- **Index-Page Support**: `addExpertButtonsToGrid()` injiziert Experten-Buttons
-- **Farben**: Cyan-Töne (kein Weiß) für bessere Lesbarkeit
-- **Experten in data**: Mykologen wie Paul Stamets, Alan Rockefeller, etc.
-
-## 🐛 Debug-Logging
-
-```javascript
-// Observer aktivieren (standardmäßig AUS):
-localStorage.setItem('amorph:observers', 'true')
-// oder URL: ?observe=true
-
-// Deaktivieren:
-localStorage.setItem('amorph:debug', 'false')
-
-// Console:
-window.amorphDebug.disable()
-window.morphDebug.enable()  // Morph-Debug
+```html
+<script type="module" src="/client/app.ts"></script>
 ```
 
-## 📤 Exports (index.ts)
+---
 
-```typescript
-// App
-export { initApp } from './app';
+## State Management
 
-// Search
-export { initSearch, performSearch, getActivePerspectives } from './search';
+Session Storage Keys:
+- `amorph:selection:fields` - Ausgewählte Felder
+- `amorph:compare:items` - Compare Items
+- `amorph:search:query` - Letzte Suche
 
-// Grid
-export { initGrid, updateSelectionUI } from './grid';
+---
 
-// Compare
-export { 
-  initCompare, showCompare, hideCompare, toggleCompare,
-  isCompareOpen, searchInCompare, navigateCompareHighlight,
-  clearCompareHighlights, getCompareHighlightInfo,
-  updateFieldsDiff  // Diff-based field updates
-} from './compare';
+## Events
 
-// Selection
-export {
-  selectItem, deselectItem, toggleItem, clearSelection,
-  isSelected, getSelectedItems, getSelectedCount, canCompare,
-  subscribe, loadFromStorage,
-  selectField, deselectField, isFieldSelected, getFieldColor,
-  getSelectedFields, getSelectedFieldsGrouped, getSelectedFieldCount,
-  canCompareFields
-} from './selection';
-```
+Custom Events für Kommunikation:
+- `amorph:field:select`
+- `amorph:compare:update`
+- `amorph:search:complete`
 
-## 🚀 Init-Reihenfolge
+---
 
-**Double-Init Guard**: Alle Initialisierungen haben Guards (`isInitialized`, `isSearchInitialized`).
+## 📚 Verwandte Dokumentation
 
-1. `loadFromStorage()` - Persistierte Selection laden
-2. `initSearch()` - Such-Input + Perspektiven-Buttons + Active Pills
-3. `initGrid()` - Grid Click-Handler + Feld-Selektion
-4. `initCompare()` - Compare-Panel
-5. `initSelectionBar()` - Auswahl-Leiste
-6. `restoreFromURL()` - URL-Parameter wiederherstellen
-7. `initObservers()` - Observer System (standardmäßig aktiv)
+| Datei | Inhalt |
+|-------|--------|
+| [../CLAUDE.md](../CLAUDE.md) | src/ Übersicht |
+| [../../CLAUDE.md](../../CLAUDE.md) | AMORPH Root |
 
-## 📦 debug.ts - Client Debug
+---
 
-Leichtgewichtiges Logging mit Kategorien:
-
-```typescript
-import { debug } from './debug';
-
-debug.amorph('App started');
-debug.selection('Item selected', { slug });
-debug.selection('Field selected', { itemSlug, fieldName });
-debug.compare('Comparing', { mode: 'fields', count: 5 });
-debug.api('API call', { url, response });
-debug.layout('Grid click', { target });
-
-// Deaktivierung:
-debug.disable();  // localStorage.setItem('amorph:debug', 'false')
-debug.isEnabled();
-```
-
-### Kategorien
-
-| Kategorie | Emoji | Farbe | Beschreibung |
-|-----------|-------|-------|--------------|
-| `amorph` | 🍄 | #0df | Haupt-Events |
-| `selection` | ✓ | #0f0 | Item + Feld Auswahl |
-| `compare` | 🔬 | #f0d | Vergleich |
-| `api` | 🌐 | #fd0 | API Calls |
-| `router` | 🔗 | #0fd | Navigation |
-| `touch` | 📱 | #d0f | Touch Events |
-| `layout` | 📐 | #fa0 | Grid/Layout |
-| `morph` | 🔮 | #af0 | Morphs |
-
-## 📦 search.ts - Suche (508 Zeilen)
-
-### Features
-- Auto-Perspektiven ab 3 Zeichen (z.B. "chemie" → "chemistry")
-- Perspektiven-Pills unter Suchleiste
-- Highlight-Navigation (Prev/Next)
-- URL-State: `?q=pilz&p=culinary,safety`
-
-### API
-```typescript
-performSearch('steinpilz');           // Suche ausführen
-togglePerspective('culinary');        // Perspektive togglen
-getActivePerspectives();              // ['culinary', 'safety']
-restoreFromURL();                     // URL-State wiederherstellen
-```
-
-### Perspektiven-Auto-Match (NEU)
-
-Wenn der Suchbegriff eine Perspektive matcht, wird diese automatisch aktiviert:
-
-```
-Suche: "chemie" → Perspektive "chemistry" wird aktiviert
-```
-
-### API
-
-```typescript
-import { 
-  performSearch,
-  togglePerspective,
-  getActivePerspectives,
-  restoreFromURL 
-} from './search';
-
-// Suche ausführen (debounced)
-performSearch('steinpilz');
-
-// Perspektive ein/ausschalten
-togglePerspective('culinary');
-
-// Aktive Perspektiven
-const active = getActivePerspectives();  // ['culinary', 'safety']
-
-// URL-State wiederherstellen
-restoreFromURL();  // Liest ?q= und ?p=
-```
-
-### URL-State
-
-```
-?q=pilz&p=culinary,safety
-```
-
-- `q` - Suchbegriff
-- `p` - Komma-separierte Perspektiven-IDs
-
-## 📦 grid.ts - Grid
-
-### Features
-- **Kein Klick-Navigation** - Card-Klicks leiten NICHT zur Spezies-URL
-- Click auf `.item-select-all` → Alle Felder des Items auswählen
-- Click auf `.field-select` (+/✓) → Einzelnes Feld auswählen
-- Keyboard: Enter/Space zum Auswählen
-- Visual Feedback für selected State
-
-### API
-```typescript
-initGrid(container);      // Grid initialisieren
-updateSelectionUI();      // .is-selected Klassen aktualisieren
-```
-
-## 📦 compare.ts - Compare Panel (670 Zeilen)
-
-### Features
-- **Diff-Based Updates**: Animierte Feld-Änderungen
-- **Search-in-Compare**: Durchsucht Compare-Content
-- **Copy-Button**: Exportiert mit License-Hinweis
-- **Species-Highlight**: Hover/Click auf Spezies-Namen
-
-### API
-```typescript
-showCompare();            // Panel öffnen + API Call
-hideCompare();            // Panel schließen
-toggleCompare();          // Toggle
-isCompareOpen();          // Status prüfen
-updateFieldsDiff(items, perspectives, container);  // Diff-Update
-searchInCompare(query);   // Content durchsuchen
-navigateCompareHighlight(direction);  // Prev/Next
-```
-
-### Compare API Call (Zwei Modi)
-```typescript
-// Item-Modus
-POST /api/compare { items: ["steinpilz", "fliegenpilz"], perspectives: ["culinary"] }
-
-// Feld-Modus  
-POST /api/compare { fields: [{itemSlug, fieldName, value}], perspectives: ["culinary"] }
-```
-
-## 📦 selection.ts - Selection State (317 Zeilen)
-
-Client-seitiger State für **Items UND Felder** mit sessionStorage Persistenz.
-
-### Item-Auswahl API
-```typescript
-selectItem({ slug, name, id });      // Item auswählen
-deselectItem('steinpilz');            // Abwählen
-toggleItem(itemData);                 // Toggle
-clearSelection();                     // Alle entfernen
-isSelected('steinpilz');              // Prüfen
-getSelectedItems();                   // Alle ausgewählten
-getSelectedCount();                   // Anzahl
-canCompare();                         // 2-8 Items?
-```
-
-### Feld-Auswahl API
-```typescript
-selectField({ itemSlug, itemName, fieldName, value });
-deselectField('steinpilz', 'Essbarkeit');
-isFieldSelected('steinpilz', 'Essbarkeit');
-getFieldColor('steinpilz', 'Essbarkeit');  // Perspektiven-Farbe
-getSelectedFields();                  // SelectedField[]
-getSelectedFieldsGrouped();           // { "Essbarkeit": [field1, field2] }
-getSelectedFieldCount();              // Anzahl
-canCompareFields();                   // mind. 2 Felder?
-```
-
-### State-Subscription
-```typescript
-const unsubscribe = subscribe((event) => {
-  event.items;          // SelectedItem[]
-  event.count;          // Item count
-  event.canCompare;     // Item compare?
-  event.fields;         // SelectedField[]
-  event.fieldCount;     // Field count
-  event.canCompareFields;  // Field compare?
-});
-```
-
-### Persistence
-```typescript
-loadFromStorage();  // Beim App-Start automatisch
-// Automatisch gespeichert bei jeder Änderung in sessionStorage
-```
-
-## 🌐 Window API
-
-```javascript
-window.amorphDebug          // Debug Logging (standardmäßig AN)
-window.amorphDebug.disable()
-window.amorphDebug.enable()
-window.amorphDebug.isEnabled()
-```
+*Letzte Aktualisierung: Januar 2026*

@@ -1,0 +1,738 @@
+# ENVIRONMENTAL PHYSIOLOGY - Physiology
+# Version: 1.0.0 | Domain: PHYSIOLOGY (Lateral)
+# Based on: Environmental Physiology (2025), Climate Physiology (2025)
+# PARADIGM SHIFT: From isolated organism → Organism-environment interaction and adaptation
+
+perspective: environmental_physiology
+version: "1.0.0"
+
+# ============================================================================
+# CORE IDENTITY
+# ============================================================================
+
+organism:
+  # morph: text
+  ""
+
+taxonomy:
+  # morph: hierarchy
+  - level: ""
+    name: ""
+    rank: ""
+
+native_environment:
+  # morph: badge
+  # terrestrial | aquatic | marine | freshwater | aerial | subterranean | arboreal
+  status: ""
+  variant: ""
+
+habitat:
+  # morph: text
+  # Specific habitat description
+  ""
+
+geographical_location:
+  # morph: text
+  ""
+
+# ============================================================================
+# ENVIRONMENTAL VARIABLES - External conditions
+# ============================================================================
+
+environmental_factors:
+  # morph: list
+  items:
+    - variable: ""
+      value: 0
+      units: ""
+      variability: ""
+
+ambient_temperature:
+  # morph: number
+  # °C
+  0
+
+temperature_range:
+  # morph: text
+  # Daily/seasonal range
+  ""
+
+humidity:
+  # morph: gauge
+  # Relative humidity (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+atmospheric_pressure:
+  # morph: number
+  # kPa or mmHg
+  0
+
+altitude:
+  # morph: number
+  # m above sea level
+  0
+
+oxygen_availability:
+  # morph: gauge
+  # Percentage O2
+  current: 21
+  target: 21
+  unit: "%"
+
+water_availability:
+  # morph: badge
+  # abundant | seasonal | scarce | desert
+  status: ""
+  variant: ""
+
+salinity:
+  # morph: number
+  # ppt (parts per thousand)
+  0
+
+# ============================================================================
+# THERMAL PHYSIOLOGY - Temperature adaptation
+# ============================================================================
+
+thermal_strategy:
+  # morph: badge
+  # homeothermic | poikilothermic | heterothermic | regional_heterothermy
+  status: ""
+  variant: ""
+
+thermoregulation:
+  # morph: badge
+  # endothermic | ectothermic | mixed
+  status: ""
+  variant: ""
+
+core_temperature:
+  # morph: number
+  # °C
+  0
+
+thermal_neutral_zone:
+  # morph: text
+  # Temperature range
+  ""
+
+lower_critical_temperature:
+  # morph: number
+  # °C
+  0
+
+upper_critical_temperature:
+  # morph: number
+  # °C
+  0
+
+thermal_conductance:
+  # morph: number
+  # W/m²/°C
+  0
+
+# ============================================================================
+# HEAT PRODUCTION - Thermogenesis
+# ============================================================================
+
+metabolic_heat_production:
+  # morph: number
+  # W or kcal/h
+  0
+
+basal_metabolic_rate:
+  # morph: number
+  # kcal/day
+  0
+
+cold_induced_thermogenesis:
+  # morph: badge
+  # shivering | non_shivering | both | none
+  status: ""
+  variant: ""
+
+brown_adipose_tissue:
+  # morph: badge
+  # present | absent
+  status: ""
+  variant: ""
+
+ucp1_activity:
+  # morph: badge
+  # high | moderate | low | absent
+  status: ""
+  variant: ""
+
+# ============================================================================
+# HEAT LOSS - Cooling mechanisms
+# ============================================================================
+
+heat_loss_pathways:
+  # morph: distribution
+  categories:
+    - pathway: "Radiation"
+      percentage: 0
+    - pathway: "Convection"
+      percentage: 0
+    - pathway: "Conduction"
+      percentage: 0
+    - pathway: "Evaporation"
+      percentage: 0
+
+evaporative_cooling:
+  # morph: badge
+  # sweating | panting | gular_flutter | cutaneous_evaporation | none
+  status: ""
+  variant: ""
+
+sweat_rate:
+  # morph: number
+  # L/h
+  0
+
+panting_frequency:
+  # morph: number
+  # breaths/min
+  0
+
+vasomotor_control:
+  # morph: badge
+  # vasoconstriction | vasodilation | neutral
+  status: ""
+  variant: ""
+
+skin_blood_flow:
+  # morph: number
+  # mL/min/100g tissue
+  0
+
+# ============================================================================
+# INSULATION - Heat retention
+# ============================================================================
+
+insulation_type:
+  # morph: badge
+  # fur | feathers | blubber | scales | naked_skin | clothing
+  status: ""
+  variant: ""
+
+fur_depth:
+  # morph: number
+  # mm
+  0
+
+blubber_thickness:
+  # morph: number
+  # cm
+  0
+
+thermal_insulation_value:
+  # morph: number
+  # clo units or m²K/W
+  0
+
+piloerection:
+  # morph: badge
+  # yes | no
+  # Fur/feather fluffing
+  status: ""
+  variant: ""
+
+# ============================================================================
+# BEHAVIORAL THERMOREGULATION
+# ============================================================================
+
+behavioral_responses:
+  # morph: list
+  items:
+    - behavior: ""
+      temperature_trigger: ""
+      effectiveness: ""
+
+basking:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+shade_seeking:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+burrowing:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+huddling:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# HYPOXIA ADAPTATION - Low oxygen
+# ============================================================================
+
+hypoxia_exposure:
+  # morph: badge
+  # chronic | acute | intermittent | none
+  status: ""
+  variant: ""
+
+altitude_adaptation:
+  # morph: badge
+  # high_altitude_native | acclimatized | lowlander
+  status: ""
+  variant: ""
+
+hemoglobin_concentration:
+  # morph: number
+  # g/dL
+  0
+
+hematocrit:
+  # morph: gauge
+  # Percentage (%)
+  current: 0
+  target: 45
+  unit: "%"
+
+oxygen_affinity:
+  # morph: number
+  # P50 (mmHg)
+  0
+
+2_3_dpg_levels:
+  # morph: badge
+  # elevated | normal | low
+  # 2,3-diphosphoglycerate
+  status: ""
+  variant: ""
+
+ventilatory_response_hypoxia:
+  # morph: badge
+  # blunted | normal | enhanced
+  status: ""
+  variant: ""
+
+pulmonary_hypertension:
+  # morph: badge
+  # absent | mild | moderate | severe
+  status: ""
+  variant: ""
+
+# ============================================================================
+# OSMOREGULATION - Water & salt balance
+# ============================================================================
+
+osmoregulation:
+  # morph: badge
+  # osmoconformer | osmoregulator
+  status: ""
+  variant: ""
+
+body_fluid_osmolarity:
+  # morph: number
+  # mOsm/L
+  0
+
+environmental_osmolarity:
+  # morph: number
+  # mOsm/L
+  0
+
+osmoregulatory_strategy:
+  # morph: badge
+  # freshwater | marine | terrestrial | euryhaline | stenohaline
+  status: ""
+  variant: ""
+
+salt_glands:
+  # morph: badge
+  # present | absent
+  status: ""
+  variant: ""
+
+urine_concentration:
+  # morph: number
+  # mOsm/L
+  0
+
+water_reabsorption:
+  # morph: gauge
+  # Percentage (%)
+  current: 0
+  target: 99
+  unit: "%"
+
+# ============================================================================
+# DEHYDRATION TOLERANCE
+# ============================================================================
+
+dehydration_tolerance:
+  # morph: badge
+  # low | moderate | high | extreme
+  status: ""
+  variant: ""
+
+water_loss_tolerance:
+  # morph: gauge
+  # Percentage body water loss (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+metabolic_water_production:
+  # morph: badge
+  # significant | minimal
+  status: ""
+  variant: ""
+
+# ============================================================================
+# DIVING PHYSIOLOGY - Aquatic adaptation
+# ============================================================================
+
+diving_capability:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+dive_duration:
+  # morph: number
+  # minutes
+  0
+
+dive_depth:
+  # morph: number
+  # meters
+  0
+
+oxygen_storage:
+  # morph: distribution
+  categories:
+    - location: "Lungs"
+      percentage: 0
+    - location: "Blood"
+      percentage: 0
+    - location: "Muscle (myoglobin)"
+      percentage: 0
+
+bradycardia:
+  # morph: badge
+  # yes | no
+  # Diving response heart rate drop
+  status: ""
+  variant: ""
+
+peripheral_vasoconstriction:
+  # morph: badge
+  # yes | no
+  # Blood shunted to vital organs
+  status: ""
+  variant: ""
+
+# ============================================================================
+# HIBERNATION & TORPOR - Energy conservation
+# ============================================================================
+
+hibernation:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+hibernation_duration:
+  # morph: number
+  # days or months
+  0
+
+torpor:
+  # morph: badge
+  # daily | seasonal | none
+  status: ""
+  variant: ""
+
+torpor_body_temperature:
+  # morph: number
+  # °C
+  0
+
+metabolic_rate_suppression:
+  # morph: gauge
+  # Percentage reduction (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+arousal_frequency:
+  # morph: text
+  # How often arouse from torpor
+  ""
+
+# ============================================================================
+# ESTIVATION - Dry season dormancy
+# ============================================================================
+
+estivation:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+estivation_duration:
+  # morph: number
+  # months
+  0
+
+# ============================================================================
+# MIGRATION - Seasonal movement
+# ============================================================================
+
+migratory:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+migration_distance:
+  # morph: number
+  # km
+  0
+
+migration_trigger:
+  # morph: badge
+  # photoperiod | temperature | food_availability | breeding
+  status: ""
+  variant: ""
+
+# ============================================================================
+# PHOTOPERIODISM - Day length response
+# ============================================================================
+
+photoperiodic_response:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+critical_photoperiod:
+  # morph: number
+  # hours of light
+  0
+
+photoperiod_regulated_processes:
+  # morph: list
+  items:
+    - process: ""
+      response: ""
+
+# ============================================================================
+# SEASONAL ACCLIMATIZATION
+# ============================================================================
+
+seasonal_acclimatization:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+winter_acclimatization:
+  # morph: list
+  items:
+    - change: ""
+      magnitude: ""
+      time_course: ""
+
+summer_acclimatization:
+  # morph: list
+  items:
+    - change: ""
+      magnitude: ""
+      time_course: ""
+
+# ============================================================================
+# POLLUTION & TOXICOLOGY
+# ============================================================================
+
+pollution_exposure:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+pollutants:
+  # morph: list
+  items:
+    - pollutant: ""
+      concentration: 0
+      physiological_effect: ""
+
+detoxification_capacity:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+bioaccumulation:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# CLIMATE CHANGE IMPACTS
+# ============================================================================
+
+climate_sensitivity:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+warming_effects:
+  # morph: list
+  items:
+    - effect: ""
+      magnitude: ""
+      consequence: ""
+
+range_shift:
+  # morph: badge
+  # poleward | upward_elevation | none
+  status: ""
+  variant: ""
+
+phenological_shifts:
+  # morph: list
+  items:
+    - event: ""
+      shift_days: 0
+      consequence: ""
+
+# ============================================================================
+# PHYSIOLOGICAL PLASTICITY
+# ============================================================================
+
+phenotypic_plasticity:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+acclimation_capacity:
+  # morph: badge
+  # rapid | slow | minimal
+  status: ""
+  variant: ""
+
+acclimation_time:
+  # morph: number
+  # days
+  0
+
+reversibility:
+  # morph: badge
+  # fully_reversible | partially_reversible | irreversible
+  status: ""
+  variant: ""
+
+# ============================================================================
+# EVOLUTIONARY ADAPTATION
+# ============================================================================
+
+local_adaptation:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+adaptive_traits:
+  # morph: list
+  items:
+    - trait: ""
+      selective_pressure: ""
+      genetic_basis: ""
+
+# ============================================================================
+# STRESS RESPONSES
+# ============================================================================
+
+environmental_stress:
+  # morph: badge
+  # none | mild | moderate | severe
+  status: ""
+  variant: ""
+
+stress_hormones:
+  # morph: list
+  items:
+    - hormone: ""
+      baseline: 0
+      stressed: 0
+      fold_change: 0
+
+heat_shock_proteins:
+  # morph: badge
+  # induced | not_induced
+  status: ""
+  variant: ""
+
+# ============================================================================
+# PERFORMANCE LIMITS
+# ============================================================================
+
+thermal_performance_curve:
+  # morph: badge
+  # characterized | not_characterized
+  status: ""
+  variant: ""
+
+optimal_temperature:
+  # morph: number
+  # °C for peak performance
+  0
+
+critical_thermal_maximum:
+  # morph: number
+  # °C
+  0
+
+critical_thermal_minimum:
+  # morph: number
+  # °C
+  0
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""
+
+curator:
+  # morph: text
+  ""
+
+notes:
+  # morph: text
+  ""
+
+references:
+  # morph: list
+  items:
+    - citation: ""
+      doi: ""
+      year: ""

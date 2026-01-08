@@ -20,7 +20,9 @@ import { logger } from '../../server/logger';
 export const GET: APIRoute = async ({ request }) => {
   const startTime = Date.now();
   
-  // Check Pocketbase connection
+  const dataSource = process.env.DATA_SOURCE || 'pocketbase';
+  
+  // Check Pocketbase connection (only relevant if using pocketbase)
   const pocketbaseHealthy = await checkBifroestConnection();
   const bifroestStatus = getBifroestStatus();
   
@@ -30,9 +32,13 @@ export const GET: APIRoute = async ({ request }) => {
   // Get rate limiter stats
   const rateLimitStats = apiRateLimiter.getStats();
   
+  // Determine overall health status
+  // If DATA_SOURCE=local, we don't require Pocketbase to be healthy
+  const isHealthy = dataSource === 'local' || pocketbaseHealthy;
+  
   // Build response
   const health = {
-    status: pocketbaseHealthy ? 'healthy' : 'degraded',
+    status: isHealthy ? 'healthy' : 'degraded',
     timestamp: new Date().toISOString(),
     responseTime: Date.now() - startTime,
     version: '7.0.0',
@@ -40,7 +46,8 @@ export const GET: APIRoute = async ({ request }) => {
       pocketbase: {
         status: pocketbaseHealthy ? 'up' : 'down',
         url: bifroestStatus.url,
-        lastCheck: bifroestStatus.lastCheck ? new Date(bifroestStatus.lastCheck).toISOString() : null
+        lastCheck: bifroestStatus.lastCheck ? new Date(bifroestStatus.lastCheck).toISOString() : null,
+        required: dataSource !== 'local'
       },
       cache: {
         status: 'up',
@@ -55,11 +62,11 @@ export const GET: APIRoute = async ({ request }) => {
     },
     environment: {
       nodeEnv: process.env.NODE_ENV || 'development',
-      dataSource: process.env.DATA_SOURCE || 'pocketbase'
+      dataSource: dataSource
     }
   };
 
-  const statusCode = pocketbaseHealthy ? 200 : 503;
+  const statusCode = isHealthy ? 200 : 503;
   
   logger.info('Health check', { status: health.status, responseTime: health.responseTime });
 

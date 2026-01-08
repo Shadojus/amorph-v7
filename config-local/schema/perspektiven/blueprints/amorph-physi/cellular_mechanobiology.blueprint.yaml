@@ -1,0 +1,730 @@
+# CELLULAR MECHANOBIOLOGY - Physiology
+# Version: 1.0.0 | Domain: PHYSIOLOGY (Holistic)
+# Based on: Mechanobiology (Biomolecules 2025), qtPAINT Force Imaging (Aug 2025), Mechanomedicine (Sci Adv 2025)
+# PARADIGM SHIFT: From biochemical signals alone → Mechanical forces as integrated signaling system
+
+perspective: cellular_mechanobiology
+version: "1.0.0"
+
+# ============================================================================
+# CORE IDENTITY
+# ============================================================================
+
+cell_type:
+  # morph: text
+  ""
+
+tissue_context:
+  # morph: badge
+  # epithelial | connective | muscle | nervous | vascular | bone | cartilage
+  status: ""
+  variant: ""
+
+mechanical_environment:
+  # morph: badge
+  # soft | intermediate | stiff | dynamic | static
+  status: ""
+  variant: ""
+
+physiological_state:
+  # morph: badge
+  # healthy | diseased | developing | aging | injured | regenerating
+  status: ""
+  variant: ""
+
+# ============================================================================
+# MECHANICAL FORCES - Types and sources
+# ============================================================================
+
+forces_experienced:
+  # morph: distribution
+  categories:
+    - force_type: "Compression"
+      magnitude_pa: 0
+      source: ""
+    - force_type: "Tension"
+      magnitude_pa: 0
+      source: ""
+    - force_type: "Shear stress"
+      magnitude_pa: 0
+      source: ""
+    - force_type: "Hydrostatic pressure"
+      magnitude_pa: 0
+      source: ""
+    - force_type: "Osmotic pressure"
+      magnitude_pa: 0
+      source: ""
+
+dominant_force:
+  # morph: badge
+  # compression | tension | shear | pressure | cyclic_strain
+  status: ""
+  variant: ""
+
+force_magnitude:
+  # morph: number
+  # Pa or kPa
+  0
+
+force_duration:
+  # morph: badge
+  # transient | sustained | cyclic | chronic
+  status: ""
+  variant: ""
+
+cyclic_loading:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+loading_frequency:
+  # morph: number
+  # Hz
+  0
+
+# ============================================================================
+# MECHANOSENSORS - Force detection
+# ============================================================================
+
+mechanosensor_proteins:
+  # morph: list
+  items:
+    - protein: ""
+      location: ""
+      force_threshold: 0
+      downstream_signaling: ""
+
+integrins:
+  # morph: badge
+  # present | absent
+  # ECM-cytoskeleton linkers
+  status: ""
+  variant: ""
+
+integrin_types:
+  # morph: list
+  items:
+    - integrin: ""
+      ecm_ligand: ""
+      force_sensitivity: ""
+
+focal_adhesions:
+  # morph: badge
+  # present | absent
+  status: ""
+  variant: ""
+
+focal_adhesion_proteins:
+  # morph: list
+  items:
+    - protein: ""
+      role: ""
+      force_dependent: ""
+
+mechanosensitive_ion_channels:
+  # morph: badge
+  # present | absent
+  # Piezo1, Piezo2, TRP channels
+  status: ""
+  variant: ""
+
+ion_channel_types:
+  # morph: list
+  items:
+    - channel: ""
+      ions: ""
+      gating_force: 0
+      function: ""
+
+cadherins:
+  # morph: badge
+  # present | absent
+  # Cell-cell adhesion
+  status: ""
+  variant: ""
+
+adherens_junctions:
+  # morph: badge
+  # present | absent
+  status: ""
+  variant: ""
+
+primary_cilium:
+  # morph: badge
+  # present | absent
+  # Flow/bending sensor
+  status: ""
+  variant: ""
+
+glycocalyx:
+  # morph: badge
+  # present | absent
+  # Shear stress sensor
+  status: ""
+  variant: ""
+
+# ============================================================================
+# CYTOSKELETON - Force transmission
+# ============================================================================
+
+cytoskeletal_architecture:
+  # morph: badge
+  # dense | sparse | polarized | isotropic | disorganized
+  status: ""
+  variant: ""
+
+actin_filaments:
+  # morph: badge
+  # abundant | moderate | sparse
+  status: ""
+  variant: ""
+
+actin_structures:
+  # morph: distribution
+  categories:
+    - structure: "Stress fibers"
+      abundance: 0
+      function: "Tension bearing"
+    - structure: "Cortical actin"
+      abundance: 0
+      function: "Cell shape"
+    - structure: "Lamellipodia"
+      abundance: 0
+      function: "Migration"
+    - structure: "Filopodia"
+      abundance: 0
+      function: "Protrusion"
+
+microtubules:
+  # morph: badge
+  # abundant | moderate | sparse
+  status: ""
+  variant: ""
+
+microtubule_organization:
+  # morph: badge
+  # radial | parallel | disorganized
+  status: ""
+  variant: ""
+
+intermediate_filaments:
+  # morph: badge
+  # abundant | moderate | sparse | absent
+  status: ""
+  variant: ""
+
+intermediate_filament_type:
+  # morph: badge
+  # keratin | vimentin | desmin | neurofilament | lamin | not_applicable
+  status: ""
+  variant: ""
+
+cytoskeletal_stiffness:
+  # morph: number
+  # Pa or kPa
+  0
+
+# ============================================================================
+# MECHANOTRANSDUCTION - Signal conversion
+# ============================================================================
+
+mechanotransduction_pathways:
+  # morph: network
+  nodes:
+    - id: ""
+      component: ""
+      role: ""
+      force_dependent: ""
+  edges:
+    - source: ""
+      target: ""
+      mechanism: ""
+
+rho_gtpases:
+  # morph: badge
+  # active | inactive
+  # RhoA, Rac1, Cdc42
+  status: ""
+  variant: ""
+
+rho_rock_pathway:
+  # morph: badge
+  # active | inactive
+  # Contractility, stress fibers
+  status: ""
+  variant: ""
+
+yap_taz:
+  # morph: badge
+  # nuclear | cytoplasmic
+  # Mechanosensitive transcription factors
+  status: ""
+  variant: ""
+
+yap_taz_activity:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+mapk_signaling:
+  # morph: badge
+  # active | inactive
+  # ERK, JNK, p38
+  status: ""
+  variant: ""
+
+pi3k_akt:
+  # morph: badge
+  # active | inactive
+  status: ""
+  variant: ""
+
+calcium_signaling:
+  # morph: badge
+  # active | inactive
+  # Mechanosensitive Ca2+ influx
+  status: ""
+  variant: ""
+
+intracellular_calcium:
+  # morph: number
+  # nM
+  0
+
+# ============================================================================
+# FORCE MEASUREMENT - Molecular tension
+# ============================================================================
+
+force_measurement_method:
+  # morph: badge
+  # qtpaint | fret | traction_force_microscopy | none
+  status: ""
+  variant: ""
+
+qtpaint_imaging:
+  # morph: badge
+  # performed | not_performed
+  # Nanometer-precision molecular force imaging (2025)
+  status: ""
+  variant: ""
+
+molecular_forces_measured:
+  # morph: list
+  items:
+    - location: ""
+      force_pn: 0
+      resolution_nm: 0
+      time_resolution: ""
+
+traction_forces:
+  # morph: badge
+  # measured | not_measured
+  status: ""
+  variant: ""
+
+traction_stress:
+  # morph: number
+  # Pa
+  0
+
+# ============================================================================
+# SYNTHETIC MECHANORECEPTORS - Engineered sensors
+# ============================================================================
+
+synthetic_mechanoreceptors:
+  # morph: badge
+  # used | not_used
+  # DNA-based aptamer mechanosensors (2025)
+  status: ""
+  variant: ""
+
+aptamer_mechanosensing:
+  # morph: badge
+  # cell_type_specific | universal | not_applicable
+  status: ""
+  variant: ""
+
+force_gating_threshold:
+  # morph: number
+  # pN
+  0
+
+# ============================================================================
+# CELL STIFFNESS & MECHANICS
+# ============================================================================
+
+cell_stiffness:
+  # morph: number
+  # kPa (AFM measurement)
+  0
+
+elastic_modulus:
+  # morph: number
+  # Young's modulus (Pa)
+  0
+
+viscoelasticity:
+  # morph: badge
+  # elastic | viscoelastic | viscous
+  status: ""
+  variant: ""
+
+relaxation_time:
+  # morph: number
+  # seconds
+  0
+
+# ============================================================================
+# NUCLEAR MECHANICS - Gene regulation
+# ============================================================================
+
+nuclear_shape:
+  # morph: badge
+  # round | elongated | irregular | lobulated
+  status: ""
+  variant: ""
+
+nuclear_volume:
+  # morph: number
+  # μm³
+  0
+
+nuclear_stiffness:
+  # morph: number
+  # kPa
+  0
+
+lamin_expression:
+  # morph: badge
+  # high | normal | low
+  # Lamin A/C nuclear stiffness
+  status: ""
+  variant: ""
+
+chromatin_organization:
+  # morph: badge
+  # euchromatin | heterochromatin | mixed
+  # Force-dependent
+  status: ""
+  variant: ""
+
+mechanosensitive_genes:
+  # morph: number
+  # Genes regulated by mechanical forces
+  0
+
+gene_expression_changes:
+  # morph: list
+  items:
+    - gene: ""
+      fold_change: 0
+      function: ""
+      force_threshold: 0
+
+# ============================================================================
+# EXTRACELLULAR MATRIX - Mechanical context
+# ============================================================================
+
+ecm_stiffness:
+  # morph: number
+  # kPa
+  0
+
+ecm_composition:
+  # morph: distribution
+  categories:
+    - component: "Collagen"
+      percentage: 0
+    - component: "Fibronectin"
+      percentage: 0
+    - component: "Laminin"
+      percentage: 0
+    - component: "Elastin"
+      percentage: 0
+    - component: "Proteoglycans"
+      percentage: 0
+
+ecm_stiffness_category:
+  # morph: badge
+  # soft_brain_0_5_kpa | intermediate_muscle_10_kpa | stiff_bone_30plus_kpa
+  status: ""
+  variant: ""
+
+substrate_rigidity_sensing:
+  # morph: badge
+  # durotaxis | no_response
+  # Migration toward stiffer substrate
+  status: ""
+  variant: ""
+
+# ============================================================================
+# CELL SHAPE & SPREADING
+# ============================================================================
+
+cell_area:
+  # morph: number
+  # μm²
+  0
+
+cell_aspect_ratio:
+  # morph: number
+  # Length/width
+  0
+
+cell_spreading:
+  # morph: badge
+  # well_spread | partially_spread | rounded
+  status: ""
+  variant: ""
+
+spreading_area_over_time:
+  # morph: timeline
+  events:
+    - time: ""
+      area_um2: 0
+
+morphology:
+  # morph: badge
+  # fibroblastic | epithelial | spherical | stellate | polygonal
+  status: ""
+  variant: ""
+
+# ============================================================================
+# CONTRACTILITY - Force generation
+# ============================================================================
+
+actomyosin_contractility:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+myosin_ii_activity:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+contractile_force:
+  # morph: number
+  # nN
+  0
+
+stress_fiber_formation:
+  # morph: badge
+  # abundant | moderate | sparse | absent
+  status: ""
+  variant: ""
+
+# ============================================================================
+# MIGRATION - Mechanically-driven movement
+# ============================================================================
+
+migration_speed:
+  # morph: number
+  # μm/h
+  0
+
+migration_directionality:
+  # morph: badge
+  # random | persistent | directional
+  status: ""
+  variant: ""
+
+mechanotaxis:
+  # morph: badge
+  # durotaxis | haptotaxis | none
+  status: ""
+  variant: ""
+
+protrusion_rate:
+  # morph: number
+  # μm/min
+  0
+
+# ============================================================================
+# DIFFERENTIATION - Mechanical cues
+# ============================================================================
+
+mechanically_induced_differentiation:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+lineage_specification:
+  # morph: badge
+  # neurogenic_soft | myogenic_intermediate | osteogenic_stiff | not_applicable
+  # Engler's matrix elasticity paradigm
+  status: ""
+  variant: ""
+
+differentiation_markers:
+  # morph: list
+  items:
+    - marker: ""
+      expression_level: 0
+      stiffness_dependence: ""
+
+# ============================================================================
+# TISSUE MECHANICS - Multi-scale
+# ============================================================================
+
+tissue_stiffness:
+  # morph: number
+  # kPa
+  0
+
+tissue_mechanics_technique:
+  # morph: badge
+  # afm | rheology | indentation | ultrasound_elastography | none
+  status: ""
+  variant: ""
+
+# ============================================================================
+# MECHANOMEDICINE - Clinical applications
+# ============================================================================
+
+mechanomedicine:
+  # morph: badge
+  # relevant | not_relevant
+  status: ""
+  variant: ""
+
+disease_mechanics:
+  # morph: list
+  items:
+    - disease: ""
+      mechanical_change: ""
+      pathophysiology: ""
+
+fibrosis:
+  # morph: badge
+  # absent | mild | moderate | severe
+  status: ""
+  variant: ""
+
+cancer_cell_mechanics:
+  # morph: badge
+  # softer_than_normal | stiffer_than_normal | not_applicable
+  status: ""
+  variant: ""
+
+metastatic_potential:
+  # morph: badge
+  # high | low | not_applicable
+  # Correlated with cell deformability
+  status: ""
+  variant: ""
+
+# ============================================================================
+# MAGNETO-MECHANICS - Remote force delivery
+# ============================================================================
+
+magneto_mechanical_actuation:
+  # morph: badge
+  # used | not_used
+  # 2025 technology
+  status: ""
+  variant: ""
+
+magnetic_nanoparticles:
+  # morph: badge
+  # present | absent
+  status: ""
+  variant: ""
+
+remote_force_delivery:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+# ============================================================================
+# 3D ENVIRONMENTS - Physiological context
+# ============================================================================
+
+culture_dimensionality:
+  # morph: badge
+  # 2d | 3d | organoid
+  status: ""
+  variant: ""
+
+3d_matrix_stiffness:
+  # morph: number
+  # kPa
+  0
+
+confinement:
+  # morph: badge
+  # unconfined | confined | highly_confined
+  status: ""
+  variant: ""
+
+# ============================================================================
+# TEMPORAL DYNAMICS
+# ============================================================================
+
+force_adaptation:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+adaptation_timescale:
+  # morph: number
+  # minutes or hours
+  0
+
+mechanomemory:
+  # morph: badge
+  # yes | no
+  # Cells remember past mechanical history
+  status: ""
+  variant: ""
+
+# ============================================================================
+# COMPUTATIONAL MODELING
+# ============================================================================
+
+computational_model:
+  # morph: badge
+  # yes | no
+  status: ""
+  variant: ""
+
+model_type:
+  # morph: badge
+  # finite_element | agent_based | continuum | molecular_dynamics | none
+  status: ""
+  variant: ""
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""
+
+curator:
+  # morph: text
+  ""
+
+notes:
+  # morph: text
+  ""
+
+references:
+  # morph: list
+  items:
+    - citation: ""
+      doi: ""
+      year: ""

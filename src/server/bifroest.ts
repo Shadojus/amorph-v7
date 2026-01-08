@@ -30,21 +30,48 @@ let lastHealthCheck = 0;
 let isConnected = true;
 
 // ============================================================================
-// COLLECTION CONFIGURATION
+// COLLECTION CONFIGURATION - V2 (Domain-Specific Collections)
 // ============================================================================
 
-// Collection types (map to Pocketbase collection names)
-type BiologyCollection = 'fungi' | 'plantae' | 'therion';
-type GeologyCollection = 'paleontology' | 'mineralogy' | 'tectonics';
-type Collection = BiologyCollection | GeologyCollection;
+// 17 Domain Types (matching amorph-* blueprint folders)
+type DomainCollection = 
+  // Biology
+  | 'fungi_entities' | 'phyto_entities' | 'drako_entities'
+  // Geology  
+  | 'paleo_entities' | 'tekto_entities' | 'mine_entities'
+  // Biomedical
+  | 'bakterio_entities' | 'viro_entities' | 'geno_entities' | 'anato_entities'
+  // Physics & Chemistry
+  | 'chemo_entities' | 'physi_entities' | 'kosmo_entities'
+  // Technology
+  | 'netzo_entities' | 'cognito_entities' | 'biotech_entities' | 'socio_entities';
 
-const BIOLOGY_COLLECTIONS: BiologyCollection[] = ['fungi', 'plantae', 'therion'];
-const GEOLOGY_COLLECTIONS: GeologyCollection[] = ['paleontology', 'mineralogy', 'tectonics'];
-const ALL_COLLECTIONS: Collection[] = [...BIOLOGY_COLLECTIONS, ...GEOLOGY_COLLECTIONS];
+// Legacy collection type for backward compatibility
+type Collection = DomainCollection;
 
-// Map collection to domain (uses SITE_DOMAIN from config for consistency)
-function getCollectionDomain(collection: Collection): Domain {
-  // Find site type by collection
+// All 17 domain collections
+const ALL_COLLECTIONS: DomainCollection[] = [
+  // Biology
+  'fungi_entities', 'phyto_entities', 'drako_entities',
+  // Geology
+  'paleo_entities', 'tekto_entities', 'mine_entities',
+  // Biomedical
+  'bakterio_entities', 'viro_entities', 'geno_entities', 'anato_entities',
+  // Physics & Chemistry
+  'chemo_entities', 'physi_entities', 'kosmo_entities',
+  // Technology
+  'netzo_entities', 'cognito_entities', 'biotech_entities', 'socio_entities'
+];
+
+// Extract domain name from collection name (e.g., 'fungi_entities' → 'fungi')
+function getDomainFromCollection(collection: DomainCollection): string {
+  return collection.replace('_entities', '');
+}
+
+// Map collection to domain category
+function getCollectionDomain(collection: DomainCollection): Domain {
+  const domain = getDomainFromCollection(collection);
+  // Find site type by domain name
   for (const [siteType, meta] of Object.entries(SITE_META)) {
     if (meta.collection === collection) {
       return SITE_DOMAIN[siteType as SiteType];
@@ -53,14 +80,30 @@ function getCollectionDomain(collection: Collection): Domain {
   return 'biology'; // default
 }
 
-// Map legacy category names to collections
-const CATEGORY_TO_COLLECTION: Record<string, Collection> = {
-  'Fungi': 'fungi',
-  'Plantae': 'plantae',
-  'Therion': 'therion',
-  'fungi': 'fungi',
-  'plantae': 'plantae',
-  'therion': 'therion'
+// Map legacy category names to new collections
+const CATEGORY_TO_COLLECTION: Record<string, DomainCollection> = {
+  // Biology (legacy)
+  'Fungi': 'fungi_entities', 'fungi': 'fungi_entities',
+  'Plantae': 'phyto_entities', 'plantae': 'phyto_entities', 'phyto': 'phyto_entities',
+  'Therion': 'drako_entities', 'therion': 'drako_entities', 'drako': 'drako_entities',
+  // Geology
+  'paleontology': 'paleo_entities', 'paleo': 'paleo_entities',
+  'tectonics': 'tekto_entities', 'tekto': 'tekto_entities',
+  'mineralogy': 'mine_entities', 'mine': 'mine_entities',
+  // Biomedical
+  'microbiology': 'bakterio_entities', 'bakterio': 'bakterio_entities',
+  'virology': 'viro_entities', 'viro': 'viro_entities',
+  'genetics': 'geno_entities', 'geno': 'geno_entities',
+  'anatomy': 'anato_entities', 'anato': 'anato_entities',
+  // Physics & Chemistry
+  'chemistry': 'chemo_entities', 'chemo': 'chemo_entities',
+  'physics': 'physi_entities', 'physi': 'physi_entities',
+  'astronomy': 'kosmo_entities', 'kosmo': 'kosmo_entities',
+  // Technology
+  'informatics': 'netzo_entities', 'netzo': 'netzo_entities',
+  'ai': 'cognito_entities', 'cognito': 'cognito_entities',
+  'biotech': 'biotech_entities',
+  'sociology': 'socio_entities', 'socio': 'socio_entities'
 };
 
 // ============================================================================
@@ -117,71 +160,104 @@ interface PocketbaseResponse {
 }
 
 // Generic record with any perspective field
-interface PocketbaseSpecies {
+interface PocketbaseEntity {
   id: string;
   collectionId: string;
   collectionName: string;
-  // Core fields
+  // Core fields (V2 schema)
   slug: string;
-  name: string;
   scientific_name: string;
-  description: string;
-  category?: string; // Optional, inferred from collection
-  image: string;
-  // All possible perspective fields as dynamic
+  common_name?: string;  // V2 uses common_name instead of name
+  name?: string;         // Legacy field
+  description?: string;
+  image?: string;
+  images?: string[]; // File field for images
+  tags?: string[];   // V2 tags field (JSON array)
+  data?: Record<string, unknown>; // JSON field with all perspective data
+  // Domain-specific fields may exist
   [key: string]: unknown;
 }
 
+// Alias for backward compatibility
+type PocketbaseSpecies = PocketbaseEntity;
+
 /**
- * Konvertiert Pocketbase Species zu AMORPH ItemData Format
- * @param species - Raw species record from Pocketbase
+ * Konvertiert Pocketbase Entity zu AMORPH ItemData Format
+ * @param entity - Raw entity record from Pocketbase
  * @param collectionName - Name of the collection (for perspective detection)
  */
-function toItemData(species: PocketbaseSpecies, collectionName: Collection): ItemData {
+function toItemData(entity: PocketbaseEntity, collectionName: DomainCollection): ItemData {
   const domain = getCollectionDomain(collectionName);
-  const perspectives = getPerspectivesForCollection(collectionName);
+  const domainName = getDomainFromCollection(collectionName);
   
-  // Derive kingdom from collection name (capitalize first letter)
-  const kingdom = species.category || 
-    collectionName.charAt(0).toUpperCase() + collectionName.slice(1);
+  // Derive kingdom/category from collection name
+  const kingdom = domainName.charAt(0).toUpperCase() + domainName.slice(1);
+  
+  // Handle image: can be single string, array from files, or empty
+  let image = '';
+  if (typeof entity.image === 'string' && entity.image) {
+    image = entity.image;
+  } else if (Array.isArray(entity.images) && entity.images.length > 0) {
+    // Build PocketBase file URL
+    image = `${POCKETBASE_URL}/api/files/${entity.collectionId}/${entity.id}/${entity.images[0]}`;
+  }
+  
+  // V2 uses common_name, legacy uses name
+  const displayName = entity.common_name || entity.name || entity.scientific_name;
   
   const item: ItemData = {
-    id: species.id,
-    slug: species.slug,
-    name: species.name,
-    scientificName: species.scientific_name,
-    description: species.description,
-    image: species.image as string,
+    id: entity.id,
+    slug: entity.slug,
+    name: displayName,
+    scientificName: entity.scientific_name,
+    description: entity.description || '',
+    image: image,
     _kingdom: kingdom,
     _collection: collectionName,
     _domain: domain,
     _fieldPerspective: {} as Record<string, string>,
     _perspectives: {},
     _loadedPerspectives: [],
-    _sources: (species.sources || {}) as ItemData['_sources']
+    _sources: (entity.sources || {}) as ItemData['_sources']
   };
   
-  // Extract perspective fields based on collection type
-  for (const perspective of perspectives) {
-    const data = species[perspective];
-    if (data && typeof data === 'object') {
-      // Speichere in _perspectives
-      item._perspectives![perspective] = data;
-      (item._loadedPerspectives as string[]).push(perspective);
+  // Copy domain-specific fields to item
+  const systemFields = ['id', 'collectionId', 'collectionName', 'slug', 'scientific_name', 
+    'common_name', 'name', 'description', 'image', 'images', 'data', 'created', 'updated', 'tags'];
+  for (const [key, value] of Object.entries(entity)) {
+    if (!systemFields.includes(key) && !key.startsWith('_') && item[key] === undefined) {
+      item[key] = value;
+    }
+  }
+  
+  // Handle tags
+  if (Array.isArray(entity.tags)) {
+    item.tags = entity.tags;
+  }
+  
+  // Extract perspective data from the "data" JSON field (new unified format)
+  const perspectiveData = entity.data || {};
+  for (const [perspectiveName, perspectiveContent] of Object.entries(perspectiveData)) {
+    if (perspectiveContent && typeof perspectiveContent === 'object') {
+      // Store in _perspectives
+      item._perspectives![perspectiveName] = perspectiveContent;
+      (item._loadedPerspectives as string[]).push(perspectiveName);
       
-      // Merge Felder ins Haupt-Item für direkten Zugriff
-      for (const [fieldKey, fieldValue] of Object.entries(data)) {
+      // Merge fields into main item for direct access
+      for (const [fieldKey, fieldValue] of Object.entries(perspectiveContent as Record<string, unknown>)) {
         if (!fieldKey.startsWith('_') && item[fieldKey] === undefined) {
           item[fieldKey] = fieldValue;
         }
       }
       
       // Map field to perspective
-      for (const fieldKey of Object.keys(data)) {
-        (item._fieldPerspective as Record<string, string>)[fieldKey] = perspective;
+      for (const fieldKey of Object.keys(perspectiveContent as Record<string, unknown>)) {
+        (item._fieldPerspective as Record<string, string>)[fieldKey] = perspectiveName;
       }
     }
   }
+  
+  // Legacy format support removed - all data now in "data" JSON field
   
   return item;
 }
@@ -190,19 +266,90 @@ function toItemData(species: PocketbaseSpecies, collectionName: Collection): Ite
 // DATA FETCHING
 // ============================================================================
 
+// Available perspective tables in the normalized schema
+const PERSPECTIVE_TABLES = [
+  // Fungi
+  'fungal_intelligence', 'chemical_ecology', 'mycelial_networks', 
+  'ecosystem_engineering', 'spore_dispersal', 'bioluminescence',
+  // Microbiology
+  'antibiotic_resistance', 'metabolic_networks', 'biofilm_networks', 'bacterial_communication',
+  // Virology
+  'taxonomy_viro', 'pathogenesis', 'evolution_viro', 'epidemiology', 'vaccines',
+  // Genetics
+  'gene_structure', 'mutations', 'gene_regulation', 'diseases_genetic',
+  // Anatomy
+  'gross_anatomy', 'physiology', 'clinical',
+  // Chemistry
+  'atomic_structure', 'bonding', 'thermodynamics',
+  // Physics
+  'quantum', 'particle',
+  // Astronomy
+  'classification_astro', 'orbital', 'composition_astro',
+  // AI
+  'model_architecture', 'capabilities', 'benchmarks'
+] as const;
+
 /**
- * Fetch records from a specific collection
+ * Fetch perspective data for a species from normalized tables
+ */
+async function fetchPerspectivesForSpecies(speciesId: string): Promise<Record<string, unknown>> {
+  const perspectives: Record<string, unknown> = {};
+  
+  // Fetch all perspectives in parallel
+  const fetchPromises = PERSPECTIVE_TABLES.map(async (perspectiveName) => {
+    try {
+      const url = `${POCKETBASE_URL}/api/collections/perspective_${perspectiveName}/records?filter=(species='${speciesId}')`;
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 2000); // Short timeout
+      
+      const response = await fetch(url, { signal: controller.signal });
+      clearTimeout(timeoutId);
+      
+      if (response.ok) {
+        const data: PocketbaseResponse = await response.json();
+        if (data.items?.length > 0) {
+          // Remove system fields from perspective data
+          const perspData = { ...data.items[0] };
+          delete perspData.id;
+          delete perspData.collectionId;
+          delete perspData.collectionName;
+          delete perspData.species;
+          delete perspData.created;
+          delete perspData.updated;
+          perspectives[perspectiveName] = perspData;
+        }
+      }
+    } catch {
+      // Perspective table doesn't exist or fetch failed - ignore silently
+    }
+  });
+  
+  await Promise.all(fetchPromises);
+  return perspectives;
+}
+
+/**
+ * Fetch records from domain-specific entity collection
+ * 
+ * V2 Architecture:
+ * - {domain}_entities: Domain-specific entity table (e.g., fungi_entities)
+ * - {domain}_{perspective}: Perspective tables linked to domain entity
+ * 
+ * Each domain has its own collection with domain-specific fields!
  */
 async function fetchFromCollection(
-  collection: Collection,
-  options: { slug?: string; perPage?: number } = {}
+  collection: DomainCollection,
+  options: { slug?: string; perPage?: number; loadPerspectives?: boolean } = {}
 ): Promise<ItemData[]> {
-  const { slug, perPage = 100 } = options;
+  const { slug, perPage = 100, loadPerspectives = true } = options;
+  const domainName = getDomainFromCollection(collection);
   
   try {
+    // Fetch directly from domain-specific collection (e.g., fungi_entities)
     const url = new URL(`${POCKETBASE_URL}/api/collections/${collection}/records`);
     url.searchParams.set('perPage', perPage.toString());
     
+    // Filter by slug if provided
     if (slug) {
       url.searchParams.set('filter', `slug="${slug}"`);
     }
@@ -217,11 +364,37 @@ async function fetchFromCollection(
     clearTimeout(timeoutId);
     
     if (!response.ok) {
+      const errorText = await response.text();
+      console.error(`[BIFROEST] HTTP ${response.status} for ${collection}: ${errorText}`);
       throw new Error(`HTTP ${response.status}`);
     }
     
     const data: PocketbaseResponse = await response.json();
-    return data.items.map(item => toItemData(item, collection));
+    console.log(`[BIFROEST] Raw fetch: ${data.items?.length || 0} items from ${collection}`);
+    
+    // Convert to ItemData and optionally load perspectives
+    const items = await Promise.all(data.items.map(async (entity) => {
+      // Fetch perspectives from domain-specific perspective tables if enabled
+      let perspectiveData: Record<string, unknown> = {};
+      
+      if (loadPerspectives) {
+        perspectiveData = await fetchPerspectivesForEntity(domainName, entity.id);
+        if (Object.keys(perspectiveData).length > 0) {
+          console.log(`[BIFROEST] Loaded ${Object.keys(perspectiveData).length} perspectives for ${entity.name || entity.scientific_name}`);
+        }
+      }
+      
+      // Also check for embedded data field (fallback/legacy)
+      const embeddedData = entity.data || {};
+      
+      // Merge: normalized tables take precedence over embedded data
+      const mergedPerspectives = { ...embeddedData, ...perspectiveData };
+      
+      // Create item with merged perspective data
+      return toItemData({ ...entity, data: mergedPerspectives }, collection);
+    }));
+    
+    return items;
     
   } catch (error) {
     console.error(`[BIFROEST] Failed to fetch from ${collection}:`, error);
@@ -230,9 +403,36 @@ async function fetchFromCollection(
 }
 
 /**
+ * Fetch perspective data for an entity from domain-specific perspective tables
+ * Tables follow naming: {domain}_{perspective} (e.g., fungi_fungal_holobiont)
+ */
+async function fetchPerspectivesForEntity(domain: string, entityId: string): Promise<Record<string, unknown>> {
+  const perspectives: Record<string, unknown> = {};
+  
+  // Try to fetch from domain-specific perspective tables
+  // Note: Perspective tables are named {domain}_{perspective_name}
+  const perspectiveTablePrefix = `${domain}_`;
+  
+  // We don't know all perspective names ahead of time, so we'll rely on 
+  // the embedded data field for now. In the future, we could query the 
+  // schema-mapping-v3.json to get the list of perspectives for each domain.
+  
+  return perspectives;
+}
+
+// Domain to collections mapping
+const DOMAIN_COLLECTIONS: Record<Domain, DomainCollection[]> = {
+  biology: ['fungi_entities', 'phyto_entities', 'drako_entities'],
+  geology: ['paleo_entities', 'tekto_entities', 'mine_entities'],
+  biomedical: ['bakterio_entities', 'viro_entities', 'geno_entities', 'anato_entities'],
+  physchem: ['chemo_entities', 'physi_entities', 'kosmo_entities'],
+  technology: ['netzo_entities', 'cognito_entities', 'biotech_entities', 'socio_entities']
+};
+
+/**
  * Lädt alle Records aus einer Collection (mit Caching)
  */
-export async function loadByCollection(collection: Collection): Promise<ItemData[]> {
+export async function loadByCollection(collection: DomainCollection): Promise<ItemData[]> {
   console.log(`[BIFROEST] Loading collection: ${collection}`);
   
   try {
@@ -245,19 +445,19 @@ export async function loadByCollection(collection: Collection): Promise<ItemData
     isConnected = true;
     return items;
   } catch (error) {
-    console.error(`[BIFROEST] ❌ Failed to load ${collection}`);
+    console.error(`[BIFROEST] ❌ Failed to load ${collection}`, error);
     isConnected = false;
     return [];
   }
 }
 
 /**
- * Lädt alle Records für eine Domain (biology/geology)
+ * Lädt alle Records für eine Domain (biology/geology/biomedical/physchem/technology)
  */
 export async function loadByDomain(domain: Domain): Promise<ItemData[]> {
   console.log(`[BIFROEST] Loading domain: ${domain}`);
   
-  const collections = domain === 'biology' ? BIOLOGY_COLLECTIONS : GEOLOGY_COLLECTIONS;
+  const collections = DOMAIN_COLLECTIONS[domain] || [];
   const results: ItemData[] = [];
   
   for (const collection of collections) {
@@ -274,7 +474,7 @@ export async function loadByDomain(domain: Domain): Promise<ItemData[]> {
 }
 
 /**
- * Lädt alle Biology-Species (fungi, plantae, therion)
+ * Lädt alle Entities für eine Kategorie
  * Backward compatible with old loadSpeciesByCategory
  */
 export async function loadSpeciesByCategory(category: string): Promise<ItemData[]> {
@@ -287,9 +487,10 @@ export async function loadSpeciesByCategory(category: string): Promise<ItemData[
     return loadByCollection(collection);
   }
   
-  // If no mapping found, try as collection name
-  if (ALL_COLLECTIONS.includes(category as Collection)) {
-    return loadByCollection(category as Collection);
+  // If no mapping found, try as collection name (with _entities suffix)
+  const collectionWithSuffix = category.includes('_entities') ? category : `${category}_entities`;
+  if (ALL_COLLECTIONS.includes(collectionWithSuffix as DomainCollection)) {
+    return loadByCollection(collectionWithSuffix as DomainCollection);
   }
   
   console.warn(`[BIFROEST] Unknown category: ${category}`);
@@ -328,7 +529,7 @@ export async function loadSpeciesBySlug(slug: string): Promise<ItemData | null> 
  * Lädt einzelnes Item by Slug aus einer bestimmten Collection
  */
 export async function loadItemBySlug(
-  collection: Collection, 
+  collection: DomainCollection, 
   slug: string
 ): Promise<ItemData | null> {
   console.log(`[BIFROEST] Loading ${collection}/${slug}`);
@@ -434,17 +635,16 @@ export function invalidateBifroestCache(category?: string): void {
 /**
  * Lädt alle Items für die aktuelle Site (basierend auf SITE_TYPE env)
  * Jede Site hat ihre eigene Collection:
- * - fungi → FUNGINOMI
- * - plantae → PHYTONOMI
- * - therion → THERIONOMI
- * - paleontology → PALEONOMI
- * - tectonics → TEKTONOMI
- * - mineralogy → MINENOMI
+ * - fungi → fungi_entities → FUNGINOMI
+ * - phyto → phyto_entities → PHYTONOMI  
+ * - drako → drako_entities → DRAKONOMI
+ * - paleo → paleo_entities → PALEONOMI
+ * - etc.
  */
 export async function loadSiteItems(): Promise<ItemData[]> {
   const siteType = getSiteType();
   const siteMeta = SITE_META[siteType];
-  const collection = siteMeta.collection as Collection;
+  const collection = siteMeta.collection as DomainCollection;
   
   console.log(`[BIFROEST] Loading items for site: ${siteMeta.name} (collection: ${collection})`);
   
@@ -454,7 +654,7 @@ export async function loadSiteItems(): Promise<ItemData[]> {
 /**
  * Get the collection name for the current site
  */
-export function getSiteCollection(): Collection {
+export function getSiteCollection(): DomainCollection {
   const siteType = getSiteType();
-  return SITE_META[siteType].collection as Collection;
+  return SITE_META[siteType].collection as DomainCollection;
 }

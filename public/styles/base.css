@@ -65,11 +65,156 @@ body {
 }
 
 /* ─────────────────────────────────────────────────────────────────────────────
-   DESIGN TOKENS - IMPORT AURORA COLOR SYSTEM
+   DESIGN TOKENS - Multi-Site Bio Species Color System
    ───────────────────────────────────────────────────────────────────────────── */
-@import '_aurora-colors.css';
-
+:root {
+  /* ═══════════════════════════════════════════════════════════════════════════
+     MULTI-SITE COLOR SYSTEM - Bio Species Farben
+     Funginomi: Psychedelic Blue (Pilze/Biolumineszenz)
+     Phytonomi: Jade Green (Pflanzen/Chlorophyll)
+     Drakonomi: Magenta Pink (Tiere/Fauna)
+     ═══════════════════════════════════════════════════════════════════════════ */
   
+  /* Site: Funginomi - Psychedelic Blue (Pilz-Biolumineszenz) */
+  --site-funginomi-h: 220;
+  --site-funginomi-s: 100%;
+  --site-funginomi-l: 65%;
+  --site-funginomi: hsl(220, 100%, 65%);
+  --site-funginomi-rgb: 77, 136, 255;
+  --site-funginomi-muted: hsl(220, 40%, 50%);
+  
+  /* Site: Phytonomi - Jade Green (Pflanzen-Chlorophyll) */
+  --site-phytonomi-h: 160;
+  --site-phytonomi-s: 60%;
+  --site-phytonomi-l: 50%;
+  --site-phytonomi: hsl(160, 60%, 50%);
+  --site-phytonomi-rgb: 51, 179, 128;
+  --site-phytonomi-muted: hsl(160, 35%, 42%);
+  
+  /* Site: Drakonomi - Magenta Pink (Dritte Bio-Farbe) */
+  --site-drakonomi-h: 320;
+  --site-drakonomi-s: 80%;
+  --site-drakonomi-l: 65%;
+  --site-drakonomi: hsl(320, 80%, 65%);
+  --site-drakonomi-rgb: 235, 77, 180;
+  --site-drakonomi-muted: hsl(320, 40%, 50%);
+
+  /* ═══════════════════════════════════════════════════════════════════════════
+     GEOLOGY & OTHER DOMAINS - Extended Color System
+     ═══════════════════════════════════════════════════════════════════════════ */
+  
+  /* Site: Paleonomi - Kreide/Chalk (Paläontologie/Fossilien) */
+  --site-paleonomi-h: 36;
+  --site-paleonomi-s: 35%;
+  --site-paleonomi-l: 72%;
+  --site-paleonomi: hsl(36, 35%, 72%);
+  --site-paleonomi-rgb: 205, 185, 165;
+  --site-paleonomi-muted: hsl(36, 25%, 55%);
+  
+  /* Site: Tektonomi - Carminrot (Tektonik/Vulkane) */
+  --site-tektonomi-h: 350;
+  --site-tektonomi-s: 80%;
+  --site-tektonomi-l: 55%;
+  --site-tektonomi: hsl(350, 80%, 55%);
+  --site-tektonomi-rgb: 230, 55, 80;
+  --site-tektonomi-muted: hsl(350, 50%, 42%);
+  
+  /* Site: Minenomi - Gold/Amber (Mineralogie/Erze) */
+  --site-minenomi-h: 45;
+  --site-minenomi-s: 90%;
+  --site-minenomi-l: 55%;
+  --site-minenomi: hsl(45, 90%, 55%);
+  --site-minenomi-rgb: 245, 195, 40;
+  --site-minenomi-muted: hsl(45, 60%, 42%);
+  
+  /* Site: Bakterionomi - Cyan/Teal (Mikrobiologie) */
+  --site-bakterionomi-h: 180;
+  --site-bakterionomi-s: 70%;
+  --site-bakterionomi-l: 45%;
+  --site-bakterionomi: hsl(180, 70%, 45%);
+  --site-bakterionomi-rgb: 35, 195, 195;
+  --site-bakterionomi-muted: hsl(180, 50%, 35%);
+  
+  /* Site: Vironomi - Electric Green (Virologie) */
+  --site-vironomi-h: 145;
+  --site-vironomi-s: 80%;
+  --site-vironomi-l: 50%;
+  --site-vironomi: hsl(145, 80%, 50%);
+  --site-vironomi-rgb: 25, 230, 115;
+  --site-vironomi-muted: hsl(145, 55%, 38%);
+  
+  /* Site: Genonomi - DNA Purple (Genetik) */
+  --site-genonomi-h: 265;
+  --site-genonomi-s: 75%;
+  --site-genonomi-l: 60%;
+  --site-genonomi: hsl(265, 75%, 60%);
+  --site-genonomi-rgb: 135, 80, 220;
+  --site-genonomi-muted: hsl(265, 50%, 45%);
+  
+  /* Site: Anatonomi - Body Coral (Anatomie) */
+  --site-anatonomi-h: 15;
+  --site-anatonomi-s: 75%;
+  --site-anatonomi-l: 65%;
+  --site-anatonomi: hsl(15, 75%, 65%);
+  --site-anatonomi-rgb: 235, 135, 100;
+  --site-anatonomi-muted: hsl(15, 50%, 48%);
+  
+  /* Site: Chemonomi - Reaction Yellow (Chemie) */
+  --site-chemonomi-h: 55;
+  --site-chemonomi-s: 85%;
+  --site-chemonomi-l: 55%;
+  --site-chemonomi: hsl(55, 85%, 55%);
+  --site-chemonomi-rgb: 235, 215, 40;
+  --site-chemonomi-muted: hsl(55, 60%, 42%);
+  
+  /* Site: Physinomi - Energy Blue (Physik) */
+  --site-physinomi-h: 200;
+  --site-physinomi-s: 90%;
+  --site-physinomi-l: 55%;
+  --site-physinomi: hsl(200, 90%, 55%);
+  --site-physinomi-rgb: 30, 165, 240;
+  --site-physinomi-muted: hsl(200, 60%, 42%);
+  
+  /* Site: Kosmonomi - Space Violet (Astronomie) */
+  --site-kosmonomi-h: 275;
+  --site-kosmonomi-s: 70%;
+  --site-kosmonomi-l: 55%;
+  --site-kosmonomi: hsl(275, 70%, 55%);
+  --site-kosmonomi-rgb: 150, 65, 210;
+  --site-kosmonomi-muted: hsl(275, 50%, 42%);
+  
+  /* Site: Netzonomi - Network Cyan (Informatik) */
+  --site-netzonomi-h: 190;
+  --site-netzonomi-s: 85%;
+  --site-netzonomi-l: 50%;
+  --site-netzonomi: hsl(190, 85%, 50%);
+  --site-netzonomi-rgb: 20, 195, 220;
+  --site-netzonomi-muted: hsl(190, 60%, 38%);
+  
+  /* Site: Cognitonomi - AI Violet (KI) */
+  --site-cognitonomi-h: 285;
+  --site-cognitonomi-s: 80%;
+  --site-cognitonomi-l: 60%;
+  --site-cognitonomi: hsl(285, 80%, 60%);
+  --site-cognitonomi-rgb: 200, 80, 235;
+  --site-cognitonomi-muted: hsl(285, 50%, 45%);
+  
+  /* Site: Bionomi - BioTech Teal (Biotechnologie) */
+  --site-bionomi-h: 175;
+  --site-bionomi-s: 70%;
+  --site-bionomi-l: 45%;
+  --site-bionomi: hsl(175, 70%, 45%);
+  --site-bionomi-rgb: 35, 195, 180;
+  --site-bionomi-muted: hsl(175, 50%, 35%);
+  
+  /* Site: Socionomi - Social Warm (Sozialwissenschaften) */
+  --site-socionomi-h: 40;
+  --site-socionomi-s: 75%;
+  --site-socionomi-l: 55%;
+  --site-socionomi: hsl(40, 75%, 55%);
+  --site-socionomi-rgb: 220, 175, 60;
+  --site-socionomi-muted: hsl(40, 50%, 42%);
+
   /* ACTIVE SITE - Funginomi (Standard) */
   --system-h: var(--site-funginomi-h);
   --system-s: var(--site-funginomi-s);

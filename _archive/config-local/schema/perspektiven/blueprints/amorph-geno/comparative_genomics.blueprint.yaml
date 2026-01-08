@@ -1,0 +1,736 @@
+# COMPARATIVE GENOMICS - Genomics
+# Version: 1.0.0 | Domain: GENETICS (Lateral)
+# Based on: Comparative Genomics (Genome Research 2025), Evolutionary Genomics (Nature Reviews 2025)
+# PARADIGM SHIFT: From single species → Cross-species genomic architecture & evolution
+
+perspective: comparative_genomics
+version: "1.0.0"
+
+# ============================================================================
+# CORE IDENTITY
+# ============================================================================
+
+focal_species:
+  # morph: text
+  # Primary species of interest
+  ""
+
+common_name:
+  # morph: text
+  ""
+
+phylogenetic_context:
+  # morph: badge
+  # intraspecific | genus | family | order | class | phylum | kingdom | cross_kingdom
+  status: ""
+  variant: ""
+
+comparison_count:
+  # morph: number
+  # Number of species compared
+  0
+
+# ============================================================================
+# SPECIES COMPARED - Cross-species landscape
+# ============================================================================
+
+species_panel:
+  # morph: list
+  items:
+    - species: ""
+      common_name: ""
+      taxonomy: ""
+      genome_size_mb: 0
+      assembly_quality: ""
+      evolutionary_distance: ""
+
+phylogenetic_tree:
+  # morph: hierarchy
+  - level: ""
+    species: ""
+    divergence_time_mya: 0
+    branch_length: 0
+
+outgroup_species:
+  # morph: text
+  # Species used to root phylogeny
+  ""
+
+model_organisms:
+  # morph: list
+  items:
+    - species: ""
+      role: ""
+      resources_available: ""
+
+# ============================================================================
+# GENOME ALIGNMENT - Synteny across boundaries
+# ============================================================================
+
+alignment_method:
+  # morph: badge
+  # lastz | minimap2 | mummer | progressivecactus | multiz | mauve
+  status: ""
+  variant: ""
+
+pairwise_alignments:
+  # morph: number
+  # Total pairwise genome alignments
+  0
+
+multiple_genome_alignment:
+  # morph: badge
+  # available | not_available
+  status: ""
+  variant: ""
+
+aligned_bases:
+  # morph: number
+  # Total aligned bases (Gb)
+  0
+
+alignment_coverage:
+  # morph: gauge
+  # Percentage of focal genome aligned (%)
+  current: 0
+  target: 90
+  unit: "%"
+
+# ============================================================================
+# SYNTENY - Conserved gene order
+# ============================================================================
+
+syntenic_blocks:
+  # morph: number
+  # Conserved genomic blocks
+  0
+
+synteny_coverage:
+  # morph: gauge
+  # Percentage of genome in syntenic blocks (%)
+  current: 0
+  target: 80
+  unit: "%"
+
+synteny_block_sizes:
+  # morph: histogram
+  bins:
+    - range: "1-10 genes"
+      count: 0
+    - range: "11-50 genes"
+      count: 0
+    - range: "51-100 genes"
+      count: 0
+    - range: "101-500 genes"
+      count: 0
+    - range: ">500 genes"
+      count: 0
+
+synteny_breakpoints:
+  # morph: number
+  # Chromosomal rearrangement boundaries
+  0
+
+conserved_microsynteny:
+  # morph: list
+  # Small conserved regions
+  items:
+    - locus: ""
+      genes: ""
+      species_conserved: ""
+      function: ""
+
+macrosynteny:
+  # morph: list
+  # Chromosome-scale conservation
+  items:
+    - chromosome_focal: ""
+      chromosome_ortho: ""
+      species: ""
+      conserved_percent: 0
+
+# ============================================================================
+# ORTHOLOGY - Gene relationships across species
+# ============================================================================
+
+orthology_method:
+  # morph: badge
+  # orthofinder | orthomcl | ensembl_compara | inparanoid | reciprocal_blast
+  status: ""
+  variant: ""
+
+orthogroups:
+  # morph: number
+  # Gene families
+  0
+
+one_to_one_orthologs:
+  # morph: number
+  0
+
+one_to_many_orthologs:
+  # morph: number
+  0
+
+many_to_many_orthologs:
+  # morph: number
+  0
+
+species_specific_genes:
+  # morph: number
+  # Genes unique to focal species
+  0
+
+gene_family_expansion:
+  # morph: list
+  items:
+    - family: ""
+      genes_focal: 0
+      genes_ancestor: 0
+      expansion_rate: 0
+      function: ""
+
+gene_family_contraction:
+  # morph: list
+  items:
+    - family: ""
+      genes_focal: 0
+      genes_ancestor: 0
+      loss_rate: 0
+      function: ""
+
+# ============================================================================
+# SEQUENCE CONSERVATION - Evolutionary constraints
+# ============================================================================
+
+conservation_scores:
+  # morph: badge
+  # phylop | phastcons | gerp | both
+  status: ""
+  variant: ""
+
+conserved_elements:
+  # morph: number
+  # Highly conserved regions
+  0
+
+ultraconserved_elements:
+  # morph: number
+  # 100% identity >200bp
+  0
+
+conserved_noncoding_elements:
+  # morph: number
+  # CNEs
+  0
+
+conserved_coding_sequence:
+  # morph: gauge
+  # Percentage of CDS conserved (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+constraint_regions:
+  # morph: list
+  items:
+    - region: ""
+      chromosome: ""
+      start: 0
+      end: 0
+      conservation_score: 0
+      function: ""
+
+# ============================================================================
+# MOLECULAR EVOLUTION - Selection & drift
+# ============================================================================
+
+dn_ds_analysis:
+  # morph: badge
+  # performed | not_performed
+  status: ""
+  variant: ""
+
+genes_under_positive_selection:
+  # morph: list
+  items:
+    - gene: ""
+      dn_ds: 0
+      pvalue: 0
+      lineage: ""
+      function: ""
+
+genes_under_purifying_selection:
+  # morph: number
+  0
+
+neutrally_evolving_genes:
+  # morph: number
+  0
+
+dn_ds_distribution:
+  # morph: histogram
+  bins:
+    - range: "0-0.2"
+      count: 0
+    - range: "0.2-0.5"
+      count: 0
+    - range: "0.5-1.0"
+      count: 0
+    - range: "1.0-2.0"
+      count: 0
+    - range: ">2.0"
+      count: 0
+
+branch_specific_selection:
+  # morph: list
+  items:
+    - branch: ""
+      genes: 0
+      adaptive_sites: 0
+      function: ""
+
+# ============================================================================
+# CHROMOSOMAL EVOLUTION - Structural changes
+# ============================================================================
+
+karyotype_focal:
+  # morph: text
+  # Chromosome count (e.g., "2n=46")
+  ""
+
+karyotype_variation:
+  # morph: list
+  items:
+    - species: ""
+      karyotype: ""
+      change_type: ""
+
+chromosomal_rearrangements:
+  # morph: distribution
+  categories:
+    - type: "Fusions"
+      count: 0
+    - type: "Fissions"
+      count: 0
+    - type: "Inversions"
+      count: 0
+    - type: "Translocations"
+      count: 0
+
+whole_genome_duplications:
+  # morph: timeline
+  events:
+    - date_mya: ""
+      lineage: ""
+      retained_duplicates: 0
+      description: ""
+
+polyploidy_events:
+  # morph: number
+  0
+
+segmental_duplications:
+  # morph: number
+  # Recent duplications (>90% identity)
+  0
+
+# ============================================================================
+# GENE GAIN & LOSS - Evolutionary dynamics
+# ============================================================================
+
+gene_birth_rate:
+  # morph: number
+  # Genes gained per million years
+  0
+
+gene_death_rate:
+  # morph: number
+  # Genes lost per million years
+  0
+
+de_novo_genes:
+  # morph: number
+  # Genes evolved from non-coding
+  0
+
+pseudogenes:
+  # morph: number
+  0
+
+pseudogenization_rate:
+  # morph: number
+  0
+
+horizontal_gene_transfer:
+  # morph: list
+  items:
+    - gene: ""
+      donor_lineage: ""
+      transfer_time: ""
+      function: ""
+
+gene_turnover:
+  # morph: gauge
+  # Percentage gene content changed (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+# ============================================================================
+# REGULATORY EVOLUTION - Cis-regulatory divergence
+# ============================================================================
+
+promoter_conservation:
+  # morph: gauge
+  # Average promoter conservation (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+enhancer_conservation:
+  # morph: gauge
+  # Average enhancer conservation (%)
+  current: 0
+  target: 0
+  unit: "%"
+
+species_specific_regulatory_elements:
+  # morph: number
+  0
+
+tfbs_turnover:
+  # morph: number
+  # TF binding sites gained/lost
+  0
+
+regulatory_rewiring:
+  # morph: list
+  items:
+    - gene: ""
+      ancestral_regulation: ""
+      derived_regulation: ""
+      phenotypic_consequence: ""
+
+expression_divergence:
+  # morph: badge
+  # high | moderate | low
+  status: ""
+  variant: ""
+
+# ============================================================================
+# PROTEIN EVOLUTION - Amino acid changes
+# ============================================================================
+
+amino_acid_substitutions:
+  # morph: number
+  # Total substitutions
+  0
+
+radical_substitutions:
+  # morph: number
+  # Physicochemically different
+  0
+
+conservative_substitutions:
+  # morph: number
+  # Physicochemically similar
+  0
+
+protein_structure_conservation:
+  # morph: gauge
+  # Percentage of structures conserved (%)
+  current: 0
+  target: 95
+  unit: "%"
+
+domain_architecture_changes:
+  # morph: list
+  items:
+    - protein: ""
+      ancestral_domains: ""
+      derived_domains: ""
+      functional_impact: ""
+
+# ============================================================================
+# ADAPTIVE EVOLUTION - Innovations
+# ============================================================================
+
+adaptive_traits:
+  # morph: list
+  items:
+    - trait: ""
+      genes: ""
+      species: ""
+      adaptive_value: ""
+
+convergent_evolution:
+  # morph: list
+  items:
+    - trait: ""
+      species: ""
+      genetic_basis: ""
+      independent_origins: 0
+
+parallel_evolution:
+  # morph: list
+  items:
+    - trait: ""
+      species: ""
+      shared_mutations: ""
+
+adaptive_radiations:
+  # morph: badge
+  # detected | not_detected
+  status: ""
+  variant: ""
+
+# ============================================================================
+# FUNCTIONAL ANNOTATION TRANSFER
+# ============================================================================
+
+annotation_transfer:
+  # morph: badge
+  # yes | no | partial
+  status: ""
+  variant: ""
+
+transferred_annotations:
+  # morph: number
+  # Annotations from model organism
+  0
+
+go_term_conservation:
+  # morph: gauge
+  # GO terms conserved (%)
+  current: 0
+  target: 80
+  unit: "%"
+
+pathway_conservation:
+  # morph: number
+  # KEGG pathways conserved
+  0
+
+# ============================================================================
+# GENOME SIZE EVOLUTION
+# ============================================================================
+
+genome_size_focal:
+  # morph: number
+  # Size in Mb
+  0
+
+genome_size_range:
+  # morph: text
+  # Range across compared species
+  ""
+
+genome_expansion_factors:
+  # morph: distribution
+  categories:
+    - factor: "Transposable elements"
+      contribution_mb: 0
+      percentage: 0
+    - factor: "Tandem duplications"
+      contribution_mb: 0
+      percentage: 0
+    - factor: "Whole genome duplication"
+      contribution_mb: 0
+      percentage: 0
+    - factor: "Intron expansion"
+      contribution_mb: 0
+      percentage: 0
+
+c_value_paradox:
+  # morph: badge
+  # present | absent | not_applicable
+  status: ""
+  variant: ""
+
+# ============================================================================
+# REPEAT ELEMENT EVOLUTION
+# ============================================================================
+
+transposable_element_activity:
+  # morph: list
+  items:
+    - te_family: ""
+      species: ""
+      copy_number: 0
+      activity: ""
+      insertion_time: ""
+
+te_divergence:
+  # morph: histogram
+  bins:
+    - range: "0-1%"
+      count: 0
+      age: "Recent"
+    - range: "1-5%"
+      count: 0
+      age: "Young"
+    - range: "5-15%"
+      count: 0
+      age: "Intermediate"
+    - range: ">15%"
+      count: 0
+      age: "Ancient"
+
+lineage_specific_tes:
+  # morph: list
+  items:
+    - te_family: ""
+      lineage: ""
+      copy_number: 0
+      genomic_impact: ""
+
+# ============================================================================
+# CODON USAGE & GC CONTENT
+# ============================================================================
+
+gc_content_focal:
+  # morph: number
+  # GC percentage
+  0
+
+gc_content_variation:
+  # morph: histogram
+  bins:
+    - species: ""
+      gc_percent: 0
+
+codon_usage_bias:
+  # morph: badge
+  # strong | moderate | weak
+  status: ""
+  variant: ""
+
+optimal_codons:
+  # morph: number
+  # Codons preferentially used
+  0
+
+# ============================================================================
+# PHYLOGENOMICS - Tree-based inference
+# ============================================================================
+
+phylogenetic_tree_method:
+  # morph: badge
+  # ml | bayesian | neighbor_joining | parsimony
+  status: ""
+  variant: ""
+
+genes_used_phylogeny:
+  # morph: number
+  # Genes for tree reconstruction
+  0
+
+bootstrap_support:
+  # morph: gauge
+  # Average node support (%)
+  current: 0
+  target: 95
+  unit: "%"
+
+molecular_clock:
+  # morph: badge
+  # strict | relaxed | local | not_assumed
+  status: ""
+  variant: ""
+
+divergence_times:
+  # morph: timeline
+  events:
+    - species_pair: ""
+      divergence_mya: 0
+      confidence_interval: ""
+
+ancient_duplications:
+  # morph: timeline
+  events:
+    - event: ""
+      date_mya: 0
+      lineage: ""
+      genes_retained: 0
+
+# ============================================================================
+# POPULATION-SPECIES BOUNDARY
+# ============================================================================
+
+speciation_genomics:
+  # morph: badge
+  # analyzed | not_analyzed
+  status: ""
+  variant: ""
+
+genomic_islands_divergence:
+  # morph: number
+  # Regions of high divergence
+  0
+
+gene_flow_barriers:
+  # morph: list
+  items:
+    - locus: ""
+      chromosome: ""
+      fst: 0
+      genes: ""
+
+introgression:
+  # morph: list
+  items:
+    - species_pair: ""
+      introgressed_regions: 0
+      adaptive_introgression: ""
+
+hybrid_incompatibility:
+  # morph: list
+  items:
+    - genes: ""
+      effect: ""
+      species: ""
+
+# ============================================================================
+# APPLICATIONS
+# ============================================================================
+
+evolutionary_medicine:
+  # morph: list
+  items:
+    - disease: ""
+      evolutionary_insight: ""
+      conservation: ""
+
+crop_wild_relatives:
+  # morph: badge
+  # analyzed | not_applicable
+  status: ""
+  variant: ""
+
+conservation_genomics:
+  # morph: badge
+  # relevant | not_applicable
+  status: ""
+  variant: ""
+
+# ============================================================================
+# METADATA
+# ============================================================================
+
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""
+
+curator:
+  # morph: text
+  ""
+
+notes:
+  # morph: text
+  ""

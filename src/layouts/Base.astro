@@ -54,13 +54,11 @@ const isProd = import.meta.env.PROD;
     </>
   )}
 </head>
-<body data-category={siteType === 'fungi' ? 'fungi' : siteType === 'plants' ? 'plants' : 'animals'}>
-  <!-- BIFROEST API URL für Development -->
-  {!isProd && (
-    <script is:inline>
-      window.__BIFROEST_API_URL = 'http://localhost:3004/api';
-    </script>
-  )}
+<body data-domain={siteType} data-site-type={siteType}>
+  <!-- PocketBase URL für Client -->
+  <script is:inline define:vars={{ pocketbaseUrl: import.meta.env.POCKETBASE_URL || 'http://127.0.0.1:8090' }}>
+    window.__POCKETBASE_URL = pocketbaseUrl;
+  </script>
   
   <slot />
   

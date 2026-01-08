@@ -1,0 +1,155 @@
+# VIRAL ECOLOGY - Virome Networks & Environmental Context
+# Version: 1.0.0 | Domain: VIRUSES (Holistic)
+# Based on: Virome ecology review (Proc Royal Soc B, April 2025), VIRE database
+
+perspective: viral_ecology
+version: "1.0.0"
+
+virus_name:
+  # morph: text
+  ""
+
+baltimore_classification:
+  # morph: badge
+  # dsDNA | ssDNA | dsRNA | ssRNA_positive | ssRNA_negative | ssRNA_RT | dsDNA_RT
+  status: ""
+  variant: ""
+
+# VIROME COMPOSITION (2025)
+virome_diversity:
+  # morph: gauge
+  # viral richness
+  value: 0
+  min: 0
+  max: 10000
+
+virome_abundance:
+  # morph: gauge
+  # viral particles per ml/g
+  value: 0
+  min: 0
+  max: 100000000000
+  unit: "viruses/ml"
+
+virus_to_microbe_ratio:
+  # morph: gauge
+  # VMR
+  value: 0
+  min: 0
+  max: 100
+
+# ECOSYSTEM CONTEXT
+habitat:
+  # morph: badge
+  # aquatic | terrestrial | host_associated | anthropogenic
+  status: ""
+  variant: ""
+
+trophic_network_position:
+  # morph: text
+  # position in food web
+  ""
+
+predator_prey_network:
+  # morph: boolean
+  # viral impact on predator-prey dynamics
+  false
+
+# ENVIRONMENTAL PREDICTORS (2025 review)
+prevalence_predictors:
+  # morph: list
+  # temperature | pH | nutrients | host_density
+  - ""
+
+abundance_drivers:
+  # morph: list
+  - ""
+
+diversity_factors:
+  # morph: list
+  - ""
+
+# STRESSOR IMPACTS (Nature Comm 2025)
+climate_warming_impact:
+  # morph: rating
+  rating: 0
+  max: 10
+
+nutrient_loading_impact:
+  # morph: rating
+  rating: 0
+  max: 10
+
+pesticide_impact:
+  # morph: rating
+  rating: 0
+  max: 10
+
+combined_stressor_effect:
+  # morph: badge
+  # synergistic | additive | antagonistic
+  status: ""
+  variant: ""
+
+viral_alpha_diversity_change:
+  # morph: gauge
+  # % change under stress
+  value: 0
+  min: -100
+  max: 100
+  unit: "%"
+
+# VIRUS-MICROBE INTERACTIONS
+virus_microbe_network:
+  # morph: network
+  - name: ""
+    type: ""
+    intensity: 0
+
+viral_induced_lysis:
+  # morph: boolean
+  false
+
+lysis_rate:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+  unit: "%/day"
+
+virocell_metabolism:
+  # morph: boolean
+  # reprogrammed host metabolism
+  false
+
+# HORIZONTAL GENE TRANSFER
+viral_hgt_mediator:
+  # morph: boolean
+  false
+
+auxiliary_metabolic_genes:
+  # morph: list
+  # AMGs carried by virus
+  - ""
+
+# VIRE DATABASE CLASSIFICATION
+vire_genome_quality:
+  # morph: badge
+  # high | medium | low
+  status: ""
+  variant: ""
+
+ecosystem_classification:
+  # morph: list
+  # from VIRE context
+  - ""
+
+# DATA
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""

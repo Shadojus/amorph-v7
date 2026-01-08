@@ -168,6 +168,94 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
   if (DATA_SOURCE === 'local' || DATA_SOURCE === 'auto') {
     console.log('[Data] Using local files fallback');
     
+    // First try universe-index.json (contains all species data)
+    const universeIndexPath = join(BASE_DATA_PATH, 'universe-index.json');
+    interface UniverseIndexData {
+      species?: Array<{
+        id: string;
+        slug: string;
+        name: string;
+        kingdom: string;
+        scientific_name?: string;
+        description?: string;
+        image?: string;
+        tagline?: string;
+        seo_description?: string;
+        quick_facts?: unknown[];
+        highlights?: unknown[];
+        badges?: unknown[];
+        categories?: string[];
+        keywords?: string[];
+        perspectives?: string[];
+        _sources?: Record<string, unknown[]>;
+        [key: string]: unknown;
+      }>;
+    }
+    const universeResult = safeReadJson<UniverseIndexData>(universeIndexPath);
+    
+    if (universeResult.data && universeResult.data.species) {
+      console.log(`[Data] Found universe-index.json with ${universeResult.data.species.length} total species`);
+      
+      // Filter species for current kingdom (siteMeta.dataFolder matches universe-index kingdom field)
+      const currentKingdom = siteMeta.dataFolder; // 'fungi', 'plantae', etc.
+      const kingdomSpecies = universeResult.data.species.filter(s => s.kingdom === currentKingdom);
+      
+      console.log(`[Data] Filtering for kingdom '${currentKingdom}': ${kingdomSpecies.length} species`);
+      
+      for (const species of kingdomSpecies) {
+        const item: ItemData = {
+          ...species,
+          _kingdom: currentKingdom,
+          id: species.id || species.slug,
+          slug: species.slug,
+          name: species.name || species.slug,
+          _perspectives: {},
+          _loadedPerspectives: species.perspectives || [],
+          _fieldPerspective: {},
+          _sources: species._sources || {}
+        };
+        
+        // Load perspective files if they exist in the species folder
+        const speciesPath = join(DATA_PATH, species.slug);
+        if (existsSync(speciesPath)) {
+          for (const perspName of (species.perspectives || [])) {
+            const perspPath = join(speciesPath, `${perspName}.json`);
+            const perspResult = safeReadJson<Record<string, unknown>>(perspPath);
+            if (perspResult.data) {
+              item._perspectives![perspName] = perspResult.data;
+              // Merge perspective fields into main item
+              for (const [key, value] of Object.entries(perspResult.data)) {
+                if (!key.startsWith('_') && key !== 'source' && item[key] === undefined) {
+                  item[key] = value;
+                  (item._fieldPerspective as Record<string, string>)[key] = perspName;
+                }
+              }
+            }
+          }
+          
+          // Load _sources.json if exists
+          const sourcesPath = join(speciesPath, '_sources.json');
+          const sourcesResult = safeReadJson<Record<string, unknown[]>>(sourcesPath);
+          if (sourcesResult.data) {
+            item._sources = { ...item._sources, ...sourcesResult.data };
+          }
+        }
+        
+        items.push(item);
+      }
+      
+      if (items.length > 0) {
+        console.log(`[Data] Loaded ${items.length} items from universe-index.json`);
+        cachedItems = items;
+        cachedIndex = {};
+        for (const item of items) {
+          cachedIndex[item.slug] = item;
+        }
+        return items;
+      }
+    }
+    
+    // Fall back to traditional loading if universe-index.json didn't work
     if (!existsSync(DATA_PATH)) {
       loadErrors.push({ path: DATA_PATH, error: 'Data directory not found' });
       console.error(`[Data] DATA_PATH does not exist: ${DATA_PATH}`);

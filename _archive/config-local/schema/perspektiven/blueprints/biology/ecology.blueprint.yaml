@@ -1,0 +1,2281 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# BLUEPRINT: ECOLOGY
+# Leere Datenstruktur mit korrekten Morph-Typen
+# Generiert aus: ecology.yaml
+# ═══════════════════════════════════════════════════════════════════════════════
+
+id: ecology
+name: Ecology
+symbol: 🌳
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TROPHIC CLASSIFICATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: text
+scientific: ""
+
+# morph: tag
+trophic_mode_primary: ""
+
+# morph: tag
+trophic_mode_secondary: ""
+
+# morph: badge
+trophic_flexibility:
+  status: ""
+  variant: ""
+
+# morph: text
+trophic_notes: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DECOMPOSER CHARACTERISTICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+decomposer_type: ""
+
+# morph: badge
+decomposition_rate:
+  status: ""
+  variant: ""
+
+# morph: boolean
+lignin_degradation_capability: false
+
+# morph: boolean
+cellulose_degradation_capability: false
+
+# morph: boolean
+hemicellulose_degradation_capability: false
+
+# morph: gauge
+enzyme_laccase_activity:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: gauge
+enzyme_peroxidase_activity:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: gauge
+enzyme_cellulase_activity:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: gauge
+enzyme_xylanase_activity:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: gauge
+enzyme_chitinase_activity:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: gauge
+enzyme_protease_activity:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ECOLOGICAL GUILD & ECOSYSTEM FUNCTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+ecological_guild: ""
+
+# morph: badge
+guild_confidence:
+  status: ""
+  variant: ""
+
+# morph: text
+guild_evidence: ""
+
+# morph: tag
+primary_ecosystem_function: ""
+
+# morph: list
+secondary_ecosystem_functions:
+  - ""
+
+# morph: rating
+ecosystem_function_intensity:
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CARBON & NUTRIENT CYCLING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+carbon_flux_role: ""
+
+# morph: rating
+carbon_storage_capacity:
+  rating: 0
+  max: 10
+
+# morph: rating
+soil_carbon_contribution:
+  rating: 0
+  max: 10
+
+# morph: boolean
+n_fixation: false
+
+# morph: boolean
+n_mineralization: false
+
+# morph: boolean
+n_immobilization: false
+
+# morph: boolean
+n_transfer_to_plants: false
+
+# morph: boolean
+denitrification: false
+
+# morph: boolean
+phosphorus_mobilization: false
+
+# morph: boolean
+iron_mobilization: false
+
+# morph: boolean
+zinc_mobilization: false
+
+# morph: boolean
+copper_mobilization: false
+
+# morph: boolean
+manganese_cycling: false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SOIL ECOLOGY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: badge
+soil_aggregation_effect:
+  status: ""
+  variant: ""
+
+# morph: boolean
+glomalin_production: false
+
+# morph: tag
+hyphal_network_extent: ""
+
+# morph: number
+hyphal_density_typical: 0
+
+# morph: boolean
+soil_depth_o_horizon: false
+
+# morph: boolean
+soil_depth_a_horizon: false
+
+# morph: boolean
+soil_depth_b_horizon: false
+
+# morph: boolean
+soil_depth_c_horizon: false
+
+# morph: number
+soil_depth_typical_cm: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HABITAT ASSOCIATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+ecosystem_type: ""
+
+# morph: tag
+ecosystem_subtype: ""
+
+# morph: badge
+association_strength:
+  status: ""
+  variant: ""
+
+# morph: tag
+dominant_vegetation_type: ""
+
+# morph: list
+associated_plant_families:
+  - ""
+
+# morph: list
+associated_plant_genera:
+  - ""
+
+# morph: list
+associated_plant_species:
+  - ""
+
+# morph: tag
+vegetation_age_preference: ""
+
+# morph: tag
+microhabitat_primary: ""
+
+# morph: tag
+microhabitat_secondary: ""
+
+# morph: badge
+substrate_specificity:
+  status: ""
+  variant: ""
+
+# morph: tag
+substrate_type_primary: ""
+
+# morph: list
+substrate_types_secondary:
+  - ""
+
+# morph: tag
+wood_decay_stage_preference: ""
+
+# morph: number
+minimum_substrate_diameter: 0
+
+# morph: number
+optimal_substrate_diameter: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CANOPY, LIGHT & TOPOGRAPHY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+canopy_cover_minimum: 0
+
+# morph: number
+canopy_cover_optimal: 0
+
+# morph: number
+canopy_cover_maximum: 0
+
+# morph: tag
+light_requirement: ""
+
+# morph: number
+elevation_minimum_m: 0
+
+# morph: number
+elevation_optimal_min_m: 0
+
+# morph: number
+elevation_optimal_max_m: 0
+
+# morph: number
+elevation_maximum_m: 0
+
+# morph: tag
+slope_preference: ""
+
+# morph: tag
+aspect_preference: ""
+
+# morph: tag
+topographic_position: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MOISTURE & SOIL CONDITIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+moisture_regime: ""
+
+# morph: rating
+flooding_tolerance:
+  rating: 0
+  max: 10
+
+# morph: rating
+drought_tolerance:
+  rating: 0
+  max: 10
+
+# morph: number
+soil_ph_minimum: 0
+
+# morph: number
+soil_ph_optimal_min: 0
+
+# morph: number
+soil_ph_optimal_max: 0
+
+# morph: number
+soil_ph_maximum: 0
+
+# morph: tag
+soil_nutrient_preference: ""
+
+# morph: tag
+calcium_requirement: ""
+
+# morph: tag
+soil_texture_preference: ""
+
+# morph: tag
+organic_matter_preference: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CLIMATE REQUIREMENTS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+climate_zone: ""
+
+# morph: number
+temperature_minimum_mean_c: 0
+
+# morph: number
+temperature_optimal_min_c: 0
+
+# morph: number
+temperature_optimal_max_c: 0
+
+# morph: number
+temperature_maximum_mean_c: 0
+
+# morph: number
+precipitation_minimum_mm: 0
+
+# morph: number
+precipitation_optimal_min_mm: 0
+
+# morph: number
+precipitation_optimal_max_mm: 0
+
+# morph: number
+precipitation_maximum_mm: 0
+
+# morph: tag
+seasonality_preference: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DISTURBANCE ECOLOGY & SPATIAL PATTERNS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+disturbance_response: ""
+
+# morph: tag
+fire_response: ""
+
+# morph: boolean
+post_fire_fruiting: false
+
+# morph: tag
+logging_response: ""
+
+# morph: tag
+grazing_response: ""
+
+# morph: tag
+spatial_distribution_pattern: ""
+
+# morph: number
+typical_population_density: 0
+
+# morph: number
+patch_size_typical: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# TEMPERATURE TOLERANCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+temp_lethal_minimum_c: 0
+
+# morph: number
+temp_growth_minimum_c: 0
+
+# morph: number
+temp_growth_optimum_min_c: 0
+
+# morph: number
+temp_growth_optimum_max_c: 0
+
+# morph: number
+temp_growth_maximum_c: 0
+
+# morph: number
+temp_lethal_maximum_c: 0
+
+# morph: number
+temp_fruiting_minimum_c: 0
+
+# morph: number
+temp_fruiting_optimum_c: 0
+
+# morph: number
+temp_fruiting_maximum_c: 0
+
+# morph: tag
+cold_hardiness_zone: ""
+
+# morph: tag
+heat_hardiness_zone: ""
+
+# morph: rating
+frost_tolerance:
+  rating: 0
+  max: 10
+
+# morph: tag
+heat_stress_response: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MOISTURE TOLERANCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+water_activity_minimum: 0
+
+# morph: number
+water_activity_optimum: 0
+
+# morph: number
+relative_humidity_minimum: 0
+
+# morph: number
+relative_humidity_optimum: 0
+
+# morph: number
+soil_moisture_minimum: 0
+
+# morph: number
+soil_moisture_optimum: 0
+
+# morph: number
+soil_moisture_maximum: 0
+
+# morph: rating
+desiccation_tolerance:
+  rating: 0
+  max: 10
+
+# morph: rating
+rehydration_capability:
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# pH, SALINITY & OXYGEN
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+ph_lethal_minimum: 0
+
+# morph: number
+ph_growth_minimum: 0
+
+# morph: number
+ph_growth_optimum: 0
+
+# morph: number
+ph_growth_maximum: 0
+
+# morph: number
+ph_lethal_maximum: 0
+
+# morph: rating
+buffer_sensitivity:
+  rating: 0
+  max: 10
+
+# morph: number
+salinity_maximum_nacl: 0
+
+# morph: number
+salinity_optimal_nacl: 0
+
+# morph: boolean
+halophilic: false
+
+# morph: tag
+oxygen_requirement: ""
+
+# morph: rating
+hypoxia_tolerance:
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# POLLUTION SENSITIVITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: badge
+sulfur_dioxide_sensitivity:
+  status: ""
+  variant: ""
+
+# morph: badge
+nitrogen_dioxide_sensitivity:
+  status: ""
+  variant: ""
+
+# morph: badge
+ozone_sensitivity:
+  status: ""
+  variant: ""
+
+# morph: rating
+heavy_metal_tolerance:
+  rating: 0
+  max: 10
+
+# morph: badge
+pesticide_sensitivity:
+  status: ""
+  variant: ""
+
+# morph: badge
+road_salt_sensitivity:
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HEAVY METAL & RADIOACTIVE ACCUMULATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: boolean
+cadmium_accumulator: false
+
+# morph: boolean
+lead_accumulator: false
+
+# morph: boolean
+mercury_accumulator: false
+
+# morph: boolean
+arsenic_accumulator: false
+
+# morph: boolean
+zinc_accumulator: false
+
+# morph: boolean
+copper_accumulator: false
+
+# morph: boolean
+cesium_137_accumulator: false
+
+# morph: boolean
+strontium_90_accumulator: false
+
+# morph: number
+radioactive_accumulation_factor: 0
+
+# morph: rating
+uv_tolerance:
+  rating: 0
+  max: 10
+
+# morph: rating
+radiation_tolerance:
+  rating: 0
+  max: 10
+
+# morph: tag
+competitive_strategy: ""
+
+# morph: rating
+competitive_ranking:
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BIOINDICATOR PROFILE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: boolean
+is_bioindicator: false
+
+# morph: rating
+indicator_reliability:
+  rating: 0
+  max: 10
+
+# morph: rating
+indicator_specificity:
+  rating: 0
+  max: 10
+
+# morph: list
+indicates_conditions:
+  - ""
+
+# morph: boolean
+air_quality_is_indicator: false
+
+# morph: tag
+air_quality_sensitivity_class: ""
+
+# morph: list
+air_quality_indicated_pollutants:
+  - ""
+
+# morph: text
+air_quality_presence_means: ""
+
+# morph: text
+air_quality_absence_means: ""
+
+# morph: boolean
+water_quality_is_indicator: false
+
+# morph: tag
+water_quality_trophic_indication: ""
+
+# morph: tag
+water_quality_pollution_indication: ""
+
+# morph: boolean
+soil_quality_is_indicator: false
+
+# morph: tag
+soil_quality_nutrient_indication: ""
+
+# morph: tag
+soil_quality_ph_indication: ""
+
+# morph: tag
+soil_quality_organic_matter_indication: ""
+
+# morph: tag
+soil_quality_compaction_indication: ""
+
+# morph: boolean
+habitat_quality_is_indicator: false
+
+# morph: boolean
+forest_continuity_indicator: false
+
+# morph: boolean
+old_growth_indicator: false
+
+# morph: boolean
+naturalness_indicator: false
+
+# morph: boolean
+ecological_continuity_indicator: false
+
+# morph: tag
+forest_age_indicator: ""
+
+# morph: tag
+naturalness_score_indication: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CLIMATE INDICATION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: boolean
+climate_is_indicator: false
+
+# morph: tag
+climate_temperature_indication: ""
+
+# morph: tag
+climate_moisture_indication: ""
+
+# morph: tag
+climate_continentality_indication: ""
+
+# morph: badge
+climate_change_sensitivity:
+  status: ""
+  variant: ""
+
+# morph: tag
+climate_change_response_predicted: ""
+
+# morph: tag
+range_shift_direction: ""
+
+# morph: number
+range_shift_magnitude_km: 0
+
+# morph: badge
+range_shift_confidence:
+  status: ""
+  variant: ""
+
+# morph: number
+range_shift_timeframe_years: 0
+
+# morph: rating
+monitoring_suitability:
+  rating: 0
+  max: 10
+
+# morph: badge
+detection_ease:
+  status: ""
+  variant: ""
+
+# morph: rating
+identification_reliability:
+  rating: 0
+  max: 10
+
+# morph: tag
+recommended_monitoring_method: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SYMBIOTIC RELATIONSHIP
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+symbiosis_type: ""
+
+# morph: tag
+relationship_nature: ""
+
+# morph: badge
+relationship_stability:
+  status: ""
+  variant: ""
+
+# morph: tag
+partner_domain: ""
+
+# morph: tag
+partner_kingdom: ""
+
+# morph: tag
+partner_phylum: ""
+
+# morph: tag
+partner_class: ""
+
+# morph: tag
+partner_order: ""
+
+# morph: tag
+partner_family: ""
+
+# morph: tag
+partner_genus: ""
+
+# morph: tag
+partner_species: ""
+
+# morph: list
+partner_common_names:
+  - ""
+
+# morph: badge
+partner_specificity:
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MYCORRHIZAL DETAILS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+mycorrhiza_morphotype: ""
+
+# morph: tag
+mycorrhiza_mantle_type: ""
+
+# morph: tag
+mycorrhiza_hartig_net_development: ""
+
+# morph: tag
+mycorrhiza_extramatrical_mycelium: ""
+
+# morph: tag
+mycorrhiza_exploration_type: ""
+
+# morph: boolean
+mycorrhiza_rhizomorph_formation: false
+
+# morph: boolean
+mycorrhiza_emanating_hyphae: false
+
+# morph: gauge
+colonization_rate:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: tag
+colonization_pattern: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LICHEN DETAILS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+lichen_photobiont_type: ""
+
+# morph: tag
+lichen_photobiont_genus: ""
+
+# morph: tag
+lichen_thallus_form: ""
+
+# morph: tag
+lichen_secondary_photobiont: ""
+
+# morph: boolean
+lichen_cephalodia_present: false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NUTRIENT EXCHANGE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: boolean
+nutrients_to_partner_nitrogen: false
+
+# morph: boolean
+nutrients_to_partner_phosphorus: false
+
+# morph: boolean
+nutrients_to_partner_potassium: false
+
+# morph: boolean
+nutrients_to_partner_water: false
+
+# morph: boolean
+nutrients_to_partner_micronutrients: false
+
+# morph: boolean
+nutrients_to_partner_organic_compounds: false
+
+# morph: boolean
+nutrients_from_partner_carbon_sugars: false
+
+# morph: tag
+nutrients_from_partner_carbon_form: ""
+
+# morph: boolean
+nutrients_from_partner_lipids: false
+
+# morph: boolean
+nutrients_from_partner_vitamins: false
+
+# morph: gauge
+carbon_transfer_rate:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: gauge
+nutrient_transfer_efficiency:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MICROBIOME DATA
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: boolean
+microbiome_host_associated: false
+
+# morph: tag
+microbiome_host_taxon_id: ""
+
+# morph: tag
+microbiome_sample_site: ""
+
+# morph: link
+microbiome_16s_profile: ""
+
+# morph: link
+microbiome_18s_profile: ""
+
+# morph: link
+microbiome_its_profile: ""
+
+# morph: text
+microbiome_taxonomic_composition: ""
+
+# morph: number
+microbiome_diversity_shannon: 0
+
+# morph: number
+microbiome_diversity_simpson: 0
+
+# morph: list
+microbiome_dominant_taxa:
+  - ""
+
+# morph: list
+microbiome_kegg_pathways:
+  - ""
+
+# morph: list
+microbiome_metacyc_pathways:
+  - ""
+
+# morph: list
+microbiome_cog_categories:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ECOSYSTEM SERVICES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+ecosystem_service_category: ""
+
+# morph: currency
+ecosystem_service_value_usd_ha_yr:
+  amount: 0
+  currency: "USD"
+
+# morph: text
+ecosystem_service_measurement: ""
+
+# morph: list
+ecosystem_service_beneficiaries:
+  - ""
+
+# morph: list
+benefits_to_partner:
+  - ""
+
+# morph: list
+benefits_from_partner:
+  - ""
+
+# morph: boolean
+pathogen_protection: false
+
+# morph: boolean
+drought_amelioration: false
+
+# morph: boolean
+heavy_metal_protection: false
+
+# morph: number
+growth_enhancement_factor: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# NETWORK CHARACTERISTICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: boolean
+forms_common_mycelial_network: false
+
+# morph: rating
+cmn_connectivity:
+  rating: 0
+  max: 10
+
+# morph: boolean
+interplant_resource_transfer: false
+
+# morph: tag
+network_persistence: ""
+
+# morph: rating
+symbiosis_ecological_importance:
+  rating: 0
+  max: 10
+
+# morph: badge
+ecosystem_dependency:
+  status: ""
+  variant: ""
+
+# morph: badge
+host_dependency:
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CLIMATE VULNERABILITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: gauge
+climate_vulnerability_score:
+  value: 0
+  min: 0
+  max: 100
+  unit: ""
+
+# morph: list
+climate_vulnerability_factors:
+  - ""
+
+# morph: text
+temperature_tolerance_shift: ""
+
+# morph: text
+range_shift_projection_2050: ""
+
+# morph: text
+range_shift_projection_2100: ""
+
+# morph: text
+phenology_shift_observed: ""
+
+# morph: number
+phenology_shift_days_per_decade: 0
+
+# morph: badge
+mismatch_risk_partners:
+  status: ""
+  variant: ""
+
+# morph: list
+mismatch_species_affected:
+  - ""
+
+# morph: rating
+adaptation_potential:
+  rating: 0
+  max: 10
+
+# morph: rating
+genetic_diversity_for_adaptation:
+  rating: 0
+  max: 10
+
+# morph: boolean
+assisted_migration_candidate: false
+
+# morph: list
+climate_refugia_known:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# INVASIVENESS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: gauge
+invasiveness_score:
+  value: 0
+  min: 0
+  max: 100
+  unit: ""
+
+# morph: tag
+invasiveness_assessment_method: ""
+
+# morph: list
+invasive_in_regions:
+  - ""
+
+# morph: text
+native_range: ""
+
+# morph: list
+introduction_pathways:
+  - ""
+
+# morph: gauge
+establishment_probability:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: tag
+spread_rate_potential: ""
+
+# morph: severity
+impact_on_native_species:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: severity
+impact_on_ecosystems:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: currency
+impact_economic:
+  amount: 0
+  currency: "EUR"
+
+# morph: list
+control_methods_available:
+  - ""
+
+# morph: currency
+control_cost_per_hectare:
+  amount: 0
+  currency: "EUR"
+
+# morph: badge
+eradication_feasibility:
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# KEYSTONE FUNCTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: boolean
+keystone_species: false
+
+# morph: text
+keystone_function: ""
+
+# morph: boolean
+ecosystem_engineer: false
+
+# morph: text
+engineering_function: ""
+
+# morph: boolean
+foundation_species: false
+
+# morph: text
+foundation_function: ""
+
+# morph: boolean
+indicator_species: false
+
+# morph: text
+indicates_what: ""
+
+# morph: boolean
+umbrella_species: false
+
+# morph: list
+species_protected_under_umbrella:
+  - ""
+
+# morph: boolean
+flagship_species: false
+
+# morph: text
+flagship_for_conservation: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HABITAT REQUIREMENTS (DETAILED)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: gauge
+habitat_specialist_score:
+  value: 0
+  min: 0
+  max: 100
+  unit: ""
+
+# morph: number
+minimum_viable_habitat_ha: 0
+
+# morph: boolean
+corridor_dependent: false
+
+# morph: number
+corridor_minimum_width_m: 0
+
+# morph: badge
+edge_effect_sensitivity:
+  status: ""
+  variant: ""
+
+# morph: number
+edge_penetration_m: 0
+
+# morph: list
+microhabitat_requirements:
+  - ""
+
+# morph: list
+structural_habitat_features:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BIOINDICATORS (ADDITIONAL)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+bioindication_applications:
+  - ""
+
+# morph: list
+pollution_types_indicated:
+  - ""
+
+# morph: badge
+pollution_sensitivity_level:
+  status: ""
+  variant: ""
+
+# morph: list
+water_quality_parameters:
+  - ""
+
+# morph: list
+soil_parameters_indicated:
+  - ""
+
+# morph: boolean
+lichen_monitoring_species: false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ECOSYSTEM SERVICES (QUANTIFIED)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+carbon_sequestration_kg_per_year: 0
+
+# morph: number
+nitrogen_fixation_kg_ha_year: 0
+
+# morph: currency
+pollination_service_value:
+  amount: 0
+  currency: "EUR"
+
+# morph: list
+pollination_crops_benefited:
+  - ""
+
+# morph: text
+pest_control_service: ""
+
+# morph: list
+pest_species_controlled:
+  - ""
+
+# morph: text
+water_filtration_service: ""
+
+# morph: text
+erosion_control_service: ""
+
+# morph: list
+cultural_ecosystem_services:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SPECIES INTERACTION (NON-SYMBIOTIC)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+interaction_type: ""
+
+# morph: tag
+interaction_direction: ""
+
+# morph: tag
+interaction_outcome_for_fungus: ""
+
+# morph: tag
+interaction_outcome_for_other: ""
+
+# morph: tag
+other_organism_group: ""
+
+# morph: tag
+other_organism_taxon: ""
+
+# morph: tag
+other_organism_common_name: ""
+
+# morph: tag
+taxonomic_level_known: ""
+
+# morph: text
+interaction_mechanism: ""
+
+# morph: badge
+interaction_frequency:
+  status: ""
+  variant: ""
+
+# morph: rating
+interaction_strength:
+  rating: 0
+  max: 10
+
+# morph: badge
+interaction_obligacy:
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONSUMPTION & PARASITISM
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+consumption_parts_consumed:
+  - ""
+
+# morph: tag
+consumption_timing: ""
+
+# morph: tag
+consumption_completeness: ""
+
+# morph: boolean
+consumption_regeneration_possible: false
+
+# morph: tag
+parasitism_parasite_type: ""
+
+# morph: badge
+parasitism_host_mortality:
+  status: ""
+  variant: ""
+
+# morph: tag
+parasitism_transmission_mode: ""
+
+# morph: list
+parasitism_life_stages_affected:
+  - ""
+
+# morph: badge
+parasitism_pathogenicity_level:
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# COMPETITION & CONSUMPTION BY ANIMALS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+competition_type: ""
+
+# morph: list
+competition_resource_competed_for:
+  - ""
+
+# morph: boolean
+competition_competitive_exclusion: false
+
+# morph: gauge
+competition_niche_overlap_degree:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: badge
+consumer_dependency:
+  status: ""
+  variant: ""
+
+# morph: list
+parts_preferred:
+  - ""
+
+# morph: badge
+seasonal_importance:
+  status: ""
+  variant: ""
+
+# morph: rating
+nutritional_value:
+  rating: 0
+  max: 10
+
+# morph: list
+fungivore_species:
+  - ""
+
+# morph: badge
+fungivore_importance:
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DISPERSAL & CHEMICAL INTERACTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+dispersal_vector_type: ""
+
+# morph: list
+dispersal_vector_species:
+  - ""
+
+# morph: range
+dispersal_distance:
+  min: 0
+  max: 0
+  unit: "m"
+
+# morph: tag
+dispersal_mechanism: ""
+
+# morph: gauge
+dispersal_efficiency:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: list
+invertebrate_dispersers:
+  - ""
+
+# morph: list
+vertebrate_dispersers:
+  - ""
+
+# morph: list
+produces_antibiotics_against:
+  - ""
+
+# morph: list
+allelopathic_effects:
+  - ""
+
+# morph: list
+volatile_compound_interactions:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FOOD WEB POSITION
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+trophic_level: 0
+
+# morph: tag
+trophic_category: ""
+
+# morph: tag
+food_web_role: ""
+
+# morph: tag
+energy_source_primary: ""
+
+# morph: list
+energy_sources_secondary:
+  - ""
+
+# morph: gauge
+energy_transfer_efficiency:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: number
+food_web_in_degree: 0
+
+# morph: number
+food_web_out_degree: 0
+
+# morph: number
+food_web_total_links: 0
+
+# morph: number
+food_web_betweenness_centrality: 0
+
+# morph: rating
+keystone_potential:
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# RESOURCE UTILIZATION & CONSUMERS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: rating
+diet_breadth:
+  rating: 0
+  max: 10
+
+# morph: list
+resource_dead_wood_types:
+  - ""
+
+# morph: list
+resource_litter_types:
+  - ""
+
+# morph: list
+resource_living_hosts:
+  - ""
+
+# morph: list
+resource_prey_organisms:
+  - ""
+
+# morph: list
+predator_guilds:
+  - ""
+
+# morph: list
+consumer_insects:
+  - ""
+
+# morph: list
+consumer_mollusks:
+  - ""
+
+# morph: list
+consumer_mammals:
+  - ""
+
+# morph: list
+consumer_birds:
+  - ""
+
+# morph: list
+consumer_fungi:
+  - ""
+
+# morph: badge
+predation_pressure:
+  status: ""
+  variant: ""
+
+# morph: tag
+decomposition_chain_position: ""
+
+# morph: text
+substrate_modification: ""
+
+# morph: list
+facilitates_species:
+  - ""
+
+# morph: number
+typical_biomass_contribution: 0
+
+# morph: number
+productivity_rate: 0
+
+# morph: number
+turnover_rate: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONSERVATION STATUS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: badge
+iucn_global_status:
+  status: ""
+  variant: ""
+
+# morph: number
+iucn_assessment_year: 0
+
+# morph: tag
+iucn_criteria: ""
+
+# morph: badge
+iucn_population_trend:
+  status: ""
+  variant: ""
+
+# morph: badge
+regional_status:
+  status: ""
+  variant: ""
+
+# morph: badge
+european_red_list_status:
+  status: ""
+  variant: ""
+
+# morph: list
+national_red_list_entries:
+  - ""
+
+# morph: list
+legal_protection_status:
+  - ""
+
+# morph: tag
+cites_listing: ""
+
+# morph: boolean
+eu_habitats_directive: false
+
+# morph: list
+eu_directive_annexes:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# THREAT ASSESSMENT
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+primary_threats:
+  - ""
+
+# morph: list
+threat_categories:
+  - ""
+
+# morph: severity
+habitat_loss_severity:
+  - level: ""
+    typ: ""
+    beschreibung: ""
+
+# morph: list
+habitat_loss_causes:
+  - ""
+
+# morph: gauge
+habitat_loss_rate:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%/decade"
+
+# morph: badge
+climate_threat_vulnerability:
+  status: ""
+  variant: ""
+
+# morph: badge
+climate_threat_exposure:
+  status: ""
+  variant: ""
+
+# morph: badge
+climate_threat_sensitivity:
+  status: ""
+  variant: ""
+
+# morph: badge
+climate_threat_adaptive_capacity:
+  status: ""
+  variant: ""
+
+# morph: badge
+pollution_air_impact:
+  status: ""
+  variant: ""
+
+# morph: badge
+pollution_nitrogen_impact:
+  status: ""
+  variant: ""
+
+# morph: badge
+pollution_pesticide_impact:
+  status: ""
+  variant: ""
+
+# morph: badge
+overexploitation_pressure:
+  status: ""
+  variant: ""
+
+# morph: boolean
+overexploitation_commercial: false
+
+# morph: boolean
+sustainable_harvest_possible: false
+
+# morph: badge
+invasive_species_threat_level:
+  status: ""
+  variant: ""
+
+# morph: list
+invasive_competitors:
+  - ""
+
+# morph: list
+invasive_pathogens:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# POPULATION & RANGE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+population_global_estimate: 0
+
+# morph: number
+population_range_low: 0
+
+# morph: number
+population_range_high: 0
+
+# morph: number
+population_estimate_year: 0
+
+# morph: badge
+population_estimate_confidence:
+  status: ""
+  variant: ""
+
+# morph: badge
+population_fragmentation:
+  status: ""
+  variant: ""
+
+# morph: number
+number_of_subpopulations: 0
+
+# morph: badge
+population_viability:
+  status: ""
+  variant: ""
+
+# morph: number
+extent_of_occurrence_km2: 0
+
+# morph: number
+area_of_occupancy_km2: 0
+
+# morph: badge
+range_trend:
+  status: ""
+  variant: ""
+
+# morph: list
+range_restriction_factors:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONSERVATION ACTIONS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+conservation_actions_in_place:
+  - ""
+
+# morph: list
+conservation_actions_needed:
+  - ""
+
+# morph: list
+ex_situ_culture_collections:
+  - ""
+
+# morph: boolean
+ex_situ_germplasm_stored: false
+
+# morph: boolean
+ex_situ_cultivation_possible: false
+
+# morph: boolean
+ex_situ_reintroduction_potential: false
+
+# morph: list
+monitoring_programs:
+  - ""
+
+# morph: badge
+monitoring_priority:
+  status: ""
+  variant: ""
+
+# morph: list
+research_needs:
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# BIODIVERSITY METRICS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+endemism_status: ""
+
+# morph: text
+endemic_region: ""
+
+# morph: text
+center_of_diversity: ""
+
+# morph: tag
+rarity_type: ""
+
+# morph: tag
+local_abundance_pattern: ""
+
+# morph: rating
+phylogenetic_distinctiveness:
+  rating: 0
+  max: 10
+
+# morph: rating
+evolutionary_distinctiveness:
+  rating: 0
+  max: 10
+
+# morph: number
+edge_score: 0
+
+# morph: rating
+functional_redundancy:
+  rating: 0
+  max: 10
+
+# morph: rating
+functional_uniqueness_score:
+  rating: 0
+  max: 10
+
+# morph: number
+irreplaceability_index: 0
+
+# morph: tag
+community_assembly_role: ""
+
+# morph: rating
+indicator_species_value:
+  rating: 0
+  max: 10
+
+# morph: rating
+umbrella_species_potential:
+  rating: 0
+  max: 10
+
+# morph: list
+typical_species_associations:
+  - ""
+
+# morph: list
+obligate_associates:
+  - ""
+
+# morph: number
+alpha_diversity_contribution: 0
+
+# morph: number
+beta_diversity_contribution: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PHENOLOGY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+fruiting_season_start: 0
+
+# morph: number
+fruiting_season_end: 0
+
+# morph: number
+fruiting_peak_month: 0
+
+# morph: number
+fruiting_duration_weeks: 0
+
+# morph: tag
+fruiting_frequency: ""
+
+# morph: rating
+fruiting_predictability:
+  rating: 0
+  max: 10
+
+# morph: list
+fruiting_triggers:
+  - ""
+
+# morph: list
+fruiting_inhibitors:
+  - ""
+
+# morph: calendar
+mycelial_activity_season:
+  - month: 1
+    active: false
+  - month: 2
+    active: false
+  - month: 3
+    active: false
+  - month: 4
+    active: false
+  - month: 5
+    active: false
+  - month: 6
+    active: false
+  - month: 7
+    active: false
+  - month: 8
+    active: false
+  - month: 9
+    active: false
+  - month: 10
+    active: false
+  - month: 11
+    active: false
+  - month: 12
+    active: false
+
+# morph: number
+mycelial_growth_peak: 0
+
+# morph: tag
+dormancy_period: ""
+
+# morph: tag
+dormancy_type: ""
+
+# morph: tag
+perennation_strategy: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ENVIRONMENTAL CUES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: number
+temperature_trigger_min_c: 0
+
+# morph: number
+temperature_trigger_max_c: 0
+
+# morph: number
+rainfall_trigger_mm: 0
+
+# morph: boolean
+photoperiod_sensitivity: false
+
+# morph: boolean
+lunar_cycle_correlation: false
+
+# morph: boolean
+frost_trigger: false
+
+# morph: boolean
+drought_break_response: false
+
+# morph: badge
+fruiting_year_to_year_variation:
+  status: ""
+  variant: ""
+
+# morph: boolean
+mast_fruiting_species: false
+
+# morph: number
+mast_fruiting_interval_years: 0
+
+# morph: boolean
+climate_driven_shifts: false
+
+# morph: tag
+phenology_trend_direction: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SPATIAL ECOLOGY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+distribution_type: ""
+
+# morph: tag
+range_size_category: ""
+
+# morph: badge
+range_continuity:
+  status: ""
+  variant: ""
+
+# morph: badge
+population_connectivity:
+  status: ""
+  variant: ""
+
+# morph: badge
+dispersal_limitation:
+  status: ""
+  variant: ""
+
+# morph: badge
+habitat_fragmentation_sensitivity:
+  status: ""
+  variant: ""
+
+# morph: gauge
+patch_occupancy_rate:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: number
+patch_turnover_rate: 0
+
+# morph: number
+colonization_rate_spatial: 0
+
+# morph: number
+extinction_rate_local: 0
+
+# morph: tag
+metapopulation_dynamics: ""
+
+# morph: tag
+source_sink_dynamics: ""
+
+# morph: badge
+microsite_fidelity:
+  status: ""
+  variant: ""
+
+# morph: list
+microsite_characteristics:
+  - ""
+
+# morph: number
+spatial_aggregation_scale_m: 0
+
+# morph: number
+nearest_neighbor_distance_m: 0
+
+# morph: number
+territory_size_m2: 0
+
+# morph: tag
+landscape_position_preference: ""
+
+# morph: badge
+edge_sensitivity:
+  status: ""
+  variant: ""
+
+# morph: boolean
+corridor_use: false
+
+# morph: rating
+matrix_tolerance:
+  rating: 0
+  max: 10
+
+# morph: number
+minimum_patch_size_ha: 0
+
+# morph: badge
+isolation_sensitivity:
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MONITORING
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: tag
+optimal_survey_method: ""
+
+# morph: tag
+survey_timing_optimal: ""
+
+# morph: tag
+survey_frequency_recommended: ""
+
+# morph: gauge
+detection_probability:
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+# morph: badge
+false_absence_risk:
+  status: ""
+  variant: ""
+
+# morph: tag
+sampling_effort_required: ""
+
+# morph: tag
+abundance_estimation_method: ""
+
+# morph: boolean
+density_estimation_possible: false
+
+# morph: boolean
+mark_recapture_applicable: false
+
+# morph: rating
+genetic_monitoring_value:
+  rating: 0
+  max: 10
+
+# morph: boolean
+edna_detection_possible: false
+
+# morph: rating
+trend_detection_power:
+  rating: 0
+  max: 10
+
+# morph: number
+years_for_trend_detection: 0
+
+# morph: boolean
+reference_population_exists: false
+
+# morph: badge
+baseline_data_quality:
+  status: ""
+  variant: ""
+
+# morph: badge
+monitoring_network_coverage:
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CITIZEN SCIENCE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: rating
+citizen_science_suitability:
+  rating: 0
+  max: 10
+
+# morph: badge
+identification_difficulty_field:
+  status: ""
+  variant: ""
+
+# morph: boolean
+photo_identification_reliable: false
+
+# morph: badge
+smartphone_app_coverage:
+  status: ""
+  variant: ""
+
+# morph: number
+inat_observation_count: 0
+
+# morph: number
+gbif_record_count: 0
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ECOLOGICAL RELATIONSHIPS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: list
+positive_associations:
+  - ""
+
+# morph: list
+negative_associations:
+  - ""
+
+# morph: list
+neutral_associations:
+  - ""
+
+# morph: number
+association_strength_index: 0
+
+# morph: rating
+co_occurrence_predictability:
+  rating: 0
+  max: 10
+
+# morph: list
+facilitator_species:
+  - ""
+
+# morph: list
+facilitated_by_species:
+  - ""
+
+# morph: tag
+nurse_species_role: ""
+
+# morph: tag
+succession_facilitation: ""
+
+# morph: tag
+microhabitat_engineering: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ECOSYSTEM ENGINEERING & KEYSTONE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: boolean
+is_ecosystem_engineer: false
+
+# morph: tag
+engineering_effect_type: ""
+
+# morph: number
+engineering_spatial_extent_m2: 0
+
+# morph: tag
+engineering_temporal_persistence: ""
+
+# morph: list
+engineering_beneficiary_species:
+  - ""
+
+# morph: text
+engineering_habitat_modification: ""
+
+# morph: badge
+keystone_status:
+  status: ""
+  variant: ""
+
+# morph: tag
+keystone_effect_type: ""
+
+# morph: text
+keystone_removal_consequence: ""
+
+# morph: rating
+trophic_cascade_potential:
+  rating: 0
+  max: 10
+
+# morph: tag
+ecosystem_stability_role: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# morph: rating
+ecology_data_quality_score:
+  rating: 0
+  max: 10
+
+# morph: tag
+ecology_last_review_date: ""
+
+# morph: badge
+ecology_review_status:
+  status: ""
+  variant: ""
+
+# morph: tag
+ecology_evidence_basis: ""
+
+# morph: tag
+ecology_geographic_scope: ""
+
+# morph: list
+ecology_data_gaps:
+  - ""
+
+# morph: badge
+ecology_research_priority:
+  status: ""
+  variant: ""

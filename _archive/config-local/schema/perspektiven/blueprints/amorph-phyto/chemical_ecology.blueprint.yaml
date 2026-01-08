@@ -1,0 +1,748 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# CHEMICAL ECOLOGY PERSPECTIVE - LATERAL BLUEPRINT
+# VOC Signaling, Defense Chemistry & Cross-Kingdom Communication
+# Version: 1.0.0
+# Domain: PLANTS (Lateral Cross-Kingdom View)
+# ═══════════════════════════════════════════════════════════════════════════════
+#
+# PURPOSE: Captures plants as CHEMICAL COMMUNICATORS across kingdoms
+# - Volatile Organic Compounds (VOCs) as signals
+# - Plant-plant communication via airborne chemistry
+# - Plant-herbivore-natural enemy tritrophic interactions
+# - Defense chemistry & secondary metabolites
+# - Plant-microbe chemical dialogues
+# - Allelopathy & chemical competition
+# - Root exudate chemistry (overlaps with holobiont)
+# - Synthetic biology for VOC optimization (2025)
+#
+# Based on 2025 research:
+# - VOC-mediated plant-plant communication (Trends Plant Sci 2024, Entomologia 2025)
+# - Defense signaling pathways (JA, SA, ET) (PMC 2025)
+# - Secondary metabolites: benzoxazinoids, glucosinolates, terpenes (2025)
+# - Calcium fluxes in VOC sensing
+# - "Dishonest" stress cues (plants emit VOCs without actual herbivore attack)
+# - Synthetic biology VOC engineering (2025)
+#
+# ═══════════════════════════════════════════════════════════════════════════════
+
+perspective: chemical_ecology
+version: "1.0.0"
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PLANT IDENTITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+scientific_name:
+  # morph: text
+  ""
+
+common_name:
+  # morph: text
+  ""
+
+chemical_defense_strategy:
+  # morph: badge
+  # constitutive | induced | mixed
+  status: ""
+  variant: ""
+
+defense_syndrome:
+  # morph: badge
+  # qualitative | quantitative | tolerance
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# VOLATILE ORGANIC COMPOUNDS (VOCs) - Airborne Signals
+# ═══════════════════════════════════════════════════════════════════════════════
+
+voc_emission:
+  # morph: boolean
+  true
+
+total_voc_emission_rate:
+  # morph: gauge
+  # μg/g dry weight/hour
+  value: 0
+  min: 0
+  max: 100
+  unit: "μg/g/h"
+
+voc_chemical_classes:
+  # morph: pie
+  - label: "Terpenes"
+    value: 0
+  - label: "Green leaf volatiles (GLVs)"
+    value: 0
+  - label: "Benzenoids/phenylpropanoids"
+    value: 0
+  - label: "Nitrogen-containing"
+    value: 0
+  - label: "Sulfur-containing"
+    value: 0
+  - label: "Other"
+    value: 0
+
+major_voc_compounds:
+  # morph: list
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TERPENES
+# ─────────────────────────────────────────────────────────────────────────────
+
+terpene_emission:
+  # morph: boolean
+  false
+
+monoterpenes:
+  # morph: list
+  # α-pinene | β-pinene | limonene | linalool
+  - ""
+
+sesquiterpenes:
+  # morph: list
+  # β-caryophyllene | α-humulene | farnesene
+  - ""
+
+isoprene_emission:
+  # morph: boolean
+  false
+
+isoprene_emission_rate:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 50
+  unit: "μg/g/h"
+
+beta_caryophyllene_emission:
+  # morph: boolean
+  # herbivore-induced signal (2025)
+  false
+
+terpene_synthase_genes:
+  # morph: number
+  # TPS gene family size
+  0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GREEN LEAF VOLATILES (GLVs)
+# ─────────────────────────────────────────────────────────────────────────────
+
+green_leaf_volatile_emission:
+  # morph: boolean
+  # C6 aldehydes/alcohols from damage
+  false
+
+glv_compounds:
+  # morph: list
+  # (Z)-3-hexenal | (E)-2-hexenal | (Z)-3-hexenol
+  - ""
+
+glv_emission_trigger:
+  # morph: list
+  # mechanical_damage | herbivory | pathogen
+  - ""
+
+lipoxygenase_pathway:
+  # morph: boolean
+  # GLV biosynthesis
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BENZENOIDS & PHENYLPROPANOIDS
+# ─────────────────────────────────────────────────────────────────────────────
+
+benzenoid_emission:
+  # morph: boolean
+  false
+
+benzenoid_compounds:
+  # morph: list
+  # methyl_salicylate | methyl_benzoate | benzyl_alcohol
+  - ""
+
+methyl_salicylate_emission:
+  # morph: boolean
+  # defense signal
+  false
+
+phenylpropanoid_volatiles:
+  # morph: list
+  # eugenol | chavicol
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PLANT-PLANT COMMUNICATION - VOC-Mediated (2025 focus)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+plant_plant_voc_communication:
+  # morph: boolean
+  # airborne signaling
+  false
+
+receiver_plant_responses:
+  # morph: list
+  # defense_upregulation | growth_modulation | VOC_emission_priming
+  - ""
+
+voc_perception_mechanism:
+  # morph: badge
+  # stomatal_uptake | surface_absorption | unknown
+  status: ""
+  variant: ""
+
+calcium_flux_voc_sensing:
+  # morph: boolean
+  # Ca²⁺ signaling in VOC response (2025)
+  false
+
+chromatin_interaction:
+  # morph: boolean
+  # β-caryophyllene regulating gene expression (2025)
+  false
+
+priming_effect:
+  # morph: boolean
+  # receivers "primed" for faster defense
+  false
+
+priming_duration:
+  # morph: range
+  # hours to days
+  min: 0
+  max: 0
+  unit: "hours"
+
+induced_defense_genes_in_receiver:
+  # morph: list
+  - ""
+
+honest_vs_dishonest_signaling:
+  # morph: badge
+  # honest | dishonest | mixed (2025 research)
+  status: ""
+  variant: ""
+
+dishonest_stress_cue_emission:
+  # morph: boolean
+  # VOCs without actual herbivore (2025)
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# HERBIVORE-INDUCED VOCs - Indirect Defense (2025)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+herbivore_induced_voc_emission:
+  # morph: boolean
+  false
+
+herbivore_specific_voc_blends:
+  # morph: boolean
+  # different herbivores → different VOCs
+  false
+
+herbivore_associated_elicitors:
+  # morph: list
+  # oral_secretions | frass | oviposition_fluids
+  - ""
+
+natural_enemy_attraction:
+  # morph: boolean
+  # VOCs attract predators/parasitoids
+  false
+
+tritrophic_interactions:
+  # morph: network
+  # plant → herbivore → natural enemy
+  - name: "Plant"
+    type: "emits_VOC"
+    intensity: 100
+  - name: "Herbivore"
+    type: "attracted_by_plant"
+    intensity: 50
+  - name: "Natural_enemy"
+    type: "attracted_by_VOC"
+    intensity: 80
+
+carnivore_attraction_vocs:
+  # morph: list
+  # specific VOCs attracting predators
+  - ""
+
+parasitoid_recruitment:
+  # morph: boolean
+  false
+
+enemy_recruitment_effectiveness:
+  # morph: rating
+  # biological control success
+  rating: 0
+  max: 10
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DEFENSE SIGNALING HORMONES (2025 pathways)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+jasmonic_acid_pathway:
+  # morph: boolean
+  # JA - herbivore/necrotrophic pathogen defense
+  false
+
+ja_biosynthesis_genes:
+  # morph: list
+  # LOX | AOS | AOC | OPR
+  - ""
+
+ja_responsive_genes:
+  # morph: number
+  0
+
+methyl_jasmonate_emission:
+  # morph: boolean
+  # volatile JA form
+  false
+
+salicylic_acid_pathway:
+  # morph: boolean
+  # SA - biotrophic pathogen defense
+  false
+
+sa_biosynthesis_pathway:
+  # morph: badge
+  # ICS | PAL | both
+  status: ""
+  variant: ""
+
+methyl_salicylate_as_signal:
+  # morph: boolean
+  # volatile SA form
+  false
+
+ethylene_pathway:
+  # morph: boolean
+  # ET - stress hormone
+  false
+
+ethylene_biosynthesis:
+  # morph: list
+  # ACS | ACO
+  - ""
+
+ja_sa_crosstalk:
+  # morph: badge
+  # antagonistic | synergistic | independent
+  status: ""
+  variant: ""
+
+ja_et_synergy:
+  # morph: boolean
+  false
+
+systemic_acquired_resistance:
+  # morph: boolean
+  # SAR - SA-mediated whole-plant immunity
+  false
+
+induced_systemic_resistance:
+  # morph: boolean
+  # ISR - JA/ET-mediated, PGPR-triggered
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SECONDARY METABOLITES - Chemical Arsenal (2025)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+secondary_metabolite_diversity:
+  # morph: gauge
+  # number of unique compounds
+  value: 0
+  min: 0
+  max: 10000
+
+constitutive_defenses:
+  # morph: list
+  # always present
+  - ""
+
+induced_defenses:
+  # morph: list
+  # upregulated upon attack
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# BENZOXAZINOIDS (Maize, Wheat, Rye)
+# ─────────────────────────────────────────────────────────────────────────────
+
+benzoxazinoids_present:
+  # morph: boolean
+  # (2025 class)
+  false
+
+benzoxazinoid_compounds:
+  # morph: list
+  # DIMBOA | DIBOA | HDMBOA
+  - ""
+
+benzoxazinoid_concentration:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 1000
+  unit: "μg/g DW"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# GLUCOSINOLATES (Brassicaceae)
+# ─────────────────────────────────────────────────────────────────────────────
+
+glucosinolates_present:
+  # morph: boolean
+  # (2025 class)
+  false
+
+glucosinolate_types:
+  # morph: list
+  # aliphatic | indolic | aromatic
+  - ""
+
+glucosinolate_compounds:
+  # morph: list
+  # sinigrin | glucoraphanin | glucobrassicin
+  - ""
+
+myrosinase_enzyme:
+  # morph: boolean
+  # activates glucosinolates upon damage
+  false
+
+isothiocyanate_release:
+  # morph: boolean
+  # toxic breakdown products
+  false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# TERPENES (Secondary Metabolites, not just VOCs)
+# ─────────────────────────────────────────────────────────────────────────────
+
+constitutive_terpenes:
+  # morph: list
+  # stored in resin ducts, glandular trichomes
+  - ""
+
+diterpenes:
+  # morph: list
+  # abietic_acid | taxol
+  - ""
+
+triterpenes:
+  # morph: list
+  # limonoids | saponins
+  - ""
+
+# ─────────────────────────────────────────────────────────────────────────────
+# AROMATICS (Phenolics, Flavonoids)
+# ─────────────────────────────────────────────────────────────────────────────
+
+phenolic_compounds:
+  # morph: list
+  # tannins | lignin | phenolic_acids
+  - ""
+
+flavonoids:
+  # morph: list
+  # quercetin | kaempferol | anthocyanins
+  - ""
+
+tannins:
+  # morph: boolean
+  # protein-binding defenses
+  false
+
+tannin_concentration:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 30
+  unit: "% DW"
+
+lignin_content:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 40
+  unit: "% DW"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# ALKALOIDS
+# ─────────────────────────────────────────────────────────────────────────────
+
+alkaloids_present:
+  # morph: boolean
+  false
+
+alkaloid_types:
+  # morph: list
+  # pyrrolizidine | tropane | isoquinoline | indole
+  - ""
+
+major_alkaloids:
+  # morph: list
+  # nicotine | caffeine | morphine | atropine
+  - ""
+
+alkaloid_concentration:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 5
+  unit: "% DW"
+
+# ─────────────────────────────────────────────────────────────────────────────
+# CYANOGENIC GLYCOSIDES
+# ─────────────────────────────────────────────────────────────────────────────
+
+cyanogenic_glycosides:
+  # morph: boolean
+  false
+
+cyanogenic_compounds:
+  # morph: list
+  # linamarin | lotaustralin | dhurrin
+  - ""
+
+cyanide_release_upon_damage:
+  # morph: boolean
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ALLELOPATHY - Chemical Competition
+# ═══════════════════════════════════════════════════════════════════════════════
+
+allelopathic_activity:
+  # morph: boolean
+  # inhibiting other plants
+  false
+
+allelopathic_compounds:
+  # morph: list
+  # juglone | sorgoleone | artemisinin
+  - ""
+
+allelopathy_targets:
+  # morph: list
+  # neighboring plants affected
+  - ""
+
+allelopathy_mechanism:
+  # morph: badge
+  # root_exudate | leaf_leachate | volatile | litter_decomposition
+  status: ""
+  variant: ""
+
+autotoxicity:
+  # morph: boolean
+  # allelopathy against own seedlings
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ROOT EXUDATE CHEMISTRY (overlaps with holobiont perspective)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+root_exudate_chemical_diversity:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 500
+
+exudate_signaling_compounds:
+  # morph: list
+  # strigolactones | flavonoids | coumarins | benzoxazinoids
+  - ""
+
+strigolactone_exudation:
+  # morph: boolean
+  # AM fungal recruitment
+  false
+
+flavonoid_exudation:
+  # morph: boolean
+  # Rhizobium nod gene induction
+  false
+
+coumarin_exudation:
+  # morph: boolean
+  # iron mobilization
+  false
+
+exudate_antimicrobial_compounds:
+  # morph: list
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# PLANT-MICROBE CHEMICAL DIALOGUE
+# ═══════════════════════════════════════════════════════════════════════════════
+
+plant_microbe_chemical_signaling:
+  # morph: boolean
+  false
+
+mamp_perception:
+  # morph: boolean
+  # microbe-associated molecular patterns
+  false
+
+mamp_receptors:
+  # morph: list
+  # FLS2 | EFR | CERK1
+  - ""
+
+nod_factor_perception:
+  # morph: boolean
+  # rhizobial signals (LCOs)
+  false
+
+myc_factor_perception:
+  # morph: boolean
+  # AM fungal signals (LCOs, COs)
+  false
+
+quorum_sensing_interference:
+  # morph: boolean
+  # disrupting bacterial communication
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FLORAL SCENT - Pollinator Attraction
+# ═══════════════════════════════════════════════════════════════════════════════
+
+floral_scent_emission:
+  # morph: boolean
+  false
+
+floral_voc_compounds:
+  # morph: list
+  # linalool | geraniol | eugenol | indole
+  - ""
+
+pollinator_specific_scents:
+  # morph: boolean
+  # different pollinators → different scents
+  false
+
+pollinator_types_attracted:
+  # morph: list
+  # bees | moths | beetles | flies | bats
+  - ""
+
+nocturnal_vs_diurnal_emission:
+  # morph: badge
+  # nocturnal | diurnal | both
+  status: ""
+  variant: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FRUIT VOLATILE CHEMISTRY - Seed Disperser Attraction
+# ═══════════════════════════════════════════════════════════════════════════════
+
+fruit_volatile_emission:
+  # morph: boolean
+  false
+
+fruit_voc_compounds:
+  # morph: list
+  # esters | alcohols | terpenes
+  - ""
+
+ripeness_volatile_signature:
+  # morph: boolean
+  # VOCs signal fruit maturity
+  false
+
+seed_disperser_attraction_vocs:
+  # morph: list
+  # mammals | birds targeted
+  - ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# SYNTHETIC BIOLOGY & VOC ENGINEERING (2025)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+synthetic_biology_voc_optimization:
+  # morph: boolean
+  # engineered VOC emission (2025)
+  false
+
+engineered_voc_traits:
+  # morph: list
+  # enhanced_defense | pollinator_attraction | stress_signaling
+  - ""
+
+transgenic_voc_modifications:
+  # morph: list
+  - ""
+
+crispr_voc_pathway_editing:
+  # morph: boolean
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# ECOLOGICAL MODELING & APPLICATIONS (2025)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+voc_based_pest_management:
+  # morph: boolean
+  # push-pull strategies
+  false
+
+companion_planting_chemical_basis:
+  # morph: text
+  # VOC-mediated interactions in intercropping
+  ""
+
+precision_agriculture_voc_monitoring:
+  # morph: boolean
+  # VOC sensors for crop stress
+  false
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# LITERATURE REFERENCES
+# ═══════════════════════════════════════════════════════════════════════════════
+
+key_research_papers:
+  # morph: list
+  - ""
+
+chemical_ecology_literature:
+  # morph: citation
+  authors: ""
+  year: 0
+  title: ""
+  journal: ""
+  doi: ""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# DATA QUALITY
+# ═══════════════════════════════════════════════════════════════════════════════
+
+data_source:
+  # morph: badge
+  # GC_MS | LC_MS | headspace_analysis | bioassay | literature
+  status: ""
+  variant: ""
+
+analytical_method:
+  # morph: badge
+  # PTR_MS | SPME_GC_MS | TD_GC_MS
+  status: ""
+  variant: ""
+
+confidence_level:
+  # morph: badge
+  # high | medium | low | speculative
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""

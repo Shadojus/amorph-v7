@@ -1,0 +1,115 @@
+# HORIZONTAL GENE TRANSFER - Lateral Genetic Exchange
+# Version: 1.0.0 | Domain: BACTERIA (Lateral)
+
+perspective: horizontal_gene_transfer
+version: "1.0.0"
+
+scientific_name:
+  # morph: text
+  ""
+
+# HGT MECHANISMS
+conjugation:
+  # morph: boolean
+  false
+
+transformation:
+  # morph: boolean
+  false
+
+transduction:
+  # morph: boolean
+  false
+
+gene_transfer_agents:
+  # morph: boolean
+  # GTAs
+  false
+
+# MOBILE GENETIC ELEMENTS
+plasmids:
+  # morph: boolean
+  false
+
+plasmid_count:
+  # morph: number
+  0
+
+plasmid_size_range:
+  # morph: range
+  min: 0
+  max: 0
+  unit: "kb"
+
+transposons:
+  # morph: boolean
+  false
+
+integrons:
+  # morph: boolean
+  false
+
+prophages:
+  # morph: boolean
+  false
+
+# ANTIBIOTIC RESISTANCE GENES
+antibiotic_resistance_genes:
+  # morph: list
+  - ""
+
+resistance_plasmid:
+  # morph: boolean
+  false
+
+multidrug_resistance:
+  # morph: boolean
+  false
+
+# METABOLIC GENES TRANSFERRED
+transferred_metabolic_capabilities:
+  # morph: list
+  - ""
+
+nif_genes_mobile:
+  # morph: boolean
+  # nitrogen fixation genes
+  false
+
+# DONOR-RECIPIENT RANGE
+hgt_donor_frequency:
+  # morph: gauge
+  value: 0
+  min: 0
+  max: 100
+  unit: "%"
+
+hgt_recipient_range:
+  # morph: badge
+  # narrow | broad | promiscuous
+  status: ""
+  variant: ""
+
+cross_kingdom_hgt:
+  # morph: boolean
+  # bacteria → eukaryotes
+  false
+
+# BARRIERS TO HGT
+restriction_modification_systems:
+  # morph: number
+  0
+
+crispr_cas:
+  # morph: boolean
+  false
+
+# DATA
+data_source:
+  # morph: badge
+  status: ""
+  variant: ""
+
+last_updated:
+  # morph: text
+  ""
