@@ -1146,7 +1146,7 @@ const topIntersections = graph?.intersections
         linksContainer.innerHTML = data.links.map(link => `
           <div class="external-link-card" data-id="${link.id}">
             <span class="link-type-badge">
-              ${sourceIcons[link.source_type] || '🔗'} ${link.source_type}
+              ${sourceIcons[link.type] || '🔗'} ${link.type}
             </span>
             <div class="link-title">
               <a href="${link.url}" target="_blank" rel="noopener noreferrer">
@@ -1156,18 +1156,12 @@ const topIntersections = graph?.intersections
             ${link.description ? `<div class="link-description">${escapeHtml(link.description)}</div>` : ''}
             <div class="link-meta">
               <div class="link-domains">
-                ${link.domains.map(d => {
-                  const color = domainConfigData[d]?.color || '#888';
-                  return `<span class="link-domain" style="background: ${color};" title="${d}"></span>`;
-                }).join('')}
+                ${link.entityName ? `<span class="link-entity">${escapeHtml(link.entityName)}</span>` : ''}
               </div>
               <div class="link-votes">
-                ${link.expert_verified ? '<span class="link-verified" title="Experte verifiziert">✓</span>' : ''}
+                ${link.isVerified ? '<span class="link-verified" title="Experte verifiziert">✓</span>' : ''}
                 <span class="link-vote up" data-id="${link.id}" data-vote="up">
-                  ▲ ${link.upvotes || 0}
-                </span>
-                <span class="link-vote down" data-id="${link.id}" data-vote="down">
-                  ▼ ${link.downvotes || 0}
+                  ▲ ${link.score > 0 ? link.score : 0}
                 </span>
               </div>
             </div>

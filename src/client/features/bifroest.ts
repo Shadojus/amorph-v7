@@ -96,7 +96,7 @@ export function initBifroest(): void {
 function createToggleButton(): void {
   const button = document.querySelector('.bifroest-toggle');
   if (!button) {
-    console.warn('[Bifroest] Toggle button not found in DOM');
+    // Toggle button ist optional - nur auf Seiten mit Bottom-Nav
     return;
   }
   

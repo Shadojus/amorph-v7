@@ -2,8 +2,13 @@
 /**
  * AMORPH - Minimalistische Startseite
  * 
- * Ähnlich wie Bifroest-Platform aber für Datensuche statt Experten.
- * Mit Nebelschiebern in den Ecken für Domain-Gewichtung.
+ * Mit 4 Oberdomänen in den Ecken als drehbare Nebel-Elemente:
+ * - LIFE (top-left): fungi, phyto, drako, bakterio, viro
+ * - SCIENCE (top-right): geno, anato, chemo, physi, kosmo
+ * - EARTH (bottom-left): mine, tekto, paleo
+ * - SYSTEMS (bottom-right): netzo, cognito, biotech, socio
+ * 
+ * Drehe am Nebel um die Intensität der Oberdomäne zu ändern.
  */
 
 import Base from '../layouts/Base.astro';
@@ -30,12 +35,40 @@ const domains: Array<{ id: SiteType; name: string; symbol: string; color: string
   { id: 'socio', name: 'Socio', symbol: '👥', color: '#EC407A' },
 ];
 
-// Domain-Gruppen für die 4 Ecken
+// 4 Oberdomänen für die Ecken - Harmonische Farbpalette
+const superDomains = {
+  life: {
+    name: 'LIFE',
+    symbol: '🌱',
+    color: '#4AE3A7', // Leuchtendes Grün
+    domains: domains.filter(d => ['fungi', 'phyto', 'drako', 'bakterio', 'viro'].includes(d.id)),
+  },
+  science: {
+    name: 'SCIENCE', 
+    symbol: '🔬',
+    color: '#A78BFA', // Lebhaftes Violett
+    domains: domains.filter(d => ['geno', 'anato', 'chemo', 'physi', 'kosmo'].includes(d.id)),
+  },
+  earth: {
+    name: 'EARTH',
+    symbol: '🌍',
+    color: '#F59E0B', // Warmes Amber/Gold
+    domains: domains.filter(d => ['mine', 'tekto', 'paleo'].includes(d.id)),
+  },
+  systems: {
+    name: 'SYSTEMS',
+    symbol: '🔗',
+    color: '#38BDF8', // Klares Cyan
+    domains: domains.filter(d => ['netzo', 'cognito', 'biotech', 'socio'].includes(d.id)),
+  },
+};
+
+// For backward compatibility
 const domainGroups = {
-  life: domains.filter(d => ['fungi', 'phyto', 'drako', 'bakterio', 'viro'].includes(d.id)),
-  science: domains.filter(d => ['geno', 'anato', 'chemo', 'physi', 'kosmo'].includes(d.id)),
-  earth: domains.filter(d => ['mine', 'tekto', 'paleo'].includes(d.id)),
-  systems: domains.filter(d => ['netzo', 'cognito', 'biotech', 'socio'].includes(d.id)),
+  life: superDomains.life.domains,
+  science: superDomains.science.domains,
+  earth: superDomains.earth.domains,
+  systems: superDomains.systems.domains,
 };
 ---
 
@@ -86,18 +119,113 @@ const domainGroups = {
       75% { transform: translate(15px, 5px) scale(1.05); }
     }
     
-    /* Domain Slider Controls */
+    /* Domain Slider Controls - DEPRECATED, now using fog orbs */
     .fog-controls {
+      display: none; /* Hidden - replaced by fog orbs */
+    }
+    
+    /* ═══════════════════════════════════════════════════════════════════════════
+       NEBEL-ORBS - ERSETZT DURCH ARC-CONTROLS
+       ═══════════════════════════════════════════════════════════════════════════ */
+    
+    .fog-orb { display: none; }
+    
+    /* ═══════════════════════════════════════════════════════════════════════════
+       BLOOM CONTROLS - Expandierende Kreise (Blume des Lebens Stil)
+       Ziehe vertikal um Intensität zu ändern - bei 100% überlappen sie sich
+       ═══════════════════════════════════════════════════════════════════════════ */
+    
+    .bloom-control {
       position: fixed;
-      z-index: 100;
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      padding: 1rem;
-      background: rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(10px);
-      border-radius: 12px;
+      z-index: 40;
+      pointer-events: auto;
+      cursor: ns-resize;
+      --bloom-size: 80px;
+      --bloom-intensity: 0.5;
+    }
+    
+    .bloom-control.top-left { top: 0; left: 0; }
+    .bloom-control.top-right { top: 0; right: 0; }
+    .bloom-control.bottom-left { bottom: 60px; left: 0; }
+    .bloom-control.bottom-right { bottom: 60px; right: 0; }
+    
+    .bloom-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at center,
+        color-mix(in srgb, var(--bloom-color) 40%, transparent) 0%,
+        color-mix(in srgb, var(--bloom-color) 20%, transparent) 40%,
+        color-mix(in srgb, var(--bloom-color) 5%, transparent) 70%,
+        transparent 100%
+      );
+      filter: blur(2px);
+      transition: width 0.15s ease-out, height 0.15s ease-out, opacity 0.2s ease;
+      mix-blend-mode: screen;
+    }
+    
+    .bloom-control.top-left .bloom-circle { top: 0; left: 0; transform-origin: top left; }
+    .bloom-control.top-right .bloom-circle { top: 0; right: 0; transform-origin: top right; }
+    .bloom-control.bottom-left .bloom-circle { bottom: 0; left: 0; transform-origin: bottom left; }
+    .bloom-control.bottom-right .bloom-circle { bottom: 0; right: 0; transform-origin: bottom right; }
+    
+    .bloom-glow {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle at center,
+        var(--bloom-color) 0%,
+        transparent 70%
+      );
+      opacity: 0.15;
+      filter: blur(30px);
+      pointer-events: none;
+    }
+    
+    .bloom-control.top-left .bloom-glow { top: -20%; left: -20%; }
+    .bloom-control.top-right .bloom-glow { top: -20%; right: -20%; }
+    .bloom-control.bottom-left .bloom-glow { bottom: -20%; left: -20%; }
+    .bloom-control.bottom-right .bloom-glow { bottom: -20%; right: -20%; }
+    
+    .bloom-label {
+      position: absolute;
+      font-size: 0.55rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      color: rgba(255, 255, 255, 0.3);
+      transition: color 0.3s ease, opacity 0.3s ease;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+    
+    .bloom-control.top-left .bloom-label { top: 12px; left: 12px; }
+    .bloom-control.top-right .bloom-label { top: 12px; right: 12px; }
+    .bloom-control.bottom-left .bloom-label { bottom: 12px; left: 12px; }
+    .bloom-control.bottom-right .bloom-label { bottom: 12px; right: 12px; }
+    
+    .bloom-control:hover .bloom-label,
+    .bloom-control.active .bloom-label {
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    /* Prozent-Anzeige */
+    .bloom-value {
+      position: absolute;
+      font-size: 0.5rem;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.2);
       opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    
+    .bloom-control.dragging .bloom-value {
+      opacity: 1;
+    }
+    
+    .bloom-control.top-left .bloom-value { top: 24px; left: 12px; }
+    .bloom-control.top-right .bloom-value { top: 24px; right: 12px; }
+    .bloom-control.bottom-left .bloom-value { bottom: 24px; left: 12px; }
+    .bloom-control.bottom-right .bloom-value { bottom: 24px; right: 12px; }
       transition: opacity 0.3s ease;
     }
     
@@ -106,10 +234,11 @@ const domainGroups = {
       opacity: 1;
     }
     
-    .fog-controls.top-left { top: 1rem; left: 1rem; }
-    .fog-controls.top-right { top: 1rem; right: 1rem; }
-    .fog-controls.bottom-left { bottom: 5rem; left: 1rem; }
-    .fog-controls.bottom-right { bottom: 5rem; right: 1rem; }
+    /* Legacy positions - hidden */
+    .fog-controls.top-left,
+    .fog-controls.top-right,
+    .fog-controls.bottom-left,
+    .fog-controls.bottom-right { display: none; }
     
     .fog-control {
       display: flex;
@@ -232,45 +361,70 @@ const domainGroups = {
       height: 1.2rem;
     }
     
-    /* Domain Pills */
+    /* Domain Pills - Kompakter mit abgestuften Leuchteffekten */
     .domain-pills {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.35rem;
       margin-bottom: 2rem;
+      max-width: 550px;
     }
     
     .domain-pill {
       display: flex;
       align-items: center;
-      gap: 0.4rem;
-      padding: 0.5rem 1rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 0.85rem;
+      gap: 0.25rem;
+      padding: 0.35rem 0.7rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.7rem;
       text-decoration: none;
-      transition: all 0.2s ease;
+      transition: all 0.3s ease;
       cursor: pointer;
+      --glow-intensity: 0;
     }
     
     .domain-pill:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: var(--pill-color, rgba(255, 255, 255, 0.3));
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--pill-color, rgba(255, 255, 255, 0.2));
       color: #fff;
-      transform: translateY(-2px);
+      transform: translateY(-1px);
     }
     
-    .domain-pill.active {
-      background: var(--pill-color, rgba(107, 138, 255, 0.3));
-      border-color: var(--pill-color, #6B8AFF);
+    /* Abgestufte Leuchteffekte basierend auf Intensität */
+    .domain-pill[data-intensity="low"] {
+      border-color: color-mix(in srgb, var(--pill-color) 20%, transparent);
+      color: rgba(255, 255, 255, 0.6);
+    }
+    
+    .domain-pill[data-intensity="medium"] {
+      background: color-mix(in srgb, var(--pill-color) 10%, transparent);
+      border-color: color-mix(in srgb, var(--pill-color) 40%, transparent);
+      color: rgba(255, 255, 255, 0.8);
+      box-shadow: 0 0 10px color-mix(in srgb, var(--pill-color) 20%, transparent);
+    }
+    
+    .domain-pill[data-intensity="high"] {
+      background: color-mix(in srgb, var(--pill-color) 20%, transparent);
+      border-color: color-mix(in srgb, var(--pill-color) 60%, transparent);
       color: #fff;
+      box-shadow: 0 0 15px color-mix(in srgb, var(--pill-color) 30%, transparent);
+    }
+    
+    .domain-pill[data-intensity="max"],
+    .domain-pill.active {
+      background: color-mix(in srgb, var(--pill-color) 30%, transparent);
+      border-color: var(--pill-color);
+      color: #fff;
+      box-shadow: 0 0 20px color-mix(in srgb, var(--pill-color) 50%, transparent),
+                  0 0 40px color-mix(in srgb, var(--pill-color) 20%, transparent);
     }
     
     .domain-pill-symbol {
-      font-size: 1rem;
+      font-size: 0.8rem;
     }
     
     /* Footer Domains - scrollender Text */
@@ -429,7 +583,44 @@ const domainGroups = {
     ))}
   </div>
   
-  <!-- Slider Controls für die Ecken -->
+  <!-- ═══════════════════════════════════════════════════════════════════════════
+       BLOOM CONTROLS - Expandierende Kreise (Blume des Lebens Stil)
+       Ziehe vertikal um Intensität zu ändern
+       ═══════════════════════════════════════════════════════════════════════════ -->
+  
+  <!-- LIFE Bloom (top-left) -->
+  <div class="bloom-control top-left" data-superdomain="life" style={`--bloom-color: ${superDomains.life.color};`}>
+    <div class="bloom-glow"></div>
+    <div class="bloom-circle"></div>
+    <span class="bloom-label">{superDomains.life.name}</span>
+    <span class="bloom-value">50%</span>
+  </div>
+  
+  <!-- SCIENCE Bloom (top-right) -->
+  <div class="bloom-control top-right" data-superdomain="science" style={`--bloom-color: ${superDomains.science.color};`}>
+    <div class="bloom-glow"></div>
+    <div class="bloom-circle"></div>
+    <span class="bloom-label">{superDomains.science.name}</span>
+    <span class="bloom-value">50%</span>
+  </div>
+  
+  <!-- EARTH Bloom (bottom-left) -->
+  <div class="bloom-control bottom-left" data-superdomain="earth" style={`--bloom-color: ${superDomains.earth.color};`}>
+    <div class="bloom-glow"></div>
+    <div class="bloom-circle"></div>
+    <span class="bloom-label">{superDomains.earth.name}</span>
+    <span class="bloom-value">50%</span>
+  </div>
+  
+  <!-- SYSTEMS Bloom (bottom-right) -->
+  <div class="bloom-control bottom-right" data-superdomain="systems" style={`--bloom-color: ${superDomains.systems.color};`}>
+    <div class="bloom-glow"></div>
+    <div class="bloom-circle"></div>
+    <span class="bloom-label">{superDomains.systems.name}</span>
+    <span class="bloom-value">50%</span>
+  </div>
+  
+  <!-- Slider Controls (legacy - hidden) -->
   <div class="fog-controls top-left" data-group="life">
     <div class="fog-controls-title" style="font-size: 0.65rem; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;">LIFE</div>
     {domainGroups.life.map(d => (
@@ -581,60 +772,168 @@ const domainGroups = {
   </nav>
 
   <script>
-    // Domain Weights speichern
+    // ═══════════════════════════════════════════════════════════════════════════
+    // SUPER-DOMAIN BLOOM CONTROLS
+    // Ziehe vertikal um die Intensität zu ändern - Kreise expandieren/schrumpfen
+    // Bei 100% überlappen sie sich in der Mitte (Blume des Lebens)
+    // ═══════════════════════════════════════════════════════════════════════════
+    
+    // Domain Mapping
+    const superDomainMap: Record<string, string[]> = {
+      life: ['fungi', 'phyto', 'drako', 'bakterio', 'viro'],
+      science: ['geno', 'anato', 'chemo', 'physi', 'kosmo'],
+      earth: ['mine', 'tekto', 'paleo'],
+      systems: ['netzo', 'cognito', 'biotech', 'socio'],
+    };
+    
+    // State
+    const superDomainWeights: Record<string, number> = {
+      life: 50,
+      science: 50,
+      earth: 50,
+      systems: 50,
+    };
+    
+    // Bloom size settings
+    const MIN_SIZE = 60;   // Minimale Größe bei 0%
+    const MAX_SIZE = 450;  // Maximale Größe bei 100% (überlappen sich dann)
+    
+    // Legacy domain weights (computed from super-domains)
     const domainWeights: Record<string, number> = {};
     
-    // Alle Domain-Slider
-    const sliders = document.querySelectorAll<HTMLInputElement>('.fog-slider');
-    const fogBlobs = document.querySelectorAll<HTMLElement>('.fog-blob');
+    // Elements
+    const bloomControls = document.querySelectorAll<HTMLElement>('.bloom-control');
     const domainBar = document.getElementById('activeDomainBar');
     
-    // Initialisiere Weights
-    sliders.forEach(slider => {
-      const domain = slider.dataset.domain || '';
-      domainWeights[domain] = parseInt(slider.value);
-    });
+    // Initialize domain weights from super-domains
+    function updateDomainWeightsFromSuper() {
+      for (const [superDomain, domains] of Object.entries(superDomainMap)) {
+        const weight = superDomainWeights[superDomain];
+        for (const domain of domains) {
+          domainWeights[domain] = weight;
+        }
+      }
+    }
+    updateDomainWeightsFromSuper();
     
-    // Slider Event Handler
-    sliders.forEach(slider => {
-      slider.addEventListener('input', () => {
-        const domain = slider.dataset.domain || '';
-        const value = parseInt(slider.value);
-        domainWeights[domain] = value;
+    // ═══════════════════════════════════════════════════════════════════════════
+    // BLOOM DRAG INTERACTION - Vertikales Ziehen
+    // ═══════════════════════════════════════════════════════════════════════════
+    
+    bloomControls.forEach(bloom => {
+      let isDragging = false;
+      let startY = 0;
+      let startValue = 50;
+      
+      const superDomain = bloom.dataset.superdomain || '';
+      const circle = bloom.querySelector<HTMLElement>('.bloom-circle');
+      const glow = bloom.querySelector<HTMLElement>('.bloom-glow');
+      const valueEl = bloom.querySelector<HTMLElement>('.bloom-value');
+      const isTop = bloom.classList.contains('top-left') || bloom.classList.contains('top-right');
+      
+      // Pointer down
+      bloom.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        startY = e.clientY;
+        startValue = superDomainWeights[superDomain];
+        bloom.classList.add('dragging');
+        bloom.setPointerCapture(e.pointerId);
+        e.preventDefault();
+      });
+      
+      // Pointer move
+      bloom.addEventListener('pointermove', (e) => {
+        if (!isDragging) return;
         
-        // Update Nebel-Opacity
-        fogBlobs.forEach(blob => {
-          if (blob.dataset.domain === domain) {
-            const opacity = 0.1 + (value / 100) * 0.5;
-            blob.style.opacity = String(opacity);
-            
-            // Scale basierend auf Wert
-            const scale = 0.5 + (value / 100) * 1;
-            blob.style.transform = `scale(${scale})`;
-          }
-        });
+        // Berechne neuen Wert basierend auf Y-Bewegung
+        // Für Top-Controls: Nach unten ziehen = mehr, nach oben = weniger
+        // Für Bottom-Controls: Nach oben ziehen = mehr, nach unten = weniger
+        const deltaY = e.clientY - startY;
+        const sensitivity = 0.5; // Pixel pro Prozent
+        const direction = isTop ? 1 : -1;
         
-        // Update Domain Bar
+        let newValue = startValue + (deltaY * sensitivity * direction);
+        newValue = Math.max(0, Math.min(100, newValue));
+        
+        // Update state
+        superDomainWeights[superDomain] = Math.round(newValue);
+        updateDomainWeightsFromSuper();
+        
+        // Update UI
+        updateBloomVisuals(bloom, newValue);
         updateDomainBar();
-        
-        // Update Domain Pill Highlighting
+        updateDomainPills();
+      });
+      
+      // Pointer up
+      bloom.addEventListener('pointerup', () => {
+        isDragging = false;
+        bloom.classList.remove('dragging');
+      });
+      
+      bloom.addEventListener('pointerleave', () => {
+        if (isDragging) {
+          isDragging = false;
+          bloom.classList.remove('dragging');
+        }
+      });
+      
+      // Double-click to reset
+      bloom.addEventListener('dblclick', () => {
+        superDomainWeights[superDomain] = 50;
+        updateDomainWeightsFromSuper();
+        updateBloomVisuals(bloom, 50);
+        updateDomainBar();
         updateDomainPills();
       });
     });
     
+    function updateBloomVisuals(bloom: HTMLElement, value: number) {
+      const circle = bloom.querySelector<HTMLElement>('.bloom-circle');
+      const glow = bloom.querySelector<HTMLElement>('.bloom-glow');
+      const valueEl = bloom.querySelector<HTMLElement>('.bloom-value');
+      
+      // Berechne Größe basierend auf Wert
+      const size = MIN_SIZE + (value / 100) * (MAX_SIZE - MIN_SIZE);
+      const opacity = 0.3 + (value / 100) * 0.7;
+      const glowSize = size * 1.5;
+      
+      if (circle) {
+        circle.style.width = `${size}px`;
+        circle.style.height = `${size}px`;
+        circle.style.opacity = String(opacity);
+      }
+      
+      if (glow) {
+        glow.style.width = `${glowSize}px`;
+        glow.style.height = `${glowSize}px`;
+        glow.style.opacity = String(0.1 + (value / 100) * 0.3);
+      }
+      
+      if (valueEl) {
+        valueEl.textContent = `${Math.round(value)}%`;
+      }
+    }
+    
     function updateDomainBar() {
       if (!domainBar) return;
       
-      // Sortiere Domains nach Gewicht
-      const sortedDomains = Object.entries(domainWeights)
+      // Zeige Super-Domains sortiert nach Gewicht
+      const sortedSuper = Object.entries(superDomainWeights)
         .filter(([_, v]) => v > 0)
         .sort((a, b) => b[1] - a[1]);
       
-      const total = sortedDomains.reduce((sum, [_, v]) => sum + v, 0);
+      const total = sortedSuper.reduce((sum, [_, v]) => sum + v, 0);
       
-      domainBar.innerHTML = sortedDomains.map(([domain, weight]) => {
-        const pill = document.querySelector(`.domain-pill[data-domain="${domain}"]`);
-        const color = pill ? getComputedStyle(pill).getPropertyValue('--pill-color') : '#6B8AFF';
+      const colorMap: Record<string, string> = {
+        life: '#4AE3A7',
+        science: '#A78BFA',
+        earth: '#F59E0B',
+        systems: '#38BDF8',
+      };
+      
+      domainBar.innerHTML = sortedSuper.map(([sd, weight]) => {
+        const color = colorMap[sd] || '#6B8AFF';
         const flex = (weight / total) * 100;
         return `<div class="active-domains-segment" style="flex: ${flex}; background: ${color};"></div>`;
       }).join('');
@@ -645,6 +944,15 @@ const domainGroups = {
         const domain = (pill as HTMLElement).dataset.domain || '';
         const weight = domainWeights[domain] || 50;
         
+        // Set intensity level for graduated glow
+        let intensity = 'none';
+        if (weight > 80) intensity = 'max';
+        else if (weight > 60) intensity = 'high';
+        else if (weight > 40) intensity = 'medium';
+        else if (weight > 20) intensity = 'low';
+        
+        (pill as HTMLElement).dataset.intensity = intensity;
+        
         if (weight > 70) {
           pill.classList.add('active');
         } else {
@@ -653,39 +961,50 @@ const domainGroups = {
       });
     }
     
-    // Search Form - füge Domain-Weights als Parameter hinzu
+    // ═══════════════════════════════════════════════════════════════════════════
+    // SEARCH WITH SUPER-DOMAIN WEIGHTS
+    // ═══════════════════════════════════════════════════════════════════════════
+    
+    // Search Form - verwende Super-Domain Gewichtung
     const searchForm = document.querySelector('.search-container');
     searchForm?.addEventListener('submit', (e) => {
       e.preventDefault();
       const form = e.target as HTMLFormElement;
       const query = (form.querySelector('.search-box') as HTMLInputElement).value;
       
-      // Finde Top-Domains (Gewicht > 60)
-      const topDomains = Object.entries(domainWeights)
+      // Finde Top-Super-Domain (Gewicht > 60)
+      const topSuper = Object.entries(superDomainWeights)
         .filter(([_, v]) => v > 60)
-        .sort((a, b) => b[1] - a[1])
-        .slice(0, 3)
-        .map(([d]) => d);
+        .sort((a, b) => b[1] - a[1]);
       
-      if (topDomains.length === 1) {
-        // Nur eine Domain aktiv -> gehe direkt zur Domain-Seite
-        window.location.href = `/${topDomains[0]}?q=${encodeURIComponent(query)}`;
-      } else if (topDomains.length > 1) {
-        // Mehrere Domains -> Cross-Domain Suche
-        window.location.href = `/search?q=${encodeURIComponent(query)}&domains=${topDomains.join(',')}`;
+      if (topSuper.length >= 1) {
+        // Höchste Super-Domain → erste Domain dieser Gruppe
+        const primarySuper = topSuper[0][0];
+        const primaryDomain = superDomainMap[primarySuper][0];
+        
+        // Alle aktiven Domains dieser Super-Domains
+        const activeDomains = topSuper.flatMap(([sd]) => superDomainMap[sd]);
+        
+        if (topSuper.length === 1 && topSuper[0][1] > 80) {
+          // Eine Super-Domain sehr dominant → direkt zur primären Domain
+          window.location.href = `/${primaryDomain}?q=${encodeURIComponent(query)}`;
+        } else {
+          // Mehrere aktiv → Cross-Domain Suche
+          window.location.href = `/search?q=${encodeURIComponent(query)}&domains=${activeDomains.slice(0, 5).join(',')}`;
+        }
       } else {
-        // Keine spezifische Domain -> Standardsuche
+        // Keine spezifische Gewichtung → Standardsuche
         window.location.href = `/fungi?q=${encodeURIComponent(query)}`;
       }
     });
     
-    // Show controls on hover near corners
-    document.querySelectorAll('.fog-controls').forEach(ctrl => {
-      ctrl.addEventListener('mouseenter', () => ctrl.classList.add('active'));
-      ctrl.addEventListener('mouseleave', () => ctrl.classList.remove('active'));
+    // Initialize visuals
+    bloomControls.forEach(bloom => {
+      const superDomain = bloom.dataset.superdomain || '';
+      const value = superDomainWeights[superDomain];
+      updateBloomVisuals(bloom, value);
     });
-    
-    // Initial update
     updateDomainBar();
+    updateDomainPills();
   </script>
 </Base>

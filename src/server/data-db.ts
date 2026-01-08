@@ -65,16 +65,36 @@ export async function loadAllItemsFromDB(forceReload = false): Promise<ItemData[
       return [];
     }
 
-    // Load all entities for this domain
+    // Load all entities for this domain (primary + cross-domain with relevance)
+    const minRelevance = 0.15; // Show cross-domain entities with at least 15% relevance
+    
+    // Get entities: primary domain OR has facet in this domain
     const entities = await prisma.entity.findMany({
       where: { 
-        domainId: domain.id,
-        isActive: true 
+        isActive: true,
+        OR: [
+          { primaryDomainId: domain.id },
+          {
+            facets: {
+              some: {
+                domainId: domain.id,
+                relevance: { gte: minRelevance }
+              }
+            }
+          }
+        ]
+      },
+      include: {
+        primaryDomain: true,
+        facets: {
+          where: { domainId: domain.id },
+          take: 1
+        }
       },
       orderBy: { name: 'asc' }
     });
 
-    console.log(`[Data] Loaded ${entities.length} entities from DB for domain ${domainSlug}`);
+    console.log(`[Data] Loaded ${entities.length} entities from DB for domain ${domainSlug} (includes cross-domain)`);
 
     // Transform to ItemData format
     const items: ItemData[] = entities.map(entity => {
@@ -191,7 +211,12 @@ export async function getItemBySlugFromDB(slug: string): Promise<ItemData | null
 }
 
 /**
- * Search entities in database
+ * Search entities in database using Faceted Search
+ * 
+ * Nutzt die neue Faceted Entity Graph Architektur:
+ * - Sucht in der aktuellen Domain (primary + cross-domain mit Relevanz)
+ * - Sortiert nach Relevanz-Score
+ * - Unterstützt Query-Matching in name, scientificName, description, keywords
  */
 export async function searchItemsInDB(query: string, limit = 20): Promise<ItemData[]> {
   const siteType = getSiteType();
@@ -200,37 +225,88 @@ export async function searchItemsInDB(query: string, limit = 20): Promise<ItemDa
   const domainSlug = KINGDOM_TO_DOMAIN[currentKingdom] || currentKingdom;
 
   try {
+    // Get domain mit searchSensitivity
     const domain = await prisma.domain.findFirst({
       where: { slug: domainSlug }
     });
 
     if (!domain) return [];
 
-    const entities = await prisma.entity.findMany({
+    // Minimum relevance aus Domain-Config (default 0.2)
+    const minRelevance = domain.searchSensitivity ?? 0.2;
+    
+    // Build search conditions
+    const searchConditions = query ? {
+      OR: [
+        { name: { contains: query, mode: 'insensitive' as const } },
+        { scientificName: { contains: query, mode: 'insensitive' as const } },
+        { description: { contains: query, mode: 'insensitive' as const } },
+        { keywords: { hasSome: query.toLowerCase().split(/\s+/) } }
+      ]
+    } : {};
+
+    // Faceted Search: Entities mit Facet in dieser Domain
+    // Sortiert nach Relevanz (primaryDomain = 1.0, sonst Facet-Relevanz)
+    const entitiesWithFacets = await prisma.entity.findMany({
       where: {
-        domainId: domain.id,
         isActive: true,
+        ...searchConditions,
         OR: [
-          { name: { contains: query, mode: 'insensitive' } },
-          { scientificName: { contains: query, mode: 'insensitive' } },
-          { description: { contains: query, mode: 'insensitive' } },
-          { keywords: { has: query.toLowerCase() } }
+          // Primary domain entities
+          { primaryDomainId: domain.id },
+          // Cross-domain entities with facet in this domain
+          { 
+            facets: {
+              some: {
+                domainId: domain.id,
+                relevance: { gte: minRelevance }
+              }
+            }
+          }
         ]
       },
-      take: limit,
+      include: {
+        primaryDomain: true,
+        facets: {
+          where: { domainId: domain.id },
+          take: 1
+        }
+      },
+      take: limit * 2, // Get more to sort by relevance
       orderBy: { name: 'asc' }
     });
 
-    return entities.map(entity => ({
+    // Calculate effective relevance and sort
+    const entitiesWithRelevance = entitiesWithFacets.map(entity => {
+      // Primary domain = 1.0, otherwise use facet relevance
+      const isPrimary = entity.primaryDomainId === domain.id;
+      const facetRelevance = entity.facets[0]?.relevance ?? 0;
+      const relevance = isPrimary ? 1.0 : facetRelevance;
+      
+      return { entity, relevance };
+    });
+
+    // Sort by relevance descending, then by name
+    entitiesWithRelevance.sort((a, b) => {
+      if (b.relevance !== a.relevance) return b.relevance - a.relevance;
+      return a.entity.name.localeCompare(b.entity.name);
+    });
+
+    // Take top results
+    const topResults = entitiesWithRelevance.slice(0, limit);
+
+    return topResults.map(({ entity, relevance }) => ({
       id: entity.slug,
       slug: entity.slug,
       name: entity.name,
       scientific_name: entity.scientificName || undefined,
       description: entity.description || undefined,
       image: entity.image || undefined,
-      kingdom: DOMAIN_TO_KINGDOM[domainSlug] || domainSlug,
+      kingdom: DOMAIN_TO_KINGDOM[entity.primaryDomain?.slug || domainSlug] || domainSlug,
       _kingdom: currentKingdom,
-      _fromDatabase: true
+      _fromDatabase: true,
+      _relevance: relevance,
+      _isPrimaryDomain: entity.primaryDomainId === domain.id
     } as ItemData));
 
   } catch (error) {
