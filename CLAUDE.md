@@ -15,11 +15,18 @@
 │  Port 4321 - EINE Astro-Instanz für ALLE Domains                │
 │                                                                 │
 │  Routes:                                                        │
-│  ├─ /                      Grid (aktuelle Domain via SITE_TYPE) │
-│  ├─ /{slug}                Entity Detail Page                   │
+│  ├─ /                      Landing Page (Fog Sliders!)          │
+│  ├─ /{domain}              Domain Grid (fungi, phyto, etc.)     │
+│  ├─ /{domain}/{slug}       Entity Detail Page                   │
 │  ├─ /api/nexus/*           Nexus API (7 Endpoints)              │
 │  ├─ /api/search            Volltextsuche                        │
 │  └─ /api/health            Health Check                         │
+│                                                                 │
+│  Neue Landing Page Features:                                    │
+│  ├─ Minimalistisches Design (wie Bifroest)                      │
+│  ├─ Domain "Fog Sliders" in 4 Ecken                             │
+│  ├─ 17 Domain Pills mit direkten Links                          │
+│  └─ Smart Search (domain-gewichtet)                             │
 │                                                                 │
 │  Datenquelle:                                                   │
 │  └─ PostgreSQL (DATA_SOURCE=database)                           │

@@ -1,36 +1,20 @@
 ---
 /**
- * AMORPH v7 - Domain Page
+ * AMORPH v7 - Index Page
  * 
- * Route: /fungi, /phyto, /drako, etc.
- * Identisch mit index.astro, aber Domain aus URL.
+ * Hauptseite mit Grid-Ansicht.
+ * 
+ * SEO & Engagement optimiert:
+ * - Prioritäts-Felder werden zuerst gezeigt (Essbarkeit, Heilwirkung, Sicherheit)
+ * - Visuelle Morphs (Badge, Bar) vor technischen Daten (Range, Text)
  */
 
 import Base from '../layouts/Base.astro';
-import { loadConfig, getAllPerspectives, getSiteType, SITE_META, type SiteType } from '../server/config';
+import { loadConfig, getAllPerspectives, getSiteType, SITE_META } from '../server/config';
 import { searchItems, loadAllItems } from '../server/data';
 import { renderValue, createSingleContext } from '../morphs';
 import { detectType } from '../core/detection';
 import type { RenderContext, MorphType } from '../core/types';
-
-// Get domain from URL
-const { domain } = Astro.params;
-
-// Validate domain
-const validDomains: SiteType[] = [
-  'fungi', 'phyto', 'drako',
-  'paleo', 'tekto', 'mine',
-  'bakterio', 'viro', 'geno', 'anato',
-  'chemo', 'physi', 'kosmo',
-  'netzo', 'cognito', 'biotech', 'socio'
-];
-
-if (!domain || !validDomains.includes(domain as SiteType)) {
-  return Astro.redirect('/');
-}
-
-// Set SITE_TYPE for this request
-process.env.SITE_TYPE = domain;
 
 // Load config
 await loadConfig();
@@ -808,7 +792,7 @@ const gridContext: RenderContext = {
         
         // Bild-URL: Aus dem image-Feld
         // Bilder liegen in public/images/{domain}/{slug}/
-        const kingdom = domain; // Domain aus URL
+        const kingdom = siteMeta.dataFolder; // 'fungi', 'plantae', 'therion'
         const imageField = item.image ? String(item.image) : null;
         let imageUrl: string | null = null;
         if (imageField) {
@@ -913,7 +897,7 @@ const gridContext: RenderContext = {
               )}
               <div class="item-title-row">
                 <h2 class="item-name">{item.name}</h2>
-                <a href={'/' + domain + '/' + item.slug} class="item-detail-link" title="Details anzeigen">→</a>
+                <a href={'/' + item.slug} class="item-detail-link" title="Details anzeigen">→</a>
               </div>
               {item.wissenschaftlich && (
                 <span class="item-scientific">{String(item.wissenschaftlich)}</span>

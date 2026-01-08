@@ -1,19 +1,21 @@
-# Server Module (v8.0)
+# Server Module (v8.1)
 
-JSON-basierter Data Loader und Server-Logik für AMORPH.
+PostgreSQL Data Layer und Server-Logik für AMORPH.
 
-## ⚠️ Wichtig: Lokale JSON-Dateien!
+## ⚠️ Wichtig: PostgreSQL ist die Haupt-Datenquelle!
 
 ```bash
-# Development & Production (Standard)
-DATA_SOURCE=local   # Verwendet data-local/ JSON-Dateien
+# Production (Standard)
+DATA_SOURCE=database   # PostgreSQL via Prisma
+DATABASE_URL=postgresql://bifroest:bifroest_secret@localhost:5432/bifroest
 ```
 
-**Datenquelle:** Lokale JSON-Dateien aus `data-local/`
+**Datenquelle:** PostgreSQL (Container: bifroest-postgres)
 
-- `universe-index.json` - Species Index mit allen 62 Entities
-- `bifroest-experts.json` - Experten-Datenbank
-- `fungi/`, `plantae/`, etc. - Detaillierte Entity-Daten pro Domain
+- 17 Domains registriert
+- 67 Entities (30 Fungi, 37 Phyto)
+- 6 Perspektiven
+- Bilder: `public/images/{domain}/{slug}/`
 
 ---
 

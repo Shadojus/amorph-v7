@@ -1,4 +1,4 @@
-# AMORPH Pages (v8.0)
+# AMORPH Pages (v8.1)
 
 > Teil von: [src](../CLAUDE.md) | Workspace Root: [Bifroest](../../../CLAUDE.md)
 
@@ -6,18 +6,18 @@
 
 | Route | Seite | Beschreibung |
 |-------|-------|-------------|
-| `/` | `index.astro` | Startseite |
-| `/[slug]` | `[slug].astro` | Species-Detail |
-| `/[a]/vs/[b]` | `[a]/vs/[b].astro` | Vergleich |
-| `/suche` | `suche.astro` | Suchseite |
-| `/api/*` | `api/` | API-Endpoints |
+| `/` | `index.astro` | ⭐ Landing Page mit Fog Sliders |
+| `/{domain}` | `[domain].astro` | Domain Grid (fungi, phyto, etc.) |
+| `/{domain}/{slug}` | `[domain]/[slug].astro` | Entity Detail |
+| `/search` | `search.astro` | Cross-Domain Suche |
+| `/api/nexus/*` | `api/nexus/` | Nexus API Endpoints |
 
 ## Page Structure
 
 ```astro
 ---
-// Datenladen aus lokalem JSON
-const items = await loadSiteItems();  // → data-local/
+// Datenladen aus PostgreSQL (DATA_SOURCE=database)
+const items = await loadSiteItems();  // → Prisma/PostgreSQL
 
 // Oder spezifisches Item
 const item = await loadItemBySlug(slug);
@@ -32,37 +32,21 @@ const item = await loadItemBySlug(slug);
 | Route | Methode | Beschreibung |
 |-------|---------|-------------|
 | `/api/health` | GET | Server-Status |
-| `/api/items` | GET | Alle Items |
-| `/api/item/[slug]` | GET | Item nach Slug |
-| `/api/search` | GET | Suche |
+| `/api/nexus/` | GET | Nexus API Index |
+| `/api/nexus/domains` | GET | Alle 17 Domains |
+| `/api/nexus/entities` | GET | Entities (filter: domain, search) |
+| `/api/nexus/stats` | GET | Statistiken |
+| `/api/search` | GET | Volltextsuche |
 
 ### Health Response
 
 ```json
 {
   "status": "healthy",
-  "timestamp": "2025-01-02T...",
-  "version": "8.0.0",
-  "dataSource": "local"
+  "timestamp": "2026-01-08T...",
+  "version": "8.1.0",
+  "dataSource": "database"
 }
-```
-
-## Dynamische Routes
-
-### `/[slug].astro`
-
-```astro
----
-export async function getStaticPaths() {
-  const items = await loadSiteItems();
-  return items.map(item => ({
-    params: { slug: item.slug },
-    props: { item }
-  }));
-}
-
-const { item } = Astro.props;
----
 ```
 
 ## Related
@@ -75,4 +59,4 @@ const { item } = Astro.props;
 
 ---
 
-> **v8.0:** Daten kommen aus lokalen JSON-Dateien (`data-local/`).
+> **v8.1:** Daten kommen aus PostgreSQL (`DATA_SOURCE=database`). Bilder in `public/images/`.

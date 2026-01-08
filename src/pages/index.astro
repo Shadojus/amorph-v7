@@ -1,1022 +1,691 @@
 ---
 /**
- * AMORPH v7 - Index Page
+ * AMORPH - Minimalistische Startseite
  * 
- * Hauptseite mit Grid-Ansicht.
- * 
- * SEO & Engagement optimiert:
- * - Prioritäts-Felder werden zuerst gezeigt (Essbarkeit, Heilwirkung, Sicherheit)
- * - Visuelle Morphs (Badge, Bar) vor technischen Daten (Range, Text)
+ * Ähnlich wie Bifroest-Platform aber für Datensuche statt Experten.
+ * Mit Nebelschiebern in den Ecken für Domain-Gewichtung.
  */
 
 import Base from '../layouts/Base.astro';
-import { loadConfig, getAllPerspectives, getSiteType, SITE_META } from '../server/config';
-import { searchItems, loadAllItems } from '../server/data';
-import { renderValue, createSingleContext } from '../morphs';
-import { detectType } from '../core/detection';
-import type { RenderContext, MorphType } from '../core/types';
+import { SITE_META, type SiteType } from '../server/config';
 
-// Load config
-await loadConfig();
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// ENGAGEMENT-OPTIMIERTE FELD-PRIORISIERUNG
-// ═══════════════════════════════════════════════════════════════════════════════
-
-/**
- * HIGH-VALUE FIELDS - Die "Knaller" für maximales User-Engagement
- * 
- * Zielgruppen:
- * - Psychonauten: Wirkungen, Effekte, Bewusstseinsveränderung
- * - Wellness/Healing: Heilwirkungen, traditionelle Medizin
- * - Foodies: Kulinarik, Geschmack, berühmte Gerichte
- * - Naturliebhaber: Ökologische Besonderheiten, Faszination
- * - Überraschungs-Sucher: "Wusstest du dass..."-Fakten
- * 
- * WICHTIG: Felder für alle 3 Kingdoms (Fungi, Plantae, Therion)!
- * 
- * TIER 1: WOW-FAKTOR - Das Besondere, Überraschende
- * TIER 2: GEFAHR & SICHERHEIT - Sofort wichtig bei Tieren!
- * TIER 3: HEALING - Heilung, Tradition, Spiritualität
- * TIER 4: KULINARIK - Genuss, Geschmack, Lifestyle
- * TIER 5: NATUR & ÖKOLOGIE - Habitat, Rolle, Schutz
- * TIER 6: IDENTIFIKATION - Für die Bestimmer
- */
-const HIGH_VALUE_FIELDS = [
-  // ═══════════════════════════════════════════════════════════════════════════
-  // 📝 DESCRIPTION - Immer zeigen für Compact View
-  // ═══════════════════════════════════════════════════════════════════════════
-  'description',                  // Kurzbeschreibung der Art
-  
-  // ═══════════════════════════════════════════════════════════════════════════
-  // 🌟 TIER 1: WOW-FAKTOR - Was User fasziniert & überrascht
-  // ═══════════════════════════════════════════════════════════════════════════
-  'special_feature',              // ⭐ DAS Besondere an dieser Art
-  'special_ecological_feature',   // Ökologische Superkraft
-  'effect_profile',               // Wirkungsprofil (psychoaktiv, adaptogen, etc.)
-  'historical_significance',      // Historische Bedeutung, Mythen
-  'keystone_species',             // Schlüsselart im Ökosystem
-  'keystone_function',            // Was macht sie zur Schlüsselart
-  'bioremediation_potential',     // Kann Umwelt reinigen (faszinierend!)
-  'bioluminescence',              // Leuchtet im Dunkeln!
-  // 🦁 THERION-SPEZIFISCH: Faszinierende Tierfähigkeiten
-  'venom_source',                 // Gift! (Schlangen, Quallen, etc.)
-  'electric_discharge_max',       // Elektrisch! (Zitteraal)
-  'regeneration_capability',      // Regeneration (Axolotl)
-  'intelligence',                 // Intelligenz (Raben, Oktopus)
-  'bite_force',                   // Beißkraft (Krokodil, Hai)
-  'running_speed_max',            // Geschwindigkeit
-  'strike_speed',                 // Angriffsgeschwindigkeit
-  'migration_distance',           // Wanderung (Wale, Vögel)
-  'waggle_dance_communication',   // Bienen-Tanz!
-  'neoteny',                      // Neotenie (Axolotl bleibt Larve)
-  // 🌿 PLANTAE-SPEZIFISCH: Pflanzenkräfte
-  'allelopathic_effects',         // Chemische Kriegsführung!
-  'invasiveness_score',           // Invasiv (spannend!)
-  'carbon_storage_capacity',      // Klimaheld
-  
-  // ═══════════════════════════════════════════════════════════════════════════
-  // ⚠️ TIER 2: GEFAHR & SICHERHEIT - Bei Tieren SOFORT wichtig!
-  // ═══════════════════════════════════════════════════════════════════════════
-  'safety_potentially_deadly',    // Tödlich gefährlich!
-  'safety_warning_level',         // Warnstufe (Badge!)
-  'safety_warning_text',          // Warntext
-  'safety_summary',               // Sicherheits-Zusammenfassung
-  'safety_edibility_status',      // Essbar/Giftig (mit Prefix!)
-  'safety_risk_inherent',         // Inhärentes Risiko (Progress!)
-  'encounter_protocol',           // Was tun bei Begegnung
-  'toxicity_level',               // Giftigkeit
-  'edibility_status',             // Essbar/Giftig (ohne Prefix - Fungi)
-  'confusion_risk_level',         // Verwechslungsgefahr
-  
-  // ═══════════════════════════════════════════════════════════════════════════
-  // 💫 TIER 3: HEALING & TRADITION - Spiritualität, Medizin, Wellness
-  // ═══════════════════════════════════════════════════════════════════════════
-  'primary_medicinal_uses',       // Hauptheilwirkungen
-  'traditional_medicine_systems', // TCM, Ayurveda, Volksmedizin
-  'traditional_medicine_use',     // Traditionelle Anwendung
-  'tcm_therapeutic_actions',      // TCM Wirkungen
-  'tcm_meridian_tropism',         // TCM Meridiane
-  'ayurveda_dosha_effect',        // Ayurveda Doshas
-  'ayurveda_rasa',                // Ayurveda Geschmack
-  'mechanism_of_action',          // Wie es wirkt (faszinierend!)
-  'active_compounds',             // Die Wirkstoffe
-  'bioactive_compounds',          // Bioaktive Verbindungen
-  'clinical_evidence_level',      // Wissenschaftliche Evidenz
-  'medicinal_status',             // Medizinischer Status
-  
-  // ═══════════════════════════════════════════════════════════════════════════
-  // 🍳 TIER 4: KULINARIK & LIFESTYLE - Genuss, Geschmack, Kochen
-  // ═══════════════════════════════════════════════════════════════════════════
-  'culinary_rating',              // Kulinarische Bewertung ⭐⭐⭐⭐⭐
-  'flavor_profile',               // Geschmacksprofil
-  'signature_dishes_famous',      // Berühmte Gerichte damit
-  'best_cooking_methods',         // Beste Zubereitungsarten
-  'cuisine_traditions',           // Küchen-Traditionen
-  'wine_pairing',                 // Weinempfehlung
-  'aroma_profile',                // Aroma
-  'texture',                      // Textur
-  
-  // ═══════════════════════════════════════════════════════════════════════════
-  // 🌿 TIER 5: NATUR & ÖKOLOGIE - Habitat, Rolle, Schutz
-  // ═══════════════════════════════════════════════════════════════════════════
-  'ecological_role',              // Rolle im Ökosystem
-  'ecological_guild',             // Ökologische Gilde (apex predator, etc.)
-  'trophic_mode_primary',         // Ernährungsweise (carnivore, etc.)
-  'ecological_importance',        // Ökologische Bedeutung
-  'ecosystem_services',           // Was es für die Natur tut
-  'primary_ecosystem_function',   // Hauptfunktion im Ökosystem
-  'habitat_primary',              // Wo es lebt
-  'habitat_types',                // Lebensräume
-  'iucn_global_status',           // Schutzstatus (Badge!)
-  'population_trend',             // Populationstrend
-  'conservation_status',          // Gefährdung
-  'native_range',                 // Heimat
-  
-  // ═══════════════════════════════════════════════════════════════════════════
-  // 🔬 TIER 6: IDENTIFIKATION - Für die Bestimmer
-  // ═══════════════════════════════════════════════════════════════════════════
-  'identification_difficulty',    // Wie schwer zu bestimmen
-  'key_differentiating_features', // Erkennungsmerkmale
-  'common_names',                 // Volksnamen (interessant!)
-  'size_range',                   // Größe (am Ende, nicht am Anfang!)
-  'weight_range',                 // Gewicht
+// Alle 17 Domains mit ihren Meta-Daten
+const domains: Array<{ id: SiteType; name: string; symbol: string; color: string }> = [
+  { id: 'fungi', name: 'Fungi', symbol: '🍄', color: '#6B8AFF' },
+  { id: 'phyto', name: 'Phyto', symbol: '🌿', color: '#7ED69E' },
+  { id: 'drako', name: 'Drako', symbol: '🦎', color: '#5ECFCF' },
+  { id: 'bakterio', name: 'Bakterio', symbol: '🦠', color: '#E57373' },
+  { id: 'viro', name: 'Viro', symbol: '🧬', color: '#9575CD' },
+  { id: 'geno', name: 'Geno', symbol: '🔬', color: '#4FC3F7' },
+  { id: 'anato', name: 'Anato', symbol: '🫀', color: '#F06292' },
+  { id: 'chemo', name: 'Chemo', symbol: '⚗️', color: '#FFD54F' },
+  { id: 'physi', name: 'Physi', symbol: '⚛️', color: '#7986CB' },
+  { id: 'kosmo', name: 'Kosmo', symbol: '🌌', color: '#3F51B5' },
+  { id: 'mine', name: 'Mine', symbol: '💎', color: '#26A69A' },
+  { id: 'tekto', name: 'Tekto', symbol: '🌋', color: '#FF7043' },
+  { id: 'paleo', name: 'Paleo', symbol: '🦴', color: '#8D6E63' },
+  { id: 'netzo', name: 'Netzo', symbol: '🌐', color: '#29B6F6' },
+  { id: 'cognito', name: 'Cognito', symbol: '🧠', color: '#AB47BC' },
+  { id: 'biotech', name: 'Biotech', symbol: '🔧', color: '#66BB6A' },
+  { id: 'socio', name: 'Socio', symbol: '👥', color: '#EC407A' },
 ];
 
-/**
- * MORPH-PRIORISIERUNG nach visuellem Impact
- * Badge > Bar/Radar > Progress > Range > List > Text
- */
-const MORPH_PRIORITY: Partial<Record<MorphType, number>> = {
-  'badge': 1,       // Essbarkeit, Status - HÖCHSTE PRIO
-  'severity': 1,    // Giftigkeit, Warnungen
-  'bar': 2,         // Nährstoffe, Verteilung
-  'radar': 2,       // Compound Profile
-  'sparkline': 3,   // Trends
-  'progress': 3,    // Prozent-Werte
-  'stats': 3,       // Statistiken
-  'rating': 4,      // Bewertungen
-  'range': 5,       // Größen-Ranges (weniger wichtig)
-  'timeline': 5,    // Zeitlinien
-  'list': 6,        // Listen
-  'tag': 6,         // Tags
-  'image': 7,       // Bilder
-  'object': 8,      // Objekte
-  'text': 9,        // Text
-  'number': 9,      // Zahlen
-  'boolean': 9,     // Ja/Nein
-  'date': 9,        // Datum
-  'link': 9         // Links
-};
-
-/**
- * Sortiert Felder für maximales Engagement
- * 1. High-Value Fields zuerst (wenn vorhanden)
- * 2. Dann nach Morph-Typ (Badge vor Range)
- */
-function sortFieldsByInterest(entries: [string, unknown][], itemName?: string): [string, unknown][] {
-  const sorted = entries.sort((a, b) => {
-    const keyA = a[0];
-    const keyB = b[0];
-    
-    // High-Value Fields haben absolute Priorität
-    const hvIndexA = HIGH_VALUE_FIELDS.indexOf(keyA);
-    const hvIndexB = HIGH_VALUE_FIELDS.indexOf(keyB);
-    
-    // Beide sind High-Value: nach Liste sortieren
-    if (hvIndexA !== -1 && hvIndexB !== -1) {
-      return hvIndexA - hvIndexB;
-    }
-    
-    // Nur A ist High-Value: A zuerst
-    if (hvIndexA !== -1) return -1;
-    
-    // Nur B ist High-Value: B zuerst
-    if (hvIndexB !== -1) return 1;
-    
-    // Keine High-Value: nach Morph-Typ sortieren
-    const typeA = detectType(a[1], keyA);
-    const typeB = detectType(b[1], keyB);
-    const prioA = MORPH_PRIORITY[typeA] ?? 10;
-    const prioB = MORPH_PRIORITY[typeB] ?? 10;
-    return prioA - prioB;
-  });
-  
-  // Debug: Log für erstes Item
-  if (itemName) {
-    const top6Keys = sorted.slice(0, 6).map(([k]) => k);
-    const hvMatches = top6Keys.filter(k => HIGH_VALUE_FIELDS.includes(k));
-    console.log(`[GRID] ${itemName} - Top 6: [${top6Keys.join(', ')}] (${hvMatches.length} HIGH_VALUE)`);
-  }
-  
-  return sorted;
-}
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// DATA LOADING
-// ═══════════════════════════════════════════════════════════════════════════════
-
-// Alle Items laden
-const allItems = await loadAllItems();
-
-// Get search params
-const url = new URL(Astro.request.url);
-const query = url.searchParams.get('q') || '';
-const perspectiveIds = url.searchParams.get('p')?.split(',').filter(Boolean) || [];
-
-// Search - PERFORMANCE: Limit auf 12 für schnelleres Initial-Rendering
-const { items, total, perspectivesWithData } = await searchItems({
-  query,
-  perspectives: perspectiveIds,
-  limit: 12  // Reduziert von 50 → 72% weniger DOM-Nodes
-});
-
-// Get perspectives - DYNAMISCH aus Blueprints
-const perspectives = getAllPerspectives();
-
-// Get current site type for header highlighting
-const currentSiteType = getSiteType();
-const siteMeta = SITE_META[currentSiteType];
-
-// Perspektiven-Farben - DYNAMISCH generiert aus geladenen Perspektiven
-const perspectiveColors: Record<string, string[]> = {};
-perspectives.forEach((p, i) => {
-  // HSL-Farbe basierend auf Index für visuelle Unterscheidung
-  const hue = (i * 37) % 360; // Golden angle für gute Farbverteilung
-  perspectiveColors[p.id] = [`hsla(${hue}, 30%, 50%, 0.2)`];
-});
-
-// Render context for grid items
-const gridContext: RenderContext = {
-  mode: 'grid',
-  itemCount: 1,
-  compact: true
+// Domain-Gruppen für die 4 Ecken
+const domainGroups = {
+  life: domains.filter(d => ['fungi', 'phyto', 'drako', 'bakterio', 'viro'].includes(d.id)),
+  science: domains.filter(d => ['geno', 'anato', 'chemo', 'physi', 'kosmo'].includes(d.id)),
+  earth: domains.filter(d => ['mine', 'tekto', 'paleo'].includes(d.id)),
+  systems: domains.filter(d => ['netzo', 'cognito', 'biotech', 'socio'].includes(d.id)),
 };
 ---
 
-<Base title="AMORPH – Übersicht">
-  <!-- Perspektiven-Daten für Client -->
-  <script define:vars={{ perspectiveColors, perspectives }}>
-    window.AMORPH_PERSPECTIVE_COLORS = perspectiveColors;
-    window.AMORPH_PERSPECTIVES = perspectives;
-  </script>
+<Base title="AMORPH – Explore Knowledge">
+  <style>
+    /* ═══════════════════════════════════════════════════════════════════════════
+       LANDING PAGE - Minimalistisch
+       ═══════════════════════════════════════════════════════════════════════════ */
+    
+    .landing {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 2rem;
+    }
+    
+    /* Nebel-Container in den Ecken */
+    .fog-corner {
+      position: fixed;
+      width: 50vw;
+      height: 50vh;
+      pointer-events: none;
+      z-index: 1;
+      transition: opacity 0.5s ease;
+    }
+    
+    .fog-corner.top-left { top: 0; left: 0; }
+    .fog-corner.top-right { top: 0; right: 0; }
+    .fog-corner.bottom-left { bottom: 0; left: 0; }
+    .fog-corner.bottom-right { bottom: 0; right: 0; }
+    
+    .fog-corner .fog-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.3;
+      animation: fog-drift 20s ease-in-out infinite;
+    }
+    
+    @keyframes fog-drift {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(10px, -15px) scale(1.1); }
+      50% { transform: translate(-5px, 10px) scale(0.95); }
+      75% { transform: translate(15px, 5px) scale(1.05); }
+    }
+    
+    /* Domain Slider Controls */
+    .fog-controls {
+      position: fixed;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      border-radius: 12px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    .fog-controls:hover,
+    .fog-controls.active {
+      opacity: 1;
+    }
+    
+    .fog-controls.top-left { top: 1rem; left: 1rem; }
+    .fog-controls.top-right { top: 1rem; right: 1rem; }
+    .fog-controls.bottom-left { bottom: 5rem; left: 1rem; }
+    .fog-controls.bottom-right { bottom: 5rem; right: 1rem; }
+    
+    .fog-control {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .fog-control-symbol {
+      font-size: 1rem;
+      width: 1.5rem;
+      text-align: center;
+    }
+    
+    .fog-slider {
+      width: 80px;
+      height: 4px;
+      -webkit-appearance: none;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      cursor: pointer;
+    }
+    
+    .fog-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--domain-color, #fff);
+      cursor: pointer;
+      box-shadow: 0 0 10px var(--domain-color, #fff);
+    }
+    
+    .fog-control-name {
+      min-width: 60px;
+    }
+    
+    /* Hauptinhalt */
+    .landing-content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      max-width: 600px;
+    }
+    
+    .landing-title {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin: 0 0 0.5rem 0;
+      background: linear-gradient(135deg, #fff 0%, rgba(255,255,255,0.7) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .landing-subtitle {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 3rem;
+      font-style: italic;
+    }
+    
+    /* Such-Container */
+    .search-container {
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+    }
+    
+    .search-box {
+      width: 100%;
+      padding: 1rem 3.5rem 1rem 1.5rem;
+      font-size: 1.1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50px;
+      color: #fff;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+    
+    .search-box::placeholder {
+      color: rgba(255, 255, 255, 0.4);
+    }
+    
+    .search-box:focus {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 30px rgba(100, 150, 255, 0.2);
+    }
+    
+    .search-submit {
+      position: absolute;
+      right: 0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 2.5rem;
+      height: 2.5rem;
+      border: none;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #6B8AFF 0%, #5ECFCF 100%);
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    .search-submit:hover {
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 0 20px rgba(107, 138, 255, 0.5);
+    }
+    
+    .search-submit svg {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+    
+    /* Domain Pills */
+    .domain-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .domain-pill {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    
+    .domain-pill:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--pill-color, rgba(255, 255, 255, 0.3));
+      color: #fff;
+      transform: translateY(-2px);
+    }
+    
+    .domain-pill.active {
+      background: var(--pill-color, rgba(107, 138, 255, 0.3));
+      border-color: var(--pill-color, #6B8AFF);
+      color: #fff;
+    }
+    
+    .domain-pill-symbol {
+      font-size: 1rem;
+    }
+    
+    /* Footer Domains - scrollender Text */
+    .domain-scroll {
+      position: fixed;
+      bottom: 4rem;
+      left: 0;
+      right: 0;
+      overflow: hidden;
+      padding: 1rem 0;
+      z-index: 5;
+    }
+    
+    .domain-scroll-inner {
+      display: flex;
+      gap: 2rem;
+      animation: scroll-left 30s linear infinite;
+      width: max-content;
+    }
+    
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    
+    .domain-scroll-item {
+      color: rgba(255, 255, 255, 0.15);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      white-space: nowrap;
+    }
+    
+    /* Bottom Nav */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      z-index: 50;
+    }
+    
+    .bottom-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      font-size: 0.7rem;
+      transition: color 0.2s ease;
+    }
+    
+    .bottom-nav-item:hover,
+    .bottom-nav-item.active {
+      color: #fff;
+    }
+    
+    .bottom-nav-icon {
+      width: 1.5rem;
+      height: 1.5rem;
+    }
+    
+    /* Active domains indicator */
+    .active-domains-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      display: flex;
+      z-index: 100;
+    }
+    
+    .active-domains-segment {
+      height: 100%;
+      transition: flex 0.3s ease;
+    }
+  </style>
+
+  <!-- Aktive Domains Bar (zeigt Gewichtung) -->
+  <div class="active-domains-bar" id="activeDomainBar"></div>
+
+  <!-- Nebel in den 4 Ecken -->
+  <div class="fog-corner top-left" id="fogLife">
+    {domainGroups.life.map((d, i) => (
+      <div 
+        class="fog-blob" 
+        data-domain={d.id}
+        style={`
+          background: ${d.color};
+          width: ${100 + i * 30}px;
+          height: ${100 + i * 30}px;
+          top: ${10 + i * 15}%;
+          left: ${10 + i * 10}%;
+          animation-delay: ${i * 2}s;
+        `}
+      />
+    ))}
+  </div>
   
-  <!-- View Toggle Script -->
-  <script>
-    // View Toggle - Grid/Compact
-    const viewToggleBtns = document.querySelectorAll<HTMLButtonElement>('.view-toggle-btn');
-    const grid = document.querySelector<HTMLElement>('.amorph-grid');
-    
-    // Load saved preference
-    const savedView = localStorage.getItem('amorph-view') || 'grid';
-    
-    // Filter elements
-    const compactFilters = document.querySelector<HTMLElement>('.compact-filters');
-    const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
-    
-    function setView(view: string): void {
-      if (!grid) return;
-      
-      // Update grid class
-      grid.classList.toggle('view-compact', view === 'compact');
-      
-      // Update button states
-      viewToggleBtns.forEach(btn => {
-        btn.classList.toggle('is-active', btn.dataset.view === view);
-      });
-      
-      // Hide/show search result count in compact view
-      const searchResultInfo = document.querySelector('.search-result-info');
-      if (searchResultInfo) {
-        (searchResultInfo as HTMLElement).style.display = view === 'compact' ? 'none' : '';
-      }
-      
-      // Hide search navigation in compact view (use class for CSS specificity)
-      const searchNav = document.querySelector('.search-nav');
-      if (searchNav) {
-        searchNav.classList.toggle('compact-hidden', view === 'compact');
-      }
-      
-      // Hide active perspectives pills in compact view (use class for CSS specificity)
-      const activePerspectives = document.querySelector('.active-perspectives');
-      if (activePerspectives) {
-        activePerspectives.classList.toggle('compact-hidden', view === 'compact');
-      }
-      
-      // Show/hide compact filters
-      if (compactFilters) {
-        compactFilters.style.display = view === 'compact' ? 'flex' : 'none';
-      }
-      
-      // Save preference
-      localStorage.setItem('amorph-view', view);
-    }
-    
-    // ═══════════════════════════════════════════════════════════════════════════
-    // FILTER LOGIC - Perspektiven Multi-Select mit AND/OR
-    // FIFO Prinzip (max 4 Perspektiven gleichzeitig)
-    // ═══════════════════════════════════════════════════════════════════════════
-    let activePerspectiveFilters: string[] = []; // FIFO Queue, max 4
-    const MAX_PERSPECTIVES = 4;
-    let filterMode: 'or' | 'and' = 'or'; // Default: OR (mindestens eine Perspektive)
-    let currentCluster = 'default';
-    
-    // Perspektiven-Reihenfolge für Clustering
-    const perspectiveOrder = ['culinary', 'medicine', 'safety', 'ecology', 'cultivation', 'chemistry', 'statistics', 'geography', 'temporal', 'economy', 'conservation', 'culture', 'research', 'interactions', 'identification'];
-    
-    // Perspektiven-Farben für Sortierungs-Divider (von Server übernommen)
-    const perspColors = (window as any).AMORPH_PERSPECTIVE_COLORS || {};
-    
-    function applyFilters(): void {
-      if (!grid) return;
-      
-      const items = grid.querySelectorAll<HTMLElement>('.amorph-item');
-      
-      // Perspektiven Filter (Multi-Select mit AND/OR)
-      items.forEach(item => {
-        const perspectiveCounts = JSON.parse(item.dataset.perspectiveCounts || '{}');
-        
-        // Keine Filter aktiv = alle zeigen
-        if (activePerspectiveFilters.length === 0) {
-          item.style.display = '';
-          item.style.opacity = '1';
-          return;
-        }
-        
-        // Prüfe Matches je nach Modus
-        let matchCount = 0;
-        let totalMatchingFields = 0;
-        for (const persp of activePerspectiveFilters) {
-          const count = perspectiveCounts[persp] || 0;
-          if (count > 0) {
-            matchCount++;
-            totalMatchingFields += count;
-          }
-        }
-        
-        const passesFilter = filterMode === 'or' 
-          ? matchCount > 0  // OR: mindestens eine Perspektive
-          : matchCount === activePerspectiveFilters.length; // AND: alle Perspektiven
-        
-        if (passesFilter) {
-          item.style.display = '';
-          // Stärke basierend auf Matches und Feldanzahl
-          const matchRatio = matchCount / activePerspectiveFilters.length;
-          const fieldBonus = Math.min(totalMatchingFields / 15, 0.3);
-          const opacity = Math.min(0.6 + matchRatio * 0.3 + fieldBonus, 1);
-          item.style.opacity = String(opacity);
-        } else {
-          // Keine/unvollständige Matches → stark dimmen
-          item.style.display = '';
-          item.style.opacity = '0.12';
-        }
-      });
-      
-      // Clustering (Sortierung)
-      // Entferne alte Perspektiven-Divider
-      grid.querySelectorAll('.perspective-divider').forEach(d => d.remove());
-      
-      if (currentCluster !== 'default') {
-        const itemsArray = Array.from(items);
-        
-        if (currentCluster === 'alphabetical') {
-          itemsArray.sort((a, b) => {
-            const nameA = a.dataset.name || '';
-            const nameB = b.dataset.name || '';
-            return nameA.localeCompare(nameB);
-          });
-        } else if (currentCluster === 'perspective') {
-          // Nach Perspektive sortieren - aktive Perspektiven zuerst!
-          itemsArray.sort((a, b) => {
-            const perspA = a.dataset.perspective || 'zzz';
-            const perspB = b.dataset.perspective || 'zzz';
-            const countsA = JSON.parse(a.dataset.perspectiveCounts || '{}');
-            const countsB = JSON.parse(b.dataset.perspectiveCounts || '{}');
-            
-            // Aktive Filter-Perspektiven haben Priorität
-            const aHasActive = activePerspectiveFilters.some(p => countsA[p] > 0);
-            const bHasActive = activePerspectiveFilters.some(p => countsB[p] > 0);
-            
-            if (aHasActive !== bHasActive) {
-              return aHasActive ? -1 : 1; // Items mit aktiver Perspektive zuerst
-            }
-            
-            // Dann nach dominanter Perspektive
-            const indexA = perspectiveOrder.indexOf(perspA);
-            const indexB = perspectiveOrder.indexOf(perspB);
-            if (indexA !== indexB) {
-              return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
-            }
-            
-            // Bei gleicher Perspektive: Stärkere zuerst
-            const strengthA = parseFloat(a.dataset.perspectiveStrength || '0');
-            const strengthB = parseFloat(b.dataset.perspectiveStrength || '0');
-            return strengthB - strengthA;
-          });
-        }
-        
-        // Erst alle Items in sortierter Reihenfolge anhängen
-        itemsArray.forEach(item => grid.appendChild(item));
-        
-        // DANN Perspektiven-Divider einfügen (nur bei perspective-Sortierung)
-        if (currentCluster === 'perspective') {
-          let lastPersp = '';
-          itemsArray.forEach(item => {
-            const persp = item.dataset.perspective || '';
-            if (persp && persp !== lastPersp) {
-              const divider = document.createElement('div');
-              divider.className = 'perspective-divider';
-              divider.dataset.perspective = persp;
-              
-              // Farbe aus perspColors extrahieren
-              const colorArr = perspColors[persp];
-              if (colorArr && colorArr[0]) {
-                // rgba(180, 140, 120, 0.2) → rgba(180, 140, 120, 0.7) für sichtbarere Farbe
-                const solidColor = colorArr[0].replace('0.2)', '0.7)').replace(', 0.2)', ', 0.7)');
-                divider.style.setProperty('--persp-color', solidColor);
-              }
-              
-              // Perspektiven-Namen aus dynamisch geladenen Perspektiven
-              const loadedPerspectives = (window as any).AMORPH_PERSPECTIVES || [];
-              const perspData = loadedPerspectives.find((p: any) => p.id === persp);
-              const perspLabel = perspData?.name || persp.charAt(0).toUpperCase() + persp.slice(1).replace(/_/g, ' ');
-              
-              divider.innerHTML = `<span class="perspective-divider-line"></span><span class="perspective-divider-label">${perspLabel}</span><span class="perspective-divider-line"></span>`;
-              
-              // Divider VOR dem Item einfügen
-              item.parentNode?.insertBefore(divider, item);
-              lastPersp = persp;
-            }
-          });
-        }
-      }
-    }
-    
-    // Filter button click handlers
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const filterType = btn.dataset.filter;
-        const value = btn.dataset.value || '';
-        
-        if (filterType === 'perspective') {
-          if (value === 'all') {
-            // "Alle" button = clear all filters
-            activePerspectiveFilters = [];
-          } else {
-            const idx = activePerspectiveFilters.indexOf(value);
-            if (idx !== -1) {
-              // Already active → remove (toggle off)
-              activePerspectiveFilters.splice(idx, 1);
-            } else {
-              // Not active → add with FIFO
-              activePerspectiveFilters.push(value);
-              // FIFO: Remove oldest if over limit
-              if (activePerspectiveFilters.length > MAX_PERSPECTIVES) {
-                activePerspectiveFilters.shift();
-              }
-            }
-          }
-          // Update button states
-          document.querySelectorAll('.filter-btn[data-filter="perspective"]').forEach(b => {
-            const btnValue = b.getAttribute('data-value') || '';
-            if (btnValue === 'all') {
-              b.classList.toggle('is-active', activePerspectiveFilters.length === 0);
-            } else {
-              b.classList.toggle('is-active', activePerspectiveFilters.includes(btnValue));
-            }
-          });
-          // Update button colors
-          updatePerspectiveButtonColors();
-          // Show/hide AND/OR toggle based on filter count
-          const modeToggle = document.querySelector('.filter-mode-toggle') as HTMLElement;
-          if (modeToggle) {
-            modeToggle.style.display = activePerspectiveFilters.length >= 2 ? 'flex' : 'none';
-          }
-        } else if (filterType === 'cluster') {
-          currentCluster = value;
-          // Update active state for cluster buttons
-          document.querySelectorAll('.filter-btn[data-filter="cluster"]').forEach(b => {
-            b.classList.toggle('is-active', b.getAttribute('data-value') === value);
-          });
-        } else if (filterType === 'mode') {
-          // AND/OR Toggle
-          filterMode = filterMode === 'or' ? 'and' : 'or';
-          const modeBtn = document.querySelector('.filter-mode-btn') as HTMLElement;
-          if (modeBtn) {
-            modeBtn.textContent = filterMode.toUpperCase();
-            modeBtn.classList.toggle('is-and', filterMode === 'and');
-          }
-        }
-        
-        // Update filter count display
-        updateFilterCount();
-        
-        applyFilters();
-      });
-    });
-    
-    // Filter collapse/expand toggle
-    const filterToggle = document.querySelector('.filter-header-toggle');
-    const filterContent = document.querySelector('.filter-content');
-    if (filterToggle && filterContent) {
-      filterToggle.addEventListener('click', () => {
-        const isExpanded = filterToggle.getAttribute('aria-expanded') === 'true';
-        filterToggle.setAttribute('aria-expanded', String(!isExpanded));
-        filterContent.classList.toggle('is-collapsed', isExpanded);
-      });
-    }
-    
-    // Update filter count in header
-    function updateFilterCount(): void {
-      const countEl = document.querySelector('.filter-header-count');
-      if (countEl) {
-        if (activePerspectiveFilters.length > 0) {
-          countEl.textContent = `(${activePerspectiveFilters.length})`;
-        } else {
-          countEl.textContent = '';
-        }
-      }
-    }
-    
-    // Apply perspective colors to active buttons
-    function updatePerspectiveButtonColors(): void {
-      document.querySelectorAll('.filter-btn[data-filter="perspective"]').forEach(btn => {
-        const color = btn.getAttribute('data-color');
-        const isActive = btn.classList.contains('is-active');
-        if (color && isActive && btn.getAttribute('data-value') !== 'all') {
-          (btn as HTMLElement).style.setProperty('--btn-active-color', color);
-        } else {
-          (btn as HTMLElement).style.removeProperty('--btn-active-color');
-        }
-      });
-    }
-    
-    // Initial color update
-    updatePerspectiveButtonColors();
-    
-    // Initialize with saved view
-    setView(savedView);
-    
-    // Button click handlers
-    viewToggleBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const view = btn.dataset.view || 'grid';
-        setView(view);
-      });
-    });
-    
-    // MOBILE-FRIENDLY: Klick auf Item = Selection, NICHT Navigation
-    // Navigation nur über den Pfeil-Button
-    // Detect touch device
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    
-    if (grid) {
-      grid.addEventListener('click', (e) => {
-        const target = e.target as HTMLElement;
-        
-        // Arrow button navigates to detail - IMMER erlaubt
-        if (target.closest('.item-detail-link')) {
-          return; // Let the link handle navigation
-        }
-        
-        // Ignore copyright clicks
-        if (target.closest('.bifroest-copyright')) {
-          return;
-        }
-        
-        // Field clicks werden vom grid.ts handler behandelt
-        if (target.closest('.amorph-field')) {
-          return;
-        }
-        
-        // MOBILE (compact view): Klick auf Card = NICHT navigieren
-        // User muss den Pfeil-Button benutzen
-        // Das erlaubt Field-Selection auch auf Mobile
-        if (grid.classList.contains('view-compact') && isTouchDevice) {
-          // Auf Touch-Geräten: Kein Auto-Navigate bei Klick auf Card
-          // Zeige stattdessen einen Hinweis oder mache nichts
-          return;
-        }
-        
-        // DESKTOP (compact view): Klick auf Card = navigieren (wie bisher)
-        if (grid.classList.contains('view-compact') && !isTouchDevice) {
-          const item = target.closest('.amorph-item') as HTMLElement;
-          if (item) {
-            const slug = item.dataset.slug;
-            if (slug) {
-              window.location.href = '/' + slug;
-            }
-          }
-        }
-      });
-    }
-  </script>
+  <div class="fog-corner top-right" id="fogScience">
+    {domainGroups.science.map((d, i) => (
+      <div 
+        class="fog-blob" 
+        data-domain={d.id}
+        style={`
+          background: ${d.color};
+          width: ${100 + i * 30}px;
+          height: ${100 + i * 30}px;
+          top: ${10 + i * 15}%;
+          right: ${10 + i * 10}%;
+          animation-delay: ${i * 2}s;
+        `}
+      />
+    ))}
+  </div>
   
-  <!-- ═══════════════════════════════════════════════════════════════════════════
-       HEADER - Site-Switcher mit Bifroest Portal
-       Funginomi (blau), Phytonomi (jade), Drakonomi (türkis) → Bifroest
-       ═══════════════════════════════════════════════════════════════════════════ -->
-  <header class="amorph-header">
-    <!-- Nebel Container - wird ins Bifroest Portal gesaugt -->
-    <div class="particle-field">
-      <!-- Funginomi Nebel (blau) - linker Bereich -->
-      <div class="particle particle-funginomi" style="--delay: 0s; --duration: 12s; --start-x: 0%; --width: 35%;"></div>
-      <div class="particle particle-funginomi" style="--delay: 4s; --duration: 10s; --start-x: 5%; --width: 30%;"></div>
-      <div class="particle particle-funginomi" style="--delay: 8s; --duration: 14s; --start-x: 2%; --width: 32%;"></div>
-      <!-- Phytonomi Nebel (jade) - mittlerer Bereich -->
-      <div class="particle particle-phytonomi" style="--delay: 1s; --duration: 11s; --start-x: 33%; --width: 34%;"></div>
-      <div class="particle particle-phytonomi" style="--delay: 5s; --duration: 13s; --start-x: 30%; --width: 36%;"></div>
-      <div class="particle particle-phytonomi" style="--delay: 9s; --duration: 10s; --start-x: 35%; --width: 32%;"></div>
-      <!-- Drakonomi Nebel (türkis) - rechter Bereich -->
-      <div class="particle particle-drakonomi" style="--delay: 2s; --duration: 10s; --start-x: 60%; --width: 30%;"></div>
-      <div class="particle particle-drakonomi" style="--delay: 6s; --duration: 12s; --start-x: 55%; --width: 35%;"></div>
-      <div class="particle particle-drakonomi" style="--delay: 10s; --duration: 11s; --start-x: 58%; --width: 32%;"></div>
-    </div>
-    
-    <nav class="site-switcher">
-      <a href="https://funginomi.com" class:list={["site-link", { "is-active": currentSiteType === 'fungi' }]} data-site="funginomi" title="Funginomi – Pilze & Fungi">
-        <svg class="site-link-icon" viewBox="0 0 24 24" fill="currentColor">
-          <!-- Mushroom Icon -->
-          <ellipse cx="12" cy="8" rx="7" ry="5"/>
-          <rect x="10" y="12" width="4" height="8" rx="1"/>
-        </svg>
-        <span class="site-link-name">Funginomi</span>
-      </a>
-      <a href="https://phytonomi.com" class:list={["site-link", { "is-active": currentSiteType === 'phyto' }]} data-site="phytonomi" title="Phytonomi – Pflanzen & Flora">
-        <svg class="site-link-icon" viewBox="0 0 24 24" fill="currentColor">
-          <!-- Leaf Icon -->
-          <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
-        </svg>
-        <span class="site-link-name">Phytonomi</span>
-      </a>
-      <a href="https://drakonomi.com" class:list={["site-link", { "is-active": currentSiteType === 'therion' }]} data-site="drakonomi" title="Drakonomi – Tiere & Fauna">
-        <svg class="site-link-icon" viewBox="0 0 24 24" fill="currentColor">
-          <!-- Paw Icon -->
-          <ellipse cx="12" cy="17" rx="5" ry="4"/>
-          <circle cx="7" cy="10" r="2.5"/>
-          <circle cx="17" cy="10" r="2.5"/>
-          <circle cx="5" cy="14" r="2"/>
-          <circle cx="19" cy="14" r="2"/>
-        </svg>
-        <span class="site-link-name">Drakonomi</span>
-      </a>
-      
-      <!-- Bifroest Portal -->
-      <a href="https://bifroest.io" class="bifroest-portal" title="Bifroest – The Bridge">
-        <span class="bifroest-label">part of the</span>
-        <span class="bifroest-name">Bifroest</span>
-        <span class="bifroest-vortex"></span>
-      </a>
-    </nav>
-  </header>
+  <div class="fog-corner bottom-left" id="fogEarth">
+    {domainGroups.earth.map((d, i) => (
+      <div 
+        class="fog-blob" 
+        data-domain={d.id}
+        style={`
+          background: ${d.color};
+          width: ${100 + i * 30}px;
+          height: ${100 + i * 30}px;
+          bottom: ${10 + i * 15}%;
+          left: ${10 + i * 10}%;
+          animation-delay: ${i * 2}s;
+        `}
+      />
+    ))}
+  </div>
   
-  <!-- ═══════════════════════════════════════════════════════════════════════════
-       SEARCH BAR - Floating im Content
-       ═══════════════════════════════════════════════════════════════════════════ -->
-  <div class="search-bar-container">
-    <div class="search-bar-inner">
-      <div class="search-input-wrapper">
-        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"/>
-          <path d="m21 21-4.35-4.35"/>
-        </svg>
+  <div class="fog-corner bottom-right" id="fogSystems">
+    {domainGroups.systems.map((d, i) => (
+      <div 
+        class="fog-blob" 
+        data-domain={d.id}
+        style={`
+          background: ${d.color};
+          width: ${100 + i * 30}px;
+          height: ${100 + i * 30}px;
+          bottom: ${10 + i * 15}%;
+          right: ${10 + i * 10}%;
+          animation-delay: ${i * 2}s;
+        `}
+      />
+    ))}
+  </div>
+  
+  <!-- Slider Controls für die Ecken -->
+  <div class="fog-controls top-left" data-group="life">
+    <div class="fog-controls-title" style="font-size: 0.65rem; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;">LIFE</div>
+    {domainGroups.life.map(d => (
+      <div class="fog-control">
+        <span class="fog-control-symbol">{d.symbol}</span>
+        <input 
+          type="range" 
+          class="fog-slider" 
+          data-domain={d.id}
+          min="0" 
+          max="100" 
+          value="50"
+          style={`--domain-color: ${d.color}`}
+        />
+        <span class="fog-control-name">{d.name}</span>
+      </div>
+    ))}
+  </div>
+  
+  <div class="fog-controls top-right" data-group="science">
+    <div class="fog-controls-title" style="font-size: 0.65rem; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;">SCIENCE</div>
+    {domainGroups.science.map(d => (
+      <div class="fog-control">
+        <span class="fog-control-symbol">{d.symbol}</span>
+        <input 
+          type="range" 
+          class="fog-slider" 
+          data-domain={d.id}
+          min="0" 
+          max="100" 
+          value="50"
+          style={`--domain-color: ${d.color}`}
+        />
+        <span class="fog-control-name">{d.name}</span>
+      </div>
+    ))}
+  </div>
+  
+  <div class="fog-controls bottom-left" data-group="earth">
+    <div class="fog-controls-title" style="font-size: 0.65rem; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;">EARTH</div>
+    {domainGroups.earth.map(d => (
+      <div class="fog-control">
+        <span class="fog-control-symbol">{d.symbol}</span>
+        <input 
+          type="range" 
+          class="fog-slider" 
+          data-domain={d.id}
+          min="0" 
+          max="100" 
+          value="50"
+          style={`--domain-color: ${d.color}`}
+        />
+        <span class="fog-control-name">{d.name}</span>
+      </div>
+    ))}
+  </div>
+  
+  <div class="fog-controls bottom-right" data-group="systems">
+    <div class="fog-controls-title" style="font-size: 0.65rem; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;">SYSTEMS</div>
+    {domainGroups.systems.map(d => (
+      <div class="fog-control">
+        <span class="fog-control-symbol">{d.symbol}</span>
+        <input 
+          type="range" 
+          class="fog-slider" 
+          data-domain={d.id}
+          min="0" 
+          max="100" 
+          value="50"
+          style={`--domain-color: ${d.color}`}
+        />
+        <span class="fog-control-name">{d.name}</span>
+      </div>
+    ))}
+  </div>
+
+  <!-- Hauptinhalt -->
+  <main class="landing">
+    <div class="landing-content">
+      <h1 class="landing-title">AMORPH</h1>
+      <p class="landing-subtitle">formless data, boundless knowledge</p>
+      
+      <form class="search-container" action="/search" method="get">
         <input 
           type="search" 
-          class="search-input-main"
-          placeholder="Search..." 
-          value={query}
+          name="q"
+          class="search-box" 
+          placeholder="Search across all domains..."
           autocomplete="off"
         />
-        <div class="search-nav" style="display: none;">
-          <span class="search-nav-count">0/0</span>
-          <button type="button" class="search-nav-prev" aria-label="Vorheriger Treffer">↑</button>
-          <button type="button" class="search-nav-next" aria-label="Nächster Treffer">↓</button>
-        </div>
-        <!-- View Toggle -->
-        <div class="view-toggle">
-          <button type="button" class="view-toggle-btn is-active" data-view="grid" title="Grid View">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <rect x="3" y="3" width="7" height="7" rx="1"/>
-              <rect x="14" y="3" width="7" height="7" rx="1"/>
-              <rect x="3" y="14" width="7" height="7" rx="1"/>
-              <rect x="14" y="14" width="7" height="7" rx="1"/>
-            </svg>
-          </button>
-          <button type="button" class="view-toggle-btn" data-view="compact" title="Compact Gallery">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <rect x="3" y="3" width="4" height="4" rx="0.5"/>
-              <rect x="10" y="3" width="4" height="4" rx="0.5"/>
-              <rect x="17" y="3" width="4" height="4" rx="0.5"/>
-              <rect x="3" y="10" width="4" height="4" rx="0.5"/>
-              <rect x="10" y="10" width="4" height="4" rx="0.5"/>
-              <rect x="17" y="10" width="4" height="4" rx="0.5"/>
-              <rect x="3" y="17" width="4" height="4" rx="0.5"/>
-              <rect x="10" y="17" width="4" height="4" rx="0.5"/>
-              <rect x="17" y="17" width="4" height="4" rx="0.5"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-      
-      <!-- ═══════════════════════════════════════════════════════════════════════
-           COMPACT VIEW FILTER - Perspektiven & Clustering Controls
-           Nur sichtbar im Compact View - Collapsible
-           ═══════════════════════════════════════════════════════════════════════ -->
-      <div class="compact-filters" style="display: none;">
-        <!-- Filter Header mit Toggle -->
-        <button type="button" class="filter-header-toggle" aria-expanded="true">
-          <span class="filter-header-label">Filter</span>
-          <span class="filter-header-count"></span>
-          <svg class="filter-header-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polyline points="6 9 12 15 18 9"></polyline>
+        <button type="submit" class="search-submit">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.35-4.35"/>
           </svg>
         </button>
-        
-        <div class="filter-content">
-          <div class="filter-group filter-perspective">
-            <span class="filter-label">Perspektive</span>
-            <button type="button" class="filter-btn is-active" data-filter="perspective" data-value="all" title="Alle anzeigen">
-              <span class="filter-icon">✨</span>
-              <span class="filter-text">Alle</span>
-            </button>
-            {/* Dynamisch aus Blueprint-Perspektiven generiert */}
-            {perspectives.map((p, i) => (
-              <button 
-                type="button" 
-                class="filter-btn" 
-                data-filter="perspective" 
-                data-value={p.id} 
-                data-color={`hsla(${(i * 37) % 360}, 30%, 50%, 0.6)`}
-                title={p.name}
-              >
-                <span class="filter-icon">{p.symbol}</span>
-                <span class="filter-text">{p.name}</span>
-              </button>
-            ))}
-          </div>
-          
-          <!-- AND/OR Mode Toggle (nur sichtbar bei 2+ aktiven Perspektiven) -->
-          <div class="filter-group filter-mode-toggle" style="display: none;">
-            <span class="filter-label">Modus</span>
-            <button type="button" class="filter-btn filter-mode-btn" data-filter="mode" title="OR = mindestens eine, AND = alle Perspektiven">
-              OR
-            </button>
-          </div>
-          
-          <div class="filter-group filter-cluster">
-            <span class="filter-label">Sortierung</span>
-            <button type="button" class="filter-btn is-active" data-filter="cluster" data-value="default" title="Standard-Reihenfolge">
-            <span class="filter-text">Standard</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="cluster" data-value="alphabetical" title="Alphabetisch sortieren">
-            <span class="filter-text">A-Z</span>
-          </button>
-          <button type="button" class="filter-btn" data-filter="cluster" data-value="perspective" title="Nach Perspektive gruppieren">
-            <span class="filter-text">Nach Perspektive</span>
-          </button>
-          </div>
-        </div><!-- /filter-content -->
-      </div>
-    </div>
-    <!-- Aktive Perspektiven unter Suche -->
-    <div class="active-perspectives"></div>
-  </div>
-  
-  <!-- Main Grid -->
-  <main class="amorph-main">
-    <div class="amorph-grid">
-      {items.map(item => {
-        // Encode field-perspective mapping for client-side use
-        const fieldPerspectiveMap = item._fieldPerspective || {};
-        const fieldPerspectiveJson = JSON.stringify(fieldPerspectiveMap);
-        
-        // Bild-URL: Aus dem image-Feld
-        // Bilder liegen in public/images/{domain}/{slug}/
-        const kingdom = siteMeta.dataFolder; // 'fungi', 'plantae', 'therion'
-        const imageField = item.image ? String(item.image) : null;
-        let imageUrl: string | null = null;
-        if (imageField) {
-          if (imageField.startsWith('/')) {
-            // Voller Pfad - direkt verwenden
-            imageUrl = imageField;
-          } else {
-            // Dateiname - direkt aus public/images/ laden (schneller als API)
-            imageUrl = '/images/' + kingdom + '/' + item.slug + '/' + encodeURIComponent(imageField);
-          }
-        }
-        
-        // Bifroest: Image copyright sources
-        const itemSources = item._sources || {};
-        const imageSources = (itemSources as any).image || [];
-        const imageSource = imageSources.length > 0 ? imageSources[0] : null;
-        const imageSourcesJson = imageSources.length > 0 ? JSON.stringify(imageSources) : '';
-        
-        // Bifroest: Field experts
-        const fieldExperts = (itemSources as any).fields || {};
-        const fieldExpertsJson = Object.keys(fieldExperts).length > 0 ? JSON.stringify(fieldExperts) : '';
-        
-        // ═══════════════════════════════════════════════════════════════════════════
-        // PERSPEKTIVEN-ANALYSE - Dominante Perspektive bestimmen
-        // Je mehr Felder einer Perspektive, desto stärker der visuelle Akzent
-        // ═══════════════════════════════════════════════════════════════════════════
-        const perspectiveCounts = {};
-        const fieldPerspectives = item._fieldPerspective || {};
-        
-        // Zähle Felder pro Perspektive
-        for (const [_, perspName] of Object.entries(fieldPerspectives)) {
-          perspectiveCounts[perspName] = (perspectiveCounts[perspName] || 0) + 1;
-        }
-        
-        // Finde dominante Perspektive (die mit den meisten Feldern)
-        let dominantPerspective = null;
-        let maxFields = 0;
-        for (const [perspName, count] of Object.entries(perspectiveCounts)) {
-          if (count > maxFields) {
-            maxFields = count;
-            dominantPerspective = perspName;
-          }
-        }
-        
-        // Stärke des Effekts: 0-1 basierend auf Feldanzahl (5+ Felder = volle Stärke)
-        const perspectiveStrength = Math.min(maxFields / 5, 1);
-        
-        // Alle Perspektiven des Items als JSON für Client
-        const perspectiveCountsJson = JSON.stringify(perspectiveCounts);
-        
-        // ═══════════════════════════════════════════════════════════════════════════
-        // HOVER-PEEK - Quick Facts
-        // ═══════════════════════════════════════════════════════════════════════════
-        const scientificName = item.scientific_name || item.wissenschaftlich || '';
-        
-        // Kernfakten extrahieren
-        const peekFacts = [];
-        if (item.edibility_status || item.safety_edibility_status) {
-          peekFacts.push(String(item.edibility_status || item.safety_edibility_status));
-        }
-        if (item.size_range) {
-          peekFacts.push('📏 ' + String(item.size_range));
-        }
-        if (item.season) {
-          peekFacts.push('🗓️ ' + String(item.season));
-        }
-        
-        return (
-          <article 
-            class="amorph-item"
-            data-slug={item.slug}
-            data-id={item.id}
-            data-name={item.name}
-            data-perspective={dominantPerspective}
-            data-perspective-strength={perspectiveStrength.toFixed(2)}
-            data-perspective-counts={perspectiveCountsJson}
-            data-field-perspectives={fieldPerspectiveJson}
-            data-field-experts={fieldExpertsJson}
+      </form>
+      
+      <!-- Domain Pills -->
+      <div class="domain-pills">
+        {domains.map(d => (
+          <a 
+            href={`/${d.id}`} 
+            class="domain-pill"
+            style={`--pill-color: ${d.color}`}
+            data-domain={d.id}
           >
-            {/* Hover-Peek Info Bubble */}
-            {scientificName && (
-              <div class="item-peek">
-                <span class="peek-scientific">{scientificName}</span>
-                {peekFacts.slice(0, 2).map(fact => (
-                  <span class="peek-fact peek-edibility">{fact}</span>
-                ))}
-              </div>
-            )}
-            
-            <div class="item-header">
-              {imageUrl && (
-                <div class="item-image">
-                  {/* API serviert automatisch WebP wenn verfügbar */}
-                  <img src={imageUrl} alt={item.name} loading="lazy" decoding="async" />
-                  {imageSource && (
-                    <button type="button" class="bifroest-copyright" data-sources={imageSourcesJson}>
-                      <span class="bifroest-symbol">©</span>
-                      <span class="bifroest-name">{imageSource.name || imageSource.author || ''}</span>
-                    </button>
-                  )}
-                </div>
-              )}
-              <div class="item-title-row">
-                <h2 class="item-name">{item.name}</h2>
-                <a href={'/' + item.slug} class="item-detail-link" title="Details anzeigen">→</a>
-              </div>
-              {item.wissenschaftlich && (
-                <span class="item-scientific">{String(item.wissenschaftlich)}</span>
-              )}
-            </div>
-            
-            <div class="item-body">
-              {sortFieldsByInterest(
-                Object.entries(item)
-                  .filter(([k]) => !['id', 'slug', 'name', 'bild', 'wissenschaftlich'].includes(k) && !k.startsWith('_')),
-                item.name || item.slug
-              )
-                .slice(0, 6)
-                .map(([key, value]) => {
-                  // Context für Morphs (ohne Bifroest Sources für Felder)
-                  return (
-                    <Fragment set:html={renderValue(value, key, gridContext)} />
-                  );
-                })
-              }
-            </div>
-          </article>
-        );
-      })}
+            <span class="domain-pill-symbol">{d.symbol}</span>
+            <span>{d.name}</span>
+          </a>
+        ))}
+      </div>
     </div>
-    
-    {/* PERFORMANCE: Infinite Scroll Sentinel */}
-    {total > items.length && (
-      <div 
-        class="infinite-scroll-sentinel" 
-        data-loaded={items.length} 
-        data-total={total}
-        aria-hidden="true"
-      >
-        <div class="loading-spinner"></div>
-        <span class="loading-text">Lade mehr...</span>
-      </div>
-    )}
-    
-    {items.length === 0 && (
-      <div class="empty-state">
-        <span class="empty-icon">🔍</span>
-        <p>Keine Ergebnisse gefunden</p>
-      </div>
-    )}
   </main>
   
-  <!-- Selection Bar - Kompakt mit Counter und Clear -->
-  <div class="selection-bar">
-    <span class="selection-counter">0</span>
-    <div class="selection-pills"></div>
-    <button class="selection-clear" title="Clear all">×</button>
+  <!-- Scrollender Domain-Text am unteren Rand -->
+  <div class="domain-scroll">
+    <div class="domain-scroll-inner">
+      {[...domains, ...domains].map(d => (
+        <span class="domain-scroll-item">{d.name}NOMI</span>
+      ))}
+    </div>
   </div>
   
-  <!-- My Species Panel (Overlay) -->
-  <aside class="amorph-compare">
-    <div class="compare-header">
-      <h2>My Species</h2>
-      <div class="compare-header-actions">
-        <button class="compare-autocomplete" title="Complete missing fields from other species">
-          <span class="autocomplete-icon">✨</span>
-          <span class="autocomplete-label">Complete</span>
-        </button>
-        <button class="compare-copy" title="Copy data">
-          <span class="copy-icon">📋</span>
-          <span class="copy-label">Copy</span>
-        </button>
-        <button class="compare-close">×</button>
-      </div>
-    </div>
-    <div class="compare-license-notice">
-      <span class="license-icon">📖</span>
-      <span>Free License – Bei Nutzung bitte Quelle angeben</span>
-    </div>
-    <div class="compare-content">
-      <!-- Filled via JS -->
-    </div>
-  </aside>
-  
-  <!-- ═══════════════════════════════════════════════════════════════════════════
-       FOOTER - Minimal
-       ═══════════════════════════════════════════════════════════════════════════ -->
-  <footer class="amorph-footer">
-    <div class="footer-content">
-      <nav class="footer-links">
-        <a href="/impressum" class="footer-link">Impressum</a>
-        <a href="/datenschutz" class="footer-link">Datenschutz</a>
-        <a href="/about" class="footer-link">Über AMORPH</a>
-        <a href="https://github.com" class="footer-link" target="_blank">GitHub</a>
-      </nav>
-      <p class="footer-copyright">© 2025 AMORPH · <a href="/">Formlos. Zustandslos. Transformierend.</a></p>
-    </div>
-  </footer>
-  
-  <!-- ═══════════════════════════════════════════════════════════════════════════
-       BOTTOM NAVIGATION - Mobile-First App Navigation
-       ═══════════════════════════════════════════════════════════════════════════ -->
+  <!-- Bottom Navigation -->
   <nav class="bottom-nav">
-    <button type="button" class="bottom-nav-item is-active" data-nav="search" aria-label="Focus search">
+    <a href="/" class="bottom-nav-item active">
       <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <circle cx="11" cy="11" r="8"/>
         <path d="m21 21-4.35-4.35"/>
       </svg>
-      <span class="bottom-nav-label">Search</span>
-    </button>
-    <button type="button" class="bottom-nav-item" data-nav="compare" aria-label="My Species">
-      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
-      </svg>
-      <span class="bottom-nav-label">My Species</span>
-      <span class="bottom-nav-badge">0</span>
-    </button>
-    <button type="button" class="bottom-nav-item bifroest-toggle" data-nav="bifroest" aria-label="Bifroest – Quellen anzeigen">
+      <span>Search</span>
+    </a>
+    <a href="/nexus" class="bottom-nav-item">
       <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 2L2 7l10 5 10-5-10-5z"/>
         <path d="m2 17 10 5 10-5"/>
         <path d="m2 12 10 5 10-5"/>
       </svg>
-      <span class="bottom-nav-label">Bifroest</span>
-    </button>
+      <span>Nexus</span>
+    </a>
+    <a href="http://localhost:3004" class="bottom-nav-item">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+      <span>Platform</span>
+    </a>
   </nav>
+
+  <script>
+    // Domain Weights speichern
+    const domainWeights: Record<string, number> = {};
+    
+    // Alle Domain-Slider
+    const sliders = document.querySelectorAll<HTMLInputElement>('.fog-slider');
+    const fogBlobs = document.querySelectorAll<HTMLElement>('.fog-blob');
+    const domainBar = document.getElementById('activeDomainBar');
+    
+    // Initialisiere Weights
+    sliders.forEach(slider => {
+      const domain = slider.dataset.domain || '';
+      domainWeights[domain] = parseInt(slider.value);
+    });
+    
+    // Slider Event Handler
+    sliders.forEach(slider => {
+      slider.addEventListener('input', () => {
+        const domain = slider.dataset.domain || '';
+        const value = parseInt(slider.value);
+        domainWeights[domain] = value;
+        
+        // Update Nebel-Opacity
+        fogBlobs.forEach(blob => {
+          if (blob.dataset.domain === domain) {
+            const opacity = 0.1 + (value / 100) * 0.5;
+            blob.style.opacity = String(opacity);
+            
+            // Scale basierend auf Wert
+            const scale = 0.5 + (value / 100) * 1;
+            blob.style.transform = `scale(${scale})`;
+          }
+        });
+        
+        // Update Domain Bar
+        updateDomainBar();
+        
+        // Update Domain Pill Highlighting
+        updateDomainPills();
+      });
+    });
+    
+    function updateDomainBar() {
+      if (!domainBar) return;
+      
+      // Sortiere Domains nach Gewicht
+      const sortedDomains = Object.entries(domainWeights)
+        .filter(([_, v]) => v > 0)
+        .sort((a, b) => b[1] - a[1]);
+      
+      const total = sortedDomains.reduce((sum, [_, v]) => sum + v, 0);
+      
+      domainBar.innerHTML = sortedDomains.map(([domain, weight]) => {
+        const pill = document.querySelector(`.domain-pill[data-domain="${domain}"]`);
+        const color = pill ? getComputedStyle(pill).getPropertyValue('--pill-color') : '#6B8AFF';
+        const flex = (weight / total) * 100;
+        return `<div class="active-domains-segment" style="flex: ${flex}; background: ${color};"></div>`;
+      }).join('');
+    }
+    
+    function updateDomainPills() {
+      document.querySelectorAll('.domain-pill').forEach(pill => {
+        const domain = (pill as HTMLElement).dataset.domain || '';
+        const weight = domainWeights[domain] || 50;
+        
+        if (weight > 70) {
+          pill.classList.add('active');
+        } else {
+          pill.classList.remove('active');
+        }
+      });
+    }
+    
+    // Search Form - füge Domain-Weights als Parameter hinzu
+    const searchForm = document.querySelector('.search-container');
+    searchForm?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const form = e.target as HTMLFormElement;
+      const query = (form.querySelector('.search-box') as HTMLInputElement).value;
+      
+      // Finde Top-Domains (Gewicht > 60)
+      const topDomains = Object.entries(domainWeights)
+        .filter(([_, v]) => v > 60)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 3)
+        .map(([d]) => d);
+      
+      if (topDomains.length === 1) {
+        // Nur eine Domain aktiv -> gehe direkt zur Domain-Seite
+        window.location.href = `/${topDomains[0]}?q=${encodeURIComponent(query)}`;
+      } else if (topDomains.length > 1) {
+        // Mehrere Domains -> Cross-Domain Suche
+        window.location.href = `/search?q=${encodeURIComponent(query)}&domains=${topDomains.join(',')}`;
+      } else {
+        // Keine spezifische Domain -> Standardsuche
+        window.location.href = `/fungi?q=${encodeURIComponent(query)}`;
+      }
+    });
+    
+    // Show controls on hover near corners
+    document.querySelectorAll('.fog-controls').forEach(ctrl => {
+      ctrl.addEventListener('mouseenter', () => ctrl.classList.add('active'));
+      ctrl.addEventListener('mouseleave', () => ctrl.classList.remove('active'));
+    });
+    
+    // Initial update
+    updateDomainBar();
+  </script>
 </Base>

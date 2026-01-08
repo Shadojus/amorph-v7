@@ -1,4 +1,4 @@
-# AMORPH Source (v8.0)
+# AMORPH Source (v8.1)
 
 > Workspace Root: [Bifroest](../../CLAUDE.md)
 
@@ -26,24 +26,26 @@
 - `core/validation.ts` - Input-Validierung
 - `core/utils.ts` - Utility-Funktionen
 
-## Datenfluss (v8.0)
+## Datenfluss (v8.1)
 
 ```
-Local JSON (data-local/)
+PostgreSQL (DATA_SOURCE=database)    ← PRODUKTION
         ↓
-   loadSiteItems()
+   data-db.ts / Prisma
         ↓
-   config.daten.yaml
+   loadSiteItems() / loadItemBySlug()
         ↓
-  Astro SSR Pages
+   Astro SSR Pages
+        ↓
+   Images: public/images/{domain}/
 ```
 
 ### Datenquellen
 
 | Mode | Beschreibung |
 |------|-------------|
-| `local` | JSON-Dateien in `data-local/` (Default) |
-| `postgres` | PostgreSQL/Prisma (Produktion) |
+| `database` | PostgreSQL/Prisma (⭐ PRODUKTION) |
+| `local` | JSON-Dateien in `data-local/` (Legacy/Backup) |
 
 ## API Endpoints
 

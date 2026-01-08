@@ -27,15 +27,22 @@ public/
 
 ## 📷 Bilder
 
-### Species-Bilder (v8.0)
-Bilder liegen in den lokalen Daten-Ordnern:
+### Species-Bilder (v8.1)
+Bilder liegen jetzt im `public/images/` Ordner:
 ```
-data-local/fungi/hericium-erinaceus/images/
-data-local/plantae/aloe-vera/images/
+public/images/fungi/          # 449 Fungi-Bilder ✅
+public/images/phyto/          # (noch leer)
+public/images/{domain}/{slug}/main.jpg
+```
+
+### Image URL Format
+```
+/images/{domain}/{slug}/main.jpg
+/images/{domain}/{slug}/detail-1.jpg
 ```
 
 ### UI-Assets
-Statische UI-Bilder in `public/images/`
+Statische UI-Bilder in `public/images/ui/`
 
 ---
 

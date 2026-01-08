@@ -19,9 +19,10 @@ Site-spezifische Konfiguration für AMORPH.
 ## daten.yaml
 
 ```yaml
-# IMMER pocketbase - keine lokalen Dateien mehr!
-source: pocketbase
-url: http://127.0.0.1:8090
+# v8.1: PostgreSQL ist die Datenquelle!
+# Die daten.yaml ist legacy - Datenquelle wird via ENV gesteuert:
+# DATA_SOURCE=database → PostgreSQL/Prisma
+# DATA_SOURCE=local → JSON-Fallback
 ```
 
 ---
