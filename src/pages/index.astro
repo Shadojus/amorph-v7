@@ -790,10 +790,8 @@ const gridContext: RenderContext = {
         const fieldPerspectiveMap = item._fieldPerspective || {};
         const fieldPerspectiveJson = JSON.stringify(fieldPerspectiveMap);
         
-        // Bild-URL: Aus dem image-Feld in index.json
-        // Kann sein:
-        // 1. Voller Pfad: "/images/species/slug.webp" → direkt verwenden
-        // 2. Dateiname: "Hericium_erinaceus.jpg" → über API: /api/image/{kingdom}/{slug}/{image}
+        // Bild-URL: Aus dem image-Feld
+        // Bilder liegen in public/images/{domain}/{slug}/
         const kingdom = siteMeta.dataFolder; // 'fungi', 'plantae', 'therion'
         const imageField = item.image ? String(item.image) : null;
         let imageUrl: string | null = null;
@@ -802,8 +800,8 @@ const gridContext: RenderContext = {
             // Voller Pfad - direkt verwenden
             imageUrl = imageField;
           } else {
-            // Dateiname - über API servieren
-            imageUrl = '/api/image/' + kingdom + '/' + item.slug + '/' + encodeURIComponent(imageField);
+            // Dateiname - direkt aus public/images/ laden (schneller als API)
+            imageUrl = '/images/' + kingdom + '/' + item.slug + '/' + encodeURIComponent(imageField);
           }
         }
         

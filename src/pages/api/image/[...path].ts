@@ -25,10 +25,8 @@ const MIME_TYPES: Record<string, string> = {
   '.ico': 'image/x-icon',
 };
 
-// Base data path
-const BASE_DATA_PATH = process.env.NODE_ENV === 'production' 
-  ? join(process.cwd(), 'data')
-  : join(process.cwd(), 'data');
+// Base data path - jetzt public/images für statische Assets
+const BASE_DATA_PATH = join(process.cwd(), 'public', 'images');
 
 export const GET: APIRoute = async ({ params, request }) => {
   try {
