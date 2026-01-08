@@ -22,17 +22,23 @@ interface RangeValue {
   einheit?: string;
 }
 
+function safeNumber(val: unknown, fallback: number): number {
+  const num = Number(val);
+  return isNaN(num) || !isFinite(num) ? fallback : num;
+}
+
 function parseRange(value: unknown): { min: number; max: number; current: number; avg?: number; unit?: string } | null {
   if (typeof value !== 'object' || value === null) return null;
   
   const obj = value as RangeValue;
-  const min = Number(obj.min ?? obj.von ?? obj.from ?? 0);
-  const max = Number(obj.max ?? obj.bis ?? obj.to ?? 100);
-  const current = Number(obj.value ?? obj.wert ?? obj.current ?? min);
-  const avg = obj.avg ?? obj.durchschnitt;
+  const min = safeNumber(obj.min ?? obj.von ?? obj.from, 0);
+  const max = safeNumber(obj.max ?? obj.bis ?? obj.to, 100);
+  const current = safeNumber(obj.value ?? obj.wert ?? obj.current, min);
+  const rawAvg = obj.avg ?? obj.durchschnitt;
+  const avg = rawAvg !== undefined ? safeNumber(rawAvg, undefined as any) : undefined;
   const unit = obj.unit ?? obj.einheit;
   
-  return { min, max, current, avg: avg !== undefined ? Number(avg) : undefined, unit };
+  return { min, max, current, avg: avg !== undefined && !isNaN(avg) ? avg : undefined, unit };
 }
 
 /**

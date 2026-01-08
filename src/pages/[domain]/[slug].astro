@@ -131,7 +131,7 @@ export async function getStaticPaths() {
       {allFields.map(({ key, value }) => (
         <div class="field-card">
           <h3 class="field-label">{key.replace(/_/g, ' ')}</h3>
-          <div class="field-value" set:html={renderValue(key, value, detailContext)} />
+          <div class="field-value" set:html={renderValue(value, key, detailContext)} />
         </div>
       ))}
     </div>

@@ -25,6 +25,7 @@ export const GET: APIRoute = async () => {
       endpoints: {
         domains: '/api/nexus/domains',
         entities: '/api/nexus/entities',
+        experts: '/api/nexus/experts',
         links: '/api/nexus/links',
         vote: '/api/nexus/vote',
         perspectives: '/api/nexus/perspectives',

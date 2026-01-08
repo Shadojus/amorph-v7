@@ -39,18 +39,23 @@ interface ParsedGaugeData {
   zones: GaugeZone[];
 }
 
+function safeNumber(val: unknown, fallback: number): number {
+  const num = Number(val);
+  return isNaN(num) || !isFinite(num) ? fallback : num;
+}
+
 function extractGaugeData(value: unknown): ParsedGaugeData {
   if (typeof value === 'object' && value !== null) {
     const obj = value as GaugeData;
     return {
-      value: Number(obj.value ?? obj.wert ?? 0),
-      min: Number(obj.min ?? 0),
-      max: Number(obj.max ?? 100),
+      value: safeNumber(obj.value ?? obj.wert, 0),
+      min: safeNumber(obj.min, 0),
+      max: safeNumber(obj.max, 100),
       unit: String(obj.unit || ''),
       zones: Array.isArray(obj.zones) ? obj.zones : []
     };
   }
-  return { value: Number(value) || 0, min: 0, max: 100, unit: '', zones: [] };
+  return { value: safeNumber(value, 0), min: 0, max: 100, unit: '', zones: [] };
 }
 
 function getZoneClass(value: number, zones: GaugeZone[]): string {

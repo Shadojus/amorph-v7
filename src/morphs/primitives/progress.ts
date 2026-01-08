@@ -5,14 +5,22 @@
 import { createUnifiedMorph, escapeHtml, formatPercent } from '../base.js';
 
 /**
+ * Safe number conversion with fallback
+ */
+function safeNumber(val: unknown, fallback: number): number {
+  const num = Number(val);
+  return isNaN(num) || !isFinite(num) ? fallback : num;
+}
+
+/**
  * Extrahiert Progress-Wert aus verschiedenen Datenformaten
  */
 function extractProgressData(value: unknown): { value: number; max: number; unit: string } {
   // Objekt: {value: n, max: m, unit: "%"}
   if (typeof value === 'object' && value !== null) {
     const obj = value as Record<string, unknown>;
-    const val = Number(obj.value ?? 0);
-    const max = Number(obj.max ?? 100);
+    const val = safeNumber(obj.value, 0);
+    const max = safeNumber(obj.max, 100);
     const unit = String(obj.unit || '%');
     return { value: val, max, unit };
   }
