@@ -67,4 +67,4 @@ daten:
 
 ---
 
-> **v8.0:** Kein PocketBase mehr. Lokale JSON-Daten + PostgreSQL/Prisma.
+> **v8.0:** Lokale JSON-Daten + PostgreSQL/Prisma für zentralisierte Daten.

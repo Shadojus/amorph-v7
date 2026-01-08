@@ -2,7 +2,7 @@
  * AMORPH v8 - Server Index
  * 
  * Re-Exports für Server-Module.
- * PostgreSQL/Prisma Edition (PocketBase deprecated)
+ * PostgreSQL/Prisma Edition
  */
 
 // Data & Config

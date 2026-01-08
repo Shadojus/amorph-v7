@@ -42,12 +42,6 @@ quelle:
 #   typ: json
 #   url: ./data/fungi.json
 
-# Option 5: PocketBase
-# quelle:
-#   typ: pocketbase
-#   url: https://api.example.com
-#   sammlung: items
-
 # Option 5: REST API
 # quelle:
 #   typ: rest

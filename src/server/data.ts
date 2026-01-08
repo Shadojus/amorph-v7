@@ -4,7 +4,7 @@
  * Lädt JSON-Daten aus data/ Verzeichnis.
  * Mit robuster Fehlerbehandlung für korrupte/fehlende Dateien.
  * 
- * PostgreSQL/Prisma Edition (PocketBase deprecated)
+ * PostgreSQL/Prisma Edition
  */
 
 import { readFileSync, existsSync, readdirSync } from 'fs';

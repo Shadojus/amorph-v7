@@ -9,7 +9,7 @@ Site-spezifische Konfiguration für AMORPH.
 | Datei | Beschreibung |
 |-------|--------------|
 | `manifest.yaml` | App-Name, Version, Site-Info |
-| `daten.yaml` | Datenquelle (immer `pocketbase`!) |
+| `daten.yaml` | Datenquelle (lokal oder postgresql) |
 | `features.yaml` | Feature-Flags |
 | `morphs.yaml` | Morph-Zuordnung |
 | `observer.yaml` | Debug-Config |
