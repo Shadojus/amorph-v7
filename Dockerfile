@@ -48,8 +48,7 @@ COPY --from=builder --chown=astro:nodejs /app/data ./data
 ENV NODE_ENV=production
 ENV HOST=0.0.0.0
 ENV PORT=4321
-ENV POCKETBASE_URL=http://pocketbase:8090
-ENV DATA_SOURCE=pocketbase
+ENV DATA_SOURCE=local
 ENV ENABLE_CACHE=true
 ENV CACHE_TTL=300
 

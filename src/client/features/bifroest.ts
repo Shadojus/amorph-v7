@@ -4,17 +4,14 @@
  * Die Regenbogenbrücke zwischen Daten und ihren Quellen.
  * 
  * DYNAMISCHES EXPERTEN-MATCHING:
- * - Lädt Experten von PocketBase basierend auf Domain
+ * - Lädt Experten von lokaler JSON-Datei (bifroest-experts.json)
  * - Matcht Experten zu Feldern über field_expertise Array
- * - Fallback auf lokale _sources.json wenn API nicht erreichbar
+ * - Nutzt data-field-experts Attribute als Fallback
  */
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // CONFIG & TYPES
 // ═══════════════════════════════════════════════════════════════════════════════
-
-// PocketBase URL - konfigurierbar via window object oder default
-const POCKETBASE_URL = (window as any).__POCKETBASE_URL || 'http://127.0.0.1:8090';
 
 // Cache für API-Responses (sessionStorage)
 const CACHE_KEY = 'bifroest-experts-cache';
@@ -201,42 +198,45 @@ function cacheExperts(domain: string, experts: BifroestExpert[]): void {
 }
 
 /**
- * Lädt Experten von PocketBase basierend auf Domain.
+ * Lädt Experten von lokaler JSON-Datei.
  */
-async function fetchExpertsFromPocketBase(domain: string): Promise<BifroestExpert[]> {
-  // Build filter for PocketBase
-  const filter = `domain='${domain}'`;
-  
-  // PocketBase URL with filter
-  const url = `${POCKETBASE_URL}/api/collections/experts/records?perPage=100&filter=${encodeURIComponent(filter)}`;
-  
-  const response = await fetch(url, {
+async function fetchExperts(domain: string): Promise<BifroestExpert[]> {
+  // Lade von lokaler JSON-Datei
+  const response = await fetch('/data/bifroest-experts.json', {
     method: 'GET',
     headers: { 'Accept': 'application/json' },
   });
   
   if (!response.ok) {
-    throw new Error(`PocketBase error: ${response.status}`);
+    throw new Error(`Failed to load experts: ${response.status}`);
   }
   
   const data = await response.json();
   
-  // Transform PocketBase records to BifroestExpert format
-  return (data.items || []).map((record: any) => ({
-    id: record.id,
-    name: record.name,
-    slug: record.slug,
-    title: record.title,
-    bio: record.bio,
-    image: record.image ? `${POCKETBASE_URL}/api/files/experts/${record.id}/${record.image}` : undefined,
-    domain: record.domain,
-    field_expertise: record.field_expertise || [],
-    tags: record.tags || [],
-    impact_score: record.impact_score || 50,
-    verified: record.verified || false,
-    contact: record.contact,
-    url: record.url,
-  }));
+  // Transform local experts to BifroestExpert format
+  const experts: BifroestExpert[] = [];
+  
+  if (data.experts) {
+    for (const [slug, expert] of Object.entries(data.experts) as [string, any][]) {
+      experts.push({
+        id: slug,
+        name: expert.name,
+        slug: slug,
+        title: expert.title,
+        bio: expert.bio,
+        image: expert.image,
+        domain: domain,
+        field_expertise: expert.perspectives || expert.specialization || [],
+        tags: expert.specialization || [],
+        impact_score: expert.stats?.inat_observations || 50,
+        verified: true,
+        contact: expert.contact?.email,
+        url: expert.contact?.website,
+      });
+    }
+  }
+  
+  return experts;
 }
 
 /**
@@ -245,10 +245,7 @@ async function fetchExpertsFromPocketBase(domain: string): Promise<BifroestExper
 async function loadAndDisplayExperts(): Promise<void> {
   const domain = getCurrentDomain();
   
-  console.log('[Bifroest] 🌈 Starting expert load...', { 
-    pocketbaseUrl: POCKETBASE_URL,
-    domain
-  });
+  console.log('[Bifroest] 🌈 Starting expert load...', { domain });
   
   // 1. Versuche aus Cache
   const cached = getCachedExperts(domain);
@@ -260,17 +257,17 @@ async function loadAndDisplayExperts(): Promise<void> {
     return;
   }
   
-  // 2. Lade von PocketBase
+  // 2. Lade von lokaler JSON-Datei
   try {
-    console.log('[Bifroest] 📡 Fetching from PocketBase:', `${POCKETBASE_URL}/api/collections/experts/records?domain=${domain}`);
-    loadedExperts = await fetchExpertsFromPocketBase(domain);
+    console.log('[Bifroest] 📡 Fetching from local JSON...');
+    loadedExperts = await fetchExperts(domain);
     expertsLoaded = true;
     cacheExperts(domain, loadedExperts);
-    console.log(`[Bifroest] ✅ Loaded ${loadedExperts.length} experts from PocketBase:`, 
+    console.log(`[Bifroest] ✅ Loaded ${loadedExperts.length} experts from local JSON:`, 
       loadedExperts.map(e => `${e.name} (${e.field_expertise?.join(', ') || 'no expertise'})`));
     applyExpertsToFields();
   } catch (error) {
-    console.warn('[Bifroest] ⚠️ PocketBase not available, using LOCAL FALLBACK (_sources):', error);
+    console.warn('[Bifroest] ⚠️ Local JSON not available, using fallback (_sources):', error);
     // Fallback: Lokale _sources verwenden (alte Methode)
     addExpertButtonsFromLocalSources();
   }

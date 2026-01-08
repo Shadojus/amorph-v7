@@ -1,122 +1,107 @@
 /**
  * BIFROEST External Knowledge Bridge
- * API Endpoint: Create external link in PostgreSQL/SQLite
+ * API Endpoint: Create external link
  * 
- * PostgreSQL/Prisma Version
+ * POST /api/external-links/create
+ * Body: { entityId, url, title, description?, type, thumbnail? }
  */
 
 import type { APIRoute } from 'astro';
-import { PrismaClient } from '@prisma/client';
+import prisma from '../../../server/db';
+import { checkRateLimit, logSecurityEvent } from '../../../core/security';
 
-const prisma = new PrismaClient();
+export const POST: APIRoute = async ({ request, clientAddress }) => {
+  // Rate limiting
+  const rateCheck = checkRateLimit(clientAddress || 'unknown');
+  if (!rateCheck.allowed) {
+    logSecurityEvent('RATE_LIMIT', { ip: clientAddress, endpoint: 'external-links/create' });
+    return new Response(JSON.stringify({ success: false, error: 'Too many requests' }), {
+      status: 429,
+      headers: { 'Content-Type': 'application/json', 'Retry-After': String(Math.ceil(rateCheck.resetIn / 1000)) }
+    });
+  }
 
-export const POST: APIRoute = async ({ request }) => {
   try {
-    const { url, metadata, domains, perspectives, fields, entity_ids } = await request.json();
+    const body = await request.json();
+    const { entityId, url, title, description, type, thumbnail, submittedBy } = body;
 
     // Validation
-    if (!url || typeof url !== 'string') {
-      return new Response(
-        JSON.stringify({ error: 'URL is required' }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
+    if (!entityId || !url || !title || !type) {
+      return new Response(JSON.stringify({
+        success: false,
+        error: 'Missing required fields: entityId, url, title, type'
+      }), { status: 400, headers: { 'Content-Type': 'application/json' } });
     }
 
-    if (!domains || !Array.isArray(domains) || domains.length === 0) {
-      return new Response(
-        JSON.stringify({ error: 'At least one domain is required' }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
+    // Validate URL format
+    try {
+      new URL(url);
+    } catch {
+      return new Response(JSON.stringify({
+        success: false,
+        error: 'Invalid URL format'
+      }), { status: 400, headers: { 'Content-Type': 'application/json' } });
     }
 
-    if (!metadata || !metadata.source_type) {
-      return new Response(
-        JSON.stringify({ error: 'Metadata with source_type is required' }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
+    // Check if entity exists
+    const entity = await prisma.entity.findUnique({
+      where: { id: entityId }
+    });
+
+    if (!entity) {
+      return new Response(JSON.stringify({
+        success: false,
+        error: 'Entity not found'
+      }), { status: 404, headers: { 'Content-Type': 'application/json' } });
     }
 
-    // Check if link already exists
+    // Check for duplicate URL on same entity
     const existing = await prisma.externalLink.findFirst({
-      where: { url: url }
+      where: { entityId, url }
     });
 
     if (existing) {
-      // Parse existing JSON fields
-      const existingDomains = JSON.parse(existing.domains as unknown as string || '[]');
-      const existingPerspectives = JSON.parse(existing.perspectives as unknown as string || '[]');
-      const existingFields = JSON.parse(existing.fields as unknown as string || '[]');
-      
-      // Merge with new values
-      const updatedDomains = [...new Set([...existingDomains, ...domains])];
-      const updatedPerspectives = [...new Set([...existingPerspectives, ...(perspectives || [])])];
-      const updatedFields = [...new Set([...existingFields, ...(fields || [])])];
-
-      const updated = await prisma.externalLink.update({
-        where: { id: existing.id },
-        data: {
-          domains: JSON.stringify(updatedDomains),
-          perspectives: JSON.stringify(updatedPerspectives),
-          fields: JSON.stringify(updatedFields),
-          entityIds: entity_ids ? JSON.stringify(entity_ids) : existing.entityIds
-        }
-      });
-
-      return new Response(
-        JSON.stringify({
-          success: true,
-          updated: true,
-          id: updated.id,
-          message: 'Link updated with new associations'
-        }),
-        { status: 200, headers: { 'Content-Type': 'application/json' } }
-      );
+      return new Response(JSON.stringify({
+        success: false,
+        error: 'Link already exists for this entity'
+      }), { status: 409, headers: { 'Content-Type': 'application/json' } });
     }
 
-    // Create new link
-    const record = await prisma.externalLink.create({
+    // Create the link
+    const link = await prisma.externalLink.create({
       data: {
-        sourceType: metadata.source_type,
-        url: url,
-        externalId: metadata.external_id || null,
-        title: metadata.title,
-        description: metadata.description || null,
-        authors: JSON.stringify(metadata.authors || []),
-        publishedDate: metadata.published_date ? new Date(metadata.published_date) : null,
-        thumbnailUrl: metadata.thumbnail_url || null,
-        language: metadata.language || null,
-        domains: JSON.stringify(domains),
-        perspectives: JSON.stringify(perspectives || []),
-        fields: JSON.stringify(fields || []),
-        entityIds: JSON.stringify(entity_ids || []),
-        upvotes: 0,
-        downvotes: 0,
-        expertVerified: false,
-        isAlive: true,
-        lastChecked: new Date(),
-        metadata: JSON.stringify(metadata.metadata || {})
+        entityId,
+        url,
+        title: title.slice(0, 500),
+        description: description?.slice(0, 2000),
+        type,
+        thumbnail,
+        submittedBy: submittedBy || 'anonymous',
+        score: 0
       }
     });
 
-    return new Response(
-      JSON.stringify({
-        success: true,
-        created: true,
-        id: record.id,
-        message: 'Link created successfully'
-      }),
-      { status: 201, headers: { 'Content-Type': 'application/json' } }
-    );
+    logSecurityEvent('EXTERNAL_LINK_CREATED', { linkId: link.id, entityId, type });
+
+    return new Response(JSON.stringify({
+      success: true,
+      link: {
+        id: link.id,
+        url: link.url,
+        title: link.title,
+        type: link.type,
+        createdAt: link.createdAt
+      }
+    }), {
+      status: 201,
+      headers: { 'Content-Type': 'application/json' }
+    });
 
   } catch (error) {
-    console.error('[API] create error:', error);
-
-    return new Response(
-      JSON.stringify({ 
-        error: 'Internal server error',
-        details: error instanceof Error ? error.message : 'Unknown error'
-      }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
-    );
+    console.error('[External Links Create] Error:', error);
+    return new Response(JSON.stringify({
+      success: false,
+      error: 'Failed to create link'
+    }), { status: 500, headers: { 'Content-Type': 'application/json' } });
   }
 };

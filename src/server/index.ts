@@ -1,7 +1,8 @@
 /**
- * AMORPH v7 - Server Index
+ * AMORPH v8 - Server Index
  * 
  * Re-Exports für Server-Module.
+ * PostgreSQL/Prisma Edition (PocketBase deprecated)
  */
 
 // Data & Config
@@ -12,22 +13,6 @@ export {
   type SiteType, type Domain, type BiologySiteType, type GeologySiteType
 } from './config';
 export { loadAllItems, getItem, getItems, searchItems, type SearchOptions, type SearchResult } from './data';
-export { 
-  // v3 Multi-collection API
-  loadByCollection,
-  loadByDomain,
-  loadItemBySlug,
-  // Site-specific API (NEW)
-  loadSiteItems,
-  getSiteCollection,
-  // Legacy API
-  loadSpeciesByCategory, 
-  loadSpeciesBySlug, 
-  // Utilities
-  checkBifroestConnection, 
-  getBifroestStatus, 
-  invalidateBifroestCache 
-} from './bifroest';
 export { cache, cachedFetch, invalidateSpeciesCache } from './cache';
 
 // Security & Rate Limiting

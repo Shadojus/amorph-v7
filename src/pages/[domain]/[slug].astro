@@ -1,0 +1,252 @@
+---
+/**
+ * Domain Entity Detail Page
+ * 
+ * Route: /fungi/steinpilz, /phyto/rose, etc.
+ * 
+ * Setzt SITE_TYPE basierend auf URL-Parameter und lädt dann das Entity.
+ */
+
+import Base from '../../layouts/Base.astro';
+import { loadConfig, getAllPerspectives, SITE_META, type SiteType } from '../../server/config';
+import { getItem } from '../../server/data';
+import { renderValue } from '../../morphs';
+import type { RenderContext } from '../../core/types';
+import { validateSlug } from '../../core/security';
+
+// Get domain and slug from URL
+const { domain, slug: rawSlug } = Astro.params;
+
+// Validate domain
+const validDomains: SiteType[] = [
+  'fungi', 'phyto', 'drako',
+  'paleo', 'tekto', 'mine',
+  'bakterio', 'viro', 'geno', 'anato',
+  'chemo', 'physi', 'kosmo',
+  'netzo', 'cognito', 'biotech', 'socio'
+];
+
+if (!domain || !validDomains.includes(domain as SiteType)) {
+  return Astro.redirect('/');
+}
+
+// Set SITE_TYPE for this request
+process.env.SITE_TYPE = domain;
+
+// Validate slug
+if (!rawSlug || rawSlug === '') {
+  return Astro.redirect(`/${domain}`);
+}
+
+const slug = validateSlug(rawSlug);
+if (!slug) {
+  return Astro.redirect(`/${domain}`);
+}
+
+// Load config and item
+await loadConfig();
+const item = await getItem(slug);
+
+if (!item) {
+  return Astro.redirect(`/${domain}`);
+}
+
+// Site metadata
+const siteMeta = SITE_META[domain as SiteType];
+
+// Render context
+const detailContext: RenderContext = {
+  mode: 'single',
+  itemCount: 1
+};
+
+// Get perspectives
+const perspectives = getAllPerspectives();
+const fieldPerspectiveMap = item._fieldPerspective || {};
+
+// Alle Felder sammeln
+const allFields = Object.entries(item)
+  .filter(([k]) => !k.startsWith('_') && !['id', 'slug', 'name', 'image', 'scientific_name'].includes(k))
+  .map(([key, value]) => ({
+    key,
+    value,
+    perspective: fieldPerspectiveMap[key] || null
+  }));
+
+// Generate static paths
+export async function getStaticPaths() {
+  // Import database functions
+  const { PrismaClient } = await import('@prisma/client');
+  const prisma = new PrismaClient();
+  
+  try {
+    const entities = await prisma.entities.findMany({
+      include: { domain: true }
+    });
+    
+    return entities.map(entity => ({
+      params: { 
+        domain: entity.domain.slug, 
+        slug: entity.slug 
+      }
+    }));
+  } catch (e) {
+    // Fallback: return empty for SSR
+    return [];
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+---
+
+<Base title={`${item.name} | ${siteMeta.name}`}>
+  <article class="entity-detail">
+    <!-- Header -->
+    <header class="entity-header">
+      <a href={`/${domain}`} class="back-link">← {siteMeta.name}</a>
+      
+      <h1>{item.name}</h1>
+      
+      {item.scientific_name && (
+        <p class="scientific-name">{item.scientific_name}</p>
+      )}
+    </header>
+
+    <!-- Hero Image -->
+    {item.image && (
+      <div class="hero-image">
+        <img src={item.image} alt={item.name} />
+      </div>
+    )}
+
+    <!-- Description -->
+    {item.description && (
+      <div class="description">
+        <p>{item.description}</p>
+      </div>
+    )}
+
+    <!-- Fields Grid -->
+    <div class="fields-grid">
+      {allFields.map(({ key, value }) => (
+        <div class="field-card">
+          <h3 class="field-label">{key.replace(/_/g, ' ')}</h3>
+          <div class="field-value" set:html={renderValue(key, value, detailContext)} />
+        </div>
+      ))}
+    </div>
+
+    <!-- External Links -->
+    <div class="external-links">
+      <h2>Externe Links</h2>
+      <p class="coming-soon">Links werden bald verfügbar sein...</p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .entity-detail {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .entity-header {
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--system-color, #6B8AFF);
+    text-decoration: none;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin: 0;
+    color: var(--text-primary, #fff);
+  }
+
+  .scientific-name {
+    font-style: italic;
+    color: var(--text-secondary, #888);
+    font-size: 1.2rem;
+    margin: 0.5rem 0 0;
+  }
+
+  .hero-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 1rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    background: var(--bg-secondary, #1a1a1a);
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-primary, #fff);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-secondary, #1a1a1a);
+    border-radius: 1rem;
+    border-left: 4px solid var(--system-color, #6B8AFF);
+  }
+
+  .fields-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .field-card {
+    background: var(--bg-secondary, #1a1a1a);
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--border-color, #333);
+  }
+
+  .field-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary, #888);
+    margin: 0 0 0.5rem;
+    text-transform: capitalize;
+    font-weight: 500;
+  }
+
+  .field-value {
+    color: var(--text-primary, #fff);
+    font-size: 1rem;
+  }
+
+  .external-links {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color, #333);
+  }
+
+  .external-links h2 {
+    font-size: 1.5rem;
+    margin: 0 0 1rem;
+    color: var(--text-primary, #fff);
+  }
+
+  .coming-soon {
+    color: var(--text-secondary, #888);
+    font-style: italic;
+  }
+</style>

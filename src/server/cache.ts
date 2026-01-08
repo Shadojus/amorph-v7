@@ -1,7 +1,7 @@
 /**
- * AMORPH - In-Memory Cache
+ * AMORPH - In-Memory Cache (v8.0)
  * 
- * Simple TTL-based cache for Pocketbase responses.
+ * Simple TTL-based cache for data responses.
  * Production-ready with automatic cleanup.
  */
 

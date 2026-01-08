@@ -1,4 +1,4 @@
-# Public Assets
+# Public Assets (v8.0)
 
 Statische Dateien für das Frontend.
 
@@ -18,24 +18,24 @@ public/
 │       └── ...
 │
 ├── images/
-│   └── (UI Assets nur - KEINE Species-Bilder!)
+│   └── (UI Assets - Species-Bilder in data-local/)
 │
 └── test-bar.html       # Test-Seite
 ```
 
 ---
 
-## ⚠️ Wichtig: Bilder in PocketBase!
+## 📷 Bilder
 
-Entity-Bilder werden **nicht** lokal gespeichert!
-
+### Species-Bilder (v8.0)
+Bilder liegen in den lokalen Daten-Ordnern:
 ```
-✅ PocketBase File API:
-   http://127.0.0.1:8090/api/files/{domain}_entities/{id}/{filename}
-
-❌ Nicht verwenden:
-   public/images/entities/
+data-local/fungi/hericium-erinaceus/images/
+data-local/plantae/aloe-vera/images/
 ```
+
+### UI-Assets
+Statische UI-Bilder in `public/images/`
 
 ---
 

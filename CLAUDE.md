@@ -1,90 +1,102 @@
-# AMORPH v7
+# AMORPH v8.1
 
 **Formlos. Zustandslos. Transformierend.**
 
-> Unified Morph Architecture für wissenschaftliche Daten mit automatischer Single/Compare-Erkennung.
+> Unified Morph Architecture für wissenschaftliche Daten - EINE Instanz für ALLE 17 Domains.
 
 ## Status: ✅ Production Ready (Januar 2026)
 
-### Aktuelle Features
-- **🔗 BIFROEST Integration** - Daten aus PostgreSQL/Prisma (SQLite als Dev-Fallback)
-- **📊 Unified Entity Table** - Alle Entities mit domainId Foreign Key
-- **17 Domains** - Wissenschaftliche Multi-Site Architektur
-- **28 Morph Primitives** - Vollständige Komponenten-Bibliothek
-- **475 Tests** - Umfassende Testabdeckung (37 Dateien)
+### Aktuelle Architektur
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  AMORPH v8.1 - Single Instance Architecture                     │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  Port 4321 - EINE Astro-Instanz für ALLE Domains                │
+│                                                                 │
+│  Routes:                                                        │
+│  ├─ /                      Grid (aktuelle Domain via SITE_TYPE) │
+│  ├─ /{slug}                Entity Detail Page                   │
+│  ├─ /api/nexus/*           Nexus API (7 Endpoints)              │
+│  ├─ /api/search            Volltextsuche                        │
+│  └─ /api/health            Health Check                         │
+│                                                                 │
+│  Datenquelle:                                                   │
+│  └─ PostgreSQL (DATA_SOURCE=database)                           │
+│     ├─ 17 Domains registriert                                   │
+│     ├─ 67 Entities (30 Fungi, 37 Phyto)                         │
+│     └─ 6 Perspektiven                                           │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Features
+- **🔗 PostgreSQL Integration** - Zentrale Datenbank
+- **📊 Nexus API** - REST API für alle Domains
+- **17 Domains** - Alle über eine Instanz
+- **28 Morph Primitives** - Komponenten-Bibliothek
+- **~475 Tests** - Vitest
 
 ### Technologie-Stack
-- **Astro 5.16** mit SSR
+- **Astro 5.x** mit SSR
 - **TypeScript** durchgängig
+- **Prisma** als ORM
+- **PostgreSQL** als Datenbank
 - **Vitest** für Tests
-- **PostgreSQL/Prisma** als einzige Datenquelle (SQLite für Development)
 
 ---
 
-## ⚠️ Wichtig: PostgreSQL/Prisma!
+## ⚠️ WICHTIG: Single Instance!
 
 ```
-❌ data-local/     → LEGACY (nicht verwenden!)
-❌ data/           → Symlink zu data-local (entfernen!)
-❌ config/         → Symlink zu config-local (entfernen!)
-❌ PocketBase      → MIGRIERT zu PostgreSQL
-✅ PostgreSQL      → Production Datenquelle
-✅ SQLite          → Development Fallback (via Prisma)
-```
+❌ NICHT MEHR: 17 separate Server auf Ports 4321-4337
+✅ JETZT: EINE Instanz auf Port 4321 für ALLE Domains
 
-**Bilder**: Werden im File System gespeichert, Pfade in der Datenbank!
+Die Domain wird gewählt durch:
+1. SITE_TYPE Environment Variable (default: fungi)
+2. URL-Parameter (geplant)
+3. API Endpoints arbeiten domain-übergreifend
+```
 
 ---
 
-## 🌐 Multi-Domain System (17 Sites)
+## 🌐 Die 17 Domains
 
-| Port | Site | Domain | Kategorie |
-|------|------|--------|-----------|
-| 4321 | Funginomi | fungi | Biologie |
-| 4322 | Phytonomi | phyto | Biologie |
-| 4323 | Drakonomi | drako | Biologie |
-| 4324 | Bakterionomi | bakterio | Biologie |
-| 4325 | Vironomi | viro | Biologie |
-| 4326 | Genonomi | geno | Biologie |
-| 4327 | Anatonomi | anato | Medizin |
-| 4328 | Chemonomi | chemo | Chemie |
-| 4329 | Physikonomi | physi | Physik |
-| 4330 | Kosmonomi | kosmo | Astronomie |
-| 4331 | Minenomi | mine | Geologie |
-| 4332 | Tektonomi | tekto | Geologie |
-| 4333 | Paleonomi | paleo | Paläontologie |
-| 4334 | Netzonomi | netzo | Informatik |
-| 4335 | Cognitonomi | cognito | KI |
-| 4336 | Bionomi | biotech | Biotechnologie |
-| 4337 | Socionomi | socio | Soziologie |
+| Kategorie | Slug | Name | Entities |
+|-----------|------|------|----------|
+| **Biology** | fungi | FUNGINOMI | 30 ✅ |
+| | phyto | PHYTONOMI | 37 ✅ |
+| | drako | DRAKONOMI | 0 |
+| **Geology** | paleo | PALEONOMI | 0 |
+| | tekto | TEKTONOMI | 0 |
+| | mine | MINENOMI | 0 |
+| **Biomedical** | bakterio | BAKTERIONOMI | 0 |
+| | viro | VIRONOMI | 0 |
+| | geno | GENONOMI | 0 |
+| | anato | ANATONOMI | 0 |
+| **PhysChem** | chemo | CHEMONOMI | 0 |
+| | physi | PHYSINOMI | 0 |
+| | kosmo | KOSMONOMI | 0 |
+| **Technology** | netzo | NETZONOMI | 0 |
+| | cognito | COGNITONOMI | 0 |
+| | biotech | BIONOMI | 0 |
+| | socio | SOCIONOMI | 0 |
+
+> ⚠️ Nur Fungi und Phyto haben aktuell Daten!
 
 ---
 
 ## 🚀 Quick Start
 
-```bash
-# System starten (vom ROOT-Verzeichnis Bifroest/)
-npm start                     # Startet Database + alle 17 AMORPH + Frontend
-npm run start:single          # Nur Database + Fungi (schneller)
-npm run start:test            # Mit Tests nach Start
+```powershell
+# Vom Bifroest Root-Verzeichnis:
+.\bifroest-cli.ps1 start    # PostgreSQL + AMORPH
 
-# Datenbank-Befehle
-npm run db:generate           # Prisma Client generieren
-npm run db:push               # Schema pushen
-npm run db:migrate            # Migrations ausführen
-npm run db:seed               # Testdaten laden
-npm run db:studio             # Prisma Studio öffnen
-
-# Nur AMORPH (Database muss laufen)
+# Oder manuell:
 cd amorph
+$env:DATA_SOURCE="database"
+$env:DATABASE_URL="postgresql://bifroest:bifroest_secret@localhost:5432/bifroest"
 npm run dev
-
-# Tests
-npm test
-npm run test:run
-
-# Build
-npm run build
 ```
 
 ---
@@ -93,221 +105,109 @@ npm run build
 
 ```
 amorph/
-├── CLAUDE.md                    # ⭐ Diese Datei
+├── CLAUDE.md                    # Diese Datei
 ├── config-local/                # Site-Konfiguration
-│   ├── manifest.yaml            # App-Metadaten
-│   ├── daten.yaml               # Datenquelle (pocketbase)
-│   ├── features.yaml            # Feature-Flags
-│   └── schema/                  # Perspektiven-Schema
 │
 ├── src/
-│   ├── core/                    # types.ts, detection.ts, security.ts
-│   │   └── CLAUDE.md
+│   ├── pages/
+│   │   ├── api/
+│   │   │   ├── nexus/           # ⭐ Nexus API
+│   │   │   │   ├── index.ts     # GET /api/nexus
+│   │   │   │   ├── domains.ts   # GET /api/nexus/domains
+│   │   │   │   ├── entities.ts  # GET /api/nexus/entities
+│   │   │   │   ├── stats.ts     # GET /api/nexus/stats
+│   │   │   │   ├── links.ts     # GET/POST /api/nexus/links
+│   │   │   │   ├── vote.ts      # POST /api/nexus/vote
+│   │   │   │   └── perspectives.ts
+│   │   │   ├── search.ts
+│   │   │   └── health.ts
+│   │   ├── index.astro          # Grid View
+│   │   └── [slug].astro         # Detail View
+│   │
+│   ├── server/
+│   │   ├── config.ts            # Domain Config (17 Domains)
+│   │   ├── data.ts              # Data Layer
+│   │   ├── data-db.ts           # PostgreSQL Queries
+│   │   └── database.ts          # Prisma Client
+│   │
 │   ├── morphs/                  # 28 Morph Primitives
-│   │   └── CLAUDE.md
-│   ├── observer/                # Debug & Analytics
-│   │   └── CLAUDE.md
-│   ├── server/                  # ⭐ database.ts (Prisma Client)
-│   │   └── CLAUDE.md
-│   ├── client/                  # Frontend Features
-│   │   └── CLAUDE.md
-│   ├── layouts/                 # Astro Layouts
-│   │   └── CLAUDE.md
-│   └── pages/                   # Routes
-│       └── CLAUDE.md
+│   ├── core/                    # Types, Detection, Security
+│   └── client/                  # Frontend Features
 │
-├── public/
-│   ├── CLAUDE.md
-│   ├── styles/                  # CSS (inkl. all.min.css Bundle)
-│   └── images/                  # Statische Assets (NICHT Species-Bilder!)
-│
-├── tests/                       # 475 Tests (37 Dateien)
-│   └── CLAUDE.md
-│
-├── data-local/                  # ⚠️ LEGACY - Wird entfernt!
-│   └── CLAUDE.md                # Warnung vor Nutzung
-│
-└── data, config                 # ❌ Symlinks - Entfernen!
+└── tests/                       # Vitest Tests
 ```
 
 ---
 
-## 🔗 PostgreSQL/Prisma Integration
+## 📡 Nexus API Endpoints
 
-### Datenfluss
-```
-Blueprint YAML → Prisma Schema → PostgreSQL/SQLite → AMORPH Frontend
-```
+| Endpoint | Method | Beschreibung |
+|----------|--------|--------------|
+| `/api/nexus` | GET | API Index & Endpoints |
+| `/api/nexus/domains` | GET | Alle 17 Domains |
+| `/api/nexus/domains?stats=true` | GET | Mit Entity-Counts |
+| `/api/nexus/entities` | GET | Alle Entities |
+| `/api/nexus/entities?domain=fungi` | GET | Nach Domain |
+| `/api/nexus/entities?search=pilz` | GET | Suche |
+| `/api/nexus/entities?limit=10&offset=0` | GET | Pagination |
+| `/api/nexus/stats` | GET | System-Statistiken |
+| `/api/nexus/links` | GET | External Links |
+| `/api/nexus/links` | POST | Link erstellen |
+| `/api/nexus/vote` | POST | Voting |
+| `/api/nexus/perspectives` | GET | Perspektiven |
 
-### Database Schema (Prisma)
-- **`domains`** - 17 Domains (fungi, phyto, etc.)
-- **`entities`** - Alle Entities mit `domainId` Foreign Key
-- **`perspectives`** - Perspektiven-Definitionen
-- **`entity_perspectives`** - Entity ↔ Perspective Daten (JSON)
-- **`external_links`** - Community-eingereichte Links
-- **`link_votes`** - Link-Bewertungen
-- **`experts`** - 68 Experten mit fieldExpertise-Arrays
-- **`publications`** - Experten-Publikationen
+### Beispiel-Responses
 
-### Experten-System (BIFROEST)
-```typescript
-// Experten-Feld-Matching in database.ts:
-const matchingExperts = loadedExperts.filter(expert => 
-  expert.fieldExpertise?.includes(fieldKey)
-);
-
-// Experten-Schema:
-interface Expert {
-  name: string;
-  domain: 'fungi' | 'phyto' | 'drako' | ... // 17 Domains
-  fieldExpertise: string[];   // z.B. ["habitat", "edibility", "genus"]
-  impactScore: number;        // NIEMALS an Client senden!
-  isVerified: boolean;
-}
-```
-
-### Environment Variables
 ```bash
-# Development (SQLite)
-DATA_SOURCE=local
-DATABASE_URL="file:./dev.db"
+# Domains mit Stats
+curl http://localhost:4321/api/nexus/domains?stats=true
 
-# Production (PostgreSQL)
-DATA_SOURCE=postgresql
-DATABASE_URL="postgresql://user:password@host:5432/bifroest"
-```
+# Fungi Entities
+curl http://localhost:4321/api/nexus/entities?domain=fungi&limit=5
 
-### API Calls (database.ts)
-```typescript
-// Entities laden
-const entities = await getEntitiesByDomain('fungi');
-
-// Experten für Feld laden
-const experts = await getExpertsForField('habitat');
+# System Stats
+curl http://localhost:4321/api/nexus/stats
 ```
 
 ---
 
-## 📋 Blueprint System
+## 🔧 Environment Variables
 
-### Verzeichnisstruktur
-```
-shared/blueprints/
-├── amorph-fungi/
-│   ├── chemical_ecology.blueprint.yaml
-│   ├── cross_kingdom_relations.blueprint.yaml
-│   ├── ecosystem_engineering.blueprint.yaml
-│   ├── fungal_holobiont.blueprint.yaml
-│   ├── fungal_intelligence.blueprint.yaml
-│   └── mycelial_networks.blueprint.yaml
-├── amorph-phyto/
-│   └── ...
-└── ... (17 Domains)
-```
-
-### Blueprint Format
-```yaml
-perspective: fungal_intelligence
-version: "1.0.0"
-
-scientific_name:
-  # morph: text
-  ""
-
-network_complexity:
-  # morph: badge
-  status: ""
-
-sensory_modalities:
-  # morph: list
-  - ""
-
-memory_capability:
-  # morph: boolean
-  false
-```
-
-### Morph Types → Prisma
-| Morph Type | Prisma Type |
-|------------|-------------|
-| `text` | `String` |
-| `boolean` | `Boolean` |
-| `number` | `Float` / `Int` |
-| `list` | `Json` |
-| `tag` | `String` |
-| `badge` | `String` |
-| `gauge` | `Json` |
-| `range` | `Json` |
-| `editor` | `String` |
-
----
-
-## 🎨 Design System
-
-### Farben
-| System | Verwendung |
-|--------|------------|
-| **Site Colors** | Pro Domain (Blue für Fungi, Jade für Phyto, etc.) |
-| **Perspektiven** | 15 matte Pastell-Töne |
-| **Bio-Lumineszenz** | 8 leuchtende Farben für Compare-Ansicht |
-
-### CSS Variables
-```css
---system-rgb: 77, 136, 255;       /* Aktive Site-Farbe */
---pilz-0-rgb bis --pilz-7-rgb     /* Bio-Lumineszenz Palette */
-```
-
-### Z-Index Hierarchie
-1. **z-index: 10001** - Bottom Navigation
-2. **z-index: 10000** - Suchleiste
-3. **z-index: 9999** - Compare-Panel
-4. **z-index: 200** - Header
-
----
-
-## 🔧 Scripts
-
-| Script | Beschreibung |
-|--------|--------------|
-| `npm run dev` | Entwicklungsserver starten |
-| `npm run build` | Production Build |
-| `npm test` | Tests im Watch-Modus |
-| `npm run test:run` | Einmalige Test-Ausführung |
-
----
-
-## 📝 Wichtige Hinweise
-
-### ⚠️ Keine lokalen Daten!
-- ❌ Keine Species-JSON in `data-local/` verwenden
-- ❌ Keine Bilder in `public/images/species/`
-- ✅ Alle Daten in PostgreSQL/SQLite (via Prisma)
-- ✅ Bilder im File System, Pfade in DB
-
-### Neue Perspektive hinzufügen
-1. Blueprint YAML in `shared/blueprints/amorph-{domain}/` erstellen
-2. `npm run db:migrate` im ROOT-Verzeichnis ausführen
-3. Perspektive wird automatisch erstellt
-
-### Tests vor Commit
 ```bash
-npm run test:run   # 475 Tests
-npm run build      # Production Build
+# Datenquelle
+DATA_SOURCE=database              # database oder local
+
+# PostgreSQL
+DATABASE_URL=postgresql://bifroest:bifroest_secret@localhost:5432/bifroest
+
+# Default Domain (für Grid View)
+SITE_TYPE=fungi                   # fungi, phyto, paleo, etc.
 ```
 
 ---
 
-## 📚 Verwandte Dokumentation
+## 🎨 28 Morph Primitives
+
+| Kategorie | Morphs |
+|-----------|--------|
+| **Text** | text, editor, tagline |
+| **Visual** | badge, gauge, bar, range |
+| **Lists** | list, tag, chips |
+| **Media** | image, gallery, video |
+| **Data** | number, boolean, date |
+| **Special** | taxonomy, sources, links |
+
+---
+
+## 📚 Verwandte Docs
 
 | Datei | Inhalt |
 |-------|--------|
 | [../CLAUDE.md](../CLAUDE.md) | Root-Dokumentation |
-| [../bifroest-platform/CLAUDE.md](../bifroest-platform/CLAUDE.md) | Backend & Scripts |
-| [src/server/CLAUDE.md](src/server/CLAUDE.md) | Database Client |
-| [src/morphs/CLAUDE.md](src/morphs/CLAUDE.md) | 28 Morph Primitives |
-| [src/core/CLAUDE.md](src/core/CLAUDE.md) | Types & Detection |
-| [tests/CLAUDE.md](tests/CLAUDE.md) | Test-Dokumentation |
+| [src/server/CLAUDE.md](src/server/CLAUDE.md) | Database/Data Layer |
+| [src/morphs/CLAUDE.md](src/morphs/CLAUDE.md) | Morph Primitives |
+| [src/pages/CLAUDE.md](src/pages/CLAUDE.md) | Routes & API |
 
 ---
 
-*Letzte Aktualisierung: Januar 2026*
+*Letzte Aktualisierung: 8. Januar 2026*

@@ -13,7 +13,7 @@ Vitest Test-Suite für AMORPH.
 | `observer.test.ts` | 8 | Debug Module |
 | `integration.test.ts` | 11 | Module Integration |
 | `api-integration.test.ts` | 27 | API Endpoints |
-| `real-data.test.ts` | 34 | PocketBase Tests |
+| `real-data.test.ts` | 34 | Local Data Tests |
 | `error-handling.test.ts` | 14 | Error Handling |
 
 **Total: 475 Tests (37 Dateien)**
@@ -59,9 +59,9 @@ describe('detection', () => {
 ```typescript
 import { vi } from 'vitest';
 
-// PocketBase mocken
-vi.mock('@/server/bifroest', () => ({
-  fetchFromCollection: vi.fn(() => Promise.resolve([]))
+// Data Loading mocken
+vi.mock('@/server/data', () => ({
+  loadItems: vi.fn(() => Promise.resolve([]))
 }));
 ```
 

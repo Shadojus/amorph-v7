@@ -1,0 +1,1040 @@
+---
+/**
+ * AMORPH v7 - Domain Page
+ * 
+ * Route: /fungi, /phyto, /drako, etc.
+ * Identisch mit index.astro, aber Domain aus URL.
+ */
+
+import Base from '../layouts/Base.astro';
+import { loadConfig, getAllPerspectives, getSiteType, SITE_META, type SiteType } from '../server/config';
+import { searchItems, loadAllItems } from '../server/data';
+import { renderValue, createSingleContext } from '../morphs';
+import { detectType } from '../core/detection';
+import type { RenderContext, MorphType } from '../core/types';
+
+// Get domain from URL
+const { domain } = Astro.params;
+
+// Validate domain
+const validDomains: SiteType[] = [
+  'fungi', 'phyto', 'drako',
+  'paleo', 'tekto', 'mine',
+  'bakterio', 'viro', 'geno', 'anato',
+  'chemo', 'physi', 'kosmo',
+  'netzo', 'cognito', 'biotech', 'socio'
+];
+
+if (!domain || !validDomains.includes(domain as SiteType)) {
+  return Astro.redirect('/');
+}
+
+// Set SITE_TYPE for this request
+process.env.SITE_TYPE = domain;
+
+// Load config
+await loadConfig();
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ENGAGEMENT-OPTIMIERTE FELD-PRIORISIERUNG
+// ═══════════════════════════════════════════════════════════════════════════════
+
+/**
+ * HIGH-VALUE FIELDS - Die "Knaller" für maximales User-Engagement
+ * 
+ * Zielgruppen:
+ * - Psychonauten: Wirkungen, Effekte, Bewusstseinsveränderung
+ * - Wellness/Healing: Heilwirkungen, traditionelle Medizin
+ * - Foodies: Kulinarik, Geschmack, berühmte Gerichte
+ * - Naturliebhaber: Ökologische Besonderheiten, Faszination
+ * - Überraschungs-Sucher: "Wusstest du dass..."-Fakten
+ * 
+ * WICHTIG: Felder für alle 3 Kingdoms (Fungi, Plantae, Therion)!
+ * 
+ * TIER 1: WOW-FAKTOR - Das Besondere, Überraschende
+ * TIER 2: GEFAHR & SICHERHEIT - Sofort wichtig bei Tieren!
+ * TIER 3: HEALING - Heilung, Tradition, Spiritualität
+ * TIER 4: KULINARIK - Genuss, Geschmack, Lifestyle
+ * TIER 5: NATUR & ÖKOLOGIE - Habitat, Rolle, Schutz
+ * TIER 6: IDENTIFIKATION - Für die Bestimmer
+ */
+const HIGH_VALUE_FIELDS = [
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 📝 DESCRIPTION - Immer zeigen für Compact View
+  // ═══════════════════════════════════════════════════════════════════════════
+  'description',                  // Kurzbeschreibung der Art
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🌟 TIER 1: WOW-FAKTOR - Was User fasziniert & überrascht
+  // ═══════════════════════════════════════════════════════════════════════════
+  'special_feature',              // ⭐ DAS Besondere an dieser Art
+  'special_ecological_feature',   // Ökologische Superkraft
+  'effect_profile',               // Wirkungsprofil (psychoaktiv, adaptogen, etc.)
+  'historical_significance',      // Historische Bedeutung, Mythen
+  'keystone_species',             // Schlüsselart im Ökosystem
+  'keystone_function',            // Was macht sie zur Schlüsselart
+  'bioremediation_potential',     // Kann Umwelt reinigen (faszinierend!)
+  'bioluminescence',              // Leuchtet im Dunkeln!
+  // 🦁 THERION-SPEZIFISCH: Faszinierende Tierfähigkeiten
+  'venom_source',                 // Gift! (Schlangen, Quallen, etc.)
+  'electric_discharge_max',       // Elektrisch! (Zitteraal)
+  'regeneration_capability',      // Regeneration (Axolotl)
+  'intelligence',                 // Intelligenz (Raben, Oktopus)
+  'bite_force',                   // Beißkraft (Krokodil, Hai)
+  'running_speed_max',            // Geschwindigkeit
+  'strike_speed',                 // Angriffsgeschwindigkeit
+  'migration_distance',           // Wanderung (Wale, Vögel)
+  'waggle_dance_communication',   // Bienen-Tanz!
+  'neoteny',                      // Neotenie (Axolotl bleibt Larve)
+  // 🌿 PLANTAE-SPEZIFISCH: Pflanzenkräfte
+  'allelopathic_effects',         // Chemische Kriegsführung!
+  'invasiveness_score',           // Invasiv (spannend!)
+  'carbon_storage_capacity',      // Klimaheld
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // ⚠️ TIER 2: GEFAHR & SICHERHEIT - Bei Tieren SOFORT wichtig!
+  // ═══════════════════════════════════════════════════════════════════════════
+  'safety_potentially_deadly',    // Tödlich gefährlich!
+  'safety_warning_level',         // Warnstufe (Badge!)
+  'safety_warning_text',          // Warntext
+  'safety_summary',               // Sicherheits-Zusammenfassung
+  'safety_edibility_status',      // Essbar/Giftig (mit Prefix!)
+  'safety_risk_inherent',         // Inhärentes Risiko (Progress!)
+  'encounter_protocol',           // Was tun bei Begegnung
+  'toxicity_level',               // Giftigkeit
+  'edibility_status',             // Essbar/Giftig (ohne Prefix - Fungi)
+  'confusion_risk_level',         // Verwechslungsgefahr
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 💫 TIER 3: HEALING & TRADITION - Spiritualität, Medizin, Wellness
+  // ═══════════════════════════════════════════════════════════════════════════
+  'primary_medicinal_uses',       // Hauptheilwirkungen
+  'traditional_medicine_systems', // TCM, Ayurveda, Volksmedizin
+  'traditional_medicine_use',     // Traditionelle Anwendung
+  'tcm_therapeutic_actions',      // TCM Wirkungen
+  'tcm_meridian_tropism',         // TCM Meridiane
+  'ayurveda_dosha_effect',        // Ayurveda Doshas
+  'ayurveda_rasa',                // Ayurveda Geschmack
+  'mechanism_of_action',          // Wie es wirkt (faszinierend!)
+  'active_compounds',             // Die Wirkstoffe
+  'bioactive_compounds',          // Bioaktive Verbindungen
+  'clinical_evidence_level',      // Wissenschaftliche Evidenz
+  'medicinal_status',             // Medizinischer Status
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🍳 TIER 4: KULINARIK & LIFESTYLE - Genuss, Geschmack, Kochen
+  // ═══════════════════════════════════════════════════════════════════════════
+  'culinary_rating',              // Kulinarische Bewertung ⭐⭐⭐⭐⭐
+  'flavor_profile',               // Geschmacksprofil
+  'signature_dishes_famous',      // Berühmte Gerichte damit
+  'best_cooking_methods',         // Beste Zubereitungsarten
+  'cuisine_traditions',           // Küchen-Traditionen
+  'wine_pairing',                 // Weinempfehlung
+  'aroma_profile',                // Aroma
+  'texture',                      // Textur
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🌿 TIER 5: NATUR & ÖKOLOGIE - Habitat, Rolle, Schutz
+  // ═══════════════════════════════════════════════════════════════════════════
+  'ecological_role',              // Rolle im Ökosystem
+  'ecological_guild',             // Ökologische Gilde (apex predator, etc.)
+  'trophic_mode_primary',         // Ernährungsweise (carnivore, etc.)
+  'ecological_importance',        // Ökologische Bedeutung
+  'ecosystem_services',           // Was es für die Natur tut
+  'primary_ecosystem_function',   // Hauptfunktion im Ökosystem
+  'habitat_primary',              // Wo es lebt
+  'habitat_types',                // Lebensräume
+  'iucn_global_status',           // Schutzstatus (Badge!)
+  'population_trend',             // Populationstrend
+  'conservation_status',          // Gefährdung
+  'native_range',                 // Heimat
+  
+  // ═══════════════════════════════════════════════════════════════════════════
+  // 🔬 TIER 6: IDENTIFIKATION - Für die Bestimmer
+  // ═══════════════════════════════════════════════════════════════════════════
+  'identification_difficulty',    // Wie schwer zu bestimmen
+  'key_differentiating_features', // Erkennungsmerkmale
+  'common_names',                 // Volksnamen (interessant!)
+  'size_range',                   // Größe (am Ende, nicht am Anfang!)
+  'weight_range',                 // Gewicht
+];
+
+/**
+ * MORPH-PRIORISIERUNG nach visuellem Impact
+ * Badge > Bar/Radar > Progress > Range > List > Text
+ */
+const MORPH_PRIORITY: Partial<Record<MorphType, number>> = {
+  'badge': 1,       // Essbarkeit, Status - HÖCHSTE PRIO
+  'severity': 1,    // Giftigkeit, Warnungen
+  'bar': 2,         // Nährstoffe, Verteilung
+  'radar': 2,       // Compound Profile
+  'sparkline': 3,   // Trends
+  'progress': 3,    // Prozent-Werte
+  'stats': 3,       // Statistiken
+  'rating': 4,      // Bewertungen
+  'range': 5,       // Größen-Ranges (weniger wichtig)
+  'timeline': 5,    // Zeitlinien
+  'list': 6,        // Listen
+  'tag': 6,         // Tags
+  'image': 7,       // Bilder
+  'object': 8,      // Objekte
+  'text': 9,        // Text
+  'number': 9,      // Zahlen
+  'boolean': 9,     // Ja/Nein
+  'date': 9,        // Datum
+  'link': 9         // Links
+};
+
+/**
+ * Sortiert Felder für maximales Engagement
+ * 1. High-Value Fields zuerst (wenn vorhanden)
+ * 2. Dann nach Morph-Typ (Badge vor Range)
+ */
+function sortFieldsByInterest(entries: [string, unknown][], itemName?: string): [string, unknown][] {
+  const sorted = entries.sort((a, b) => {
+    const keyA = a[0];
+    const keyB = b[0];
+    
+    // High-Value Fields haben absolute Priorität
+    const hvIndexA = HIGH_VALUE_FIELDS.indexOf(keyA);
+    const hvIndexB = HIGH_VALUE_FIELDS.indexOf(keyB);
+    
+    // Beide sind High-Value: nach Liste sortieren
+    if (hvIndexA !== -1 && hvIndexB !== -1) {
+      return hvIndexA - hvIndexB;
+    }
+    
+    // Nur A ist High-Value: A zuerst
+    if (hvIndexA !== -1) return -1;
+    
+    // Nur B ist High-Value: B zuerst
+    if (hvIndexB !== -1) return 1;
+    
+    // Keine High-Value: nach Morph-Typ sortieren
+    const typeA = detectType(a[1], keyA);
+    const typeB = detectType(b[1], keyB);
+    const prioA = MORPH_PRIORITY[typeA] ?? 10;
+    const prioB = MORPH_PRIORITY[typeB] ?? 10;
+    return prioA - prioB;
+  });
+  
+  // Debug: Log für erstes Item
+  if (itemName) {
+    const top6Keys = sorted.slice(0, 6).map(([k]) => k);
+    const hvMatches = top6Keys.filter(k => HIGH_VALUE_FIELDS.includes(k));
+    console.log(`[GRID] ${itemName} - Top 6: [${top6Keys.join(', ')}] (${hvMatches.length} HIGH_VALUE)`);
+  }
+  
+  return sorted;
+}
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// DATA LOADING
+// ═══════════════════════════════════════════════════════════════════════════════
+
+// Alle Items laden
+const allItems = await loadAllItems();
+
+// Get search params
+const url = new URL(Astro.request.url);
+const query = url.searchParams.get('q') || '';
+const perspectiveIds = url.searchParams.get('p')?.split(',').filter(Boolean) || [];
+
+// Search - PERFORMANCE: Limit auf 12 für schnelleres Initial-Rendering
+const { items, total, perspectivesWithData } = await searchItems({
+  query,
+  perspectives: perspectiveIds,
+  limit: 12  // Reduziert von 50 → 72% weniger DOM-Nodes
+});
+
+// Get perspectives - DYNAMISCH aus Blueprints
+const perspectives = getAllPerspectives();
+
+// Get current site type for header highlighting
+const currentSiteType = getSiteType();
+const siteMeta = SITE_META[currentSiteType];
+
+// Perspektiven-Farben - DYNAMISCH generiert aus geladenen Perspektiven
+const perspectiveColors: Record<string, string[]> = {};
+perspectives.forEach((p, i) => {
+  // HSL-Farbe basierend auf Index für visuelle Unterscheidung
+  const hue = (i * 37) % 360; // Golden angle für gute Farbverteilung
+  perspectiveColors[p.id] = [`hsla(${hue}, 30%, 50%, 0.2)`];
+});
+
+// Render context for grid items
+const gridContext: RenderContext = {
+  mode: 'grid',
+  itemCount: 1,
+  compact: true
+};
+---
+
+<Base title="AMORPH – Übersicht">
+  <!-- Perspektiven-Daten für Client -->
+  <script define:vars={{ perspectiveColors, perspectives }}>
+    window.AMORPH_PERSPECTIVE_COLORS = perspectiveColors;
+    window.AMORPH_PERSPECTIVES = perspectives;
+  </script>
+  
+  <!-- View Toggle Script -->
+  <script>
+    // View Toggle - Grid/Compact
+    const viewToggleBtns = document.querySelectorAll<HTMLButtonElement>('.view-toggle-btn');
+    const grid = document.querySelector<HTMLElement>('.amorph-grid');
+    
+    // Load saved preference
+    const savedView = localStorage.getItem('amorph-view') || 'grid';
+    
+    // Filter elements
+    const compactFilters = document.querySelector<HTMLElement>('.compact-filters');
+    const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+    
+    function setView(view: string): void {
+      if (!grid) return;
+      
+      // Update grid class
+      grid.classList.toggle('view-compact', view === 'compact');
+      
+      // Update button states
+      viewToggleBtns.forEach(btn => {
+        btn.classList.toggle('is-active', btn.dataset.view === view);
+      });
+      
+      // Hide/show search result count in compact view
+      const searchResultInfo = document.querySelector('.search-result-info');
+      if (searchResultInfo) {
+        (searchResultInfo as HTMLElement).style.display = view === 'compact' ? 'none' : '';
+      }
+      
+      // Hide search navigation in compact view (use class for CSS specificity)
+      const searchNav = document.querySelector('.search-nav');
+      if (searchNav) {
+        searchNav.classList.toggle('compact-hidden', view === 'compact');
+      }
+      
+      // Hide active perspectives pills in compact view (use class for CSS specificity)
+      const activePerspectives = document.querySelector('.active-perspectives');
+      if (activePerspectives) {
+        activePerspectives.classList.toggle('compact-hidden', view === 'compact');
+      }
+      
+      // Show/hide compact filters
+      if (compactFilters) {
+        compactFilters.style.display = view === 'compact' ? 'flex' : 'none';
+      }
+      
+      // Save preference
+      localStorage.setItem('amorph-view', view);
+    }
+    
+    // ═══════════════════════════════════════════════════════════════════════════
+    // FILTER LOGIC - Perspektiven Multi-Select mit AND/OR
+    // FIFO Prinzip (max 4 Perspektiven gleichzeitig)
+    // ═══════════════════════════════════════════════════════════════════════════
+    let activePerspectiveFilters: string[] = []; // FIFO Queue, max 4
+    const MAX_PERSPECTIVES = 4;
+    let filterMode: 'or' | 'and' = 'or'; // Default: OR (mindestens eine Perspektive)
+    let currentCluster = 'default';
+    
+    // Perspektiven-Reihenfolge für Clustering
+    const perspectiveOrder = ['culinary', 'medicine', 'safety', 'ecology', 'cultivation', 'chemistry', 'statistics', 'geography', 'temporal', 'economy', 'conservation', 'culture', 'research', 'interactions', 'identification'];
+    
+    // Perspektiven-Farben für Sortierungs-Divider (von Server übernommen)
+    const perspColors = (window as any).AMORPH_PERSPECTIVE_COLORS || {};
+    
+    function applyFilters(): void {
+      if (!grid) return;
+      
+      const items = grid.querySelectorAll<HTMLElement>('.amorph-item');
+      
+      // Perspektiven Filter (Multi-Select mit AND/OR)
+      items.forEach(item => {
+        const perspectiveCounts = JSON.parse(item.dataset.perspectiveCounts || '{}');
+        
+        // Keine Filter aktiv = alle zeigen
+        if (activePerspectiveFilters.length === 0) {
+          item.style.display = '';
+          item.style.opacity = '1';
+          return;
+        }
+        
+        // Prüfe Matches je nach Modus
+        let matchCount = 0;
+        let totalMatchingFields = 0;
+        for (const persp of activePerspectiveFilters) {
+          const count = perspectiveCounts[persp] || 0;
+          if (count > 0) {
+            matchCount++;
+            totalMatchingFields += count;
+          }
+        }
+        
+        const passesFilter = filterMode === 'or' 
+          ? matchCount > 0  // OR: mindestens eine Perspektive
+          : matchCount === activePerspectiveFilters.length; // AND: alle Perspektiven
+        
+        if (passesFilter) {
+          item.style.display = '';
+          // Stärke basierend auf Matches und Feldanzahl
+          const matchRatio = matchCount / activePerspectiveFilters.length;
+          const fieldBonus = Math.min(totalMatchingFields / 15, 0.3);
+          const opacity = Math.min(0.6 + matchRatio * 0.3 + fieldBonus, 1);
+          item.style.opacity = String(opacity);
+        } else {
+          // Keine/unvollständige Matches → stark dimmen
+          item.style.display = '';
+          item.style.opacity = '0.12';
+        }
+      });
+      
+      // Clustering (Sortierung)
+      // Entferne alte Perspektiven-Divider
+      grid.querySelectorAll('.perspective-divider').forEach(d => d.remove());
+      
+      if (currentCluster !== 'default') {
+        const itemsArray = Array.from(items);
+        
+        if (currentCluster === 'alphabetical') {
+          itemsArray.sort((a, b) => {
+            const nameA = a.dataset.name || '';
+            const nameB = b.dataset.name || '';
+            return nameA.localeCompare(nameB);
+          });
+        } else if (currentCluster === 'perspective') {
+          // Nach Perspektive sortieren - aktive Perspektiven zuerst!
+          itemsArray.sort((a, b) => {
+            const perspA = a.dataset.perspective || 'zzz';
+            const perspB = b.dataset.perspective || 'zzz';
+            const countsA = JSON.parse(a.dataset.perspectiveCounts || '{}');
+            const countsB = JSON.parse(b.dataset.perspectiveCounts || '{}');
+            
+            // Aktive Filter-Perspektiven haben Priorität
+            const aHasActive = activePerspectiveFilters.some(p => countsA[p] > 0);
+            const bHasActive = activePerspectiveFilters.some(p => countsB[p] > 0);
+            
+            if (aHasActive !== bHasActive) {
+              return aHasActive ? -1 : 1; // Items mit aktiver Perspektive zuerst
+            }
+            
+            // Dann nach dominanter Perspektive
+            const indexA = perspectiveOrder.indexOf(perspA);
+            const indexB = perspectiveOrder.indexOf(perspB);
+            if (indexA !== indexB) {
+              return (indexA === -1 ? 999 : indexA) - (indexB === -1 ? 999 : indexB);
+            }
+            
+            // Bei gleicher Perspektive: Stärkere zuerst
+            const strengthA = parseFloat(a.dataset.perspectiveStrength || '0');
+            const strengthB = parseFloat(b.dataset.perspectiveStrength || '0');
+            return strengthB - strengthA;
+          });
+        }
+        
+        // Erst alle Items in sortierter Reihenfolge anhängen
+        itemsArray.forEach(item => grid.appendChild(item));
+        
+        // DANN Perspektiven-Divider einfügen (nur bei perspective-Sortierung)
+        if (currentCluster === 'perspective') {
+          let lastPersp = '';
+          itemsArray.forEach(item => {
+            const persp = item.dataset.perspective || '';
+            if (persp && persp !== lastPersp) {
+              const divider = document.createElement('div');
+              divider.className = 'perspective-divider';
+              divider.dataset.perspective = persp;
+              
+              // Farbe aus perspColors extrahieren
+              const colorArr = perspColors[persp];
+              if (colorArr && colorArr[0]) {
+                // rgba(180, 140, 120, 0.2) → rgba(180, 140, 120, 0.7) für sichtbarere Farbe
+                const solidColor = colorArr[0].replace('0.2)', '0.7)').replace(', 0.2)', ', 0.7)');
+                divider.style.setProperty('--persp-color', solidColor);
+              }
+              
+              // Perspektiven-Namen aus dynamisch geladenen Perspektiven
+              const loadedPerspectives = (window as any).AMORPH_PERSPECTIVES || [];
+              const perspData = loadedPerspectives.find((p: any) => p.id === persp);
+              const perspLabel = perspData?.name || persp.charAt(0).toUpperCase() + persp.slice(1).replace(/_/g, ' ');
+              
+              divider.innerHTML = `<span class="perspective-divider-line"></span><span class="perspective-divider-label">${perspLabel}</span><span class="perspective-divider-line"></span>`;
+              
+              // Divider VOR dem Item einfügen
+              item.parentNode?.insertBefore(divider, item);
+              lastPersp = persp;
+            }
+          });
+        }
+      }
+    }
+    
+    // Filter button click handlers
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filterType = btn.dataset.filter;
+        const value = btn.dataset.value || '';
+        
+        if (filterType === 'perspective') {
+          if (value === 'all') {
+            // "Alle" button = clear all filters
+            activePerspectiveFilters = [];
+          } else {
+            const idx = activePerspectiveFilters.indexOf(value);
+            if (idx !== -1) {
+              // Already active → remove (toggle off)
+              activePerspectiveFilters.splice(idx, 1);
+            } else {
+              // Not active → add with FIFO
+              activePerspectiveFilters.push(value);
+              // FIFO: Remove oldest if over limit
+              if (activePerspectiveFilters.length > MAX_PERSPECTIVES) {
+                activePerspectiveFilters.shift();
+              }
+            }
+          }
+          // Update button states
+          document.querySelectorAll('.filter-btn[data-filter="perspective"]').forEach(b => {
+            const btnValue = b.getAttribute('data-value') || '';
+            if (btnValue === 'all') {
+              b.classList.toggle('is-active', activePerspectiveFilters.length === 0);
+            } else {
+              b.classList.toggle('is-active', activePerspectiveFilters.includes(btnValue));
+            }
+          });
+          // Update button colors
+          updatePerspectiveButtonColors();
+          // Show/hide AND/OR toggle based on filter count
+          const modeToggle = document.querySelector('.filter-mode-toggle') as HTMLElement;
+          if (modeToggle) {
+            modeToggle.style.display = activePerspectiveFilters.length >= 2 ? 'flex' : 'none';
+          }
+        } else if (filterType === 'cluster') {
+          currentCluster = value;
+          // Update active state for cluster buttons
+          document.querySelectorAll('.filter-btn[data-filter="cluster"]').forEach(b => {
+            b.classList.toggle('is-active', b.getAttribute('data-value') === value);
+          });
+        } else if (filterType === 'mode') {
+          // AND/OR Toggle
+          filterMode = filterMode === 'or' ? 'and' : 'or';
+          const modeBtn = document.querySelector('.filter-mode-btn') as HTMLElement;
+          if (modeBtn) {
+            modeBtn.textContent = filterMode.toUpperCase();
+            modeBtn.classList.toggle('is-and', filterMode === 'and');
+          }
+        }
+        
+        // Update filter count display
+        updateFilterCount();
+        
+        applyFilters();
+      });
+    });
+    
+    // Filter collapse/expand toggle
+    const filterToggle = document.querySelector('.filter-header-toggle');
+    const filterContent = document.querySelector('.filter-content');
+    if (filterToggle && filterContent) {
+      filterToggle.addEventListener('click', () => {
+        const isExpanded = filterToggle.getAttribute('aria-expanded') === 'true';
+        filterToggle.setAttribute('aria-expanded', String(!isExpanded));
+        filterContent.classList.toggle('is-collapsed', isExpanded);
+      });
+    }
+    
+    // Update filter count in header
+    function updateFilterCount(): void {
+      const countEl = document.querySelector('.filter-header-count');
+      if (countEl) {
+        if (activePerspectiveFilters.length > 0) {
+          countEl.textContent = `(${activePerspectiveFilters.length})`;
+        } else {
+          countEl.textContent = '';
+        }
+      }
+    }
+    
+    // Apply perspective colors to active buttons
+    function updatePerspectiveButtonColors(): void {
+      document.querySelectorAll('.filter-btn[data-filter="perspective"]').forEach(btn => {
+        const color = btn.getAttribute('data-color');
+        const isActive = btn.classList.contains('is-active');
+        if (color && isActive && btn.getAttribute('data-value') !== 'all') {
+          (btn as HTMLElement).style.setProperty('--btn-active-color', color);
+        } else {
+          (btn as HTMLElement).style.removeProperty('--btn-active-color');
+        }
+      });
+    }
+    
+    // Initial color update
+    updatePerspectiveButtonColors();
+    
+    // Initialize with saved view
+    setView(savedView);
+    
+    // Button click handlers
+    viewToggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const view = btn.dataset.view || 'grid';
+        setView(view);
+      });
+    });
+    
+    // MOBILE-FRIENDLY: Klick auf Item = Selection, NICHT Navigation
+    // Navigation nur über den Pfeil-Button
+    // Detect touch device
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+    if (grid) {
+      grid.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement;
+        
+        // Arrow button navigates to detail - IMMER erlaubt
+        if (target.closest('.item-detail-link')) {
+          return; // Let the link handle navigation
+        }
+        
+        // Ignore copyright clicks
+        if (target.closest('.bifroest-copyright')) {
+          return;
+        }
+        
+        // Field clicks werden vom grid.ts handler behandelt
+        if (target.closest('.amorph-field')) {
+          return;
+        }
+        
+        // MOBILE (compact view): Klick auf Card = NICHT navigieren
+        // User muss den Pfeil-Button benutzen
+        // Das erlaubt Field-Selection auch auf Mobile
+        if (grid.classList.contains('view-compact') && isTouchDevice) {
+          // Auf Touch-Geräten: Kein Auto-Navigate bei Klick auf Card
+          // Zeige stattdessen einen Hinweis oder mache nichts
+          return;
+        }
+        
+        // DESKTOP (compact view): Klick auf Card = navigieren (wie bisher)
+        if (grid.classList.contains('view-compact') && !isTouchDevice) {
+          const item = target.closest('.amorph-item') as HTMLElement;
+          if (item) {
+            const slug = item.dataset.slug;
+            if (slug) {
+              window.location.href = '/' + slug;
+            }
+          }
+        }
+      });
+    }
+  </script>
+  
+  <!-- ═══════════════════════════════════════════════════════════════════════════
+       HEADER - Site-Switcher mit Bifroest Portal
+       Funginomi (blau), Phytonomi (jade), Drakonomi (türkis) → Bifroest
+       ═══════════════════════════════════════════════════════════════════════════ -->
+  <header class="amorph-header">
+    <!-- Nebel Container - wird ins Bifroest Portal gesaugt -->
+    <div class="particle-field">
+      <!-- Funginomi Nebel (blau) - linker Bereich -->
+      <div class="particle particle-funginomi" style="--delay: 0s; --duration: 12s; --start-x: 0%; --width: 35%;"></div>
+      <div class="particle particle-funginomi" style="--delay: 4s; --duration: 10s; --start-x: 5%; --width: 30%;"></div>
+      <div class="particle particle-funginomi" style="--delay: 8s; --duration: 14s; --start-x: 2%; --width: 32%;"></div>
+      <!-- Phytonomi Nebel (jade) - mittlerer Bereich -->
+      <div class="particle particle-phytonomi" style="--delay: 1s; --duration: 11s; --start-x: 33%; --width: 34%;"></div>
+      <div class="particle particle-phytonomi" style="--delay: 5s; --duration: 13s; --start-x: 30%; --width: 36%;"></div>
+      <div class="particle particle-phytonomi" style="--delay: 9s; --duration: 10s; --start-x: 35%; --width: 32%;"></div>
+      <!-- Drakonomi Nebel (türkis) - rechter Bereich -->
+      <div class="particle particle-drakonomi" style="--delay: 2s; --duration: 10s; --start-x: 60%; --width: 30%;"></div>
+      <div class="particle particle-drakonomi" style="--delay: 6s; --duration: 12s; --start-x: 55%; --width: 35%;"></div>
+      <div class="particle particle-drakonomi" style="--delay: 10s; --duration: 11s; --start-x: 58%; --width: 32%;"></div>
+    </div>
+    
+    <nav class="site-switcher">
+      <a href="https://funginomi.com" class:list={["site-link", { "is-active": currentSiteType === 'fungi' }]} data-site="funginomi" title="Funginomi – Pilze & Fungi">
+        <svg class="site-link-icon" viewBox="0 0 24 24" fill="currentColor">
+          <!-- Mushroom Icon -->
+          <ellipse cx="12" cy="8" rx="7" ry="5"/>
+          <rect x="10" y="12" width="4" height="8" rx="1"/>
+        </svg>
+        <span class="site-link-name">Funginomi</span>
+      </a>
+      <a href="https://phytonomi.com" class:list={["site-link", { "is-active": currentSiteType === 'phyto' }]} data-site="phytonomi" title="Phytonomi – Pflanzen & Flora">
+        <svg class="site-link-icon" viewBox="0 0 24 24" fill="currentColor">
+          <!-- Leaf Icon -->
+          <path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/>
+        </svg>
+        <span class="site-link-name">Phytonomi</span>
+      </a>
+      <a href="https://drakonomi.com" class:list={["site-link", { "is-active": currentSiteType === 'therion' }]} data-site="drakonomi" title="Drakonomi – Tiere & Fauna">
+        <svg class="site-link-icon" viewBox="0 0 24 24" fill="currentColor">
+          <!-- Paw Icon -->
+          <ellipse cx="12" cy="17" rx="5" ry="4"/>
+          <circle cx="7" cy="10" r="2.5"/>
+          <circle cx="17" cy="10" r="2.5"/>
+          <circle cx="5" cy="14" r="2"/>
+          <circle cx="19" cy="14" r="2"/>
+        </svg>
+        <span class="site-link-name">Drakonomi</span>
+      </a>
+      
+      <!-- Bifroest Portal -->
+      <a href="https://bifroest.io" class="bifroest-portal" title="Bifroest – The Bridge">
+        <span class="bifroest-label">part of the</span>
+        <span class="bifroest-name">Bifroest</span>
+        <span class="bifroest-vortex"></span>
+      </a>
+    </nav>
+  </header>
+  
+  <!-- ═══════════════════════════════════════════════════════════════════════════
+       SEARCH BAR - Floating im Content
+       ═══════════════════════════════════════════════════════════════════════════ -->
+  <div class="search-bar-container">
+    <div class="search-bar-inner">
+      <div class="search-input-wrapper">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8"/>
+          <path d="m21 21-4.35-4.35"/>
+        </svg>
+        <input 
+          type="search" 
+          class="search-input-main"
+          placeholder="Search..." 
+          value={query}
+          autocomplete="off"
+        />
+        <div class="search-nav" style="display: none;">
+          <span class="search-nav-count">0/0</span>
+          <button type="button" class="search-nav-prev" aria-label="Vorheriger Treffer">↑</button>
+          <button type="button" class="search-nav-next" aria-label="Nächster Treffer">↓</button>
+        </div>
+        <!-- View Toggle -->
+        <div class="view-toggle">
+          <button type="button" class="view-toggle-btn is-active" data-view="grid" title="Grid View">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <rect x="3" y="3" width="7" height="7" rx="1"/>
+              <rect x="14" y="3" width="7" height="7" rx="1"/>
+              <rect x="3" y="14" width="7" height="7" rx="1"/>
+              <rect x="14" y="14" width="7" height="7" rx="1"/>
+            </svg>
+          </button>
+          <button type="button" class="view-toggle-btn" data-view="compact" title="Compact Gallery">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <rect x="3" y="3" width="4" height="4" rx="0.5"/>
+              <rect x="10" y="3" width="4" height="4" rx="0.5"/>
+              <rect x="17" y="3" width="4" height="4" rx="0.5"/>
+              <rect x="3" y="10" width="4" height="4" rx="0.5"/>
+              <rect x="10" y="10" width="4" height="4" rx="0.5"/>
+              <rect x="17" y="10" width="4" height="4" rx="0.5"/>
+              <rect x="3" y="17" width="4" height="4" rx="0.5"/>
+              <rect x="10" y="17" width="4" height="4" rx="0.5"/>
+              <rect x="17" y="17" width="4" height="4" rx="0.5"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- ═══════════════════════════════════════════════════════════════════════
+           COMPACT VIEW FILTER - Perspektiven & Clustering Controls
+           Nur sichtbar im Compact View - Collapsible
+           ═══════════════════════════════════════════════════════════════════════ -->
+      <div class="compact-filters" style="display: none;">
+        <!-- Filter Header mit Toggle -->
+        <button type="button" class="filter-header-toggle" aria-expanded="true">
+          <span class="filter-header-label">Filter</span>
+          <span class="filter-header-count"></span>
+          <svg class="filter-header-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        
+        <div class="filter-content">
+          <div class="filter-group filter-perspective">
+            <span class="filter-label">Perspektive</span>
+            <button type="button" class="filter-btn is-active" data-filter="perspective" data-value="all" title="Alle anzeigen">
+              <span class="filter-icon">✨</span>
+              <span class="filter-text">Alle</span>
+            </button>
+            {/* Dynamisch aus Blueprint-Perspektiven generiert */}
+            {perspectives.map((p, i) => (
+              <button 
+                type="button" 
+                class="filter-btn" 
+                data-filter="perspective" 
+                data-value={p.id} 
+                data-color={`hsla(${(i * 37) % 360}, 30%, 50%, 0.6)`}
+                title={p.name}
+              >
+                <span class="filter-icon">{p.symbol}</span>
+                <span class="filter-text">{p.name}</span>
+              </button>
+            ))}
+          </div>
+          
+          <!-- AND/OR Mode Toggle (nur sichtbar bei 2+ aktiven Perspektiven) -->
+          <div class="filter-group filter-mode-toggle" style="display: none;">
+            <span class="filter-label">Modus</span>
+            <button type="button" class="filter-btn filter-mode-btn" data-filter="mode" title="OR = mindestens eine, AND = alle Perspektiven">
+              OR
+            </button>
+          </div>
+          
+          <div class="filter-group filter-cluster">
+            <span class="filter-label">Sortierung</span>
+            <button type="button" class="filter-btn is-active" data-filter="cluster" data-value="default" title="Standard-Reihenfolge">
+            <span class="filter-text">Standard</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="cluster" data-value="alphabetical" title="Alphabetisch sortieren">
+            <span class="filter-text">A-Z</span>
+          </button>
+          <button type="button" class="filter-btn" data-filter="cluster" data-value="perspective" title="Nach Perspektive gruppieren">
+            <span class="filter-text">Nach Perspektive</span>
+          </button>
+          </div>
+        </div><!-- /filter-content -->
+      </div>
+    </div>
+    <!-- Aktive Perspektiven unter Suche -->
+    <div class="active-perspectives"></div>
+  </div>
+  
+  <!-- Main Grid -->
+  <main class="amorph-main">
+    <div class="amorph-grid">
+      {items.map(item => {
+        // Encode field-perspective mapping for client-side use
+        const fieldPerspectiveMap = item._fieldPerspective || {};
+        const fieldPerspectiveJson = JSON.stringify(fieldPerspectiveMap);
+        
+        // Bild-URL: Aus dem image-Feld in index.json
+        // Kann sein:
+        // 1. Voller Pfad: "/images/species/slug.webp" → direkt verwenden
+        // 2. Dateiname: "Hericium_erinaceus.jpg" → über API: /api/image/{kingdom}/{slug}/{image}
+        const kingdom = siteMeta.dataFolder; // 'fungi', 'plantae', 'therion'
+        const imageField = item.image ? String(item.image) : null;
+        let imageUrl: string | null = null;
+        if (imageField) {
+          if (imageField.startsWith('/')) {
+            // Voller Pfad - direkt verwenden
+            imageUrl = imageField;
+          } else {
+            // Dateiname - über API servieren
+            imageUrl = '/api/image/' + kingdom + '/' + item.slug + '/' + encodeURIComponent(imageField);
+          }
+        }
+        
+        // Bifroest: Image copyright sources
+        const itemSources = item._sources || {};
+        const imageSources = (itemSources as any).image || [];
+        const imageSource = imageSources.length > 0 ? imageSources[0] : null;
+        const imageSourcesJson = imageSources.length > 0 ? JSON.stringify(imageSources) : '';
+        
+        // Bifroest: Field experts
+        const fieldExperts = (itemSources as any).fields || {};
+        const fieldExpertsJson = Object.keys(fieldExperts).length > 0 ? JSON.stringify(fieldExperts) : '';
+        
+        // ═══════════════════════════════════════════════════════════════════════════
+        // PERSPEKTIVEN-ANALYSE - Dominante Perspektive bestimmen
+        // Je mehr Felder einer Perspektive, desto stärker der visuelle Akzent
+        // ═══════════════════════════════════════════════════════════════════════════
+        const perspectiveCounts = {};
+        const fieldPerspectives = item._fieldPerspective || {};
+        
+        // Zähle Felder pro Perspektive
+        for (const [_, perspName] of Object.entries(fieldPerspectives)) {
+          perspectiveCounts[perspName] = (perspectiveCounts[perspName] || 0) + 1;
+        }
+        
+        // Finde dominante Perspektive (die mit den meisten Feldern)
+        let dominantPerspective = null;
+        let maxFields = 0;
+        for (const [perspName, count] of Object.entries(perspectiveCounts)) {
+          if (count > maxFields) {
+            maxFields = count;
+            dominantPerspective = perspName;
+          }
+        }
+        
+        // Stärke des Effekts: 0-1 basierend auf Feldanzahl (5+ Felder = volle Stärke)
+        const perspectiveStrength = Math.min(maxFields / 5, 1);
+        
+        // Alle Perspektiven des Items als JSON für Client
+        const perspectiveCountsJson = JSON.stringify(perspectiveCounts);
+        
+        // ═══════════════════════════════════════════════════════════════════════════
+        // HOVER-PEEK - Quick Facts
+        // ═══════════════════════════════════════════════════════════════════════════
+        const scientificName = item.scientific_name || item.wissenschaftlich || '';
+        
+        // Kernfakten extrahieren
+        const peekFacts = [];
+        if (item.edibility_status || item.safety_edibility_status) {
+          peekFacts.push(String(item.edibility_status || item.safety_edibility_status));
+        }
+        if (item.size_range) {
+          peekFacts.push('📏 ' + String(item.size_range));
+        }
+        if (item.season) {
+          peekFacts.push('🗓️ ' + String(item.season));
+        }
+        
+        return (
+          <article 
+            class="amorph-item"
+            data-slug={item.slug}
+            data-id={item.id}
+            data-name={item.name}
+            data-perspective={dominantPerspective}
+            data-perspective-strength={perspectiveStrength.toFixed(2)}
+            data-perspective-counts={perspectiveCountsJson}
+            data-field-perspectives={fieldPerspectiveJson}
+            data-field-experts={fieldExpertsJson}
+          >
+            {/* Hover-Peek Info Bubble */}
+            {scientificName && (
+              <div class="item-peek">
+                <span class="peek-scientific">{scientificName}</span>
+                {peekFacts.slice(0, 2).map(fact => (
+                  <span class="peek-fact peek-edibility">{fact}</span>
+                ))}
+              </div>
+            )}
+            
+            <div class="item-header">
+              {imageUrl && (
+                <div class="item-image">
+                  {/* API serviert automatisch WebP wenn verfügbar */}
+                  <img src={imageUrl} alt={item.name} loading="lazy" decoding="async" />
+                  {imageSource && (
+                    <button type="button" class="bifroest-copyright" data-sources={imageSourcesJson}>
+                      <span class="bifroest-symbol">©</span>
+                      <span class="bifroest-name">{imageSource.name || imageSource.author || ''}</span>
+                    </button>
+                  )}
+                </div>
+              )}
+              <div class="item-title-row">
+                <h2 class="item-name">{item.name}</h2>
+                <a href={'/' + domain + '/' + item.slug} class="item-detail-link" title="Details anzeigen">→</a>
+              </div>
+              {item.wissenschaftlich && (
+                <span class="item-scientific">{String(item.wissenschaftlich)}</span>
+              )}
+            </div>
+            
+            <div class="item-body">
+              {sortFieldsByInterest(
+                Object.entries(item)
+                  .filter(([k]) => !['id', 'slug', 'name', 'bild', 'wissenschaftlich'].includes(k) && !k.startsWith('_')),
+                item.name || item.slug
+              )
+                .slice(0, 6)
+                .map(([key, value]) => {
+                  // Context für Morphs (ohne Bifroest Sources für Felder)
+                  return (
+                    <Fragment set:html={renderValue(value, key, gridContext)} />
+                  );
+                })
+              }
+            </div>
+          </article>
+        );
+      })}
+    </div>
+    
+    {/* PERFORMANCE: Infinite Scroll Sentinel */}
+    {total > items.length && (
+      <div 
+        class="infinite-scroll-sentinel" 
+        data-loaded={items.length} 
+        data-total={total}
+        aria-hidden="true"
+      >
+        <div class="loading-spinner"></div>
+        <span class="loading-text">Lade mehr...</span>
+      </div>
+    )}
+    
+    {items.length === 0 && (
+      <div class="empty-state">
+        <span class="empty-icon">🔍</span>
+        <p>Keine Ergebnisse gefunden</p>
+      </div>
+    )}
+  </main>
+  
+  <!-- Selection Bar - Kompakt mit Counter und Clear -->
+  <div class="selection-bar">
+    <span class="selection-counter">0</span>
+    <div class="selection-pills"></div>
+    <button class="selection-clear" title="Clear all">×</button>
+  </div>
+  
+  <!-- My Species Panel (Overlay) -->
+  <aside class="amorph-compare">
+    <div class="compare-header">
+      <h2>My Species</h2>
+      <div class="compare-header-actions">
+        <button class="compare-autocomplete" title="Complete missing fields from other species">
+          <span class="autocomplete-icon">✨</span>
+          <span class="autocomplete-label">Complete</span>
+        </button>
+        <button class="compare-copy" title="Copy data">
+          <span class="copy-icon">📋</span>
+          <span class="copy-label">Copy</span>
+        </button>
+        <button class="compare-close">×</button>
+      </div>
+    </div>
+    <div class="compare-license-notice">
+      <span class="license-icon">📖</span>
+      <span>Free License – Bei Nutzung bitte Quelle angeben</span>
+    </div>
+    <div class="compare-content">
+      <!-- Filled via JS -->
+    </div>
+  </aside>
+  
+  <!-- ═══════════════════════════════════════════════════════════════════════════
+       FOOTER - Minimal
+       ═══════════════════════════════════════════════════════════════════════════ -->
+  <footer class="amorph-footer">
+    <div class="footer-content">
+      <nav class="footer-links">
+        <a href="/impressum" class="footer-link">Impressum</a>
+        <a href="/datenschutz" class="footer-link">Datenschutz</a>
+        <a href="/about" class="footer-link">Über AMORPH</a>
+        <a href="https://github.com" class="footer-link" target="_blank">GitHub</a>
+      </nav>
+      <p class="footer-copyright">© 2025 AMORPH · <a href="/">Formlos. Zustandslos. Transformierend.</a></p>
+    </div>
+  </footer>
+  
+  <!-- ═══════════════════════════════════════════════════════════════════════════
+       BOTTOM NAVIGATION - Mobile-First App Navigation
+       ═══════════════════════════════════════════════════════════════════════════ -->
+  <nav class="bottom-nav">
+    <button type="button" class="bottom-nav-item is-active" data-nav="search" aria-label="Focus search">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/>
+        <path d="m21 21-4.35-4.35"/>
+      </svg>
+      <span class="bottom-nav-label">Search</span>
+    </button>
+    <button type="button" class="bottom-nav-item" data-nav="compare" aria-label="My Species">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+      </svg>
+      <span class="bottom-nav-label">My Species</span>
+      <span class="bottom-nav-badge">0</span>
+    </button>
+    <button type="button" class="bottom-nav-item bifroest-toggle" data-nav="bifroest" aria-label="Bifroest – Quellen anzeigen">
+      <svg class="bottom-nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+        <path d="m2 17 10 5 10-5"/>
+        <path d="m2 12 10 5 10-5"/>
+      </svg>
+      <span class="bottom-nav-label">Bifroest</span>
+    </button>
+  </nav>
+</Base>

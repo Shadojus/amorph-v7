@@ -10,7 +10,7 @@
  */
 
 import Base from '../layouts/Base.astro';
-import { loadConfig, getAllPerspectives, getSiteType, SITE_META } from '../server/config';
+import { loadConfig, getAllPerspectives, getSiteType, SITE_META, type SiteType } from '../server/config';
 import { getItem } from '../server/data';
 import { renderValue } from '../morphs';
 import type { RenderContext } from '../core/types';
@@ -18,6 +18,22 @@ import { validateSlug } from '../core/security';
 
 // Get and validate slug from URL
 const rawSlug = Astro.params.slug;
+
+// Domain-Namen sind KEINE Entities - weiterleiten zu [domain].astro
+// Dies wird von Astro automatisch gehandhabt, aber als Fallback:
+const validDomains: SiteType[] = [
+  'fungi', 'phyto', 'drako',
+  'paleo', 'tekto', 'mine',
+  'bakterio', 'viro', 'geno', 'anato',
+  'chemo', 'physi', 'kosmo',
+  'netzo', 'cognito', 'biotech', 'socio'
+];
+
+if (rawSlug && validDomains.includes(rawSlug as SiteType)) {
+  // Redirect to domain page - Astro should handle [domain].astro for this
+  // But if we're here, force the redirect
+  return Astro.redirect(`/${rawSlug}/`);
+}
 
 // Wenn kein slug vorhanden ist, 404 zurückgeben
 // (Astro sollte "/" automatisch zu index.astro routen)

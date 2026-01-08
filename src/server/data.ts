@@ -1,8 +1,10 @@
 /**
- * AMORPH v7 - Server Data
+ * AMORPH v8 - Server Data
  * 
  * Lädt JSON-Daten aus data/ Verzeichnis.
  * Mit robuster Fehlerbehandlung für korrupte/fehlende Dateien.
+ * 
+ * PostgreSQL/Prisma Edition (PocketBase deprecated)
  */
 
 import { readFileSync, existsSync, readdirSync } from 'fs';
@@ -10,7 +12,6 @@ import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import type { ItemData, Perspective } from '../core/types';
 import { getConfig, getAllPerspectives } from './config';
-import { loadSiteItems, checkBifroestConnection, getSiteCollection } from './bifroest';
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // PATHS
@@ -86,38 +87,43 @@ function safeReadJson<T>(filePath: string): { data: T | null; error: string | nu
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// BIFROEST API INTEGRATION (LEGACY - Deprecated)
-// ═══════════════════════════════════════════════════════════════════════════════
-
-/**
- * @deprecated Use local files or PostgreSQL instead
- * Lädt Daten von BIFROEST API für die aktuelle Site.
- * Diese Funktion ist deprecated und wird in zukünftigen Versionen entfernt.
- */
-async function loadFromBifroest(): Promise<ItemData[] | null> {
-  // PocketBase wurde durch PostgreSQL/Prisma ersetzt
-  // Diese Funktion gibt immer null zurück um lokale Daten zu verwenden
-  console.log('[Data] PocketBase wurde durch PostgreSQL ersetzt - verwende lokale Daten');
-  return null;
-}
-
-// ═══════════════════════════════════════════════════════════════════════════════
 // DATA LOADER
 // ═══════════════════════════════════════════════════════════════════════════════
 
-// Control data source: 'postgresql' | 'local' | 'auto'
-// 'postgresql' uses new Prisma-based database (future)
-// 'local' uses JSON files from data-local/ directory (default)
-// 'auto' same as 'local' (pocketbase deprecated)
+// Control data source: 'database' | 'local'
+// 'database' uses PostgreSQL/Prisma (production)
+// 'local' uses JSON files from data/ directory (development/fallback)
 const DATA_SOURCE = process.env.DATA_SOURCE || 'local';
 
+// Import database loader
+import { loadAllItemsFromDB, getItemBySlugFromDB, searchItemsInDB, invalidateDBCache } from './data-db';
+
 /**
- * Lädt alle Items aus lokalen JSON-Dateien.
- * PocketBase wurde durch PostgreSQL/Prisma ersetzt.
+ * Lädt alle Items - automatische Auswahl zwischen DB und lokalen Dateien.
  * 
- * Schema: Core fields + 15 Perspective JSON fields (matching blueprints)
+ * DATA_SOURCE=database → PostgreSQL/Prisma
+ * DATA_SOURCE=local → JSON-Dateien
  */
 export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
+  // Use database if configured
+  if (DATA_SOURCE === 'database') {
+    console.log('[Data] DATA_SOURCE=database → Loading from PostgreSQL');
+    try {
+      const dbItems = await loadAllItemsFromDB(forceReload);
+      if (dbItems.length > 0) {
+        cachedItems = dbItems;
+        cachedIndex = {};
+        for (const item of dbItems) {
+          cachedIndex[item.slug] = item;
+        }
+        return dbItems;
+      }
+      console.warn('[Data] Database returned 0 items, falling back to local files');
+    } catch (error) {
+      console.error('[Data] Database error, falling back to local files:', error);
+    }
+  }
+
   if (cachedItems && !forceReload) {
     return cachedItems;
   }
@@ -431,8 +437,19 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
 
 /**
  * Holt ein Item nach Slug.
+ * Nutzt DB wenn DATA_SOURCE=database, sonst Cache.
  */
 export async function getItem(slug: string): Promise<ItemData | null> {
+  // Use database if configured
+  if (DATA_SOURCE === 'database') {
+    try {
+      const item = await getItemBySlugFromDB(slug);
+      if (item) return item;
+    } catch (error) {
+      console.error('[Data] DB getItem error, trying cache:', error);
+    }
+  }
+  
   if (!cachedIndex) {
     await loadAllItems();
   }
@@ -757,9 +774,28 @@ export interface SearchResult {
 
 /**
  * Durchsucht Items.
+ * Bei DATA_SOURCE=database wird direkt in PostgreSQL gesucht.
  */
 export async function searchItems(options: SearchOptions = {}): Promise<SearchResult> {
   const { query = '', perspectives = [], limit = 50, offset = 0 } = options;
+  
+  // Use database search if configured and we have a simple query
+  if (DATA_SOURCE === 'database' && query.length >= 2) {
+    try {
+      const dbResults = await searchItemsInDB(query, limit);
+      if (dbResults.length > 0) {
+        const perspectivesWithData = getPerspectivesWithData(dbResults);
+        return {
+          items: dbResults,
+          total: dbResults.length,
+          perspectivesWithData,
+          matchedPerspectives: []
+        };
+      }
+    } catch (error) {
+      console.error('[Data] DB search error, falling back to local:', error);
+    }
+  }
   
   let items = await loadAllItems();
   

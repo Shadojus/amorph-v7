@@ -1,74 +1,78 @@
-# Pages
+# AMORPH Pages (v8.0)
 
-Astro-Routen für AMORPH.
-
----
+> Teil von: [src](../CLAUDE.md) | Workspace Root: [Bifroest](../../../CLAUDE.md)
 
 ## Routen
 
-| Route | Datei | Beschreibung |
-|-------|-------|--------------|
-| `/` | `index.astro` | Startseite mit Pagination |
-| `/[slug]` | `[slug].astro` | Entity Detail-Seite |
-| `/api/search` | `api/search.ts` | Such-API |
-| `/api/compare` | `api/compare.ts` | Compare-API |
-| `/api/autocomplete` | `api/autocomplete.ts` | Autovervollständigung |
-| `/api/health` | `api/health.ts` | Health Check |
+| Route | Seite | Beschreibung |
+|-------|-------|-------------|
+| `/` | `index.astro` | Startseite |
+| `/[slug]` | `[slug].astro` | Species-Detail |
+| `/[a]/vs/[b]` | `[a]/vs/[b].astro` | Vergleich |
+| `/suche` | `suche.astro` | Suchseite |
+| `/api/*` | `api/` | API-Endpoints |
 
----
-
-## Datenfluss
+## Page Structure
 
 ```astro
 ---
-// [slug].astro
-import { loadSiteItems } from '@/server/bifroest';
+// Datenladen aus lokalem JSON
+const items = await loadSiteItems();  // → data-local/
 
-const { slug } = Astro.params;
-const items = await loadSiteItems();  // → PocketBase!
-const item = items.find(s => s.slug === slug);
+// Oder spezifisches Item
+const item = await loadItemBySlug(slug);
 ---
-
-<Layout>
-  <EntityDetail item={item} />
-</Layout>
+<Base>
+  <ItemGrid {items} />
+</Base>
 ```
 
----
+## API-Endpunkte
 
-## API Endpoints
+| Route | Methode | Beschreibung |
+|-------|---------|-------------|
+| `/api/health` | GET | Server-Status |
+| `/api/items` | GET | Alle Items |
+| `/api/item/[slug]` | GET | Item nach Slug |
+| `/api/search` | GET | Suche |
 
-### GET /api/search
-```
-/api/search?q=pilz&p=culinary,safety&limit=20
-```
+### Health Response
 
-### GET /api/autocomplete
-```
-/api/autocomplete?q=aga&limit=10
-```
-
-### POST /api/compare
 ```json
 {
-  "fields": [...]
+  "status": "healthy",
+  "timestamp": "2025-01-02T...",
+  "version": "8.0.0",
+  "dataSource": "local"
 }
 ```
 
-### GET /api/health
+## Dynamische Routes
+
+### `/[slug].astro`
+
+```astro
+---
+export async function getStaticPaths() {
+  const items = await loadSiteItems();
+  return items.map(item => ({
+    params: { slug: item.slug },
+    props: { item }
+  }));
+}
+
+const { item } = Astro.props;
+---
 ```
-/api/health → { status: "ok", pocketbase: true }
-```
+
+## Related
+
+| Datei | Beschreibung |
+|-------|-------------|
+| [../components/CLAUDE.md](../components/CLAUDE.md) | UI Components |
+| [../server/CLAUDE.md](../server/CLAUDE.md) | Data Layer |
+| [../layouts/CLAUDE.md](../layouts/CLAUDE.md) | Page Layouts |
 
 ---
 
-## 📚 Verwandte Dokumentation
-
-| Datei | Inhalt |
-|-------|--------|
-| [../CLAUDE.md](../CLAUDE.md) | src/ Übersicht |
-| [../server/CLAUDE.md](../server/CLAUDE.md) | PocketBase Client |
-
----
-
-*Letzte Aktualisierung: Januar 2026*
+> **v8.0:** Daten kommen aus lokalen JSON-Dateien (`data-local/`).

@@ -2,13 +2,11 @@
  * BIFROEST External Knowledge Bridge
  * API Endpoint: List external links with filtering
  * 
- * PostgreSQL/Prisma Version
+ * Database-based Version (PostgreSQL/Prisma)
  */
 
 import type { APIRoute } from 'astro';
-import { PrismaClient, Prisma } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import prisma from '../../../server/db';
 
 export const GET: APIRoute = async ({ url }) => {
   try {
@@ -16,7 +14,7 @@ export const GET: APIRoute = async ({ url }) => {
 
     // Filter parameters
     const entityId = searchParams.get('entityId');
-    const sourceType = searchParams.get('source_type');
+    const sourceType = searchParams.get('source_type') || searchParams.get('type');
     const domain = searchParams.get('domain');
     const search = searchParams.get('search');
 
@@ -24,92 +22,65 @@ export const GET: APIRoute = async ({ url }) => {
     const page = parseInt(searchParams.get('page') || '1');
     const perPage = Math.min(parseInt(searchParams.get('per_page') || '20'), 100);
 
-    // Sorting
-    const sortParam = searchParams.get('sort') || '-createdAt';
-    const sortField = sortParam.startsWith('-') ? sortParam.slice(1) : sortParam;
-    const sortDir = sortParam.startsWith('-') ? 'desc' as const : 'asc' as const;
-
-    // Build where clause
-    const where: Prisma.ExternalLinkWhereInput = {
-      isAlive: true
-    };
-
-    if (sourceType) {
-      where.sourceType = sourceType;
+    // Build where clause dynamically
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const where: any = {};
+    
+    if (entityId) {
+      where.entityId = entityId;
     }
-
+    
+    if (sourceType) {
+      where.type = sourceType;
+    }
+    
     if (search) {
       where.OR = [
-        { title: { contains: search } },
-        { description: { contains: search } }
+        { title: { contains: search, mode: 'insensitive' } },
+        { description: { contains: search, mode: 'insensitive' } }
       ];
+    }
+
+    // If domain is provided, get entities for that domain first
+    if (domain && !entityId) {
+      const entities = await prisma.entity.findMany({
+        where: { domainId: domain },
+        select: { id: true }
+      });
+      if (entities.length > 0) {
+        where.entityId = { in: entities.map(e => e.id) };
+      }
     }
 
     // Count total
     const total = await prisma.externalLink.count({ where });
 
-    // Fetch links
+    // Fetch links with sorting by score
     const links = await prisma.externalLink.findMany({
       where,
-      orderBy: { [sortField]: sortDir },
+      orderBy: { score: 'desc' },
       skip: (page - 1) * perPage,
-      take: perPage
+      take: perPage,
+      include: {
+        entity: {
+          select: { name: true, domainId: true }
+        }
+      }
     });
 
-    // Filter by entityId if provided (JSON array search)
-    let filteredLinks = links;
-    if (entityId) {
-      filteredLinks = links.filter(link => {
-        try {
-          const entityIds = JSON.parse(link.entityIds as unknown as string || '[]');
-          return Array.isArray(entityIds) && entityIds.includes(entityId);
-        } catch {
-          return false;
-        }
-      });
-    }
-
-    // Filter by domain if provided (JSON array search)
-    if (domain) {
-      filteredLinks = filteredLinks.filter(link => {
-        try {
-          const domains = JSON.parse(link.domains as unknown as string || '[]');
-          return Array.isArray(domains) && domains.includes(domain);
-        } catch {
-          return false;
-        }
-      });
-    }
-
-    // Calculate relevance scores
-    const linksWithRelevance = filteredLinks.map(link => {
+    // Map to response format with relevance scores
+    const linksWithRelevance = links.map(link => {
       let relevanceScore = 0.5;
       const matchReasons: string[] = [];
 
-      // Boost for entity match
-      if (entityId) {
-        try {
-          const entityIds = JSON.parse(link.entityIds as unknown as string || '[]');
-          if (Array.isArray(entityIds) && entityIds.includes(entityId)) {
-            relevanceScore += 0.2;
-            matchReasons.push(`entity:${entityId}`);
-          }
-        } catch {
-          // Ignore parse errors
-        }
+      if (entityId && link.entityId === entityId) {
+        relevanceScore += 0.2;
+        matchReasons.push(`entity:${entityId}`);
       }
 
-      // Boost for positive votes
-      const netVotes = (link.upvotes || 0) - (link.downvotes || 0);
-      if (netVotes > 0) {
-        relevanceScore += Math.min(netVotes * 0.02, 0.1);
-        matchReasons.push(`votes:+${netVotes}`);
-      }
-
-      // Boost for expert verification
-      if (link.expertVerified) {
-        relevanceScore += 0.15;
-        matchReasons.push('expert_verified');
+      if (link.score > 0) {
+        relevanceScore += Math.min(link.score * 0.02, 0.1);
+        matchReasons.push(`votes:+${link.score}`);
       }
 
       return {
@@ -117,48 +88,38 @@ export const GET: APIRoute = async ({ url }) => {
         url: link.url,
         title: link.title,
         description: link.description,
-        sourceType: link.sourceType,
-        authors: link.authors,
-        publishedDate: link.publishedDate,
-        thumbnailUrl: link.thumbnailUrl,
-        language: link.language,
-        domains: link.domains,
-        perspectives: link.perspectives,
-        entityIds: link.entityIds,
-        upvotes: link.upvotes,
-        downvotes: link.downvotes,
-        expertVerified: link.expertVerified,
-        isAlive: link.isAlive,
-        lastChecked: link.lastChecked,
-        addedBy: link.addedBy,
+        type: link.type,
+        thumbnail: link.thumbnail,
+        score: link.score,
+        isVerified: link.isVerified,
+        entityId: link.entityId,
+        entityName: link.entity?.name,
+        domain: link.entity?.domainId,
         createdAt: link.createdAt,
         relevance_score: Math.min(relevanceScore, 1),
         match_reason: matchReasons
       };
     });
 
-    // Get facets
-    const facetData = await prisma.externalLink.groupBy({
-      by: ['sourceType'],
-      where: { isAlive: true },
-      _count: true
+    // Get facets (link type counts)
+    const typeCounts = await prisma.externalLink.groupBy({
+      by: ['type'],
+      _count: { _all: true }
     });
-
-    const facets = {
-      source_types: facetData.reduce((acc, item) => {
-        acc[item.sourceType] = item._count;
-        return acc;
-      }, {} as Record<string, number>)
-    };
+    
+    const sourceTypes: Record<string, number> = {};
+    for (const tc of typeCounts) {
+      sourceTypes[tc.type] = tc._count._all;
+    }
 
     return new Response(
       JSON.stringify({
-        total: filteredLinks.length,
+        total,
         page,
         per_page: perPage,
-        total_pages: Math.ceil(filteredLinks.length / perPage),
+        total_pages: Math.ceil(total / perPage),
         links: linksWithRelevance,
-        facets
+        facets: { source_types: sourceTypes }
       }),
       { status: 200, headers: { 'Content-Type': 'application/json' } }
     );

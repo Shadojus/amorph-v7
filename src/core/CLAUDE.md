@@ -63,7 +63,7 @@ detectType({ value: 50 })     // 'gauge' (wenn min/max)
 ```typescript
 validateSlug(slug)            // Path Traversal Prevention
 validateQuery(query)          // XSS & Injection Prevention
-sanitizeForFilter(input)      // PocketBase Filter Sanitization
+sanitizeForFilter(input)      // Filter Query Sanitization
 logSecurityEvent(event)       // Security Logging
 ```
 

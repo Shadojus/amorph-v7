@@ -1,72 +1,68 @@
-# Source Code
+# AMORPH Source (v8.0)
 
-Haupt-Quellcode für AMORPH.
+> Workspace Root: [Bifroest](../../CLAUDE.md)
 
----
+## Struktur
 
-## Verzeichnisse
-
-| Ordner | Beschreibung | CLAUDE.md |
-|--------|--------------|----------|
-| `core/` | Typen, Detection, Security | [core/CLAUDE.md](core/CLAUDE.md) |
-| `morphs/` | 28 Morph Primitives | [morphs/CLAUDE.md](morphs/CLAUDE.md) |
-| `server/` | PocketBase Client, Config | [server/CLAUDE.md](server/CLAUDE.md) |
-| `client/` | Frontend Features | [client/CLAUDE.md](client/CLAUDE.md) |
-| `observer/` | Debug & Analytics | [observer/CLAUDE.md](observer/CLAUDE.md) |
-| `layouts/` | Astro Layouts | [layouts/CLAUDE.md](layouts/CLAUDE.md) |
-| `pages/` | Routen | [pages/CLAUDE.md](pages/CLAUDE.md) |
-
----
+| Ordner | Zweck | Details |
+|--------|-------|---------|
+| `client/` | Client-Side Scripts | [client/CLAUDE.md](client/CLAUDE.md) |
+| `components/` | Astro Components | [components/CLAUDE.md](components/CLAUDE.md) |
+| `core/` | Core Utilities | [core/CLAUDE.md](core/CLAUDE.md) |
+| `layouts/` | Page Layouts | [layouts/CLAUDE.md](layouts/CLAUDE.md) |
+| `morphs/` | Data Visualizations | [morphs/CLAUDE.md](morphs/CLAUDE.md) |
+| `observer/` | Comparison Engine | [observer/CLAUDE.md](observer/CLAUDE.md) |
+| `pages/` | Routes & API | [pages/CLAUDE.md](pages/CLAUDE.md) |
+| `server/` | Data Layer, Config | [server/CLAUDE.md](server/CLAUDE.md) |
 
 ## Wichtige Dateien
 
-### core/
-- `types.ts` - TypeScript Definitionen
-- `detection.ts` - Struktur-basierte Typ-Erkennung
-- `security.ts` - Input Sanitization
+### Server
+- `server/config.ts` - ⭐ Zentrale Konfiguration
+- `server/data.ts` - Daten-Layer (Local JSON / PostgreSQL)
+- `server/database.ts` - PostgreSQL/Prisma Interface
 
-### server/
-- `bifroest.ts` - ⭐ PocketBase API Client (einzige Datenquelle!)
-- `config.ts` - Domain-Farben, Site-Meta
-- `data.ts` - Datenlade-Abstraktion
-- `cache.ts` - In-Memory Caching
+### Core
+- `core/validation.ts` - Input-Validierung
+- `core/utils.ts` - Utility-Funktionen
 
-### morphs/
-- `base.ts` - Basis-Morph Utilities
-- 28 Primitive (badge, bar, boolean, gauge, list, etc.)
-
-### client/
-- `app.ts` - Hauptanwendung
-- `search.ts` - Suchfunktion
-- `compare.ts` - Vergleichs-Ansicht
-- `selection.ts` - Feld-Selektion
-- `bifroest.ts` - BIFROEST Expert Attribution System
-
----
-
-## Datenfluss
+## Datenfluss (v8.0)
 
 ```
-PocketBase ({domain}_entities + experts)
-    ↓
-bifroest.ts (fetch + transform)
-    ↓
-pages/*.astro (render)
-    ↓
-morphs/*.ts (visualize)
-    ↓
-Expert-Matching (field_expertise.includes(fieldKey))
+Local JSON (data-local/)
+        ↓
+   loadSiteItems()
+        ↓
+   config.daten.yaml
+        ↓
+  Astro SSR Pages
+```
+
+### Datenquellen
+
+| Mode | Beschreibung |
+|------|-------------|
+| `local` | JSON-Dateien in `data-local/` (Default) |
+| `postgres` | PostgreSQL/Prisma (Produktion) |
+
+## API Endpoints
+
+| Endpoint | Beschreibung |
+|----------|-------------|
+| `/api/health` | Server Status |
+| `/api/items` | Species-Liste |
+| `/api/item/[slug]` | Einzelne Species |
+| `/api/search` | Suche |
+
+## Konfiguration
+
+```yaml
+# config-local/daten.yaml
+daten:
+  typ: lokal
+  ordner: data-local
 ```
 
 ---
 
-## 📚 Verwandte Dokumentation
-
-| Datei | Inhalt |
-|-------|--------|
-| [../CLAUDE.md](../CLAUDE.md) | AMORPH Root |
-| [../../CLAUDE.md](../../CLAUDE.md) | Monorepo Root |
-
----
-
-*Letzte Aktualisierung: Januar 2026*
+> **v8.0:** Kein PocketBase mehr. Lokale JSON-Daten + PostgreSQL/Prisma.

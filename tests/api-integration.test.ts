@@ -16,7 +16,7 @@ import { resolve } from 'node:path';
 // Config Detection - Skip tests if config not available
 // ============================================================================
 
-const CONFIG_DIR = process.env.CONFIG_DIR || 'config-local';
+const CONFIG_DIR = process.env.CONFIG_DIR || 'config';
 const configPath = resolve(process.cwd(), CONFIG_DIR, 'manifest.yaml');
 const hasConfig = existsSync(configPath);
 

@@ -83,7 +83,7 @@ export function getSiteDomain(): Domain {
 }
 
 // Site metadata for each type
-// Collection names match Pocketbase: {domain}_entities
+// Collection names are used for database queries
 export const SITE_META: Record<SiteType, { 
   name: string; 
   color: string; 
@@ -137,10 +137,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // In production (built), __dirname is /app/dist/server/chunks/
 // In dev, __dirname is /app/src/server/
-// Config is always at /app/config/ - use process.cwd() for reliability
+// Config is always at /app/config-local/ - use process.cwd() for reliability
 const BASE_CONFIG_PATH = process.env.NODE_ENV === 'production' 
-  ? join(process.cwd(), 'config')
-  : join(__dirname, '../../config');
+  ? join(process.cwd(), 'config-local')
+  : join(__dirname, '../../config-local');
 
 // Site-specific config path (falls back to base if not exists)
 function getConfigPath(): string {

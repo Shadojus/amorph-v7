@@ -55,9 +55,9 @@ const isProd = import.meta.env.PROD;
   )}
 </head>
 <body data-domain={siteType} data-site-type={siteType}>
-  <!-- PocketBase URL für Client -->
-  <script is:inline define:vars={{ pocketbaseUrl: import.meta.env.POCKETBASE_URL || 'http://127.0.0.1:8090' }}>
-    window.__POCKETBASE_URL = pocketbaseUrl;
+  <!-- v8.0: Data source configuration -->
+  <script is:inline define:vars={{ dataSource: import.meta.env.DATA_SOURCE || 'local' }}>
+    window.__DATA_SOURCE = dataSource;
   </script>
   
   <slot />

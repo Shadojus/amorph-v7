@@ -1,141 +1,99 @@
 /**
  * BIFROEST External Knowledge Bridge
- * API Endpoint: Vote on external links
+ * API Endpoint: Vote on external link
  * 
- * PostgreSQL/Prisma Version
+ * POST /api/external-links/vote
+ * Body: { linkId, vote: 1 | -1, userId }
  */
 
 import type { APIRoute } from 'astro';
-import { PrismaClient } from '@prisma/client';
+import prisma from '../../../server/db';
+import { checkRateLimit, logSecurityEvent } from '../../../core/security';
 
-const prisma = new PrismaClient();
+export const POST: APIRoute = async ({ request, clientAddress }) => {
+  // Rate limiting
+  const rateCheck = checkRateLimit(clientAddress || 'unknown');
+  if (!rateCheck.allowed) {
+    logSecurityEvent('RATE_LIMIT', { ip: clientAddress, endpoint: 'external-links/vote' });
+    return new Response(JSON.stringify({ success: false, error: 'Too many requests' }), {
+      status: 429,
+      headers: { 'Content-Type': 'application/json', 'Retry-After': String(Math.ceil(rateCheck.resetIn / 1000)) }
+    });
+  }
 
-export const POST: APIRoute = async ({ request }) => {
   try {
-    const { link_id, vote, user_id } = await request.json();
+    const body = await request.json();
+    const { linkId, vote, userId } = body;
 
     // Validation
-    if (!link_id || typeof link_id !== 'string') {
-      return new Response(
-        JSON.stringify({ error: 'link_id is required' }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
+    if (!linkId || !userId || (vote !== 1 && vote !== -1)) {
+      return new Response(JSON.stringify({
+        success: false,
+        error: 'Missing or invalid fields: linkId, userId, vote (1 or -1)'
+      }), { status: 400, headers: { 'Content-Type': 'application/json' } });
     }
 
-    if (!vote || !['up', 'down'].includes(vote)) {
-      return new Response(
-        JSON.stringify({ error: 'vote must be "up" or "down"' }),
-        { status: 400, headers: { 'Content-Type': 'application/json' } }
-      );
-    }
-
-    // For now, use a simple user_id (later: auth)
-    const finalUserId = user_id || 'anonymous_' + Math.random().toString(36).substr(2, 9);
-
-    // Check if user already voted on this link
-    const existingVote = await prisma.linkVote.findFirst({
-      where: {
-        linkId: link_id,
-        userId: finalUserId
-      }
+    // Check if link exists
+    const link = await prisma.externalLink.findUnique({
+      where: { id: linkId }
     });
 
+    if (!link) {
+      return new Response(JSON.stringify({
+        success: false,
+        error: 'Link not found'
+      }), { status: 404, headers: { 'Content-Type': 'application/json' } });
+    }
+
+    // Upsert vote (update if exists, create if not)
+    const existingVote = await prisma.linkVote.findUnique({
+      where: { linkId_userId: { linkId, userId } }
+    });
+
+    let voteChange = vote;
     if (existingVote) {
+      // If same vote, remove it (toggle off)
       if (existingVote.vote === vote) {
-        // Same vote - remove it (toggle)
         await prisma.linkVote.delete({
           where: { id: existingVote.id }
         });
-
-        // Update link counts
-        const link = await prisma.externalLink.findUnique({
-          where: { id: link_id }
-        });
-
-        if (link) {
-          await prisma.externalLink.update({
-            where: { id: link_id },
-            data: vote === 'up'
-              ? { upvotes: Math.max(0, (link.upvotes || 0) - 1) }
-              : { downvotes: Math.max(0, (link.downvotes || 0) - 1) }
-          });
-        }
-
-        return new Response(
-          JSON.stringify({ success: true, action: 'removed', vote: null }),
-          { status: 200, headers: { 'Content-Type': 'application/json' } }
-        );
+        voteChange = -vote; // Reverse the previous vote
       } else {
-        // Different vote - update it
+        // Change vote direction
         await prisma.linkVote.update({
           where: { id: existingVote.id },
           data: { vote }
         });
-
-        // Update link counts (swap votes)
-        const link = await prisma.externalLink.findUnique({
-          where: { id: link_id }
-        });
-
-        if (link) {
-          await prisma.externalLink.update({
-            where: { id: link_id },
-            data: vote === 'up'
-              ? {
-                  upvotes: (link.upvotes || 0) + 1,
-                  downvotes: Math.max(0, (link.downvotes || 0) - 1)
-                }
-              : {
-                  upvotes: Math.max(0, (link.upvotes || 0) - 1),
-                  downvotes: (link.downvotes || 0) + 1
-                }
-          });
-        }
-
-        return new Response(
-          JSON.stringify({ success: true, action: 'changed', vote }),
-          { status: 200, headers: { 'Content-Type': 'application/json' } }
-        );
+        voteChange = vote * 2; // Double change (removing old + adding new)
       }
-    }
-
-    // Create new vote
-    await prisma.linkVote.create({
-      data: {
-        linkId: link_id,
-        userId: finalUserId,
-        vote
-      }
-    });
-
-    // Update link counts
-    const link = await prisma.externalLink.findUnique({
-      where: { id: link_id }
-    });
-
-    if (link) {
-      await prisma.externalLink.update({
-        where: { id: link_id },
-        data: vote === 'up'
-          ? { upvotes: (link.upvotes || 0) + 1 }
-          : { downvotes: (link.downvotes || 0) + 1 }
+    } else {
+      // Create new vote
+      await prisma.linkVote.create({
+        data: { linkId, userId, vote }
       });
     }
 
-    return new Response(
-      JSON.stringify({ success: true, action: 'created', vote }),
-      { status: 201, headers: { 'Content-Type': 'application/json' } }
-    );
+    // Update link score
+    const updatedLink = await prisma.externalLink.update({
+      where: { id: linkId },
+      data: { score: { increment: voteChange } }
+    });
+
+    logSecurityEvent('LINK_VOTED', { linkId, userId, vote });
+
+    return new Response(JSON.stringify({
+      success: true,
+      newScore: updatedLink.score
+    }), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
 
   } catch (error) {
-    console.error('[API] vote error:', error);
-
-    return new Response(
-      JSON.stringify({ 
-        error: 'Internal server error',
-        details: error instanceof Error ? error.message : 'Unknown error'
-      }),
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
-    );
+    console.error('[External Links Vote] Error:', error);
+    return new Response(JSON.stringify({
+      success: false,
+      error: 'Failed to vote'
+    }), { status: 500, headers: { 'Content-Type': 'application/json' } });
   }
 };
