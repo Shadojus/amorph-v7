@@ -2,7 +2,7 @@
 
 28 visuelle Primitive für Datenvisualisierung.
 
-**Tests:** 81 in morphs.test.ts + 29 in morphs/*.test.ts = **~110 Tests**
+**Tests:** 81 in morphs.test.ts + 110 in morphs/*.test.ts = **~191 Tests**
 
 ---
 

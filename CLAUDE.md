@@ -7,30 +7,32 @@
 ## Status: ✅ Production Ready (Januar 2026)
 
 ### Aktuelle Features
-- **🔗 BIFROEST Integration** - Daten ausschließlich aus PocketBase
-- **📊 97 Perspektiven** - Automatisch aus Blueprint YAML generiert
+- **🔗 BIFROEST Integration** - Daten aus PostgreSQL/Prisma (SQLite als Dev-Fallback)
+- **📊 Unified Entity Table** - Alle Entities mit domainId Foreign Key
 - **17 Domains** - Wissenschaftliche Multi-Site Architektur
 - **28 Morph Primitives** - Vollständige Komponenten-Bibliothek
-- **475 Tests** - Umfassende Testabdeckung
+- **475 Tests** - Umfassende Testabdeckung (37 Dateien)
 
 ### Technologie-Stack
 - **Astro 5.16** mit SSR
 - **TypeScript** durchgängig
 - **Vitest** für Tests
-- **PocketBase v0.25** als einzige Datenquelle (via Bifroest)
+- **PostgreSQL/Prisma** als einzige Datenquelle (SQLite für Development)
 
 ---
 
-## ⚠️ Wichtig: Nur PocketBase!
+## ⚠️ Wichtig: PostgreSQL/Prisma!
 
 ```
 ❌ data-local/     → LEGACY (nicht verwenden!)
 ❌ data/           → Symlink zu data-local (entfernen!)
 ❌ config/         → Symlink zu config-local (entfernen!)
-✅ PocketBase      → Einzige Datenquelle für Species & Experten
+❌ PocketBase      → MIGRIERT zu PostgreSQL
+✅ PostgreSQL      → Production Datenquelle
+✅ SQLite          → Development Fallback (via Prisma)
 ```
 
-**Bilder**: PocketBase unterstützt `file` Felder - alle Bilder dort speichern!
+**Bilder**: Werden im File System gespeichert, Pfade in der Datenbank!
 
 ---
 
@@ -62,11 +64,18 @@
 
 ```bash
 # System starten (vom ROOT-Verzeichnis Bifroest/)
-npm start                     # Startet PocketBase + alle 17 AMORPH + Frontend
-npm run start:single          # Nur PocketBase + Fungi (schneller)
+npm start                     # Startet Database + alle 17 AMORPH + Frontend
+npm run start:single          # Nur Database + Fungi (schneller)
 npm run start:test            # Mit Tests nach Start
 
-# Nur AMORPH (PocketBase muss laufen)
+# Datenbank-Befehle
+npm run db:generate           # Prisma Client generieren
+npm run db:push               # Schema pushen
+npm run db:migrate            # Migrations ausführen
+npm run db:seed               # Testdaten laden
+npm run db:studio             # Prisma Studio öffnen
+
+# Nur AMORPH (Database muss laufen)
 cd amorph
 npm run dev
 
@@ -98,7 +107,7 @@ amorph/
 │   │   └── CLAUDE.md
 │   ├── observer/                # Debug & Analytics
 │   │   └── CLAUDE.md
-│   ├── server/                  # ⭐ bifroest.ts (PocketBase Client)
+│   ├── server/                  # ⭐ database.ts (Prisma Client)
 │   │   └── CLAUDE.md
 │   ├── client/                  # Frontend Features
 │   │   └── CLAUDE.md
@@ -112,7 +121,7 @@ amorph/
 │   ├── styles/                  # CSS (inkl. all.min.css Bundle)
 │   └── images/                  # Statische Assets (NICHT Species-Bilder!)
 │
-├── tests/                       # 475 Vitest Tests
+├── tests/                       # 475 Tests (37 Dateien)
 │   └── CLAUDE.md
 │
 ├── data-local/                  # ⚠️ LEGACY - Wird entfernt!
@@ -123,45 +132,55 @@ amorph/
 
 ---
 
-## 🔗 PocketBase Integration
+## 🔗 PostgreSQL/Prisma Integration
 
 ### Datenfluss
 ```
-Blueprint YAML → Schema Manager → PocketBase Collections → AMORPH Frontend
+Blueprint YAML → Prisma Schema → PostgreSQL/SQLite → AMORPH Frontend
 ```
 
-### Collections (automatisch generiert)
-- **`{domain}_entities`** - 17 Entity-Collections (fungi_entities, phyto_entities, etc.)
-- **`{domain}_*`** - Perspektiv-Tabellen pro Domain
-- **`experts`** - 68 Experten mit field_expertise-Arrays
+### Database Schema (Prisma)
+- **`domains`** - 17 Domains (fungi, phyto, etc.)
+- **`entities`** - Alle Entities mit `domainId` Foreign Key
+- **`perspectives`** - Perspektiven-Definitionen
+- **`entity_perspectives`** - Entity ↔ Perspective Daten (JSON)
+- **`external_links`** - Community-eingereichte Links
+- **`link_votes`** - Link-Bewertungen
+- **`experts`** - 68 Experten mit fieldExpertise-Arrays
+- **`publications`** - Experten-Publikationen
 
 ### Experten-System (BIFROEST)
 ```typescript
-// Experten-Feld-Matching in bifroest.ts:
+// Experten-Feld-Matching in database.ts:
 const matchingExperts = loadedExperts.filter(expert => 
-  expert.field_expertise?.includes(fieldKey)
+  expert.fieldExpertise?.includes(fieldKey)
 );
 
 // Experten-Schema:
 interface Expert {
   name: string;
   domain: 'fungi' | 'phyto' | 'drako' | ... // 17 Domains
-  field_expertise: string[];  // z.B. ["habitat", "edibility", "genus"]
-  impact_score: number;       // NIEMALS an Client senden!
-  verified: boolean;
+  fieldExpertise: string[];   // z.B. ["habitat", "edibility", "genus"]
+  impactScore: number;        // NIEMALS an Client senden!
+  isVerified: boolean;
 }
 ```
 
 ### Environment Variables
 ```bash
-POCKETBASE_URL=http://127.0.0.1:8090   # PocketBase API
-DATA_SOURCE=pocketbase                  # 'pocketbase' | 'local'
+# Development (SQLite)
+DATA_SOURCE=local
+DATABASE_URL="file:./dev.db"
+
+# Production (PostgreSQL)
+DATA_SOURCE=postgresql
+DATABASE_URL="postgresql://user:password@host:5432/bifroest"
 ```
 
-### API Calls (bifroest.ts)
+### API Calls (database.ts)
 ```typescript
 // Entities laden
-const entities = await fetchFromCollection('fungi');
+const entities = await getEntitiesByDomain('fungi');
 
 // Experten für Feld laden
 const experts = await getExpertsForField('habitat');
@@ -173,7 +192,7 @@ const experts = await getExpertsForField('habitat');
 
 ### Verzeichnisstruktur
 ```
-config/schema/perspektiven/blueprints/
+shared/blueprints/
 ├── amorph-fungi/
 │   ├── chemical_ecology.blueprint.yaml
 │   ├── cross_kingdom_relations.blueprint.yaml
@@ -182,7 +201,7 @@ config/schema/perspektiven/blueprints/
 │   ├── fungal_intelligence.blueprint.yaml
 │   └── mycelial_networks.blueprint.yaml
 ├── amorph-phyto/
-│   └── ... (6 Blueprints)
+│   └── ...
 └── ... (17 Domains)
 ```
 
@@ -208,18 +227,18 @@ memory_capability:
   false
 ```
 
-### Morph Types → PocketBase
-| Morph Type | PocketBase Type |
-|------------|-----------------|
-| `text` | `text` |
-| `boolean` | `bool` |
-| `number` | `number` |
-| `list` | `json` |
-| `tag` | `text` |
-| `badge` | `text` |
-| `gauge` | `json` |
-| `range` | `json` |
-| `editor` | `editor` |
+### Morph Types → Prisma
+| Morph Type | Prisma Type |
+|------------|-------------|
+| `text` | `String` |
+| `boolean` | `Boolean` |
+| `number` | `Float` / `Int` |
+| `list` | `Json` |
+| `tag` | `String` |
+| `badge` | `String` |
+| `gauge` | `Json` |
+| `range` | `Json` |
+| `editor` | `String` |
 
 ---
 
@@ -262,13 +281,13 @@ memory_capability:
 ### ⚠️ Keine lokalen Daten!
 - ❌ Keine Species-JSON in `data-local/` verwenden
 - ❌ Keine Bilder in `public/images/species/`
-- ✅ Alle Daten in PocketBase (`species` + `perspective_*` Collections)
-- ✅ Alle Bilder in PocketBase (file field)
+- ✅ Alle Daten in PostgreSQL/SQLite (via Prisma)
+- ✅ Bilder im File System, Pfade in DB
 
 ### Neue Perspektive hinzufügen
 1. Blueprint YAML in `shared/blueprints/amorph-{domain}/` erstellen
-2. `npm run schema` im ROOT-Verzeichnis ausführen
-3. Collection wird automatisch erstellt (existierende bleiben erhalten!)
+2. `npm run db:migrate` im ROOT-Verzeichnis ausführen
+3. Perspektive wird automatisch erstellt
 
 ### Tests vor Commit
 ```bash
@@ -283,8 +302,8 @@ npm run build      # Production Build
 | Datei | Inhalt |
 |-------|--------|
 | [../CLAUDE.md](../CLAUDE.md) | Root-Dokumentation |
-| [../bifroest-platform/claude.md](../bifroest-platform/claude.md) | Backend & Scripts |
-| [src/server/CLAUDE.md](src/server/CLAUDE.md) | PocketBase Client |
+| [../bifroest-platform/CLAUDE.md](../bifroest-platform/CLAUDE.md) | Backend & Scripts |
+| [src/server/CLAUDE.md](src/server/CLAUDE.md) | Database Client |
 | [src/morphs/CLAUDE.md](src/morphs/CLAUDE.md) | 28 Morph Primitives |
 | [src/core/CLAUDE.md](src/core/CLAUDE.md) | Types & Detection |
 | [tests/CLAUDE.md](tests/CLAUDE.md) | Test-Dokumentation |

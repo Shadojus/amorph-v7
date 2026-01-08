@@ -57,7 +57,7 @@ Siehe [../../shared/blueprints/](../../shared/blueprints/)
 |-------|--------|
 | [../CLAUDE.md](../CLAUDE.md) | AMORPH Root |
 | [../../CLAUDE.md](../../CLAUDE.md) | Monorepo Root |
-| [../../bifroest-platform/claude.md](../../bifroest-platform/claude.md) | Schema-Manager |
+| [../../bifroest-platform/CLAUDE.md](../../bifroest-platform/CLAUDE.md) | Schema-Manager |
 
 ---
 

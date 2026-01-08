@@ -1,0 +1,618 @@
+---
+/**
+ * BIFROEST External Knowledge Bridge
+ * Link Adder Component
+ *
+ * UI zum Hinzufügen externer Wissensquellen
+ */
+
+interface Props {
+  domains?: string[];
+  currentDomain?: string;
+  currentPerspective?: string;
+  currentField?: string;
+}
+
+const {
+  domains = ['fungi', 'phyto', 'bakterio', 'chemo'],
+  currentDomain,
+  currentPerspective,
+  currentField
+} = Astro.props;
+
+const sourceTypes = [
+  { id: 'pubmed', label: 'PubMed', icon: '📄' },
+  { id: 'doi', label: 'DOI', icon: '🔗' },
+  { id: 'arxiv', label: 'ArXiv', icon: '📑' },
+  { id: 'wikipedia', label: 'Wikipedia', icon: '📚' },
+  { id: 'wikidata', label: 'Wikidata', icon: '🗃️' },
+  { id: 'youtube', label: 'YouTube', icon: '🎬' },
+  { id: 'book', label: 'Book', icon: '📖' },
+  { id: 'website', label: 'Website', icon: '🌐' }
+];
+---
+
+<div class="link-adder" id="link-adder">
+  <div class="link-adder-header">
+    <h3>External Knowledge Link</h3>
+    <button class="close-btn" data-action="close">&times;</button>
+  </div>
+
+  <form id="link-form" class="link-form">
+    <!-- URL Input -->
+    <div class="form-group">
+      <label for="link-url">URL or Identifier</label>
+      <div class="url-input-wrapper">
+        <input
+          type="text"
+          id="link-url"
+          name="url"
+          placeholder="https://pubmed.ncbi.nlm.nih.gov/12345678 or DOI:10.1234/..."
+          required
+        />
+        <button type="button" id="detect-btn" class="detect-btn">Detect</button>
+      </div>
+      <div id="source-type-badge" class="source-badge hidden"></div>
+    </div>
+
+    <!-- Metadata Preview -->
+    <div id="metadata-preview" class="metadata-preview hidden">
+      <div class="preview-header">
+        <span id="preview-type" class="type-icon"></span>
+        <h4 id="preview-title">Loading...</h4>
+      </div>
+      <p id="preview-description" class="preview-desc"></p>
+      <div id="preview-authors" class="preview-authors"></div>
+      <img id="preview-thumbnail" class="preview-thumb hidden" alt="" />
+    </div>
+
+    <!-- Domain Selection -->
+    <div class="form-group">
+      <label>Link to Domains</label>
+      <div class="domain-chips">
+        {domains.map(domain => (
+          <label class="domain-chip" data-domain={domain}>
+            <input
+              type="checkbox"
+              name="domains"
+              value={domain}
+              checked={domain === currentDomain}
+            />
+            <span class="chip-label">{domain}</span>
+          </label>
+        ))}
+      </div>
+    </div>
+
+    <!-- Perspective (optional) -->
+    <div class="form-group">
+      <label for="link-perspective">Perspective (optional)</label>
+      <input
+        type="text"
+        id="link-perspective"
+        name="perspective"
+        placeholder="z.B. chemical_ecology, mycelial_networks"
+        value={currentPerspective || ''}
+      />
+    </div>
+
+    <!-- Field (optional) -->
+    <div class="form-group">
+      <label for="link-field">Field (optional)</label>
+      <input
+        type="text"
+        id="link-field"
+        name="field"
+        placeholder="z.B. quorum_sensing, metabolites"
+        value={currentField || ''}
+      />
+    </div>
+
+    <!-- Submit -->
+    <div class="form-actions">
+      <button type="button" class="btn-secondary" data-action="cancel">Cancel</button>
+      <button type="submit" class="btn-primary" id="submit-btn" disabled>
+        Add Link
+      </button>
+    </div>
+  </form>
+
+  <!-- Loading State -->
+  <div id="loading-state" class="loading-state hidden">
+    <div class="spinner"></div>
+    <span>Fetching metadata...</span>
+  </div>
+
+  <!-- Success Message -->
+  <div id="success-state" class="success-state hidden">
+    <span class="success-icon">✓</span>
+    <span>Link added successfully!</span>
+  </div>
+</div>
+
+<style>
+  .link-adder {
+    background: #161B22;
+    border: 1px solid #30363D;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+  }
+
+  .link-adder-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    border-bottom: 1px solid #30363D;
+    background: #0D1117;
+  }
+
+  .link-adder-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #E6EDF3;
+  }
+
+  .close-btn {
+    background: none;
+    border: none;
+    color: #8B949E;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .close-btn:hover {
+    color: #E6EDF3;
+  }
+
+  .link-form {
+    padding: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: #8B949E;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .url-input-wrapper {
+    display: flex;
+    gap: 8px;
+  }
+
+  .url-input-wrapper input {
+    flex: 1;
+    background: #0D1117;
+    border: 1px solid #30363D;
+    border-radius: 6px;
+    padding: 10px 12px;
+    color: #E6EDF3;
+    font-size: 14px;
+  }
+
+  .url-input-wrapper input:focus {
+    outline: none;
+    border-color: #58A6FF;
+  }
+
+  .detect-btn {
+    background: #21262D;
+    border: 1px solid #30363D;
+    border-radius: 6px;
+    padding: 10px 16px;
+    color: #E6EDF3;
+    font-size: 14px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  .detect-btn:hover {
+    background: #30363D;
+    border-color: #8B949E;
+  }
+
+  .source-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 8px;
+    padding: 4px 10px;
+    background: #238636;
+    border-radius: 12px;
+    font-size: 12px;
+    color: #fff;
+  }
+
+  .source-badge.error {
+    background: #DA3633;
+  }
+
+  .metadata-preview {
+    background: #0D1117;
+    border: 1px solid #30363D;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .preview-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .type-icon {
+    font-size: 20px;
+  }
+
+  .preview-header h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #E6EDF3;
+    line-height: 1.4;
+  }
+
+  .preview-desc {
+    font-size: 13px;
+    color: #8B949E;
+    margin: 10px 0 0;
+    line-height: 1.5;
+  }
+
+  .preview-authors {
+    font-size: 12px;
+    color: #58A6FF;
+    margin-top: 8px;
+  }
+
+  .preview-thumb {
+    width: 100%;
+    max-width: 200px;
+    margin-top: 12px;
+    border-radius: 4px;
+  }
+
+  .domain-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .domain-chip {
+    display: inline-flex;
+    cursor: pointer;
+  }
+
+  .domain-chip input {
+    display: none;
+  }
+
+  .chip-label {
+    padding: 6px 12px;
+    background: #21262D;
+    border: 1px solid #30363D;
+    border-radius: 16px;
+    font-size: 13px;
+    color: #8B949E;
+    transition: all 0.15s ease;
+  }
+
+  .domain-chip input:checked + .chip-label {
+    background: #238636;
+    border-color: #238636;
+    color: #fff;
+  }
+
+  .domain-chip:hover .chip-label {
+    border-color: #8B949E;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    background: #0D1117;
+    border: 1px solid #30363D;
+    border-radius: 6px;
+    padding: 10px 12px;
+    color: #E6EDF3;
+    font-size: 14px;
+  }
+
+  input[type="text"]:focus {
+    outline: none;
+    border-color: #58A6FF;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #30363D;
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid #30363D;
+    border-radius: 6px;
+    padding: 10px 16px;
+    color: #8B949E;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .btn-secondary:hover {
+    border-color: #8B949E;
+    color: #E6EDF3;
+  }
+
+  .btn-primary {
+    background: #238636;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background: #2EA043;
+  }
+
+  .btn-primary:disabled {
+    background: #21262D;
+    color: #484F58;
+    cursor: not-allowed;
+  }
+
+  .loading-state,
+  .success-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 40px 20px;
+    color: #8B949E;
+  }
+
+  .spinner {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #30363D;
+    border-top-color: #58A6FF;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+  }
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  .success-state {
+    color: #3FB950;
+  }
+
+  .success-icon {
+    font-size: 24px;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  /* Domain color coding */
+  .domain-chip[data-domain="fungi"] input:checked + .chip-label {
+    background: #6B8AFF;
+    border-color: #6B8AFF;
+  }
+
+  .domain-chip[data-domain="phyto"] input:checked + .chip-label {
+    background: #5ECFA3;
+    border-color: #5ECFA3;
+  }
+
+  .domain-chip[data-domain="bakterio"] input:checked + .chip-label {
+    background: #FF7B7B;
+    border-color: #FF7B7B;
+  }
+
+  .domain-chip[data-domain="chemo"] input:checked + .chip-label {
+    background: #FFB347;
+    border-color: #FFB347;
+  }
+</style>
+
+<script>
+  const POCKETBASE_URL = 'http://127.0.0.1:8090';
+
+  const form = document.getElementById('link-form') as HTMLFormElement;
+  const urlInput = document.getElementById('link-url') as HTMLInputElement;
+  const detectBtn = document.getElementById('detect-btn') as HTMLButtonElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const sourceBadge = document.getElementById('source-type-badge') as HTMLElement;
+  const metadataPreview = document.getElementById('metadata-preview') as HTMLElement;
+  const loadingState = document.getElementById('loading-state') as HTMLElement;
+  const successState = document.getElementById('success-state') as HTMLElement;
+
+  let currentMetadata: any = null;
+
+  // Source type icons
+  const sourceIcons: Record<string, string> = {
+    pubmed: '📄',
+    doi: '🔗',
+    arxiv: '📑',
+    wikipedia: '📚',
+    wikidata: '🗃️',
+    youtube: '🎬',
+    book: '📖',
+    website: '🌐'
+  };
+
+  // Detect URL type
+  detectBtn.addEventListener('click', async () => {
+    const url = urlInput.value.trim();
+    if (!url) return;
+
+    form.classList.add('hidden');
+    loadingState.classList.remove('hidden');
+
+    try {
+      // Call server endpoint for metadata
+      const response = await fetch('/api/external-links/detect', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url })
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        showError(data.error);
+        return;
+      }
+
+      currentMetadata = data;
+      showMetadata(data);
+    } catch (error) {
+      showError('Failed to fetch metadata');
+    } finally {
+      loadingState.classList.add('hidden');
+      form.classList.remove('hidden');
+    }
+  });
+
+  function showMetadata(metadata: any) {
+    // Show source badge
+    sourceBadge.innerHTML = `${sourceIcons[metadata.source_type] || '🔗'} ${metadata.source_type.toUpperCase()}`;
+    sourceBadge.classList.remove('hidden', 'error');
+
+    // Show preview
+    const previewType = document.getElementById('preview-type')!;
+    const previewTitle = document.getElementById('preview-title')!;
+    const previewDesc = document.getElementById('preview-description')!;
+    const previewAuthors = document.getElementById('preview-authors')!;
+    const previewThumb = document.getElementById('preview-thumbnail') as HTMLImageElement;
+
+    previewType.textContent = sourceIcons[metadata.source_type] || '🔗';
+    previewTitle.textContent = metadata.title;
+    previewDesc.textContent = metadata.description || '';
+
+    if (metadata.authors?.length) {
+      previewAuthors.textContent = metadata.authors.join(', ');
+      previewAuthors.classList.remove('hidden');
+    } else {
+      previewAuthors.classList.add('hidden');
+    }
+
+    if (metadata.thumbnail_url) {
+      previewThumb.src = metadata.thumbnail_url;
+      previewThumb.classList.remove('hidden');
+    } else {
+      previewThumb.classList.add('hidden');
+    }
+
+    metadataPreview.classList.remove('hidden');
+    submitBtn.disabled = false;
+  }
+
+  function showError(message: string) {
+    sourceBadge.innerHTML = `⚠️ ${message}`;
+    sourceBadge.classList.remove('hidden');
+    sourceBadge.classList.add('error');
+    metadataPreview.classList.add('hidden');
+    submitBtn.disabled = true;
+  }
+
+  // Submit form
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    if (!currentMetadata) return;
+
+    const formData = new FormData(form);
+    const selectedDomains = formData.getAll('domains') as string[];
+    const perspective = formData.get('perspective') as string;
+    const field = formData.get('field') as string;
+
+    if (selectedDomains.length === 0) {
+      alert('Please select at least one domain');
+      return;
+    }
+
+    form.classList.add('hidden');
+    loadingState.classList.remove('hidden');
+
+    try {
+      const response = await fetch('/api/external-links/create', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          url: urlInput.value.trim(),
+          metadata: currentMetadata,
+          domains: selectedDomains,
+          perspectives: perspective ? [perspective] : [],
+          fields: field ? [field] : []
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      // Show success
+      loadingState.classList.add('hidden');
+      successState.classList.remove('hidden');
+
+      // Reset after delay
+      setTimeout(() => {
+        successState.classList.add('hidden');
+        form.classList.remove('hidden');
+        form.reset();
+        currentMetadata = null;
+        sourceBadge.classList.add('hidden');
+        metadataPreview.classList.add('hidden');
+        submitBtn.disabled = true;
+
+        // Dispatch event for parent components
+        window.dispatchEvent(new CustomEvent('external-link-added', {
+          detail: data
+        }));
+      }, 2000);
+
+    } catch (error) {
+      loadingState.classList.add('hidden');
+      form.classList.remove('hidden');
+      alert(`Error: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  });
+
+  // Close/Cancel handlers
+  document.querySelectorAll('[data-action="close"], [data-action="cancel"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      window.dispatchEvent(new CustomEvent('link-adder-close'));
+    });
+  });
+
+  // Auto-detect on paste
+  urlInput.addEventListener('paste', () => {
+    setTimeout(() => detectBtn.click(), 100);
+  });
+</script>

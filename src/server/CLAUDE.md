@@ -1,14 +1,20 @@
 # Server Module
 
-PocketBase Client und Datenlade-Logik für AMORPH.
+Prisma Database Client und Datenlade-Logik für AMORPH.
 
-## ⚠️ Wichtig: Nur PocketBase!
+## ⚠️ Wichtig: PostgreSQL/Prisma!
 
 ```bash
-DATA_SOURCE=pocketbase  # IMMER - kein 'local' oder 'auto' mehr!
+# Development (SQLite)
+DATA_SOURCE=local
+DATABASE_URL="file:./dev.db"
+
+# Production (PostgreSQL)
+DATA_SOURCE=postgresql
+DATABASE_URL="postgresql://user:password@host:5432/bifroest"
 ```
 
-Alle lokalen JSON-Fallbacks werden entfernt.
+Alle lokalen JSON-Fallbacks wurden entfernt.
 
 ---
 
@@ -16,42 +22,50 @@ Alle lokalen JSON-Fallbacks werden entfernt.
 
 | Datei | Beschreibung |
 |-------|--------------|
-| `bifroest.ts` | ⭐ PocketBase API Client (einzige Datenquelle!) |
+| `database.ts` | ⭐ Prisma Database Client (einzige Datenquelle!) |
 | `config.ts` | Server-Konfiguration, Domain-Farben, Site-Types |
-| `data.ts` | Datenlade-Abstraktion (ruft bifroest.ts auf) |
-| `cache.ts` | In-Memory Caching für PocketBase Responses |
+| `data.ts` | Datenlade-Abstraktion (ruft database.ts auf) |
+| `cache.ts` | In-Memory Caching für Database Responses |
 | `rate-limiter.ts` | Rate Limiting für API Requests |
 | `logger.ts` | Strukturiertes Logging |
 
 ---
 
-## bifroest.ts - PocketBase Client
+## database.ts - Prisma Client
 
 ### Hauptfunktionen
 
 ```typescript
 // Entities einer Domain laden
-const entities = await loadSiteItems();
+const entities = await getEntitiesByDomain('fungi');
 
 // Experten für ein Feld laden
 const experts = await getExpertsForField('habitat');
-// → Matched via expert.field_expertise.includes('habitat')
+// → Matched via expert.fieldExpertise.includes('habitat')
 
-// Collection direkt abfragen
-const records = await fetchFromCollection('fungi');
+// Entity direkt abfragen
+const entity = await getEntityBySlug('fungi', 'amanita-muscaria');
 
 // Health Check
-const isUp = await checkBifroestConnection();
+const isUp = await checkDatabaseConnection();
 ```
 
-### Collection-Zuordnung
+### Table-Struktur
 
 ```typescript
-// Jede Domain hat ihre eigene Collection
-'fungi' → fungi_entities
-'phyto' → phyto_entities
-'drako' → drako_entities
-// etc. (17 Domains)
+// Unified Entity Table mit domainId FK
+domains → entities (via domainId)
+
+// Perspektiven-Daten
+entities → entity_perspectives (via entityId)
+perspectives → entity_perspectives (via perspectiveId)
+
+// Community Links
+entities → external_links (via entityId)
+external_links → link_votes (via linkId)
+
+// Experten mit Publikationen
+experts → publications (via expertId)
 ```
 
 ### Experten-System
@@ -59,16 +73,16 @@ const isUp = await checkBifroestConnection();
 ```typescript
 // Experten werden geladen und zu Feldern zugeordnet:
 const matchingExperts = loadedExperts.filter(expert => 
-  expert.field_expertise?.includes(fieldKey)
+  expert.fieldExpertise?.includes(fieldKey)
 );
 
 // Experten-Interface:
 interface Expert {
   name: string;
   domain: 'fungi' | 'phyto' | 'drako' | ... // 17 Domains
-  field_expertise: string[];  // z.B. ["habitat", "edibility", "genus"]
-  impact_score: number;       // NIEMALS an Client senden!
-  verified: boolean;
+  fieldExpertise: string[];   // z.B. ["habitat", "edibility", "genus"]
+  impactScore: number;        // NIEMALS an Client senden!
+  isVerified: boolean;
 }
 ```
 
@@ -76,19 +90,19 @@ interface Expert {
 
 ## data.ts - Datenlade-Abstraktion
 
-### Einziger Modus: PocketBase
+### Einziger Modus: PostgreSQL/SQLite (via Prisma)
 
 ```typescript
-// loadAllItems() → ruft loadFromBifroest() auf
+// loadAllItems() → ruft loadFromDatabase() auf
 // KEIN Fallback auf lokale Dateien mehr!
 export async function loadAllItems(): Promise<ItemData[]> {
-  return await loadFromBifroest();
+  return await loadFromDatabase();
 }
 ```
 
-### Legacy-Code (wird entfernt)
+### Legacy-Code (entfernt)
 
-Der lokale JSON-Loader (`safeReadJson`, `DATA_PATH`, etc.) ist noch vorhanden, wird aber nicht mehr verwendet und in der nächsten Version entfernt.
+Der lokale JSON-Loader (`safeReadJson`, `DATA_PATH`, etc.) wurde entfernt.
 
 ---
 
@@ -117,8 +131,14 @@ export const SITE_META: Record<SiteType, SiteMeta> = {
 ## Environment Variables
 
 ```bash
-POCKETBASE_URL=http://127.0.0.1:8090   # PocketBase API
-DATA_SOURCE=pocketbase                  # Einziger unterstützter Wert!
+# Development (SQLite)
+DATA_SOURCE=local
+DATABASE_URL="file:./dev.db"
+
+# Production (PostgreSQL)
+DATA_SOURCE=postgresql
+DATABASE_URL="postgresql://user:password@host:5432/bifroest"
+
 API_TIMEOUT=5000                        # Timeout in ms
 CACHE_TTL=300                           # Cache-Dauer in Sekunden
 ```
@@ -128,9 +148,9 @@ CACHE_TTL=300                           # Cache-Dauer in Sekunden
 ## Wichtig
 
 - ❌ KEINE lokalen JSON-Dateien verwenden
-- ❌ KEINE `DATA_SOURCE=local` oder `DATA_SOURCE=auto`
-- ✅ Immer über bifroest.ts → PocketBase
-- ✅ Fehlerbehandlung für offline PocketBase (Error-State, kein Fallback!)
+- ❌ KEINE `DATA_SOURCE=pocketbase` mehr
+- ✅ Immer über database.ts → Prisma → PostgreSQL/SQLite
+- ✅ Fehlerbehandlung für offline Database (Error-State, kein Fallback!)
 
 ---
 
@@ -140,7 +160,7 @@ CACHE_TTL=300                           # Cache-Dauer in Sekunden
 |-------|--------|
 | [../../CLAUDE.md](../../CLAUDE.md) | AMORPH Root |
 | [../../../CLAUDE.md](../../../CLAUDE.md) | Monorepo Root |
-| [../../../bifroest-platform/claude.md](../../../bifroest-platform/claude.md) | Backend |
+| [../../../bifroest-platform/CLAUDE.md](../../../bifroest-platform/CLAUDE.md) | Backend |
 
 ---
 

@@ -80,13 +80,3 @@ logSecurityEvent(event)       // Security Logging
 ---
 
 *Letzte Aktualisierung: Januar 2026*
-
-Input-Validierung und Sanitization:
-
-```typescript
-import { sanitizeInput, validateUrl } from '@/core/security';
-
-sanitizeInput('<script>alert()</script>');  // escaped
-validateUrl('http://example.com');          // true
-validateUrl('javascript:alert()');          // false
-```

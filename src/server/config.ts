@@ -221,19 +221,24 @@ interface ParsedConfig {
 // ═══════════════════════════════════════════════════════════════════════════════
 
 const SITE_TO_BLUEPRINT_FOLDER: Record<SiteType, string> = {
+  // Biology
   fungi: 'amorph-fungi',
   phyto: 'amorph-phyto',
-  therion: 'amorph-drako',
+  drako: 'amorph-drako',
+  // Geology
   paleo: 'amorph-paleo',
   tekto: 'amorph-tekto',
-  mineral: 'amorph-mine',
+  mine: 'amorph-mine',
+  // Biomedical
   bakterio: 'amorph-bakterio',
   viro: 'amorph-viro',
   geno: 'amorph-geno',
   anato: 'amorph-anato',
+  // Physics & Chemistry
   chemo: 'amorph-chemo',
   physi: 'amorph-physi',
   kosmo: 'amorph-kosmo',
+  // Technology
   netzo: 'amorph-netzo',
   cognito: 'amorph-cognito',
   biotech: 'amorph-biotech',

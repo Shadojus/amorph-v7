@@ -1,5 +1,9 @@
 import { defineConfig } from 'astro/config';
 import node from '@astrojs/node';
+import { fileURLToPath } from 'url';
+import { dirname, resolve } from 'path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
   output: 'server',
@@ -27,7 +31,8 @@ export default defineConfig({
         '@core': '/src/core',
         '@morphs': '/src/morphs',
         '@server': '/src/server',
-        '@client': '/src/client'
+        '@client': '/src/client',
+        '@shared': resolve(__dirname, '../shared')
       }
     },
     

@@ -20,10 +20,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // In production (built), __dirname is /app/dist/server/chunks/
 // In dev, __dirname is /app/src/server/
-// Data is always at /app/data/ - use process.cwd() for reliability
+// Data is at /app/data-local/ for local development
 const BASE_DATA_PATH = process.env.NODE_ENV === 'production' 
-  ? join(process.cwd(), 'data')
-  : join(__dirname, '../../data');
+  ? join(process.cwd(), 'data-local')
+  : join(__dirname, '../../data-local');
 
 // Get site-specific data path based on SITE_TYPE
 import { getSiteType, SITE_META } from './config';
@@ -86,47 +86,34 @@ function safeReadJson<T>(filePath: string): { data: T | null; error: string | nu
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// BIFROEST API INTEGRATION
+// BIFROEST API INTEGRATION (LEGACY - Deprecated)
 // ═══════════════════════════════════════════════════════════════════════════════
 
 /**
+ * @deprecated Use local files or PostgreSQL instead
  * Lädt Daten von BIFROEST API für die aktuelle Site.
- * Jede Site hat ihre eigene Collection (fungi, paleontology, etc.)
+ * Diese Funktion ist deprecated und wird in zukünftigen Versionen entfernt.
  */
 async function loadFromBifroest(): Promise<ItemData[] | null> {
-  try {
-    const isConnected = await checkBifroestConnection();
-    if (!isConnected) {
-      console.log('[Data] BIFROEST API not available, using local files');
-      return null;
-    }
-    
-    const collection = getSiteCollection();
-    console.log(`[Data] Loading from BIFROEST collection: ${collection}`);
-    
-    const items = await loadSiteItems();
-    if (items.length > 0) {
-      console.log(`[Data] ✅ Loaded ${items.length} items from BIFROEST API (${collection})`);
-      return items;
-    }
-    
-    return null; // Fallback to local
-  } catch (error) {
-    console.error('[Data] BIFROEST API error:', error);
-    return null; // Fallback to local
-  }
+  // PocketBase wurde durch PostgreSQL/Prisma ersetzt
+  // Diese Funktion gibt immer null zurück um lokale Daten zu verwenden
+  console.log('[Data] PocketBase wurde durch PostgreSQL ersetzt - verwende lokale Daten');
+  return null;
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // DATA LOADER
 // ═══════════════════════════════════════════════════════════════════════════════
 
-// Control data source: 'pocketbase' | 'local' | 'auto' (try pocketbase first, fallback to local)
-const DATA_SOURCE = process.env.DATA_SOURCE || 'pocketbase';
+// Control data source: 'postgresql' | 'local' | 'auto'
+// 'postgresql' uses new Prisma-based database (future)
+// 'local' uses JSON files from data-local/ directory (default)
+// 'auto' same as 'local' (pocketbase deprecated)
+const DATA_SOURCE = process.env.DATA_SOURCE || 'local';
 
 /**
- * Lädt alle Items - primär von BIFROEST Pocketbase.
- * Fallback auf lokale Dateien nur wenn DATA_SOURCE='auto' oder 'local'.
+ * Lädt alle Items aus lokalen JSON-Dateien.
+ * PocketBase wurde durch PostgreSQL/Prisma ersetzt.
  * 
  * Schema: Core fields + 15 Perspective JSON fields (matching blueprints)
  */
@@ -143,54 +130,32 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
   const siteMeta = SITE_META[siteType];
   const currentCollection = siteMeta.collection; // 'fungi', 'paleontology', etc.
   
-  // 1. BIFROEST Pocketbase (primary data source)
-  if (DATA_SOURCE === 'pocketbase' || DATA_SOURCE === 'auto') {
-    const bifroestItems = await loadFromBifroest();
-    if (bifroestItems && bifroestItems.length > 0) {
-      console.log(`[Data] ✅ Loaded ${bifroestItems.length} items from Pocketbase (${currentCollection})`);
-      cachedItems = bifroestItems;
-      cachedIndex = {};
-      for (const item of bifroestItems) {
-        cachedIndex[item.slug] = item;
-      }
-      return bifroestItems;
-    }
-    
-    if (DATA_SOURCE === 'pocketbase') {
-      // Strict Pocketbase mode - no fallback
-      console.error('[Data] ❌ Pocketbase not available and DATA_SOURCE=pocketbase (no fallback)');
-      loadErrors.push({ path: 'pocketbase', error: 'BIFROEST API not available' });
-      return items;
-    }
-  }
+  // Lokale Dateien laden (primäre Datenquelle für Development)
+  console.log('[Data] Using local files');
   
-  // 2. Fallback: Lokale Dateien (only if DATA_SOURCE='local' or 'auto')
-  if (DATA_SOURCE === 'local' || DATA_SOURCE === 'auto') {
-    console.log('[Data] Using local files fallback');
-    
-    // First try universe-index.json (contains all species data)
-    const universeIndexPath = join(BASE_DATA_PATH, 'universe-index.json');
-    interface UniverseIndexData {
-      species?: Array<{
-        id: string;
-        slug: string;
-        name: string;
-        kingdom: string;
-        scientific_name?: string;
-        description?: string;
-        image?: string;
-        tagline?: string;
-        seo_description?: string;
-        quick_facts?: unknown[];
-        highlights?: unknown[];
-        badges?: unknown[];
-        categories?: string[];
-        keywords?: string[];
-        perspectives?: string[];
-        _sources?: Record<string, unknown[]>;
-        [key: string]: unknown;
-      }>;
-    }
+  // First try universe-index.json (contains all species data)
+  const universeIndexPath = join(BASE_DATA_PATH, 'universe-index.json');
+  interface UniverseIndexData {
+    species?: Array<{
+      id: string;
+      slug: string;
+      name: string;
+      kingdom: string;
+      scientific_name?: string;
+      description?: string;
+      image?: string;
+      tagline?: string;
+      seo_description?: string;
+      quick_facts?: unknown[];
+      highlights?: unknown[];
+      badges?: unknown[];
+      categories?: string[];
+      keywords?: string[];
+      perspectives?: string[];
+      _sources?: Record<string, unknown[]>;
+      [key: string]: unknown;
+    }>;
+  }
     const universeResult = safeReadJson<UniverseIndexData>(universeIndexPath);
     
     if (universeResult.data && universeResult.data.species) {
@@ -442,7 +407,6 @@ export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
   } else if (indexResult.error) {
     loadErrors.push({ path: indexPath, error: indexResult.error });
   }
-  } // End of: if (DATA_SOURCE === 'local' || DATA_SOURCE === 'auto')
   
   cachedItems = items;
   

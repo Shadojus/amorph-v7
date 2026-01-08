@@ -9,14 +9,14 @@ Vitest Test-Suite für AMORPH.
 | `detection.test.ts` | 80 | Typ-Erkennung |
 | `security.test.ts` | 49 | Input Sanitization |
 | `morphs.test.ts` | 81 | Morph Rendering |
-| `morphs/*.test.ts` | 29 | Individuelle Morph-Tests |
+| `morphs/*.test.ts` | 110 | Individuelle Morph-Tests |
 | `observer.test.ts` | 8 | Debug Module |
 | `integration.test.ts` | 11 | Module Integration |
 | `api-integration.test.ts` | 27 | API Endpoints |
 | `real-data.test.ts` | 34 | PocketBase Tests |
 | `error-handling.test.ts` | 14 | Error Handling |
 
-**Total: 475 Tests**
+**Total: 475 Tests (37 Dateien)**
 
 ---
 

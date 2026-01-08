@@ -1,6 +1,20 @@
 /**
- * AMORPH - BIFROEST Species Client v3
+ * @deprecated Diese Datei ist VERALTET!
  * 
+ * AMORPH - BIFROEST Species Client v3 (DEPRECATED)
+ * 
+ * ⚠️ ACHTUNG: Diese Datei verwendet PocketBase, das durch PostgreSQL/Prisma ersetzt wurde.
+ * Verwende stattdessen:
+ * - data.ts für lokale JSON-Daten
+ * - database.ts für PostgreSQL/Prisma-Zugriff
+ * 
+ * Die Funktionen in dieser Datei sind noch vorhanden für Rückwärtskompatibilität,
+ * geben aber nur leere Arrays zurück.
+ * 
+ * Migration: siehe docs/MIGRATION-POSTGRESQL.md
+ * 
+ * ALTE DOKUMENTATION (nur zur Referenz):
+ * ----------------------------------------
  * Lädt Species-Daten von der BIFROEST Pocketbase.
  * Unterstützt separate Biology- und Geology-Collections.
  * 
@@ -20,14 +34,15 @@ import type { ItemData } from '../core/types';
 import { cachedFetch, invalidateSpeciesCache } from './cache';
 import { getSiteType, getSiteDomain, SITE_META, SITE_DOMAIN, type SiteType, type Domain } from './config';
 
+// ⚠️ DEPRECATED - Diese Konstanten werden nicht mehr verwendet
 // API Configuration
 const POCKETBASE_URL = process.env.POCKETBASE_URL || 'http://localhost:8090';
 const API_TIMEOUT = parseInt(process.env.API_TIMEOUT || '5000', 10);
 const CACHE_TTL = parseInt(process.env.CACHE_TTL || '300', 10);
 
-// Connection state
+// Connection state - immer als nicht verbunden, da PocketBase nicht mehr verwendet wird
 let lastHealthCheck = 0;
-let isConnected = true;
+let isConnected = false; // Always false - PocketBase deprecated
 
 // ============================================================================
 // COLLECTION CONFIGURATION - V2 (Domain-Specific Collections)
@@ -135,16 +150,17 @@ const TECTONICS_PERSPECTIVES = [
 ] as const;
 
 function getPerspectivesForCollection(collection: Collection): readonly string[] {
-  switch (collection) {
+  const domain = getDomainFromCollection(collection);
+  switch (domain) {
     case 'fungi':
-    case 'plantae':
-    case 'therion':
+    case 'phyto':
+    case 'drako':
       return BIOLOGY_PERSPECTIVES;
-    case 'paleontology':
+    case 'paleo':
       return PALEONTOLOGY_PERSPECTIVES;
-    case 'mineralogy':
+    case 'mine':
       return MINERALOGY_PERSPECTIVES;
-    case 'tectonics':
+    case 'tekto':
       return TECTONICS_PERSPECTIVES;
     default:
       return BIOLOGY_PERSPECTIVES;
@@ -214,7 +230,7 @@ function toItemData(entity: PocketbaseEntity, collectionName: DomainCollection):
     image: image,
     _kingdom: kingdom,
     _collection: collectionName,
-    _domain: domain,
+    _domain: domain as 'biology' | 'geology' | undefined,
     _fieldPerspective: {} as Record<string, string>,
     _perspectives: {},
     _loadedPerspectives: [],
@@ -308,14 +324,14 @@ async function fetchPerspectivesForSpecies(speciesId: string): Promise<Record<st
       if (response.ok) {
         const data: PocketbaseResponse = await response.json();
         if (data.items?.length > 0) {
-          // Remove system fields from perspective data
-          const perspData = { ...data.items[0] };
-          delete perspData.id;
-          delete perspData.collectionId;
-          delete perspData.collectionName;
-          delete perspData.species;
-          delete perspData.created;
-          delete perspData.updated;
+          // Remove system fields from perspective data using Reflect.deleteProperty
+          const perspData: Record<string, unknown> = { ...data.items[0] };
+          Reflect.deleteProperty(perspData, 'id');
+          Reflect.deleteProperty(perspData, 'collectionId');
+          Reflect.deleteProperty(perspData, 'collectionName');
+          Reflect.deleteProperty(perspData, 'species');
+          Reflect.deleteProperty(perspData, 'created');
+          Reflect.deleteProperty(perspData, 'updated');
           perspectives[perspectiveName] = perspData;
         }
       }

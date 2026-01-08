@@ -20,7 +20,7 @@ import { logger } from '../../server/logger';
 export const GET: APIRoute = async ({ request }) => {
   const startTime = Date.now();
   
-  const dataSource = process.env.DATA_SOURCE || 'pocketbase';
+  const dataSource = (process.env.DATA_SOURCE || 'pocketbase').trim();
   
   // Check Pocketbase connection (only relevant if using pocketbase)
   const pocketbaseHealthy = await checkBifroestConnection();

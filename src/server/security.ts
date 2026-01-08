@@ -39,7 +39,7 @@ const defaultConfig: SecurityConfig = {
       'style-src': ["'self'", "'unsafe-inline'"],
       'img-src': ["'self'", 'data:', 'blob:', 'https:'],
       'font-src': ["'self'"],
-      'connect-src': ["'self'", 'http://localhost:8090', 'https://*.pocketbase.io'],
+      'connect-src': ["'self'"],
       'frame-ancestors': ["'none'"]
     }
   },

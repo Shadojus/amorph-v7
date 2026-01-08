@@ -1,0 +1,1199 @@
+---
+/**
+ * BIFROEST NEXUS - Blume des Lebens Topology Explorer
+ * Clean, modern design with proper SVG visualization
+ * + External Knowledge Bridge Integration
+ */
+import Layout from '../layouts/Base.astro';
+import LinkAdder from '../components/external-links/LinkAdder.astro';
+import { readFile } from 'fs/promises';
+import { join } from 'path';
+
+interface TopologyGraph {
+  generatedAt: string;
+  version: string;
+  domains: string[];
+  stats: {
+    domainCount: number;
+    perspectiveCount: number;
+    fieldCount: number;
+    intersectionCount: number;
+    gapCount: number;
+  };
+  nodes: Array<{
+    id: string;
+    type: string;
+    domain: string;
+    perspective?: string;
+    field?: string;
+    label: string;
+    morph?: string;
+  }>;
+  intersections: Array<{
+    id: string;
+    type: string;
+    perspectiveName?: string;
+    fieldName?: string;
+    domains: string[];
+    domainCount: number;
+    perspectives?: string[];
+    perspectiveCount?: number;
+    overlapScore: number;
+    sharedFields?: string[];
+    morphTypes?: string[];
+  }>;
+  gaps: Array<{
+    id: string;
+    type: string;
+    domain: string;
+    perspective?: string | null;
+    missingElement: string;
+    reason: string;
+    foundIn: string[];
+    foundInCount: number;
+    priority: string;
+  }>;
+}
+
+let graph: TopologyGraph | null = null;
+
+function getTopologyPath(): string {
+  const cwd = process.cwd();
+  if (cwd.endsWith('amorph')) {
+    return join(cwd, '..', 'shared', 'topology', 'graph.json');
+  }
+  return join(cwd, 'shared', 'topology', 'graph.json');
+}
+
+try {
+  const topologyPath = getTopologyPath();
+  const content = await readFile(topologyPath, 'utf-8');
+  graph = JSON.parse(content);
+} catch (e) {
+  console.error('[Nexus] Could not load topology:', e);
+}
+
+// Domain configuration with positions for flower layout
+const domainConfig: Record<string, {
+  color: string;
+  angle: number;
+  label: string;
+}> = {
+  fungi: { color: '#6B8AFF', angle: -90, label: 'FUNGI' },
+  phyto: { color: '#5ECFA3', angle: 0, label: 'PHYTO' },
+  bakterio: { color: '#FF7B7B', angle: 90, label: 'BAKTERIO' },
+  chemo: { color: '#FFB347', angle: 180, label: 'CHEMO' }
+};
+
+function getDomainColor(domain: string): string {
+  return domainConfig[domain]?.color || '#888888';
+}
+
+// Calculate intersection positions with better distribution
+function calculateIntersectionPosition(
+  intersection: { domains: string[]; domainCount: number },
+  index: number,
+  total: number,
+  domains: string[]
+): { x: number; y: number } {
+  const centerX = 250;
+  const centerY = 250;
+  const baseRadius = 60;
+
+  // Get involved domain angles
+  const involvedAngles = intersection.domains
+    .map(d => domainConfig[d]?.angle ?? 0)
+    .map(a => (a * Math.PI) / 180);
+
+  if (involvedAngles.length < 2) {
+    return { x: centerX, y: centerY };
+  }
+
+  // Calculate average angle
+  let avgX = 0, avgY = 0;
+  involvedAngles.forEach(angle => {
+    avgX += Math.cos(angle);
+    avgY += Math.sin(angle);
+  });
+  const avgAngle = Math.atan2(avgY, avgX);
+
+  // Distance based on domain count (more domains = closer to center)
+  const distanceFactor = 1 - (intersection.domainCount / domains.length) * 0.5;
+  const distance = baseRadius * distanceFactor + (index % 5) * 15;
+
+  // Add some spread based on index
+  const spreadAngle = avgAngle + ((index % 3) - 1) * 0.3;
+
+  return {
+    x: centerX + Math.cos(spreadAngle) * distance,
+    y: centerY + Math.sin(spreadAngle) * distance
+  };
+}
+
+const topIntersections = graph?.intersections
+  .filter(i => i.type === 'field' && i.domainCount >= 2)
+  .slice(0, 15) || [];
+---
+
+<Layout title="NEXUS - Wissenstopologie">
+  <style>
+    /* Base */
+    .nexus {
+      min-height: 100vh;
+      background: #0D1117;
+      color: #E6EDF3;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .nexus-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .header h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      margin: 0 0 0.5rem 0;
+      background: linear-gradient(135deg, #6B8AFF, #5ECFA3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .header p {
+      font-size: 0.875rem;
+      color: #8B949E;
+      margin: 0;
+    }
+
+    /* Stats Row */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      min-width: 100px;
+    }
+
+    .stat-value {
+      font-size: 1.75rem;
+      font-weight: 700;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: #8B949E;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 0.25rem;
+    }
+
+    /* Main Grid */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Flower Visualization */
+    .flower-wrap {
+      position: sticky;
+      top: 2rem;
+    }
+
+    .flower-card {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 12px;
+      padding: 1.5rem;
+    }
+
+    .flower-svg {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* SVG Styles */
+    .domain-circle {
+      fill-opacity: 0.08;
+      stroke-width: 2;
+      stroke-opacity: 0.6;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .domain-circle:hover {
+      fill-opacity: 0.15;
+      stroke-opacity: 1;
+      stroke-width: 3;
+    }
+
+    .domain-circle.active {
+      fill-opacity: 0.2;
+      stroke-opacity: 1;
+      stroke-width: 3;
+    }
+
+    .domain-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      fill: currentColor;
+      opacity: 0.9;
+    }
+
+    .intersection-dot {
+      fill: #fff;
+      opacity: 0.7;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .intersection-dot:hover {
+      opacity: 1;
+      transform-origin: center;
+    }
+
+    .intersection-dot.active {
+      opacity: 1;
+      filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
+    }
+
+    .nexus-core {
+      fill: #fff;
+      opacity: 0.15;
+    }
+
+    /* Connections List */
+    .connections {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .section-title {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #8B949E;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 3px;
+      height: 12px;
+      background: linear-gradient(180deg, #6B8AFF, #5ECFA3);
+      border-radius: 2px;
+    }
+
+    .connection-card {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 8px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .connection-card:hover {
+      border-color: #484F58;
+      transform: translateX(4px);
+    }
+
+    .connection-card.active {
+      border-color: #6B8AFF;
+      background: #1C2128;
+    }
+
+    .connection-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: #E6EDF3;
+    }
+
+    .connection-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .domain-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .domain-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid #0D1117;
+    }
+
+    .score-badge {
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      background: rgba(107, 138, 255, 0.15);
+      color: #6B8AFF;
+    }
+
+    .connection-perspectives {
+      font-size: 0.75rem;
+      color: #8B949E;
+      margin-top: 0.5rem;
+      line-height: 1.4;
+    }
+
+    /* Gaps Section */
+    .gaps-section {
+      margin-top: 3rem;
+    }
+
+    .gaps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 0.75rem;
+    }
+
+    .gap-card {
+      background: #161B22;
+      border: 1px solid rgba(255, 123, 123, 0.2);
+      border-radius: 8px;
+      padding: 0.875rem;
+    }
+
+    .gap-card.high {
+      border-color: rgba(255, 123, 123, 0.4);
+    }
+
+    .gap-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.25rem;
+    }
+
+    .gap-location {
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: #E6EDF3;
+    }
+
+    .gap-priority {
+      font-size: 0.6rem;
+      font-weight: 600;
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      text-transform: uppercase;
+      background: rgba(255, 123, 123, 0.2);
+      color: #FF7B7B;
+    }
+
+    .gap-missing {
+      font-size: 0.8rem;
+      color: #8B949E;
+    }
+
+    .gap-missing strong {
+      color: #E6EDF3;
+    }
+
+    .gap-reason {
+      font-size: 0.7rem;
+      color: #6E7681;
+      margin-top: 0.25rem;
+    }
+
+    /* Detail Panel */
+    .detail-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 100;
+    }
+
+    .detail-overlay.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .detail-panel {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #161B22;
+      border-top: 1px solid #30363D;
+      border-radius: 16px 16px 0 0;
+      padding: 1.5rem;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+      z-index: 101;
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+
+    .detail-panel.visible {
+      transform: translateY(0);
+    }
+
+    .detail-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+    }
+
+    .detail-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .detail-close {
+      background: #30363D;
+      border: none;
+      color: #8B949E;
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .detail-close:hover {
+      background: #484F58;
+      color: #E6EDF3;
+    }
+
+    .detail-domains {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .detail-domain {
+      padding: 0.375rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .detail-perspectives {
+      font-size: 0.875rem;
+      color: #8B949E;
+      line-height: 1.5;
+    }
+
+    /* No Data */
+    .no-data {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: #8B949E;
+    }
+
+    .no-data code {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #161B22;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: #E6EDF3;
+    }
+
+    /* External Links Section */
+    .external-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #30363D;
+    }
+
+    .external-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .add-link-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #238636;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 14px;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .add-link-btn:hover {
+      background: #2EA043;
+    }
+
+    .external-links-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+    }
+
+    .external-link-card {
+      background: #161B22;
+      border: 1px solid #30363D;
+      border-radius: 8px;
+      padding: 1rem;
+      transition: all 0.2s;
+    }
+
+    .external-link-card:hover {
+      border-color: #58A6FF;
+      transform: translateY(-2px);
+    }
+
+    .link-type-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 10px;
+      background: rgba(88, 166, 255, 0.15);
+      color: #58A6FF;
+      margin-bottom: 8px;
+    }
+
+    .link-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #E6EDF3;
+      margin-bottom: 6px;
+      line-height: 1.3;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .link-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .link-title a:hover {
+      color: #58A6FF;
+    }
+
+    .link-description {
+      font-size: 12px;
+      color: #8B949E;
+      line-height: 1.4;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .link-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      color: #6E7681;
+    }
+
+    .link-domains {
+      display: flex;
+      gap: 4px;
+    }
+
+    .link-domain {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .link-votes {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .link-vote {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      cursor: pointer;
+      padding: 2px 4px;
+      border-radius: 4px;
+      transition: background 0.15s;
+    }
+
+    .link-vote:hover {
+      background: #21262D;
+    }
+
+    .link-vote.up:hover {
+      color: #3FB950;
+    }
+
+    .link-vote.down:hover {
+      color: #F85149;
+    }
+
+    .link-verified {
+      color: #3FB950;
+      font-size: 12px;
+    }
+
+    .external-links-empty {
+      text-align: center;
+      padding: 2rem;
+      color: #6E7681;
+      font-size: 13px;
+    }
+
+    .external-links-loading {
+      text-align: center;
+      padding: 2rem;
+      color: #8B949E;
+    }
+
+    /* Link Adder Modal */
+    .link-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .link-modal-overlay.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .link-modal-content {
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .link-modal-overlay.visible .link-modal-content {
+      transform: translateY(0);
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 640px) {
+      .nexus-inner {
+        padding: 1rem;
+      }
+
+      .stats {
+        gap: 0.5rem;
+      }
+
+      .stat {
+        padding: 0.75rem 1rem;
+        min-width: 80px;
+      }
+
+      .stat-value {
+        font-size: 1.25rem;
+      }
+
+      .flower-wrap {
+        position: relative;
+        top: 0;
+      }
+    }
+  </style>
+
+  <div class="nexus">
+    <div class="nexus-inner">
+      <!-- Header -->
+      <header class="header">
+        <h1>NEXUS</h1>
+        <p>Blume des Lebens - Wissenstopologie</p>
+      </header>
+
+      {!graph ? (
+        <div class="no-data">
+          <p>Keine Topologie-Daten gefunden.</p>
+          <code>node shared/topology/build-topology.mjs</code>
+        </div>
+      ) : (
+        <>
+          <!-- Stats -->
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-value" style="color: #6B8AFF;">{graph.stats.domainCount}</div>
+              <div class="stat-label">Domains</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" style="color: #5ECFA3;">{graph.stats.perspectiveCount}</div>
+              <div class="stat-label">Perspektiven</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" style="color: #FFB347;">{graph.stats.fieldCount.toLocaleString()}</div>
+              <div class="stat-label">Felder</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" style="color: #A78BFA;">{graph.stats.intersectionCount}</div>
+              <div class="stat-label">Verbindungen</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" style="color: #FF7B7B;">{graph.stats.gapCount}</div>
+              <div class="stat-label">Lucken</div>
+            </div>
+          </div>
+
+          <!-- Main Content -->
+          <div class="main-grid">
+            <!-- Left: Flower Visualization -->
+            <div class="flower-wrap">
+              <div class="flower-card">
+                <svg class="flower-svg" viewBox="0 0 500 500" id="flower-svg">
+                  <defs>
+                    {graph.domains.map((domain) => {
+                      const cfg = domainConfig[domain];
+                      return (
+                        <radialGradient id={`grad-${domain}`} cx="50%" cy="50%" r="50%">
+                          <stop offset="0%" stop-color={cfg?.color || '#888'} stop-opacity="0.3" />
+                          <stop offset="100%" stop-color={cfg?.color || '#888'} stop-opacity="0" />
+                        </radialGradient>
+                      );
+                    })}
+                  </defs>
+
+                  <!-- Domain Circles -->
+                  {graph.domains.map((domain) => {
+                    const cfg = domainConfig[domain];
+                    if (!cfg) return null;
+
+                    const angleRad = (cfg.angle * Math.PI) / 180;
+                    const offset = 70;
+                    const cx = 250 + Math.cos(angleRad) * offset;
+                    const cy = 250 + Math.sin(angleRad) * offset;
+                    const radius = 130;
+
+                    // Label position (outside circle)
+                    const labelOffset = radius + 20;
+                    const labelX = 250 + Math.cos(angleRad) * (offset + labelOffset);
+                    const labelY = 250 + Math.sin(angleRad) * (offset + labelOffset);
+
+                    return (
+                      <g class="domain-group" data-domain={domain}>
+                        <circle
+                          cx={cx}
+                          cy={cy}
+                          r={radius}
+                          fill={cfg.color}
+                          stroke={cfg.color}
+                          class="domain-circle"
+                          data-domain={domain}
+                        />
+                        <text
+                          x={labelX}
+                          y={labelY}
+                          class="domain-label"
+                          text-anchor="middle"
+                          dominant-baseline="middle"
+                          style={`color: ${cfg.color}`}
+                        >
+                          {cfg.label}
+                        </text>
+                      </g>
+                    );
+                  })}
+
+                  <!-- Intersection Points -->
+                  {topIntersections.map((intersection, i) => {
+                    const pos = calculateIntersectionPosition(
+                      intersection,
+                      i,
+                      topIntersections.length,
+                      graph.domains
+                    );
+                    const size = 4 + intersection.overlapScore * 6;
+
+                    return (
+                      <circle
+                        cx={pos.x}
+                        cy={pos.y}
+                        r={size}
+                        class="intersection-dot"
+                        data-id={intersection.id}
+                        data-name={intersection.fieldName}
+                      >
+                        <title>{intersection.fieldName?.replace(/_/g, ' ')}: {intersection.domains.join(', ')}</title>
+                      </circle>
+                    );
+                  })}
+
+                  <!-- Nexus Core -->
+                  <circle cx="250" cy="250" r="20" class="nexus-core" />
+                  <circle cx="250" cy="250" r="8" fill="#fff" opacity="0.3" />
+                  <circle cx="250" cy="250" r="3" fill="#fff" opacity="0.6" />
+                </svg>
+              </div>
+            </div>
+
+            <!-- Right: Connections List -->
+            <div class="connections">
+              <div class="section-title">Wissenschaftliche Verbindungen</div>
+
+              {topIntersections.slice(0, 10).map((intersection) => (
+                <div
+                  class="connection-card"
+                  data-id={intersection.id}
+                  data-domains={JSON.stringify(intersection.domains)}
+                  data-perspectives={JSON.stringify(intersection.perspectives)}
+                >
+                  <div class="connection-name">
+                    {intersection.fieldName?.replace(/_/g, ' ')}
+                  </div>
+                  <div class="connection-meta">
+                    <div class="domain-dots">
+                      {intersection.domains.map((domain) => (
+                        <span
+                          class="domain-dot"
+                          style={`background: ${getDomainColor(domain)};`}
+                          title={domain}
+                        />
+                      ))}
+                    </div>
+                    <span class="score-badge">
+                      {Math.round(intersection.overlapScore * 100)}%
+                    </span>
+                  </div>
+                  <div class="connection-perspectives">
+                    {intersection.perspectiveCount} Perspektiven: {intersection.perspectives?.slice(0, 3).map(p => p.replace(/_/g, ' ')).join(', ')}
+                    {(intersection.perspectives?.length || 0) > 3 && '...'}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Gaps Section -->
+          {graph.gaps.length > 0 && (
+            <section class="gaps-section">
+              <div class="section-title">Erkannte Lucken</div>
+              <div class="gaps-grid">
+                {graph.gaps
+                  .filter(g => g.priority === 'high')
+                  .slice(0, 6)
+                  .map((gap) => (
+                    <div class={`gap-card ${gap.priority}`}>
+                      <div class="gap-header">
+                        <span class="gap-location">
+                          {gap.domain}{gap.perspective ? `.${gap.perspective}` : ''}
+                        </span>
+                        <span class="gap-priority">{gap.priority}</span>
+                      </div>
+                      <div class="gap-missing">
+                        Fehlt: <strong>{gap.missingElement.replace(/_/g, ' ')}</strong>
+                      </div>
+                      <div class="gap-reason">{gap.reason}</div>
+                    </div>
+                  ))}
+              </div>
+            </section>
+          )}
+
+          <!-- External Knowledge Section -->
+          <section class="external-section">
+            <div class="external-header">
+              <div class="section-title">Externe Wissensquellen</div>
+              <button class="add-link-btn" id="add-link-btn">
+                + Quelle hinzufugen
+              </button>
+            </div>
+            <div class="external-links-grid" id="external-links-container">
+              <div class="external-links-loading">Lade externe Quellen...</div>
+            </div>
+          </section>
+        </>
+      )}
+    </div>
+
+    <!-- Detail Overlay -->
+    <div class="detail-overlay" id="detail-overlay"></div>
+
+    <!-- Detail Panel -->
+    <div class="detail-panel" id="detail-panel">
+      <div class="detail-header">
+        <h3 class="detail-title" id="detail-title">-</h3>
+        <button class="detail-close" id="detail-close">&times;</button>
+      </div>
+      <div class="detail-domains" id="detail-domains"></div>
+      <div class="detail-perspectives" id="detail-perspectives"></div>
+    </div>
+
+    <!-- Link Adder Modal -->
+    <div class="link-modal-overlay" id="link-modal">
+      <div class="link-modal-content">
+        <LinkAdder domains={graph?.domains || ['fungi', 'phyto', 'bakterio', 'chemo']} />
+      </div>
+    </div>
+  </div>
+
+  <script define:vars={{ domainConfigData: domainConfig }}>
+    const overlay = document.getElementById('detail-overlay');
+    const panel = document.getElementById('detail-panel');
+    const titleEl = document.getElementById('detail-title');
+    const domainsEl = document.getElementById('detail-domains');
+    const perspectivesEl = document.getElementById('detail-perspectives');
+    const closeBtn = document.getElementById('detail-close');
+
+    function showDetail(name, domains, perspectives) {
+      titleEl.textContent = name;
+      domainsEl.innerHTML = domains.map(d => {
+        const color = domainConfigData[d]?.color || '#888';
+        return `<span class="detail-domain" style="background: ${color};">${d}</span>`;
+      }).join('');
+      perspectivesEl.textContent = `Erscheint in: ${perspectives.map(p => p.replace(/_/g, ' ')).join(', ')}`;
+
+      overlay.classList.add('visible');
+      panel.classList.add('visible');
+    }
+
+    function hideDetail() {
+      overlay.classList.remove('visible');
+      panel.classList.remove('visible');
+      document.querySelectorAll('.connection-card, .intersection-dot').forEach(el => {
+        el.classList.remove('active');
+      });
+    }
+
+    // Connection cards
+    document.querySelectorAll('.connection-card').forEach(card => {
+      card.addEventListener('click', () => {
+        const id = card.dataset.id;
+        const name = card.querySelector('.connection-name')?.textContent?.trim() || '';
+        const domains = JSON.parse(card.dataset.domains || '[]');
+        const perspectives = JSON.parse(card.dataset.perspectives || '[]');
+
+        document.querySelectorAll('.connection-card').forEach(c => c.classList.remove('active'));
+        card.classList.add('active');
+
+        document.querySelectorAll('.intersection-dot').forEach(dot => {
+          dot.classList.toggle('active', dot.dataset.id === id);
+        });
+
+        showDetail(name, domains, perspectives);
+      });
+    });
+
+    // SVG dots
+    document.querySelectorAll('.intersection-dot').forEach(dot => {
+      dot.addEventListener('click', () => {
+        const id = dot.dataset.id;
+        const card = document.querySelector(`.connection-card[data-id="${id}"]`);
+        if (card) {
+          card.click();
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      });
+    });
+
+    // Domain circles filter
+    document.querySelectorAll('.domain-circle').forEach(circle => {
+      circle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const domain = circle.dataset.domain;
+        const isActive = circle.classList.contains('active');
+
+        document.querySelectorAll('.domain-circle').forEach(c => c.classList.remove('active'));
+
+        if (!isActive) {
+          circle.classList.add('active');
+          document.querySelectorAll('.connection-card').forEach(card => {
+            const cardDomains = JSON.parse(card.dataset.domains || '[]');
+            card.style.display = cardDomains.includes(domain) ? '' : 'none';
+          });
+        } else {
+          document.querySelectorAll('.connection-card').forEach(card => {
+            card.style.display = '';
+          });
+        }
+      });
+    });
+
+    // Close handlers
+    closeBtn?.addEventListener('click', hideDetail);
+    overlay?.addEventListener('click', hideDetail);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') hideDetail();
+    });
+
+    // =========================================
+    // External Links Integration
+    // =========================================
+    const linkModal = document.getElementById('link-modal');
+    const addLinkBtn = document.getElementById('add-link-btn');
+    const linksContainer = document.getElementById('external-links-container');
+
+    const sourceIcons = {
+      pubmed: '📄',
+      doi: '🔗',
+      arxiv: '📑',
+      wikipedia: '📚',
+      wikidata: '🗃️',
+      youtube: '🎬',
+      book: '📖',
+      website: '🌐'
+    };
+
+    // Load external links
+    async function loadExternalLinks() {
+      try {
+        const response = await fetch('/api/external-links/list?per_page=8');
+        const data = await response.json();
+
+        if (!data.links || data.links.length === 0) {
+          linksContainer.innerHTML = `
+            <div class="external-links-empty">
+              Noch keine externen Quellen verknupft.<br>
+              Fugen Sie PubMed-Artikel, Wikipedia-Seiten oder YouTube-Videos hinzu.
+            </div>
+          `;
+          return;
+        }
+
+        linksContainer.innerHTML = data.links.map(link => `
+          <div class="external-link-card" data-id="${link.id}">
+            <span class="link-type-badge">
+              ${sourceIcons[link.source_type] || '🔗'} ${link.source_type}
+            </span>
+            <div class="link-title">
+              <a href="${link.url}" target="_blank" rel="noopener noreferrer">
+                ${escapeHtml(link.title)}
+              </a>
+            </div>
+            ${link.description ? `<div class="link-description">${escapeHtml(link.description)}</div>` : ''}
+            <div class="link-meta">
+              <div class="link-domains">
+                ${link.domains.map(d => {
+                  const color = domainConfigData[d]?.color || '#888';
+                  return `<span class="link-domain" style="background: ${color};" title="${d}"></span>`;
+                }).join('')}
+              </div>
+              <div class="link-votes">
+                ${link.expert_verified ? '<span class="link-verified" title="Experte verifiziert">✓</span>' : ''}
+                <span class="link-vote up" data-id="${link.id}" data-vote="up">
+                  ▲ ${link.upvotes || 0}
+                </span>
+                <span class="link-vote down" data-id="${link.id}" data-vote="down">
+                  ▼ ${link.downvotes || 0}
+                </span>
+              </div>
+            </div>
+          </div>
+        `).join('');
+
+      } catch (error) {
+        console.error('Error loading external links:', error);
+        linksContainer.innerHTML = `
+          <div class="external-links-empty">
+            Externe Quellen konnten nicht geladen werden.
+          </div>
+        `;
+      }
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Open modal
+    addLinkBtn?.addEventListener('click', () => {
+      linkModal?.classList.add('visible');
+    });
+
+    // Close modal handlers
+    linkModal?.addEventListener('click', (e) => {
+      if (e.target === linkModal) {
+        linkModal.classList.remove('visible');
+      }
+    });
+
+    window.addEventListener('link-adder-close', () => {
+      linkModal?.classList.remove('visible');
+    });
+
+    window.addEventListener('external-link-added', () => {
+      linkModal?.classList.remove('visible');
+      loadExternalLinks();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && linkModal?.classList.contains('visible')) {
+        linkModal.classList.remove('visible');
+      }
+    });
+
+    // Load links on page load
+    loadExternalLinks();
+  </script>
+</Layout>

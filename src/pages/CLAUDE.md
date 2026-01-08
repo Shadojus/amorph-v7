@@ -9,9 +9,11 @@ Astro-Routen für AMORPH.
 | Route | Datei | Beschreibung |
 |-------|-------|--------------|
 | `/` | `index.astro` | Startseite mit Pagination |
-| `/[slug]` | `[slug].astro` | Species Detail-Seite |
+| `/[slug]` | `[slug].astro` | Entity Detail-Seite |
 | `/api/search` | `api/search.ts` | Such-API |
 | `/api/compare` | `api/compare.ts` | Compare-API |
+| `/api/autocomplete` | `api/autocomplete.ts` | Autovervollständigung |
+| `/api/health` | `api/health.ts` | Health Check |
 
 ---
 
@@ -20,15 +22,15 @@ Astro-Routen für AMORPH.
 ```astro
 ---
 // [slug].astro
-import { loadAllItems } from '@/server/data';
+import { loadSiteItems } from '@/server/bifroest';
 
 const { slug } = Astro.params;
-const items = await loadAllItems();  // → PocketBase!
+const items = await loadSiteItems();  // → PocketBase!
 const item = items.find(s => s.slug === slug);
 ---
 
 <Layout>
-  <SpeciesDetail item={item} />
+  <EntityDetail item={item} />
 </Layout>
 ```
 
@@ -41,11 +43,21 @@ const item = items.find(s => s.slug === slug);
 /api/search?q=pilz&p=culinary,safety&limit=20
 ```
 
+### GET /api/autocomplete
+```
+/api/autocomplete?q=aga&limit=10
+```
+
 ### POST /api/compare
 ```json
 {
   "fields": [...]
 }
+```
+
+### GET /api/health
+```
+/api/health → { status: "ok", pocketbase: true }
 ```
 
 ---
