@@ -1,6 +1,6 @@
 # Client Features
 
-Browser-seitige TypeScript Module.
+Browser-seitige TypeScript Module für Amorph v8.7.1.
 
 ---
 
@@ -13,8 +13,41 @@ Browser-seitige TypeScript Module.
 | `compare.ts` | Vergleichs-Ansicht |
 | `selection.ts` | Feld-Selektion |
 | `grid.ts` | Grid-Layout |
-| `bifroest.ts` | BIFROEST Expert Attribution System |
+| `bifroest.ts` | ⭐ BIFROEST Expert Attribution System |
 | `debug.ts` | Debug-Utilities |
+
+---
+
+## ⭐ BIFROEST Expert Attribution System (`bifroest.ts`)
+
+Das Bifroest-System zeigt Quellen-Attribution für Datenfelder:
+
+### Features (v8.7.1)
+- **Multi-Domain Support** - Lädt Experten für ALLE sichtbaren Domains auf Landing-Page
+- **Domain-Filtering** - Experten erscheinen NUR bei Items aus ihrer eigenen Domain
+- **10 Experten** - Verteilt auf 10 verschiedene Domains
+- **Field Matching** - Basierend auf `fieldExpertise` Array
+
+### Architektur
+```
+┌─────────────────────────────────────────────────────────────┐
+│  loadAndDisplayExperts()                                     │
+│  ├── isLandingPage()? → Lade ALLE sichtbaren Domains        │
+│  │   └── getVisibleDomains() → fetchExperts() parallel      │
+│  └── Single Domain → fetchExperts(currentDomain)            │
+│                                                             │
+│  applyExpertsToFields()                                     │
+│  ├── Iteriere über alle .amorph-field                       │
+│  ├── Finde Experten mit passendem field_expertise           │
+│  ├── ⭐ Domain-Check: expert.domain === itemDomain          │
+│  └── Füge Button mit Experten-Info hinzu                    │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Expert-Felder
+Experten werden Feldern zugeordnet über `fieldExpertise`:
+- `description`, `categories`, `keywords`, `ecology`, `habitat`
+- `chemistry`, `genetics`, `anatomy`, `morphology`, `taxonomy`
 
 ---
 
@@ -34,6 +67,7 @@ Session Storage Keys:
 - `amorph:selection:fields` - Ausgewählte Felder
 - `amorph:compare:items` - Compare Items
 - `amorph:search:query` - Letzte Suche
+- `bifroest:experts:{domain}` - Gecachte Experten (10min TTL)
 
 ---
 
@@ -55,4 +89,4 @@ Custom Events für Kommunikation:
 
 ---
 
-*Letzte Aktualisierung: Januar 2026*
+*Letzte Aktualisierung: 9. Januar 2026*

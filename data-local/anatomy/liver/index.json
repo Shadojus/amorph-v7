@@ -1,0 +1,29 @@
+{
+  "id": "liver",
+  "slug": "liver",
+  "name": "Leber",
+  "scientific_name": "Hepar",
+  "kingdom": "organ",
+  "kingdom_icon": "🫁",
+  "image": null,
+  "tagline": "Zentrale Stoffwechselfabrik",
+  "description": "Die Leber ist das größte innere Organ und die zentrale Stoffwechselfabrik des Körpers. Sie ist verantwortlich für Entgiftung, Proteinsynthese, Gallenproduktion und Speicherung von Glykogen, Vitaminen und Mineralien.",
+  "seo_description": "Leber (Hepar) - Zentrale Stoffwechselfabrik, Entgiftung, Gallenproduktion",
+  "quick_facts": [
+    {"icon": "⚖️", "label": "Gewicht", "value": "1400-1800 g"},
+    {"icon": "🩸", "label": "Durchblutung", "value": "1.5 L/min"},
+    {"icon": "🔄", "label": "Regeneration", "value": "Ja"},
+    {"icon": "🧪", "label": "Funktionen", "value": ">500"}
+  ],
+  "highlights": ["Entgiftung", "Proteinsynthese", "Regenerationsfähigkeit"],
+  "badges": [
+    {"icon": "🔄", "label": "Regeneration", "status": "Sehr hoch", "variant": "success"},
+    {"icon": "🏥", "label": "Transplantation", "status": "Häufig", "variant": "info"}
+  ],
+  "categories": ["Verdauungssystem", "Stoffwechsel"],
+  "keywords": ["stoffwechsel", "entgiftung", "galle", "glykogen", "zirrhose", "hepatitis"],
+  "perspectives": ["gross_anatomy", "histology", "physiology", "pathology", "surgery"],
+  "perspective_count": 5,
+  "engagement_score": 85,
+  "_sources": {"image": [], "fields": {}}
+}

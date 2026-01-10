@@ -2235,15 +2235,19 @@
 }
 
 /* Compact Item - Elevated Card with Depth */
+/* Domain color from --item-domain-color inline style, fallback to current site color */
 .amorph-grid.view-compact .amorph-item {
   border-radius: 12px;
-  background: rgba(12, 18, 28, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Domain-tinted background - 12% domain color mixed in */
+  background: color-mix(in srgb, var(--item-domain-color, #1a1f2e) 12%, rgba(12, 18, 28, 0.95));
+  border: 1px solid color-mix(in srgb, var(--item-domain-color, var(--accent-subtle, rgba(255, 255, 255, 0.08))) 30%, transparent);
   box-shadow: 
     0 4px 12px rgba(0, 0, 0, 0.4),
-    0 1px 3px rgba(0, 0, 0, 0.3);
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px color-mix(in srgb, var(--item-domain-color, transparent) 10%, transparent),
+    inset 0 0 60px color-mix(in srgb, var(--item-domain-color, transparent) 8%, transparent);
   overflow: hidden; /* Clean edges */
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   list-style: none !important;
 }
 
@@ -2264,13 +2268,15 @@
   list-style: none !important;
 }
 
-/* Elegant Hover - Lift & Glow */
+/* Elegant Hover - Lift & Glow with Domain Color */
 .amorph-grid.view-compact .amorph-item:hover {
   transform: translateY(-4px) scale(1.02);
+  border-color: color-mix(in srgb, var(--item-domain-color, var(--accent-subtle, rgba(255, 255, 255, 0.2))) 60%, transparent);
   box-shadow: 
     0 8px 24px rgba(0, 0, 0, 0.5),
     0 2px 8px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    0 0 20px color-mix(in srgb, var(--item-domain-color, transparent) 20%, transparent);
 }
 
 /* Header contains the image */
@@ -2945,8 +2951,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background: rgba(8, 12, 20, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  /* Domain-tinted background using color-mix */
+  background: color-mix(in srgb, var(--item-domain-color, #1a1f2e) 8%, rgba(8, 12, 20, 0.95));
+  border: 1px solid color-mix(in srgb, var(--item-domain-color, rgba(255, 255, 255, 0.06)) 20%, rgba(255, 255, 255, 0.06));
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
@@ -2956,7 +2963,8 @@
   transition: transform 0.2s ease, border-color 0.2s ease;
   box-shadow: 
     0 4px 20px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    inset 0 0 40px color-mix(in srgb, var(--item-domain-color, transparent) 5%, transparent);
   /* PERFORMANCE: GPU-Layer für Transforms */
   will-change: transform;
   contain: layout style;
@@ -2974,7 +2982,7 @@
 }
 
 .amorph-item:hover {
-  border-color: rgba(255, 255, 255, 0.1);
+  border-color: color-mix(in srgb, var(--item-domain-color, rgba(255, 255, 255, 0.1)) 40%, rgba(255, 255, 255, 0.1));
   /* PERFORMANCE: Nur transform bei hover, kein box-shadow Change */
   transform: translateY(-2px);
 }

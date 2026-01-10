@@ -3,11 +3,14 @@
  * BIFROEST NEXUS - Blume des Lebens Topology Explorer
  * Clean, modern design with proper SVG visualization
  * + External Knowledge Bridge Integration
+ * 
+ * Domain configuration now loaded from PostgreSQL database
  */
 import Layout from '../layouts/Base.astro';
 import LinkAdder from '../components/external-links/LinkAdder.astro';
 import { readFile } from 'fs/promises';
 import { join } from 'path';
+import prisma from '../server/db';
 
 interface TopologyGraph {
   generatedAt: string;
@@ -73,41 +76,29 @@ try {
   console.error('[Nexus] Could not load topology:', e);
 }
 
-// Domain configuration with positions for flower layout
-// 17 Domains arranged in a "Blume des Lebens" pattern
+// Load domain configuration from PostgreSQL
+// Replaces hardcoded domainConfig - all visualization data from DB
+const dbDomains = await prisma.domain.findMany({
+  where: { isActive: true },
+  orderBy: { sortOrder: 'asc' }
+});
+
 const domainConfig: Record<string, {
   color: string;
   angle: number;
   label: string;
   category: string;
-}> = {
-  // ═══ BIOLOGY (3) - Top section ═══
-  fungi:    { color: '#6B8AFF', angle: -90,  label: 'FUNGI',    category: 'biology' },
-  phyto:    { color: '#5ECFA3', angle: -60,  label: 'PHYTO',    category: 'biology' },
-  drako:    { color: '#A78BFA', angle: -30,  label: 'DRAKO',    category: 'biology' },
-  
-  // ═══ BIOMEDICAL (4) - Right section ═══
-  bakterio: { color: '#FF7B7B', angle: 0,    label: 'BAKTERIO', category: 'biomedical' },
-  viro:     { color: '#F472B6', angle: 20,   label: 'VIRO',     category: 'biomedical' },
-  geno:     { color: '#22D3EE', angle: 40,   label: 'GENO',     category: 'biomedical' },
-  anato:    { color: '#FB923C', angle: 60,   label: 'ANATO',    category: 'biomedical' },
-  
-  // ═══ PHYSICS & CHEMISTRY (3) - Bottom-right ═══
-  chemo:    { color: '#FFB347', angle: 90,   label: 'CHEMO',    category: 'physchem' },
-  physi:    { color: '#FBBF24', angle: 120,  label: 'PHYSI',    category: 'physchem' },
-  kosmo:    { color: '#818CF8', angle: 150,  label: 'KOSMO',    category: 'physchem' },
-  
-  // ═══ GEOLOGY (3) - Bottom-left ═══
-  paleo:    { color: '#C4B5FD', angle: 180,  label: 'PALEO',    category: 'geology' },
-  tekto:    { color: '#94A3B8', angle: -150, label: 'TEKTO',    category: 'geology' },
-  mine:     { color: '#A3E635', angle: -130, label: 'MINE',     category: 'geology' },
-  
-  // ═══ TECHNOLOGY (4) - Left section ═══
-  netzo:    { color: '#00FFC8', angle: -110, label: 'NETZO',    category: 'technology' },
-  cognito:  { color: '#E879F9', angle: -100, label: 'COGNITO', category: 'technology' },
-  biotech:  { color: '#38BDF8', angle: -80,  label: 'BIOTECH', category: 'technology' },
-  socio:    { color: '#FB7185', angle: -70,  label: 'SOCIO',    category: 'technology' }
-};
+}> = Object.fromEntries(
+  dbDomains.map(d => [
+    d.slug,
+    {
+      color: d.color || '#888888',
+      angle: d.angle ?? 0,
+      label: d.name.toUpperCase(),
+      category: d.category || 'other'
+    }
+  ])
+);
 
 function getDomainColor(domain: string): string {
   return domainConfig[domain]?.color || '#888888';

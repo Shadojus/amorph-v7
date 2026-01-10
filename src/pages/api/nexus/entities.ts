@@ -30,7 +30,7 @@ export const GET: APIRoute = async ({ url }) => {
         where: { slug: domainSlug }
       });
       if (domain) {
-        where.domainId = domain.id;
+        where.primaryDomainId = domain.id;
       }
     }
     
@@ -56,7 +56,7 @@ export const GET: APIRoute = async ({ url }) => {
       skip: (page - 1) * limit,
       take: limit,
       include: {
-        domain: {
+        primaryDomain: {
           select: { slug: true, name: true, color: true }
         },
         _count: {
@@ -80,7 +80,7 @@ export const GET: APIRoute = async ({ url }) => {
         scientificName: e.scientificName,
         description: e.description,
         image: e.image,
-        domain: e.domain,
+        domain: e.primaryDomain,
         linkCount: e._count.externalLinks,
         engagementScore: e.engagementScore
       }))

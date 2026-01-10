@@ -1,0 +1,119 @@
+{
+  "image": [],
+  "fields": {
+    "toxin_classes": [
+      {
+        "name": "Gyromitrin Toxicology Research Team",
+        "title": "Hydrazine Metabolite & MMH Researchers",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK470580/",
+        "contact": "Monomethylhydrazine (MMH) from gyromitrin: cytotoxic, blocks cytochrome P450, inhibits GABA synthesis"
+      },
+      {
+        "name": "Morel Poisoning Event Research Team",
+        "title": "Raw Morel Toxicity Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7472412/",
+        "contact": "March-April 2023: 50 sick, 2 deaths from raw/undercooked Morchella sextelata"
+      }
+    ],
+    "special_considerations": [
+      {
+        "name": "Cooking Safety Research Team",
+        "title": "Thermal Detoxification Researchers",
+        "url": "https://www.mdpi.com/2072-6651/12/8/482",
+        "contact": "Boiling 10 min destroys 99.5% hydrazines; crude morels induce gastrointestinal syndrome (2020)"
+      }
+    ],
+    "confusion_species_notes": [
+      {
+        "name": "Gyromitra Identification Safety Team",
+        "title": "False vs True Morel Morphology Researchers",
+        "url": "https://www.researchgate.net/figure/A-False-Morel-Gyromitra-esculenta-B-True-Morel-Morchella-esculenta-Reproduced_fig2_368482338",
+        "contact": "Gyromitra: brain-like folds, cap detached from stalk, filled; Morchella: honeycomb pits, cap fused to stalk, hollow"
+      },
+      {
+        "name": "Michelin Restaurant Poisoning Research Team",
+        "title": "Group Misidentification Event Researchers",
+        "url": "https://par.nsf.gov/servlets/purl/10585105",
+        "contact": "Feb 2019 Valencia: Michelin-starred restaurant misidentification (Toxicon 2024)"
+      },
+      {
+        "name": "Poland Mushroom Fatality Research Team",
+        "title": "Gyromitra Mortality Statistics Researchers",
+        "url": "https://botit.botany.wisc.edu/toms_fungi/may2002.html",
+        "contact": "G. esculenta responsible for 23% of mushroom fatalities/year in Poland"
+      }
+    ],
+    "habitat_types": [
+      {
+        "name": "Post-Fire Morel Ecology Research Team",
+        "title": "Wildfire Fruiting Pattern Researchers",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0378112716303413",
+        "contact": "1693 morels/hectare post-fire Sierra Nevada; spatial autocorrelation <7m (2016)"
+      },
+      {
+        "name": "Burn Morel Dormancy Research Team",
+        "title": "Mycelial Dormancy & Fire Trigger Researchers",
+        "url": "https://gfmc.online/2024/09-2024/the-mystery-of-wildfires-and-the-burn-morel-mushroom.html",
+        "contact": "Mycelium dormant up to 50 years, only fruits after fire (2024)"
+      },
+      {
+        "name": "Israeli Burnt Forest Research Team",
+        "title": "Black Morel Micro-site Researchers",
+        "url": "https://www.sciencedirect.com/science/article/abs/pii/S1754504813000275",
+        "contact": "Cleared stumps, compacted soil, chopped wood create preferred micro-sites"
+      }
+    ],
+    "commercial_value": [
+      {
+        "name": "China Artificial Cultivation Research Team",
+        "title": "Large-Scale Field Cultivation Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10455658/",
+        "contact": "Sichuan 2012: commercial development, up to 15,000 kg/hectare (2023)"
+      },
+      {
+        "name": "Exogenous Nutrient Bag Research Team",
+        "title": "Wheat Substrate & Non-Grain Development Researchers",
+        "url": "https://www.mdpi.com/2309-608X/9/8/855",
+        "contact": "M. sextelata: wheat grains primary substrate, costly, non-grain alternatives needed (2023)"
+      },
+      {
+        "name": "Cultivable Species Research Team",
+        "title": "Morchella Species Cultivation Success Researchers",
+        "url": "https://www.frontiersin.org/journals/microbiology/articles/10.3389/fmicb.2023.1259144/full",
+        "contact": "M. importuna, M. sextelata, M. eximia cultivable; Esculenta clade still impossible (2023)"
+      }
+    ],
+    "culinary_traditions": [
+      {
+        "name": "French Haute Cuisine Documentation Team",
+        "title": "Gourmet Mushroom Cultural Researchers",
+        "url": "http://www.agriculturejournal.org/volume13number1/morchella-esculenta-fr-a-growing-gold-of-mountains-its-nutritive-value-and-cultivation/",
+        "contact": "Growing Gold of Mountains: high nutritive value, French haute cuisine tradition"
+      }
+    ],
+    "nutritional_highlights": [
+      {
+        "name": "Vitamin D & Protein Research Team",
+        "title": "Nutritional Composition Researchers",
+        "url": "https://www.sciencedirect.com/topics/pharmacology-toxicology-and-pharmaceutical-science/morchella-esculenta",
+        "contact": "High protein, vitamin D, iron, zinc content"
+      }
+    ],
+    "associated_trees": [
+      {
+        "name": "Ash & Elm Association Research Team",
+        "title": "Tree Symbiosis Ecology Researchers",
+        "url": "https://research.fs.usda.gov/treesearch/7345",
+        "contact": "Productivity in healthy, burned, insect-damaged forests of northeastern Oregon"
+      }
+    ],
+    "indicator_species_for": [
+      {
+        "name": "Soil Disturbance Indicator Research Team",
+        "title": "Humus & Fire Site Ecology Researchers",
+        "url": "https://www.nrfirescience.org/resource/18200",
+        "contact": "Heterogeneous factors control post-fire productivity at small spatial scales"
+      }
+    ]
+  }
+}

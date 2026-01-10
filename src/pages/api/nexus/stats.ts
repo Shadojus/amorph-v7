@@ -15,14 +15,15 @@ export const GET: APIRoute = async () => {
       linkCount,
       perspectiveCount,
       expertCount,
+      facetCount,
       topDomains,
-      recentLinks
     ] = await Promise.all([
       prisma.domain.count({ where: { isActive: true } }),
       prisma.entity.count({ where: { isActive: true } }),
       prisma.externalLink.count(),
       prisma.perspective.count({ where: { isActive: true } }),
       prisma.expert.count({ where: { isActive: true } }),
+      prisma.entityFacet.count(),
       // Top domains by entity count
       prisma.domain.findMany({
         where: { isActive: true },
@@ -30,17 +31,25 @@ export const GET: APIRoute = async () => {
         orderBy: { entities: { _count: 'desc' } },
         take: 5
       }),
-      // Recent links
-      prisma.externalLink.findMany({
-        orderBy: { createdAt: 'desc' },
-        take: 5,
-        include: {
-          entity: {
-            select: { name: true, domain: { select: { name: true, color: true } } }
-          }
-        }
-      })
     ]);
+
+    // Get recent links safely (may be empty)
+    let recentLinks: any[] = [];
+    try {
+      if (linkCount > 0) {
+        recentLinks = await prisma.externalLink.findMany({
+          orderBy: { createdAt: 'desc' },
+          take: 5,
+          include: {
+            entity: {
+              select: { name: true, domain: { select: { name: true, color: true } } }
+            }
+          }
+        });
+      }
+    } catch {
+      // Links table might have issues, continue without them
+    }
 
     return new Response(JSON.stringify({
       success: true,
@@ -49,7 +58,8 @@ export const GET: APIRoute = async () => {
         entities: entityCount,
         links: linkCount,
         perspectives: perspectiveCount,
-        experts: expertCount
+        experts: expertCount,
+        facets: facetCount
       },
       topDomains: topDomains.map(d => ({
         slug: d.slug,
@@ -61,8 +71,8 @@ export const GET: APIRoute = async () => {
         id: l.id,
         title: l.title,
         type: l.type,
-        entityName: l.entity.name,
-        domain: l.entity.domain,
+        entityName: l.entity?.name || 'Unknown',
+        domain: l.entity?.domain || null,
         createdAt: l.createdAt
       })),
       timestamp: new Date().toISOString()

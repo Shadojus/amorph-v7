@@ -1,0 +1,29 @@
+{
+  "id": "social-media",
+  "slug": "social-media",
+  "name": "Soziale Medien",
+  "scientific_name": "Social Media Platforms",
+  "kingdom": "phenomenon",
+  "kingdom_icon": "📱",
+  "image": null,
+  "tagline": "Digitale Kommunikationsrevolution",
+  "description": "Soziale Medien sind digitale Plattformen für Vernetzung, Kommunikation und Content-Sharing. Sie haben tiefgreifende Auswirkungen auf soziale Interaktion, Demokratie, psychische Gesundheit und gesellschaftliche Strukturen.",
+  "seo_description": "Soziale Medien - Soziologische Analyse digitaler Plattformen",
+  "quick_facts": [
+    {"icon": "📅", "label": "Facebook-Start", "value": "2004"},
+    {"icon": "👥", "label": "Globale Nutzer", "value": "~5 Mrd."},
+    {"icon": "📊", "label": "Tägliche Nutzung", "value": "~2.5 Std."},
+    {"icon": "🌍", "label": "Durchdringung", "value": "~62% Weltbevölkerung"}
+  ],
+  "highlights": ["Globale Vernetzung", "Echokammern", "Demokratie-Einfluss"],
+  "badges": [
+    {"icon": "📈", "label": "Wachstum", "status": "Exponentiell", "variant": "success"},
+    {"icon": "⚠️", "label": "Risiken", "status": "Mental Health", "variant": "warning"}
+  ],
+  "categories": ["Mediensoziologie", "Digitalisierung"],
+  "keywords": ["facebook", "instagram", "tiktok", "vernetzung", "algorithmen", "filterblase"],
+  "perspectives": ["structure", "culture_socio", "change", "movements", "methods"],
+  "perspective_count": 5,
+  "engagement_score": 92,
+  "_sources": {"image": [], "fields": {}}
+}

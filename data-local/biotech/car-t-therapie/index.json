@@ -1,0 +1,29 @@
+{
+  "id": "car-t-therapie",
+  "slug": "car-t-therapie",
+  "name": "CAR-T-Zelltherapie",
+  "scientific_name": "Chimeric Antigen Receptor T-Cell Therapy",
+  "kingdom": "cell-therapy",
+  "kingdom_icon": "🔬",
+  "image": null,
+  "tagline": "Personalisierte Krebsimmuntherapie",
+  "description": "CAR-T-Zelltherapie ist eine personalisierte Immuntherapie, bei der T-Zellen des Patienten genetisch modifiziert werden, um Krebszellen gezielt zu erkennen und zu zerstören. Sie zeigt besonders bei Blutkrebs bemerkenswerte Erfolge.",
+  "seo_description": "CAR-T-Zelltherapie - Genetisch modifizierte Immunzellen gegen Krebs",
+  "quick_facts": [
+    {"icon": "📅", "label": "Erste Zulassung", "value": "2017 (Kymriah)"},
+    {"icon": "🎯", "label": "Ziel", "value": "CD19 (B-Zellen)"},
+    {"icon": "💰", "label": "Kosten", "value": "~300-500k €"},
+    {"icon": "📈", "label": "Remission", "value": "Bis 90% bei ALL"}
+  ],
+  "highlights": ["Personalisiert", "Hohe Remissionsraten", "Genetische Modifikation"],
+  "badges": [
+    {"icon": "💊", "label": "Typ", "status": "Zelltherapie", "variant": "primary"},
+    {"icon": "🎯", "label": "Indikation", "status": "Blutkrebs", "variant": "info"}
+  ],
+  "categories": ["Zelltherapie", "Immuntherapie"],
+  "keywords": ["krebs", "immuntherapie", "t-zellen", "personalisiert", "leukämie", "lymphom"],
+  "perspectives": ["methodology", "products", "applications_biotech", "economics_biotech", "ethics_biotech"],
+  "perspective_count": 5,
+  "engagement_score": 88,
+  "_sources": {"image": [], "fields": {}}
+}

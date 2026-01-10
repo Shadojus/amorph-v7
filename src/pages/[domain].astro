@@ -882,11 +882,13 @@ const gridContext: RenderContext = {
             data-slug={item.slug}
             data-id={item.id}
             data-name={item.name}
+            data-domain={item._domainSlug || domain}
             data-perspective={dominantPerspective}
             data-perspective-strength={perspectiveStrength.toFixed(2)}
             data-perspective-counts={perspectiveCountsJson}
             data-field-perspectives={fieldPerspectiveJson}
             data-field-experts={fieldExpertsJson}
+            style={item._domainColor ? `--item-domain-color: ${item._domainColor}` : ''}
           >
             {/* Hover-Peek Info Bubble */}
             {scientificName && (

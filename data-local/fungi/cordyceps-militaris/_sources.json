@@ -1,0 +1,161 @@
+{
+  "image": [
+    {
+      "name": "Dan Molter",
+      "author": "Dan Molter",
+      "username": "shroomydan",
+      "year": 2009,
+      "copyright": "© 2009 Dan Molter (shroomydan)",
+      "license": "CC BY-SA 3.0",
+      "url": "https://mushroomobserver.org"
+    }
+  ],
+  "fields": {
+    "active_compounds": [
+      {
+        "name": "Cordycepin Anti-Cancer Research Team",
+        "title": "Nucleoside Analogue & Oncology Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11349152/",
+        "contact": "3'-Deoxyadenosine mechanisms: apoptosis, anti-proliferation, MAPK/ERK inhibition (2024)"
+      },
+      {
+        "name": "Scientific Reports Cancer Immunotherapy Team",
+        "title": "Cordycepin & Cm-EE Immunotherapy Researchers",
+        "url": "https://www.nature.com/articles/s41598-024-72833-x",
+        "contact": "HLA-ABC modulation, NKG2D ligand expression in BC/HCC (Sept 2024)"
+      }
+    ],
+    "polysaccharides": [
+      {
+        "name": "Frontiers in Nutrition Polysaccharide Team",
+        "title": "Beta-Glucan Structure-Activity Researchers",
+        "url": "https://www.frontiersin.org/journals/nutrition/articles/10.3389/fnut.2022.898674/full",
+        "contact": "Structural elucidation of C. militaris polysaccharides (2022)"
+      },
+      {
+        "name": "Linear β-(1→3)-D-glucan Research Team",
+        "title": "Anti-inflammatory Polysaccharide Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/25330371/",
+        "contact": "Purified β-(1→3)-D-glucan anti-inflammatory properties"
+      },
+      {
+        "name": "Dectin-1 Immunomodulation Research Team",
+        "title": "BMDC & Dendritic Cell Activation Researchers",
+        "url": "https://www.sciencedirect.com/science/article/pii/S0161589024001810",
+        "contact": "1,3-β-glucan via Dectin-1 pathway, pro-inflammatory cytokines (2024)"
+      }
+    ],
+    "adenosine": [
+      {
+        "name": "Cordycepin Cardiac Hypertrophy Research Team",
+        "title": "AMPKα Pathway & Cardiovascular Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6653598/",
+        "contact": "Cordycepin prevents cardiac hypertrophy via AMPKα activation"
+      },
+      {
+        "name": "ACE Inhibition Research Team",
+        "title": "Angiotensin-Converting Enzyme Researchers",
+        "url": "https://www.mdpi.com/2075-1729/12/9/1450",
+        "contact": "Molecular interaction between cordycepin and ACE C-domain (Ki=8.7 µg/mL)"
+      }
+    ],
+    "primary_medicinal_uses": [
+      {
+        "name": "TCM Cordyceps Research Consortium",
+        "title": "Traditional Chinese Medicine & Bioactive Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7111646/",
+        "contact": "Cordyceps - traditional Chinese medicine and fungal therapeutic biofactory"
+      },
+      {
+        "name": "Performance Enhancement Clinical Team",
+        "title": "ATP & Exercise Performance Researchers",
+        "url": "https://www.healthline.com/nutrition/cordyceps-benefits",
+        "contact": "14 young adults: 1g cordycepin, less muscle damage, faster recovery (2024)"
+      }
+    ],
+    "traditional_medicine_systems": [
+      {
+        "name": "Chinese Medicine & Culture Journal",
+        "title": "Dong Chong Xia Cao TCM Researchers",
+        "url": "https://journals.lww.com/cmc/fulltext/2021/10000/cultivated_cordyceps__a_tale_of_two_treasured.4.aspx",
+        "contact": "Cultivated Cordyceps: Tale of two treasured mushrooms (2021)"
+      }
+    ],
+    "clinical_evidence_notes": [
+      {
+        "name": "Immune Response RCT Research Team",
+        "title": "NK Cell & Monocyte Clinical Trial Researchers",
+        "url": "https://www.nature.com/articles/s41598-024-58742-z",
+        "contact": "Randomized controlled trial: NK activation, monocyte increase, no toxicity (2024)"
+      },
+      {
+        "name": "COVID-19 Adjuvant Therapy Research Team",
+        "title": "Cordyceps Capsule Clinical Trial Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10505833/",
+        "contact": "65 patients, 500mg capsules adjuvant therapy for COVID-19"
+      }
+    ],
+    "safety_profile": [
+      {
+        "name": "Toxicology Assessment Research Team",
+        "title": "Genotoxicity & Acute Toxicity Researchers",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/39067832/",
+        "contact": "LD50 >2000 mg/kg, mild nephrotoxicity in sub-acute animal studies (2024)"
+      },
+      {
+        "name": "Ganoderma & Cordyceps Safety Research Team",
+        "title": "Mushroom Powder Toxicological Assessment Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11558339/",
+        "contact": "2000 mg/kg rats: no mortality, no clinical signs, no macroscopic findings"
+      },
+      {
+        "name": "AKI Clinical Case Research Team",
+        "title": "Acute Kidney Injury Case Series Researchers",
+        "url": "https://www.researchsquare.com/article/rs-1420916/v1",
+        "contact": "11 AKI patients in Thailand: caution for elderly & CKD stage 3-5"
+      }
+    ],
+    "ecological_guild": [
+      {
+        "name": "Entomopathogenic Fungi Research Consortium",
+        "title": "Insect-Fungus Interaction Researchers",
+        "url": "https://www.mdpi.com/2309-608X/9/6/614",
+        "contact": "Entomopathogenicity on Helicoverpa zea (cotton bollworm)"
+      },
+      {
+        "name": "Chromosome Assembly Research Team",
+        "title": "Parasitic Fungus Genomics Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5702197/",
+        "contact": "Chromosome level assembly & secondary metabolite potential"
+      }
+    ],
+    "parasitism_type": [
+      {
+        "name": "Host Behavior Alteration Research Team",
+        "title": "Entomopathogenic Fungi Behavioral Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4527712/",
+        "contact": "Fungi that infect insects: altering host behavior and beyond"
+      }
+    ],
+    "traditional_preparations": [
+      {
+        "name": "Artificial Cultivation Research Consortium",
+        "title": "Solid-State Fermentation & Substrate Researchers",
+        "url": "https://www.mdpi.com/2076-3417/14/11/4610",
+        "contact": "Current progress: metabolite function & production optimization (2024)"
+      },
+      {
+        "name": "High Cordycepin Strain Development Team",
+        "title": "Silkworm Pupae & Brown Rice Medium Researchers",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5395498/",
+        "contact": "C. militaris strains: highest cordycepin in silkworm pupae medium"
+      },
+      {
+        "name": "LED Light Source Research Team",
+        "title": "Bioactive Component Accumulation Researchers",
+        "url": "https://www.tandfonline.com/doi/full/10.1080/10942912.2024.2373781",
+        "contact": "Single-wavelength LED effects on growth & bioactive accumulation (2024)"
+      }
+    ]
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "globalisierung",
+  "slug": "globalisierung",
+  "name": "Globalisierung",
+  "scientific_name": "Globalization Dynamics",
+  "kingdom": "process",
+  "kingdom_icon": "🌐",
+  "image": null,
+  "tagline": "Weltweite Verflechtung",
+  "description": "Globalisierung beschreibt die zunehmende weltweite Verflechtung von Wirtschaft, Politik, Kultur und Kommunikation. Sie schafft Chancen durch internationalen Austausch, aber auch Herausforderungen wie Ungleichheit und kulturelle Homogenisierung.",
+  "seo_description": "Globalisierung - Soziologische Analyse weltweiter Verflechtung",
+  "quick_facts": [
+    {"icon": "📈", "label": "Welthandel", "value": "~25 Billionen USD"},
+    {"icon": "✈️", "label": "Int. Touristen/Jahr", "value": "~1.5 Mrd."},
+    {"icon": "🌐", "label": "Internet-Nutzer", "value": "~5.3 Mrd."},
+    {"icon": "🏢", "label": "MNCs", "value": ">60.000"}
+  ],
+  "highlights": ["Wirtschaftliche Integration", "Kultureller Austausch", "Ungleichheit"],
+  "badges": [
+    {"icon": "📊", "label": "Phase", "status": "Post-Corona", "variant": "info"},
+    {"icon": "⚠️", "label": "Kritik", "status": "Deglobalisierung", "variant": "warning"}
+  ],
+  "categories": ["Makrosoziologie", "Wirtschaftssoziologie"],
+  "keywords": ["welthandel", "migration", "multinationale", "freihandel", "kulturimperialismus", "vernetzung"],
+  "perspectives": ["structure", "institutions", "inequality", "change", "theory"],
+  "perspective_count": 5,
+  "engagement_score": 88,
+  "_sources": {"image": [], "fields": {}}
+}

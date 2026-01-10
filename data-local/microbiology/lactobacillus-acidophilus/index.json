@@ -1,0 +1,29 @@
+{
+  "id": "lactobacillus-acidophilus",
+  "slug": "lactobacillus-acidophilus",
+  "name": "Lactobacillus acidophilus",
+  "scientific_name": "Lactobacillus acidophilus",
+  "kingdom": "bacteria",
+  "kingdom_icon": "🦠",
+  "image": null,
+  "tagline": "Probiotisches Milchsäurebakterium",
+  "description": "Lactobacillus acidophilus ist ein grampositives Stäbchenbakterium, das Milchsäure produziert. Es ist ein wichtiger Bestandteil der menschlichen Darmflora und wird als Probiotikum in Joghurt und Nahrungsergänzungsmitteln verwendet.",
+  "seo_description": "Lactobacillus acidophilus - Probiotisches Milchsäurebakterium für Darmgesundheit",
+  "quick_facts": [
+    {"icon": "📏", "label": "Größe", "value": "2-10 µm"},
+    {"icon": "🔬", "label": "Form", "value": "Stäbchen"},
+    {"icon": "🎨", "label": "Gram", "value": "Positiv"},
+    {"icon": "🍶", "label": "Produkt", "value": "Milchsäure"}
+  ],
+  "highlights": ["Probiotikum", "Darmflora", "Fermentation"],
+  "badges": [
+    {"icon": "✅", "label": "Sicherheit", "status": "GRAS", "variant": "success"},
+    {"icon": "🏭", "label": "Nutzung", "status": "Lebensmittel", "variant": "info"}
+  ],
+  "categories": ["Lactobacillaceae", "Lactobacillales"],
+  "keywords": ["probiotikum", "joghurt", "darmflora", "fermentation", "milchsäure"],
+  "perspectives": ["taxonomy_micro", "metabolism", "industrial", "ecology_micro"],
+  "perspective_count": 4,
+  "engagement_score": 75,
+  "_sources": {"image": [], "fields": {}}
+}

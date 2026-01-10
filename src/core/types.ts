@@ -143,6 +143,10 @@ export interface ItemData {
   _collection?: string;
   /** Domain (biology or geology) */
   _domain?: 'biology' | 'geology';
+  /** Domain slug from database (fungi, phyto, drako, etc.) */
+  _domainSlug?: string;
+  /** Domain color from database (hex color) */
+  _domainColor?: string;
   /** GOATn pro Feld (Bifroest System) */
   _sources?: FieldSourceMap;
   [key: string]: unknown;

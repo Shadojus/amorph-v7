@@ -1,6 +1,6 @@
 # Tests
 
-Vitest Test-Suite für AMORPH.
+Vitest Test-Suite für AMORPH v8.7.1.
 
 ## Übersicht
 
@@ -11,12 +11,17 @@ Vitest Test-Suite für AMORPH.
 | `morphs.test.ts` | 81 | Morph Rendering |
 | `morphs/*.test.ts` | 110 | Individuelle Morph-Tests |
 | `observer.test.ts` | 8 | Debug Module |
-| `integration.test.ts` | 11 | Module Integration |
-| `api-integration.test.ts` | 27 | API Endpoints |
-| `real-data.test.ts` | 34 | Local Data Tests |
 | `error-handling.test.ts` | 14 | Error Handling |
+| `data-db.test.ts` | 38 | PostgreSQL Database Tests |
+| `data-driven-core.test.ts` | 33 | Data Layer Tests |
+| `schema-complete.test.ts` | 73 | Prisma Schema Tests |
+| `ultra-complete.test.ts` | 115 | Full Integration |
+| `live-api.test.ts` | 18 | Live Server API |
+| `external-links.test.ts` | 38 | External Links |
+| `expert-attribution.test.ts` | 19 | Expert Domain Attribution (NEU!) |
+| `api-endpoints.test.ts` | 41 | API Endpoints |
 
-**Total: 475 Tests (37 Dateien)**
+**Total: 737 Tests (42 Dateien) ✅**
 
 ---
 
@@ -28,12 +33,13 @@ npm test
 
 # Einmalig ausführen
 npm run test:run
+npx vitest run
 
 # Mit Coverage
 npm run test:coverage
 
 # Spezifische Datei
-npm test detection.test.ts
+npx vitest run detection.test.ts
 ```
 
 ---

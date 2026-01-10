@@ -1,0 +1,254 @@
+{
+  "version": "1.0",
+  "generated": "2025-12-27",
+  "description": "Bifroest expert database for attribution of mushroom data",
+  
+  "experts": {
+    "paul-stamets": {
+      "name": "Paul Stamets",
+      "title": "Mycologist, Author & Entrepreneur",
+      "specialization": ["Medicinal Mushrooms", "Mushroom Cultivation", "Mycoremediation"],
+      "affiliation": "Fungi Perfecti LLC",
+      "location": "Olympia, Washington, USA",
+      "contact": {
+        "website": "https://fungi.com",
+        "email": "info@fungi.com",
+        "phone": "+1 800-780-9126",
+        "instagram": "@fungiperfecti",
+        "facebook": "FungiPerfecti",
+        "youtube": "fungiperfectivideo"
+      },
+      "publications": [
+        "Mycelium Running: How Mushrooms Can Help Save The World",
+        "Growing Gourmet and Medicinal Mushrooms",
+        "Psilocybin Mushrooms of the World"
+      ],
+      "awards": [
+        "National Mycologist Award (NAMA, 2014)",
+        "Gordon & Tina Wasson Award (MSA, 2015)",
+        "AAAS Invention Ambassador (2014-2015)"
+      ],
+      "perspectives": ["medicine", "cultivation", "ecology", "chemistry"]
+    },
+    
+    "michael-kuo": {
+      "name": "Michael Kuo",
+      "title": "Amateur Mycologist & Author",
+      "specialization": ["Mushroom Identification", "Morels", "Taxonomy"],
+      "affiliation": "MushroomExpert.com",
+      "location": "Ohio, USA",
+      "contact": {
+        "website": "https://www.mushroomexpert.com",
+        "email": null
+      },
+      "publications": [
+        "Morels (University of Michigan Press, 2005)",
+        "100 Edible Mushrooms (2007)",
+        "Mushrooms of the Midwest (2014)",
+        "100 Cool Mushrooms (2010)"
+      ],
+      "notes": "Over 1000 mushroom pages with scientific descriptions",
+      "perspectives": ["identification", "taxonomy", "ecology"]
+    },
+    
+    "alan-rockefeller": {
+      "name": "Alan Rockefeller",
+      "title": "Mycologist, Photographer & Biohacker",
+      "specialization": ["Psilocybe Species", "Mushroom Photography", "DNA Sequencing"],
+      "affiliation": "iNaturalist Curator",
+      "location": "El Cerrito, California, USA",
+      "contact": {
+        "website": "https://www.inaturalist.org/people/alan_rockefeller",
+        "email": "alanrockefeller@gmail.com",
+        "instagram": "@alan_rockefeller",
+        "facebook": "alanrockefeller"
+      },
+      "stats": {
+        "inat_observations": 33286,
+        "inat_species": 7577,
+        "inat_identifications": 355071
+      },
+      "media_coverage": ["New York Times", "Washington Post", "Scientific American", "Smithsonian"],
+      "perspectives": ["identification", "psychoactive", "chemistry"]
+    },
+    
+    "christopher-hobbs": {
+      "name": "Dr. Christopher Hobbs, Ph.D.",
+      "title": "Herbalist, Botanist & Mycologist",
+      "specialization": ["Medicinal Mushrooms", "TCM", "Herbal Medicine"],
+      "affiliation": "Christopher Hobbs LLC",
+      "location": "USA",
+      "contact": {
+        "website": "https://christopherhobbs.com",
+        "instagram": "@christopherhobbs1",
+        "facebook": "drchristopherhobbs",
+        "linkedin": "christopher-hobbs-ph-d-45b905b",
+        "twitter": "@DrChrisHobbs",
+        "youtube": "chrisrhobbs"
+      },
+      "publications": [
+        "Medicinal Mushrooms (Book of the Year, American Botanical Council)",
+        "Herbal Therapeutics Database"
+      ],
+      "perspectives": ["medicine", "chemistry", "culture"]
+    },
+    
+    "michael-wood": {
+      "name": "Michael Wood",
+      "title": "Mycologist & Web Pioneer",
+      "specialization": ["California Mushrooms", "Mushroom Photography", "Boletes"],
+      "affiliation": "MykoWeb, MSSF (Past President)",
+      "location": "San Francisco Bay Area, USA",
+      "contact": {
+        "website": "https://www.mykoweb.com",
+        "email": "webmaster@mykoweb.com"
+      },
+      "publications": [
+        "The Fungi of California (850+ species documented)",
+        "The Boletes of California (Reprint)"
+      ],
+      "stats": {
+        "documented_species": 850,
+        "total_photos": 10800
+      },
+      "perspectives": ["identification", "ecology", "culinary"]
+    },
+    
+    "tradd-cotter": {
+      "name": "Tradd Cotter",
+      "title": "Mycologist & Mushroom Cultivator",
+      "specialization": ["Mushroom Cultivation", "Mycoremediation", "Medicinal Mushrooms"],
+      "affiliation": "Mushroom Mountain",
+      "location": "South Carolina, USA",
+      "contact": {
+        "website": "https://mushroommountain.com",
+        "instagram": "@mushroommountain"
+      },
+      "publications": [
+        "Organic Mushroom Farming and Mycoremediation"
+      ],
+      "perspectives": ["cultivation", "ecology", "medicine"]
+    },
+    
+    "gary-lincoff": {
+      "name": "Gary Lincoff (1942-2018)",
+      "title": "Mycologist & Author",
+      "specialization": ["Mushroom Identification", "Field Guides", "Ethnomycology"],
+      "affiliation": "New York Botanical Garden (Former)",
+      "location": "New York, USA",
+      "contact": {
+        "website": null
+      },
+      "publications": [
+        "The Audubon Society Field Guide to North American Mushrooms",
+        "The Complete Mushroom Hunter"
+      ],
+      "legacy": "One of the most influential American mycologists",
+      "perspectives": ["identification", "culture", "culinary"]
+    },
+    
+    "david-arora": {
+      "name": "David Arora",
+      "title": "Mycologist & Author",
+      "specialization": ["Mushroom Identification", "Field Guides"],
+      "affiliation": "Independent",
+      "location": "California, USA",
+      "contact": {
+        "website": null
+      },
+      "publications": [
+        "Mushrooms Demystified (1986)",
+        "All That the Rain Promises and More (1991)"
+      ],
+      "legacy": "Standard reference for mushroom identification for decades",
+      "perspectives": ["identification", "culinary", "ecology"]
+      
+    }
+  },
+  
+  "organizations": {
+    "nama": {
+      "name": "North American Mycological Association",
+      "type": "Non-Profit",
+      "description": "Association of over 90 mushroom clubs in North America",
+      "contact": {
+        "website": "https://namyco.org",
+        "email": "COO@namyco.org",
+        "facebook": "northamericanmyco",
+        "instagram": "@northamericanmyco"
+      },
+      "services": ["Annual Conferences", "Webinars", "Publications", "Mushroom Club Network"],
+      "contact_person": "Bruch Reed (COO)"
+    },
+    
+    "inaturalist": {
+      "name": "iNaturalist",
+      "type": "Citizen Science Platform",
+      "description": "Global biodiversity platform for observations",
+      "contact": {
+        "website": "https://www.inaturalist.org",
+        "facebook": "inaturalist",
+        "instagram": "@inaturalistorg"
+      },
+      "services": ["Mushroom Identification", "Photo Documentation", "Distribution Data"]
+    },
+    
+    "mushroomobserver": {
+      "name": "Mushroom Observer",
+      "type": "Community Platform",
+      "description": "Collaborative mushroom documentation platform",
+      "contact": {
+        "website": "https://mushroomobserver.org"
+      },
+      "services": ["Mushroom Identification", "Observation Database"]
+    },
+    
+    "mssf": {
+      "name": "Mycological Society of San Francisco",
+      "type": "Regional Society",
+      "description": "One of the oldest mushroom clubs in the USA",
+      "contact": {
+        "website": "https://www.mssf.org"
+      }
+    }
+  },
+  
+  "image_sources": {
+    "inaturalist": {
+      "name": "iNaturalist",
+      "url": "https://www.inaturalist.org",
+      "license_types": ["CC BY", "CC BY-NC", "CC BY-SA", "CC BY-NC-SA", "CC0"],
+      "attribution_format": "© {author} via iNaturalist ({license})"
+    },
+    "mushroomobserver": {
+      "name": "Mushroom Observer",
+      "url": "https://mushroomobserver.org",
+      "license_types": ["CC BY-NC-SA 3.0"],
+      "attribution_format": "© {author} via Mushroom Observer"
+    },
+    "wikimedia": {
+      "name": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org",
+      "license_types": ["CC BY-SA", "CC BY", "Public Domain"],
+      "attribution_format": "© {author} via Wikimedia Commons ({license})"
+    },
+    "mykoweb": {
+      "name": "MykoWeb",
+      "url": "https://www.mykoweb.com",
+      "license_types": ["Copyright"],
+      "attribution_format": "© Michael Wood / MykoWeb"
+    }
+  },
+  
+  "field_experts_mapping": {
+    "medicine": ["paul-stamets", "christopher-hobbs", "tradd-cotter"],
+    "identification": ["michael-kuo", "alan-rockefeller", "michael-wood", "david-arora", "gary-lincoff"],
+    "cultivation": ["paul-stamets", "tradd-cotter"],
+    "ecology": ["paul-stamets", "michael-wood"],
+    "chemistry": ["paul-stamets", "alan-rockefeller", "christopher-hobbs"],
+    "psychoactive": ["alan-rockefeller", "paul-stamets"],
+    "culinary": ["david-arora", "gary-lincoff", "michael-wood"],
+    "safety": ["michael-kuo", "nama"],
+    "culture": ["gary-lincoff", "christopher-hobbs"]
+  }
+}

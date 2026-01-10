@@ -1,0 +1,29 @@
+{
+  "id": "mrna-technologie",
+  "slug": "mrna-technologie",
+  "name": "mRNA-Technologie",
+  "scientific_name": "Messenger RNA Therapeutics",
+  "kingdom": "vaccine-tech",
+  "kingdom_icon": "💉",
+  "image": null,
+  "tagline": "Basis der COVID-19-Impfstoffe",
+  "description": "Die mRNA-Technologie nutzt Boten-RNA, um Körperzellen zur Produktion spezifischer Proteine anzuleiten. Sie ermöglichte die schnelle Entwicklung von COVID-19-Impfstoffen und wird für Krebsimmuntherapien erforscht.",
+  "seo_description": "mRNA-Technologie - Grundlage moderner Impfstoffe und Therapeutika",
+  "quick_facts": [
+    {"icon": "📅", "label": "COVID-Einsatz", "value": "2020"},
+    {"icon": "👩‍🔬", "label": "Pioniere", "value": "Karikó & Weissman"},
+    {"icon": "🏆", "label": "Nobelpreis", "value": "Medizin 2023"},
+    {"icon": "💉", "label": "Impfungen", "value": "Milliarden weltweit"}
+  ],
+  "highlights": ["COVID-19-Impfstoffe", "Nobelpreis 2023", "Krebsimmuntherapie"],
+  "badges": [
+    {"icon": "🏆", "label": "Nobelpreis", "status": "Medizin 2023", "variant": "success"},
+    {"icon": "🏢", "label": "Firmen", "status": "BioNTech & Moderna", "variant": "info"}
+  ],
+  "categories": ["Impfstofftechnologie", "Therapeutika"],
+  "keywords": ["mrna", "impfstoff", "biontech", "moderna", "covid", "immuntherapie"],
+  "perspectives": ["methodology", "products", "applications_biotech", "regulation", "future"],
+  "perspective_count": 5,
+  "engagement_score": 96,
+  "_sources": {"image": [], "fields": {}}
+}

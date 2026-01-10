@@ -98,6 +98,10 @@ export async function loadAllItemsFromDB(forceReload = false): Promise<ItemData[
 
     // Transform to ItemData format
     const items: ItemData[] = entities.map(entity => {
+      // Use entity's PRIMARY domain for color/identity, not the current page domain
+      const entityDomainSlug = entity.primaryDomain.slug;
+      const entityKingdom = DOMAIN_TO_KINGDOM[entityDomainSlug] || entityDomainSlug;
+      
       const item: ItemData = {
         id: entity.slug,
         slug: entity.slug,
@@ -106,9 +110,12 @@ export async function loadAllItemsFromDB(forceReload = false): Promise<ItemData[
         description: entity.description || undefined,
         image: entity.image || undefined,
         tagline: entity.tagline || undefined,
-        kingdom: DOMAIN_TO_KINGDOM[domainSlug] || domainSlug,
-        kingdom_icon: domain.icon || '🔬',
-        _kingdom: currentKingdom,
+        // Use entity's actual domain for display
+        kingdom: entityKingdom,
+        kingdom_icon: entity.primaryDomain.icon || '🔬',
+        _kingdom: entityDomainSlug,
+        _domainSlug: entityDomainSlug, // New: explicit domain slug for styling
+        _domainColor: entity.primaryDomain.color || '#888888', // New: domain color from DB
         categories: entity.categories || [],
         keywords: entity.keywords || [],
         
@@ -147,6 +154,104 @@ export async function loadAllItemsFromDB(forceReload = false): Promise<ItemData[
   }
 }
 
+// Cache for all-domains load
+let allDomainsCache: {
+  items: ItemData[] | null;
+  lastLoad: number;
+} = {
+  items: null,
+  lastLoad: 0
+};
+
+/**
+ * Load entities from ALL domains (for landing page)
+ * Returns items from all 17 domains, sorted by engagement score
+ */
+export async function loadItemsFromAllDomains(forceReload = false): Promise<ItemData[]> {
+  const now = Date.now();
+  if (!forceReload && allDomainsCache.items && (now - allDomainsCache.lastLoad) < CACHE_TTL) {
+    return allDomainsCache.items;
+  }
+
+  console.log('[Data] Loading from ALL DOMAINS');
+
+  try {
+    // Get all active entities from all domains
+    const entities = await prisma.entity.findMany({
+      where: { isActive: true },
+      include: {
+        primaryDomain: true,
+        facets: {
+          take: 1,
+          orderBy: { relevance: 'desc' }
+        }
+      },
+      orderBy: { name: 'asc' }
+    });
+
+    console.log(`[Data] Loaded ${entities.length} entities from ALL domains`);
+
+    // Transform to ItemData format
+    const items: ItemData[] = entities.map(entity => {
+      const entityDomainSlug = entity.primaryDomain.slug;
+      const entityKingdom = DOMAIN_TO_KINGDOM[entityDomainSlug] || entityDomainSlug;
+      
+      // Calculate engagement score from facet data
+      const facetData = entity.facets?.[0]?.data as Record<string, unknown> | null;
+      const engagementScore = (facetData?.engagement_score || facetData?.engagementScore || 
+        facetData?.popularity_score || 50) as number;
+      
+      const item: ItemData = {
+        id: entity.slug,
+        slug: entity.slug,
+        name: entity.name,
+        scientific_name: entity.scientificName || undefined,
+        description: entity.description || undefined,
+        image: entity.image || undefined,
+        tagline: entity.tagline || undefined,
+        kingdom: entityKingdom,
+        kingdom_icon: entity.primaryDomain.icon || '🔬',
+        _kingdom: entityDomainSlug,
+        _domainSlug: entityDomainSlug,
+        _domainColor: entity.primaryDomain.color || '#888888',
+        categories: entity.categories || [],
+        keywords: entity.keywords || [],
+        quick_facts: entity.quickFacts as ItemData['quick_facts'],
+        highlights: entity.highlights as ItemData['highlights'],
+        badges: entity.badges as ItemData['badges'],
+        engagementScore: engagementScore,
+        _perspectives: {},
+        _loadedPerspectives: entity.perspectives || [],
+        _fieldPerspective: {},
+        _sources: {},
+        _dbId: entity.id,
+        _fromDatabase: true
+      };
+
+      // Spread facet data onto item
+      if (facetData) {
+        Object.entries(facetData).forEach(([key, value]) => {
+          if (!item[key]) {
+            (item as Record<string, unknown>)[key] = value;
+          }
+        });
+      }
+
+      return item;
+    });
+
+    // Update cache
+    allDomainsCache.items = items;
+    allDomainsCache.lastLoad = now;
+
+    return items;
+
+  } catch (error) {
+    console.error('[Data] Database error loading all domains:', error);
+    return [];
+  }
+}
+
 /**
  * Get single entity by slug from database
  */
@@ -170,7 +275,7 @@ export async function getItemBySlugFromDB(slug: string): Promise<ItemData | null
 
     const entity = await prisma.entity.findFirst({
       where: { 
-        domainId: domain.id,
+        primaryDomainId: domain.id,
         slug,
         isActive: true 
       }
@@ -346,10 +451,13 @@ export function invalidateDBCache(): void {
   dbCache.items = null;
   dbCache.index = null;
   dbCache.lastLoad = 0;
+  allDomainsCache.items = null;
+  allDomainsCache.lastLoad = 0;
 }
 
 export default {
   loadAllItemsFromDB,
+  loadItemsFromAllDomains,
   getItemBySlugFromDB,
   searchItemsInDB,
   getDBStats,

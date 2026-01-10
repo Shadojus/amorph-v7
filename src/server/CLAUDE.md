@@ -1,20 +1,23 @@
-# Server Module (v8.1)
+# Server Module (v8.7)
 
-PostgreSQL Data Layer und Server-Logik für AMORPH.
+PostgreSQL-Only Data Layer für AMORPH.
 
-## ⚠️ Wichtig: PostgreSQL ist die Haupt-Datenquelle!
+## ⚠️ PostgreSQL-Only Edition!
 
 ```bash
-# Production (Standard)
-DATA_SOURCE=database   # PostgreSQL via Prisma
-DATABASE_URL=postgresql://bifroest:bifroest_secret@localhost:5432/bifroest
+# Einzige Datenquelle (keine JSON-Fallbacks!)
+DATABASE_URL=postgresql://bifroest:bifroest2024@localhost:5432/bifroest
+
+# Bilder sind die einzigen lokalen Ressourcen:
+# public/images/{domain}/{slug}/
 ```
 
 **Datenquelle:** PostgreSQL (Container: bifroest-postgres)
 
 - 17 Domains registriert
-- 67 Entities (30 Fungi, 37 Phyto)
-- 6 Perspektiven
+- 118 Entities (66 Production + 52 Mock)
+- 10 Experten (mit fieldExpertise!)
+- 654 EntityFacets
 - Bilder: `public/images/{domain}/{slug}/`
 
 ---
@@ -23,55 +26,45 @@ DATABASE_URL=postgresql://bifroest:bifroest_secret@localhost:5432/bifroest
 
 | Datei | Beschreibung |
 |-------|--------------|
-| `database.ts` | ⭐ JSON Data Loader (einzige Datenquelle!) |
+| `db.ts` | ⭐ Prisma Client (PostgreSQL) |
+| `data-db.ts` | ⭐ PostgreSQL Data Loader |
+| `data.ts` | Datenlade-Abstraktion (DB-only, keine Fallbacks!) |
 | `config.ts` | Server-Konfiguration, Domain-Farben, Site-Types |
-| `data.ts` | Datenlade-Abstraktion (ruft database.ts auf) |
 | `cache.ts` | In-Memory Caching für Data Responses |
 | `rate-limiter.ts` | Rate Limiting für API Requests |
 | `logger.ts` | Strukturiertes Logging |
 
 ---
 
-## database.ts - JSON Data Loader
+## data-db.ts - PostgreSQL Data Loader
 
 ### Hauptfunktionen
 
 ```typescript
-// Species einer Domain laden (aus universe-index.json)
-const species = await loadSpeciesByDomain('fungi');
+// Alle Items aus PostgreSQL laden
+const items = await loadAllItemsFromDB(domain);
+// → Entities + EntityFacets aus allen Domains
 
-// Experten laden (aus bifroest-experts.json)
-const experts = await loadExperts();
+// Experten aus PostgreSQL laden
+const experts = await loadExpertsFromDB(domain);
+// → Experts mit fieldExpertise Array
 
-// Entity Details laden (aus data-local/{domain}/{slug}/)
-const entity = await loadEntityDetails('fungi', 'amanita-muscaria');
-
-// Health Check
-const health = await getHealthStatus();
+// Globale Items für Landing-Page
+const items = await loadGlobalItems();
+// → Items aus ALLEN 17 Domains
 ```
 
-### Daten-Struktur
+### Expert-Struktur (v8.7)
 
 ```typescript
-// data-local/universe-index.json
+// Experten in PostgreSQL mit fieldExpertise
 {
-  "version": "2.0",
-  "total": 62,
-  "kingdoms": {
-    "fungi": { "count": 27, ... },
-    "plantae": { "count": 35, ... },
-    ...
-  },
-  "species": [
-    { "id": "agaricus-subrufescens", "scientificName": "...", ... }
-  ]
-}
-
-// data-local/bifroest-experts.json
-{
-  "experts": {
-    "paul-stamets": { "name": "...", "specialization": [...] }
-  }
+  id: string,
+  name: string,
+  domain: string,           // "fungi", "kosmo", etc.
+  fieldExpertise: string[], // ["description", "ecology", ...]
+  impactScore: number,
+  isVerified: boolean
 }
 ```
 

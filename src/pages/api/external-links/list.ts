@@ -43,12 +43,16 @@ export const GET: APIRoute = async ({ url }) => {
 
     // If domain is provided, get entities for that domain first
     if (domain && !entityId) {
-      const entities = await prisma.entity.findMany({
-        where: { domainId: domain },
-        select: { id: true }
-      });
-      if (entities.length > 0) {
-        where.entityId = { in: entities.map(e => e.id) };
+      // Find domain by slug first
+      const domainRecord = await prisma.domain.findUnique({ where: { slug: domain } });
+      if (domainRecord) {
+        const entities = await prisma.entity.findMany({
+          where: { primaryDomainId: domainRecord.id },
+          select: { id: true }
+        });
+        if (entities.length > 0) {
+          where.entityId = { in: entities.map(e => e.id) };
+        }
       }
     }
 
@@ -63,7 +67,7 @@ export const GET: APIRoute = async ({ url }) => {
       take: perPage,
       include: {
         entity: {
-          select: { name: true, domainId: true }
+          select: { name: true, primaryDomainId: true }
         }
       }
     });
@@ -94,7 +98,7 @@ export const GET: APIRoute = async ({ url }) => {
         isVerified: link.isVerified,
         entityId: link.entityId,
         entityName: link.entity?.name,
-        domain: link.entity?.domainId,
+        domain: link.entity?.primaryDomainId,
         createdAt: link.createdAt,
         relevance_score: Math.min(relevanceScore, 1),
         match_reason: matchReasons

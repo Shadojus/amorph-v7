@@ -1,0 +1,462 @@
+---
+/**
+ * BIFRÖST - EntityLinks Component
+ * 
+ * Zeigt External Links für eine Entity auf deren Detail-Seite.
+ * Lädt Links automatisch via API.
+ * 
+ * Props:
+ *   entityId - ID der Entity
+ *   entitySlug - Slug der Entity (für Fallback)
+ *   domain - Domain-Slug
+ *   limit - Max Anzahl Links (default: 10)
+ *   showAddForm - Zeige "Link hinzufügen" Form
+ */
+
+import LinkList from './LinkList.astro';
+
+interface Props {
+  entityId: string;
+  entitySlug?: string;
+  domain: string;
+  limit?: number;
+  showAddForm?: boolean;
+}
+
+const { entityId, entitySlug, domain, limit = 10, showAddForm = true } = Astro.props;
+
+// Fetch links for this entity
+let links: any[] = [];
+let error: string | null = null;
+
+try {
+  const baseUrl = import.meta.env.SITE || 'http://localhost:4321';
+  const response = await fetch(`${baseUrl}/api/nexus/links?entityId=${entityId}&limit=${limit}`);
+  
+  if (response.ok) {
+    const data = await response.json();
+    links = data.links || [];
+  } else {
+    error = 'Links konnten nicht geladen werden';
+  }
+} catch (e) {
+  error = 'Verbindungsfehler beim Laden der Links';
+}
+
+// Link types for the add form
+const LINK_TYPES = [
+  { value: 'wikipedia', label: 'Wikipedia' },
+  { value: 'youtube', label: 'YouTube' },
+  { value: 'pubmed', label: 'PubMed' },
+  { value: 'arxiv', label: 'arXiv' },
+  { value: 'doi', label: 'DOI/Paper' },
+  { value: 'book', label: 'Buch' },
+  { value: 'website', label: 'Website' },
+];
+---
+
+<section class="entity-links" data-entity-id={entityId} data-domain={domain}>
+  <div class="section-header">
+    <h2>
+      <span class="section-icon">🔗</span>
+      Externe Ressourcen
+    </h2>
+    {showAddForm && (
+      <button class="add-link-btn" id="toggleAddForm">
+        <span>+</span> Link hinzufügen
+      </button>
+    )}
+  </div>
+  
+  {showAddForm && (
+    <form class="add-link-form" id="addLinkForm" style="display: none;">
+      <div class="form-row">
+        <input 
+          type="url" 
+          name="url" 
+          placeholder="URL eingeben (YouTube, Wikipedia, PubMed, etc.)" 
+          required
+          class="url-input"
+        />
+        <button type="button" class="detect-btn" id="detectBtn">
+          🔍 Erkennen
+        </button>
+      </div>
+      
+      <div class="detected-info" id="detectedInfo" style="display: none;">
+        <div class="detected-preview">
+          <img id="detectedThumb" src="" alt="" class="detected-thumb" />
+          <div class="detected-text">
+            <strong id="detectedTitle"></strong>
+            <p id="detectedDesc"></p>
+            <span class="detected-type" id="detectedType"></span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-fields" id="manualFields">
+        <input type="text" name="title" placeholder="Titel" class="title-input" />
+        <textarea name="description" placeholder="Beschreibung (optional)" rows="2"></textarea>
+        <select name="type" class="type-select">
+          {LINK_TYPES.map(t => (
+            <option value={t.value}>{t.label}</option>
+          ))}
+        </select>
+      </div>
+      
+      <input type="hidden" name="autoDetect" value="true" />
+      <input type="hidden" name="entityId" value={entityId} />
+      <input type="hidden" name="domains" value={domain} />
+      
+      <div class="form-actions">
+        <button type="submit" class="submit-btn">Link speichern</button>
+        <button type="button" class="cancel-btn" id="cancelAdd">Abbrechen</button>
+      </div>
+    </form>
+  )}
+  
+  {error ? (
+    <div class="error-message">{error}</div>
+  ) : (
+    <LinkList 
+      links={links} 
+      showEntity={false} 
+      emptyMessage="Noch keine externen Links für diese Entität."
+    />
+  )}
+</section>
+
+<style>
+  .entity-links {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+  
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .section-header h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .section-icon {
+    font-size: 1.3rem;
+  }
+  
+  .add-link-btn {
+    background: rgba(52, 211, 153, 0.1);
+    border: 1px solid rgba(52, 211, 153, 0.3);
+    color: #34D399;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  .add-link-btn:hover {
+    background: rgba(52, 211, 153, 0.2);
+    border-color: rgba(52, 211, 153, 0.5);
+  }
+  
+  .add-link-form {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .url-input {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    color: #fff;
+    font-size: 0.95rem;
+  }
+  
+  .url-input:focus {
+    outline: none;
+    border-color: rgba(167, 139, 250, 0.5);
+  }
+  
+  .detect-btn {
+    background: rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: #60A5FA;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  
+  .detect-btn:hover {
+    background: rgba(59, 130, 246, 0.3);
+  }
+  
+  .detected-info {
+    background: rgba(52, 211, 153, 0.05);
+    border: 1px solid rgba(52, 211, 153, 0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .detected-preview {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .detected-thumb {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.3);
+  }
+  
+  .detected-text {
+    flex: 1;
+  }
+  
+  .detected-text strong {
+    display: block;
+    color: #fff;
+    margin-bottom: 0.25rem;
+  }
+  
+  .detected-text p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.85rem;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.4;
+  }
+  
+  .detected-type {
+    display: inline-block;
+    background: rgba(167, 139, 250, 0.2);
+    color: #A78BFA;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+  
+  .form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+  
+  .title-input,
+  .form-fields textarea,
+  .type-select {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 0.65rem 1rem;
+    color: #fff;
+    font-size: 0.9rem;
+    font-family: inherit;
+  }
+  
+  .title-input:focus,
+  .form-fields textarea:focus,
+  .type-select:focus {
+    outline: none;
+    border-color: rgba(167, 139, 250, 0.5);
+  }
+  
+  .type-select {
+    cursor: pointer;
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+  }
+  
+  .submit-btn {
+    background: linear-gradient(135deg, #34D399 0%, #10B981 100%);
+    border: none;
+    color: #000;
+    font-weight: 600;
+    padding: 0.65rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  
+  .submit-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(52, 211, 153, 0.3);
+  }
+  
+  .cancel-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 0.65rem 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  
+  .cancel-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+  
+  .error-message {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #F87171;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+  }
+</style>
+
+<script>
+  const section = document.querySelector('.entity-links') as HTMLElement;
+  const toggleBtn = document.getElementById('toggleAddForm');
+  const form = document.getElementById('addLinkForm') as HTMLFormElement;
+  const cancelBtn = document.getElementById('cancelAdd');
+  const detectBtn = document.getElementById('detectBtn');
+  const urlInput = form?.querySelector('[name="url"]') as HTMLInputElement;
+  const detectedInfo = document.getElementById('detectedInfo');
+  const manualFields = document.getElementById('manualFields');
+  
+  // Toggle form visibility
+  toggleBtn?.addEventListener('click', () => {
+    if (form) {
+      form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    }
+  });
+  
+  cancelBtn?.addEventListener('click', () => {
+    if (form) {
+      form.style.display = 'none';
+      form.reset();
+      if (detectedInfo) detectedInfo.style.display = 'none';
+      if (manualFields) manualFields.style.display = 'block';
+    }
+  });
+  
+  // Auto-detect metadata
+  detectBtn?.addEventListener('click', async () => {
+    const url = urlInput?.value;
+    if (!url) return;
+    
+    detectBtn.textContent = '⏳ Lädt...';
+    
+    try {
+      const response = await fetch(`/api/nexus/links/detect?url=${encodeURIComponent(url)}`);
+      const data = await response.json();
+      
+      if (data.success && data.metadata) {
+        const m = data.metadata;
+        
+        // Show detected info
+        if (detectedInfo) {
+          detectedInfo.style.display = 'block';
+          
+          const thumb = document.getElementById('detectedThumb') as HTMLImageElement;
+          const title = document.getElementById('detectedTitle');
+          const desc = document.getElementById('detectedDesc');
+          const type = document.getElementById('detectedType');
+          
+          if (thumb) {
+            thumb.src = m.thumbnail || '';
+            thumb.style.display = m.thumbnail ? 'block' : 'none';
+          }
+          if (title) title.textContent = m.title || '';
+          if (desc) desc.textContent = m.description?.substring(0, 150) || '';
+          if (type) type.textContent = m.sourceType || 'website';
+        }
+        
+        // Fill hidden fields or manual inputs
+        const titleInput = form?.querySelector('[name="title"]') as HTMLInputElement;
+        const descInput = form?.querySelector('[name="description"]') as HTMLTextAreaElement;
+        const typeSelect = form?.querySelector('[name="type"]') as HTMLSelectElement;
+        
+        if (titleInput) titleInput.value = m.title || '';
+        if (descInput) descInput.value = m.description || '';
+        if (typeSelect) typeSelect.value = m.sourceType || 'website';
+        
+        // Optionally hide manual fields
+        if (manualFields) manualFields.style.display = 'none';
+      }
+    } catch (e) {
+      console.error('Detection error:', e);
+    }
+    
+    detectBtn.textContent = '🔍 Erkennen';
+  });
+  
+  // Submit form
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+    const entityId = section?.dataset.entityId;
+    const domain = section?.dataset.domain;
+    
+    const payload = {
+      url: formData.get('url'),
+      title: formData.get('title'),
+      description: formData.get('description'),
+      type: formData.get('type'),
+      entityId,
+      domains: domain ? [domain] : [],
+      autoDetect: true
+    };
+    
+    try {
+      const response = await fetch('/api/nexus/links', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      
+      if (response.ok) {
+        // Refresh page to show new link
+        window.location.reload();
+      } else {
+        const err = await response.json();
+        alert('Fehler: ' + (err.error || 'Link konnte nicht gespeichert werden'));
+      }
+    } catch (e) {
+      alert('Verbindungsfehler');
+    }
+  });
+</script>

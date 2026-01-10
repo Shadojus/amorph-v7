@@ -1,0 +1,379 @@
+---
+/**
+ * BIFRÖST - LinkCard Component
+ * 
+ * Zeigt einen einzelnen External Link mit Voting-Buttons an.
+ * 
+ * Props:
+ *   link - Das Link-Objekt
+ *   showEntity - Zeige Entity-Info (default: true)
+ *   compact - Kompakte Darstellung (default: false)
+ */
+
+interface Props {
+  link: {
+    id: string;
+    url: string;
+    title: string;
+    description?: string | null;
+    type: string;
+    thumbnail?: string | null;
+    externalId?: string | null;
+    score: number;
+    isVerified: boolean;
+    domains?: string[];
+    entity?: {
+      slug: string;
+      name: string;
+      primaryDomain?: { slug: string; name: string; color?: string | null };
+    } | null;
+    voteCount?: number;
+    createdAt?: string;
+  };
+  showEntity?: boolean;
+  compact?: boolean;
+}
+
+const { link, showEntity = true, compact = false } = Astro.props;
+
+// Type Icons
+const TYPE_ICONS: Record<string, string> = {
+  youtube: '📺',
+  wikipedia: '📚',
+  pubmed: '🔬',
+  arxiv: '📄',
+  doi: '🎓',
+  book: '📖',
+  website: '🌐',
+  wikidata: '🗃️'
+};
+
+const TYPE_COLORS: Record<string, string> = {
+  youtube: '#ff0000',
+  wikipedia: '#000000',
+  pubmed: '#326599',
+  arxiv: '#b31b1b',
+  doi: '#fcb426',
+  book: '#8b4513',
+  website: '#4a5568',
+  wikidata: '#339966'
+};
+
+const icon = TYPE_ICONS[link.type] || '🔗';
+const typeColor = TYPE_COLORS[link.type] || '#666';
+---
+
+<article class:list={['link-card', { compact, verified: link.isVerified }]} data-link-id={link.id}>
+  {!compact && link.thumbnail && (
+    <div class="link-thumbnail">
+      <img src={link.thumbnail} alt="" loading="lazy" />
+    </div>
+  )}
+  
+  <div class="link-content">
+    <div class="link-header">
+      <span class="link-type" style={`--type-color: ${typeColor}`}>
+        {icon} {link.type}
+      </span>
+      {link.isVerified && <span class="verified-badge" title="Verifiziert">✓</span>}
+    </div>
+    
+    <a href={link.url} target="_blank" rel="noopener noreferrer" class="link-title">
+      {link.title}
+    </a>
+    
+    {!compact && link.description && (
+      <p class="link-description">{link.description}</p>
+    )}
+    
+    <div class="link-meta">
+      {showEntity && link.entity && (
+        <a href={`/${link.entity.primaryDomain?.slug || 'fungi'}/${link.entity.slug}`} class="link-entity">
+          <span class="entity-dot" style={`background: ${link.entity.primaryDomain?.color || '#666'}`}></span>
+          {link.entity.name}
+        </a>
+      )}
+      
+      {link.domains && link.domains.length > 0 && (
+        <div class="link-domains">
+          {link.domains.map(d => (
+            <span class="domain-tag">{d}</span>
+          ))}
+        </div>
+      )}
+      
+      {link.externalId && (
+        <span class="external-id" title="External ID">{link.externalId}</span>
+      )}
+    </div>
+    
+    <div class="link-actions">
+      <div class="vote-buttons">
+        <button class="vote-btn upvote" data-vote="1" title="Upvote">
+          ▲
+        </button>
+        <span class="vote-score">{link.score}</span>
+        <button class="vote-btn downvote" data-vote="-1" title="Downvote">
+          ▼
+        </button>
+      </div>
+      
+      <a href={link.url} target="_blank" rel="noopener noreferrer" class="open-link">
+        Öffnen ↗
+      </a>
+    </div>
+  </div>
+</article>
+
+<style>
+  .link-card {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+  
+  .link-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .link-card.verified {
+    border-color: rgba(74, 227, 167, 0.3);
+  }
+  
+  .link-card.compact {
+    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+  
+  .link-thumbnail {
+    flex-shrink: 0;
+    width: 120px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  .link-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .link-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    min-width: 0;
+  }
+  
+  .link-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .link-type {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    background: color-mix(in srgb, var(--type-color) 15%, transparent);
+    color: var(--type-color);
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  
+  .verified-badge {
+    color: #4AE3A7;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+  
+  .link-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    text-decoration: none;
+    line-height: 1.3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  
+  .link-title:hover {
+    color: #A78BFA;
+  }
+  
+  .link-description {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin: 0;
+  }
+  
+  .link-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+  }
+  
+  .link-entity {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+  }
+  
+  .link-entity:hover {
+    color: #fff;
+  }
+  
+  .entity-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  
+  .link-domains {
+    display: flex;
+    gap: 0.3rem;
+  }
+  
+  .domain-tag {
+    font-size: 0.7rem;
+    padding: 0.15rem 0.4rem;
+    background: rgba(167, 139, 250, 0.2);
+    color: #A78BFA;
+    border-radius: 3px;
+  }
+  
+  .external-id {
+    font-family: monospace;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  
+  .link-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 0.5rem;
+  }
+  
+  .vote-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .vote-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    padding: 0.25rem;
+    font-size: 0.8rem;
+    transition: color 0.15s;
+  }
+  
+  .vote-btn:hover {
+    color: #fff;
+  }
+  
+  .vote-btn.upvote:hover,
+  .vote-btn.upvote.active {
+    color: #4AE3A7;
+  }
+  
+  .vote-btn.downvote:hover,
+  .vote-btn.downvote.active {
+    color: #F59E0B;
+  }
+  
+  .vote-score {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    min-width: 2rem;
+    text-align: center;
+  }
+  
+  .open-link {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    transition: all 0.15s;
+  }
+  
+  .open-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+  
+  /* Compact variant */
+  .compact .link-content {
+    gap: 0.3rem;
+  }
+  
+  .compact .link-title {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 1;
+  }
+  
+  .compact .link-actions {
+    padding-top: 0.3rem;
+  }
+</style>
+
+<script>
+  // Voting functionality
+  document.querySelectorAll('.link-card').forEach(card => {
+    const linkId = card.getAttribute('data-link-id');
+    const scoreEl = card.querySelector('.vote-score');
+    
+    card.querySelectorAll('.vote-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const vote = parseInt(btn.getAttribute('data-vote') || '0');
+        
+        try {
+          const response = await fetch('/api/nexus/vote', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ linkId, vote })
+          });
+          
+          const data = await response.json();
+          
+          if (data.success && scoreEl) {
+            scoreEl.textContent = data.newScore;
+            
+            // Toggle active state
+            card.querySelectorAll('.vote-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+          }
+        } catch (error) {
+          console.error('Vote failed:', error);
+        }
+      });
+    });
+  });
+</script>

@@ -4,7 +4,7 @@
  * Die Regenbogenbrücke zwischen Daten und ihren Quellen.
  * 
  * DYNAMISCHES EXPERTEN-MATCHING:
- * - Lädt Experten von lokaler JSON-Datei (bifroest-experts.json)
+ * - Lädt Experten von PostgreSQL via /api/nexus/experts API
  * - Matcht Experten zu Feldern über field_expertise Array
  * - Nutzt data-field-experts Attribute als Fallback
  */
@@ -14,7 +14,9 @@
 // ═══════════════════════════════════════════════════════════════════════════════
 
 // Cache für API-Responses (sessionStorage)
-const CACHE_KEY = 'bifroest-experts-cache';
+// Version bump invalidates cache when data source changes
+const CACHE_VERSION = 'v2-db';
+const CACHE_KEY = `bifroest-experts-cache-${CACHE_VERSION}`;
 const CACHE_TTL = 5 * 60 * 1000; // 5 Minuten
 
 interface BifroestExpert {
@@ -198,57 +200,121 @@ function cacheExperts(domain: string, experts: BifroestExpert[]): void {
 }
 
 /**
- * Lädt Experten von lokaler JSON-Datei.
+ * Lädt Experten aus der Datenbank via API.
+ * PostgreSQL-Only - keine lokalen Fallbacks.
  */
 async function fetchExperts(domain: string): Promise<BifroestExpert[]> {
-  // Lade von lokaler JSON-Datei
-  const response = await fetch('/data/bifroest-experts.json', {
+  // Lade von PostgreSQL via API
+  const response = await fetch(`/api/nexus/experts?domain=${encodeURIComponent(domain)}&limit=100`, {
     method: 'GET',
     headers: { 'Accept': 'application/json' },
   });
   
   if (!response.ok) {
-    throw new Error(`Failed to load experts: ${response.status}`);
+    console.error(`[Bifroest] API returned ${response.status} - no local fallback available`);
+    return [];
   }
   
   const data = await response.json();
   
-  // Transform local experts to BifroestExpert format
+  // Transform API response to BifroestExpert format
   const experts: BifroestExpert[] = [];
   
-  if (data.experts) {
-    for (const [slug, expert] of Object.entries(data.experts) as [string, any][]) {
+  if (data.experts && Array.isArray(data.experts)) {
+    for (const expert of data.experts) {
       experts.push({
-        id: slug,
+        id: expert.id,
         name: expert.name,
-        slug: slug,
-        title: expert.title,
-        bio: expert.bio,
-        image: expert.image,
-        domain: domain,
-        field_expertise: expert.perspectives || expert.specialization || [],
-        tags: expert.specialization || [],
-        impact_score: expert.stats?.inat_observations || 50,
-        verified: true,
+        slug: expert.slug,
+        title: expert.title || '',
+        bio: expert.bio || '',
+        image: expert.imageUrl || null,
+        domain: expert.domain?.slug || domain,
+        field_expertise: expert.fieldExpertise || [],
+        tags: expert.tags || [],
+        impact_score: expert.impactScore || 50,
+        verified: expert.isVerified || false,
         contact: expert.contact?.email,
-        url: expert.contact?.website,
+        url: expert.website || expert.url,
       });
     }
+    console.log(`[Bifroest] ✅ Loaded ${experts.length} experts from DATABASE API`);
   }
   
   return experts;
 }
 
 /**
+ * Prüft ob wir auf der Landing-Page sind (multi-domain view)
+ */
+function isLandingPage(): boolean {
+  // Landing-Page zeigt Items aus verschiedenen Domains
+  const items = document.querySelectorAll('.amorph-item[data-domain]');
+  if (items.length === 0) return false;
+  
+  const domains = new Set<string>();
+  items.forEach(item => {
+    const domain = (item as HTMLElement).dataset.domain;
+    if (domain) domains.add(domain);
+  });
+  
+  // Wenn mehr als eine Domain sichtbar ist, sind wir auf der Landing-Page
+  return domains.size > 1;
+}
+
+/**
+ * Ermittelt alle sichtbaren Domains auf der Seite
+ */
+function getVisibleDomains(): string[] {
+  const items = document.querySelectorAll('.amorph-item[data-domain]');
+  const domains = new Set<string>();
+  
+  items.forEach(item => {
+    const domain = (item as HTMLElement).dataset.domain;
+    if (domain) domains.add(domain);
+  });
+  
+  return Array.from(domains);
+}
+
+/**
  * Hauptfunktion: Lädt Experten und zeigt sie an.
+ * Auf der Landing-Page werden Experten für ALLE sichtbaren Domains geladen.
  */
 async function loadAndDisplayExperts(): Promise<void> {
-  const domain = getCurrentDomain();
+  const currentDomain = getCurrentDomain();
+  const visibleDomains = getVisibleDomains();
+  const isMultiDomain = visibleDomains.length > 1;
   
-  console.log('[Bifroest] 🌈 Starting expert load...', { domain });
+  console.log('[Bifroest] 🌈 Starting expert load...', { 
+    currentDomain, 
+    visibleDomains, 
+    isMultiDomain 
+  });
   
-  // 1. Versuche aus Cache
-  const cached = getCachedExperts(domain);
+  // Für Multi-Domain-Ansicht: Lade Experten für alle sichtbaren Domains
+  if (isMultiDomain) {
+    try {
+      console.log('[Bifroest] 📡 Multi-domain mode: Loading experts for all visible domains...');
+      
+      // Lade Experten für jede Domain parallel
+      const expertPromises = visibleDomains.map(domain => fetchExperts(domain));
+      const expertArrays = await Promise.all(expertPromises);
+      
+      // Kombiniere alle Experten
+      loadedExperts = expertArrays.flat();
+      expertsLoaded = true;
+      
+      console.log(`[Bifroest] ✅ Loaded ${loadedExperts.length} experts for ${visibleDomains.length} domains`);
+      applyExpertsToFields();
+      return;
+    } catch (error) {
+      console.warn('[Bifroest] ⚠️ Multi-domain load failed:', error);
+    }
+  }
+  
+  // Single-Domain-Modus: Verwende Cache wenn möglich
+  const cached = getCachedExperts(currentDomain);
   if (cached && cached.length > 0) {
     console.log('[Bifroest] ✅ Using CACHED experts:', cached.length);
     loadedExperts = cached;
@@ -257,13 +323,13 @@ async function loadAndDisplayExperts(): Promise<void> {
     return;
   }
   
-  // 2. Lade von lokaler JSON-Datei
+  // Lade von Database API
   try {
-    console.log('[Bifroest] 📡 Fetching from local JSON...');
-    loadedExperts = await fetchExperts(domain);
+    console.log('[Bifroest] 📡 Fetching from Database API...');
+    loadedExperts = await fetchExperts(currentDomain);
     expertsLoaded = true;
-    cacheExperts(domain, loadedExperts);
-    console.log(`[Bifroest] ✅ Loaded ${loadedExperts.length} experts from local JSON:`, 
+    cacheExperts(currentDomain, loadedExperts);
+    console.log(`[Bifroest] ✅ Loaded ${loadedExperts.length} experts:`, 
       loadedExperts.map(e => `${e.name} (${e.field_expertise?.join(', ') || 'no expertise'})`));
     applyExpertsToFields();
   } catch (error) {
@@ -276,6 +342,7 @@ async function loadAndDisplayExperts(): Promise<void> {
 /**
  * Wendet geladene Experten auf Felder an basierend auf field_expertise Matching.
  * Direkte Feld-zu-Experte Zuordnung über field_expertise Array.
+ * WICHTIG: Experten werden nur auf Items ihrer eigenen Domain angewendet!
  */
 function applyExpertsToFields(): void {
   if (!expertsLoaded || loadedExperts.length === 0) {
@@ -290,6 +357,9 @@ function applyExpertsToFields(): void {
   let totalMatches = 0;
   
   items.forEach(item => {
+    // Hole die Domain des Items (z.B. "fungi", "phyto", "kosmo")
+    const itemDomain = (item as HTMLElement).dataset.domain || getCurrentDomain();
+    
     // Für jedes Feld: Finde passende Experten über field_expertise
     const fields = item.querySelectorAll('.amorph-field');
     
@@ -297,9 +367,13 @@ function applyExpertsToFields(): void {
       const fieldKey = (field as HTMLElement).dataset.field;
       if (!fieldKey) return;
       
-      // Finde Experten die dieses Feld in ihrer field_expertise haben
+      // Finde Experten die:
+      // 1. dieses Feld in ihrer field_expertise haben
+      // 2. zur gleichen Domain wie das Item gehören
       const matchingExperts = loadedExperts.filter(expert => 
-        expert.field_expertise && expert.field_expertise.includes(fieldKey)
+        expert.field_expertise && 
+        expert.field_expertise.includes(fieldKey) &&
+        expert.domain === itemDomain
       );
       
       if (matchingExperts.length === 0) return;

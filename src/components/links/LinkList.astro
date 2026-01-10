@@ -1,0 +1,200 @@
+---
+/**
+ * BIFRÖST - LinkList Component
+ * 
+ * Zeigt eine Liste von External Links an.
+ * 
+ * Props:
+ *   links - Array von Link-Objekten
+ *   showEntity - Zeige Entity-Info bei jedem Link
+ *   compact - Kompakte Darstellung
+ *   emptyMessage - Nachricht wenn keine Links
+ *   title - Optionaler Titel über der Liste
+ */
+
+import LinkCard from './LinkCard.astro';
+
+interface Link {
+  id: string;
+  url: string;
+  title: string;
+  description?: string | null;
+  type: string;
+  thumbnail?: string | null;
+  externalId?: string | null;
+  score: number;
+  isVerified: boolean;
+  domains?: string[];
+  entity?: {
+    slug: string;
+    name: string;
+    primaryDomain?: { slug: string; name: string; color?: string | null };
+  } | null;
+  voteCount?: number;
+}
+
+interface Props {
+  links: Link[];
+  showEntity?: boolean;
+  compact?: boolean;
+  emptyMessage?: string;
+  title?: string;
+}
+
+const { 
+  links, 
+  showEntity = true, 
+  compact = false,
+  emptyMessage = 'Keine externen Links gefunden.',
+  title
+} = Astro.props;
+
+// Group by type for facets
+const typeGroups = links.reduce((acc, link) => {
+  acc[link.type] = (acc[link.type] || 0) + 1;
+  return acc;
+}, {} as Record<string, number>);
+---
+
+<div class="link-list">
+  {title && (
+    <div class="link-list-header">
+      <h3>{title}</h3>
+      <span class="link-count">{links.length} Links</span>
+    </div>
+  )}
+  
+  {Object.keys(typeGroups).length > 1 && (
+    <div class="type-facets">
+      {Object.entries(typeGroups).map(([type, count]) => (
+        <button class="type-filter" data-type={type}>
+          {type} ({count})
+        </button>
+      ))}
+      <button class="type-filter active" data-type="all">Alle</button>
+    </div>
+  )}
+  
+  {links.length === 0 ? (
+    <div class="empty-state">
+      <span class="empty-icon">🔗</span>
+      <p>{emptyMessage}</p>
+    </div>
+  ) : (
+    <div class="links-container">
+      {links.map(link => (
+        <LinkCard 
+          link={link} 
+          showEntity={showEntity} 
+          compact={compact}
+        />
+      ))}
+    </div>
+  )}
+</div>
+
+<style>
+  .link-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .link-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .link-list-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #fff;
+  }
+  
+  .link-count {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .type-facets {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .type-filter {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.6);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  
+  .type-filter:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+  
+  .type-filter.active {
+    background: rgba(167, 139, 250, 0.2);
+    border-color: rgba(167, 139, 250, 0.4);
+    color: #A78BFA;
+  }
+  
+  .links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  
+  .empty-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+  
+  .empty-state p {
+    margin: 0;
+  }
+</style>
+
+<script>
+  // Type filtering
+  const container = document.querySelector('.links-container');
+  const filters = document.querySelectorAll('.type-filter');
+  
+  filters.forEach(filter => {
+    filter.addEventListener('click', () => {
+      const type = filter.getAttribute('data-type');
+      
+      // Update active state
+      filters.forEach(f => f.classList.remove('active'));
+      filter.classList.add('active');
+      
+      // Filter cards
+      if (container) {
+        container.querySelectorAll('.link-card').forEach(card => {
+          if (type === 'all') {
+            (card as HTMLElement).style.display = '';
+          } else {
+            const cardType = card.querySelector('.link-type')?.textContent?.trim().split(' ')[1];
+            (card as HTMLElement).style.display = cardType === type ? '' : 'none';
+          }
+        });
+      }
+    });
+  });
+</script>

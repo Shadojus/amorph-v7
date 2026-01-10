@@ -1,41 +1,14 @@
 /**
  * AMORPH v8 - Server Data
  * 
- * Lädt JSON-Daten aus data/ Verzeichnis.
- * Mit robuster Fehlerbehandlung für korrupte/fehlende Dateien.
+ * Lädt Daten aus PostgreSQL via Prisma.
+ * Bilder werden aus public/images/ geladen.
  * 
- * PostgreSQL/Prisma Edition
+ * PostgreSQL-Only Edition - No local JSON fallback
  */
 
-import { readFileSync, existsSync, readdirSync } from 'fs';
-import { join, dirname } from 'path';
-import { fileURLToPath } from 'url';
 import type { ItemData, Perspective } from '../core/types';
 import { getConfig, getAllPerspectives } from './config';
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// PATHS
-// ═══════════════════════════════════════════════════════════════════════════════
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-// In production (built), __dirname is /app/dist/server/chunks/
-// In dev, __dirname is /app/src/server/
-// Data is at /app/data-local/ for local development
-const BASE_DATA_PATH = process.env.NODE_ENV === 'production' 
-  ? join(process.cwd(), 'data-local')
-  : join(__dirname, '../../data-local');
-
-// Get site-specific data path based on SITE_TYPE
-import { getSiteType, SITE_META } from './config';
-
-function getDataPath(): string {
-  const siteType = getSiteType();
-  const siteMeta = SITE_META[siteType];
-  return join(BASE_DATA_PATH, siteMeta.dataFolder);
-}
-
-const DATA_PATH = getDataPath();
 
 // ═══════════════════════════════════════════════════════════════════════════════
 // CACHE
@@ -62,394 +35,88 @@ export function invalidateCache(): void {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// SAFE JSON PARSER
+// DATA LOADER - PostgreSQL Only
 // ═══════════════════════════════════════════════════════════════════════════════
-
-/**
- * Liest und parst JSON mit detaillierter Fehlerbehandlung.
- */
-function safeReadJson<T>(filePath: string): { data: T | null; error: string | null } {
-  try {
-    if (!existsSync(filePath)) {
-      return { data: null, error: `File not found: ${filePath}` };
-    }
-    const content = readFileSync(filePath, 'utf-8');
-    const data = JSON.parse(content) as T;
-    return { data, error: null };
-  } catch (e) {
-    const errorMsg = e instanceof SyntaxError 
-      ? `Invalid JSON syntax: ${e.message}`
-      : e instanceof Error 
-        ? e.message 
-        : 'Unknown error';
-    return { data: null, error: `${filePath}: ${errorMsg}` };
-  }
-}
-
-// ═══════════════════════════════════════════════════════════════════════════════
-// DATA LOADER
-// ═══════════════════════════════════════════════════════════════════════════════
-
-// Control data source: 'database' | 'local'
-// 'database' uses PostgreSQL/Prisma (production)
-// 'local' uses JSON files from data/ directory (development/fallback)
-const DATA_SOURCE = process.env.DATA_SOURCE || 'local';
 
 // Import database loader
-import { loadAllItemsFromDB, getItemBySlugFromDB, searchItemsInDB, invalidateDBCache } from './data-db';
+import { loadAllItemsFromDB, loadItemsFromAllDomains, getItemBySlugFromDB, searchItemsInDB, invalidateDBCache } from './data-db';
 
 /**
- * Lädt alle Items - automatische Auswahl zwischen DB und lokalen Dateien.
- * 
- * DATA_SOURCE=database → PostgreSQL/Prisma
- * DATA_SOURCE=local → JSON-Dateien
+ * Lädt alle Items aus PostgreSQL für die aktuelle Domain.
+ * Keine lokalen Fallbacks - nur Datenbank.
  */
 export async function loadAllItems(forceReload = false): Promise<ItemData[]> {
-  // Use database if configured
-  if (DATA_SOURCE === 'database') {
-    console.log('[Data] DATA_SOURCE=database → Loading from PostgreSQL');
-    try {
-      const dbItems = await loadAllItemsFromDB(forceReload);
-      if (dbItems.length > 0) {
-        cachedItems = dbItems;
-        cachedIndex = {};
-        for (const item of dbItems) {
-          cachedIndex[item.slug] = item;
-        }
-        return dbItems;
-      }
-      console.warn('[Data] Database returned 0 items, falling back to local files');
-    } catch (error) {
-      console.error('[Data] Database error, falling back to local files:', error);
-    }
-  }
-
+  // Return cached if available
   if (cachedItems && !forceReload) {
     return cachedItems;
   }
+
+  console.log('[Data] Loading from PostgreSQL (DB-only mode)');
   
-  const items: ItemData[] = [];
-  loadErrors = [];
-  
-  // Get current site type for kingdom info
-  const siteType = getSiteType();
-  const siteMeta = SITE_META[siteType];
-  const currentCollection = siteMeta.collection; // 'fungi', 'paleontology', etc.
-  
-  // Lokale Dateien laden (primäre Datenquelle für Development)
-  console.log('[Data] Using local files');
-  
-  // First try universe-index.json (contains all species data)
-  const universeIndexPath = join(BASE_DATA_PATH, 'universe-index.json');
-  interface UniverseIndexData {
-    species?: Array<{
-      id: string;
-      slug: string;
-      name: string;
-      kingdom: string;
-      scientific_name?: string;
-      description?: string;
-      image?: string;
-      tagline?: string;
-      seo_description?: string;
-      quick_facts?: unknown[];
-      highlights?: unknown[];
-      badges?: unknown[];
-      categories?: string[];
-      keywords?: string[];
-      perspectives?: string[];
-      _sources?: Record<string, unknown[]>;
-      [key: string]: unknown;
-    }>;
+  try {
+    const dbItems = await loadAllItemsFromDB(forceReload);
+    cachedItems = dbItems;
+    cachedIndex = {};
+    for (const item of dbItems) {
+      cachedIndex[item.slug] = item;
+    }
+    
+    if (dbItems.length === 0) {
+      console.warn('[Data] Database returned 0 items - ensure data is seeded');
+    } else {
+      console.log(`[Data] Loaded ${dbItems.length} items from database`);
+    }
+    
+    return dbItems;
+  } catch (error) {
+    console.error('[Data] Database error:', error);
+    loadErrors.push({ path: 'database', error: String(error) });
+    // Return empty array instead of falling back to local files
+    return [];
   }
-    const universeResult = safeReadJson<UniverseIndexData>(universeIndexPath);
-    
-    if (universeResult.data && universeResult.data.species) {
-      console.log(`[Data] Found universe-index.json with ${universeResult.data.species.length} total species`);
-      
-      // Filter species for current kingdom (siteMeta.dataFolder matches universe-index kingdom field)
-      const currentKingdom = siteMeta.dataFolder; // 'fungi', 'plantae', etc.
-      const kingdomSpecies = universeResult.data.species.filter(s => s.kingdom === currentKingdom);
-      
-      console.log(`[Data] Filtering for kingdom '${currentKingdom}': ${kingdomSpecies.length} species`);
-      
-      for (const species of kingdomSpecies) {
-        const item: ItemData = {
-          ...species,
-          _kingdom: currentKingdom,
-          id: species.id || species.slug,
-          slug: species.slug,
-          name: species.name || species.slug,
-          _perspectives: {},
-          _loadedPerspectives: species.perspectives || [],
-          _fieldPerspective: {},
-          _sources: species._sources || {}
-        };
-        
-        // Load perspective files if they exist in the species folder
-        const speciesPath = join(DATA_PATH, species.slug);
-        if (existsSync(speciesPath)) {
-          for (const perspName of (species.perspectives || [])) {
-            const perspPath = join(speciesPath, `${perspName}.json`);
-            const perspResult = safeReadJson<Record<string, unknown>>(perspPath);
-            if (perspResult.data) {
-              item._perspectives![perspName] = perspResult.data;
-              // Merge perspective fields into main item
-              for (const [key, value] of Object.entries(perspResult.data)) {
-                if (!key.startsWith('_') && key !== 'source' && item[key] === undefined) {
-                  item[key] = value;
-                  (item._fieldPerspective as Record<string, string>)[key] = perspName;
-                }
-              }
-            }
-          }
-          
-          // Load _sources.json if exists
-          const sourcesPath = join(speciesPath, '_sources.json');
-          const sourcesResult = safeReadJson<Record<string, unknown[]>>(sourcesPath);
-          if (sourcesResult.data) {
-            item._sources = { ...item._sources, ...sourcesResult.data };
-          }
-        }
-        
-        items.push(item);
-      }
-      
-      if (items.length > 0) {
-        console.log(`[Data] Loaded ${items.length} items from universe-index.json`);
-        cachedItems = items;
-        cachedIndex = {};
-        for (const item of items) {
-          cachedIndex[item.slug] = item;
-        }
-        return items;
-      }
-    }
-    
-    // Fall back to traditional loading if universe-index.json didn't work
-    if (!existsSync(DATA_PATH)) {
-      loadErrors.push({ path: DATA_PATH, error: 'Data directory not found' });
-      console.error(`[Data] DATA_PATH does not exist: ${DATA_PATH}`);
-      return items;
-    }
-    
-    // DATA_PATH is now site-specific (e.g., data/fungi/)
-    // Load items directly from this path
-    const kingdomPath = DATA_PATH;
-    
-    // Prüfe auf index.json
-    const indexPath = join(kingdomPath, 'index.json');
-    const indexResult = safeReadJson<{ species?: Array<{ slug: string; perspectives?: string[] }>; dateien?: string[]; files?: string[] }>(indexPath);
-    
-    if (indexResult.data) {
-    const indexData = indexResult.data;
-    
-    // Neue Struktur: species Array
-    const speciesList = indexData.species || [];
-    
-    for (const speciesEntry of speciesList) {
-      const slug = speciesEntry.slug;
-      if (!slug) continue;
-      
-      // Lade Item aus Unterordner
-      const speciesPath = join(kingdomPath, slug);
-      const speciesIndexPath = join(speciesPath, 'index.json');
-      
-      const itemResult = safeReadJson<Record<string, unknown>>(speciesIndexPath);
-      if (itemResult.error) {
-        loadErrors.push({ path: speciesIndexPath, error: itemResult.error });
-        continue;
-      }
-      
-      if (itemResult.data) {
-        const itemBase = itemResult.data;
-        
-        // Merge: speciesEntry als Basis, itemBase überschreibt (enthält Details wie image)
-        const item: ItemData = {
-          ...speciesEntry,  // Kingdom index.json als Basis
-          ...itemBase,      // Species index.json überschreibt (hat image, description, etc.)
-          _kingdom: currentKingdom,
-          id: (itemBase.id as string) || slug,
-          slug: slug,
-          name: (itemBase.name as string) || slug,
-          _perspectives: {},
-          _loadedPerspectives: [] as string[],
-          _fieldPerspective: {} as Record<string, string>,
-          _sources: {}  // Bifroest: GOATn pro Feld
-        };
-        
-        // Lade GOATn (_sources.json) für Bifroest-System
-        const sourcesPath = join(speciesPath, '_sources.json');
-        const sourcesResult = safeReadJson<Record<string, unknown[]>>(sourcesPath);
-        if (sourcesResult.data) {
-          item._sources = sourcesResult.data;
-        }
-        
-        // Lade Perspektiven und merge Felder ins Item
-        const perspectiveFiles = (speciesEntry.perspectives || []) as string[];
-        for (const perspName of perspectiveFiles) {
-          const perspPath = join(speciesPath, `${perspName}.json`);
-          const perspResult = safeReadJson<Record<string, unknown>>(perspPath);
-          
-          if (perspResult.error) {
-            loadErrors.push({ path: perspPath, error: perspResult.error });
-            continue;
-          }
-          
-          if (perspResult.data) {
-            const perspData = perspResult.data;
-            item._perspectives![perspName] = perspData;
-            (item._loadedPerspectives as string[]).push(perspName);
-            
-            // Merge perspective fields into main item (exclude 'source' - that's metadata, not a field)
-            for (const [key, value] of Object.entries(perspData)) {
-              if (!key.startsWith('_') && key !== 'source' && item[key] === undefined) {
-                item[key] = value;
-                (item._fieldPerspective as Record<string, string>)[key] = perspName;
-              }
-            }
-          }
-        }
-        
-        items.push(item);
-      }
-    }
-    
-    // Alte Struktur: dateien/files Array
-    const files = indexData.dateien || indexData.files || [];
-    for (const file of files) {
-      const filePath = join(kingdomPath, file);
-      const fileResult = safeReadJson<Record<string, unknown>>(filePath);
-      if (fileResult.data) {
-        const item = fileResult.data;
-        items.push({
-          ...item,
-          _kingdom: currentKingdom,
-          id: (item.id as string) || (item.slug as string) || file.replace('.json', ''),
-          slug: (item.slug as string) || file.replace('.json', ''),
-          name: (item.name as string) || file.replace('.json', '')
-        } as ItemData);
-      } else if (fileResult.error) {
-        loadErrors.push({ path: filePath, error: fileResult.error });
-      }
-    }
-  } else if (indexResult.error && indexResult.error.includes('not found')) {
-    // Direkt JSON-Dateien laden (keine index.json vorhanden)
-    // Look for species directories with index.json inside
-    const entries = readdirSync(kingdomPath, { withFileTypes: true });
-    
-    for (const entry of entries) {
-      if (entry.isDirectory()) {
-        const speciesPath = join(kingdomPath, entry.name);
-        const speciesIndexPath = join(speciesPath, 'index.json');
-        
-        if (existsSync(speciesIndexPath)) {
-          const itemResult = safeReadJson<Record<string, unknown>>(speciesIndexPath);
-          if (itemResult.data) {
-            const itemBase = itemResult.data;
-            const slug = entry.name;
-            
-            const item: ItemData = {
-              ...itemBase,
-              _kingdom: currentKingdom,
-              id: (itemBase.id as string) || slug,
-              slug: slug,
-              name: (itemBase.name as string) || slug,
-              _perspectives: {},
-              _loadedPerspectives: [] as string[],
-              _fieldPerspective: {} as Record<string, string>
-            };
-            
-            // Lade GOATn (_sources.json) für Bifroest-System
-            const sourcesPath = join(speciesPath, '_sources.json');
-            const sourcesResult = safeReadJson<Record<string, unknown[]>>(sourcesPath);
-            if (sourcesResult.data) {
-              item._sources = sourcesResult.data;
-            }
-            
-            // Look for perspective JSON files
-            const perspFiles = readdirSync(speciesPath)
-              .filter(f => f.endsWith('.json') && f !== 'index.json' && f !== '_sources.json')
-              .map(f => f.replace('.json', ''));
-            
-            for (const perspName of perspFiles) {
-              const perspPath = join(speciesPath, `${perspName}.json`);
-              const perspResult = safeReadJson<Record<string, unknown>>(perspPath);
-              
-              if (perspResult.data) {
-                const perspData = perspResult.data;
-                item._perspectives![perspName] = perspData;
-                (item._loadedPerspectives as string[]).push(perspName);
-                
-                // Merge perspective fields into main item (exclude 'source' - that's metadata, not a field)
-                for (const [key, value] of Object.entries(perspData)) {
-                  if (!key.startsWith('_') && key !== 'source' && item[key] === undefined) {
-                    item[key] = value;
-                    (item._fieldPerspective as Record<string, string>)[key] = perspName;
-                  }
-                }
-              }
-            }
-            
-            items.push(item);
-          }
-        }
-      } else if (entry.isFile() && entry.name.endsWith('.json')) {
-        // Fallback: direct JSON files
-        const filePath = join(kingdomPath, entry.name);
-        const fileResult = safeReadJson<Record<string, unknown>>(filePath);
-        if (fileResult.data) {
-          const item = fileResult.data;
-          items.push({
-            ...item,
-            _kingdom: currentKingdom,
-            id: (item.id as string) || (item.slug as string) || entry.name.replace('.json', ''),
-            slug: (item.slug as string) || entry.name.replace('.json', ''),
-            name: (item.name as string) || entry.name.replace('.json', '')
-          } as ItemData);
-        }
-      }
-    }
-  } else if (indexResult.error) {
-    loadErrors.push({ path: indexPath, error: indexResult.error });
+}
+
+/**
+ * Lädt Items aus ALLEN Domains (für Landing Page).
+ * Keine Domain-Filterung - alle 17 Domains.
+ */
+export async function loadGlobalItems(forceReload = false): Promise<ItemData[]> {
+  console.log('[Data] Loading items from ALL domains');
+  
+  try {
+    const allItems = await loadItemsFromAllDomains(forceReload);
+    console.log(`[Data] Loaded ${allItems.length} items from all domains`);
+    return allItems;
+  } catch (error) {
+    console.error('[Data] Database error loading global items:', error);
+    return [];
   }
-  
-  cachedItems = items;
-  
-  // Build index
-  cachedIndex = {};
-  for (const item of items) {
-    cachedIndex[item.slug] = item;
-    if (item.id !== item.slug) {
-      cachedIndex[item.id] = item;
-    }
-  }
-  
-  // Log summary
-  if (loadErrors.length > 0) {
-    console.warn(`[Data] Loaded ${items.length} items with ${loadErrors.length} errors`);
-  } else {
-    console.log(`[Data] Loaded ${items.length} items successfully`);
-  }
-  
-  return items;
 }
 
 /**
  * Holt ein Item nach Slug.
- * Nutzt DB wenn DATA_SOURCE=database, sonst Cache.
+ * Nutzt DB direkt, mit lokalem Cache.
  */
 export async function getItem(slug: string): Promise<ItemData | null> {
-  // Use database if configured
-  if (DATA_SOURCE === 'database') {
-    try {
-      const item = await getItemBySlugFromDB(slug);
-      if (item) return item;
-    } catch (error) {
-      console.error('[Data] DB getItem error, trying cache:', error);
-    }
+  // Check cache first
+  if (cachedIndex?.[slug]) {
+    return cachedIndex[slug];
   }
   
+  // Try database
+  try {
+    const item = await getItemBySlugFromDB(slug);
+    if (item) {
+      // Cache it
+      if (!cachedIndex) cachedIndex = {};
+      cachedIndex[slug] = item;
+      return item;
+    }
+  } catch (error) {
+    console.error('[Data] DB getItem error:', error);
+  }
+  
+  // If not in cache, load all items and try again
   if (!cachedIndex) {
     await loadAllItems();
   }
@@ -467,16 +134,12 @@ export async function getItems(slugs: string[]): Promise<ItemData[]> {
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// LAZY LOADING FOR PERSPECTIVES
+// LAZY LOADING FOR PERSPECTIVES (DB-backed)
 // ═══════════════════════════════════════════════════════════════════════════════
 
 /**
- * Lädt eine spezifische Perspektive für ein Item (Lazy Loading).
- * Wenn bereits geladen, gibt gecachte Daten zurück.
- * 
- * @param slug - Item-Slug
- * @param perspectiveName - Name der Perspektive (z.B. 'chemistry')
- * @returns Perspektiven-Daten oder null wenn nicht vorhanden
+ * Lädt eine spezifische Perspektive für ein Item.
+ * In DB-only mode sind Perspektiven bereits im Item eingebettet.
  */
 export async function loadPerspective(
   slug: string,
@@ -485,55 +148,17 @@ export async function loadPerspective(
   const item = await getItem(slug);
   if (!item) return null;
   
-  // Prüfe ob bereits geladen
+  // Perspektiven sind bereits im Item geladen (DB enthält alles)
   const cached = item._perspectives?.[perspectiveName];
   if (cached && typeof cached === 'object') {
     return cached as Record<string, unknown>;
   }
   
-  // Finde Kingdom und lade
-  const kingdom = item._kingdom || 'fungi';
-  const perspPath = join(DATA_PATH, kingdom, slug, `${perspectiveName}.json`);
-  
-  const result = safeReadJson<Record<string, unknown>>(perspPath);
-  if (result.error || !result.data) {
-    return null;
-  }
-  
-  // Cache in Item
-  if (!item._perspectives) {
-    item._perspectives = {} as Record<string, Record<string, unknown>>;
-  }
-  item._perspectives[perspectiveName] = result.data;
-  
-  // Merge neue Felder ins Item
-  for (const [key, value] of Object.entries(result.data)) {
-    if (!key.startsWith('_') && item[key] === undefined) {
-      item[key] = value;
-      if (!item._fieldPerspective) {
-        item._fieldPerspective = {} as Record<string, string>;
-      }
-      (item._fieldPerspective as Record<string, string>)[key] = perspectiveName;
-    }
-  }
-  
-  // Update _loadedPerspectives
-  const loadedPersp = item._loadedPerspectives as string[] | undefined;
-  if (!Array.isArray(loadedPersp)) {
-    item._loadedPerspectives = [perspectiveName];
-  } else if (!loadedPersp.includes(perspectiveName)) {
-    loadedPersp.push(perspectiveName);
-  }
-  
-  return result.data;
+  return null;
 }
 
 /**
- * Lädt mehrere Perspektiven für ein Item (Batch Lazy Loading).
- * 
- * @param slug - Item-Slug
- * @param perspectiveNames - Liste der Perspektiven
- * @returns Map von Perspektiv-Name zu Daten
+ * Lädt mehrere Perspektiven für ein Item (Batch).
  */
 export async function loadPerspectives(
   slug: string,
@@ -552,30 +177,22 @@ export async function loadPerspectives(
 }
 
 /**
- * Prüft ob eine Perspektive für ein Item verfügbar ist (ohne zu laden).
+ * Prüft ob eine Perspektive für ein Item verfügbar ist.
  */
 export async function hasPerspective(slug: string, perspectiveName: string): Promise<boolean> {
   const item = await getItem(slug);
   if (!item) return false;
   
-  // Bereits geladen?
-  if (item._perspectives?.[perspectiveName]) {
-    return true;
-  }
-  
-  // Prüfe Dateisystem
-  const kingdom = item._kingdom || 'fungi';
-  const perspPath = join(DATA_PATH, kingdom, slug, `${perspectiveName}.json`);
-  return existsSync(perspPath);
+  // Check if perspective exists in loaded data
+  return !!item._perspectives?.[perspectiveName];
 }
 
 // ═══════════════════════════════════════════════════════════════════════════════
-// SEARCH
+// SEARCH - Uses Database
 // ═══════════════════════════════════════════════════════════════════════════════
 
 /**
  * Levenshtein-Distanz für Fuzzy Matching
- * Misst wie viele Änderungen nötig sind um String A in B zu verwandeln
  */
 function levenshteinDistance(a: string, b: string): number {
   const matrix: number[][] = [];
@@ -605,43 +222,39 @@ function levenshteinDistance(a: string, b: string): number {
 }
 
 /**
- * Prüft ob ein String fuzzy zu einem anderen passt
- * Erlaubt Tippfehler basierend auf Wortlänge
+ * Fuzzy Match - Prüft ob Term im Text vorkommt
  */
-function fuzzyMatch(search: string, target: string): { matches: boolean; score: number } {
-  const searchLower = search.toLowerCase();
-  const targetLower = target.toLowerCase();
+function fuzzyMatch(term: string, text: string): { matches: boolean; score: number } {
+  const termLower = term.toLowerCase();
+  const textLower = text.toLowerCase();
   
-  // Exakter Match
-  if (targetLower === searchLower) {
+  // Exact match
+  if (textLower === termLower) {
     return { matches: true, score: 100 };
   }
   
   // Starts with
-  if (targetLower.startsWith(searchLower)) {
+  if (textLower.startsWith(termLower)) {
     return { matches: true, score: 90 };
   }
   
   // Contains
-  if (targetLower.includes(searchLower)) {
-    return { matches: true, score: 70 };
+  if (textLower.includes(termLower)) {
+    const position = textLower.indexOf(termLower);
+    const positionScore = Math.max(50, 80 - position);
+    return { matches: true, score: positionScore };
   }
   
-  // Fuzzy nur für Begriffe >= 4 Zeichen (sonst zu viele false positives)
-  if (search.length >= 4) {
-    // Prüfe jedes Wort im Target
-    const targetWords = targetLower.split(/\s+/);
-    for (const word of targetWords) {
-      if (word.length < 3) continue;
+  // Fuzzy match for longer terms
+  if (termLower.length >= 4) {
+    const words = textLower.split(/\s+/);
+    for (const word of words) {
+      const distance = levenshteinDistance(termLower, word);
+      const maxAllowedDistance = Math.floor(termLower.length / 3);
       
-      const distance = levenshteinDistance(searchLower, word);
-      // Erlaubte Distanz: 1 für kurze Wörter, 2 für längere
-      const maxDistance = search.length <= 6 ? 1 : 2;
-      
-      if (distance <= maxDistance) {
-        // Score basierend auf Ähnlichkeit (0 = perfekt)
-        const similarity = 1 - (distance / Math.max(search.length, word.length));
-        return { matches: true, score: Math.round(50 * similarity) };
+      if (distance <= maxAllowedDistance) {
+        const score = 40 - (distance * 10);
+        return { matches: true, score: Math.max(10, score) };
       }
     }
   }
@@ -664,19 +277,19 @@ function calculateRelevanceScore(item: ItemData, searchTerms: string[]): number 
   for (const term of searchTerms) {
     let termScore = 0;
     
-    // Name (höchste Priorität) - mit Fuzzy
+    // Name (höchste Priorität)
     const nameMatch = fuzzyMatch(term, name);
     if (nameMatch.matches) {
       termScore = Math.max(termScore, nameMatch.score);
     }
     
-    // Wissenschaftlicher Name - mit Fuzzy
+    // Wissenschaftlicher Name
     const sciMatch = fuzzyMatch(term, scientific);
     if (sciMatch.matches) {
-      termScore = Math.max(termScore, sciMatch.score * 0.8); // Etwas weniger als Name
+      termScore = Math.max(termScore, sciMatch.score * 0.8);
     }
     
-    // Andere Felder (nur exact/contains, kein fuzzy) - suche in Key UND Value!
+    // Andere Felder
     if (termScore === 0) {
       for (const [key, value] of Object.entries(item)) {
         if (key.startsWith('_') || key === 'name' || key === 'wissenschaftlich' || key === 'scientific_name') continue;
@@ -693,9 +306,8 @@ function calculateRelevanceScore(item: ItemData, searchTerms: string[]): number 
     }
   }
   
-  // Bonus wenn mehrere Begriffe matchen
+  // Bonus für mehrere Treffer
   if (searchTerms.length > 1 && matchedTerms > 0) {
-    // Prozentual wie viele Begriffe getroffen wurden
     const matchRatio = matchedTerms / searchTerms.length;
     totalScore *= (1 + matchRatio * 0.5);
   }
@@ -705,18 +317,14 @@ function calculateRelevanceScore(item: ItemData, searchTerms: string[]): number 
 
 /**
  * Tokenisiert Suchanfrage
- * - Komma trennt ODER-Gruppen (mehrere Spezies)
- * - Leerzeichen innerhalb einer Gruppe = zusammengehörig
  */
 function tokenizeQuery(query: string): { orGroups: string[][], allTerms: string[] } {
-  // Komma = mehrere Spezies (ODER)
   const orParts = query.split(',').map(p => p.trim()).filter(p => p.length > 0);
   
   const orGroups: string[][] = [];
   const allTerms: string[] = [];
   
   for (const part of orParts) {
-    // Jeder Teil wird in Wörter aufgeteilt
     const terms = part.toLowerCase().split(/\s+/).filter(t => t.length >= 2);
     if (terms.length > 0) {
       orGroups.push(terms);
@@ -728,7 +336,7 @@ function tokenizeQuery(query: string): { orGroups: string[][], allTerms: string[
 }
 
 /**
- * Hilfsfunktion: Sucht rekursiv in einem Wert (String, Array, Objekt)
+ * Sucht rekursiv in einem Wert
  */
 function searchInValue(value: unknown, searchLower: string): boolean {
   if (typeof value === 'string') {
@@ -747,14 +355,12 @@ function searchInValue(value: unknown, searchLower: string): boolean {
 }
 
 /**
- * Hilfsfunktion: Sucht in Key UND Value
+ * Sucht in Key UND Value
  */
 function searchInKeyValue(key: string, value: unknown, searchLower: string): boolean {
-  // Suche im Feldnamen (z.B. "annual_variation")
   if (key.toLowerCase().includes(searchLower)) {
     return true;
   }
-  // Suche im Wert
   return searchInValue(value, searchLower);
 }
 
@@ -769,18 +375,18 @@ export interface SearchResult {
   items: ItemData[];
   total: number;
   perspectivesWithData: string[];
-  matchedPerspectives: string[];  // NEW: Perspektiven die zum Query passen
+  matchedPerspectives: string[];
 }
 
 /**
  * Durchsucht Items.
- * Bei DATA_SOURCE=database wird direkt in PostgreSQL gesucht.
+ * Nutzt PostgreSQL für die Suche.
  */
 export async function searchItems(options: SearchOptions = {}): Promise<SearchResult> {
   const { query = '', perspectives = [], limit = 50, offset = 0 } = options;
   
-  // Use database search if configured and we have a simple query
-  if (DATA_SOURCE === 'database' && query.length >= 2) {
+  // Try database search first
+  if (query.length >= 2) {
     try {
       const dbResults = await searchItemsInDB(query, limit);
       if (dbResults.length > 0) {
@@ -793,29 +399,24 @@ export async function searchItems(options: SearchOptions = {}): Promise<SearchRe
         };
       }
     } catch (error) {
-      console.error('[Data] DB search error, falling back to local:', error);
+      console.error('[Data] DB search error:', error);
     }
   }
   
+  // Fall back to in-memory search on cached items
   let items = await loadAllItems();
   
-  // Track welche Perspektiven Treffer haben (über alle Items)
   const matchedPerspectivesSet = new Set<string>();
-  
-  // Tokenisiere Query - unterstützt Komma für mehrere Spezies
   const { orGroups, allTerms } = query ? tokenizeQuery(query) : { orGroups: [], allTerms: [] };
   
-  // Filter by query und finde Perspektiven mit Treffern (ab 3 Zeichen)
+  // Find perspectives with matches
   if (allTerms.length > 0 && allTerms.some(t => t.length >= 3)) {
-    // Durchsuche alle Items nach Treffern in Perspektiven-Daten
     for (const item of items) {
       if (item._perspectives) {
         for (const [perspId, perspData] of Object.entries(item._perspectives as Record<string, unknown>)) {
           if (!perspData || typeof perspData !== 'object') continue;
           
-          // Durchsuche alle Keys UND Values in dieser Perspektive
           for (const [key, value] of Object.entries(perspData as Record<string, unknown>)) {
-            // Prüfe ob mindestens ein Suchbegriff in Key oder Value trifft
             if (allTerms.some(term => searchInKeyValue(key, value, term))) {
               matchedPerspectivesSet.add(perspId);
               break;
@@ -828,13 +429,11 @@ export async function searchItems(options: SearchOptions = {}): Promise<SearchRe
   
   const matchedPerspectives = [...matchedPerspectivesSet];
   
-  // Filter und Score by query
+  // Filter and score by query
   if (orGroups.length > 0) {
-    // Für jedes Item: Prüfe ob es zu mindestens einer OR-Gruppe passt
     const scoredItems = items.map(item => {
       let bestScore = 0;
       
-      // Prüfe jede OR-Gruppe (Komma-getrennte Teile)
       for (const groupTerms of orGroups) {
         const score = calculateRelevanceScore(item, groupTerms);
         bestScore = Math.max(bestScore, score);
@@ -843,14 +442,12 @@ export async function searchItems(options: SearchOptions = {}): Promise<SearchRe
       return { item, score: bestScore };
     });
     
-    // Filtere Items ohne Treffer und sortiere nach Relevanz
     items = scoredItems
       .filter(({ score }) => score > 0)
       .sort((a, b) => b.score - a.score)
       .map(({ item }) => item);
   }
   
-  // Determine which perspectives have data
   const perspectivesWithData = getPerspectivesWithData(items);
   
   // Filter by perspectives
@@ -860,7 +457,6 @@ export async function searchItems(options: SearchOptions = {}): Promise<SearchRe
     
     for (const pId of perspectives) {
       const p = allPerspectives.find(p => p.id === pId);
-      // Support both 'fields' (YAML) and 'felder' (legacy)
       const pFields = p?.fields || p?.felder;
       if (pFields) {
         pFields.forEach(f => perspectiveFields.add(f));
@@ -880,15 +476,13 @@ export async function searchItems(options: SearchOptions = {}): Promise<SearchRe
   }
   
   const total = items.length;
-  
-  // Pagination
   items = items.slice(offset, offset + limit);
   
   return {
     items,
     total,
     perspectivesWithData,
-    matchedPerspectives  // NEW
+    matchedPerspectives
   };
 }
 
@@ -900,11 +494,9 @@ function getPerspectivesWithData(items: ItemData[]): string[] {
   const result: string[] = [];
   
   for (const perspective of allPerspectives) {
-    // Support both 'fields' (YAML) and 'felder' (legacy)
     const pFields = perspective.fields || perspective.felder;
     if (!pFields) continue;
     
-    // Prüfe ob mindestens ein Item ein Feld dieser Perspektive hat
     const hasData = items.some(item =>
       pFields.some(field =>
         item[field] !== undefined && item[field] !== null && item[field] !== ''

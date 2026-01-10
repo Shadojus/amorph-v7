@@ -1,4 +1,4 @@
-# AMORPH Pages (v8.1)
+# AMORPH Pages (v8.2)
 
 > Teil von: [src](../CLAUDE.md) | Workspace Root: [Bifroest](../../../CLAUDE.md)
 
@@ -6,26 +6,35 @@
 
 | Route | Seite | Beschreibung |
 |-------|-------|-------------|
-| `/` | `index.astro` | ⭐ Landing Page mit Fog Sliders |
+| `/` | `index.astro` | ⭐ Landing Page mit Bloom Controls |
 | `/{domain}` | `[domain].astro` | Domain Grid (fungi, phyto, etc.) |
 | `/{domain}/{slug}` | `[domain]/[slug].astro` | Entity Detail |
 | `/search` | `search.astro` | Cross-Domain Suche |
 | `/api/nexus/*` | `api/nexus/` | Nexus API Endpoints |
 
-## Page Structure
+## Landing Page (index.astro)
 
-```astro
----
-// Datenladen aus PostgreSQL (DATA_SOURCE=database)
-const items = await loadSiteItems();  // → Prisma/PostgreSQL
+Die Landing Page verwendet **Bloom Controls** im "Blume des Lebens" Stil:
 
-// Oder spezifisches Item
-const item = await loadItemBySlug(slug);
----
-<Base>
-  <ItemGrid {items} />
-</Base>
-```
+### 4 Super-Domains
+- **LIFE** (top-left): fungi, phyto, drako, bakterio, viro - `#4AE3A7`
+- **SCIENCE** (top-right): geno, anato, chemo, physi, kosmo - `#A78BFA`
+- **EARTH** (bottom-left): mine, tekto, paleo - `#F59E0B`
+- **SYSTEMS** (bottom-right): netzo, cognito, biotech, socio - `#38BDF8`
+
+### Interaktion
+- **Vertikales Ziehen** ändert Kreis-Größe (0-100%)
+- **Top-Ecken:** Nach unten ziehen = größer
+- **Bottom-Ecken:** Nach oben ziehen = größer
+- **Doppelklick:** Reset auf 20%
+- Bei 100% überlappen sich alle Kreise in der Mitte
+
+### CSS-Klassen
+- `.bloom-control` - Container in jeder Ecke
+- `.bloom-circle` - Der expandierende Kreis
+- `.bloom-glow` - Glow-Effekt
+- `.bloom-label` - Label (LIFE, SCIENCE, etc.)
+- `.bloom-value` - Prozent-Anzeige beim Ziehen
 
 ## API-Endpunkte
 
@@ -35,28 +44,19 @@ const item = await loadItemBySlug(slug);
 | `/api/nexus/` | GET | Nexus API Index |
 | `/api/nexus/domains` | GET | Alle 17 Domains |
 | `/api/nexus/entities` | GET | Entities (filter: domain, search) |
+| `/api/nexus/search` | GET | **Faceted Search** |
 | `/api/nexus/stats` | GET | Statistiken |
-| `/api/search` | GET | Volltextsuche |
+| `/api/nexus/links` | GET/POST | External Links |
+| `/api/nexus/vote` | POST | Voting |
+| `/api/nexus/perspectives` | GET | Perspektiven |
 
-### Health Response
-
-```json
-{
-  "status": "healthy",
-  "timestamp": "2026-01-08T...",
-  "version": "8.1.0",
-  "dataSource": "database"
-}
+### Faceted Search
+```bash
+GET /api/nexus/search?q=pilz&domains=fungi,phyto&limit=20
 ```
 
-## Related
-
-| Datei | Beschreibung |
-|-------|-------------|
-| [../components/CLAUDE.md](../components/CLAUDE.md) | UI Components |
-| [../server/CLAUDE.md](../server/CLAUDE.md) | Data Layer |
-| [../layouts/CLAUDE.md](../layouts/CLAUDE.md) | Page Layouts |
+Gibt Entities mit ihren Cross-Domain Facets zurück.
 
 ---
 
-> **v8.1:** Daten kommen aus PostgreSQL (`DATA_SOURCE=database`). Bilder in `public/images/`.
+*Letzte Aktualisierung: 8. Januar 2026*
